@@ -1,0 +1,94 @@
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid his-style">
+            	<div class="row searched-patient-details-row">
+						<div class="col-md-11 col-sm-11 col-xs-11 ">
+							<span class="profile_pic margin-left10"> 
+								<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+							</span> 
+							<span class="margin-left10">John Deo 26/M </span>
+							<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> Pune-769</span>
+							<span class="margin-left10"><b class="padding-right10 ">Ward NO	:</b> W236544 </span>
+							<span class="margin-left10"><b class="padding-right10 ">BED NO	:</b> BM129091</span>
+							<span class="margin-left10">Dr. Suresh Pathak</span>
+						</div>
+					</div>
+				<fieldset>
+						<legend class="heading-div">Absconding Patient</legend>
+							<div class="row margin-top10">
+								<form action="">
+									<!-- <div class="div-form-for-ICU"> -->
+										
+											<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+												<div class="row input-container clockpicker">
+													<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+														<i class="fa fa-clock-o" aria-hidden="true"></i>
+													</div>
+													<div class="col-lg-11 col-sm-11 col-md-11 ">
+														<div class="">
+															<input type="text" name="code" id="" class="text-input floating-label">
+															<label for="code">Last Seen At</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+												<div class="row input-container">
+													<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+														<i class="fa fa-sticky-note" aria-hidden="true"></i>
+													</div>
+													<div class="col-lg-11 col-sm-11 col-md-11 ">
+														<div class="">
+															<input type="text" name="description" id="" class="text-input floating-label">
+															<label for= "description">Note</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-10">
+													<div>
+														<label class="media-top padding-top4">Code Pink</label>
+														<label class="switch"> 
+															<input type="checkbox"> <div class="slider round"></div>
+														</label>
+													</div>
+											</div>
+											<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+												<div class=" ">
+													<a href="" data-toggle="modal" data-target="#confirmLogout" class="btn btn-primary btn-save-box-shadow width40" title="Save">
+														<i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i>
+													</a>	
+												</div>
+											</div>
+								</form>
+							</div>
+					</fieldset>
+  			</div>
+  			<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+		</div>
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		
+		$('.clockpicker').clockpicker();
+		$(".selectedPageName").text("Absconding patient");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="abscondingPatient"]').parents("li").addClass("active");
+	});
+</script>
+</body>
+</html>

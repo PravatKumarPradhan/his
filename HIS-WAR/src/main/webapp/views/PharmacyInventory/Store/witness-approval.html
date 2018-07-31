@@ -1,0 +1,671 @@
+<!-- *****************************************************************************************************************************
+													
+****************************************************************************************************************************** -->
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+        <fieldset>
+			<div class="row margin-top10">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+									<input type="text" class="text-input floating-label dirty" name="fromDate" id="fromDate" uib-datepicker-popup="dd/MM/yyyy"
+									placeholder="DD/MM/YYYY" ng-model="vm.model.fromDate" model-view-value="true" is-open="vm.model.fromDateOpened" datepicker-options="vm.model.fromDateOptions"
+									show-button-bar="false" ng-click="vm.model.OpenFromDate()">
+								   <label for="code">From Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+									<input type="text" class="text-input floating-label dirty" name="toDate" id="toDate" uib-datepicker-popup="dd/MM/yyyy" placeholder="DD/MM/YYYY"
+									ng-model="vm.model.toDate" model-view-value="true" is-open="vm.model.toDateOpened" datepicker-options="vm.model.toDateOptions"
+									show-button-bar="false" ng-click="vm.model.OpenToDate()">
+								   <label for="code">To Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-building-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+									<select name="store" id="store" class="text-input floating-label dirty"  ng-model="vm.model.store" data-ng-options="store.store for store in vm.model.stores">
+										</select>
+								<label for="description" class="LISDynamicLabel">Store</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+									<select name="assetType" id="assetType" class="text-input floating-label dirty" ng-model="vm.model.assetType" data-ng-options="assetType.type for assetType in vm.model.assetTypes">
+										</select>
+								<label for="description" class="LISDynamicLabel">Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label dirty">
+									<option value=""></option>
+								</select>
+								<label for="description" class="LISDynamicLabel">Witness</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label dirty">
+									<option value=""></option>
+									<option value="All">All</option>
+									<option value="Rejected">Rejected</option>
+									<option value="Completed">Completed</option>
+									<option value="Cancel">Cancel</option>
+								</select>
+								<label for="description" class="LISDynamicLabel">Status</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 text-width-auto padding-top10">
+					<div class="">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Search"><i class="fa fa-search" aria-hidden="true"></i></a>
+					</div>
+				</div> -->
+
+				<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set1">
+					<div class="col-lg-10 col-md-9 col-sm-8 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+										<select name="status" id="status" class="text-input floating-label dirty" ng-model="vm.model.status" data-ng-options="status.status for status in vm.model.statuses">
+											</select>
+											<label for="description" class="LISDynamicLabel">Status</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="">
+							<a href="" class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.WitnessApprovalSearch()" title="Search"><i class="fa fa-search" aria-hidden="true"></i></a>
+						</div> 
+					</div>
+				</div>
+
+			</div>
+        </fieldset>
+        <div class="row margin-top4">
+			<div class="col-md-12 col-lg-12 col-sm-12 padding-left-right-set4" id="nonBillableTableHt">
+				<fieldset>
+					<!-- <legend class="heading-div">Table</legend> -->
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 height500-table-with-scroll">
+					<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+						<thead class="mainServiceTableCommon">
+							<tr>
+								<th class="width8">
+									Request Number
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									Request Date
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">
+									Store Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">
+									Type
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									Requested By
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									Witness
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">
+									Status
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width7 text-center">Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+								<tr ng-repeat="disposal in vm.model.witnessApprovalData | orderBy:sortType:sortReverse | filter:search">
+										<td>{{disposal.requestNo}}</td>
+										<td>{{disposal.requestDate  | date:'dd/MM/yyyy'}}</td>
+										<td>{{disposal.storeName}}</td>
+										<td>{{disposal.assetType}}</td>
+										<td>{{disposal.requestedBy}}</td>
+										<td>{{disposal.witnessName}}</td>
+										<td>{{disposal.status}}</td>
+								<td class="text-center">
+									<!-- <a title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> -->
+									<a title="Print"><i class="fa fa-print" aria-hidden="true"></i></a>
+									<!-- <a title="Cancel"><i class="fa fa-times-circle-o" aria-hidden="true" data-toggle="modal" data-target="#confirmCancel"></i></a> -->
+									<a class="cursor-pointer" ng-click="vm.model.WitnessApprovalDetails(disposal)" >Details</a>
+								</td>
+							</tr>
+							<tr ng-if="!vm.model.witnessApprovalData || vm.model.witnessApprovalData == false">
+									<td colspan="9" class="text-center">
+										<p>No Record Found</p>
+									</td>
+								</tr>
+						</tbody>
+					</table>
+					</div>
+				</div>
+				</fieldset>
+				<!-- <div class="row padding-top10">
+					<div class="col-md-6 col-sm-4"></div>
+					<div class="col-md-2 col-sm-2 padding-left-right15 text-right remark-label">
+						<label>Remark</label>
+					</div>
+					<div class="col-md-4 col-sm-4 padding-left-right15">
+						<textarea class="form-control" row="2"></textarea>
+					</div>
+				</div> -->
+			</div>
+		</div>
+        <!-- <div class="row margin-top4">
+			<div class="col-md-12 col-lg-12 col-sm-8 padding-left-right-set4"  id="nonBillableTableHt">
+				<fieldset>
+					<table class="table table-bordered ">mainServiceTable
+						<thead class="mainServiceTableCommon">
+							<tr>
+								<th class="width10">
+									Asset Category
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">
+									Product Category
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">
+									Request Number
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">
+									Request Date
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">
+									Approved By
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">
+									Approved Date
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="status text-center">
+								  	Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td></td>
+								<td>PP-12345</td>
+								<td>9 Aug 2017</td>
+								<td></td>
+								<td></td>
+								<td class="text-center">
+									<a class="cursor-pointer" data-toggle="modal" data-target="#wasteStoreDetailsModal">Details</a>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td>PP-12345</td>
+								<td>9 Aug 2017</td>
+								<td></td>
+								<td></td>
+								<td class="text-center">
+									<a class="cursor-pointer" data-toggle="modal" data-target="#wasteStoreDetailsModal">Details</a>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td>PP-12345</td>
+								<td>9 Aug 2017</td>
+								<td></td>
+								<td></td>
+								<td class="text-center">
+									<a class="cursor-pointer" data-toggle="modal" data-target="#wasteStoreDetailsModal">Details</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</fieldset>
+			</div>
+		</div> -->
+    </div>
+</div>
+<!-- details modal start -->
+<div id="wasteStoreDetailsModal" class="modal fade ng-scope in	common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top4 padding-left-right-set4">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="">
+									<th colspan="8" class="font-weight700">Item Details</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="table-th-bg cursor-pointer">
+									<td colspan="8"  class="">
+										<div class="col-md-2 col-sm-2 font-weight700 text-width-auto padding-left-right-set1">
+											<div class="pull-left">
+												<input type="checkbox"/>
+											</div>
+											Request No:
+										</div>
+										<div class="col-md-2 col-sm-2">11111</div>
+										<div class="col-md-1 col-sm-1 font-weight700 text-width-auto padding-left-right-set1">Request Date:</div>
+										<div class="col-md-2 col-sm-2">03/10/2017</div>
+										<div class="col-md-1 col-sm-1 font-weight700 text-width-auto padding-left-right-set1">Approved By:</div>
+										<div class="col-md-2 col-sm-2">-</div>
+										<div class="col-md-1 col-sm-1 font-weight700 text-width-auto padding-left-right-set1">Approved Date:</div>
+										<div class="col-md-1 col-sm-2 padding-left0">03/10/2017</div>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="8" style="padding:1px;">
+										<div class="selectedServicesList">
+											<table class="table table-bordered">
+												<tbody>
+													<tr>
+														<th class="width1"></th>
+														<th class="width10">Item Name
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width10">Batch No
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Expiry Date
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">COP
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">MRP
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Amount At COP
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Amount At MRP
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+													</tr>
+													<tr>
+														<td class="width1 text-center"><input type="checkbox"/></td>
+														<td class="width10">BT1234</td>
+														<td class="width10">111111</td>
+														<td class="width8">12/09/2017</td>
+														<td class="width8">PO1111</td>
+														<td class="width8">1000</td>
+														<td class="width8">2800</td>
+														<td class="width8">1000</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</td>
+								</tr>
+								<tr class="table-th-bg cursor-pointer">
+									<td colspan="8"  class="">
+										<div class="col-md-2 col-sm-2 font-weight700 text-width-auto padding-left-right-set1">
+											<div class="pull-left">
+												<input type="checkbox"/>
+											</div>
+											Request No:
+										</div>
+										<div class="col-md-2 col-sm-2">22222</div>
+										<div class="col-md-1 col-sm-1 font-weight700 text-width-auto padding-left-right-set1">Request Date:</div>
+										<div class="col-md-2 col-sm-2">03/10/2017</div>
+										<div class="col-md-1 col-sm-1 font-weight700 text-width-auto padding-left-right-set1">Approved By:</div>
+										<div class="col-md-2 col-sm-2">-</div>
+										<div class="col-md-1 col-sm-1 font-weight700 text-width-auto padding-left-right-set1">Approved Date:</div>
+										<div class="col-md-1 col-sm-2 padding-left0">03/10/2017</div>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="8" style="padding:1px;">
+										<div class="selectedServicesList">
+											<table class="table table-bordered">
+												<tbody>
+													<tr>
+														<th class="width1"></th>
+														<th class="width10">Item Name
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width10">Batch No
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Expiry Date
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">COP
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">MRP
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Amount At COP
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Amount At MRP
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+													</tr>
+													<tr>
+														<td class="width1 text-center"><input type="checkbox"/></td>
+														<td class="width10">BT1234</td>
+														<td class="width10">111111</td>
+														<td class="width8">12/09/2017</td>
+														<td class="width8">PO1111</td>
+														<td class="width8">1000</td>
+														<td class="width8">2800</td>
+														<td class="width8">1000</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+         	 <button type="button" class="btn btn-primary" data-dismiss="modal">Approve</button>
+       		</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".selectedServicesList").hide();
+	$(".selectedPageName").text("Witness Approval");
+	$(".sidebar-nav li").each(function() {
+	$(this).find("a").parents("li").removeClass("active");
+	$('a[href$="witnessApproval"]').parents("li").addClass("active");
+	$( ".radioRejected" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$("#accepatReject").modal();
+		}
+	});
+	
+});
+$(".table-th-bg").click(function(){
+	//alert();
+	$(this).next().find(".selectedServicesList").toggle();
+});
+	/*************************** rejection radio button function*********************************/
+	$(".rejection-details-row").hide();
+	$( ".radioRejected" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row").show();
+		}
+	});
+	$( ".radioAccepted" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row").hide();
+		}
+	});
+});
+/*************************** add button function start*********************************/
+</script>

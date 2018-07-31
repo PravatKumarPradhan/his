@@ -1,0 +1,124 @@
+				 <!-- <div class="row his-style margin-top4">
+            		<div class="col-lg-8"></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<input type="text" class="text-search-box" style="margin-top: 0px" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required/>
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+            		<div class="col-md-1 padding-left0px-right6px">
+						<div class="width-div-for-patient-reg ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="submitRequest()"><i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a>	
+						</div>
+					</div>
+				</div>  -->
+				<div class="row margin-top4 padding-left-right-set1 his-style">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="submitRequest()"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" style="margin-top: 0px" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required style="margin-top: 0px"/>
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+				<modal visible="showModal"></modal>
+				
+					<div class="col-md-12 margin-top4 common-popup-height-350-overflow-x his-style padding-left-right-set4">
+						<table class="table table-bordered">
+							<tr class="">
+							<th class="width1"></th>
+								<th class="UHID-width">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Ward
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									BedRoom						
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Current Bed Category							
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Required Bed Category								
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Reason for Transfer					
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Remark			
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							
+																													<!-- ##### change added by kaustubh -->
+							<tr ng-repeat="info in listOfAdmittedPatientInitiatList" ng-if="info.transferStatusId == '1' || info.transferStatusId == '5' || info.transferStatusId == '9'">
+								
+									<td><input type="radio" name="radioName" value="info.admissionId" ng-model="admittedPatient" ng-click="selectPatient(info)"/>
+								<td>{{info.uhidnumber}}</td>
+								<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.patientFullName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.patientFullName+' '+info.dob+'/'+info.genderCode}}</div>
+								</td>
+								<td>{{info.wardName}}</td>
+								<td>{{info.bedNumber}}</td>
+								<td>
+									{{info.bedCategoryDesc}}
+								</td>
+								<td>
+									<select class="select-box" ng-model="info.requiredBedCategory" >
+										<option value="">Select Bed Category</option>
+										<option ng-repeat="bedC in bedCategoryList" value="{{bedC.bedCategoryId+'_'+bedC.hierarchyId
+										}}">{{bedC.bedCategoryDesc}}</option>
+									</select>
+								</td>
+								<td><select class="select-box" ng-model="info.reasonId">
+										<option value="">Select Reason</option>
+										<option ng-repeat="reason in reasonList" value="{{reason.reasonMasterId}}">{{reason.reasonDesc}}</option>
+									</select></td>
+								
+								<td><input  ng-model="info.remark" class="text-box-style" type="text"  ng-disabled="info.disable"></td>
+								
+							</tr>
+						</table>
+				</div>

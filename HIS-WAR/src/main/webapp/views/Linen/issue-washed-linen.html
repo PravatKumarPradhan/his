@@ -1,0 +1,499 @@
+
+
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid ">
+			<div class="row ">
+				<ul class="tabs nav nav-tabs">
+					<li ng-class="{ active : isSetFirstTabLevel(1) }" id="case-sheet">
+						<a href ng-click="setFirstTabLevel(1)">Pending Issue</a>
+					</li>
+					<li ng-class="{ active : isSetFirstTabLevel(10) }" id="complaints">
+						<a href ng-click="setFirstTabLevel(10)">Issue List</a>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<!-- CONTENT FOR FIRST TAB -->
+				<div ng-show="isSetFirstTabLevel(1)">
+					<div class="row padding-left-right-set4 his-style">
+						<div class="col-md-12 col-lg-12 col-sm-8 padding-left-right-set0" id="nonBillableTableHt">
+							<fieldset>
+								<!-- <legend class="heading-div">Table</legend> -->
+							<div class="row ">
+								<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+											<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="">
+												<input type="text" name="code" id="" class="text-input floating-label">
+												<label for="code">From Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="">
+												<input type="text" name="code" id="" class="text-input floating-label">
+												<label for="description" class="LISDynamicLabel">To Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+											<option>Store 1</option>
+											<option>Store 2</option>
+										</select>
+										<label for="code">From Store</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+											<option>Store 1</option>
+											<option>Store 2</option>
+										</select>
+										<label for="code">To Store</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-bullseye" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" name="code" id="" class="text-input floating-label">
+											<label for="code">Request No.</label>
+										</div>
+									</div>
+								</div>
+							</div>
+					
+							<div class="col-lg-2 col-md-2 col-sm-1 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon ">
+										<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-10 col-md-10">
+										<div class="">
+											<select class="text-input floating-label">
+												<option></option>
+											</select>
+											<label for="description" class="LISDynamicLabel">Status</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+										<div class="common-save-button" style="padding-top:  0px;"> 
+											 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+											 	<i class="fa fa-search" aria-hidden="true"></i> 
+											 </a> 
+										</div> 
+								</div>
+							</div>
+						</div>
+						<div class="row margin-top4 padding-left-right-set0">
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+								<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+								<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+							</div>
+						</div>
+							<div class="row padding-top10">
+								<div class="col-lg-12 col-md-12 col-sm-12 height380-table-with-scroll">
+								<table class="table table-bordered first-checkBox-padding margin-top4">
+									<thead class="mainServiceTableCommon">
+										<tr>
+											<th class="width8">
+												Request No.
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width8">
+												Request Date
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width8">
+												From Store
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width8">
+												To Store
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											
+											<th class="width10">
+												Remark
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width5">
+												Status
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width7 text-center vertical-middle">
+												 Action
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>RQ-1002</td>
+											<td>20/04/2018</td>
+											<td>Nurse Store</td>
+											<td>Linen Main Store</td>
+											<td>-</td>
+											<td>Pending</td>
+											<td class="text-center vertical-middle">
+												<span>
+													<a title="Print">
+														<i class="fa fa-print" aria-hidden="true"></i>
+													</a>
+												</span>
+												<span class="padding-left10">
+													<a href="#/detailsPendingWashedLinen">Details</a></span>
+												
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								</div>
+							</div>
+							</fieldset>
+						</div>
+					</div>
+					
+				</div>
+				<div ng-show="isSetFirstTabLevel(10)">
+						<div class="row padding-left-right-set4 his-style">
+							<div class="col-md-12 col-lg-12 col-sm-8 padding-left-right-set0" id="nonBillableTableHt">
+								<fieldset>
+									<!-- <legend class="heading-div">Table</legend> -->
+								<div class="row ">
+									<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+												<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-10 col-sm-10 col-md-10">
+												<div class="">
+													<input type="text" name="code" id="" class="text-input floating-label">
+													<label for="code">From Date</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+												<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-10 col-sm-10 col-md-10">
+												<div class="">
+													<input type="text" name="code" id="" class="text-input floating-label">
+													<label for="description" class="LISDynamicLabel">To Date</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-tasks" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label">
+												<option></option>
+												<option>Store 1</option>
+												<option>Store 2</option>
+											</select>
+											<label for="code">From Store</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-tasks" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label">
+												<option></option>
+												<option>Store 1</option>
+												<option>Store 2</option>
+											</select>
+											<label for="code">To Store</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-bullseye" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<input type="text" name="code" id="" class="text-input floating-label">
+												<label for="code">Issue No.</label>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+								<div class="col-lg-2 col-md-2 col-sm-1 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-10 col-md-10">
+											<div class="">
+												<select class="text-input floating-label">
+													<option></option>
+												</select>
+												<label for="description" class="LISDynamicLabel">Status</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+									<div class="common-save-button" style="padding-top:  0px;"> 
+										 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+										 	<i class="fa fa-search" aria-hidden="true"></i> 
+										 </a> 
+									</div> 
+								</div>
+							</div>
+							<div class="row margin-top4 padding-left-right-set0">
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 pull-left">
+									
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right">
+									<div class=" ">
+										<a href="#/directIssueWashedLinen" class="btn btn-primary btn-save-box-shadow" title="Save">
+											Direct Issue
+										</a>	
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+									<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+									<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+								</div>
+							</div>
+								<div class="row padding-top4">
+									<div class="col-lg-12 col-md-12 col-sm-12 height380-table-with-scroll">
+									<table class="table table-bordered first-checkBox-padding margin-top4"><!-- mainServiceTable -->
+										<thead class="mainServiceTableCommon">
+											<tr>
+												<th class="width8">
+													Issue No.
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Issue Date
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Request No.
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Request Date
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												
+												<th class="width8">
+													From Store
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													To Store
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												
+												<th class="width10">
+													Remark
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width5">
+													Status
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8 text-center vertical-middle">
+													 Action
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>IS2589</td>
+												<td>02/05/2018</td>
+												<td>RQ-1002</td>
+												<td>20/04/2018</td>
+												<td>Nurse Store</td>
+												<td>Linen Main Store</td>
+												<td>-</td>
+												<td>Pending</td>
+												<td class="text-center vertical-middle">
+													<span>
+														<a title="Print">
+															<i class="fa fa-print" aria-hidden="true"></i>
+														</a>
+													</span>
+													<span class="padding-left10"><a href="#/detailsIssueListWashedLinen">Details</a></span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</div>
+								</div>
+								</fieldset>
+							</div>
+						</div>
+						
+				</div>
+			</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Issue Washed Linen");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="issueWashedLinen"]').parents("li").addClass("active");
+		
+	});
+</script>

@@ -1,0 +1,107 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<!-- <div ng-include="'./views/common-patient-details.html'"></div> -->
+		<fieldset>
+			<legend class="heading-div">Hierarchy Master</legend>
+			<div class="row">
+			<form name="hierarchyform" novalidate >
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="form-group"   show-errors>
+							<input type="hidden" ng-model="hierarchy.hierarchyId">
+								<input type="text" name="hierarchyCode" id=""
+									class="text-input floating-label" ng-model="hierarchy.hierarchyCode" required> <label for="code">Hierarchy
+									Code</label>
+									<p class="help-block" ng-if="hierarchyform.hierarchyCode.$error.required">Code is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-flag" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="form-group"   show-errors>
+								<input type="text" name="hierarchyName" id=""
+									class="text-input floating-label" ng-model="hierarchy.hierarchyName" required> <label for="code">Hierarchy
+									Name</label>
+									<p class="help-block" ng-if="hierarchyform.hierarchyName.$error.required">Name is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				</form>
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-10">
+			<div class="col-md-8"></div>
+			<div class="col-md-3">
+			
+			</div>
+			<div class="col-md-1 padding-left0px-right6px">
+				<div class="common-save-button">
+					<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow search-button-style" ng-hide="saveBtnFlag" ng-click="saveHierarchy()"  >
+					<input type="button" value="Update"  class="btn btn-primary btn-save-box-shadow search-button-style" ng-hide="updateBtnFlag" ng-click="updateHierarchy()" >
+				</div>
+			</div>
+		</div>
+		<modal visible="showModal"></modal> 
+		<div class="row padding-left-right-10 ">
+			<div class="col-md-12">
+				<table class="table table-bordered table-striped" datatable="ng" dt-options="vm.dtOptions">
+				<thead>
+					<tr class="table-th-bg">
+						<th class="width15">Hierarchy Code
+							
+						</th>
+						<th style="witdh: 80%">Hierarchy Name
+							
+						</th>
+						<th class="width8">Status
+							
+						</th>
+						<th class="text-center width8">Action
+							
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat="info in hierarchyList">
+						<td>{{info.hierarchyCode}}</td>
+						<td>{{info.hierarchyDesc}}</td>
+						<td>
+							<label class="switch"> 
+							<input type="checkbox" ng-model="info.status" ng-checked="checkVal(info.status)"  ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatus(info.hierarchyId,info.status)">
+							<div class="slider round"></div>
+							</label>
+						</td>
+						<td class="text-center"><a><i class="fa fa-pencil" aria-hidden="true" ng-click="showUpdateBtn(info.hierarchyId)"></i></a></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Hierarchy Master");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="hierarchyMaster"]').parents("li").addClass("active");
+	});
+</script>
+

@@ -1,0 +1,189 @@
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<div ng-include="'./views/common/common-patient-search-opd-without-counter.html'" style="margin-top:-5px !important"></div>
+		<div class="padding-left-right-set4" ng-include="'./views/common/patient-demography.html'"></div>
+		<fieldset>
+			<!-- <legend class="heading-div">Nursing Order</legend> -->
+			<form action="">
+				<div class="row margin-top10 padding-left-right-set4">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-first-order" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" name="code">
+										<option></option>
+										<option>Lab Order</option>
+										<option>IP Medication Order</option>
+										<option>Imaging Order</option>
+									</select> <label for="code">Select Order</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-podcast" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" name="code">
+										<option></option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+									</select> <label for="code">Select Frequency</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-calendar" aria-hidden="true" ng-click="open4()"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" class="text-input floating-label dirty"
+										name="datepicker" id="datepicker"
+										uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+										placeholder="DD/MM/YYYY" ng-model="datepicker"
+										model-view-value="true" is-open="datepicker.opened"
+										datepicker-options="dateOptions" show-button-bar="false"
+										ng-click="openDatePicker()"> <label for="code">Start
+										Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text"  class="text-input floating-label dirty" name="datepickerForNewDOA" id="datepickerForNewDOA"  
+												uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999" placeholder="DD/MM/YYYY" 
+					            				ng-model="datepickerForNewDOA"  model-view-value="true"
+					            				is-open="datepickerForNewDOA.opened" datepicker-options="dateOptions" show-button-bar="false" ng-click="openDatePickerForNewDOA()">
+									<label for="code">End Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top10 padding-left-right-set4">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon width4">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<textarea name="code" rows="1" id=""
+										class="text-input floating-label"></textarea>
+									<label for="code">Note</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-1">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 padding-top5">
+			<div class="col-md-12">
+				<table class="table table-bordered ">
+					<tr class="">
+						<th>Order
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>Frequency
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>Start Date
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>End Date
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>Note
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<td>Fall Risk Assessment</td>
+						<td>Once a day</td>
+						<td>07/01/2018</td>
+						<td>15/01/2018</td>
+						<td>-</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		
+		$(".selectedPageName").text("Nursing Order");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="nursingOrder"]').parents("li").addClass("active");
+
+	});
+</script>

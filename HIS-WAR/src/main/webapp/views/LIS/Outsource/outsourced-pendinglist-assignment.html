@@ -1,0 +1,400 @@
+ 
+ <style>
+ #printReport .modal-dialog
+ {
+	 width: 560px !important;
+     margin: 80px auto !important;
+ }
+#printReport .modal-content{
+	border-radius: 0px;
+}
+#printReport .modal-header{
+	padding: 0px !important;
+}
+</style>
+ <!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+      	<div class="row margin-top10">
+      		<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4 padding-top10">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+					<div class="row input-container test-master-sample">
+						<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+							<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-11 col-md-10 ">
+							<div class="">
+									<label for="" class="LISDynamicLabel">From Date</label>
+										<span class="input-group"> 
+													<input name="fromDate"
+														id="date1" type="text" class="form-control"
+														uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+														placeholder="DD/MM/YYYY" tabindex="13" ng-model="fromDate"
+														model-view-value="true" is-open="popup.opened"
+														datepicker-options="dateOptions" show-button-bar="false" ng-click="open()" />
+													<!-- 	<span class="input-group-btn" >
+															<button type="button" class="btn btn-default"
+																ng-click="open()" style="padding:5px !important;">
+																<i class="fa fa-calendar fa-1"></i>
+															</button>
+													   </span> -->
+										</span>
+									</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+					<div class="row input-container test-master-sample">
+						<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+							<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-11 col-md-10 ">
+							<div class="">
+								<label for="" class="LISDynamicLabel">To Date</label>
+										<span class="input-group"> 
+													<input name="toDate"
+														id="date2" type="text" class="form-control"
+														uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+														placeholder="DD/MM/YYYY" tabindex="13" ng-model="toDate"
+														model-view-value="true" is-open="popup1.opened"
+														datepicker-options="dateOptions" show-button-bar="false" ng-click="open1()"/>
+														<!-- <span class="input-group-btn" >
+															<button type="button" class="btn btn-default"
+																ng-click="open1()" style="padding:5px !important;">
+																<i class="fa fa-calendar fa-1"></i>
+															</button>
+													   </span> -->
+												</span>
+									</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="row input-container test-master-sample">
+					<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-11 col-md-10 ">
+						<div class="">
+							 <input type="text"
+										 class="text-input floating-label" tabindex="3"
+										 ng-model="patientId"
+										 placeholder="Search"
+										 uib-typeahead=" patient.patientWithUhid for patient in getSendToCRList($viewValue)"
+										 typeahead-editable="false"
+										 typeahead-on-select="selectPatient($item, $model, $label);"
+										 name="patientName" autocomplete="off" />
+							<label for="" class="LISDynamicLabel">Patient Name</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="row input-container test-master-sample">
+					<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+						<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-11 col-md-10 ">
+						<div class="">
+							<input type="text" name="code" id=""  ng-model="uhid" class="text-input floating-label">
+							<label for="" class="LISDynamicLabel">UHID</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4 padding-top10">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+					<div class="row input-container test-master-sample">
+						<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-11 col-md-10 ">
+							<div class="">
+								 <div class="custom-drop-down-btn"
+									ng-dropdown-multiselect="" options="visityTypeList"
+									selected-model="selectedVisitType"
+									>
+								</div>
+								<label for="" class="LISDynamicLabel">Visit Type</label>
+									</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+					<div class="row input-container test-master-sample">
+						<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-11 col-md-10 ">
+							<div class="">
+										<div class="custom-drop-down-btn" ng-dropdown-multiselect="" options="testList" 
+										selected-model="selectedtestList" extra-settings="dropDownSetting"></div>
+										<label for="" class="LISDynamicLabel">Test</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+				<div class="common-save-button" style="padding-top:  0px;">  sdasddad
+					 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+					 	<i class="fa fa-search" ng-click="searchOutPatientList();" aria-hidden="true"></i> 
+					 </a> 
+				</div> 
+			</div>
+		</div>
+		
+		<div class="row margin-top4">
+         	<div class="col-md-8 col-sm-8 padding-left-right-set4 padding-top4">
+         		<div class="search" style="margin-top:5px">
+					<label class="show-entries">Show <select
+						name="DataTables_Table_0_length"
+						aria-controls="DataTables_Table_0"
+						ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+						ng-change="setNoOfRecords();" class="search-popUp-ddl">
+							<option value="10">10</option>
+							<option value="25">25</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+					</select> entries
+					</label>
+				</div>
+         	</div>
+         	<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+	          	<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set4 padding-top4">
+					<input type="text" class="text-search-box" placeholder="Search" ng-model="searchKeyword" style="margin-top:0px" >
+					<i class="fa fa-search common-search-text-icon padding-top4" aria-hidden="true" style="padding-left:4px"></i>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 float_right padding-top4">
+					<div class=" ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#outSourceLab">
+								<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+							</a>
+						</div>
+				</div>
+			</div>
+      </div>
+		<div class="row margin-top4">
+			<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th class="width1">
+								<input type="checkbox" ng-model="selectedAll" ng-click="checkAll();">
+							</th>
+							<th class="UHID-width">
+								UHID
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("uhid")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("uhid")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="patient-doc-details-width">
+								Patient Details
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="patient-doc-details-width">
+								Doctor Details
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width6">
+								Visit Type
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("visitType")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("visitType")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width8">
+								Department
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("deptName")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("deptName")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">
+								Test Details
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("testdesc")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("testdesc")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width6">
+								Sample No
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width12">
+								Out Sources Laboratory
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width5">
+								Upload
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+						<tr ng-repeat="resultOutSourceList in resultOutSourceMasterList|orderBy:column:reverse|filter:searchKeyword track by $index">
+								<td>
+									<input type="checkbox" ng-model="resultOutSourceList.printReport">
+								</td>
+								<td style="color: {{resultOutSourceList.colorCode}}">{{resultOutSourceList.uhid}}</td>
+								 <td style="color: {{resultOutSourceList.colorCode}}">
+									<div>{{resultOutSourceList.patientDetails}}</div>
+								</td>
+								<td style="color: {{resultOutSourceList.colorCode}}">
+									<div>{{resultOutSourceList.doctorDetails}}</div>
+								</td>
+								<td style="color: {{resultOutSourceList.colorCode}}">{{resultOutSourceList.visitTypeCode}}</td>
+								<td style="color: {{resultOutSourceList.colorCode}}">{{resultOutSourceList.deptName}}</td>
+								
+							    
+							   	<td style="color: {{resultOutSourceList.colorCode}}">
+								<div>{{resultOutSourceList.testDesc}}</div>
+								</td>
+								
+								<td style="color: {{resultOutSourceList.colorCode}}">
+								     <div>{{resultOutSourceList.labSampleNo}}</div>
+								</td>
+								
+								<td>
+								 <select ng-model="resultOutSourceList.accPayableMstId">
+							     <option value="">Please Select Laboratory </option>
+								<option ng-repeat="getOutSourcedLab in getOutSourcedPendingList"
+									value="{{getOutSourcedLab.id}}">{{getOutSourcedLab.name}} </option>
+							   </select>
+								</td>
+						
+							
+								<td> {{accPayableMstId}}</td>
+								
+							</tr>
+					</tbody>
+				</table>    
+				<table class="table table-bordered">
+					<tr ng-if="(resultOutSourceMasterList|filter:searchKeyword)=='' || (resultOutSourceMasterList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>       		
+          	</div>
+		</div>
+		
+		<div class="row margin-bottom45 sss">
+			<ul ng-if="pager.pages.length" class="pagination table-list"
+				style="font-size: 14px;">
+				<li ng-class="{disabled:pager.currentPage === 1}"><a
+					ng-click="setPage(1,'true')">First</a></li>
+				<li ng-class="{disabled:pager.currentPage === 1}"><a
+					ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+				<li ng-repeat="page in pager.pages"
+					ng-class="{active:pager.currentPage === page}"><a
+					ng-click="setPage(page,'true')">{{page}}</a></li>
+				<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+					<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+				</li>
+				<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+					<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+ </div>
+  <!--// Page Content -->
+  
+  <!-- CONFIRM POPUP FOR ALL -->
+<div id="outSourceLab" class="modal fade ng-scope in" role="dialog"
+	style="padding-left: 17px;">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<h5>Are you sure you want to Save?</h5>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary"
+					id="" ng-click="saveDetails()">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>   
+   
+<script type="text/javascript">
+$('.clockpicker').clockpicker();
+
+$( document ).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+ 	
+	$(".selectedPageName").text("Out Sourced Pending List Assignment");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+});
+	
+	
+	$(".created-gross-table-row").click(function(){
+       // $(".block-expand").next("tr").toggle();
+        $(this).parentsUntil('tr').parent().next().toggle("slow");
+    });
+	$(".create-slide").click(function(){
+		$(this).next("tbody").toggle("slow");
+	});
+
+</script>
+
+
+

@@ -1,0 +1,291 @@
+<div id="page-content-wrapper" class="ng-scope">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<div class="row margin-top10 padding-left-right-set4">
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label ng-pristine ng-untouched ng-valid dirty ng-not-empty" ng-model="vm.model.fromDate" ng-class="{dirty: vm.model.fromDate}">
+								<label for="code">From Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label ng-pristine ng-untouched ng-valid dirty ng-not-empty" ng-model="vm.model.toDate" ng-class="{dirty: vm.model.toDate}">
+								<label for="description" class="LISDynamicLabel">To Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+			<div class="row input-container">
+				<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					<i class="fa fa-tasks" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-11 col-sm-11 col-md-11">
+					<div class="">
+						<select class="text-input floating-label ng-pristine ng-untouched ng-valid dirty ng-not-empty" ng-model="vm.model.fromStore" ng-init="vm.model.fromStore = 'undefined'" ng-class="{dirty: vm.model.fromStore}">
+              <option value="undefined">Select Store</option>
+              <!-- ngRepeat: datum in vm.model.getAlldropdown.fromStore --><option ng-repeat="datum in vm.model.getAlldropdown.fromStore" value="1" class="ng-binding ng-scope">Pharmacy Store 1</option><!-- end ngRepeat: datum in vm.model.getAlldropdown.fromStore --><option ng-repeat="datum in vm.model.getAlldropdown.fromStore" value="2" class="ng-binding ng-scope">Pharmacy Store 2</option><!-- end ngRepeat: datum in vm.model.getAlldropdown.fromStore --><option ng-repeat="datum in vm.model.getAlldropdown.fromStore" value="3" class="ng-binding ng-scope">Pharmacy Store 3</option><!-- end ngRepeat: datum in vm.model.getAlldropdown.fromStore -->
+            </select>
+            <label for="code">From Store</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+			<div class="row input-container">
+				<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					<i class="fa fa-tasks" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-11 col-sm-11 col-md-11">
+					<div class="">
+						<select class="text-input floating-label ng-pristine ng-untouched ng-valid dirty ng-not-empty" ng-model="vm.model.toStore" ng-init="vm.model.toStore = 'undefined'" ng-class="{dirty: vm.model.toStore}">
+              <option value="undefined">Select Store</option>
+              <!-- ngRepeat: datum in vm.model.getAlldropdown.toStore --><option ng-repeat="datum in vm.model.getAlldropdown.toStore" value="1" class="ng-binding ng-scope">Medical Store 1</option><!-- end ngRepeat: datum in vm.model.getAlldropdown.toStore --><option ng-repeat="datum in vm.model.getAlldropdown.toStore" value="2" class="ng-binding ng-scope">Stationary Store 2</option><!-- end ngRepeat: datum in vm.model.getAlldropdown.toStore --><option ng-repeat="datum in vm.model.getAlldropdown.toStore" value="3" class="ng-binding ng-scope">OT Store 3</option><!-- end ngRepeat: datum in vm.model.getAlldropdown.toStore -->
+            </select>
+            <label for="code">To Store</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-bullseye" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.model.indentNumber" ng-class="{dirty: vm.model.indentNumber}">
+								<label for="code">Indent No.</label>
+							</div>
+						</div>
+					</div>
+				</div>
+		
+				<div class="col-lg-2 col-md-2 col-sm-1 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<!-- <select class="text-input floating-label" ng-model="vm.model.statusDataList">
+                  <option ng-repeat="datum in vm.model.statusData" value="{{datum.indentStatusId}}">{{datum.indentDesc}}</option>
+                </select> -->
+                <select class="text-input floating-label ng-pristine ng-untouched ng-valid dirty ng-not-empty" ng-model="vm.model.statusDataList" ng-init="vm.model.statusDataList = '1,2,3'" ng-options="datum.statusId as datum.statusDesc for datum in vm.model.getAlldropdown.status" ng-class="{dirty: vm.model.statusDataList}"><option label="All" value="string:1,2,3" selected="selected">All</option><option label="Approved" value="number:1">Approved</option><option label="Pending" value="number:2">Pending</option><option label="Cancelled" value="number:3">Cancelled</option></select>
+                <label for="description" class="LISDynamicLabel">Status</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<select class="text-input floating-label ng-pristine ng-untouched ng-valid dirty ng-not-empty" ng-model="vm.model.indentType" ng-init="vm.model.indentType = '1,2'" ng-options="datum.typeId as datum.type for datum in vm.model.getAlldropdown.types" ng-class="{dirty: vm.model.indentType}"><option label="All" value="string:1,2" selected="selected">All</option><option label="Manual" value="number:1">Manual</option><option label="Auto" value="number:2">Auto</option></select>
+								<label for="description" class="LISDynamicLabel">Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1 col-sm-2 col-lg-1 padding-left-right-set1">
+					<div class="padding-top10">
+						<a class="btn btn-primary btn-save-box-shadow width40">
+						 <i class="fa fa-search" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+        </fieldset>	
+        <div class="row padding-left-right-set4 margin-top8">
+			<div class="col-md-12 col-lg-12 col-sm-8 padding-left-right-set0" id="nonBillableTableHt">
+				<fieldset>
+					<!-- <legend class="heading-div">Table</legend> -->
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 height500-table-with-scroll">
+					<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+						<thead class="mainServiceTableCommon">
+							<tr>
+								<th class="width7">
+									Indent No.
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									Indent Date
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									From Store
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									To Store
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width6">
+									Priority
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width7">
+									Type
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width7">
+									Requested By
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width9">
+									Remark
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">
+									Status
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width7">
+									 Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr >
+								<td class="ng-binding">IND-1001</td>
+				                <td class="ng-binding">20/04/2018</td>
+				                <td class="ng-binding">ICU Store</td>
+								<td class="ng-binding">Main Store</td>
+								<td class="ng-binding">Low</td>
+								<td class="ng-binding">Bed Linen</td>
+								<td class="ng-binding">Meg Gupta</td>
+								<td class="ng-binding">-</td>
+								<td class="ng-binding">Pending</td>
+								<td>
+									<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+										<a title="Print"><i class="fa fa-print" aria-hidden="true"></i></a>
+									</div>
+									<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+										<a title="Cancel"><i class="fa fa-times-circle-o" aria-hidden="true" data-toggle="modal" data-target="#CanellationModalForStoreIndent" ng-click="vm.model.CancelIndent($index)"></i></a>
+									</div>
+									<div class="col-lg-6 col-md-6 padding-left-right-set4 text-right">
+										<a href="#/linenIndentApprovalDetails">Details</a>
+                    <!-- href="#/detailsStoreIndentApproval" -->
+									</div>
+								</td>
+						</tbody>
+					</table>
+					</div>
+				</div>
+				</fieldset>
+			</div>
+		</div>
+    </div>
+</div>
+<div ng-include="'./views/common/qty-accept-reject.html'"></div>
+<div ng-include="'./views/common/note-save.html'"></div>
+
+
+  <script type="text/javascript">
+$( document ).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+	$('.clockpicker').clockpicker();
+	$(".medication-text-box").hide();
+	$( ".radioRejected" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$("#accepatReject").modal();
+		}
+	});
+	$(".selectedPageName").text("Linen Indent Approval");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="addNewLinenIndent"]').parents("li").addClass("active");
+	
+});
+
+</script>

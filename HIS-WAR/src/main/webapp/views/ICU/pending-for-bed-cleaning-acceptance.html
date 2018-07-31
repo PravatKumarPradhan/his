@@ -1,0 +1,206 @@
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid his-style">
+			<div class="row bed-management margin-top10">
+         	<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-building" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="bedsearch.floorId" ng-change="getBedById('floor')">
+										<option>Select Floor</option>
+										<option ng-repeat="info in activeFloorList" value="{{info.floorId}}">{{info.floorName}}</option>
+										</select>		
+										<label for="code"> Floor</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-hospital-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="bedsearch.wardId" ng-change="getBedById('ward')">
+										<option>Select Ward</option>
+										<option ng-repeat="info in wardList" value="{{info.wardId}}">{{info.wardName}}</option>
+										</select>		
+										<label for="code">Choose Ward</label>
+									</div>
+								</div>
+							</div>
+						</div>
+            		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-hospital-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="bedsearch.nursingStationId" >
+										<option>Select Nursing Station</option>
+										<option ng-repeat="info in nursingStationList" value="{{info.nursingStationId}}">{{info.nursingStationDesc}}</option>
+										</select>		
+										<label for="code">Choose Nursing Station</label>
+									</div>
+								</div>
+							</div>
+						</div>
+            		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-bed" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="bedsearch.bedCategoryId" >
+										<option>Select Bed Category</option>
+										<option ng-repeat="info in bedCategoryList" value="{{info.bedCategoryId}}">{{info.bedCategoryDesc}}</option>
+										</select>		
+										<label for="code">Choose Bed Category</label>
+									</div>
+								</div>
+							</div>
+						</div>
+			<div class="col-lg-1 col-md-1 col-sm-1 pull-left">
+          		<div class="width40 ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Search" ng-click="bedSearchByMultipleCriteria()">
+					<i class="fa fa-search" style="font-size: 15px" aria-hidden="true"></i></a>
+				</div>
+           	</div>
+        </div>
+			<!-- 	<div class="row searched-patient-details-row">
+						<div class="col-md-11 col-sm-11 col-xs-11 ">
+							<span class="profile_pic margin-left10"> 
+								<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+							</span> 
+							<span class="margin-left10">John Deo 26/M </span>
+							<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> Pune-769</span>
+							<span class="margin-left10"><b class="padding-right10 ">WARD NO :</b> W1112</span>
+							<span class="margin-left10"><b class="padding-right10 ">BED NO :</b> BM129091</span>
+							<span class="margin-left10">Dr. Suresh Pathak</span>
+						</div>
+					</div>
+            	
+            	<div class="row">
+            		<div class="col-md-8"></div>
+					<div class="col-md-3">
+						<div>
+							<input type="text" class="text-search-box" placeholder="Search">
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="width-div-for-patient-reg ">
+							<a href="" data-toggle="modal" data-target="#confirmLogout" class="btn btn-primary btn-save-box-shadow" title="Save"><i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a>	
+						</div>
+					</div>
+				</div> -->
+            	
+            	
+				<div class="row padding-left-right-10 margin-top10">
+					<div class="col-md-12">
+						<table class="table table-bordered  ">
+							<tr class="">
+								<th class="width10">
+									Floor
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width12">
+									Nursing Station
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									Bed No.
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width12">
+									Person Assigned
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10"> 
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								
+							</tr>
+							<tr ng-repeat="info in housekeepingBedList | orderBy:'priorityId':false ">
+								<td class="{{info.priorityId == 1 ? 'urgent-text':''}}">
+									<div>{{info.floorName}}</div>
+								</td>
+								<td class="{{info.priorityId == 1 ? 'urgent-text':''}}">
+									<div>{{info.nursingStationDesc}}</div>
+								</td>
+								<td class="{{info.priorityId == 1 ? 'urgent-text':''}}">
+									<div>{{info.bedNumber}}</div>
+								</td>
+								<td class="{{info.priorityId == 1 ? 'urgent-text':''}}">
+									<div>{{info.userName}}</div>
+								</td>
+								<td class="{{info.priorityId == 1 ? 'urgent-text':''}}">
+									<div class="row">
+								<input type="radio" name="radioBtnForHouseKeeping{{$index}}" class="radioAccepted" ng-click="toggleSelectionAccept(info)"    data-toggle="modal" data-target="#commonNote" ><span>Accept</span>
+								<input type="radio" name="radioBtnForHouseKeeping{{$index}}" class="radioRejected" ng-click="toggleSelectionAccept(info)" data-toggle="modal" data-target="#accepatReject"><span>Reject</span>
+							</div>
+								</td>
+							</tr>
+							
+							
+						</table>
+					</div>
+				</div>
+  			</div>
+		</div>
+		     <modal visible="showModal"></modal>	
+		 <div ng-include="'./views/common/accept-reject.html'"></div>
+  <div ng-include="'./views/common/note-save.html'"></div>  
+	
+<script type="text/javascript">
+
+$( document ).ready(function() {
+	
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+	$('.clockpicker').clockpicker();
+	$(".medication-text-box").hide();
+	$( ".radioRejected" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".medication-text-box").show();
+		}
+	});
+	$( ".radioAccepted" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".medication-text-box").hide();
+		}
+	});
+	$(".selectedPageName").text("Cleaned Bed Acceptance");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="cleanedBedAccept"]').parents("li").addClass("active");
+});
+</script>

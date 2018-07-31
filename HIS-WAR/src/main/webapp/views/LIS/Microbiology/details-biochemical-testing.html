@@ -1,0 +1,122 @@
+    
+<!-- Page Content -->
+ <div id="page-content-wrapper">
+     <div class="container-fluid his-style">
+      	<div class="row patient-details-row">
+			<div class="col-md-11 col-sm-11 col-xs-11 ">
+				<span class="profile_pic margin-left10"> <img alt=""
+					src="resources/assets/images/tempImages/m.jpg"
+					class="img-circle" style="width: 30px">
+				</span>
+				<span class="margin-left10">{{sampleDtls.patientDetails}}</span> 
+			      <span class="margin-left10"><b class="padding-right5 ">UHID :</b> {{sampleDtls.uhid}}</span> 
+			      <span class="margin-left10"><b class="padding-right10 ">Priority :</b>{{sampleDtls.priorityName}}</span> 
+			      <span class="margin-left10">{{sampleDtls.doctorDetails}}</span>
+			</div>
+		</div>  
+       <div class="row ">
+			<ul class="tabs nav nav-tabs">
+				<li id="" style="width: 183px;">
+					<a >Biochemical Test</a>
+				</li>
+			</ul>
+		</div>
+		 <div class="row ">
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 padding-left-right-set">
+					<div class="row input-container margin-top10">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-clock-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div >
+								<select class="text-input floating-label" name="microTestId" ng-model="microTestId" required>
+														<option selected value>Select Test</option>
+										                <option ng-repeat="microBiologyTestObj in microBiologyTestList"
+											                       value="{{microBiologyTestObj.id}}">{{microBiologyTestObj.name}}</option>
+													</select> 
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1 col-lg-1 margin-top10">
+					<div class="" style="margin-top: -2px;">
+						<button type="button" class="btn btn-primary" ng-click="addTest();">Add</button>
+					</div>
+				</div>
+			</div>
+			<div class="row padding-left-right-set4">
+				<div class="col-lg-12 col-md-12 common-popup-height-350 margin-top10">
+					<table class="table table-striped table-bordered">
+						<thead class="table-th-bg">
+							<tr>
+								<th class="widh12">Biochemical Test</th>
+								<th class="width15">Result</th>
+								<th class="width20">Remark</th>
+								<th class="width8">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="tBiochemicalMasterDto in tBiochemicalTestMasterDto.listTBiochemicalTestDetailsMaster track by $index">
+								<td><select class="text-input floating-label" name="microTestId" ng-model="tBiochemicalMasterDto.microTestId" disabled="disabled" convert-to-number>
+														<option selected value>Select Test</option>
+										                <option ng-repeat="microBiologyTestObj in microBiologyTestList"
+											                       value="{{microBiologyTestObj.id}}">{{microBiologyTestObj.name}}</option>
+													</select> </td>
+								<td><input type="text" class="w-100" ng-model="tBiochemicalMasterDto.result"></td>
+								<td><input type="text" class="w-100" ng-model="tBiochemicalMasterDto.remark"></td>
+								<td>
+									<i class="fa fa-times" aria-hidden="true" ng-click="removeTBiochemicalResult($index);"></i>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+       </div>
+     	<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+     	  <div class="col-md-2 col-sm-2 padding-left-right-set4 text-left switch-label">
+					<label class="switch-label">Complete</label> <label class="switch"> 
+					<input type="checkbox" ng-model="tBiochemicalTestMasterDto.isCompleted" ng-checked="tBiochemicalTestMasterDto.isCompleted=='Y'"
+									ng-true-value="'Y'" ng-false-value="'N'" >
+						<div class="slider round"></div>
+					</label>
+				</div>
+	    	<div class="row his-style margin-top10 padding-right20">
+	    		<div class="col-lg-12 col-md-12 col-sm-12">
+	    		 	<div class="row">
+	    		 		<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 float-right">
+	    		 			<a href="#/biochemicalTesting">
+	    		 				<button type="button" class="btn btn-primary "> Back </button>
+	    		 			</a>
+	    		 		</div>
+	    		 		<div class="col-md-1 padding-left-right-set4 pull-right">
+							<div class="">
+								<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow" ng-click="saveTranaction();">
+							</div>
+						</div>
+	    		 	</div>
+	    		</div>
+	    	</div>
+	    </footer>
+     </div>
+ </div>
+<!--// Page Content -->
+
+<script type="text/javascript">
+$('.clockpicker').clockpicker();
+
+$( document ).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+	$(".selectedPageName").text("Details Biochemical Testing");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	
+	$('a[href$="detailsBiochemicalTesting"]').parents("li").addClass("active");
+});
+</script>
+<script src="resources/assets/js/common/page-height.js"></script>

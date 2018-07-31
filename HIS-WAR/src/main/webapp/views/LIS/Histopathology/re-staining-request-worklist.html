@@ -1,0 +1,381 @@
+<!-- Page Content -->
+	<div id="page-content-wrapper">
+		<div class="container-fluid his-style">
+			<div class="row">
+			<!-- ******** DATE COLUMN START ******* -->
+			<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+					<div class="row input-container test-master-sample">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label"> <label
+									for="code">From Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+					<div class="row input-container test-master-sample">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label"> <label
+									for="code">To Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ********  DATE COLUMN END ******* -->
+			<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="form-group">
+							<input type="text" name="" id="" class="text-input floating-label">
+							<label for="code">Patient Name</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="form-group">
+							<input type="text" name="" id="" class="text-input floating-label">
+							<label for="code">UHID</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<select class="text-input floating-label">
+								<option></option>
+							</select> 
+							<label for="description" class="">Visit Type</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<select class="text-input floating-label">
+								<option></option>
+							</select>
+							<label for="description" class="">Specimen Type</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-1 col-sm-2 padding-leftright15 padding-top10">
+				<div class="width-div-for-patient-reg ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Search">
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+			
+		</div>
+			
+			
+			<div class="row margin-top4">
+           		<div class="col-md-8">
+           			
+           		</div>
+				<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+					
+				</div>
+			</div>
+			</div>
+			
+			<div class="row padding-left-right-10 margin-top10" id="tableOne">
+				<div class="col-md-12">
+					<!-- table one for report entry -->
+					<table class="table table-bordered">
+						<tr class="">
+							<th class="UHID-width">
+								UHID
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true" ng-click='sortColumn("uhid")'>
+									</i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true" ng-click='sortColumn("uhid")'></i></div>
+								</div>
+							</th>
+							<th class="patient-doc-details-width">
+								Patient Details
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true" ng-click='sortColumn("patientDetails")'></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true" ng-click='sortColumn("patientDetails")'></i></div>
+								</div>
+							</th>
+							<th class="patient-doc-details-width">
+								Doctor Details
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true" ng-click='sortColumn("doctorDetails")'></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true" ng-click='sortColumn("doctorDetails")'></i></div>
+								</div>
+							</th>
+							<th class="width8">
+								Visit Type
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true" ng-click='sortColumn("visitType")'></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true" ng-click='sortColumn("visitType")'></i></div>
+								</div>
+							</th>
+							<th class="width10">
+								Specimen Type
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true" ng-click='sortColumn("specimanType")'></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true" ng-click='sortColumn("specimanType")'></i></div>
+								</div>
+							</th>
+							<th class="width15">
+								Specimen Name
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true" ng-click='sortColumn("specimanName")'></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true" ng-click='sortColumn("specimanName")'></i></div>
+								</div>
+							</th>
+							<th class="width12">
+								Histopathology No
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true" ng-click='sortColumn("histopathlogyNumber")'></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true" ng-click='sortColumn("histopathlogyNumber")'></i></div>
+								</div>
+							</th>
+							<th class="status">
+								Action
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+						</tr>
+						<tr ng-repeat="restainReqMstObj in restainRequestWorkList|orderBy:column:reverse|filter:searchKeyword track by $index">
+							<td>{{restainReqMstObj.uhid}}</td>
+							<td>
+								<div>{{restainReqMstObj.patientDetails}}&nbsp;({{restainReqMstObj.age}}/{{restainReqMstObj.genderName}})</div>
+							</td>
+							<td>
+								<div>{{restainReqMstObj.doctorDetails}}</div>
+							</td>
+							<td><div>{{restainReqMstObj.visitType}}</div></td>
+							<td><div>{{restainReqMstObj.specimanType}}</div></td>
+							<td><div>{{restainReqMstObj.specimanName}}</div></td>
+							<td><div>{{restainReqMstObj.histopathlogyNumber}}</div></td>
+							<td>
+								<div>
+									<a  ng-click="generateRestainDetailsUrl(restainReqMstObj);">Details</a>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<!--// table one for report entry -->
+						<table class="table table-bordered">
+					<tr
+						ng-if="(restainRequestWorkList|filter:searchKeyword)==''||(restainRequestWorkList|filter:searchKeyword)==null">
+						<td><p
+								style="text-align: center; margin-top: 0px !important; margin-bottom: 1px !important;">No
+								Records Found</p></td>
+					</tr>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!-- details modal start -->
+<div id="restainingRequestWorklistDetails" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Re-staining Request Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+				<div class='' ng-include="'./views/common/patient-demography-opd.html'"></div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10 padding-left-right-set4">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width10">Specimen Name
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Gross
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Block
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Against
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Slide No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">No. Of Slide
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Staining 
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width10">Remarks 
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="status">Action
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>
+										<a>Create Slide</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->	
+	
+	<script type="text/javascript">
+
+	$(".selectedPageName").text("Re-staining Request Worklist");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="requestInterConsult"]').parents("li").addClass("active");
+	
+
+
+</script>

@@ -1,0 +1,657 @@
+<!-- /********************************************************************************************************************************************
+Unit - Schedule Block Unblock module - Doctor Wise
+Created by - Pranita Patil
+Created Date - 23-May-2018 
+/********************************************************************************************************************************************/ -->
+<style>
+/*checkbox and search button */
+/* .custom-width{
+	width:520% !important;
+} */
+/*height set for div*/
+.unit-appointment-scheduling-div{
+border: 1px solid #d2d2d2;
+    background-color: white;
+    height: 44px;
+    padding: 5px;
+}
+
+.multiselect-parent .dropdown-toggle {
+  width: 270px;
+}
+
+.multiselect-parent .dropdown-menu {
+  width: 270px;
+}
+
+.multiselect-parent .dropdown-menu-day{
+  width: 175px !important;
+  height:auto !important
+}
+.vivek1 {
+  width: 90px;
+}
+.btn-default1{
+background-color :#ddeeff !important;
+}
+.width100{
+	width:100% !important;
+}
+.margin-left-right-set0{
+	margin-left:0px !important;
+	margin-right:0px !important;
+}
+</style>
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		
+		<fieldset>
+			
+			<div class="row padding-left-right-set4 margin-top8 custom-sub-tab">
+				<ul class="tabs nav nav-tabs">
+					<li ng-class="{ active : isSetSecondTabLevel(1) }" class="active width18 margin-left-right-set0" >
+						<a href="" ng-click="setSecondTabLevel(1); isBlocked=1">Blocking</a>
+					</li>
+					<li ng-class="{ active : isSetSecondTabLevel(2) }" class="width18 margin-left-right-set0" >
+						<a href="" ng-click="setSecondTabLevel(2); isBlocked=2">Unblocking</a>
+					</li>
+				</ul>
+			</div>
+			<div class="row padding-left-right-set4">
+			
+				<!-- ************* Blocking content row start *********************** -->
+				<div ng-show="isSetSecondTabLevel(1)" class="second-level-tab-display-div" style="">
+					<div class="row	">
+						<div class="row">
+							<div class="row margin-top5">
+								<!-- <div class="col-md-4 col-xs-4 col-sm-4">
+									<div class="row">
+										<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-set4">
+											Doctor
+										</div>
+										<div class="col-md-8 col-sm-8 col-xs-8 padding-left-right-set4">
+											<div class="unit-appointment-scheduling-div">
+												<div>
+													<div ng-dropdown-multiselect="" options="example14dataDoctor"
+														selected-model="example14modelDoctor" checkboxes="true"
+														extra-settings="example14settings"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div> -->
+								<div class="col-md-4 col-xs-4 col-sm-4">
+									<div class="row">
+										<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-set4">
+											Specialty
+										</div>
+										<div class="col-md-8 col-sm-8 col-xs-8 padding-left-right-set4">
+											<div class="unit-appointment-scheduling-div">
+											<div>
+												<div ng-dropdown-multiselect="" options="example14data"
+													selected-model="example14model" checkboxes="true"
+													extra-settings="example14settings" ></div>
+											</div>
+											</div>
+										</div>
+									</div>
+								</div> 
+								
+							</div>
+							<div class="row margin-top10" ><!-- style="border-bottom: solid 1px;" -->
+								<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+									<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top8">
+										<div class="row input-container test-master-sample">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-10 col-sm-11 col-md-10 ">
+												<div class="">
+													<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepicker"
+									model-view-value="true" is-open="datepicker.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker()" > <label for="code" class="">  
+													<label for="description" class="">From Date</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top8">
+										<div class="row input-container test-master-sample">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-10 col-sm-11 col-md-10 ">
+												<div class="">
+													<input type="text" class="text-input floating-label dirty"
+									name="datepickerPdd" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepickerTo"
+									model-view-value="true" is-open="datepickerTo.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerTo()" > <label for="code" class="">  
+													<label for="description" class="">To Date</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row input-container test-master-sample  padding-top8">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="clockpicker">
+												<input type="text" name="description" id="" ng-model="fromTime" class="text-input floating-label" ng-init="initClockPicker()">
+												<label for="description" class="">From Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4  padding-top10">
+									<div class="row input-container test-master-sample  padding-top8">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="clockpicker">
+												<input type="text" name="description" id="" ng-model="toTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+												<label for="description" class="">To Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-2 col-sm-3 text-left padding-right12 padding-top10 text-width-auto">
+									<div class="common-save-button padding-top8" ng-click="searchUnblockSlots()" > 
+										 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;" > 
+										 	<i class="fa fa-search" aria-hidden="true"></i> 
+										 </a> 
+									</div> 
+								</div>
+							</div>
+							
+						</div>
+						
+						<div class="row margin-top8">
+							<!-- <div class="col-lg-8 col-md-8 col-sm-8 ">
+								<div class="row">
+									<div class="col-lg-2 col-md-2"
+										style="text-align: right; padding-right: 0px;">
+										<div class="search">
+											<label class="show-entries">Show
+												<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" ng-init="noOfRecordsPerPage='10'" 
+												        ng-model="noOfRecordsPerPage" ng-change="setNoOfRecords();" class="search-popUp-ddl">
+													<option value="10">10</option>
+													<option value="25">25</option>
+													<option value="50">50</option>
+													<option value="100">100</option>
+												</select> entries
+											</label>
+										</div>
+									</div>
+								</div>
+							</div> -->
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+								<div class=" ">
+									<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"  ng-click="blockUnblockSlot()">
+										<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+								<input type="text" class="text-search-box"   placeholder="Search" style="margin-top: 0px"> 
+								<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+							</div>
+						</div>
+						
+						<div class="row margin-top8">
+							<div class="col-md-12 col-lg-12  table-responsive padding-left-right-set4 common-popup-height-370">
+								<table class="table table-bordered  common-tbody-scroll">
+									<thead>
+										<tr>
+											<th class="width1 text-center">
+												<input type="checkbox"/>
+											</th>
+											<th class="width12">
+												Specialty
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width6">
+												Doctor Name
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width6">
+												Slot Date
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width6">
+												Slot Time
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width3">
+												Action
+											</th>
+										</tr>
+									</thead>
+									<tbody class="scrollable">
+										
+										<tr ng-repeat="info in doctorSlotList">
+												<td class="text-center">
+												<input type="checkbox"/>
+												</td>
+												<td>{{info.specialityName}}
+												</td>
+												<td>{{info.doctorName}}
+												</td>
+												<td>{{info.appointmentDate}}
+												</td>
+												<td>{{info.day}}
+												</td>
+												<td>
+													<a data-toggle="modal" data-target="#blocking-detailsModal" ng-click="getSlotDetails(info)">Details</a>
+													<i class="fa fa-ban margin-left5" title="Deactive" style="font-size: 18px;color: #f0793a;"></i>
+												</td>
+											</tr>
+									</tbody>
+								</table>
+								<!-- <div class="row margin-bottom45 sss">
+									<ul ng-if="pager.pages.length" class="pagination table-list"
+										style="font-size: 14px;">
+										<li ng-class="{disabled:pager.currentPage === 1}"><a
+											ng-click="setPage(1,'true')">First</a></li>
+										<li ng-class="{disabled:pager.currentPage === 1}"><a
+											ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+										<li ng-repeat="page in pager.pages"
+											ng-class="{active:pager.currentPage === page}"><a
+											ng-click="setPage(page,'true')">{{page}}</a></li>
+										<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+											<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+										</li>
+										<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+											<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+										</li>
+									</ul>
+								</div> -->
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<footer class="col-lg-12 col-md-12 col-sm-12 padding-right20">
+							<div class="row padding-left-right-set4 padding-right20">
+								<div class="col-lg-12 col-md-12 col-sm-12 padding-right20">
+									<table class=" table table-bordered">
+										<tbody>
+											<tr>
+												<th class="width8">Reason</th>
+												<td class="width15">
+													<select class="select-box" ng-model="reasonId">
+														
+														<option ng-repeat="info in reasonList" value="{{info.reasonMasterId}}">{{info.reasonDesc}}</option>
+													</select>
+												</td>
+												<th class="width8">Remarks</th>
+												<td class="width75">
+													<textarea rows="2" ng-model="remark"></textarea>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</footer>
+					</div>
+					
+				</div>
+				<!-- ************* Blocking content row start *********************** -->
+				<!-- ************* Unblocking content row start *********************** -->
+				<div ng-show="isSetSecondTabLevel(2)" class="second-level-tab-display-div" style="">
+					<div class="row">
+						<div class="row margin-top5">
+							<!-- <div class="col-md-4 col-xs-4 col-sm-4">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-set4">
+										Doctor
+									</div>
+									<div class="col-md-8 col-sm-8 col-xs-8 padding-left-right-set4">
+										<div class="unit-appointment-scheduling-div">
+											<div>
+												<div ng-dropdown-multiselect="" options="example14dataDoctor"
+													selected-model="example14modelDoctor" checkboxes="true"
+													extra-settings="example14settings"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> -->
+							<div class="col-md-4 col-xs-4 col-sm-4">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-set4">
+										Specialty
+									</div>
+									<div class="col-md-8 col-sm-8 col-xs-8 padding-left-right-set4">
+										<div class="unit-appointment-scheduling-div">
+										<div>
+											<div ng-dropdown-multiselect="" options="example14data"
+												selected-model="example14model" checkboxes="true"
+												extra-settings="example14settings" ></div>
+										</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<div class="row margin-top10" style="border-bottom: solid 1px;"><!-- override-col-2 -->
+							<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top8">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-11 col-md-10 ">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepicker"
+									model-view-value="true" is-open="datepicker.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker()" > <label for="code" class=""> 
+												<label for="description" class="">From Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top8">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-11 col-md-10 ">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+									name="datepickerPdd" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepickerTo"
+									model-view-value="true" is-open="datepickerTo.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerTo()" > <label for="code" class=""> 
+												<label for="description" class="">To Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row input-container test-master-sample  padding-top8">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="clockpicker">
+												<input type="text" name="description" id="" ng-model="fromTime" class="text-input floating-label" ng-init="initClockPicker()">
+												<label for="description" class="">From Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4  padding-top10">
+									<div class="row input-container test-master-sample  padding-top8">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="clockpicker">
+												<input type="text" name="description" id="" ng-model="toTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+												<label for="description" class="">To Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+							<div class="col-lg-1 col-md-2 col-sm-3 text-left padding-right12 padding-top10 text-width-auto">
+								<div class="common-save-button padding-top8" ng-click="searchBlockSlots()"> 
+									 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+									 	<i class="fa fa-search"  aria-hidden="true"></i> 
+									 </a> 
+								</div> 
+							</div>
+							<!-- <div class="col-lg-2 col-md-2 col-sm-3 padding-top10">
+								<div class="padding-top8"><button type="button" class="btn btn-primary width50">Unblock</button></div>
+							</div> -->
+						</div>
+						
+					</div>
+					
+					<div class="row margin-top4">
+						<!-- <div class="col-lg-8 col-md-8 col-sm-8 ">
+							<div class="row">
+								<div class="col-lg-2 col-md-2"
+									style="text-align: right; padding-right: 0px;">
+									<div class="search">
+										<label class="show-entries">Show
+											<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" ng-init="noOfRecordsPerPage='10'" 
+											        ng-model="noOfRecordsPerPage" ng-change="setNoOfRecords();" class="search-popUp-ddl">
+												<option value="10">10</option>
+												<option value="25">25</option>
+												<option value="50">50</option>
+												<option value="100">100</option>
+											</select> entries
+										</label>
+									</div>
+								</div>
+							</div>
+						</div> -->
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="blockUnblockSlot()" >
+								<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+							<input type="text" class="text-search-box"   placeholder="Search" style="margin-top: 0px"> 
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					
+					<div class="row margin-top8">
+						<div class="col-md-12 col-lg-12  table-responsive padding-left-right-set4 common-popup-height-370">
+							<table class="table table-bordered  common-tbody-scroll">
+								<thead>
+									<tr>
+										<th class="width1 text-center">
+											<input type="checkbox"/>
+										</th>
+										<th class="width12">
+											Specialty
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width6">
+											Doctor Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width6">
+											Slot Date
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width12">
+											Reason
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width15">
+											Remark
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width15">Action</th>
+									</tr>
+								</thead>
+								<tbody class="scrollable">
+									<tr ng-repeat="info in doctorSlotList">
+										<td class="text-center">
+											<input type="checkbox"/>
+										</td>
+										<td>{{info.specialityName}}</td>
+										<td>{{info.doctorName}}</td>
+										<td>{{info.appointmentDate}}</td>
+										<td>{{info.reasonDesc}}</td>
+										<td>{{info.remark}}</td>
+										<td>
+													<a data-toggle="modal" data-target="#blocking-detailsModal" ng-click="getSlotDetails(info)">Details</a>
+												</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- <div class="row margin-bottom45 sss">
+								<ul ng-if="pager.pages.length" class="pagination table-list"
+									style="font-size: 14px;">
+									<li ng-class="{disabled:pager.currentPage === 1}"><a
+										ng-click="setPage(1,'true')">First</a></li>
+									<li ng-class="{disabled:pager.currentPage === 1}"><a
+										ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+									<li ng-repeat="page in pager.pages"
+										ng-class="{active:pager.currentPage === page}"><a
+										ng-click="setPage(page,'true')">{{page}}</a></li>
+									<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+										<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+									</li>
+									<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+										<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+									</li>
+								</ul>
+							</div> -->
+						</div>
+					</div>
+				</div>
+				<!-- ************* Unblocking content row start *********************** -->
+			</div>
+		</fieldset>
+	</div>
+</div>
+<!--************************** Blocking - details POPUP start **************************-->
+<div id="blocking-detailsModal" class="modal fade ng-scope in common-small-popup" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Blocking Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body ">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 margin-top5 headerHeight1 fix-height-scroll205">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width1">
+										<input type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" ng-model="chkAll" ng-change="checkAll(chkAll)"/>
+									</th>
+									<th class="width10">Date</th>
+									<th class="width10">From Time</th>
+									<th class="width10">To Time</th>
+								</tr>
+							</thead>
+							<tbody>
+ 								<tr ng-repeat="info in slotDetailsList" >
+								<td>
+										<input type="checkbox" name="idds" checklist-model='slotIds' checklist-value='info.slotId' />
+										<!-- <input type="hidden" name="idds"  value="{{info.slotId}}"/> -->
+									</td>
+								<td>{{info.appointmentDate}}</td>
+								<td>{{info.fromTimeString}}</td>
+								<td>{{info.toTimeString}}</td>
+							</tr>
+							</tbody>
+						</table>
+						<!-- <p ng-repeat='name in slotIds'>|{{name}}</p> -->
+						
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="otpOk">Ok</button>
+			</div> -->
+		</div>
+	</div>
+</div>
+
+<!--************************** Blocking - details POPUP start **************************-->
+
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".selectedPageName").text("Doctor Wise");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	
+});
+</script>

@@ -1,0 +1,83 @@
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid his-style">
+				<div class="row searched-patient-details-row" ng-if="patientFullName != null">
+						<div class="col-md-11 col-sm-11 col-xs-11 ">
+							<span class="profile_pic margin-left10"> 
+								<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+							</span> 
+							<span class="margin-left10">{{patientFullName}} </span>
+							<span class="margin-left10"><b class="padding-right5 ">UHID	:</b>{{uhidNum }}</span>
+							<span class="margin-left10"><b class="padding-right10 ">Ward NO	:</b> {{wardName}} </span>
+							<span class="margin-left10"><b class="padding-right10 ">BED NO	:</b> {{bedNumber}}</span>
+							<span class="margin-left10">Dr. {{doctorFullName}}</span>
+						</div>
+					</div>
+            	
+            	
+            	
+		            <div class="container-fluid ">
+		            	<fieldset>
+							<!-- <legend class="heading-div">Transfer For Investigation</legend> -->
+							<div class="row margin-top4">
+								<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow" ng-href="#/transferForInvestigation/investigationTransferRequest">Initiate Request</a>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/transferForInvestigation/modalityTransferRequestStatus">Transfer Request Status</a>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+									<div class="btn-hide">
+										<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveModalityRequest()"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+									<input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       				uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       				typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required style="margin-top: 0px"/>
+									<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+								</div>
+							</div>
+		            <div class="row">
+						<div class="" ui-view>
+					
+						</div>
+				</div>
+		          
+					</fieldset>
+		          </div>
+				
+				
+  			</div>
+  			<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10">1</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+		</div>
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+		
+/* 		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+ */	 	
+		$('.clockpicker').clockpicker();
+		$(".selectedPageName").text("Transfer For Investigation");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="transferForInvestigation"]').parents("li").addClass("active");
+	});
+</script>

@@ -1,0 +1,190 @@
+<div id="page-content-wrapper" class="ng-scope">
+   <div class="container-fluid his-style">
+      <div class="row margin-top10">
+         <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+            <span class="margin-left10">
+            <b class="padding-right10 ">PR Date:</b>
+            <label>{{vm.model.localPurchaseRequests.prDate | date: "dd/MM/yyyy"}}</label> </span>
+         </div>
+         <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+            <span class="margin-left10"><b class="padding-right10 ">PR No. :</b><label>{{vm.model.localPurchaseRequests.prNo}}</label> </span>
+         </div>
+         <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+            <span class="margin-left10"><b class="padding-right10 ">
+            Status :</b><label>{{vm.model.localPurchaseRequests.status}}</label> </span>
+         </div>
+         <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+            <span class="margin-left10"><b class="padding-right10 ">
+            Approval Status :</b><label>{{vm.model.localPurchaseRequests.approvalStatus}}</label> </span>
+         </div>
+      </div>
+      <div class="row margin-top10">
+         <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+            <span class="margin-left10"><b class="padding-right10 ">
+            Store :</b><label>{{vm.model.localPurchaseRequests.storeName}}</label> </span>
+         </div>
+         <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+            <span class="margin-left10"><b class="padding-right10 ">Priority
+            :</b> <label>{{vm.model.localPurchaseRequests.priority}}</label></span>
+         </div>
+         <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+            <span class="margin-left10"><b class="padding-right10 ">PR Type:</b><label>{{vm.model.localPurchaseRequests.prType}}</label>
+            </span>
+         </div>
+         <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+            <span class="margin-left10"><b class="padding-right10 ">Type:</b><label>{{vm.model.localPurchaseRequests.assetType}}</label>
+            </span>
+         </div>
+      </div>
+      <div class="row table-container">
+         <div class="table-container-header padding-top4 padding-left-right-set4">
+            <table class="table table-striped table-hover table-condensed table-bordered">
+               <thead>
+                  <tr>
+                     <!-- <th>Asset Category
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                        </th>
+                        <th>Product Category
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                        </th> -->
+                     <th class="width1">
+                        Item Code
+                        <div class="float_right" ng-click="sortType = 'itemCode'; sortReverse = !sortReverse">
+                           <div>
+                              <i class="fa fa-caret-up" aria-hidden="true"></i>
+                           </div>
+                           <div class="margin-top-8">
+                              <i class="fa fa-caret-down" aria-hidden="true"></i>
+                           </div>
+                        </div>
+                     </th>
+                     <th class="width1">
+                        Item Name
+                        <div class="float_right" ng-click="sortType = 'itemName'; sortReverse = !sortReverse">
+                           <div>
+                              <i class="fa fa-caret-up" aria-hidden="true"></i>
+                           </div>
+                           <div class="margin-top-8">
+                              <i class="fa fa-caret-down" aria-hidden="true"></i>
+                           </div>
+                        </div>
+                     </th>
+                     <th class="width1">
+                        UOM
+                        <div class="float_right" ng-click="sortType = 'uomType'; sortReverse = !sortReverse">
+                           <div>
+                              <i class="fa fa-caret-up" aria-hidden="true"></i>
+                           </div>
+                           <div class="margin-top-8">
+                              <i class="fa fa-caret-down" aria-hidden="true"></i>
+                           </div>
+                        </div>
+                     </th>
+                     <th class="width1">
+                        UOM Unit
+                        <div class="float_right" ng-click="sortType = 'uomUnit'; sortReverse = !sortReverse">
+                           <div>
+                              <i class="fa fa-caret-up" aria-hidden="true"></i>
+                           </div>
+                           <div class="margin-top-8">
+                              <i class="fa fa-caret-down" aria-hidden="true"></i>
+                           </div>
+                        </div>
+                     </th>
+                     <th class="width1">
+                        Available Quantity
+                        <div class="float_right" ng-click="sortType = 'availableQuantity'; sortReverse = !sortReverse">
+                           <div>
+                              <i class="fa fa-caret-up" aria-hidden="true"></i>
+                           </div>
+                           <div class="margin-top-8">
+                              <i class="fa fa-caret-down" aria-hidden="true"></i>
+                           </div>
+                        </div>
+                     </th>
+                     <th class="width1">
+                        Quantity
+                        <div class="float_right" ng-click="sortType = 'quantity'; sortReverse = !sortReverse">
+                           <div>
+                              <i class="fa fa-caret-up" aria-hidden="true"></i>
+                           </div>
+                           <div class="margin-top-8">
+                              <i class="fa fa-caret-down" aria-hidden="true"></i>
+                           </div>
+                        </div>
+                     </th>
+                     <th class="width1">
+                        COP
+                        <div class="float_right" ng-click="sortType = 'cop'; sortReverse = !sortReverse">
+                           <div>
+                              <i class="fa fa-caret-up" aria-hidden="true"></i>
+                           </div>
+                           <div class="margin-top-8">
+                              <i class="fa fa-caret-down" aria-hidden="true"></i>
+                           </div>
+                        </div>
+                     </th>
+                     <th class="width1">
+                        Amount At COP
+                        <div class="float_right" ng-click="sortType = 'copAmount'; sortReverse = !sortReverse">
+                           <div>
+                              <i class="fa fa-caret-up" aria-hidden="true"></i>
+                           </div>
+                           <div class="margin-top-8">
+                              <i class="fa fa-caret-down" aria-hidden="true"></i>
+                           </div>
+                        </div>
+                     </th>
+                  </tr>
+               </thead>
+            </table>
+         </div>
+         <div class="table-container-body padding-left-right-set4" style="height: 590px; overflow-y: scroll;">
+            <table class="table table-striped table-hover table-condensed table-bordered">
+               <tbody>
+                  <tr ng-repeat="item in vm.model.localPurchaseRequests.items | orderBy:sortType:sortReverse">
+                     <td class="width1">{{item.itemCode}}</td>
+                     <td class="width1">{{item.itemName}}</td>
+                     <td class="width1">{{item.uomType}}</td>
+                     <td class="width1">{{item.uomUnit}}</td>
+                     <td class="width1">{{item.availableQuantity}}</td>
+                     <td class="width1">{{item.quantity}}</td>
+                     <td class="width1">{{item.cop | number:2}}</td>
+                     <td class="width1" style="width: 0.98% !important">{{item.copAmount | number:2}}</td>
+                  </tr>
+                  <tr ng-if="!vm.model.localPurchaseRequests.items || vm.model.localPurchaseRequests.items == null">
+                    <td class="text-center">
+                      <p>No Record Found</p>
+                    </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+         <div class="row his-style padding-right20">
+            <div class="col-lg-1 col-md-1 col-sm-2 pull-right padding-left0px-right6px">
+               <div class="">
+                  <a href ng-click="vm.model.NavigateToBack()">
+                  <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+                  </a>
+               </div>
+            </div>
+         </div>
+      </footer>
+   </div>
+</div>

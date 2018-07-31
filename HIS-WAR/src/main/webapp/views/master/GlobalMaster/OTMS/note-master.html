@@ -1,0 +1,164 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+			<div class="row padding-top8">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<input type="text" name="" class="text-input floating-label" > 
+							<label for="code">Template Code</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<input type="text" name="" class="text-input floating-label" > 
+							<label for="code">Template Name</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+								<i class="fa fa fa-dot-circle-o " aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="form-group">
+									<select class="text-input floating-label">
+											<option selected="" value="">Anaesthesia</option>
+											<option  value="">Surgery</option>
+											<option  value="">Discharge</option>
+										</select>  <label for="code"> Type</label>
+								</div>
+							</div> 
+						</div>
+					</div>
+				<!-- <div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+								<input type="text" name="" class="text-input floating-label" >
+								<label for="code">Description</label>
+							</div>
+						</div>
+					</div> -->
+				</div>
+
+		<div class="row margin-top4">
+			<div id="formeo-editor"></div>
+			<div id="myHtml" class="render-form" style="display: none"></div>
+		</div>
+		<div class="col-lg-12 col-md-12">
+			<textarea name="editor" type="text" id="editor" rows="10" cols="50"
+				ng-model="value" ck-editor>
+                             </textarea>
+		</div>
+		<div class="row margin-top10 padding-left-right-set1">
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+					<div class=" padding-top5">
+						 <a href="" class="btn btn-primary btn-save-box-shadow text-width-auto" title="Save">
+		        			<i class="fa fa-floppy-o" style="font-size: 21px; background-color: #f0793a !important;
+   							 	border-color: #f0793a !important;  width: 100%;" aria-hidden="true"></i></a>
+		      		</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+					<input type="text" class="text-search-box oneeeee" placeholder="Search">
+					 <i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+				</div>
+			</div>
+		<div class="row padding-left-right-set4 margin-top8">
+				<div class="col-md-12">
+					<table class="table table-bordered">
+						<tr class="">
+							<th class="width5">Template Code
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width5">Template Name
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width5">Type
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width1">Status
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width1 text-center">Action
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+						</tr>
+						<tr>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>
+								<label class="switch"> 
+									<input type="checkbox">
+									<div class="slider round"></div>
+								</label>
+							</td>
+							<td class="text-center">
+								<a><i class="fa fa-pencil" aria-hidden="true"></i></a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>	
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+  
+  $(".selectedPageName").text("Note Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="noteMaster"]').parents("li").addClass("active");
+});
+</script>

@@ -1,0 +1,542 @@
+<!-- Page Content -->
+<head>
+  <style type="text/css">
+    .borderBottom{
+      border-bottom: 2px solid red;
+    }
+  </style>
+</head>
+<div id="page-content-wrapper" style="height: 100vh">
+	<div class="container-fluid his-style">
+		<div class="row padding-top10">
+			<div
+				class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-building-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div>
+              <select name="store" id="store" class="text-input floating-label" ng-model="vm.model.store" data-ng-options="store.store for store in vm.model.stores" ng-class="{dirty: vm.model.store, borderBottom: vm.model.isStoreValid}" ng-disabled="!!vm.model.enquiryId" ng-change="vm.model.isStoreValid = false"></select>
+              <label for="store" class="LISDynamicLabel">Store</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div>
+              <input type="text" name="vendorName" id="vendorName" class="text-input floating-label" ng-model="vm.model.vendorName" uib-typeahead="vendorNames.detail for vendorNames in vm.model.SearchVendorNames($viewValue)" typeahead-on-select="vm.model.AddVendorName($item); vm.model.search = '';" ng-class="{dirty: vm.model.vendorName, borderBottom: vm.model.isVendorValid}" ng-change="vm.model.isVendorValid = false" ng-disabled="!!vm.model.enquiryId">
+              <label for="vendorName">Vendor</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div>
+              <input type="text" class="text-input floating-label dirty" name="dueDate" uib-datepicker-popup="dd/MM/yyyy" placeholder="DD/MM/YYYY" ng-model="vm.model.dueDate" model-view-value="true" is-open="vm.model.dueDateOpened" datepicker-options="vm.model.dueDateOptions" show-button-bar="false" ng-click="vm.model.OpenDueDate()">
+              <label for="dueDate">Due Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+      <div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set">
+         <div class="padding-top10 margin-top12 common-save-button">
+            <input type="button" value="Get QR" ng-click="vm.model.GetQRPopup()" class="btn btn-primary btn-save-box-shadow">
+         </div>
+      </div>
+		</div>
+		<div class="row table-container margin-top8 padding-left-right-set4">
+			<div class="col-lg-12 col-md-12 col-sm-12 table-container-header">
+        <table class="table table-striped table-hover table-condensed table-bordered">
+					<thead>
+            <tr>
+							<th class="width6" title="Item Code">Item Code</th>
+							<th class="width6" title="Item Name">Item Name</th>
+							<th class="width6" title="UOM">UOM</th>
+							<th class="width6" title="UOM Unit">UOM Unit</th>
+							<th class="width6" title="Quantity">Quantity</th>
+							<th class="width6 text-center" title="Expected Accessories">Expected Accessories</th>
+							<th class="width6 text-center" title="Expected Terms">Expected Terms</th>
+							<th class="width6 text-center" title="PR Details">PR Details</th>
+							<th class="width6 text-center" title="Action">Action</th>
+						</tr>
+					</thead>
+          </table>
+        </div>
+        <div class="table-container-body" style="height: 560px; overflow-y: scroll;">
+          <table class="table table-striped table-hover table-condensed table-bordered">
+					<tbody>
+						<tr ng-repeat="item in vm.model.itemDetails">
+							<td class="width6" title="{{item.itemCode}}">{{item.itemCode}}</td>
+              <td class="width6" title="{{item.itemName}}">{{item.itemName}}</td>
+              <td class="width6" title="{{item.uomType}}">{{item.uomType}}</td>
+              <td class="width6" title="{{item.uomUnit}}">{{item.uomUnit}}</td>
+              <td class="width6" title="{{item.qrQuantity}}">{{item.qrQuantity}}</td>
+							<td class="width6 text-center media-middle">
+								<a href="" ng-click="vm.model.ViewAccessories(item)">
+                  <i class="fa fa-info-circle" aria-hidden="true" title="Accessories" data-target="#AccessoriesDetailsQEModal" data-toggle="modal"></i>
+								</a>
+							</td>
+							<td class="width6 text-center media-middle">
+                <a href="" ng-click="vm.model.ViewTerms(item)">
+                  <i class="fa fa-info-circle" aria-hidden="true" title="Terms"></i>
+                </a>
+							</td>
+							<td class="width6 text-center media-middle">
+								<a href="" ng-click="vm.model.ViewPRList(item)">
+                  <i class="fa fa-info-circle" aria-hidden="true" title="PR Details" data-target="#PRDetails" data-toggle="modal"></i>
+								</a>
+							</td>
+							<td class="width6 text-center" style="width: 5.87% !important">
+                <a title="Cancel" href="" ng-click="vm.model.RemoveItem(item)">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+              </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20" style="padding-right: 30px !important">
+			<div class="row his-style margin-top10 padding-right20">
+				<div class="col-md-10 padding-left-right8"></div>
+				<div class="col-md-1 padding-left0px-right6px">
+					<div>
+						<input type="button" ng-click="vm.model.SaveEnquiry()" value="Save" class="btn btn-primary btn-save-box-shadow">
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a href="" ng-click="vm.model.NavigateToBack()">
+            <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+<!-- Get PR Modal START -->
+<div id="GetQRList" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					QR List
+					<button type="button" class="close" data-dismiss="modal">×</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll">
+				<div class="row margin-top10">
+					<div
+						class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div>
+                  <input type="text" class="text-input floating-label dirty" name="fromDate" id="fromDate" uib-datepicker-popup="dd/MM/yyyy" placeholder="DD/MM/YYYY" ng-model="vm.model.fromDate" model-view-value="true" is-open="vm.model.fromDateOpened" datepicker-options="vm.model.fromDateOptions" show-button-bar="false" ng-click="vm.model.OpenFromDate()">
+                  <label for="fromDate">From Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div>
+                  <input type="text" class="text-input floating-label dirty" name="toDate" id="toDate" uib-datepicker-popup="dd/MM/yyyy" placeholder="DD/MM/YYYY" ng-model="vm.model.toDate" model-view-value="true" is-open="vm.model.toDateOpened" datepicker-options="vm.model.toDateOptions" show-button-bar="false" ng-click="vm.model.OpenToDate()">
+                  <label for="toDate">To Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div>
+									<input type="text" ng-model="vm.model.qrNumber" class="text-input floating-label dirty">
+									<label>QR No.</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div>
+									<input type="text" ng-model="vm.model.searchQR" class="text-input floating-label dirty" ng-disabled="!vm.model.qrItemList || vm.model.qrItemList.length <= 0">
+									<label>Search</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 his-style">
+						<div class="common-save-button"> 
+              <a href="" ng-click="vm.model.GetQRList()" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> <i class="fa fa-search" aria-hidden="true"></i></a>
+            </div>
+					</div>
+				</div>
+				<div class="row padding-top10">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th colspan="7" class="font-weight700">Item Details</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-click="vm.model.Expand(item)" ng-repeat-start="item in vm.model.qrItemList | filter: vm.model.searchQR" class="cursor-pointer">
+									<td class="text-center" ng-click="$event.stopPropagation();">
+                    <input type="radio" name="item" ng-value="item" data-ng-model="vm.model.isSelectedIndent" ng-change="vm.model.SelectAllIndentItems();" />
+                  </td>
+									<td>
+										<div class="col-md-4 font-weight700">QR Date:</div>
+										<div class="col-md-4 text-left">{{item.qrDate | date:'dd/MM/yyyy' : 'UTC'}}</div>
+										<div class="col-md-4 font-weight700 text-right">QR No:</div>
+									</td>
+									<td>
+										<div class="col-md-3 text-left">{{item.qrNumber}}</div>
+										<div class="col-md-4 font-weight700 text-right">Store Name:</div>
+										<div class="col-md-4 padding-left-right-10">{{item.storeName}}</div>
+									</td>
+									<td colspan="2">
+										<div class="col-md-4 font-weight700 text-left">Requested By:</div>
+										<div class="col-md-4 text-left">{{item.requestedBy}}</div>
+										<div class="col-md-4 font-weight700 text-right">Authorized By:</div>
+									</td>
+									<td>
+										<div class="col-md-5 text-left">{{item.authorisedBy}}</div>
+										<div class="col-md-3 font-weight700 text-right">
+											<!-- 	Date: -->
+										</div>
+										<div class="col-md-3 text-left padding-left-right-10">
+											<!-- 08/10/2017 -->
+										</div>
+									</td>
+								</tr>
+								<tr ng-repeat-end ng-show="item.Expanded">
+									<td colspan="6">
+										<div class="selectedServicesList">
+											<table class="table table-bordered ">
+												<tbody>
+													<tr>
+														<th class="width1"></th>
+														<th class="width10">Item Code
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width10">Item Name
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width5">UOM
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">UOM Unit
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">QR Qty
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+													</tr>
+													<tr ng-repeat="datum in item.items | filter: vm.model.searchQR">
+														<td class="width1 text-center">
+                              <input type="checkbox" ng-model="datum.isSelectedItem" ng-change="vm.model.SelectIndentItem(datum, item)" />
+														</td>
+														<td class="width10">{{datum.itemCode}}</td>
+														<td class="width10">{{datum.itemName}}</td>
+														<td class="width5">{{datum.uomType}}</td>
+														<td class="width8">{{datum.uomUnit}}</td>
+														<td class="width8">{{datum.qrQuantity}}</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+      <div class="modal-footer">
+        <div class="row his-style">
+           <div class="col-md-11"></div>
+           <div class="col-md-1 padding-left0px-right6px">
+              <div class="common-save-button">
+                 <input type="button" ng-click="vm.model.AddApprovedPOItems()" value="Add" class="btn btn-primary btn-save-box-shadow">
+              </div>
+           </div>
+        </div>
+      </div>
+		</div>
+	</div>
+</div>
+<!-- Get PR Modal END -->
+<!-- PR Details MOdal START -->
+<div id="PRDetails" class="modal fade ng-scope common-small-popup in" role="dialog">
+  <div class="modal-dialog"> 
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+          PR Details
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row padding-top8 padding-left-right-set4">
+          <div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll205">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="width8">
+                    PR No.
+                  </th>
+                  <th class="width8">
+                    PR Date
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in vm.model.prDetailList">
+                  <td>{{item.prNumber}}</td>
+                  <td>{{item.prDate | date:'dd/MM/yyyy' : 'UTC'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- PR Details MOdal END -->
+<div id="AccessoriesDetailsQEModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+  <div class="modal-dialog"> 
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+           Accessories Details
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll500 padding-top4 padding-left-right-set4">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="width25">Name
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                  <th class="width65">Accessories Details
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in vm.model.expectedAccessories">
+                  <td>
+                    {{item.name}}
+                  </td>
+                  <td>
+                    {{item.details}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Accessories Modal END -->
+
+<div id="vendorSelectionDetailsModal2" class="modal fade ng-scope in common-medium-popup" role="dialog">
+  <div class="modal-dialog"> 
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+           Expected Terms
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row ">
+          <div class=" padding-top10">
+            <div class="row">
+              <div class="row margin-top4">
+                <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+                  <div class="tab-btn-primary">
+                    <a class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.termsVisible = 1">Warranty Period</a>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+                  <div class="tab-btn-primary">
+                    <a class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.termsVisible = 2">Expected Support Terms</a>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+                  <div class="tab-btn-primary">
+                    <a class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.termsVisible = 3">Expected Payment Terms</a>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+                  <div class="tab-btn-primary">
+                    <a class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.termsVisible = 4">Expected Technical Specification</a>
+                  </div>
+                </div>
+              </div>
+              <div class="row padding-left-right-set4">
+                <div class="col-md-12 col-sm-12 margin-top10 fix-height-scroll500">
+                  <textarea ng-model="vm.model.warrantyPeriod" ng-show="vm.model.termsVisible == 1" style="height: 480px"></textarea>
+                  <textarea ng-model="vm.model.supportTerms" ng-show="vm.model.termsVisible == 2" style="height: 480px"></textarea>
+                  <textarea ng-model="vm.model.paymentTerms" ng-show="vm.model.termsVisible == 3" style="height: 480px"></textarea>
+                  <textarea ng-model="vm.model.technicalSpecification" ng-show="vm.model.termsVisible == 4" style="height: 480px"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- <div id="vendorSelectionDetailsModal2" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					 Expected Terms
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row ">
+					<div class=" padding-top10">
+						<div class="row">
+							<div class="row margin-top4">
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow" ng-href="#/addItemquotationEnquiry/warrantyPeriod" href="#/addItemquotationEnquiry/warrantyPeriod">Warranty Period</a>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/addItemquotationEnquiry/expectedSupportTerms" href="#/addItemquotationEnquiry/expectedSupportTerms">Expected Support Terms</a>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/addItemquotationEnquiry/expectedPaymentTerms" href="#/addItemquotationEnquiry/expectedPaymentTerms">Expected Payment Terms</a>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary text-width-auto  btn-save-box-shadow" ng-href="#/addItemquotationEnquiry/expectedTechnicalSpec" href="#/addItemquotationEnquiry/expectedTechnicalSpec">Expected Technical Specification</a>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 text-right">
+									<div class=" ">
+										<a href="" class="btn btn-primary btn-save-box-shadow width65" title="Save">
+											<i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i>
+										</a>	
+									</div>
+								</div>
+							</div>
+							<div class="row padding-left-right-set4">
+								<div class="col-md-12 col-sm-12 margin-top10 fix-height-scroll500 ng-scope" ui-view="" style=""><fieldset class="ng-scope">
+            	<legend class="heading-div">Warranty Period</legend>
+            	<div class="row margin-top4">
+            		<div class="col-lg-12 col-md-12">
+            			<textarea rows="24" class="dirty"></textarea>
+            		</div>
+            	</div>
+            </fieldset>
+            <script type="text/javascript" class="ng-scope"></script>
+            </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<script>
+$(".table-th-bg").click(function(){
+	/* alert(); */
+	$(this).next().find(".selectedServicesList").toggle();
+});
+</script>

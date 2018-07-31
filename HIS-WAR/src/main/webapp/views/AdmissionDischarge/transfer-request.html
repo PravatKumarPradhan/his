@@ -1,0 +1,107 @@
+ <div id="page-content-wrapper" class="">
+            <div class="container-fluid ">
+            	<fieldset>
+					<!-- <legend class="heading-div">Transfer Request</legend> -->
+					<div class="row margin-top4">
+						<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+							<div class="tab-btn-primary">
+								<a class="btn btn-primary btn-save-box-shadow" ng-href="#/transferRequest/initiateRequestTransferBed">Initiate Request</a>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+							<div class="tab-btn-primary">
+								<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/transferRequest/physicalTransferBed">Physical Transfer</a>
+							</div>
+						</div>
+					</div>
+            <div class="row">
+				<div class="" ui-view>
+			
+				</div>
+            </div>
+            <footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+            </fieldset>
+            </div>
+   </div> 
+
+ <div ng-include="'./views/common/accept-reject.html'"></div> 
+ <div ng-include="'./views/common/note-save.html'"></div> 
+
+	<!-- REASON DETAILS POPUP -->
+<div id="reasonDetails" class="modal fade ng-scope in common-small-popup" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Ward Reason Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row serachedPatientList">
+					<div class="col-md-12 col-lg-12 padding-left-right-set4  fix-height-scroll230">
+						<div>
+							Reject Reason <textarea rows="3" cols="6" readonly="true"  id="adtReason"></textarea>
+						</div>
+						<div>
+							reject Note<textarea rows="3" cols="6" readonly="true"  id="adtRejectReason"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- REASON DETAILS POPUP -->
+<div id="reasonDetailsDoctor" class="modal fade ng-scope in common-small-popup" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Doctor Reason Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row serachedPatientList">
+					<div class="col-md-12 col-lg-12 padding-left-right-set4  fix-height-scroll230">
+						<div>
+							Reject Reason <textarea rows="3" cols="6" readonly="true" id="doctorReason"></textarea>
+						</div>
+						<div>
+							Reject Note <textarea rows="3" cols="6" readonly="true" id="doctorRejectReason"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+ 
+ <script type="text/javascript">
+	$( document ).ready(function() {
+	
+		/* var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" ); */
+		
+		$(".selectedPageName").text("Transfer Request");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="transferRequest"]').parents("li").addClass("active");
+		
+	});
+	
+
+</script>

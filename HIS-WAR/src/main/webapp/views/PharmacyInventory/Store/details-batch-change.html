@@ -1,0 +1,214 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+        <div class="container-fluid his-style">
+            <fieldset class="main-fieldset">
+                <div class="row margin-top10">
+    
+    
+                    <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                        <span class="margin-left10">
+                            <b class="padding-right10 ">Adjustment No:
+                            </b>
+                            <label>{{vm.model.batchChangeDetail.adjustmentNo }}</label>
+                        </span>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                        <span class="margin-left10">
+                            <b class="padding-right10 ">Adjustment Date:</b>
+                            <label>{{vm.model.batchChangeDetail.adjustmentDate| date:'dd/MM/yyyy'}}</label>
+                        </span>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                        <span class="margin-left10">
+                            <b class="padding-right10 ">Store:</b>
+                            <label>{{vm.model.batchChangeDetail.storeName}}</label>
+                        </span>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                        <span class="margin-left10">
+                            <b class="padding-right10 ">Adjustment By:
+                            </b>
+                            <label>{{vm.model.batchChangeDetail.adjustmentBy}}</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="row margin-top10">
+                    <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                        <span class="margin-left10">
+                            <b class="padding-right10 ">Status:
+                            </b>
+                            <label>{{vm.model.batchChangeDetail.status}}</label>
+                        </span>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                        <span class="margin-left10">
+                            <b class="padding-right10 ">Approval Status:</b>
+                            <label>{{vm.model.batchChangeDetail.approvalStatus}}</label>
+                        </span>
+                    </div> 
+                </div>
+                <!--  fixed asset table start -->
+                <div class="row" id="fixeAssetRowId">
+                    <div class="col-lg-12 col-md-12 padding-top10 fix-height-scroll500 ">
+                        <!-- fix-height-scroll500 -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                        <th class="width10">
+                                                Item Code
+                                                <div class="float_right"  ng-click="sortType = 'itemCode'; sortReverse = !sortReverse">
+                                                    <div>
+                                                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="margin-top-8">
+                                                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="width10"  ng-click="sortType = 'itemName'; sortReverse = !sortReverse">
+                                                Item Name
+                                                <div class="float_right">
+                                                    <div>
+                                                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="margin-top-8">
+                                                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="width7">
+                                                UOM
+                                                <div class="float_right"  ng-click="sortType = 'uomType'; sortReverse = !sortReverse">
+                                                    <div>
+                                                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="margin-top-8">
+                                                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="width7">
+                                                UOM Unit
+                                                <div class="float_right"  ng-click="sortType = 'uomUnit'; sortReverse = !sortReverse">
+                                                    <div>
+                                                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="margin-top-8">
+                                                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="width8">
+                                                Batch No
+                                                <div class="float_right"  ng-click="sortType = 'oldBatchNo'; sortReverse = !sortReverse">
+                                                    <div>
+                                                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="margin-top-8">
+                                                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="width8">
+                                                Expiry Date
+                                                <div class="float_right"  ng-click="sortType = 'oldBatchExpiry'; sortReverse = !sortReverse">
+                                                    <div>
+                                                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="margin-top-8">
+                                                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="width8">
+                                                MRP
+                                                <div class="float_right"  ng-click="sortType = 'oldMrp'; sortReverse = !sortReverse">
+                                                    <div>
+                                                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="margin-top-8">
+                                                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="width8">
+                                                New Batch No
+                                                <div class="float_right"  ng-click="sortType = 'newBatchNo'; sortReverse = !sortReverse">
+                                                    <div>
+                                                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="margin-top-8">
+                                                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="width8">
+                                                New Expiry Date
+                                                <div class="float_right"  ng-click="sortType = 'newBatchExpiry'; sortReverse = !sortReverse">
+                                                    <div>
+                                                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="margin-top-8">
+                                                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="width8">
+                                                New MRP
+                                                <div class="float_right" ng-click="sortType = 'newMrp'; sortReverse = !sortReverse">
+                                                    <div>
+                                                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="margin-top-8">
+                                                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="batch in vm.model.batchChangeDetail.batch | orderBy:sortType:sortReverse">
+                                        <td>{{batch.itemCode}}</td>
+                                        <td>{{batch.itemName}}</td>
+                                        <td>{{batch.uomType}}</td>
+                                        <td>{{batch.uomUnit}}</td>
+                                        <td>{{batch.oldBatchNo}}</td>
+                                        <td>{{batch.oldBatchExpiry | date:'MMM-yyyy' }}</td>
+                                        <td>{{batch.oldMrp}}</td>
+                                        <td>{{batch.newBatchNo}}</td>
+                                        <td>{{batch.newBatchExpiry  | date:'MMM-yyyy' }}</td>
+                                        <td>{{batch.newMrp}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- fixed asset table end -->
+            </fieldset>
+            <!-- <div class="row padding-top5">
+                <div class="col-lg-11 col-sm-11"></div>
+                <div class="col-lg-1 col-md-1 padding-left-right-set4">
+                    <a href="#/batchExpDateChange">
+                        <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow" />
+                    </a>
+                </div>
+            </div> --> 
+            <footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+                <div class="row padding-top5 margin-top10 padding-right20">
+                    <div class="col-lg-11 col-sm-11">
+                    <!-- <b>Remark:  </b><label>{{vm.model.batchChangeDetail.remark}}</label> -->
+                    </div>
+                    <div class="col-lg-1 col-md-1 padding-left-right-set4">
+                        <a href="#/batchExpDateChange">
+                            <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".selectedPageName").text("Details Batch Change");
+        })
+    </script>

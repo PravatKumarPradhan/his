@@ -1,0 +1,512 @@
+    
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid his-style">
+            	<div class="row margin-top10">
+            		<!--************* Date div start ***************-->
+            		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+            			<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-11 col-md-10 ">
+									<div class="">
+										<span class="input-group"> 
+													<input name="fromDate"
+														id="date1" type="text" class="form-control"
+														uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+														placeholder="DD/MM/YYYY" tabindex="13" ng-model="fromDate"
+														model-view-value="true" is-open="popup.opened"
+														datepicker-options="dateOptions" show-button-bar="false" ng-click="open()" />
+													<!-- 	<span class="input-group-btn" >
+															<button type="button" class="btn btn-default"
+																ng-click="open()" style="padding:5px !important;">
+																<i class="fa fa-calendar fa-1"></i>
+															</button>
+													   </span> -->
+										</span>
+										<label for="" class="LISDynamicLabel">From Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-11 col-md-10 ">
+									<div class="">
+										<span class="input-group"> 
+													<input name="toDate"
+														id="date2" type="text" class="form-control"
+														uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+														placeholder="DD/MM/YYYY" tabindex="13" ng-model="toDate"
+														model-view-value="true" is-open="popup1.opened"
+														datepicker-options="dateOptions" show-button-bar="false" ng-click="open1()"/>
+														<!-- <span class="input-group-btn" >
+															<button type="button" class="btn btn-default"
+																ng-click="open1()" style="padding:5px !important;">
+																<i class="fa fa-calendar fa-1"></i>
+															</button>
+													   </span> -->
+												</span>
+										<label for="" class="LISDynamicLabel">To Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+            		</div>
+            		<!--************* Date div end ***************-->
+            		<!--************* patient name block start ***************-->
+            		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-user" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" >
+									 <input type="text"
+										 class="text-input floating-label" tabindex="3"
+										 ng-model="patientId"
+										 placeholder="Search"
+										 uib-typeahead="patient.patientWithUhid for patient in getMicroPatientList($viewValue)"
+										 typeahead-editable="false"
+										 typeahead-on-select="selectPatient($item, $model, $label);"
+										 name="patientName" autocomplete="off" />
+									<label for="description" class="LISDynamicLabel">Patient Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+            		<!--************* patient name block end ***************-->
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<!-- <div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-11 col-md-10 ">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label">
+										<label for="" class="LISDynamicLabel">UHID</label>
+									</div>
+								</div>
+							</div>
+						</div> -->
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-11 col-md-10 ">
+									<div class="">
+								<div 
+									ng-dropdown-multiselect="" options="visityTypeList"
+									selected-model="selectedVisitType"
+									extra-settings="dropDownSetting">
+								</div>
+								<label for="" class="LISDynamicLabel">Visit Type</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--************* type div start ***************-->
+            		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+            			<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-11 col-md-10 ">
+									<div class="">
+								<div ng-dropdown-multiselect="" options="specimanTypeList"
+									selected-model="selectedspecimanTypeList"
+									extra-settings="dropDownSetting"></div>
+								<label for="" class="LISDynamicLabel">Specimen Type</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-11 col-md-10 ">
+									<div class="">
+										<div ng-dropdown-multiselect="" options="testList"
+									selected-model="selectedtestList"
+									extra-settings="dropDownSetting"></div>
+										<label for="" class="LISDynamicLabel">Test</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 ">
+							<div class="common-save-button" style="padding-top:  0px;"> 
+								 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;" > 
+								 	<i class="fa fa-search" aria-hidden="true" ng-click="searchWorkList();" ></i> 
+								 </a> 
+							</div> 
+						</div>
+            		</div>
+            		<!--************* type div end ***************-->
+			</div>
+            	<div class="row margin-top4">
+            	    <div class="col-md-8 col-sm-8 padding-left-right-set4 padding-top4">
+            			<label class="show-entries">Show <select
+								name="DataTables_Table_0_length"
+								aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries
+							</label>
+            		</div>
+            		<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 float_right">
+							<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true" ></i>
+					</div>
+            	</div>
+            	<div class="row margin-top10 padding-left-right-set4 fix-heigh-scroll-200" id="tableOne">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<!-- table one for report entry -->
+						<table class="table table-bordered">
+							<thead>
+								<tr class="">
+									<th class="width1"></th>
+									<th class="UHID-width">
+										UHID
+										<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("uhid")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("uhid")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="patient-doc-details-width">
+										Patient Details
+										<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="patient-doc-details-width">
+										Doctor Details
+										<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("doctorDetails")'
+											class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("doctorDetails")'
+											class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+									<th class="width10">
+										Visit Type
+										<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("visitType")'
+											class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("visitType")'
+											class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+									<th class="width10">Test Details
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("testDesc")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("testDesc")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+									<th class="width10">
+										Specimen Type
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("specimanType")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("specimanType")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width10">
+										Specimen Name
+										<div class="float_right">
+											<div>
+										        <i ng-click='sortColumn("specimanName")' class="fa fa-caret-up"
+											    aria-hidden="true"></i>
+									       </div>
+									   <div class="margin-top-8">
+										    <i ng-click='sortColumn("specimanName")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									   </div>
+										</div>
+									</th>
+									<th class="width10">
+										Frozen Section
+										<div class="float_right">
+											<div>
+										        <i ng-click='sortColumn("frozenSection")' class="fa fa-caret-up"
+											    aria-hidden="true"></i>
+									       </div>
+									   <div class="margin-top-8">
+										    <i ng-click='sortColumn("frozenSection")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									   </div>
+										</div>
+									</th>
+									<th class="patient-doc-details-width">
+										Histopathalogy No.
+										<div class="float_right">
+											<div>
+										        <i ng-click='sortColumn("histopathlogyNumber")' class="fa fa-caret-up"
+											    aria-hidden="true"></i>
+									       </div>
+									   <div class="margin-top-8">
+										    <i ng-click='sortColumn("histopathlogyNumber")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									   </div>
+										</div>
+									</th>
+									<th class="width5">
+										Notes
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width8">
+										Action
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+							<tr  ng-repeat="microScopwrk in microscopicExaList|orderBy:column:reverse|filter:searchKeyword track by $index">
+								<td class="text-center media-middle">
+									<input type="checkbox"/>
+								</td>
+								<td>{{microScopwrk.uhid}}</td>
+								<td>
+									<div>{{microScopwrk.patientDetails}}({{microScopwrk.age}}/{{microScopwrk.genderName}})</div>
+								</td>
+								<td>
+									<div>{{microScopwrk.doctorDetails}}</div>
+								</td>
+								<td><div>{{microScopwrk.visitType}}</div></td>
+								<td><div>{{microScopwrk.testDesc}}</div></td>
+								<td><div>{{microScopwrk.specimanType}}</div></td>
+								<td><div>{{microScopwrk.specimanName==null?'-':microScopwrk.specimanName}}</div></td>
+								<td><div>{{microScopwrk.frozenSection==null?'-':microScopwrk.frozenSection}}</div></td>
+								<td><div>{{microScopwrk.histopathlogyNumber}}</div></td>
+								<td class="text-center media-middle">
+									<i class="fa fa-commenting" aria-hidden="true" data-toggle="modal" data-target="#noteModal"></i>
+								</td>
+								<td>
+									<!-- 	<a href="" data-toggle="modal" data-target="#details">Create Gross</a> -->
+									<a ng-click="generateCreateGrossUrl(microScopwrk);">Examination</a>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+						<!--// table one for report entry -->
+				<table class="table table-bordered">
+					<tr
+						ng-if="(microscopicExaList|filter:searchKeyword)==''||(microscopicExaList|filter:searchKeyword)==null">
+						<td><p
+								style="text-align: center; margin-top: 0px !important; margin-bottom: 1px !important;">No
+								Records Found</p></td>
+					</tr>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+				</div>
+            </div>
+        </div>
+        <!--// Page Content -->
+    
+    
+    
+   <div id="details" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Create Gross 
+					<button type="button" class="close" data-dismiss="modal">x</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row patient-details-row">
+					<div class="col-md-11 col-sm-11 col-xs-11 ">
+						<span class="profile_pic margin-left10"> 
+							<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+						</span> 
+						<span class="margin-left10">John Deo 26/M </span>
+						<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> Pune-769</span>
+						<span class="margin-left10"><b class="padding-right10 ">Priority :</b> Normal</span>
+						<span class="margin-left10">Dr. Suresh Pathak </span>
+					</div>
+				</div>
+				<div class="row padding-top4">
+					<div class="col-lg-12 col-md-12 height-table-with-scroll padding-left-right-set4">
+						<table class="table table-striped table-bordered" id="gross">
+							<thead class="table-th-bg">
+								<tr>
+									<th class="UHID-width">Histopathlogy No.</th>
+									<th class="test-name-width">Sub Specimen No.</th>
+									<th class="test-name-width">Sub Specimen Discription</th>
+									<th class="width15">Capture Note</th>
+									<th class="status">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div>
+											13072017
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="text"  id="" class="text-box-for-ICU">
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="text"  id="" class="text-box-for-ICU">
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="text"  id="" class="text-box-for-ICU">
+										</div>
+									</td>
+									<td>
+										<div class="" style="margin-top: -2px;">
+											<input type="button" name="" style="width:36px" id="addr" value="+" onclick="addRowForMainTable()" class="btn btn-info">&nbsp;&nbsp;
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<div class="row">
+            		<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 float_right">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow"
+									title="Save" data-toggle="modal" data-target="#">
+									Save</a>
+							</div>
+						</div>
+            	</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-include="'./views/LIS/foot_note_popup.html'"></div>
+<script type="text/javascript">
+$('.clockpicker').clockpicker();
+
+$( document ).ready(function() {
+	$(".selectedPageName").text("Macroscopic Examination Work List");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+});
+	
+	function addRowForMainTable() {
+		//alert();
+		var n = document.getElementById("gross").rows.length;
+		var id = Number(n);
+		//alert(id);
+		var test =
+
+		'<tr>'
+				+'<td>'
+				+'<div>'
+				+'13072017'
+				+'</div>'
+		        +'</td>'
+		        + '<td>'
+				+ '<div>'
+				+ '<input type="text"  id="" class="text-box-for-ICU">'
+				+ '</div>'
+				+ '</td>'
+				+ '<td>'
+				+ '<div>'
+				+ '<input type="text"  id="" class="text-box-for-ICU">'
+				+ '</div>'
+				+ '</td>'
+				+ '<td>'
+				+ '<div>'
+				+ '<input type="text"  id="" class="text-box-for-ICU">'
+				+ '</div>'
+				+ '</td>'
+				+ '<td>'
+				+ '<input type="button" name="" style="width:36px" id="addr" value="+" onclick="addRowForMainTable()" class="btn btn-info" style="margin-top: -2px;">&nbsp;&nbsp;'
+				+ '<input type="button" name="" id="delr" value="-" onclick="delRowForMainTable(this)" class="btn btn-info" style="margin-top: -2px;">'
+				+ '</td>' + '</tr>';
+
+		$("#gross").append(test);
+
+	}
+
+	function delRowForMainTable(r) {
+		var i = r.parentNode.parentNode.rowIndex;
+		document.getElementById("gross").deleteRow(i);
+	}
+
+</script>

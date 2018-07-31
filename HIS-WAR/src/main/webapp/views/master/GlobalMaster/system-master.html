@@ -1,0 +1,169 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Rack Master</legend> -->
+			<form name="systemMasterForm">
+			<div class="row">
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group" show-errors>
+								<input type="text" name="systemCode" id=""
+									class="text-input floating-label"
+									ng-model="systemObj.systemCode" required="required"> <label
+									for="description" class="LISDynamicLabel">System Code</label>
+									<p class="help-block" ng-if="systemMasterForm.systemCode.$error.required">System code is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group" show-errors>
+								<input type="text" name="systemName" id=""
+									class="text-input floating-label"
+									ng-model="systemObj.systemName" required="required"> <label
+									for="description" class="LISDynamicLabel">System Name</label>
+									<p class="help-block" ng-if="systemMasterForm.systemName.$error.required">System name is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="form-group" show-errors>
+								<select class="text-input floating-label" name="gender" ng-model="systemObj.genderId" required="required"> 
+									<option ng-repeat="x in genderList" value={{x.id}}>{{x.desc}}</option>
+								</select> <label for="code">Gender</label>
+								<p class="help-block" ng-if="systemMasterForm.gender.$error.required">Gender is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="form-group" show-errors>
+								<select class="text-input floating-label" name="examination" ng-model="systemObj.typeId" required="required"> 
+									<option ng-repeat="x in examinationList" value={{x.typeId}}>{{x.typeName}}</option>
+								</select> <label for="code">Type</label>
+								<p class="help-block" ng-if="systemMasterForm.examination.$error.required">Type is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+				<modal visible="showModal"></modal>
+				<div
+					class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto margin-top10">
+					<div
+						class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+						<div class=" ">
+							<a href="" class="btn btn-primary btn-save-box-shadow"
+								title="Save" data-toggle="modal" ng-click="saveSystem()"
+								ng-if="saveBtnFlag"> <i class="fa fa-floppy-o"
+								style="font-size: 21px" aria-hidden="true"></i></a> <a href=""
+								class="btn btn-primary btn-save-box-shadow" title="Update"
+								data-toggle="modal" ng-click="updateSystem()"
+								ng-if="updateBtnFlag"> <i class="fa fa-floppy-o"
+								style="font-size: 21px" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right margin-top10">
+					<input type="text" class="text-search-box" placeholder="Search"
+						style="margin-top: 0px"> <i
+						class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<!-- <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<label>Delta</label>
+					<div class="radio-btn-div-style table-responsive refarnce-range">
+						<table class="table table-bordered" id="delta">
+							<tbody>
+								<tr class="">
+									<th>Shelf Code</th>
+									<th>Shelf Name</th>
+									<th>Action</th>
+								</tr>
+								<tr>
+									<td><input type="text" placeholder="" class="w-100">
+									</td>
+									<td><input type="text" placeholder="" class="w-100">
+									</td>
+									<td><input type="button" placeholder=""
+										class="btn btn-info" value="+"></td>
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div> -->
+			</div>
+			</form>
+		</fieldset>
+		<div class="row padding-left-right-set4 margin-top4">
+			<div class="col-md-12 fix-height-scroll230">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+
+							<th>System Code</th>
+							<th>System Name</th>
+							<th>Type</th>
+							<th>Gender</th>
+							<th class="width5 text-center">Status</th>
+							<th class="width5 text-center">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="info in systemList">
+							<td>{{info.systemCode}}</td>
+							<td>{{info.systemName}}</td>
+							<td><div ng-if="info.typeId == '1'">General Examination</div>
+							<div ng-if="info.typeId == '2'">Physical Examination</div>
+							<div ng-if="info.typeId == '3'">Both</div>
+							</td>
+							<td>{{info.desc}}</td>
+							<td class="text-center"><label class="switch">
+							 <input type="checkbox" ng-model="info.status"  ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatus(info.systemId,info.status)">
+									<div class="slider round"></div>
+							</label></td>
+							<td class="padding-edit-button-table text-center vertical-middle">
+							<a><i class="fa fa-pencil" aria-hidden="true" ng-click="showUpdateBtn(info.systemId)"></i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$(".selectedPageName").text("System Master");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="systemMaster"]').parents("li").addClass("active");
+	});
+</script>

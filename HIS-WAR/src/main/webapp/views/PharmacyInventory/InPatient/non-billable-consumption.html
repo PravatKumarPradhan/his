@@ -1,0 +1,185 @@
+
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<div class="row padding-left-right-10 padding-left0 margin-top10">
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="code" id=""
+								class="text-input floating-label"> <label for="code">From Date
+								</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="code" id=""
+								class="text-input floating-label"> <label for="code">To Date
+								</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+		          <div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+		            <i class="fa fa-tasks" aria-hidden="true"></i>
+		          </div>
+		          <div class="col-lg-11 col-sm-11 col-md-10">
+		            <div class="">
+		              <select class="text-input floating-label ng-pristine ng-valid ng-empty ng-touched" ng-model="vm.model.fromStore" style="">
+		                <option value=""></option>
+		                <!-- ngRepeat: datum in vm.model.storeList -->
+		              </select>
+		              <label for="code"> Store</label>
+		            </div>
+		          </div>
+		        </div>
+			</div>
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-bullseye" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<input type="text" name="code" id=""
+								class="text-input floating-label"> <label for="code">Consumption No.</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-10">
+				<div class="common-save-button">
+					<a href="" class="btn btn-primary btn-save-box-shadow"
+						style="width: auto;"> <i class="fa fa-search"
+						aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row margin-top10 padding-left-right-set4">
+			<div class="col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+		        <div class=" ">
+		          <a href="#/addNewnonbillableConsumption">
+		            <input type="button" value="Add New" class="btn btn-primary btn-save-box-shadow">
+		          </a>
+		        </div>
+		      </div>
+			<div
+				class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search"
+					style="margin-top: 0px"> <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-top10 padding-left-right-set4">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+          <table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+            <thead class="mainServiceTableCommon">
+              
+              <tr>
+                <th class="width6">
+                  Consumption No.
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width7">
+                  Consumption Date
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width8">
+                   Store
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width5">
+                  Added By
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width4 text-center">
+                   Action
+                  <div class="float_right">
+                    <div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+                    <div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+            	<tr>
+            		<td>-</td>
+            		<td>-</td>
+            		<td>-</td>
+            		<td>-</td>
+            		<td class="text-center cursor-pointer">
+						<span><a title="Print">
+							<i class="fa fa-print" aria-hidden="true"></i>
+						</a></span>
+						<span><a title="Edit">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</a></span>
+						<span><a title="Cancel">
+							<i class="fa fa-times-circle-o" aria-hidden="true"></i>
+						</a></span>
+						<span><a href="#/detailsnonbillableConsumption">Details</a></span>
+					</td>
+            	</tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+	</div>
+</div>
+<script src="resources/assets/js/common/page-height.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$(".selectedPageName").text("Non Billable Consumption aaaaaaaaaaaaa");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="nonbillableConsumption"]').parents("li").addClass("active");
+	});
+</script>

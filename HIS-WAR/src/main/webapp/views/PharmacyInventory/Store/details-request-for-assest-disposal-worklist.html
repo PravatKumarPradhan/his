@@ -1,0 +1,142 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<div class="row padding-top4">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10">
+					<b class="padding-right10 ">Request No. :</b>
+					<label>{{vm.model.requestDisposalDetailData.requestNo}}</label>
+				</span>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10">
+					<b class="padding-right10 ">Request Date:
+					</b>
+					<label>{{vm.model.requestDisposalDetailData.requestDate | date:'dd/MM/yyyy'}}</label>
+				</span>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10">
+					<b class="padding-right10 ">
+						Store :</b>
+					<label>{{vm.model.requestDisposalDetailData.storeName}}</label>
+				</span>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10">
+					<b class="padding-right10 "> Type :
+					</b>
+					<lable>
+						<label>{{vm.model.requestDisposalDetailData.assetType}}</label>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10">
+					<b class="padding-right10 ">Requested By :
+					</b>
+					<label>{{vm.model.requestDisposalDetailData.requestedBy}}</label>
+				</span>
+			</div>
+		</div>
+		<!-- Assets Table START  -->
+		<div class="row padding-left-right-set4" ng-show="vm.model.requestDisposalDetailData.assetTypeId == 1">
+			<div class="col-lg-12 col-md-12 padding-top10">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th class="width5">Item Code</th>
+							<th class="width5">Item Name</th>
+							<th class="width6">Generic Name</th>
+							<th class="width4">UOM</th>
+							<th class="width4">UOM Unit</th>
+							<th class="width4">Batch No.</th>
+							<th class="width5">Expiry Date</th>
+							<th class="width4"> Scrap Qty</th>
+							<th class="width10">Reason for Scrap</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="disposal in vm.model.requestDisposalDetailData.items | orderBy:sortType:sortReverse">
+							<td>{{disposal.itemCode}}</td>
+							<td>{{disposal.itemName}}</td>
+							<td>{{disposal.genericName}}</td>
+							<td>{{disposal.uomType}}</td>
+							<td>{{disposal.uomUnit}}</td>
+							<td>{{disposal.batchNo}}</td>
+							<td>{{disposal.expiryDate | date:'MMM-yyyy'}}</td>
+							<td>{{disposal.scrapQuantity}}</td>
+							<td>{{disposal.scrapReason}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- Assets Table END  -->
+		<!-- Consumable Table START -->
+		<div class="row padding-left-right-set4" ng-show="vm.model.requestDisposalDetailData.assetTypeId == 2">
+			<div class="col-lg-12 col-md-12 padding-top10">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th class="width5">Item Code</th>
+							<th class="width5">Item Name</th>
+							<th class="width5">Serial No.</th>
+							<th class="width5">Lot No.</th>
+							<th class="width4"> Scrap Qty</th>
+							<th class="width10">Reason for Scrap</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- Consumable Table END -->
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style padding-right20">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-caret-square-o-right " aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<select ng-disabled="vm.model.requestDisposalDetailData.statusId == 4" class="text-input floating-label dirty" ng-model="vm.model.witnessId">
+									<option value="">Select Witness</option>
+									<option ng-repeat="witness in vm.model.requestDisposalDetailData.witnessDetails" value="{{witness.id}}">{{witness.name}}</option>
+								</select>
+								<label for="code">Witness</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8 padding-left-right8">
+				</div>
+				<div class="col-md-1 padding-left0px-right6px">
+					<div class="">
+						<a href="">
+							<input type="button" value="Save" ng-click="vm.model.SaveApproval()"  ng-disabled="vm.model.witnessId == ''" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+				<div class="col-md-1 padding-left0px-right6px">
+					<div class="">
+						<a href="#/requestForAssetDisposalWorklist">
+							<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>

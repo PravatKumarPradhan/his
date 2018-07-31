@@ -1,0 +1,112 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Package Master</legend> -->
+			<div class="row padding-top8">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id=""
+									class="text-input floating-label"> <label for="code">Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id=""
+									class="text-input floating-label"> <label for="code">Kit Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top10">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout">
+					<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top10">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Print Barcode">
+						<i class="fa fa-barcode" aria-hidden="true"></i></a>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top10">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Search Kit" data-toggle="modal" data-target="#searchKit">
+						Search Kit</a>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row margin-top8">
+			<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+				<div class="tab-btn-primary">
+					<a class="btn btn-primary btn-save-box-shadow" ng-href="#/addNewpreSterilizationProcess/instrumentCleaning">Cleaning Of Instrument</a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+				<div class="tab-btn-primary">
+					<a class="btn btn-primary btn-save-box-shadow" ng-href="#/addNewpreSterilizationProcess/inspection">Inspection</a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+				<div class="tab-btn-primary">
+					<a class="btn btn-primary btn-save-box-shadow" ng-href="#/addNewpreSterilizationProcess/dis-Infection">Dis-infection</a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+				<div class="tab-btn-primary">
+					<a class="btn btn-primary btn-save-box-shadow" ng-href="#/addNewpreSterilizationProcess/kitFormation">Kit Formation</a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+				<div class="tab-btn-primary">
+					<a class="btn btn-primary btn-save-box-shadow" ng-href="#/addNewpreSterilizationProcess/wrapper">Wrapper</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="" ui-view>
+		
+			</div>
+		</div>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+				
+				
+				<div class="col-lg-1 col-md-1 padding-left-right-set4 pull-right">
+					<a href="#/preSterilizationProcess">
+						<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>			
+		</footer>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+});
+  
+  $(".selectedPageName").text("Pre-Sterilization Process");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="preSterilizationProcess"]').parents("li").addClass("active");
+
+</script>

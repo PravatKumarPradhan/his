@@ -1,0 +1,746 @@
+<div id="page-content-wrapper" >
+	<div class="container-fluid his-style">
+		<fieldset>
+			
+			<!-- row 1 -->
+			<div class="row margin-top10">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label">
+								<label for="code">From Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label">
+								<label for="description" class="LISDynamicLabel">To Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-building-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+									<option>Store 1</option>
+									<option>Store 2</option>
+								</select>
+								<label for="description" class="LISDynamicLabel">Store</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+								</select>
+								<label for="description" class="LISDynamicLabel">Status</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 text-width-auto padding-top10">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Search">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- //row 1 -->
+		</fieldset>
+		<div class="row">
+          	<div class="col-md-8"></div>
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search">
+					<i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<!-- <div class="width-div-for-patient-reg padding-top4 ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+						</a>
+					</div> -->
+					
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top10">
+			<div class="col-lg-12 col-md-12 ">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="">
+							Store
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="">
+							Asset Category
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="">
+							Product Category
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="">
+							 Type
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="">
+							Asset Code
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="">
+							Asset Name
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="">
+							Serial No
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width6">
+							Lot No
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width10">
+							Vendor
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width5" title="Accessories Details">
+							Accessories
+						</th>
+						<th class="width5" title="PMS Details">
+							PMS Details
+						</th>
+						<th class="width4">
+							Status
+						</th>
+						<th class="width5">
+							Action
+						</th>
+						</tr>
+						<tr>
+							<td>Biomedical</td>
+							<td>Medical</td>
+							<td>Medical Euipment</td>
+							<td>Suctions Pump</td>
+							<td>SUP00145</td>
+							<td>Suction Pump</td>
+							<td>SR1234</td>
+							<td>LOT0098</td>
+							<td>Medical Expo</td>
+							<td class="padding-edit-button-table">
+								<div class=" text-center">
+									<a><i class="fa fa-info-circle" aria-hidden="true" title="Accessories Details" data-toggle="modal" data-target="#accessoriesDetailsModal"></i></a>
+								</div>
+							</td>
+							<td class="padding-edit-button-table">
+								<div class=" text-center">
+									<a><i class="fa fa-info-circle" aria-hidden="true" title="PMS Details" data-toggle="modal" data-target="#PMSDetailsModal"></i></a>
+								</div>
+							</td>
+							<td>Schedule</td>
+							<td>
+								<div><a href="#/assetScheduler">Create</a></div>
+								<div><a href="#/viewAssetScheduler">View</a></div>
+							</td>
+						</tr>
+					</table> 
+				</div>
+			</div>
+	</div>
+</div>
+<!--  Accessories Details modal start -->
+<div id="accessoriesDetailsModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Accessories Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+			
+				<!--  row start -->
+				<div class="row">
+					<div class="col-lg-12 col-md-12 padding-left-right-set4 common-table-height-250 margin-top4" id="">
+						<table class="table table-bordered table-striped">
+							<tr class="table-th-bg">
+								<th class="width8">
+									Accessories Code
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Accessories Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width4">
+									Qty
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Serial No
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Lot No
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				
+			</div>
+		<!-- 	<div class="modal-footer" style="border:none;">
+				<div class="pull-right">
+					<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Close</button>
+				</div>
+			</div> -->
+		</div>
+	</div>
+</div>
+<!--  Accessories Details modal end -->
+<!-- PMS Details modal start -->
+<div id="PMSDetailsModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					PMS Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body padding10">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 padding-left-right-set4 common-table-height-250 margin-top4" id="">
+						<div class="row schedulerTabs">
+							<ul class="tabs nav nav-tabs">
+								<li ng-class="{ active : isSetFirstTabLevel(1) }" id="" class="padding-top-bottom width15">
+									<a href ng-click="setFirstTabLevel(1)">Manufacture Details</a>
+								</li>
+								<li ng-class="{ active : isSetFirstTabLevel(2) }" id="" class="padding-top-bottom width15">
+									<a href ng-click="setFirstTabLevel(2)">Accessory Details</a>
+								</li>
+								<li ng-class="{ active : isSetFirstTabLevel(3) }" id="" class="padding-top-bottom width15">
+									<a href ng-click="setFirstTabLevel(3)">Vendor Details</a>
+								</li>
+								<li ng-class="{ active : isSetFirstTabLevel(4) }" id="" class="padding-top-bottom width15">
+									<a href ng-click="setFirstTabLevel(4)">Insurance Details</a>
+								</li>
+							</ul>
+						</div>
+						<div class="row">
+							<!-- **************  Manufacture Details TAB start ************** ************** ************** ************** -->
+							<div ng-show="isSetFirstTabLevel(1)">
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr class="table-th-bg">
+													<th class="">
+														Name 
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Mobile No.
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Email
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Contact Person
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Contact No.
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Address
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Country
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														State
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													<th class="">
+														City
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Area
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+														</th>
+													<th class="">
+														Zip Code
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Medical Expo</td>
+													<td>99123912121</td>
+													<td>info@medexpo.com</td>
+													<td>Mr. R Raman</td>
+													<td>99123912121</td>
+													<td>201. AA Complex, R J Road</td>
+													<td>India</td>
+													<td>Delhi</td>
+													<td>New Delhi</td>
+													<td></td>
+													<td>11055</td>
+												</tr>
+											</tbody>
+										</table>
+										
+									</div>
+								</div>
+							</div>
+							<!-- **************  Manufacture Details TAB end ************** ************** ************** ************** -->
+							<!-- **************  Accessory Details TAB start ************** ************** ************** ************** -->
+							<div ng-show="isSetFirstTabLevel(2)">
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr class="table-th-bg">
+													<th class="">
+														Accessory Name 
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Part Number
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Serial Number
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>-</td>
+													<td>-</td>
+													<td>-</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- **************  Accessory Details TAB end ************** ************** ************** ************** -->
+							<!-- **************  Vendor Details TAB start ************** ************** ************** ************** -->
+							<div ng-show="isSetFirstTabLevel(3)">
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr class="table-th-bg">
+													<th class="">
+														Name 
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Mobile No.
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Email
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Fax No
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Contact Person
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Contact No.
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Address
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Country
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														State
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													<th class="">
+														City
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="">
+														Area
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+														</th>
+													<th class="">
+														Zip Code
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Medical Expo</td>
+													<td>99123912121</td>
+													<td>info@medexpo.com</td>
+													<td></td>
+													<td>Mr. R Raman</td>
+													<td>99123912121</td>
+													<td>201. AA Complex, R J Road</td>
+													<td>India</td>
+													<td>Delhi</td>
+													<td>New Delhi</td>
+													<td>-</td>
+													<td>11055</td>
+												</tr>
+											</tbody>
+										</table>
+										
+									</div>
+								</div>
+							</div>
+							<!-- **************  Vendor Details TAB end ************** ************** ************** ************** -->
+							<!-- **************  Insurance Details TAB start ************** ************** ************** ************** -->
+							<div ng-show="isSetFirstTabLevel(4)">
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr class="table-th-bg">
+													<th class="">
+														Insurance Name 
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														Mobile No.
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														Email
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														Contact Person
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														Contact No.
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														Policy No
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														Policy From Date
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														Policy To Date
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														Amount Insured
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														Address
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														Country
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														State
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														City
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														Area
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+													<th class="">
+														Zip Code
+														<!-- <div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div> -->
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>General Insurance Company of India</td>
+													<td>7812091123</td>
+													<td>info@geninsurancecom.com</td>
+													<td>Mr M R Raju</td>
+													<td>9123087564</td>
+													<td>AM1230012</td>
+													<td>01/01/2018</td>
+													<td>01/01/2019</td>
+													<td>50000</td>
+													<td>501. RJ Complex, Mumbai</td>
+													<td>India</td>
+													<td>Maharashtra</td>
+													<td>Mumbai</td>
+													<td></td>
+													<td>409123</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- **************  Insurance Details TAB end ************** ************** ************** ************** -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer his-style" style="border: none;">
+			 	<div class="row margin-top10">
+			 		<div class="col-lg-10 col-sm-10 col-md-10"> 
+			 		</div>
+					<div class="col-lg-2 col-sm-2 col-md-2"> 
+	 					<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow" data-dismiss="modal"	>
+	 				</div>
+			 	</div>
+			</div> -->
+		</div>
+	</div>
+</div>
+<!-- PMS Details modal end -->
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+  
+  $(".selectedPageName").text("Asset PMS Scheduler");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="assetPMSScheduler"]').parents("li").addClass("active");
+});
+</script>

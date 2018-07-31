@@ -1,0 +1,264 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Diet Acceptance</legend> -->
+			<div class="row">
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepicker"
+									model-view-value="true" is-open="datepicker.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker()"> <label for="code" class="">
+									Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-hospital-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option value=""></option>
+								</select> <label for="code">Floor</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-th" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option value=""></option>
+								</select> <label for="code">Ward</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-cutlery" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option value=""></option>
+								</select> <label for="code">Meal</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-2 padding-left0px-right6px"></div>
+				<div class="col-md-1 col-sm-2 padding-left-right-set1">
+					<div class="common-save-button">
+						<a href="" class="btn btn-primary btn-save-box-shadow btn-padding">View</a>
+					</div>
+			</div>
+				
+			</div>
+		</fieldset>
+		<!-- <div class="row padding-left-right-set4 pading-top4">
+			<div class="col-md-8"></div>
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+
+				</div>
+			</div>
+		</div>	 -->
+		
+		<div class="row margin-top4 padding-left-right-1">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		
+		<div class="row padding-left-right-set4 margin-top4">
+				<div class="col-md-12">
+					<table class="table table-bordered">
+						<tr class="">
+							<th class="width1 text-center"><input type="checkbox"></th>
+							<th class="width8"> Patient Details
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width6">Floor
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width6">Ward
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width4">Bed
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width4">Diet Type
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width4">Food Type
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width4">Meal
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width3">Status
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width3">Barcode
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width6"></th>
+						</tr>
+						<tr>
+							<td class="text-center vertical-middle"><input type="checkbox"></td>
+							<td class="vertical-middle"></td>
+							<td class="vertical-middle"></td>
+							<td class="vertical-middle"></td>
+							<td class="vertical-middle"></td>
+							<td class="vertical-middle"></td>
+							<td class="vertical-middle"></td>
+							<td class="vertical-middle"><a href="" data-toggle="modal" data-target="#mealDetails">Breakfast</a></td>
+							<td class="vertical-middle">
+								<label class="switch"> 
+									<input type="checkbox">
+									<div class="slider round"></div>
+								</label>
+							</td>
+							<td class="padding-edit-button-table text-center vertical-middle">
+								<a>
+									<i class="fa fa-barcode" aria-hidden="true" title="Print Barcode"></i>
+								</a>
+							</td>
+							<td class="vertical-middle">
+								<div class="row width-initial">
+										<label class="radio-inline"><input type="radio" name="optradio" class="radioAcceptedHold4">Accept</label> 
+										<label class="radio-inline"><input type="radio" name="optradio" class="radioRejected4">Reject</label>
+									</div>
+									<div class="row rejection-details-row4 margin-top4">
+										<input type="text" class="w-100" placeholder="Remarks">
+									</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Diet Acceptance");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="dietAcceptance"]').parents("li").addClass("active");
+	});
+	
+/* ************** radioRejected4 ********** */
+	$(".rejection-details-row4").hide(); 
+	
+	$( ".radioRejected4" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row4").show();
+		}
+	});
+	$( ".radioAcceptedHold4" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row4").hide();
+		}
+	});
+</script>

@@ -1,0 +1,340 @@
+<div id="page-content-wrapper" class="ng-scope">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="">
+						<b class="padding-right10 ">Ret GP No. :</b>
+						<label>{{vm.model.returnableGatepassAppprovalDetailData.gatepassNo}}</label>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">Ret GP Date:</b>
+						<label>{{vm.model.returnableGatepassAppprovalDetailData.gatepassDate| date:'dd/MM/yyyy'}}</label>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">
+							Store :</b>
+						<label>{{vm.model.returnableGatepassAppprovalDetailData.store}}</label>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">
+							Vendor :</b>
+						<label>{{vm.model.returnableGatepassAppprovalDetailData.vendor}}</label>
+					</span>
+				</div>
+
+			</div>
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="">
+						<b class="padding-right10 ">
+							Type :</b>
+						<label>{{vm.model.returnableGatepassAppprovalDetailData.assetType}}</label>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">Against:</b>
+						<label>{{vm.model.returnableGatepassAppprovalDetailData.against}}</label>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">Reference No:
+						</b>
+						<label>{{vm.model.returnableGatepassAppprovalDetailData.referenceNo}}</label>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">Requested By:
+						</b>
+						<label>{{vm.model.returnableGatepassAppprovalDetailData.requestedBy}}</label>
+					</span>
+				</div>
+			</div>
+			<div class="padding-top10">
+				<div class="row table-scroll">
+					<div class="col-lg-12 col-md-12 table-wrap">
+						<table class="table table-bordered main-table">
+							<thead>
+
+								<tr>
+									<th class="width1 text-center">
+										<input type="checkbox" ng-model="vm.model.selectAllRows" ng-click="vm.model.SelectAllItems()" ng-change="vm.model.valueOnChange(returnable, true)"
+										 ng-disabled="!vm.model.returnableGatepassAppprovalDetailData || vm.model.returnableGatepassAppprovalDetailData.statusId == 9 || !vm.model.returnableGatepassAppprovalDetailData.statusId == 2 || vm.model.returnableGatepassAppprovalDetailData.approvalStatusId != 10"
+										/>
+									</th>
+									<th class="width6">Item Code</th>
+									<th class="width8">Item Name
+										<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+									</th>
+									<th class="width5">UOM
+										<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+									</th>
+									<th class="width5">UOM Unit
+										<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+									</th>
+									<th class="width5">Batch No.
+										<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+									</th>
+									<th class="width5" title="Vendor Invoice Date">Expiry Date
+										<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+									</th>
+									<th class="width5">Lot No.
+										<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+									</th>
+									<th class="width5">Vendor
+										<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+									</th>
+									<th class="width5">Available Qty
+										<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+									</th>
+									<th class="width5">Return Qty
+										<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+									</th>
+									<th class="width5">COP
+										<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+									</th>
+									<th class="width5">Tax Code</th>
+									<th class="width5">Tax %</th>
+									<th class="width5">Total Amount</th>
+									<th class="width5">Tax Amount</th>
+									<th class="width5">Net Amount</th>
+									<th class="width8">Approved Return Qty</th>
+									<th class="width5">Return Qty</th>
+									<th class="width5">Reject</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="returnable in vm.model.returnableGatepassAppprovalDetailData.items | orderBy:sortType:sortReverse">
+									<td class=" text-center">
+										<input type="checkbox" ng-model="returnable.isSelected" ng-disabled="vm.model.returnableGatepassAppprovalDetailData.statusId != 2 "
+										 ng-click="vm.model.SelectItem(returnable)" ng-change="vm.model.valueOnChange(returnable, false)" />
+									</td>
+									<td>{{returnable.itemCode}}</td>
+									<td>{{returnable.itemName}}</td>
+									<td>{{returnable.uomType}}</td>
+									<td>{{returnable.uomUnit}}</td>
+									<td>{{returnable.batchNo}}</td>
+									<td>{{returnable.expiry | date:'MMM-yyyy'}}</td>
+									<td>{{returnable.lotNo}}</td>
+									<td>{{returnable.vendor}}</td>
+									<td>{{returnable.availableQuantity}}</td>
+									<td>{{returnable.returnQuantity}}</td>
+									<td>{{returnable.cop}}</td>
+									<td>{{returnable.taxCode}}</td>
+									<td>{{returnable.taxPercentage}}</td>
+									<td>{{returnable.totalAmount}}</td>
+									<td>{{returnable.totalTaxAmount}}</td>
+									<td>{{returnable.netAmount}}</td>
+									<td class="vertical-middle">
+										<div class="row approved-qty-remark">
+											<input type="text" class="w-100" ng-model="returnable.approvedQuantity" ng-blur="vm.model.ApprovedQuantity(returnable)" ng-if="!returnable.isDisabled"
+											 numbers-only>
+											<div ng-if="returnable.isDisabled">{{!!returnable.approvedQuantity ? returnable.approvedQuantity : 0 }}</div>
+											<!-- ng-model="datum.approvedQuantity = (datum.isSelected ? datum.quantity : 0)" -->
+										</div>
+									</td>
+									<td>{{returnable.rejectedQuantity}}</td>
+									<td class=" vertical-middle">
+										<div class="checkbox">
+											<label class="switch switch-small">
+												<input type="checkbox" class="switchInput" ng-disabled="returnable.isDisabled" ng-click="vm.model.RejectionPopup(returnable)"
+												 ng-model="returnable.isReject">
+												<div class="slider round slider-small"></div>
+											</label>
+										</div>
+									</td>
+								</tr>
+				
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20"> 
+			<div class="row padding-left-right-set4">
+				<div class="col-lg-12 col-md-12 col-sm-12 padding-right20">
+					<table class=" table table-bordered">
+						<tbody>
+							<tr>
+								<th class="width7"><label>Total Amount</label></th>
+								<th class="width8">{{vm.model.returnableGatepassAppprovalDetailData.totalAmount}}</th>
+								<th class="width7"><label>Tax Amount</label></th>
+								<th class="width8">{{vm.model.returnableGatepassAppprovalDetailData.totalTaxAmount}}</th>
+								<th class="width8"><label>Net Amount</label></th>
+								<th class="width8">{{vm.model.returnableGatepassAppprovalDetailData.netAmount}}</th>
+							</tr>
+							<tr>
+								<th class="width7 vertical-top"><label>Remarks</label></th>
+								<th class="width8" colspan="5">{{vm.model.returnableGatepassAppprovalDetailData.remark}}</th>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="row padding-top5 margin-top10 padding-right20">
+				<div class="col-md-1 text-right">
+					<b>
+						<label>Remark:</label>
+					</b>
+				</div>
+				<div class="col-lg-9 col-md-9 padding-left-right8">
+						<textarea row="1" class="form-control" ng-model="vm.model.remark"></textarea>
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a>
+						<input type="button" value="Save" ng-click="vm.model.SaveApproval()" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a href="#/returnaleGatepassApproval">
+						<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a> 
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+<div id="qtyaccepatReject" class="modal fade ng-scope in common-small-popup" role="dialog" style="z-index:1300 !important;background: rgba(0, 0, 0, 0.33);">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Rejection
+					<button type="button" ng-click="vm.model.ModalDismiss('qtyaccepatReject')" class="close">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12 padding-left-right-set">
+						<div class="row input-container margin-top10">
+							<div class="col-lg-6 col-md-6 col-sm-12">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="rejectQty" name="rejectQty" ng-model="vm.model.rejectQty" class="text-input floating-label" ng-class="{dirty: vm.model.rejectQty}"
+										 numbers-only>
+										<label for="rejectQty">Qty</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select name="rejectReason" id="rejectReason" class="text-input floating-label" ng-model="vm.model.rejectReason">
+											<option value="">Select Reason</option>
+											<option ng-repeat="datum in vm.model.reasons" value="{{datum.id}}">{{datum.reason}}</option>
+										</select>
+										<label for="rejectReason">Select Reason</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row input-container margin-top10">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<textarea name="rejectNote" rows="4" id="rejectNote" class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty"
+									 ng-model="vm.model.rejectNote" ng-class="{dirty: vm.model.rejectNote}"></textarea>
+									<label for="rejectNote">Note</label>
+								</div>
+							</div>
+						</div>
+						<!-- <input type="text" id="commonId" /> -->
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" ng-disabled="!vm.model.rejectQty" class="btn btn-primary" ng-click="vm.model.SaveAcceptReject()">Save</button>
+			</div>
+		</div>
+	</div>
+</div>

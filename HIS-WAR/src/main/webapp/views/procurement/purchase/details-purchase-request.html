@@ -1,0 +1,170 @@
+<div id="page-content-wrapper" class="ng-scope">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+            <b class="padding-right10 ">PR Date:</b>
+            <label>{{vm.model.purchaseRequests.prDate | date: 'dd/MM/yyyy'}}</label> </span>
+				</div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10"><b class="padding-right10 ">PR No. :</b><label>{{vm.model.purchaseRequests.prNo}}</label> </span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10"><b class="padding-right10 ">
+              Status :</b><label>{{vm.model.purchaseRequests.status}}</label> </span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10"><b class="padding-right10 ">
+              Approval Status :</b><label>{{vm.model.purchaseRequests.approvalStatus}}</label> </span>
+        </div>
+			</div>
+			<div class="row margin-top10">
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10"><b class="padding-right10 ">
+              Store :</b><label>{{vm.model.purchaseRequests.storeName}}</label> </span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10"><b class="padding-right10 ">Priority
+              :</b> <label>{{vm.model.purchaseRequests.priority}}</label></span>
+        </div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">PR Type:</b><label>{{vm.model.purchaseRequests.prType}}</label>
+					</span>
+				</div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10"><b class="padding-right10 ">Type:</b><label>{{vm.model.purchaseRequests.assetType}}</label>
+          </span>
+        </div>
+			</div>
+		<div class="row table-container">
+		  <div class="col-lg-12 col-md-12  table-container-header padding-top10">
+        <table class="table table-striped table-hover table-condensed table-bordered">
+				  <thead>
+           <!-- <tr class="table-th-bg">
+            <th colspan="8" class="font-weight700">Item Details</th>
+           </tr> -->
+					 <tr>
+						<th class="width4">Item Code
+							<div class="float_right" ng-click="sort = 'itemCode'; reverse = !reverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">Item Name
+							<div class="float_right" ng-click="sort = 'itemName'; reverse = !reverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width4">UOM
+							<div class="float_right" ng-click="sort = 'uomType'; reverse = !reverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width4">UOM Unit
+							<div class="float_right" ng-click="sort = 'uomUnit'; reverse = !reverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width4">Current Stock
+							<div class="float_right" ng-click="sort = 'availableQuantity'; reverse = !reverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width4">Indent Quantity
+							<div class="float_right" ng-click="sort = 'indentQuantity'; reverse = !reverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width4">PR Quantity
+							<div class="float_right" ng-click="sort = 'quantity'; reverse = !reverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width13">
+							Specifications
+							<div class="float_right" ng-click="sort = 'specification'; reverse = !reverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+					</tr>
+				</thead>
+      </table>
+    </div>
+    <div class="table-container-body" style="height: 590px; overflow-y: scroll;">
+      <table class="table table-striped table-hover table-condensed table-bordered">
+				<tbody>
+					<tr ng-repeat="purchaseRequest in vm.model.purchaseRequests.items | orderBy:sort:reverse">
+						<td class="width4">{{purchaseRequest.itemCode}}</td>
+						<td class="width8">{{purchaseRequest.itemName}}</td>
+						<td class="width4">{{purchaseRequest.uomType}}</td>
+						<td class="width4">{{purchaseRequest.uomUnit}}</td>
+						<td class="width4">{{purchaseRequest.availableQuantity}}</td>
+						<td class="width4">{{purchaseRequest.indentQuantity}}</td>
+						<td class="width4">{{purchaseRequest.quantity}}</td>
+						<td class="width13" style="width: 12.83% !important">{{purchaseRequest.specification}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+		</fieldset>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20" style="padding-right: 30px !important;">
+	<div class="row his-style margin-top10 padding-right20">
+		<div class="col-lg-10 col-md-10">
+			<b class="padding-right10 ">Remark:</b>
+      <span>{{vm.model.purchaseRequests.remark}}</span>
+		</div>
+		<div class="col-md-1 padding-left0px-right6px">
+			<!-- <div class="">
+				<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+			</div> -->
+		</div>
+		<div class="col-lg-1 col-md-1 padding-left-right-set4">
+				<a href ng-click="vm.model.NavigateToBack()">
+					<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+				</a>
+			</div>
+	</div>			
+</footer>
+	</div>
+</div>

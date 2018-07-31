@@ -1,0 +1,1208 @@
+<style>
+.table-td-height .table>tbody>tr>td
+{
+	height:30px
+}
+
+.tabular:hover {
+    background: #5ab7c8;
+}
+.activeTabular {
+    background: #5ab7c8;
+}
+
+</style>
+
+<!-- Page Content -->
+<div id="page-content-wrapper" class="margin-bottom-fieldset">
+	<div class="container-fluid his-style">
+		<div class="row ">
+			<ul class="tabs nav nav-tabs">
+				<li ng-class="{ active : isSetFirstTabLevel(1) }" id="case-sheet" style="width:140px; background-color:#5F9EA0;">
+					<a href ng-click="setFirstTabLevel(1)">Doctor/Modality</a>
+				</li>
+				<li ng-class="{ active : isSetFirstTabLevel(2) }" id="complaints">
+					<a href ng-click="setFirstTabLevel(2)">EHC</a>
+				</li>
+			</ul>
+		</div>
+		<div class="row padding-left-right-set4">
+			<div ng-show="isSetFirstTabLevel(1)">
+				<div class="row">
+					<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label" ng-model="selectType" ng-change="getDoctorModalityList(selectType);">
+										<option value="doctor">Doctor Appointment</option>
+										<option value="modality">Modality</option>
+									</select> <label for="code">Select </label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- For Doctor -->
+					<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10" ng-if="selectType == 'doctor'">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label" ng-model="specialityId" ng-change="getDoctorBySpeciality(specialityId)" >
+									<option>Select Specialty</option>
+										<option ng-repeat="info in specialityList" ng-if="info.isClinicalSpeciality =='Y'" value="{{info.specialityId}}">{{info.specialityName}}</option>
+									</select> <label for="code">Doctor Specialty</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10" ng-if="selectType == 'doctor'">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" ng-model="specDoctorId" ng-change="getSlotsUsingDoctorId(specDoctorId)" >
+										<option>Select Doctor</option>
+										<option ng-repeat="info in doctorList" value="{{info.doctorId+'_'+info.specialityId+'_'+info.doctorName+'_'+info.specialityName+'_'+info.allowedOverBookingSlots}}" >{{info.doctorName}}</option>
+									</select> <label for="code">Select Doctor</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- For Modality -->
+						<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10" ng-if="selectType == 'modality'">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label" ng-model="specialityId" ng-change="getSubSpecialityBySpeciality(specialityId)" >
+									<option>Select Specialty</option>
+										<option ng-repeat="info in specialityList" ng-if="info.isClinicalSpeciality =='Y'" value="{{info.specialityId}}">{{info.specialityName}}</option>
+									</select> <label for="code">Specialty</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10" ng-if="selectType == 'modality'">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" ng-model="subSpecialityId" ng-change="getModalityBySubSpeciality(subSpecialityId)" >
+										<option>Select Sub Speciality</option>
+										<option ng-repeat="info in subSpecialityList" value="{{info.specialityId+'_'+info.subSpecialityId}}" >{{info.subSpecialityName}}</option>
+									</select> <label for="code">Select Sub Speciality</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10" ng-if="selectType == 'modality'">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" ng-model="specDoctorId" ng-change="getSlotsUsingDoctorId(specDoctorId)">
+										<option></option>
+										<option ng-repeat="info in modalityMaster" value="{{info.modalityId+'_'+info.subSpecialityId+'_'+info.specialityId+'_'+info.modalityDesc+'_'+info.subSpecialityName}}">{{info.modalityDesc}}</option>
+									</select> <label for="code">Select Modality</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="row margin-top8 ">
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 doctor-list">
+					<div  ng-repeat="info in commonListDoctorModality" ng-if="selectType == 'doctor'">
+					<div class="row tabular" id="tabular{{info.doctorId}}" ng-click="getSlots(info.doctorId,info.specialityId,info.doctorName,info.specialityName,info.allowedOverBookingSlots)">
+							
+								<div class="col-lg-12 col-sm-12 col-md-12">
+					            		<div class="main-doc-div">
+					            			<a href="">
+					            				<div class="common-style-doc">
+						    						<img src="resources/assets/images/tempImages/Dr2 copy.png" class="img-circle" width="100" height="100">
+						    					</div>
+							    				<div class="common-style-doc">
+							    					<div class="doc-name-schedule">{{info.doctorName}}</div>
+												    <div class="doc-Spaciality-schedule">{{info.specialityName}}</div>
+							    				</div>
+					            			</a>
+				    					</div>
+								</div>
+							
+						</div>
+						</div>
+						
+						<div ng-repeat="info in commonListDoctorModality" ng-if="selectType == 'modality'">
+					<div class="row tabular" id="tabular{{info.modalityId}}" ng-click="getSlotsForModality(info.modalityId,info.subSpecialityId,info.specialityId,info.modalityDesc,info.subSpecialityName)">
+							
+								<div class="col-lg-12 col-sm-12 col-md-12">
+					            		<div class="main-doc-div">
+					            			<a href="">
+					            				 <div class="common-style-doc">
+						    						<img src="{{info.path}}" class="img-circle" width="100" height="100">
+						    					</div> 
+							    				<div class="common-style-doc">
+							    					<div class="doc-Spaciality-schedule">{{info.equipmentNumber}}</div>
+							    					<div class="doc-name-schedule">{{info.modalityDesc}}</div>
+												    <div class="doc-Spaciality-schedule">{{info.subSpecialityName}}</div>
+							    				</div>
+					            			</a>
+				    					</div>
+								</div>
+							
+						</div>
+						</div>
+					<!-- 	<div class="row">
+							
+								<div class="col-lg-12 col-sm-12 col-md-12">
+					            		<div class="main-doc-div">
+					            			<a href="#/appointmentScheduling/year">
+					            				<div class="common-style-doc">
+						    						<img src="resources/assets/images/tempImages/Dr2 copy.png" class="img-circle" width="100" height="100">
+						    					</div>
+							    				<div class="common-style-doc">
+							    					<div class="doc-name-schedule">Dr. Mark Potter</div>
+												    <div class="doc-Spaciality-schedule">Cardiology</div>
+							    				</div>
+					            			</a>
+				    					</div>
+								</div>
+							
+						</div> -->
+						<!-- <div class="row doctorRow">
+							
+								<div class="col-lg-12 col-sm-12 col-md-12">
+					            		<div class="main-doc-div">
+						    				<div class="common-style-doc">
+						    					<img src="resources/assets/images/tempImages/Dr2 copy.png" class="img-circle" width="100" height="100">
+						    				</div>
+						    				<div class="common-style-doc">
+						    					<div class="doc-name-schedule">Dr. Chris Steele</div>
+											    <div class="doc-Spaciality-schedule">Cardiology</div>
+						    				</div>
+				    					</div>
+								</div>
+						
+						</div> -->
+						<!-- <div class="row doctorRow">
+						
+								<div class="col-lg-12 col-sm-12 col-md-12">
+					            		<div class="main-doc-div">
+						    				<div class="common-style-doc">
+						    					<img src="resources/assets/images/tempImages/Dr2 copy.png" class="img-circle" width="100" height="100">
+						    				</div>
+						    				<div class="common-style-doc">
+						    					<div class="doc-name-schedule">Dr. Moni Kapoor</div>
+											    <div class="doc-Spaciality-schedule">Cardiology</div>
+						    				</div>
+				    					</div>
+								</div>
+							
+						</div> -->
+					</div>
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+						<div class="row">
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+								<div class="tab-btn-primary">
+									<a class="btn btn-primary btn-save-box-shadow" ng-href="#/appointmentScheduling/year" ng-click="test()">Year</a>
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+								<div class="tab-btn-primary">
+									<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/appointmentScheduling/month" ng-click="getMonthWiseSlot(info.fromDate,'M')">Month</a>
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+								<div class="tab-btn-primary">
+									<a class="btn btn-primary btn-save-box-shadow" ng-href="#/appointmentScheduling/week">Week</a>
+								</div>
+							</div>
+						 	<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+								<div class="tab-btn-primary">
+									<a class="btn btn-primary btn-save-box-shadow" ng-href="#/appointmentScheduling/day">Day</a>
+								</div>
+							</div>
+							
+							<div class="col-lg-7 col-md-7 col-sm-7 padding-left-right-set4" style="padding-top: 8px;">
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+										<div class="row">
+											<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+												<div class="color-indiction-green-div"></div>
+											</div>
+											<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set0">
+												<span class="color-indication-green-span">Appointment available</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+										<div class="row">
+											<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+												<div class="color-indiction-orange-div"></div>
+											</div>
+											<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set0">
+												<span class="color-indication-orange-span">Slot over booked</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+										<div class="row">
+											<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+												<div class="color-indiction-Grey-div"></div>
+											</div>
+											<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set0">
+												<span class="color-indication-grey-span">Slot blocked</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+										<div class="row">
+											<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+												<div class="color-indiction-Red-div"></div>
+											</div>
+											<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set0">
+												<span class="color-indication-red-span">Slot Not Available</span>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right">
+								<div class="width-div-for-patient-reg ">
+									<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"><i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a>	
+								</div>
+							</div>
+						</div>
+						<div class="row dayWiseSlot" ui-view>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-show="isSetFirstTabLevel(2)">
+				
+				<div class="row margin-top8 ">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="row ">
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<ul class="tabs nav nav-tabs">
+									<li ng-class="{ active : isSetSecondTabLevel(1) }" id="case-sheet">
+										<a href ng-click="setSecondTabLevel(1)">Year</a>
+									</li>
+									<li ng-class="{ active : isSetSecondTabLevel(2) }" id="complaints">
+										<a href ng-click="setSecondTabLevel(2)">Month</a>
+									</li>
+									<li ng-class="{ active : isSetSecondTabLevel(3) }" id="case-sheet">
+										<a href ng-click="setSecondTabLevel(3)">Week</a>
+									</li>
+									<li ng-class="{ active : isSetSecondTabLevel(4) }" id="complaints">
+										<a href ng-click="setSecondTabLevel(4)">Day</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+										<div class="row">
+											<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+												<div class="color-indiction-green-div"></div>
+											</div>
+											<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set0">
+												<span class="color-indication-green-span">Appointment available</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+										<div class="row">
+											<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+												<div class="color-indiction-orange-div"></div>
+											</div>
+											<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set0">
+												<span class="color-indication-orange-span">Slot over booked</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+										<div class="row">
+											<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+												<div class="color-indiction-Grey-div"></div>
+											</div>
+											<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set0">
+												<span class="color-indication-grey-span">Slot blocked</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+										<div class="row">
+											<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+												<div class="color-indiction-Red-div"></div>
+											</div>
+											<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set0">
+												<span class="color-indication-red-span">Slot Not Available</span>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right">
+								<div class="width-div-for-patient-reg ">
+									<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"><i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a>	
+								</div>
+							</div>
+						</div>
+						<div class="row padding-left-right-set4">
+							<div ng-show="isSetSecondTabLevel(1)">
+									<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+										<div class="row  margin-top8">
+											<div class="col-md-12 col-sm-12 col-xs-12 ">
+												<fieldset class=" div-fieldset ">
+														<legend class="heading-div">
+															<span>Year </span>
+														</legend>
+														<div class="row">
+														
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab" ng-repeat="info in yearSlotList">
+												<a href="#/appointmentScheduling/month" ng-click="getMonthWiseSlot(info.fromDate,'Y')" ng-class="{ active : isSetSecondTabLevel(2) }">
+													<div class="div-time"> 
+														{{info.appointmentDate}}
+													</div>
+												</a>
+											</div>
+											
+															<!-- <div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+																<a href="">
+																	<div class="div-time"> 
+																		Oct 2017
+																	</div>
+																</a>
+															</div>
+															<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+																<div class="div-time "> 
+																	Nov 2017
+																</div>
+															</div>
+															<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+																<div class="div-time">
+																	 Dec 2017
+																</div>
+															</div>
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+															<div class="div-time doc-not-available-ellapse"> 
+															  	Jan 2018
+															 </div>
+														</div>
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+															<div class="div-time"> 
+															    Feb 2018
+															</div>
+														</div>
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+															<div class="div-time"> 
+															   Mar 2018
+															</div>
+														</div>
+														
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+															<div class="div-time"> 
+																Apr 2018
+															</div>
+														</div>
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+															<div class="div-time"> 
+																May 2018
+															</div>
+														</div>
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+															<div class="div-time">
+																 June 2018
+															</div>
+														</div>
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+															<div class="div-time"> 
+															  	July 2018
+															 </div>
+														</div>
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+															<div class="div-time"> 
+															    Aug 2018
+															</div>
+														</div>
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+															<div class="div-time"> 
+															   Sep 2018
+															</div>
+														</div>
+														
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+															<div class="div-time"> 
+															  	Oct 2018
+															 </div>
+														</div>
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+															<div class="div-time"> 
+															    Nov 2018
+															</div>
+														</div>
+														<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+															<div class="div-time"> 
+															   Dec 2018
+															</div>
+														</div> -->
+												</div>
+											</fieldset>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div ng-show="isSetSecondTabLevel(2)">
+								<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 margin-top8">
+									<table class="table table-bordered">
+										
+										<tr >
+											<th class="text-center" colspan="8">
+												
+												<span><!-- 01st Jan 18 - 04th Feb 18 -->{{ firstDate | date :  " MMMM d, y" }} - {{ lastDate | date :  " MMMM d, y" }}</span>
+											</th>
+										</tr>
+										<tr>
+											<th class="width3">Week</th>
+											<th class="width12" ng-repeat="day in dayList">{{day.name}}</th>
+											
+										</tr>
+										<tr ng-repeat="week in weekArray">
+		<td><a href="#/appointmentScheduling/week" ng-click="getWeekWiseSlots(week.id)" ng-class="{ active : isSetSecondTabLevel(3) }" >
+					{{week.name}}
+				</a></td>
+		<td id="color1{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="1 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,1)" > 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div> 
+		</div>
+		</td>
+		<td id="color2{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="2 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,2)"> 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div> 
+		</div>
+		</td>
+		<td id="color3{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="3 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,3)"> 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div> 
+		</div>
+		</td>
+		<td id="color4{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="4 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,4)"> 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div> 
+		</div>
+		</td>
+		<td id="color5{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="5 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,5)"> 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div> 
+		</div>
+		</td>
+		<td id="color6{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="6 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,6)"> 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div>
+		</div> 
+		</td>
+		<td id="color7{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="7 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,7)"> 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div> 
+		</div>
+		</td>
+		</tr>
+									</table>
+								</div>
+							</div>
+							<div ng-show="isSetSecondTabLevel(3)">
+									<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 margin-top8 table-td-height">
+										<table class="table table-bordered">
+											<tr >
+											</tr>
+											<tr >
+												<th class="text-center" colspan="8">
+													<div class="width30">
+															<span class="float_left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+															<span><!-- 08th Jan 18 - 14th Jan 18 -->{{ fromDateForWeek | date :  " MMMM d, y"}}-{{toDateForWeek | date :  " MMMM d, y"}}</span>
+															<span class="float_right"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></span>
+													</div>
+												</th>
+											</tr>
+											<tr>
+											<th class="width6"
+												ng-repeat="weekDate in slotListMonth[wkId - 1]"
+												style="padding: 0px !important;">
+												<div class="padding-left-right-set4">{{
+													weekDate.split('_')[1] | date : " d MMM yy" }}</div>
+												<div class="padding-left-right-set4">{{
+													weekDate.split('_')[1] | date : " EEEE" }}</div>
+												<table class="table table-bordered">
+													<thead ng-init="dt=weekDate.split('_')[1]">
+														<tr
+															ng-repeat="wkSlots in slotsListWeek|filter:{'appointmentDate2':dt}">
+															<!-- <td  class="bg-green cursor-pointer" style="padding:8px !important">
+								<div class="font-size-12 text-center">{{wkSlots.fromTimeString}}</div>
+							</td> -->
+															<td
+																class="{{wkSlots.uhidNumber != null ?'bg-red1':'bg-green'}} cursor-pointer day-slot-div"
+																style="padding: 0px !important;" data-toggle="modal"
+																data-target="{{wkSlots.uhidNumber == null ?'#patientSearchForRegistration':''}}"
+																ng-click="getSlotDetailsPopup(wkSlots)">
+																<div class="font-size-12 text-center">{{wkSlots.fromTimeString}}</div>
+																<!-- <div class="font-size-10 text-center div-word-break">
+									<i class="fa fa-info-circle" data-toggle="modal" data-target="#patientDetailsForAppointments" style="margin-right: 4px;color: #212121;"></i>
+									PC-17-0045
+								</div> -->
+																<div
+																	class="font-size-10 text-center div-word-break cursor-pointer"
+																	ng-if="wkSlots.uhidNumber != null ">
+																	<i class="fa fa-info-circle" data-toggle="modal"
+																		data-target="#patientDetailsForAppointments"
+																		style="margin-right: 4px; color: #212121;"
+																		ng-click="getBookSlotDetails(wkSlots)"></i>{{wkSlots.uhidNumber}}
+																</div>
+															</td>
+														</tr>
+													</thead>
+												</table>
+											</th>
+										</tr>
+										</table>
+									</div>
+							</div>
+							<div ng-show="isSetSecondTabLevel(4)">
+									<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 margin-top8 table-td-height">
+										<table class="table table-bordered ">
+											<tr >
+												<th class="text-center" colspan="9">
+													<div class="width30">
+														<!-- <span class="float_left" ng-click="leftArrow()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+														<span>09th Jan 18 Tuesday{{ dayDate | date : "fullDate" }}</span>
+														<span class="float_right" ng-click="rightArrow()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></span> -->
+														<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepicker"
+									model-view-value="true" is-open="datepicker.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker()"  ng-change="getSlotsOfDate()"> 
+													</div>
+												</th>
+											</tr>
+										</table>
+										<div class="row">
+											<!-- <div class="col-lg-4 col-md-4 col-sm-4">
+												<table class="table table-bordered">
+														<tr >
+															<th colspan="3" class="text-center">Morning</th>
+														</tr>
+														<tr>
+															<td  class="bg-red1 width33-3">
+																<div class="font-size-12 text-center"></div>
+															</td>
+															<td class="bg-green width33-3">
+																<div class="font-size-12 text-center"></div>
+															</td>
+															<td class="bg-green width33-3">
+																<div class="font-size-12 text-center">  </div>
+															</td>
+														</tr>
+														<tr>
+															<td class="bg-green">
+																<div class="font-size-12 text-center"></div>
+															</td>
+															<td class="bg-green">
+																<div class="font-size-12 text-center"></div>
+															</td>
+															<td class="bg-green">
+																<div class="font-size-12 text-center"></div>
+															</td>
+														</tr>
+												</table>
+											</div> -->
+											
+										<div ng-repeat="info in slotDetailsList">
+		<div class="col-lg-1 col-md-1 col-sm-2 margin-top2 padding-left-right-set1 width10" >
+			<div class="row"   >
+				<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set1">
+					<div  class="{{info.uhidNumber != null ?'bg-red1':'bg-green'}} day-slot-div" data-toggle="modal" data-target="{{info.uhidNumber == null ?'#patientSearchForRegistration':''}}" ng-click="getSlotDetailsPopup(info)">
+						<div class="font-size-12 text-center">Slot {{$index+1}}</div>
+						<div class="font-size-10 text-center div-word-break cursor-pointer" ng-if="info.uhidNumber != null ">
+						<i class="fa fa-info-circle" data-toggle="modal" data-target="#patientDetailsForAppointments" style="margin-right: 4px;color: #212121;" ng-click="getBookSlotDetails(info)"></i>{{info.uhidNumber}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+										</div>
+										
+									</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- </div> -->
+
+
+
+
+
+<!-- PATIENT DETAILS POPUP -->
+<!-- <div id="patientDetailsForAppointments" class="modal common-small-popup fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Patient Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="col-md-12 ">
+						<div class="common-small-popup-body">
+							<div><b>Patient Name</b> <span style=" margin-left: 20px;">: Johan Hosy, <span>29 Y Male</span></span></div>
+							<div><b>Mobile Number</b> <span style="margin-left: 7px;">: 8234567896</span></div>
+							<div><b>Email Id</b><span style="margin-left: 64px;">: johanHosy@gmail.com</span></div>
+							<div><b>Address</b><span style="margin-left: 64px;">: P-65, South Extension, Part-2, New Delhi 110049 </span></div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+</div> -->
+
+
+
+<!-- PATIENT SEARCH POPUP -->
+<div id="ECHDetails" class="common-large-popup modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						EHC Scheduling 
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="row searched-patient-details-row">
+						<div class="col-lg-12 col-md-12">
+							<span class="margin-left10 ng-binding"><span class="padding-right5 font-weight600">Doctor Deatils :</span> </span>
+							<span class="margin-left10 ng-binding"><span class="padding-right5 font-weight600"></span>Dr. Mark Potter, Cardiology </span>
+							
+							<span class="margin-left10 ng-binding"><span class="padding-right5 font-weight600">
+								Appointment Details : Date : 05/02/2018 From Time : 10:00Am, To Time : 12:30Pm </span> 
+							</span>
+						</div>
+					</div>
+					<div class="col-md-12">
+					
+						<div ng-include="'./views/common/common-patient-search-opd-without-counter.html'"></div>
+					
+					</div>
+					
+					<div id="mediaType" class="row padding-left-right-set4 uk-input-group customRadioBtn text-center">													
+						<span>
+								<input id="newRadio" name="complaints" type="radio" value="1">
+								<label for="newRadio">New</label>
+						</span>
+						<span>
+								<input id="registeredRadio" name="complaints" type="radio" value="2">
+								<label for="registeredRadio">Registered</label>
+						</span>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label ">
+											<option></option>
+											<option>-</option>
+										</select>
+										<label for="code">Prefix</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label " > 
+										<label for="description" class="LISDynamicLabel" >First Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label " > 
+										<label for="description" class="LISDynamicLabel" >Middle Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label " > 
+										<label for="description" class="LISDynamicLabel" >Last Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label ">
+											<option></option>
+											<option>-</option>
+										</select>
+										<label for="code">Gender</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label "> 
+										<label for="description" class="LISDynamicLabel" >DOB</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label "> 
+										<label for="description" class="LISDynamicLabel" >Age(DD/MM/YYYY)</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label "> 
+										<label for="description" class="LISDynamicLabel" >Mobile No.</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label"> 
+										<label for="description" class="LISDynamicLabel" >Email Id</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label "> 
+										<label for="description" class="LISDynamicLabel" >Remark</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label ">
+											<option></option>
+											<option>-</option>
+										</select>
+										<label for="code">EHC Package</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer ">
+					<div class="col-lg-1 col-md-1 padding-left-right-set4 float_right margin-top10">
+						<button type="button" class="btn btn-primary btn-save-box-shadow">Save</button>
+					</div>
+      			</div>
+			</div>
+		</div>
+</div>
+
+
+<!-- PATIENT SEARCH POPUP -->
+<div id="patientSearchForRegistration" class="common-large-popup modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Doctor Modality Scheduling 
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+						<div class="row searched-patient-details-row">
+						<div class="col-lg-12 col-md-12">
+							<span class="margin-left10 ng-binding"><span class="padding-right5 font-weight600">Doctor Deatils :</span> </span>
+							<span class="margin-left10 ng-binding"><span class="padding-right5 font-weight600"></span>{{doctorName+', '+specialityName}} </span>
+							
+							<span class="margin-left10 ng-binding"><span class="padding-right5 font-weight600">
+								Appointment Details : Date : {{appointmentDate}} From Time : {{fromTime}}, To Time : {{toTime}} </span> 
+							</span>
+						</div>
+					</div>
+					<div class="col-md-12">
+					
+						<!-- <div ng-include="'./views/common/common-patient-search-opd-without-counter.html'"></div> -->
+						<div ng-include="'./views/common/common-patient-search-appointment-schdule.html'"></div>
+					</div>
+					
+					<div id="mediaType" class="row padding-left-right-set4 uk-input-group">													
+						<span>
+								<input id="newRadio" name="complaints" type="radio"  value="1" ng-model="regiType" ng-click="newPatientChange()">
+								<label for="newRadio">New</label>
+						</span>
+						<span>
+								<input id="registeredRadio" name="complaints" type="radio" value="2" ng-model="regiType" ng-click="registerPatientChange()">
+								<label for="registeredRadio">Registered</label>
+						</span>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label " ng-model="patientDetails.prefixId" ng-disabled="fieldsDisabled">
+											<option ng-repeat="info in prefixList" value="{{info.prefixId}}">{{info.prefixDesc}}</option>
+										</select>
+										<label for="code">Prefix</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id=""  ng-model="patientDetails.firstName" ng-disabled="fieldsDisabled" class="text-input floating-label " > 
+										<label for="description" class="LISDynamicLabel" >First Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" ng-model="patientDetails.middleName" ng-disabled="fieldsDisabled"  class="text-input floating-label " > 
+										<label for="description" class="LISDynamicLabel" >Middle Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" ng-model="patientDetails.lastName"  ng-disabled="fieldsDisabled" class="text-input floating-label " > 
+										<label for="description" class="LISDynamicLabel" >Last Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label" ng-model="patientDetails.genderId" ng-disabled="fieldsDisabled">
+											<option></option>
+											<option ng-repeat="sex in sexMasterList" value="{{sex.id}}">{{sex.desc}}</option>
+										</select>
+										<label for="code">Gender</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<!-- <input type="text" name="description" id="" ng-model="patientDetails.birthDate" ng-disabled="fieldsDisabled" class="text-input floating-label "> --> 
+										<input type="text" class="text-input floating-label dirty"
+									name="datepickerDOB" id="datepickerDOB"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepickerDOB"
+									model-view-value="true" is-open="datepickerDOB.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerDOB()" ng-blur="calculateAge()"  ng-disabled="fieldsDisabled"> 
+										<label for="description" class="LISDynamicLabel" >DOB</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" ng-model="patientDetails.age" ng-disabled="fieldsDisabled" class="text-input floating-label "> 
+										<label for="description" class="LISDynamicLabel" >Age(DD/MM/YYYY)</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" ng-model="patientDetails.mobileNumber" ng-disabled="fieldsDisabled" class="text-input floating-label "> 
+										<label for="description" class="LISDynamicLabel" >Mobile No.</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" ng-model="patientDetails.email" ng-disabled="fieldsDisabled" class="text-input floating-label"> 
+										<label for="description" class="LISDynamicLabel" >Email Id</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						 <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10" ng-if="selectedSlotId == '3'">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label" ng-model="patientDetails.ehcPackageId" >
+											<option ng-repeat="package in packageEHCList" value="{{package.packageMasterId}}">{{package.serviceDescription}}</option>
+										</select>
+										<label for="code">EHC Package</label>
+									</div>
+								</div>
+							</div>
+						</div> 
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" ng-model="patientDetails.remark" class="text-input floating-label "> 
+										<label for="description" class="LISDynamicLabel" >Remark</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10" ng-if="selectedSlotId == '3'">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label" ng-model="patientDetails.genderId" ng-disabled="fieldsDisabled">
+											<option></option>
+											<option ng-repeat="sex in sexMasterList" value="{{sex.id}}">{{sex.desc}}</option>
+										</select>
+										<label for="code">EHC Package</label>
+									</div>
+								</div>
+							</div>
+						</div> -->
+					</div>
+					
+				</div>
+				<div class="modal-footer ">
+					<div class="col-lg-1 col-md-1 padding-left-right-set4 float_right margin-top10">
+						<button type="button" class="btn btn-primary btn-save-box-shadow" ng-click="saveAppointmentSchedule()">Save</button>
+					</div>
+      			</div>
+			</div>
+		</div>
+</div>
+
+
+
+<!-- PATIENT DETAILS POPUP -->
+<div id="patientDetailsForAppointments" class="modal common-small-popup fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Patient Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="col-md-12 ">
+						<div class="common-small-popup-body" ng-repeat="info in bookedPatientList">
+							<div><b>Patient Name</b> <span style=" margin-left: 20px;">: <!-- Johan Hosy, <span>29 Y Male</span> -->{{info.patientName}}</span></div>
+							<div><b>Mobile Number</b> <span style="margin-left: 7px;">: {{info.mobileNumber}}</span></div>
+							<div><b>Email Id</b><span style="margin-left: 64px;">: {{info.email}}</span></div>
+							<div><b>Address</b><span style="margin-left: 64px;">:{{info.address}} <!-- P-65, South Extension, Part-2, New Delhi 110049  --></span></div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+<modal visible="showModal"></modal> 
+
+<script type="text/javascript">
+$(document).ready(function() {
+	//$(".remainingPersonalDetials").hide();
+	
+	/* $(".tab").click(function () {
+		alert('sd');
+	    $(".tab").removeClass("active");
+	    // $(".tab").addClass("active"); // instead of this do the below 
+	    $(this).addClass("active");   
+	}); */
+	
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+    var doctorListHeight = sideBarHeight - 51; 
+ // $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+ // $(".doctor-list").css("height", doctorListHeight + "px");
+  
+  $(".selectedPageName").text("Appointment Scheduling");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="appointmentScheduling"]').parents("li").addClass("active");
+	
+	
+	
+	
+});
+</script>
+<script src="resources/assets/js/common/page-height.js"></script>

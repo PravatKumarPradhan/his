@@ -1,0 +1,263 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Bed Category Master</legend> -->
+			<div class="row">
+			<form name="bedcategoryform" novalidate >
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="form-group"   show-errors>
+								<input type="hidden" ng-model="bedCategory.bedCategoryId" >
+								<input type="text" name="bedCategoryCode" id=""
+									class="text-input floating-label" ng-model="bedCategory.bedCategoryCode" required> <label for="code">Code</label>
+									<p class="help-block" ng-if="bedcategoryform.bedCategoryCode.$error.required">Code is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="form-group"   show-errors>
+								<input type="text" name="bedCategoryName" id=""
+									class="text-input floating-label" ng-model="bedCategory.bedCategoryName" required> <label for="code">Description</label>
+									<p class="help-block" ng-if="bedcategoryform.bedCategoryName.$error.required">Description is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+								</select>
+								<label for="code">Billing Bed Category</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+						<div class="form-group"   show-errors>
+								<select class="text-input floating-label" name="hierarchyId" ng-model="bedCategory.hierarchyId" required>
+											<option value="">Select Hierarchy</option>
+											<option ng-repeat="info in hierarchyList" value="{{info.hierarchyId}}">{{info.hierarchyDesc}}</option>
+											
+										</select>
+								 <label for="code">Hierarchy</label>
+								 <p class="help-block" ng-if="bedcategoryform.hierarchyId.$error.required">Hierarchy is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="form-group"   show-errors>
+								<select class="text-input floating-label" name="occupancyUnitId" ng-model="bedCategory.occupancyUnitId" required>
+											<option value="">Select Occupancy Unit</option>
+											<option ng-repeat="info in occupancyUnitList" value="{{info.occupancyUnitId}}">{{info.occupancyUnitDesc}}</option>
+										</select>
+								 <label for="code"> Occupancy Unit</label>
+								 <p class="help-block" ng-if="bedcategoryform.occupancyUnitId.$error.required">Occupancy unit is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa " aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-10 col-md-10 polymer-icon">
+						<div class="checkbox pull-left pager">
+							<label class="common-lable-color-set"><input
+								type="checkbox" ng-true-value="'Y'"  ng-false-value="'N'"  ng-model="bedCategory.isBedRetention"> Bed Retention</label>
+						</div>
+					</div>
+				</div>
+				</form>
+			</div>
+		</fieldset>	
+			<!-- <div class="row">
+				<div class="col-md-8"></div>
+				<div class="col-md-4">
+					<div class="common-save-button">
+						<input type="button" value="Save"  
+						class="btn btn-primary btn-save-box-shadow search-button-style" ng-hide="saveBtnFlag" ng-click="saveBedCategory()"  >
+					<input type="button" value="Update"  
+					class="btn btn-primary btn-save-box-shadow search-button-style" ng-hide="updateBtnFlag" ng-click="updateBedCategory()" >
+					</div>
+					<div class="width-div-for-patient-reg ">
+						<a href="" value="Save" ng-click="saveBedCategory()"  
+						class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Save" ng-hide="saveBtnFlag"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+							
+						<a href="" value="Update" ng-click="updateBedCategory()"  
+						class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Update" ng-hide="updateBtnFlag"><i
+							class="fa fa-refresh" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+					
+				</div>
+			</div> -->
+			<modal visible="showModal"></modal>
+			
+			
+		<!-- <div class="row padding-left-right-10 margin-top8">
+				<div class="col-lg-2 col-md-2">
+					 style="top: -11px;"
+					<div class="ssearch">
+						<span class="fa fa-search icon-size search-icon-for-search"></span> <input placeholder="Search" ng-model="searchKeyword" class="search-popUp-ddl">
+					</div>
+				</div>
+				<div class="col-lg-7  col-md-6"></div>
+				<div class="col-lg-2 col-md-3" style="text-align: right; padding-right: 0px;">
+					<div class="search">
+						<label class="show-entries">Show 
+						<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+							ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+							ng-change="setNoOfRecords();" class="search-popUp-ddl">
+								<option value="10">10</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+						</select> entries
+						</label> 
+					</div>
+				</div>
+			</div> -->
+			
+			<div class="row padding-top10">
+				<div class="col-md-6 col-sm-7 padding-left-right-set4">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-sm-6" style="padding-left: 0px;">
+								<div class="search">
+								<label class="show-entries">Show 
+								<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+									ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+									ng-change="setNoOfRecords();" class="search-popUp-ddl">
+										<option value="10">10</option>
+										<option value="25">25</option>
+										<option value="50">50</option>
+										<option value="100">100</option>
+								</select> entries
+								</label> 
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" ng-click="saveBedCategory()" ng-hide="saveBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="updateBedCategory()" ng-hide="updateBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      </div>
+			      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+			        <input type="text" class="text-search-box ng-pristine ng-untouched ng-valid ng-empty search-popUp-ddl" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+			        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			      </div>
+			</div>
+			
+			<div class="row padding-left-right-set4 margin-top8">
+				<div class="col-md-12">
+					<table class="table table-bordered table-striped">
+					<thead>
+						<tr class="table-th-bg">
+							<th class="width10">Code
+							
+							</th>
+							<th class="width10">Description
+							
+							</th>
+							<th class="width10">Billing Bed Category
+							
+							</th>
+							<th class="width10">Hierarchy
+								
+							</th> 
+							<th class="width10">Occupancy Unit
+								
+							</th> 
+							<th class="width5 text-center">Status
+							
+							</th>
+							<th class="width5 text-center">Action
+								
+							</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="info in bedCategoryList|filter:searchKeyword">
+							<td>{{info.bedCategoryCode}}</td>
+							<td>{{info.bedCategoryDesc}}</td>
+							<td>{{info.bedBillingCategory}}</td>
+							<td>{{info.hierarchyDesc}}</td>
+							<td>{{info.occupancyUnitDesc}}</td>
+							<td class="text-center">
+							<label class="switch"> 
+							<input type="checkbox" ng-model="info.status" ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatus(info.bedCategoryId,info.status)">
+							<div class="slider round"></div>
+							</label>
+						</td>
+						<td class="text-center"><a><i class="fa fa-pencil" aria-hidden="true" ng-click="showUpdateBtn(info.bedCategoryId)"></i></a></td>
+						</tr>
+						</tbody>
+					</table>
+					
+					<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+				
+				</div>
+			</div>	
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+  
+  $(".selectedPageName").text("Bed Category Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="bedCategoryMaster"]').parents("li").addClass("active");
+});
+</script>

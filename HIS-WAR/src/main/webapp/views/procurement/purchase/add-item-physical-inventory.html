@@ -1,0 +1,374 @@
+<!-- /********************************************************************************************************************************************
+Procurement - purchase - add new physical inventory main page
+Created by - Pranita Patil
+Created Date - 04-Oct-2017 
+/********************************************************************************************************************************************/ -->
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<!-- <legend class="heading-div">Add Item Physical Inventory</legend> -->
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-building-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="">
+								<select class="text-input floating-label dirty" id="">
+									<option></option>
+									<option value="0">Pharmacy Store</option>
+									<option value="1">OT Store</option>
+								</select>
+								<label for="description" class="LISDynamicLabel">Store</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set padding-top10" >
+					<div class="row input-container customRadioBtn">
+						<label for="" class="font-weight700">Type :</label>
+						<input type="radio" name="FixedAssestRbtn" id ="FixedAssestRbtn" class="">
+							<label for="FixedAssestRbtn" class="">Fixed Assest</label>
+						<input type="radio" name="FixedAssestRbtn" id="FixedAssestRadioB2" class="" checked>
+							<label for="FixedAssestRadioB2" class="">Consumables</label>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set padding-top10">
+					<div class="row input-container customRadioBtn">
+						<input type="radio" name="addNewItemRadioBtn" id="addNewItemRadioBtn" class="addNewItemRadioBtnClass">
+							<label for="addNewItemRadioBtn" class="checkbox-margin-left-right">Get Item</label>
+					</div>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-left-right-set4 float_right">
+					<div class="width-div-for-patient-reg padding-top4">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+        </fieldset>	
+       <fieldset>
+	<!-- consumble table start -->
+	<div class="row" id="consumbleRowId" >
+		<div class="col-lg-12 col-md-12 padding-left-right-set4 fix-height-scroll450 padding-top10"><!-- fix-height-scroll550 -->
+			<table class="table table-bordered">
+				<thead>
+					<tr class="table-th-bg">
+						<th colspan="13" class="font-weight700">Consumables Item Details</th>
+					</tr>
+					<tr>
+						<th class="width5">Item Code
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width10">Item Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>	
+						<th class="width10">Batch No
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width10">Expiry Date
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">Available Qty
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">Physical Qty
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width15">Remark
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>00001</td>
+						<td>Calpol</td>
+						<td>RM15K525</td>
+						<td>01/09/2019 00:00:00.000</td>
+						<td>50</td>
+						<td>
+							<input type="text" class="select-box" value="40"/>
+						</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>00002</td>
+						<td>Disprol</td>
+						<td>RM15K526</td>
+						<td>01/09/2019 00:00:00.000</td>
+						<td>90</td>
+						<td>
+							<input type="text" class="select-box" value="90"/>
+						</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>00003</td>
+						<td>Airomir Inhaler</td>
+						<td>RM15K527</td>
+						<td>01/09/2019 00:00:00.000</td>
+						<td>100</td>
+						<td>
+							<input type="text" class="select-box" value="80"/>
+						</td>
+						<td>-</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- consumble table end -->
+	<!--  fixed asset table start -->
+	<div class="row" id="fixeAssetRowId">
+		<div class="col-lg-12 col-md-12 fix-height-scroll550 padding-left-right-set4 padding-top10">
+			<table class="table table-bordered">
+				<thead>
+					<tr class="table-th-bg">
+						<th colspan="13" class="font-weight700">Fixed Asset Item Details</th>
+					</tr>
+					<tr>
+						<th class="width10">Item Code
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width10">Item Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width10">Serial Number
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width10">Assets ID
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">Available Qty
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">Physical Qty
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">Available
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">Working
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">Reparable
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width10">Remark
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="text" class="select-box"/>
+						</td>
+						<td>
+							<select class="select-box">
+								<option></option>
+								<option>Yes</option>
+								<option>No</option>
+							</select>
+						</td>
+						<td>
+							<div>
+								<select class="select-box">
+									<option></option>
+									<option>Reparable </option>
+									<option>Not Reparable</option>
+								</select>
+							</div>
+							<!-- <div>
+								<div class="common-save-button">
+									<a href="">
+										<input type="button" value="Create Request" class="btn btn-primary btn-save-box-shadow">
+									</a>
+								</div>
+							</div> -->
+						</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- fixed asset table end -->
+	<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+		<div class="row padding-top5 margin-top10 padding-right20">
+			<div class="col-lg-11 col-md-11 col-sm-11 "></div>
+			<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+				<a href="#/physicalInventory">
+					<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+				</a>
+			</div>
+		</div>
+	</footer>
+</fieldset>
+    </div>
+</div>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+	$("#fixeAssetRowId").hide();
+	$(".selectedPageName").text("Add Item Physical Inventory");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	
+	$( ".addNewItemRadioBtnClass" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$("#addNewItemWasteStore").modal();
+		}
+	}); 
+	/******* on type selection table hide-show function start*************/
+	 $('#typeId').on('change', function() {
+	      if ( this.value == '1')
+	      {
+	    	  	/* alert(); */
+	        $("#consumbleRowId").show();
+	        $("#fixeAssetRowId").hide();
+	        
+	      }
+	      else
+	      {
+	    	  /* alert(); */
+	        $("#consumbleRowId").hide();
+	        $("#fixeAssetRowId").show();
+	      }
+	    });
+	 /******* on type selection table hide-show function end*************/
+});
+
+</script>
+<script src="resources/assets/js/common/page-height.js"></script>

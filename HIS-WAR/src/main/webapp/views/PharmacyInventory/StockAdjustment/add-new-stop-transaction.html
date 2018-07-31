@@ -1,0 +1,301 @@
+<!-- Page Content start-->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<div class="row">
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-building" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<select class="text-input floating-label dirty" name="code">
+								<option value=""></option>
+								<option value="Select">Select</option>
+								<option value="Store 1">Store 1</option>
+								<option value="Store 2">Store 2</option>
+							</select> <label for="code">Store</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<input type="text" name="code" id=""
+								class="text-input floating-label dirty" placeholder="DD-MM-YYYY">
+							<label for="code">Start Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-clock-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<input type="time" name="code" id=""
+								class="text-input floating-label dirty" placeholder="DD-MM-YYYY">
+							<label for="code">Start Time</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<input type="text" name="code" id=""
+								class="text-input floating-label dirty" placeholder="DD-MM-YYYY">
+							<label for="code">Stop Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-clock-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<input type="time" name="code" id=""
+								class="text-input floating-label dirty" placeholder="DD-MM-YYYY">
+							<label for="code">Stop Time</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10 custom-fielset">
+				<fieldset>
+					<legend class="">VED</legend>
+					<div class="text-center">
+						<label class="checkbox-inline"><input type="checkbox"
+							value="">V</label> <label class="checkbox-inline"><input
+							type="checkbox" value="">E</label> <label class="checkbox-inline"><input
+							type="checkbox" value="">D</label>
+					</div>
+				</fieldset>
+			</div>
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10 custom-fielset">
+				<fieldset>
+					<legend class="">ABC</legend>
+					<div class="text-center">
+						<label class="checkbox-inline"><input type="checkbox"
+							value="">A</label> <label class="checkbox-inline"><input
+							type="checkbox" value="">B</label> <label class="checkbox-inline"><input
+							type="checkbox" value="">C</label>
+					</div>
+				</fieldset>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 custom-fielset ddp-padding-top">
+				<div class="text-center">
+					<label class="checkbox-inline ddp-padding-top"><input type="checkbox" value="">All Item</label>
+				</div>
+			</div>
+			<div
+				class="col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top10">
+				<div class="padding-top10">
+					<a > <input type="button" value="Sent Alert"
+						class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+			<div
+				class="col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top10">
+				<div class="padding-top10">
+					<a > <input type="button" value="Show Item"
+						class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="row margin-top4 custom-sub-tab padding-left-right-set4">
+				<div class="col-lg-10 col-md-10">
+					<ul class="tabs nav nav-tabs">
+						<li ng-class="{ active : isSetSecondTabLevel(1) }"
+							class="active width20"><a href=""
+							ng-click="setSecondTabLevel(1)">Item List</a></li>
+	
+						<li ng-class="{ active : isSetSecondTabLevel(2) }" class="width30"><a
+							href="" ng-click="setSecondTabLevel(2)">Product Category Wise
+								Exclusion</a></li>
+	
+						<li ng-class="{ active : isSetSecondTabLevel(3) }" class="width20"><a
+							href="" ng-click="setSecondTabLevel(3)">Item Wise Exclusion </a></li>
+	
+					</ul>	
+				</div>
+				<div ng-show="isSetSecondTabLevel(3)" class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 float-right" style="margin-top: -5px;">
+					<a> 
+						<input type="button" value="Get Item" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#addNewItemWasteStore">
+					</a>
+				</div>
+			</div>
+			<div class="row padding-left-right-set4">
+				<!-- First Tab START -->
+				<div ng-show="isSetSecondTabLevel(1)"
+					class="second-level-tab-display-div" style="">
+					<div class="row padding-left-right-set1">
+						<div class="col-lg-12 col-md-12 col-sm-12 common-table-height-250">
+							<table class="table table-bordered first-checkBox-padding">
+								<!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+
+									<tr>
+										<th class="width8 vertical-top">Asset Category</th>
+										<th class="width8 vertical-top">Product Date</th>
+										<th class="width8 vertical-top">Item Code</th>
+										<th class="width8 vertical-top">Item Name</th>
+										<th class="width8 vertical-top">UOM</th>
+										<th class="width8 vertical-top">UOM Unit</th>
+										<th class="width8 vertical-top">Batch No.</th>
+										<th class="width8 vertical-top">Expiry Date</th>
+										<th class="width8 vertical-top">Available Stock</th>
+										<th class="width8 vertical-top">COP</th>
+										<th class="width8 vertical-top">MRP</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- First Tab END -->
+				
+				<!-- Second Tab START -->
+				<div ng-show="isSetSecondTabLevel(2)" class="second-level-tab-display-div" style="">
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label dirty">
+									<label for="code">Product Category</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-2 padding-left-right-set4 text-width-auto padding-top8">
+						<div class="">
+							<a> <input type="button" value="Add" class="btn btn-primary btn-save-box-shadow">
+							</a>
+						</div>
+					</div>
+					<div class="row padding-left-right-set1">
+						<div class="col-lg-12 col-md-12 col-sm-12 common-table-height-250 padding-top5">
+							<table class="table table-bordered first-checkBox-padding">
+								<!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+
+									<tr>
+										<th class="width15 vertical-top">Category Category</th>
+										<th class="width15 vertical-top">Category Description</th>
+										<th class="width1 vertical-top text-center">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>-</td>
+										<td>-</td>
+										<td class="text-center"><a><i class="fa fa-times"></i></a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- Second Tab END -->
+				
+				<!-- Third Tab START -->
+				<div ng-show="isSetSecondTabLevel(3)" class="second-level-tab-display-div" style="">
+					<div class="row padding-left-right-set1">
+						<div class="col-lg-12 col-md-12 col-sm-12 common-table-height-250">
+							<table class="table table-bordered first-checkBox-padding">
+								<!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">	
+
+									<tr>
+										<th class="width8 vertical-top">Asset Category</th>
+										<th class="width8 vertical-top">Product Category</th>
+										<th class="width8 vertical-top">Item Code</th>
+										<th class="width8 vertical-top">Item Name</th>
+										<th class="width3 vertical-top">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- Third Tab END -->
+			</div>
+		</div>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+		      <div class="col-md-1 text-right">
+		        <label>Remark:</label>
+		      </div>
+		      <div class="col-md-9 padding-left-right8">
+		        <textarea row="1" class="form-control dirty"></textarea>
+		      </div>
+		      <div class="col-md-1 padding-left0px-right6px">
+		        <div class=""><!-- common-save-button -->
+		          <input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+		        </div>
+		      </div>
+		      <div class="col-lg-1 col-md-1 padding-left-right-set4">
+		          <a href="#/stopTransaction">
+		            <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+		          </a>
+		        </div>
+		    </div>	
+		</footer>
+	</div>
+</div>
+
+<div ng-include="'./views/PharmacyInventory/Store/get-item-list.html'"></div>

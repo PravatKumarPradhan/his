@@ -1,0 +1,1168 @@
+<style>
+/*checkbox and search button */
+/* .custom-width{
+	width:520% !important;
+} */
+/*height set for div*/
+.unit-appointment-scheduling-div{
+border: 1px solid #d2d2d2;
+    background-color: white;
+    height: 44px;
+    padding: 5px;
+}
+
+.multiselect-parent .dropdown-toggle {
+  width: 270px;
+}
+
+.multiselect-parent .dropdown-menu {
+  width: 270px;
+}
+
+.multiselect-parent .dropdown-menu-day{
+  width: 175px !important;
+  height:auto !important
+}
+.vivek1 {
+  width: 90px;
+}
+.btn-default1{
+background-color :#ddeeff !important;
+}
+.width100{
+	width:100% !important;
+}
+</style>
+<div id="page-content-wrapper">
+    <div class="container-fluid his-style">
+		<div class="row ">
+			<ul class="tabs nav nav-tabs">
+				<li ng-class="{ active : isSetFirstTabLevel(1) }" id="case-sheet" style="width: 183px; background-color:#5F9EA0;">
+					<a href ng-click="setFirstTabLevel(1)">Doctor Scheduling</a>
+				</li>
+				<li ng-class="{ active : isSetFirstTabLevel(2) }" id="complaints" style="width: 183px;">
+					<a href ng-click="setFirstTabLevel(2)">Modality Scheduling</a>
+				</li>
+				<li ng-class="{ active : isSetFirstTabLevel(3) }" id="History" style="width: 183px;">
+					<a href ng-click="setFirstTabLevel(3)">EHC Scheduling</a>
+				</li>
+			</ul>
+			<div class="row">
+				<div ng-show="isSetFirstTabLevel(1)">
+					<fieldset class="normalRegistration sub-fieldset main-fieldset">
+						<legend class="main-heading-div commonPatientSearch cursor-pointer">
+						Doctor Scheduling
+						</legend>
+						<div class="row margin-top5">
+							<div class="col-md-4 col-xs-4 col-sm-4">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-set4">
+										Specialty
+									</div>
+									<div class="col-md-8 col-sm-8 col-xs-8 padding-left-right-set4">
+										<div class="unit-appointment-scheduling-div">
+										<div>
+											<div ng-dropdown-multiselect="" options="example14data"
+												selected-model="example14model" checkboxes="true"
+												extra-settings="example14settings" ng-click="clicked('doctor')"></div>
+											<!--events="myEvents"  <pre>Selected Model: {{example14model}} | json</pre> -->
+										</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-xs-4 col-sm-4">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-set4">
+										Doctor
+									</div>
+									<div class="col-md-8 col-sm-8 col-xs-8 padding-left-right-set4">
+										<div class="unit-appointment-scheduling-div">
+										<div>
+											<div ng-dropdown-multiselect="" options="example14dataDoctor"
+												selected-model="example14modelDoctor" checkboxes="true"
+												extra-settings="example14settings"></div>
+											<!-- <pre>Selected Model: {{example14model}} | json</pre> -->
+										</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- <div>
+								<div ng-dropdown-multiselect="" options="example14data"
+									selected-model="example14model" checkboxes="true"
+									extra-settings="example14settings"></div>
+								<pre>Selected Model: {{example14model}} | json</pre>
+							</div> -->
+
+						</div>
+						<div ng-repeat="data in dataList" class="padding-top10">
+						
+						<div class="row margin-top10" style="border-bottom: solid 1px;"><!-- override-col-2 -->
+							<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-11 col-md-10 ">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" 
+									placeholder="DD/MM/YYYY" ng-model="data.fromDate"
+									model-view-value="true" is-open="fromDate.opened[$index]"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker($index)">  
+												<label for="description" class="">From Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-11 col-md-10 ">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" 
+									placeholder="DD/MM/YYYY" ng-model="data.toDate"
+									model-view-value="true" is-open="toDate.opened[$index]"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerTo($index)">   
+												<label for="description" class="">To Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="">
+												<!-- <label for="code">Day</label> -->
+												<div ng-dropdown-multiselect-day="" 
+											        options="example8data" 
+											        selected-model="data.example8model" 
+											        extra-settings="example8settings">
+											      </div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="clockpicker">
+												<input type="text" name="description" id="" ng-model="data.fromTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+												<label for="description" class="">From Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="clockpicker">
+												<input type="text" name="description" id="" ng-model="data.toTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+												<label for="description" class="">To Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="">
+												<input type="text" name="description" id="" ng-model="data.timePerSlot" class="text-input floating-label"> 
+												<label for="description" class="">Time Per Slot(Min)</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4">
+								<!-- <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 ">
+									<a class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#breakTimeModal" ng-click="addBreakTime()">
+										<i class="fa fa-clock-o" style="color:white" aria-hidden="true"></i>
+									</a>
+								</div> -->
+								
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+									<input style="width:100%;" type="button" name="" id="addr" ng-click="add($index)" value="+"  class="btn btn-info">&nbsp;
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+									<input style="width:100%;" type="button" name="" id="" value="-"  ng-click="remove($index+1)" class="btn btn-info">&nbsp;&nbsp;
+								</div>
+							</div>
+							
+						<div class="row margin-top10" ng-repeat="breakList in data.breakTimeList">
+							<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="clockpicker">
+											<input type="text" name="description" id="" ng-model="breakList.breakFromTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+											<label for="description" class="">Break From Time</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="clockpicker">
+											<input type="text" name="description" id="" ng-model="breakList.breakToTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+											<label for="description" class="">Break To Time</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 width3">
+									<input style="width:100%;" type="button" name="" value="+" ng-click="addBreak($parent.$index,$index+1)"  class="btn btn-info">&nbsp;
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 width3">
+								<input style="width:100%;" type="button" name="" id="" value="-"  ng-click="removeBreak($parent.$index,$index+1)"  class="btn btn-info">&nbsp;&nbsp;
+							</div>
+						</div>
+					
+					
+						</div>
+						
+						</div>
+						<div class="row margin-top4">
+							<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 float_right width4">
+								<div class=" ">
+									<a href="" class="btn btn-primary btn-save-box-shadow"
+										title="Save" ng-click="saveSlots()">
+										<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+								</div>
+							</div>
+							<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+								<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+								<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+							</div> -->
+						</div> 
+						<div class="row padding-left-right-10 margin-top8">
+					<div class="col-lg-2 col-md-2">
+						<!--  style="top: -11px;" -->
+						<div class="ssearch">
+							<span class="fa fa-search icon-size search-icon-for-search"></span> 
+							<input placeholder="Search" ng-model="searchKeyword" class="search-popUp-ddl">
+						</div>
+					</div>
+					<div class="col-lg-7  col-md-6"></div>
+					<div class="col-lg-2 col-md-3" style="text-align: right; padding-right: 0px;">
+						<div class="search">
+							<label class="show-entries">Show 
+							<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries 
+							</label>
+						</div>
+					</div>
+				</div>
+				
+						<div class="row margin-top4">
+								<div class="col-md-12 col-lg-12  OPDBillService table-responsive padding-left-right-set4">
+									<table class="table table-bordered OPDBillService common-tbody-scroll">
+										<thead>
+											<tr>
+												<th class="width12">
+													 <span class="">Speciality</span>
+												</th>
+												<th class="width6">
+													Doctor
+												</th>
+												<th class="width6">
+													Date
+												</th>
+												<th class="width6">
+													Day
+												</th>
+												<th class="width3">
+													Action
+												</th>
+											</tr>
+										</thead>
+										<tbody class="scrollable">
+											<tr ng-repeat="info in doctorSlotList">
+												<td>{{info.specialityName}}
+												</td>
+												<td>{{info.doctorName}}
+												</td>
+												<td>{{info.appointmentDate}}
+												</td>
+												<td>{{info.day}}
+												</td>
+												<td>
+													<a data-toggle="modal" data-target="#details" ng-click="getSlotDetails(info)">Details</a>
+													<i class="fa fa-ban margin-left5" title="Deactive" style="font-size: 18px;color: #f0793a;"></i>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+								</div>
+						</div>
+					</fieldset>
+				</div>
+				<div ng-show="isSetFirstTabLevel(2)" >
+					<fieldset class="normalRegistration sub-fieldset main-fieldset">
+						<legend class="main-heading-div commonPatientSearch cursor-pointer">
+							Modality Scheduling
+						</legend>
+						<div class="row margin-top5">
+							<div class="col-md-4 col-xs-4 col-sm-4">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-set4">
+										Speciality
+									</div>
+									<div class="col-md-8 col-sm-8 col-xs-8 padding-left-right-set4">
+										<div class="unit-appointment-scheduling-div">
+											<div>
+											<div ng-dropdown-multiselect="" options="example14ModalityTypeData"
+												selected-model="example14ModalityType" checkboxes="true"
+												extra-settings="example14settings" ng-click="clicked('speciality')"></div>
+											<!--events="myEvents"  <pre>Selected Model: {{example14model}} | json</pre> -->
+										</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-xs-4 col-sm-4">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-set4">
+										Sub Speciality
+									</div>
+									<div class="col-md-8 col-sm-8 col-xs-8 padding-left-right-set4">
+										<div class="unit-appointment-scheduling-div">
+											<div>
+											<div ng-dropdown-multiselect="" options="example14dataSubSpeciality"
+												selected-model="example14SubSpeciality" checkboxes="true"
+												extra-settings="example14settings" ng-click="clicked('modality')"></div>
+											<!--events="myEvents"  <pre>Selected Model: {{example14model}} | json</pre> -->
+										</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-xs-4 col-sm-4">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-set4">
+										Modality
+									</div>
+									<div class="col-md-8 col-sm-8 col-xs-8 padding-left-right-set4 ">
+										<div class="unit-appointment-scheduling-div">
+											<div>
+											<div ng-dropdown-multiselect="" options="example14dataModality"
+												selected-model="example14modelModality" checkboxes="true"
+												extra-settings="example14settings"></div>
+											<!-- <pre>Selected Model: {{example14model}} | json</pre> -->
+										</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div ng-repeat="data in dataList" class="padding-top10">
+						<div class="row margin-top10">override-col-2
+							<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-11 col-md-10 ">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" 
+									placeholder="DD/MM/YYYY" ng-model="data.fromDate"
+									model-view-value="true" is-open="fromDate.opened[$index]"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker($index)">  
+												<label for="description" class="">From Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-11 col-md-10 ">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" 
+									placeholder="DD/MM/YYYY" ng-model="data.toDate"
+									model-view-value="true" is-open="toDate.opened[$index]"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerTo($index)">   
+												<label for="description" class="">To Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="">
+												<select class="text-input floating-label dirty" ng-model="data.dayId">
+												    <option value="0">All</option>
+													<option value="1">Sunday</option>
+													<option value="2">Monday</option>
+													<option  value="3">Tuesday</option>
+													<option value="4">Wednesday</option>
+													<option value="5">Thursday</option>
+													<option value="6">Friday</option>
+													<option value="7">Saturday</option>
+												</select>
+												<label for="code">Day</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="clockpicker">
+												<input type="text" name="description" id="" ng-model="data.fromTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+												<label for="description" class="">From Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4">
+								<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="clockpicker">
+												<input type="text" name="description" id="" ng-model="data.toTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+												<label for="description" class="">To Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="">
+												<input type="text" name="description" id="" ng-model="data.timePerSlot" class="text-input floating-label"> 
+												<label for="description" class="">Time Per Slot(Min)</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-2 col-sm-3 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-10 col-sm-10 col-md-10">
+										<div class="">
+											<select class="text-input floating-label dirty">
+											    <option value="">Select</option>
+											</select>
+											<label for="code">Visit Type</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+								<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+											<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="clockpicker">
+												<input type="text" name="description" id="" ng-model="data.breakFromTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+												<label for="description" class="">Break From Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+											<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="clockpicker">
+												<input type="text" name="description" id="" ng-model="data.breakToTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+												<label for="description" class="">Break To Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+									<input style="width:100%;" type="button" name="" id="addr" ng-click="add()" value="+"  class="btn btn-info">&nbsp;
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+									<input style="width:100%;" type="button" name="" id="" value="-"  ng-click="remove()" class="btn btn-info">&nbsp;&nbsp;
+								</div>
+							</div>
+						</div>
+						</div> -->
+						<div ng-repeat="data in dataList" class="padding-top10">
+						
+						<div class="row margin-top10" style="border-bottom: solid 1px;"><!-- override-col-2 -->
+							<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-11 col-md-10 ">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" 
+									placeholder="DD/MM/YYYY" ng-model="data.fromDate"
+									model-view-value="true" is-open="fromDate.opened[$index]"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker($index)">  
+												<label for="description" class="">From Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-11 col-md-10 ">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" 
+									placeholder="DD/MM/YYYY" ng-model="data.toDate"
+									model-view-value="true" is-open="toDate.opened[$index]"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerTo($index)">   
+												<label for="description" class="">To Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="">
+												<!-- <label for="code">Day</label> -->
+												<div ng-dropdown-multiselect-day="" 
+											        options="example8data" 
+											        selected-model="data.example8model" 
+											        extra-settings="example8settings">
+											      </div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="">
+												<select class="text-input floating-label dirty" ng-model="data.visitTypeId">
+												    <option value="1">OP</option>
+												    <option value="2">IP</option>
+												    <option value="3">Day Care</option>
+												    <option value="4">ER</option>
+												</select>
+												<label for="code">Visit Type</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="clockpicker">
+												<input type="text" name="description" id="" ng-model="data.fromTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+												<label for="description" class="">From Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="clockpicker">
+												<input type="text" name="description" id="" ng-model="data.toTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+												<label for="description" class="">To Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4">
+								<div class="col-lg-8 col-md-8 col-sm-8">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10 ">
+											<div class="">
+												<input type="text" name="description" id="" ng-model="data.timePerSlot" class="text-input floating-label"> 
+												<label for="description" class="">Time Per Slot(Min)</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+									<input style="width:100%;" type="button" name="" id="addr" ng-click="add($index)" value="+"  class="btn btn-info">&nbsp;
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+									<input style="width:100%;" type="button" name="" id="" value="-"  ng-click="remove($index+1)" class="btn btn-info">&nbsp;&nbsp;
+								</div>
+							</div>
+							
+						<div class="row margin-top10" ng-repeat="breakList in data.breakTimeList">
+							<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="clockpicker">
+											<input type="text" name="description" id="" ng-model="breakList.breakFromTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+											<label for="description" class="">Break From Time</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="clockpicker">
+											<input type="text" name="description" id="" ng-model="breakList.breakToTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+											<label for="description" class="">Break To Time</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 width3">
+									<input style="width:100%;" type="button" name="" value="+" ng-click="addBreak($parent.$index,$index+1)"  class="btn btn-info">&nbsp;
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 width3">
+								<input style="width:100%;" type="button" name="" id="" value="-"  ng-click="removeBreak($parent.$index,$index+1)"  class="btn btn-info">&nbsp;&nbsp;
+							</div>
+						</div>
+					
+					
+						</div>
+						
+						</div>
+						<div class="row margin-top4">
+							<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 float_right width4">
+								<div class=" ">
+									<a href="" class="btn btn-primary btn-save-box-shadow"
+										title="Save" ng-click="saveModalitySlots()">
+										<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+								</div>
+							</div>
+							<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+								<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+								<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+							</div> -->
+						</div>
+						
+						<div class="row padding-left-right-10 margin-top8">
+					<div class="col-lg-2 col-md-2">
+						<!--  style="top: -11px;" -->
+						<div class="ssearch">
+							<span class="fa fa-search icon-size search-icon-for-search"></span> 
+							<input placeholder="Search" ng-model="searchKeyword" class="search-popUp-ddl">
+						</div>
+					</div>
+					<div class="col-lg-7  col-md-6"></div>
+					<div class="col-lg-2 col-md-3" style="text-align: right; padding-right: 0px;">
+						<div class="search">
+							<label class="show-entries">Show 
+							<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries 
+							</label>
+						</div>
+					</div>
+				</div>
+				
+						<div class="row margin-top4">
+								<div class="col-md-12 col-lg-12  OPDBillService table-responsive padding-left-right-set4">
+									<table class="table table-bordered OPDBillService common-tbody-scroll">
+										<thead>
+											<tr>
+											<th class="width12">
+													 <span class="">Speciality</span>
+												</th>
+												<th class="width12">
+													 <span class="">Sub Speciality</span>
+												</th>
+												<th class="width6">
+													Modality
+												</th>
+												<th class="width6">
+													Date
+												</th>
+												<th class="width6">
+													Day
+												</th>
+												<th class="width3">
+													Action
+												</th>
+											</tr>
+										</thead>
+										<tbody class="scrollable">
+											<tr ng-repeat="info in doctorSlotList">
+												<td>{{info.specialityName}}
+												</td>
+												<td>{{info.subSpecialityName}}
+												</td>
+												<td>{{info.modalityDesc}}
+												</td>
+												<td>{{info.appointmentDate}}
+												</td>
+												<td>{{info.day}}
+												</td>
+												<td>
+													<a data-toggle="modal" data-target="#details" ng-click="getSlotDetailsForModality(info)">Details</a>
+													<i class="fa fa-ban margin-left5" title="Deactive" style="font-size: 18px;color: #f0793a;"></i>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									
+										<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+				
+								</div>
+						</div>
+					</fieldset>
+				</div>
+				<div ng-show="isSetFirstTabLevel(3)">
+					<fieldset class="normalRegistration sub-fieldset main-fieldset">
+						<legend class="main-heading-div commonPatientSearch cursor-pointer">
+							EHC Scheduling
+						</legend>
+					
+						<div  ng-repeat="data in dataList" class="row">
+							<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+										
+												<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" 
+									placeholder="DD/MM/YYYY" ng-model="data.fromDate"
+									model-view-value="true" is-open="fromDate.opened[$index]"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker($index)">  
+											<label for="description" class="">From Date</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" 
+									placeholder="DD/MM/YYYY" ng-model="data.toDate"
+									model-view-value="true" is-open="toDate.opened[$index]"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerTo($index)">  
+											<label for="description" class="">To Date</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<div ng-dropdown-multiselect-day="" 
+											        options="example8data" 
+											        selected-model="data.example8model" 
+											        extra-settings="example8settings">
+											      </div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" name="noOfSlots" ng-model="data.noOfSlots" id="" class="text-input floating-label "> 
+											<label for="description" class="">No Of Slots</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-1 col-lg-1 margin-top10">
+								<div class="col-lg-6 col-md-6 col-sm-2 padding-left-right-set4">
+									<input style="width:100%;" type="button" name="" id="addr" ng-click="add($index)" value="+"  class="btn btn-info">&nbsp;
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-2 padding-left-right-set4">
+									<input style="width:100%;" type="button" name="" id="" value="-"  ng-click="remove($index+1)" class="btn btn-info">&nbsp;&nbsp;
+								</div>
+							</div>
+						</div>
+						<div class="row margin-top4">
+							<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 float_right width4">
+								<div class=" ">
+									<a href="" class="btn btn-primary btn-save-box-shadow"
+										title="Save" ng-click="saveEchSlots()">
+										<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+								</div>
+							</div>
+							<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+								<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+								<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+							</div> -->
+						</div>
+						
+						<div class="row padding-left-right-10 margin-top8">
+					<div class="col-lg-2 col-md-2">
+						<!--  style="top: -11px;" -->
+						<div class="ssearch">
+							<span class="fa fa-search icon-size search-icon-for-search"></span> 
+							<input placeholder="Search" ng-model="searchKeyword" class="search-popUp-ddl">
+						</div>
+					</div>
+					<div class="col-lg-7  col-md-6"></div>
+					<div class="col-lg-2 col-md-3" style="text-align: right; padding-right: 0px;">
+						<div class="search">
+							<label class="show-entries">Show 
+							<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries 
+							</label>
+						</div>
+					</div>
+				</div>
+				
+						<div class="row margin-top4">
+								<div class="col-md-12 col-lg-12  OPDBillService table-responsive padding-left-right-set4">
+									<table class="table table-bordered OPDBillService common-tbody-scroll">
+										<thead>
+											<tr>
+												<th class="width6">
+													Date
+												</th>
+												<th class="width6">
+													Day
+												</th>
+												<th class="width3">
+													Action
+												</th>
+											</tr>
+										</thead>
+										<tbody class="scrollable">
+											<tr  ng-repeat="info in doctorSlotList">
+												<td>{{info.appointmentDate}}</td>
+												<td>{{info.day}}</td>
+												<td>
+													<a data-toggle="modal" data-target="#detailsECH" ng-click="getSlotDetailsForECH(info)">Details</a>
+													<i class="fa fa-ban margin-left5" title="Deactive" style="font-size: 18px;color: #f0793a;"></i>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+				
+								</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+		</div>	
+	</div>
+</div>
+
+
+
+<!-- OTP POPUP -->
+<div id="details" class="modal fade ng-scope in common-small-popup" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body row">
+				<div class="col-md-12 padding-left-right-set4 margin-top5 headerHeight1">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th class="width10">Date</th>
+								<th class="width10">From Time</th>
+								<th class="width10">To Time</th>
+								<th class="width5">Action</th>
+							</tr>
+							<tr ng-repeat="info in slotDetailsList">
+								<td>{{info.appointmentDate}}</td>
+								<td>{{info.fromTimeString}}</td>
+								<td>{{info.toTimeString}}</td>
+								<!-- <td><i class="fa fa-pencil margin-left5" title="Edit" style="font-size: 18px;color: #f0793a;"></i></td> -->
+								<td><label class="switch"> 
+							<input type="checkbox" ng-model="info.status"  ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatus(info.slotId,info.status,$index)">
+							<div class="slider round"></div>
+							</label></td>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="otpOk">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- OTP POPUP -->
+<div id="detailsECH" class="modal fade ng-scope in common-small-popup" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body row">
+				<div class="col-md-12 padding-left-right-set4 margin-top5 headerHeight1">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+							<th class="width10">S.No</th>
+								<th class="width10">Date</th>
+								<th class="width5">Action</th>
+							</tr>
+							<tr ng-repeat="info in slotDetailsList">
+							<td>{{$index+1}}</td>
+								<td>{{info.appointmentDate}}</td>
+								<td><label class="switch"> 
+							<input type="checkbox" ng-model="info.status"  ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatus(info.slotId,info.status)">
+							<div class="slider round"></div>
+							</label></td>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="otpOk">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- break time modal start -->
+<div id="breakTimeModal" class="modal fade ng-scope in common-small-popup" role="dialog" >
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Add Break Time
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body ">
+				<div class="row">
+					<div class="col-md-12 padding-left-right-set4 margin-top5 test-master-table-div">
+						<div class="row margin-top10" ng-repeat="breakList in breakTimeList">
+							<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="clockpicker">
+											<input type="text" name="description" id="" ng-model="breakList.breakFromTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+											<label for="description" class="">Break From Time</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="clockpicker">
+											<input type="text" name="description" id="" ng-model="breakList.breakToTime" class="text-input floating-label" ng-init="initClockPicker()"> 
+											<label for="description" class="">Break To Time</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+									<input style="width:100%;" type="button" name="" value="+" ng-click="addBreak($index)"  class="btn btn-info">&nbsp;
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+								<input style="width:100%;" type="button" name="" id="" value="-"  ng-click="removeBreak()"  class="btn btn-info">&nbsp;&nbsp;
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			 <div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" ng-click="saveBreakTime()" id="">Save</button>
+			</div> 
+		</div>
+	</div>
+</div>
+<!-- break time modal end -->
+
+<modal visible="showModal"></modal> 
+<script src="resources/assets/js/common/page-height.js"></script>

@@ -1,0 +1,313 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+    <div class="container-fluid his-style">
+        <fieldset class="main-fieldset">
+            <div class="row margin-top10">
+
+
+                <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                    <span class="margin-left10">
+                        <b class="padding-right10 ">Adjustment No:
+                        </b>
+                        <label>{{vm.model.batchChangeApprovalDetail.adjustmentNo }}</label>
+                    </span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                    <span class="margin-left10">
+                        <b class="padding-right10 ">Adjustment Date:</b>
+                        <label>{{vm.model.batchChangeApprovalDetail.adjustmentDate| date:'dd/MM/yyyy'}}</label>
+                    </span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                    <span class="margin-left10">
+                        <b class="padding-right10 ">Store:</b>
+                        <label>{{vm.model.batchChangeApprovalDetail.storeName}}</label>
+                    </span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                    <span class="margin-left10">
+                        <b class="padding-right10 ">Adjustment By:
+                        </b>
+                        <label>{{vm.model.batchChangeApprovalDetail.adjustmentBy}}</label>
+                    </span>
+                </div>
+            </div>
+            <div class="row margin-top10">
+                <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                    <span class="margin-left10">
+                        <b class="padding-right10 ">Status:
+                        </b>
+                        <label>{{vm.model.batchChangeApprovalDetail.status}}</label>
+                    </span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                    <span class="margin-left10">
+                        <b class="padding-right10 ">Approval Status:</b>
+                        <label>{{vm.model.batchChangeApprovalDetail.approvalStatus}}</label>
+                    </span>
+                </div>
+            </div>
+            <!--  fixed asset table start -->
+            <div class="row" id="fixeAssetRowId">
+                <div class="col-lg-12 col-md-12 padding-top10 fix-height-scroll500 ">
+                    <!-- fix-height-scroll500 -->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="width1 text-center">
+                                    <input type="checkbox" ng-model="vm.model.selectAllRows" ng-click="vm.model.SelectAllRequests()" ng-disabled="vm.model.batchChangeApprovalDetail == false"
+                                    />
+                                </th>
+
+                                <th class="width10">
+                                    Item Code
+                                    <div class="float_right">
+                                        <div>
+                                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="margin-top-8">
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="width10">
+                                    Item Name
+                                    <div class="float_right">
+                                        <div>
+                                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="margin-top-8">
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="width7">
+                                    UOM
+                                    <div class="float_right">
+                                        <div>
+                                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="margin-top-8">
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="width7">
+                                    UOM Unit
+                                    <div class="float_right">
+                                        <div>
+                                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="margin-top-8">
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="width8">
+                                    Batch No
+                                    <div class="float_right">
+                                        <div>
+                                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="margin-top-8">
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="width8">
+                                    Expiry Date
+                                    <div class="float_right">
+                                        <div>
+                                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="margin-top-8">
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="width8">
+                                    MRP
+                                    <div class="float_right">
+                                        <div>
+                                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="margin-top-8">
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="width8">
+                                    New Batch No
+                                    <div class="float_right">
+                                        <div>
+                                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="margin-top-8">
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="width8">
+                                    New Expiry Date
+                                    <div class="float_right">
+                                        <div>
+                                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="margin-top-8">
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="width8">
+                                    New MRP
+                                    <div class="float_right">
+                                        <div>
+                                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="margin-top-8">
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="width8">
+                                    Reject
+                                    <div class="float_right">
+                                        <div>
+                                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="margin-top-8">
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="batch in vm.model.batchChangeApprovalDetail.batch | orderBy:sortType:sortReverse">
+                                <td class="text-center">
+                                    <input type="checkbox" ng-click="vm.model.SelectBatch(batch)" ng-model="batch.isSelected" ng-disabled="vm.model.isDisable(batch)"
+                                    />
+                                </td>
+                                <td>{{batch.itemCode}}</td>
+                                <td>{{batch.itemName}}</td>
+                                <td>{{batch.uomType}}</td>
+                                <td>{{batch.uomUnit}}</td>
+                                <td>{{batch.oldBatchNo}}</td>
+                                <td>{{batch.oldBatchExpiry | date:'MMM-yyyy' }}</td>
+                                <td>{{batch.oldMrp}}</td>
+                                <td>{{batch.newBatchNo}}</td>
+                                <td>{{batch.newBatchExpiry | date:'MMM-yyyy' }}</td>
+                                <td>{{batch.newMrp}}</td>
+                                <td class=" vertical-middle">
+                                        <div class="checkbox">
+                                            <label class="switch switch-small">
+                                                <input type="checkbox" class="switchInput" ng-disabled="batch.isDisabled" ng-click="vm.model.RejectionPopup(batch)" ng-model="batch.isReject">
+                                                <div class="slider round slider-small"></div>
+                                            </label>
+                                          </div>
+                                    </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- fixed asset table end -->
+        </fieldset>
+        <footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+                <div class="row padding-top5 padding-right10">
+                  <div class="col-lg-10 col-md-10 col-sm-10"></div>
+                  <div class="col-lg-1 col-md-1 col-sm-1 padding-left0px-right6px">
+                    <a>
+                      <input type="button" ng-click="vm.model.SaveApproval()"   value="Save" class="btn btn-primary btn-save-box-shadow">
+                    </a>
+                  </div>
+                  <div class="col-lg-1 col-md-1 col-sm-1 padding-left10">
+                    <a href="#/batchExpDateChangeApproval">
+                      <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+                    </a>
+                  </div>
+                </div>
+              </footer>
+        <!-- <div class="row padding-top5">
+            <div class="col-lg-11 col-sm-11"></div>
+            <div class="col-lg-1 col-md-1 padding-left-right-set4">
+                <a href="#/storeIndenting">
+                    <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow" />
+                </a>
+            </div>
+        </div> -->
+        <!-- <footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+            <div class="row padding-top5 margin-top10 padding-right20">
+                <div class="col-lg-11 col-sm-11">
+                <b>Remark:  </b><label>{{vm.model.batchChangeApprovalDetail.remark}}</label>
+                </div>
+                <div class="col-lg-1 col-md-1 padding-left-right-set4">
+                    <a href="#/storeIndenting">
+                        <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+                    </a>
+                </div>
+            </div>
+        </footer> -->
+    </div>
+</div>
+
+<!-- confirmCancel Start -->
+<div id="confirmCancel" class="modal fade ng-scope in common-small-popup" role="dialog" style="background: rgba(0, 0, 0, 0.33); z-index: 1300 !important;">
+		<div class="modal-dialog">
+		  <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <div class="modal-title patient-details-row">
+				Cancellation
+				<button type="button" class="close" data-dismiss="modal" ng-click="vm.model.ModalDismiss('confirmCancel')">&times;</button>
+			  </div>
+			</div>
+			<div class="modal-body">
+			  <div class="row">
+				<div class="col-md-12 padding-left-right-set">
+				  <div class="row input-container margin-top10">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					  <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+					  <div class="">
+						<select name="cancelReason" id="cancelReason" class="text-input floating-label" ng-model="vm.model.cancelReason" ng-class="{dirty: vm.model.cancelReason}"
+						  ng-change="vm.model.isReasonValid = false">
+						  <!-- ng-options="cancelReason.reason for cancelReason in vm.model.reasons" -->
+						  <option  value="">Select Reason</option>
+						  <option ng-repeat="reason in vm.model.reasons" value="{{reason.id}}">{{reason.reason}}</option>
+						</select>
+						<label for="code">Select Reasons</label>
+					  </div>
+					  <p ng-if="vm.model.isReasonValid" class="errorMsg">Select Reason</p>
+					</div>
+				  </div>
+				  <div class="row input-container margin-top10">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					  <i class="fa fa-sticky-note" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+					  <div class="">
+						<textarea name="cancelNote" rows="4" id="cancelNote" class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty"
+						  ng-model="vm.model.cancelNote" ng-class="{dirty: vm.model.cancelNote}"></textarea>
+						<label for="cancelNote">Note</label>
+					  </div>
+					</div>
+				  </div>
+				  <!-- <input type="text" id="commonId" /> -->
+				</div>
+			  </div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+			  <button type="button"  data-dismiss="modal" ng-disabled="cancelNote == ''" class="btn btn-primary" ng-click="vm.model.ApproveBatchChange();">Save</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- cancelPurchaseReqest END -->
+	  
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".selectedPageName").text("Details Batch Change");
+    })
+</script>

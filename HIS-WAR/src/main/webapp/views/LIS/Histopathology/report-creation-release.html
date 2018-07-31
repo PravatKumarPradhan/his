@@ -1,0 +1,198 @@
+<style>
+.form-actions {
+	display:none !important;
+	
+}
+</style>		
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid his-style">
+				<!-- <div ng-include="'../views/common-patient-details.html'"></div> -->
+				
+				<div class="row">
+            		<div class="col-lg-6"></div>
+					<div class="col-lg-1 col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+						<!-- data-toggle="modal" data-target="#confirmLogout" -->
+							<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#histoResultEntry" >
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Release"  class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#histoFinalResult">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<a ng-click="generateRestainingRequestUrl();">
+								<input type="button" value="Restaining"  class="btn btn-primary btn-save-box-shadow" >
+							</a>	
+							 <!-- data-toggle="modal" data-target="#restainingRequest" -->
+							
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Provisional Release"  class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#histoProvisonal">
+						</div>
+					</div>
+				</div>
+				<div class="div-form-for-ICU">
+					<div class="row margin-top10">
+						<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-sort-numeric-desc " aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label" ng-model="histoPathNo">
+										<label for="code">Histopathology No.</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--  <div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-file-text-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<select class="text-input floating-label" name="code">
+														<option></option>
+														<option>Report-1</option>
+														<option>Report-2</option>
+													</select>		
+													<label for="code">Select Report Template</label>
+												</div>
+											</div>
+										</div>
+									</div> -->
+						
+						<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-list-ol" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label" ng-model="templateResultMaster.reportNo">
+										<label for="code">Report No.</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 padding-left-right-set4">
+							<div class="common-save-button">
+								<input type="button" value="Select Template"  class="btn btn-primary btn-save-box-shadow" ng-click="showTemplate();" >
+							</div>
+						</div>			
+									
+						
+					</div>
+				</div>
+				<div class="div-form-for-ICU">
+					<div class="row ">
+						<div class="col-lg-12 col-md-12">
+                              <textarea  name="editor" type="text" id="editor"  rows="10" cols="50" ng-model="value" ck-editor>
+                             </textarea>
+				        </div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- <footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/microscopicExaminiationWorkList" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer> -->
+			
+		</div>
+	
+	
+<div id="histoResultEntry" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10"><span>Are you sure you want to Save?</span></div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="saveResult();">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="histoProvisonal" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10"><span>Are you sure you want to Save?</span></div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="provisionalRelease();">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="histoFinalResult" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10"><span>Do you want to Save?</span></div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="finalRelease();">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+	
+	
+	<script type="text/javascript">
+	$( document ).ready(function() {
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	 	
+	$(".selectedPageName").text("Report Creation And Release");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="requestInterConsult"]').parents("li").addClass("active");
+	
+	});
+	
+	
+	
+</script>
+
+

@@ -1,0 +1,173 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" >
+	<div class="container-fluid his-style">
+		<!-- <div ng-include="'./views/common/common-patient-details.html'"></div> -->
+		<fieldset>
+			<!-- <legend class="heading-div">Diet Order</legend> -->
+			<div class="row padding-top4">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" class="text-input floating-label dirty"
+												name="datepicker" id="datepicker"
+												uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+												placeholder="DD/MM/YYYY" ng-model="datepicker"
+												model-view-value="true" is-open="datepicker.opened"
+												datepicker-options="dateOptions" show-button-bar="false"
+												ng-click="openDatePicker()"> <label for="code" class="">
+												Date</label> 
+									<label for="code">Date
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-hospital-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option value=""></option>
+								</select> <label for="code">Floor</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-th" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option value=""></option>
+								</select> <label for="code">Ward</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-cutlery" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option value=""></option>
+								</select> <label for="code">Meal</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 pull-right text-width-auto">
+					<div class="common-save-button"> 
+						 <a href="" class="btn btn-primary btn-save-box-shadow text-width-auto pull-left"> 
+						 	<i class="fa fa-search" aria-hidden="true"></i> 
+						 </a> 
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10 pull-right">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label dirty">
+									<label for="" class="LISDynamicLabel">Search</label>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</fieldset> 
+		<div class="row padding-top10">
+			<div class="col-md-12 col-sm-12 padding-left-right-set4">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th class="width10">Meal</th>
+								<th class="width10">Dish</th>
+								<th class="width3">Qty</th>
+								<th class="width1"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td class="text-center"><a data-toggle="modal" data-target="#dietOrderInfo"><i class="fa fa-info-circle"></i></a></td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dietOrderInfo Modal START -->
+<div id="dietOrderInfo" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-top4">
+			<div class="col-md-12 col-sm-12 padding-left-right-set4">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th class="width10">UHID</th>
+								<th class="width10">Patient Name</th>
+								<th class="width10">Admission Date</th>
+								<th class="width10">Doctor Name</th>
+								<th class="width10">Ward</th>
+								<th class="width10">Bed No.</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dietOrderInfo Modal END -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		$(".selectedPageName").text("Diet Order");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="dietOrder"]').parents("li").addClass("active");
+	});
+</script>

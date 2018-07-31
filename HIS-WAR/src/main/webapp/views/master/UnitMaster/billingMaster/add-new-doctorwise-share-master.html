@@ -1,0 +1,356 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+			<div class="row margin-top10">
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container padding-top12">
+						<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+							<i class="fa fa-user-md fa-color" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-11 col-md-10">
+							<div class="">
+								<select class="text-input floating-label" name="specialityId" ng-model="admissionRequest.specialityId" ng-change="getDoctorBySpeciality(admissionRequest.specialityId)" required>
+									<option>Select Specialty</option>
+									<option ng-repeat="info in specialityList" ng-if="info.isClinicalSpeciality =='Y'" value="{{info.specialityId}}">{{info.specialityName}}</option>
+								</select><label for="code" class="long-text-overflow">Department</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container padding-top12">
+						<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-10">
+							<div class="">
+							 <select class="text-input floating-label" name="doctorId" ng-model="admissionRequest.doctorId" required>
+									<option>Select Doctor Name</option>
+									<option ng-repeat="info in doctorList" value="{{info.doctorId}}">{{info.firstName+' '+info.lastName}}</option>
+								</select>		 <label for="code">Doctor</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-10">
+						<label for="code" class="long-text-overflow">Patient Type</label>
+							<div class="custom-drop-down-btn"
+									ng-dropdown-multiselect="" options="patientTypeList"
+									selected-model="selectedpatientTypeList">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-11 col-md-10">
+							 <label for="code" class="long-text-overflow">Bed Billing Category</label>
+							<div class="custom-drop-down-btn"
+									ng-dropdown-multiselect="" options="bedBillingCategoryList"
+									selected-model="selectedBedBillingCategoryList"
+									>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+			<div class="row custom-sub-tab padding-left-right-set4">
+				<ul class="tabs nav nav-tabs">
+					<li ng-class="{ active : isSetFirstTabLevel(1) }" class="active width15"><a href="" ng-click="setFirstTabLevel(1)">Group</a></li>
+					<li ng-class="{ active : isSetFirstTabLevel(2) }" class="width15"><a href="" ng-click="setFirstTabLevel(2)">Services</a></li>
+				</ul>
+			</div>
+			<div class="row padding-left-right-set4">
+				<div ng-show="isSetFirstTabLevel(1)" class="second-level-tab-display-div">
+					<div class="row">
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set1 padding-top8">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-10">
+									<div class="">
+											<input type="text" class="text-input floating-label"  ng-model="speciality.specialityName" placeholder="Search" uib-typeahead=" spec.specialityName for spec in specialityList | filter:$viewValue | limitTo:5"
+								           typeahead-editable="false" typeahead-on-select="selectSpeciality($item, $model, $label);" ng-keyup="speciality.specialityId = $event.keyCode == 8 ? '' : speciality.specialityId" name="" autocomplete="on" >
+											<label for="code">Group</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top8">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-10">
+									<div class="">
+									<input type="text" class="text-input floating-label"  ng-model="subSpeciality.subSpecialityName" placeholder="Search" uib-typeahead=" subsp.subSpecialityMasterName for subsp in subSpecialityList | filter:$viewValue | limitTo:5"
+								           typeahead-editable="false" typeahead-on-select="selectSubSpeciality($item, $model, $label);" ng-keyup="subSpeciality.subSpecialityId = $event.keyCode == 8 ? '' : subSpeciality.subSpecialityId" name="" autocomplete="on" >
+										</select> <label for="code">Sub Group</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" ng-model="share"  class="text-input floating-label dirty"> 
+										<label for="code">Share %</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" ng-model="effectiveDate" class="text-input floating-label dirty"> 
+										<label for="code">Effective Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set1 text-width-auto padding-top4">
+							<div class="common-save-button">
+								<a href=""  ng-click="addCAPAmountDetails()" class="btn btn-primary btn-save-box-shadow text-width-auto">
+									<!-- <i class="fa fa-search" aria-hidden="true" ></i> -->Add
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set1 pull-right text-width-auto">
+							<div class="common-save-button">
+								<a href="" ng-model="searchKeyword" class="btn btn-primary btn-save-box-shadow text-width-auto">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right margin-top8">
+							<input type="text" class="text-search-box" placeholder="Search" ng-model="searchKeyword" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					
+				<div class="row margin-top4 padding-left-right-set1">
+					<div class="col-lg-12 col-md-12 col-sm-12 height-table-with-scroll">
+						<table class="table table-bordered first-checkBox-padding">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width8 vertical-top">Doctor</th>
+									<th class="width8 vertical-top">Speciality</th>
+									<th class="width8 vertical-top">Patient Type</th>
+									<th class="width8 vertical-top">Bed Category</th>
+									<th class="width7 vertical-top">Group</th>
+									<th class="width7 vertical-top">Sub Group</th>
+									<th class="width6 vertical-top">Share % </th>
+									<th class="width8 vertical-top">Effective Date</th>
+									<th class="width3 text-center vertical-top">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+									<tr ng-repeat="docWiseShareDtls in addNewDoctorWiseShareList|orderBy:column:reverse|filter:searchKeyword">
+									<td>{{docWiseShareDtls.doctorName}}</td>
+									<td>{{docWiseShareDtls.departmentName}}</td>
+									<td>{{docWiseShareDtls.patientName}}</td>
+									<td>{{docWiseShareDtls.bedBillingCategoryName}}</td>
+									<td>{{docWiseShareDtls.groupDesc}}</td>
+									<td>{{docWiseShareDtls.subGroupDesc}}</td>
+									<td><input type="text" class="select-box" value="" ng-model="docWiseShareDtls.share"></td>
+									<td><input type="text" class="select-box" value=""  ng-model="docWiseShareDtls.effectiveDate"></td>
+									<td class="text-center vertical-top">
+									<a ng-click="removeNewDoctorWiseShareList($index,docWiseShareDtls)">
+											<i class="fa fa-times" aria-hidden="true"></i>
+									</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="table table-bordered">
+						 <tr ng-if="(addNewDoctorWiseShareList|filter:searchKeyword)=='' || (addNewDoctorWiseShareList|filter:searchKeyword)==null">
+							<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+							</tr>
+							</table>
+					</div>
+				</div>
+				</div>
+					
+				<div ng-show="isSetFirstTabLevel(2)" class="second-level-tab-display-div">
+					<div class="row">
+						<div
+							class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set1">
+							<div class="row input-container padding-top10">
+							  <input type="button" value="Add Service" class="btn btn-primary btn-save-box-shadow text-width-auto" data-toggle="modal" data-target="#getServiceCompanyMasterModal">
+								<!-- <input type="checkbox" name="" id="getServices" class=""> -->
+								<!-- <label for="getServices" class="checkbox-margin-left-right" data-toggle="modal" data-target="#getServicesModal">Get Services</label> -->
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" ng-model="share"class="text-input floating-label dirty"> 
+										<label for="code">Share %</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" ng-model="effectiveDate" class="text-input floating-label dirty"> 
+										<label for="code">Effective Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set1 text-width-auto padding-top4">
+							<div class="common-save-button">
+								<a href="" ng-click="addSelectedServicesDetails();" class="btn btn-primary btn-save-box-shadow text-width-auto">
+									<!-- <i class="fa fa-search" aria-hidden="true"></i> -->Add
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set1 pull-right text-width-auto">
+							<div class="common-save-button">
+								<a href="" class="btn btn-primary btn-save-box-shadow text-width-auto">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set1 float_right margin-top8">
+							<input type="text" class="text-search-box" placeholder="Search"  ng-model="serviceSearchKeyword" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="row margin-top4">
+					<div class="col-lg-12 col-md-12 col-sm-12 height-table-with-scroll">
+						<table class="table table-bordered first-checkBox-padding">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width8 vertical-top">Doctor</th>
+									<th class="width8 vertical-top">Speciality</th>
+									<th class="width8 vertical-top">Patient Type</th>
+									<th class="width8 vertical-top">Bed Category</th>
+									<th class="width8 vertical-top"> Group</th>
+									<th class="width7 vertical-top">Sub Group</th>
+									<th class="width7 vertical-top">Service</th>
+									<th class="width6 vertical-top">Share % </th>
+									<th class="width8 vertical-top">Effective Date</th>
+									<th class="width3 text-center vertical-top">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+							   <tr ng-repeat="serv in addServicesNewDoctorWiseShareList|orderBy:column:reverse|filter:serviceSearchKeyword">
+									<td>{{serv.doctorName}}</td>
+									<td>{{serv.departmentName}}</td>
+									<td>{{serv.patientName}}</td>
+									<td>{{serv.bedBillingCategoryName}}</td>
+									<td>{{serv.groupDesc}}</td>
+									<td>{{serv.subGroupDesc}}</td>
+									<td>{{serv.serviceName}}</td>
+									<td><input type="text" ng-model="serv.share"class="select-box"></td>
+									<td><input type="text" ng-model="serv.effectiveDate" class="select-box"></td>
+									<td>
+									 			<a>
+									 				<i class="fa fa-times" ng-click="removeServicesNewDoctorWiseShareList($index)" aria-hidden="true"></i>
+									 			</a>
+									 		</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="table table-bordered">
+					<tr ng-if="(addServicesNewDoctorWiseShareList|filter:serviceSearchKeyword)=='' || (addServicesNewDoctorWiseShareList|filter:serviceSearchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+					</div>
+				</div>
+				
+				</div>
+			</div>
+			<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 " style="margin-bottom:15x;">
+					<div class="row his-style padding-right20">
+						<div class="col-lg-10 col-md-10"></div>
+						<div class="col-lg-1 col-md-1 padding-left0px-right6px">
+							<div class="common-save-button">
+								<a href="">
+									<input type="button" value="Save" ng-click="saveIndividualDocShareGroupWiseDetails();" class="btn btn-primary btn-save-box-shadow">
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 padding-left0px-right6px">
+							<div class="common-save-button">
+								<a href="#/doctorWiseShare">
+									<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+								</a>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+			</div>
+			
+			<!-- Get Services modal start -->
+<div id="getServiceCompanyMasterModal"
+	class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Get Services
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll" ng-include="'./views/master/UnitMaster/billingMaster/get-service-modal-EHC-package.html'" ></div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal"	ng-click="addServices()">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Get Services modal end -->
+		
+
+<!-- <script>
+	$("[id^=getServices]").on("change", function(e) {
+		if (e.target.checked) {
+			$('#getServicesModal').modal();
+		}
+	});
+</script> -->

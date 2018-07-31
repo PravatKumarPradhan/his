@@ -1,0 +1,426 @@
+<style>
+	.w-40{
+		width:40%;
+	}
+	/* #vendorselection thead, #vendorselection tbody tr {
+    table-layout:fixed;
+}*/
+	#vendorselection
+	{
+		max-height: 150px;
+   		overflow-y: scroll;
+	} 
+</style>
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<!-- <legend class="heading-div">Vendor Selection Details</legend> -->
+			<div class="row margin-top4">
+				<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-bottom10">
+					<table class="table table-bordered" id="vendorselection">
+						<thead>
+							<tr>
+								<th rowspan="2" class="vertical-middle">Item Details</th>
+								<th rowspan="2" colspan="2" class="vertical-middle">Comparison Details</th>
+								<th >QR No: 5001</th>
+								<th >QR No: 5002</th>
+								<th >QR No: 5003</th>
+							</tr>
+							<tr>
+								<th><div>Vendor : Hamamatsu Photonics UK Ltd</div><div>Vendor QR No = 30001</div></th>
+								<th><div>Vendor: Scanna MSC Ltd</div><div>Vendor QR No = 30002</div></th>
+								<th><div>Vendor: Wardray Premise</div><div>Vendor QR No = 30003</div></th>
+							</tr>
+							<tr>
+								<th>Rank</th>
+								<th colspan="2"></th>
+								<th class="text-center">1</th>
+								<th class="text-center">2</th>
+								<th class="text-center">3</th>	
+							</tr>
+							<tr>
+								<th></th>
+								<th colspan="2"></th>
+								<th class="text-center">
+									<div class="checkbox" >
+										<label><input type="checkbox" value="" checked>Select All</label>
+								</div>
+								</th>
+								<th class="text-center">
+									<div class="checkbox">
+										<label><input type="checkbox" value="">Select All</label>
+								</div>
+								</th>
+								<th class="text-center">
+									<div class="checkbox">
+										<label><input type="checkbox" value="">Select All</label>
+								</div>
+								</th>
+							</tr>
+						</thead>
+						<!-- <tfoot>
+							<tr>
+								<td colspan="4">
+									<td class="text-center"><div class="row">
+										<label class="radio-inline"><input type="radio" name="optradio" class="radioAcceptedHold4">Accept</label> 
+										<label class="radio-inline"><input type="radio" name="optradio" class="radioRejected4">Reject</label>
+									</div>
+									<div class="row rejection-details-row4 margin-top4">
+										<input type="text" class="w-100">
+									</div>
+								</td>
+									<td class="text-center">
+										<span><input type="button" value="Send For PO Creation" class="btn btn-primary btn-save-box-shadow text-width-auto" /></span>
+									<span><a href="#/vendorSelection"></a><input type="button" value="Back" class="btn btn-primary btn-save-box-shadow text-width-auto" /></span>
+									</td>
+							</tr>
+						</tfoot> -->
+						<tbody>
+						<tr>
+								<td rowspan="12" class="vertical-middle"><div>Item : X- Ray Machine Maintenance</div><div>Qty : 1</div></td>
+								<td class="text-center"  colspan="2"></td>
+								<td class="text-center"><input type="checkbox" ></td>
+								<td class="text-center"><input type="checkbox" ></td>
+								<td class="text-center"><input type="checkbox" ></td>
+							</tr>
+							<tr>
+								<td colspan="2">Qty</td>
+								<td class="text-center"><input type="number" class="w-40 text-center" value="1"></td>
+								<td class="text-center"><input type="number" class="w-40 text-center" value="1"></td>
+								<td class="text-center"><input type="number" class="w-40 text-center" value="1"></td>
+							</tr>
+							<tr>
+								<td colspan="2">COP</td>
+								<td class="text-center">3000</td>
+								<td class="text-center">4000</td>
+								<td class="text-center">4500</td>
+							</tr>
+							<tr>
+								<td>Payment Terms</td>
+								<td class="text-center media-middle">
+									<i class="fa fa-info-circle" aria-hidden="true" title="Details" id="paymentTermsDetailsId" data-toggle="modal" data-target="#comparisonModalACC" ></i>
+								</td>
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-green"></div>
+									</div>
+								</td>
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-red"></div>
+									</div>
+								</td>
+								
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-green"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>Warranty Period</td>
+								<td class="text-center media-middle">
+									<i class="fa fa-info-circle" title="Details" aria-hidden="true" id="warrantyPeriodId" data-toggle="modal" data-target="#comparisonModalACC"></i>
+								</td>
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-green"></div><!-- bg-yellow -->
+									</div>
+								</td>
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-red"></div>
+									</div>
+								</td>
+								
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-green"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>Support Terms </td>
+								<td class="text-center media-middle">
+									<i class="fa fa-info-circle" aria-hidden="true" title="Details" id="supportTermsId" data-toggle="modal" data-target="#comparisonModalACC"></i>
+								</td>
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-green"></div><!-- bg-yellow -->
+									</div>
+								</td>
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-red"></div>
+									</div>
+								</td>
+								
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-green"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>Technical Specification</td>
+								<td class="text-center media-middle">
+									<i class="fa fa-info-circle" aria-hidden="true" data-toggle="modal" data-target="#comparisonModalTechnicalSpecification"></i>
+								</td>
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-red"></div><!-- bg-yellow -->
+									</div>
+								</td>
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-red"></div>
+									</div>
+								</td>
+								
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-green"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>Expected Accessories</td>
+								<td class="text-center media-middle">
+									<i class="fa fa-info-circle" aria-hidden="true"  data-toggle="modal" data-target="#comparisonModal" title="Details"></i>
+								</td>
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-green"></div><!-- bg-yellow -->
+									</div>
+								</td>
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-green"></div>
+									</div>
+								</td>
+								
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-green"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>Vendor Remarks</td>
+								<td class="text-center media-middle">
+									<i class="fa fa-info-circle" aria-hidden="true" id="remarkId" data-toggle="modal" data-target="#comparisonModalremark"></i>
+								</td>
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-green"></div><!-- bg-yellow -->
+									</div>
+								</td>
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-red"></div>
+									</div>
+								</td>
+								
+								<td class="vertical-middle">
+									<div class="text-center">
+										<div class="service-indication bg-red"></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">Remarks</td>
+								<td><input type="text" class="w-100"></td>
+								<td><input type="text" class="w-100"></td>
+								<td><input type="text" class="w-100"></td>
+							</tr>
+							<tr>
+								<td colspan="2"></td>
+								<td class="text-center"><div class="row">
+										<label class="radio-inline"><input type="radio" name="optradio1" class="radioAcceptedHold1" checked>Accept</label> 
+										<label class="radio-inline"><input type="radio" name="optradio1" class="radioRejected1">Reject</label>
+									</div>
+									<div class="row rejection-details-row1 margin-top4">
+										<input type="text" class="w-100">
+									</div>
+								</td>
+								<td class="text-center"><div class="row">
+										<label class="radio-inline"><input type="radio" name="optradio2" class="radioAcceptedHold2">Accept</label> 
+										<label class="radio-inline"><input type="radio" name="optradio2" class="radioRejected2" checked>Reject</label>
+									</div>
+									<div class="row rejection-details-row2 margin-top4">
+										<input type="text" class="w-100" value="COP is high">
+									</div>
+								</td>
+								<td class="text-center"><div class="row">
+										<label class="radio-inline">
+											<input type="radio" name="optradio3" class="radioAcceptedHold3">Accept
+										</label> 
+										<label class="radio-inline">
+											<input type="radio" name="optradio3" class="radioRejected3" checked>Reject
+										</label>
+									</div>
+									<div class="row rejection-details-row3 margin-top4">
+										<input type="text" class="w-100" value="COP is high">
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="padding-left-right-set4">
+					<!-- <table class="pull-right">
+						<tbody>
+							<tr>
+								<td colspan="3"></td>
+									<td class="padding-right3 width50">
+									
+									
+								</td>
+								<td class="text-center padding-top5">
+									<span>
+										<input type="button" value="Send For PO Creation" class="btn btn-primary btn-save-box-shadow text-width-auto" />
+									</span>
+									<span>
+										<a href="#/vendorSelection"><input type="button" value="Back" class="btn btn-primary btn-save-box-shadow text-width-auto" /></a>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table> -->
+					<!-- <footer class="col-lg-12 col-md-12 col-sm-12 padding-right20"> -->
+						<div class="row">
+							<div class="col-lg-8 col-md-7 col-sm-8 text-right">
+								<div class="row width-initial">
+									<label class="radio-inline">
+										<input type="radio" name="optradio" class="radioAcceptedHold4" checked>Accept
+									</label> 
+									<label class="radio-inline">
+									 	<input type="radio" name="optradio" class="radioRejected4">Reject
+									</label>
+								</div>
+								<div class="row rejection-details-row4 margin-top4">
+									<input type="text" class="width60">
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-3 col-sm-3 text-right">
+								<input type="button" value="Send For PO Creation" class="btn btn-primary btn-save-box-shadow " />
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-1  padding-left-right-set4">
+								<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow " />
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4" >
+								<a href="#/vendorSelection">
+									<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow " />
+								</a>
+							</div>
+						</div>
+					<!-- </footer> -->
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>
+<!-- ************************ Comparison Terms modal start ************************ -->
+<div ng-include="'views/procurement/quotation/comparison-terms-modal.html'"></div>
+<div ng-include="'views/procurement/quotation/comparison-terms-modal-acc.html'"></div>
+<div ng-include="'views/procurement/quotation/comparison-terms-modal-technical-specification.html'"></div>
+<div ng-include="'views/procurement/quotation/comparison-terms-modal-remark.html'"></div>
+<!-- ************************ Comparison Terms modal end ************************ -->
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	});	
+		$(".selectedPageName").text("Vendor Selection Details");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="detailsVendorSelection"]').parents("li").addClass("active");
+	
+	
+	$(".rejection-details-row1").hide();
+	$(".rejection-details-row2").hide();
+	$(".rejection-details-row3").hide();
+	$(".rejection-details-row4").hide();
+	
+	/* ************** radioRejected1 ********** */
+	
+	$( ".radioRejected1" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row1").show();
+		}
+	});
+	$( ".radioAcceptedHold1" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row1").hide();
+		}
+	});
+	
+	/* ************** radioRejected2 ********** */
+	
+	$( ".radioRejected2" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row2").show();
+		}
+	});
+	$( ".radioAcceptedHold2" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row2").hide();
+		}
+	});
+	
+	/* ************** radioRejected3 ********** */
+	
+	$( ".radioRejected3" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row3").show();
+		}
+	});
+	$( ".radioAcceptedHold3" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row3").hide();
+		}
+	});
+/* ************** radioRejected4 ********** */
+	
+	$( ".radioRejected4" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row4").show();
+		}
+	});
+	$( ".radioAcceptedHold4" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row4").hide();
+		}
+	});
+	/*********************************************************/
+	$("#paymentTermsDetailsId").click(function(){
+		$("#demoTitle1").text("Payment Terms");
+		$("#demoTitle2").text("Vendor Payment Terms");		
+	});
+	
+	$("#warrantyPeriodId").click(function(){
+		$("#demoTitle1").text("Warranty Period");
+		$("#demoTitle2").text("Vendor Warranty Period");		
+	});
+	
+	$("#supportTermsId").click(function(){
+		$("#demoTitle1").text("Support Terms");
+		$("#demoTitle2").text("Vendor Support Terms");		
+	});
+	$("#remarkId").click(function(){
+		$("#demoTitle1").text("Remark");
+		$("#demoTitle2").text("Vendor Remark");		
+	});
+	</script>
+	<script src="resources/assets/js/common/page-height.js"></script>

@@ -1,0 +1,451 @@
+
+<!-- Page Content -->
+<div id="page-content-wrapper" >
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Referral Master</legend> -->
+			<form name="referralform" novalidate>
+			<div class="row margin-top10">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<input type="hidden" ng-model="referral.referralId">
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="form-group"   show-errors> 
+								<select class="text-input floating-label" name="referralTypeId" ng-model="referral.referralTypeId" required>
+									<option value="">Select Referral Type</option>
+									<option ng-repeat="info in referralTypeList" value="{{info.id}}">{{info.desc}}</option>
+								</select>
+								<label for="code">Referral Type</label>
+								<p class="help-block" ng-if="referralform.referralTypeId.$error.required">Referral Type is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="form-group"   show-errors>
+								<input type="text" name="referralName" id="" ng-model="referral.referralName" class="text-input floating-label" required/>
+								<label for="code">Referral Name</label>
+								<p class="help-block" ng-if="referralform.referralName.$error.required">Referral Name is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-flag" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+								<div class="form-group"   show-errors>
+							
+								<select class="text-input floating-label" name="countryId" ng-model="referral.countryId" ng-change="getStateByCountry(referral.countryId)" required>
+									<option value="">Select Country</option>
+									<option ng-repeat="info in countryList" value="{{info.countryId}}">{{info.countryName}}</option>
+								</select> <label for="code">Country</label>
+								<p class="help-block" ng-if="referralform.countryId.$error.required">Country is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-university" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+								<div class="form-group"   show-errors>
+									<select class="text-input floating-label" name="stateId" ng-model="referral.stateId" ng-change="getDistrictByState(referral.stateId)" required>
+										<option value=""></option>
+										<option ng-repeat="info in stateList" value="{{info.stateId}}">{{info.stateName}}</option>
+									</select> <label for="code">State</label>
+									<p class="help-block" ng-if="referralform.stateId.$error.required">State is required</p>
+								</div>
+							</div>
+					</div>
+				</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-building-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+								<div class="form-group"   show-errors>
+								<select class="text-input floating-label" name="districtId" ng-model="referral.districtId" ng-change="getCityByDistrict(referral.districtId)" required>
+									<option value=""></option>
+									<option ng-repeat="info in districtList" value="{{info.districtId}}">{{info.districtName}}</option>
+								</select> <label for="code">District</label>
+								<p class="help-block" ng-if="referralform.districtId.$error.required">District is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-building-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="form-group"   show-errors>
+								<select class="text-input floating-label" name="cityId" ng-model="referral.cityId" ng-change="getAreaByCity(referral.cityId)" required>
+									<option value=""></option>
+									<option ng-repeat="info in cityList" value="{{info.cityId}}">{{info.cityName}}</option>
+								</select> <label for="code">City</label>
+								<p class="help-block" ng-if="referralform.cityId.$error.required">City is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<!-- <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="button" value="+" class="btn btn-primary btn-save-box-shadow text-width-auto">
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<div class="row padding-top10">
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-street-view" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="form-group"   show-errors>
+								<select class="text-input floating-label" name="areaId" ng-model="referral.areaId" required>
+									<option value=""></option>
+									<option ng-repeat="info in areaList" value="{{info.areaId}}">{{info.areaName}}</option>
+								</select> <label for="code">Area</label>
+								<p class="help-block" ng-if="referralform.areaId.$error.required">Area is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon width4"> 
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 width96">
+							<div class="form-group"   show-errors>
+								<input type="text" name="address" id="" ng-model="referral.address" class="text-input floating-label" required/>
+								<label for="code">Address</label>
+								<p class="help-block" ng-if="referralform.address.$error.required">Address is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-envelope-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="form-group"   show-errors>
+								<input type="email" name="email" id="" ng-model="referral.email" class="text-input floating-label" required/>
+								<label for="code">Email</label>
+								<p class="help-block" ng-if="referralform.email.$error.required">Email is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-mobile" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="form-group"   show-errors>
+								<input type="text" name="contact" ng-model="referral.contact" id="" class="text-input floating-label" required>
+								<label for="code">Contact No.</label>
+								<p class="help-block" ng-if="referralform.contact.$error.required">Contact Number is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+								<div class="form-group"   show-errors>
+								<input type="text" name="contactPerson" id=""  ng-model="referral.contactPerson" class="text-input floating-label" required>
+								<label for="code">Contact Person</label>
+								<p class="help-block" ng-if="referralform.contactPerson.$error.required">Contact Person is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</form>
+		</fieldset>
+		<!-- <div class="row">
+			<div class="col-md-8"></div>
+			<div class="col-md-4">
+				<div class="common-save-button">
+					<input type="button" value="Save"  
+					class="btn btn-primary btn-save-box-shadow search-button-style" ng-hide="saveBtnFlag" ng-click="saveReferral()" >
+					<input type="button" value="Update"  
+					class="btn btn-primary btn-save-box-shadow search-button-style" ng-hide="updateBtnFlag" ng-click="updateReferral()" >
+				</div>
+				
+				<div class="width-div-for-patient-reg ">
+						<a href="" value="Save" ng-click="saveReferral()"  
+						class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Save" ng-hide="saveBtnFlag"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+							
+						<a href="" value="Update" ng-click="updateReferral()"  
+						class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Update" ng-hide="updateBtnFlag"><i
+							class="fa fa-refresh" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+				
+			</div>
+		</div> -->
+		
+		
+		
+		<modal visible="showModal"></modal> 
+		<div id="detailsAddModal11" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Address Details 123
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10" id=""><!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table">
+							<tr class="">
+								<td class="width10">
+									<label><b>Address :</b></label>
+								</td>
+								<td  class="width20">
+									<label>{{address11}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label><b>Country :</b></label>
+								</td>
+								<td class="width10">
+									<label>{{countryName}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label><b>State :</b></label>
+								</td>
+								<td class="width18">
+									<label>{{stateName}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label><b>District</b></label>
+								</td>
+								<td class="width18">
+									<label>{{districtName}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label><b>City</b></label>
+								</td>
+								<td class="width18">
+									<label>{{cityName}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label><b>Area :</b></label>
+								</td>
+								<td class="width18">
+									<label>{{areaName}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label><b>ZIP Code :</b></label>
+								</td>
+								<td class="width18">
+									<label>{{postCode}}</label>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="row padding-left-right-10 margin-top8">
+				<div class="col-lg-2 col-md-2">
+					 style="top: -11px;"
+					<div class="ssearch">
+						<span class="fa fa-search icon-size search-icon-for-search"></span> <input placeholder="Search" ng-model="searchKeyword" class="search-popUp-ddl">
+					</div>
+				</div>
+				<div class="col-lg-7  col-md-7"></div>
+				<div class="col-lg-2 col-md-2" style="text-align: right; padding-right: 0px;">
+					<div class="search">
+						<label class="show-entries">Show 
+						<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+							ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+							ng-change="setNoOfRecords();" class="search-popUp-ddl">
+								<option value="10">10</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+						</select> entries
+						</label>
+					</div>
+				</div>
+			</div> -->
+			
+			<div class="row padding-top10">
+				<div class="col-md-6 col-sm-7 padding-left-right-set4">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-sm-6" style="padding-left: 0px;">
+								<div class="search">
+								<label class="show-entries">Show 
+								<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+									ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+									ng-change="setNoOfRecords();" class="search-popUp-ddl">
+										<option value="10">10</option>
+										<option value="25">25</option>
+										<option value="50">50</option>
+										<option value="100">100</option>
+								</select> entries
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" ng-click="saveReferral()" ng-hide="saveBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="updateReferral()" ng-hide="updateBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      </div>
+			      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+			        <input type="text" class="text-search-box ng-pristine ng-untouched ng-valid ng-empty search-popUp-ddl" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+			        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			      </div>
+			</div>
+			
+		<div class="row padding-left-right-set4 margin-top8">
+			<div class="col-md-12"> 
+				<table class="table table-bordered">
+				<thead>
+					<tr class="">
+						<th class="width10">
+							Referral Type
+						
+						</th>
+						<th class="width15">
+							Referral Name
+							
+						</th>
+						<th class="width20">
+							Email
+							
+						</th>
+						<th class="width15">
+							Contact
+							
+						</th>
+						<th>
+							Contact Person
+							
+						</th>
+						<th class="width8">Status
+							
+						</th>
+						<th class=" width8 text-center">Action
+							
+						</th>
+						<th></th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat="info in referralList|filter:searchKeyword">
+						<td>{{info.referralTypeDesc}}</td>
+						<td>{{info.referralName}}</td>
+						<td>{{info.referralEmail}}</td>
+						<td>{{info.referralContact}}</td>
+						<td>{{info.referralContactPerson}}</td>
+						<td>
+							<label class="switch"> 
+							<input type="checkbox" ng-model="info.status" ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatus(info.referralId,info.status)">
+							<div class="slider round"></div>
+							</label>
+						</td>
+						<td class="text-center"><a><i class="fa fa-pencil" aria-hidden="true" ng-click="showUpdateBtn(info.referralId)"></i></a></td>
+						<td class="padding-edit-button-table">
+							<div class="">
+								<a><i class="fa fa-info-circle" aria-hidden="true" ng-click="PopUpDetails(info)" title="Details"   data-toggle="modal"  data-target="#detailsAddModal11"></i></a>
+								<!--  ng-click="showpopup(info,'referralPopup.html','referralMasterController')" -->
+							</div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+  
+  $(".selectedPageName").text("Referral Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="referralMaster"]').parents("li").addClass("active");
+});
+</script>

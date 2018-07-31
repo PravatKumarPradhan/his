@@ -1,0 +1,800 @@
+
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+    	<div class="row padding-left-right-set4 margin-top4">
+    		
+    		<!-- *********** Row one start ******* -->
+			<div class="row patient-details-row">
+				<div class="col-md-11 col-sm-11 col-xs-11 ">
+					<span class="profile_pic margin-left10"> <img alt=""
+						src="resources/assets/images/tempImages/m.jpg" class="img-circle"
+						style="width: 30px">
+					</span> <span class="margin-left10">{{labResultMasterDto.patientDetails}} </span> <span
+						class="margin-left10"><b class="padding-right5 ">UHID 
+							:</b> {{labResultMasterDto.uhid}}</span> <span class="margin-left10"><b
+						class="padding-right10 ">Priority : </b> {{labResultMasterDto.priorityName}}</span> <span
+						class="margin-left10">{{labResultMasterDto.doctorDetails}} </span>
+				</div>
+			</div>
+			<!-- *********** Row one end ******* -->
+			
+			
+			<!-- *********** Row Two start ******* -->
+			<div class="row">
+				<div class="col-lg-12 col-md-12 "><!-- fix-height-scroll500 -->
+				<form name="worklistForReportEntryForm" novalidate>
+					<table class="table table-bordered table-striped">
+						<tbody ng-repeat="testRestObj in testMasterResList track by $index" ng-init="testIndex=$index">
+							<tr>
+								<th colspan="4">Profile Name</th><span>{{testRestObj.panelAlies}}</span>
+							</tr>
+							<tr class="worklist-test-name cursor-pointer">
+								<th class="width10 ">
+									<input type="checkbox" class="margin-right10" ng-model="testRestObj.isSelected"/>
+									<span class="margin-right10">Test Name</span>
+									<span>{{testRestObj.testDesc}}</span>
+								</th>
+								<th class="date-column">
+									<span class="margin-right10">Test Code :</span>
+									<span>{{testRestObj.testCode}}</span>
+								</th>
+								<th class="date-column ">
+									<span class="margin-right10">Sample Id:</span>
+									<span>{{testRestObj.labSampleNo}}</span>
+								</th>
+								<th class="date-column ">
+									<span class="margin-right10">Test Technique</span>
+									<span class="margin-right10">{{testRestObj.techniqueName}}</span>
+									<span class="float-right">
+										<a title="Reset Details">
+											<i class="fa fa-info-circle color-green" ng-click="getLabHistoryReport();"></i>
+										</a>
+									</span>	
+								</th>
+							</tr>
+								<tr class="details-for-test-name" ng-if="testRestObj.testType==1"
+								ng-repeat="paramTestHeaderDtls in testRestObj.listMultyParamTestHeaderDto track by $index" ng-init="headerIndex=$index">
+								<td colspan="6">
+									<table class="table table-bordered table-striped">
+										<tr >
+											<td colspan="11"><b>Header Name
+												:</b>{{paramTestHeaderDtls.headerCode}}</td>
+										</tr>
+										<tr>
+											<td class="width15 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Parameter Name</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Entered Result</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Validate Result</div></td>
+											<td class="width6 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Result</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Unit</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Reference Range</div></td>
+											<td class="width3 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Help Values</div></td>
+											<td class="width3 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Delta</div></td>
+											<td class="width7 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Informed To</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Result Entered By</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Result Validated By</div></td>
+										</tr>
+										<tr ng-repeat="labResultDetails in paramTestHeaderDtls.listLabResultDetailsViewDto track by $index" ng-init="resultIndex=$index">
+											<td>
+												<div>{{labResultDetails.paramName}}</div>
+											</td>
+											<td>{{labResultDetails.firstLevelResult}}</td>
+											<td>{{labResultDetails.secondLevelResult}}</td>
+											<td> 
+											   <div class="form-group col-lg-10 col-md-12 padding-left-right-set4" ><!-- show-errors -->
+													<span class="text-left">
+														<input type="text" value="9" name="finalResult"   ng-model="labResultDetails.finalResult" class="urgent-text width80" ng-blur="changeArrowPosition(testIndex,headerIndex,resultIndex,testRestObj.testType);" ng-init="changeArrowPosition(testIndex,headerIndex,resultIndex,testRestObj.testType);" required/>
+													</span>
+													<span class="">
+														<i ng-class="labResultDetails.arrowClass" aria-hidden="true"></i>
+													</span>
+													<p class="help-block"
+										            ng-if="worklistForReportEntryForm.finalResult.$error.required">{{resultReqMsg}}</p>
+												</div>
+												<div class="text-right col-lg-2 col-md-12 padding-left-right-set4 padding-top4">
+													<i class="fa fa-info-circle color-green" ng-if="isRecollected" 
+												ng-click="getResultEntryDataList(labResultDetails.orgId,labResultDetails.orgUnitId,labResultDetails.labResultId);" data-toggle="modal" data-target="#previousResult"></i>
+												</div>
+											</td>
+											<td><div>{{labResultDetails.paramUnit}}</div></td>
+											<td>
+												<div ng-if="labResultDetails.refrangeTypeId==1">{{labResultDetails.parameterMin}} -
+													{{labResultDetails.parameterMax}}</div>
+												<div ng-if="labResultDetails.refrangeTypeId==2">{{labResultDetails.textualRangeName}}</div>
+												<div ng-if="labResultDetails.refrangeTypeId==3">{{labResultDetails.multitextaulRange}} </div>
+											</td>
+											<td class="text-center">
+												<div>
+													<i class="fa fa-info-circle" aria-hidden="true"
+														ng-click="showHelpValue(labResultDetails.listHelpValueMaster);"
+														data-toggle="modal" data-target="#helpValue"></i>
+												</div>
+											</td>
+											<td><div ng-if="labResultDetails.isDeltaFlag=='Y'">
+														<div class="customtooltip">
+														<i class="fa fa-info-circle"></i> 
+															 <span class="customtooltiptext">
+															    <div>
+																	Delta(%) :<span>{{(labResultDetails.deltaPer==null)?"-":labResultDetails.deltaPer}}</span>
+																</div>
+																<div>
+																	Delta Days :<span>{{(labResultDetails.deltaDaysId==null)?"-":labResultDetails.deltaDaysId}}</span>
+																</div>															<div>
+																	Delta Changes(%) : <span>{{labResultDetails.deltaChange}}</span>
+																</div>
+														</div>
+												 </div></td>
+											<td class="text-center">
+												<div>
+													<i class="fa fa-info-circle" aria-hidden="true" data-toggle="modal" data-target="#informedTo"></i>
+												</div>
+											</td>
+											<td>{{testRestObj.resultEnterByUser}}({{testRestObj.resultEnterDatetime| date : "dd/MM/y h:mm a"}})</td>
+											<td>{{testRestObj.resultValidatedByUser}}({{testRestObj.resultValidatedDatetime| date : "dd/MM/y h:mm a"}})</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr> <td colspan="6"><div class="row margin-top8"  ng-if="testRestObj.testType==1">
+										<div class="col-lg-1 col-md-1 col-sm-2 text-right text-width-auto padding-left-right-set4">
+											<label>Remark:</label>
+										</div>
+										<div class="col-lg-11 col-md-11 col-sm-10 padding-left-right8">
+											<textarea row="1" class="form-control" ng-model="testRestObj.footsNotes"></textarea>
+										</div>
+							</div></td></tr>
+							<tr class="details-for-test-name" ng-if="testRestObj.testType==0">
+								<td colspan="7">
+									<table class="table table-bordered table-striped">
+										<tr>
+											<td class="width15 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Parameter Name</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Entered Result</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Validate Result</div></td>
+											<td class="width6 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Result</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Unit</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Reference Range</div></td>
+											<td class="width3 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Help Values</div></td>
+											<td class="width3 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Delta</div></td>
+											<td class="width7 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Informed To</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Result Entered By</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Result Validated By</div></td>
+										</tr>
+										 <tr>
+											<td>
+												<div>{{testRestObj.labResultDetailsViewDto.paramName}}</div>
+											</td>
+											<td>{{testRestObj.labResultDetailsViewDto.firstLevelResult}}</td>
+											<td>{{testRestObj.labResultDetailsViewDto.secondLevelResult}}</td>
+											<td> 
+											   <div class="form-group col-lg-10 col-md-12 padding-left-right-set4" ><!-- show-errors -->
+													<span class="text-left">
+														<input type="text" value="9" name="finalResult"   ng-model="testRestObj.labResultDetailsViewDto.finalResult" class="urgent-text width80" ng-blur="changeArrowPosition(testIndex,0,0,testRestObj.testType);" ng-blur="changeArrowPosition(testIndex,0,0,testRestObj.testType);" required/>
+													</span>
+													<span class="">
+														<i ng-class="testRestObj.labResultDetailsViewDto.arrowClass" aria-hidden="true"></i>
+													</span>
+													<p class="help-block"
+										            ng-if="worklistForReportEntryForm.finalResult.$error.required">{{resultReqMsg}}</p>
+												</div>
+												<div class="text-right col-lg-2 col-md-12 padding-left-right-set4 padding-top4">
+													<i class="fa fa-info-circle color-green" ng-if="isRecollected" 
+												ng-click="getResultEntryDataList();" data-toggle="modal" data-target="#previousResult"></i>
+												</div>
+											</td>
+											<td><div>{{testRestObj.labResultDetailsViewDto.paramUnit}}</div></td>
+											<td>
+												<div ng-if="testRestObj.labResultDetailsViewDto.refrangeTypeId==1">{{testRestObj.labResultDetailsViewDto.parameterMin}} -
+													{{testRestObj.labResultDetailsViewDto.parameterMax}}</div>
+												<div ng-if="testRestObj.labResultDetailsViewDto.refrangeTypeId==2">{{testRestObj.labResultDetailsViewDto.textualRangeName}}</div>
+												<div ng-if="testRestObj.labResultDetailsViewDto.refrangeTypeId==3">{{testRestObj.labResultDetailsViewDto.multitextaulRange}} </div>
+											</td>
+											<td class="text-center">
+												<div class="padding-top4">
+													<i class="fa fa-info-circle" aria-hidden="true" 
+														ng-click="showHelpValue(testRestObj.labResultDetailsViewDto.listHelpValueMaster);"
+														data-toggle="modal" data-target="#helpValue"></i>
+												</div>
+											</td>
+											<td><div ng-if="testRestObj.labResultDetailsViewDto.isDeltaFlag=='Y'">
+														<div class="customtooltip">
+														<i class="fa fa-info-circle"></i> 
+															 <span class="customtooltiptext">
+															    <div>
+																	Delta(%) :<span>{{(testRestObj.labResultDetailsViewDto.deltaPer)==null?"-":testRestObj.labResultDetailsViewDto.deltaPer}}</span>
+																</div>
+																<div>
+																	Delta Days :<span>{{(testRestObj.labResultDetailsViewDto.deltaDaysId)==null?"-":testRestObj.labResultDetailsViewDto.deltaDaysId}}</span>
+																</div>
+																<div>
+																	Delta Changes(%) : <span>{{testRestObj.labResultDetailsViewDto.deltaChange}}</span>
+																</div>
+														</div>
+												</div></td>
+											<td class="text-center">
+												<div>
+													<i class="fa fa-info-circle" aria-hidden="true" data-toggle="modal" data-target="#informedTo"></i>
+												</div>
+											</td>
+											<td>{{testRestObj.resultEnterByUser}}({{testRestObj.resultEnterDatetime| date : "dd/MM/y h:mm a"}})</td>
+											<td>{{testRestObj.resultValidatedByUser}}({{testRestObj.resultValidatedDatetime| date : "dd/MM/y h:mm a"}})</td>
+										</tr>
+									</table>
+								</td>
+								
+							</tr>
+							<tr> <td colspan="7"><div class="row margin-top8"  ng-if="testRestObj.testType==0">
+										<div class="col-lg-1 col-md-1 col-sm-2 text-right text-width-auto padding-left-right-set4">
+											<label>Remark:</label>
+										</div>
+										<div class="col-lg-11 col-md-11 col-sm-10 padding-left-right8">
+											<textarea row="1" class="form-control" ng-model="testRestObj.footsNotes"></textarea>
+										</div>
+							</div></td></tr>
+							</tbody>
+						</table>
+						</form>
+					</div>
+				</div>
+			<!-- *********** Row Two start ******* -->
+			
+			
+		</div>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20 margin-top10">
+			<div class="row padding-top5 margin-top10 padding-right20">
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<input type="button" value="History" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#historyDetails">
+				</div>
+				<div class="col-lg-6 col-md-6 padding-left-right-set4"></div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<input type="button" value="Retest" class="btn btn-primary btn-save-box-shadow" ng-click="reTestResultEntryDetails();" >
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a >
+						<input type="button" value="Recollect" class="btn btn-primary btn-save-box-shadow" ng-click="reCollectResultEntryDetails();">
+					</a>
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow"  ng-click="saveResultEntryDetails();">
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a href="#/worklistForReportEntry">
+						<input type="button" value="Cancel" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a href="#/worklistForReportEntry">
+						<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+<!--// Page Content -->
+ 
+<!-- *********************** History Details Modal start ******************** -->
+<div id="historyDetails" class="modal fade ng-scope in common-medium-popup" role="dialog">
+<form name="historyForm" novalidate>
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					History 
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body bg-color-set">
+				<div class="col-lg-12 col-md-12 padding-left-right-set4 bg-color-set height-table-with-scroll">
+						<div class="row margin-top8">
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+										<select class="text-input floating-label ng-touched dirty"
+											ng-model="limit" name="limit" >
+										 <option selected value>Please Select Limit</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+										</select>
+									</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label ng-touched dirty"
+												ng-model="testId" name="testId" ng-change="getParameterList(testId);">
+												<option selected value>Please Select Test</option>
+												<option ng-repeat="test in testList" value="{{test.id}}">{{test.label}}</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<label for="description" class="LISDynamicLabel">Parameter</label>
+											<div ng-dropdown-multiselect="" options="parameterList"
+												selected-model="selectedParameterList"
+												extra-settings="dropDownSetting"></div>
+										  </div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+								<div class="row schedulerTabs">
+									<ul class="tabs nav nav-tabs">
+										<li ng-class="{ active : isSetFirstTabLevel(1) }" class="padding-top-bottom width20">
+											<a href ng-click="setFirstTabLevel(1)">Table</a>
+										</li>
+										<li ng-class="{ active : isSetFirstTabLevel(2) }" class="padding-top-bottom width20">
+											<a href ng-click="setFirstTabLevel(2)">Graph</a>
+										</li> 
+									</ul>
+								</div>
+							</div>
+							
+						</div>
+						<div class="row margin-top4">
+							<!-- ************** Table TAB start ************** ************** -->
+							<div class="row">
+								<div class="ng-show" ng-show="isSetFirstTabLevel(1)" ><!--  -->
+									<div class="row">
+										<div class="col-lg-12 col-md-12 col-sm-12 height-table-with-scroll">
+											<table class="table table-bordered table-striped">
+												<thead>
+													<tr class="table-th-bg">
+														<th class=" width12" >
+															Parameter 
+														</th>
+														<th class="width20"></td>
+															<div>Current Result</div> 
+															<div>(01/05/2018 10:00 AM)</div>
+														</th>
+														<th class="width5"  ng-repeat="resultDate in paramHistoryList[0].listParameterResultDto">
+															<div>{{resultDate.resultDateTime| date : "dd/MM/y"}}</div> 
+															<div>{{resultDate.resultDateTime| date : "h:mm a"}}</div> 
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													 <tr ng-repeat="paramObj in paramHistoryList">
+														<th>{{paramObj.parameterName}}</th>
+														<td class="bg-color-white">
+														 <td class="bg-color-white" ng-repeat="paramResuDto in paramObj.listParameterResultDto">{{paramResuDto.result}}</td> 
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- **************  Table TAB end ************** ************** -->
+							
+							<!-- ************** Graph TAB start ************** ************** -->
+							<div class="row" >
+								<div ng-show="isSetFirstTabLevel(2)" >
+									<div class="row">
+										<div class="col-lg-12 col-md-12 col-sm-12 height-table-with-scroll">
+										<canvas id="line" class="chart chart-line" chart-data="data"
+											chart-labels="labels" chart-series="series"
+											chart-options="options"
+											chart-dataset-override="datasetOverride"
+											chart-click="onClick">
+                                         </canvas>
+									</div>
+									</div>
+								</div>
+							</div>
+							<!-- **************  Graph TAB end ************** ************** -->
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+	</form>
+</div>
+<!-- *********************** History Details Modal End ******************** -->
+<!-- ************* Result modal start ********** -->
+<div id="result_modal" class="modal fade ng-scope in common-small-popup" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Result Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row serachedPatientList">
+					<div class="col-md-12 col-lg-12 common-popup-height-330">
+						<table class="table table-bordered  margin-top8">
+							<thead>
+								<tr>
+									<th class="width25"> Result Date</th>
+									<th>Result</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>15/05/2018</td>
+									<td>Result</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ************* Result modal end ********** -->
+<!-- *********************** Reset Details Modal start ******************** -->
+<div id="resetDetails" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					View
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row serachedPatientList">
+					<div class="col-md-12 col-lg-12 fix-height-scroll500 padding-left-right-set4">
+					 <div class="row">
+										<div class="col-lg-12 col-md-12 col-sm-12 height-table-with-scroll">
+											<table class="table table-bordered table-striped">
+												<thead>
+													<tr class="table-th-bg">
+														<th class=" width12" >
+															Parameter test 
+														</th>
+														<th class="width5"  ng-repeat="resultDate in previousTest.listParameterHistoryDto[0].listParameterResultDto track by $index" >
+															<div>{{resultDate.createdDate| date : "dd/MM/y"}}</div> 
+															<div>{{resultDate.createdDate| date : "h:mm a"}}</div> 
+															<input type="radio" name="previosuResult" ng-click="selectLabResult($index);">Select<br>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													 <tr ng-repeat="paramObj in previousTest.listParameterHistoryDto">
+														<th>{{paramObj.parameterName}}</th>
+														 <td class="bg-color-white" ng-repeat="paramResuDto in paramObj.listParameterResultDto">{{paramResuDto.result}}</td> 
+													</tr>
+												</tbody>
+											</table>
+										</div>
+						</div>
+					<!-- 	<div class="row">
+				<div class="col-lg-12 col-md-12 ">
+				<form name="worklistForReportEntryForm" novalidate>
+					<table class="table table-bordered table-striped">
+						<tbody ng-repeat="testRestObj in previousTestResultList track by $index" ng-init="testIndex=$index">
+							<tr>
+								<th colspan="4">Profile Name</th><span>{{testRestObj.panelAlies}}</span>
+							</tr>
+							<tr class="worklist-test-name cursor-pointer">
+								<th class="width10 ">
+									<input type="checkbox" class="margin-right10" ng-model="testRestObj.isSelected"/>
+									<span class="margin-right10">Test Name</span>
+									<span>{{testRestObj.testDesc}}</span>
+								</th>
+								<th class="date-column">
+									<span class="margin-right10">Test Code :</span>
+									<span>{{testRestObj.testCode}}</span>
+								</th>
+								<th class="date-column ">
+									<span class="margin-right10">Sample Id:</span>
+									<span>{{testRestObj.labSampleNo}}</span>
+								</th>
+								<th class="date-column ">
+									<span class="margin-right10">Test Technique</span>
+									<span class="margin-right10">{{testRestObj.techniqueName}}</span>
+									<span class="float-right">
+										<a title="Reset Details">
+											<i class="fa fa-info-circle color-green" ng-click="getPreviousDeltaReport(testRestObj.testId,testRestObj.testType);"></i>
+										</a>
+									</span>	
+								</th>
+							</tr>
+								<tr class="details-for-test-name" ng-if="testRestObj.testType==1"
+								ng-repeat="paramTestHeaderDtls in testRestObj.listMultyParamTestHeaderDto track by $index" ng-init="headerIndex=$index">
+								<td colspan="6">
+									<table class="table table-bordered table-striped">
+										<tr >
+											<td colspan="11"><b>Header Name
+												:</b>{{paramTestHeaderDtls.headerCode}}</td>
+										</tr>
+										<tr>
+											<td class="width15 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Parameter Name</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Entered Result</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Validate Result</div></td>
+											<td class="width6 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Result</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Unit</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Reference Range</div></td>
+											<td class="width3 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Help Values</div></td>
+											<td class="width3 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Delta</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Informed To</div></td>
+											<td class="width10 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Result Entered By</div></td>
+											<td class="width10 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Result Validate By</div></td>
+										</tr>
+										<tr ng-repeat="labResultDetails in paramTestHeaderDtls.listLabResultDetailsViewDto track by $index" ng-init="resultIndex=$index">
+											<td>
+												<div>{{labResultDetails.paramName}}</div>
+											</td>
+										    <td>{{labResultDetails.firstLevelResult}}</td>
+											<td>{{labResultDetails.secondLevelResult}}</td>
+											<td> 
+											   <div class="form-group col-lg-10 col-md-12 padding-left-right-set4" >show-errors
+													<span class="text-left">
+														<input type="text" value="9" name="finalResult"   ng-model="labResultDetails.finalResult" class="urgent-text width80" ng-blur="changeArrowPosition(testIndex,headerIndex,resultIndex,testRestObj.testType);" required/>
+													</span>
+													<span class="">
+														<i ng-class="labResultDetails.arrowClass" aria-hidden="true"></i>
+													</span>
+													<p class="help-block"
+										            ng-if="worklistForReportEntryForm.finalResult.$error.required">{{resultReqMsg}}</p>
+												</div>
+												<div class="text-right col-lg-2 col-md-12 padding-left-right-set4 padding-top4">
+													<i class="fa fa-info-circle color-green" ng-if="isRecollected" 
+												ng-click="getResultEntryDataList(labResultDetails.orgId,labResultDetails.orgUnitId,labResultDetails.labResultId);" data-toggle="modal" data-target="#previousResult"></i>
+												</div>
+											</td>
+											<td><div>{{labResultDetails.paramUnit}}</div></td>
+											<td>
+												<div ng-if="labResultDetails.refrangeTypeId==1">{{labResultDetails.parameterMin}} -
+													{{labResultDetails.parameterMax}}</div>
+												<div ng-if="labResultDetails.refrangeTypeId==2">{{labResultDetails.textualRangeName}}</div>
+												<div ng-if="labResultDetails.refrangeTypeId==3">{{labResultDetails.multitextaulRange}} </div>
+											</td>
+											<td class="text-center">
+												<div>
+													<i class="fa fa-info-circle" aria-hidden="true"
+														ng-click="showHelpValue(labResultDetails.listHelpValueMaster);"
+														data-toggle="modal" data-target="#helpValue"></i>
+												</div>
+											</td>
+											<td>{{labResultDetails.isDeltaFlag=='Y'?'Yes':'-'}}</td>
+											<td class="text-center">
+												<div class="padding-top4">
+													<i class="fa fa-info-circle" aria-hidden="true" data-toggle="modal" data-target="#informedTo"></i>
+												</div>
+											</td>
+											<td>{{testRestObj.resultEnterByUser}}({{testRestObj.resultEnterDatetime| date : "dd/MM/y h:mm a"}})</td>
+											<td>{{testRestObj.resultValidatedByUser}}({{testRestObj.resultValidatedDatetime| date : "dd/MM/y h:mm a"}})</td>
+										</tr>
+									</table>
+								</td>
+							
+							</tr>
+							<tr> <td colspan="6"><div class="row margin-top8"  ng-if="testRestObj.testType==1">
+										<div class="col-lg-1 col-md-1 col-sm-2 text-right text-width-auto padding-left-right-set4">
+											<label>Remark:</label>
+										</div>
+										<div class="col-lg-11 col-md-11 col-sm-10 padding-left-right8">
+											<textarea row="1" class="form-control" ng-model="testRestObj.footsNotes"></textarea>
+										</div>
+							</div></td></tr>
+							<tr class="details-for-test-name" ng-if="testRestObj.testType==0">
+								<td colspan="7">
+									<table class="table table-bordered table-striped">
+										<tr>
+											<td class="width15 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Parameter Name</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Entered Result</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Validate Result</div></td>
+											<td class="width6 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Result</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Unit</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Reference Range</div></td>
+											<td class="width3 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Help Values</div></td>
+											<td class="width3 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Delta</div></td>
+											<td class="width8 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Informed To</div></td>
+											<td class="width10 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Result Entered By</div></td>
+											<td class="width10 bg-tr-heading" style="background-color:#e2e26d !important;"><div>Result Validate By</div></td>
+										</tr>
+										 <tr>
+											<td>
+												<div>{{testRestObj.labResultDetailsViewDto.paramName}}</div>
+											</td>
+											<td>{{testRestObj.labResultDetailsViewDto.firstLevelResult}}</td>
+											<td>{{testRestObj.labResultDetailsViewDto.secondLevelResult}}</td>
+											<td> 
+											   <div class="form-group col-lg-10 col-md-12 padding-left-right-set4" >show-errors
+													<span class="text-left">
+														<input type="text" value="9" name="finalResult"   ng-model="testRestObj.labResultDetailsViewDto.finalResult" class="urgent-text width80" ng-blur="changeArrowPosition(testIndex,0,0,testRestObj.testType);" required/>
+													</span>
+													<span class="">
+														<i ng-class="testRestObj.labResultDetailsViewDto.arrowClass" aria-hidden="true"></i>
+													</span>
+													<p class="help-block"
+										            ng-if="worklistForReportEntryForm.finalResult.$error.required">{{resultReqMsg}}</p>
+												</div>
+												<div class="text-right col-lg-2 col-md-12 padding-left-right-set4 padding-top4">
+													<i class="fa fa-info-circle color-green" ng-if="isRecollected" 
+												ng-click="getResultEntryDataList();" data-toggle="modal" data-target="#previousResult"></i>
+												</div>
+											</td>
+											<td><div>{{testRestObj.labResultDetailsViewDto.paramUnit}}</div></td>
+											<td>
+												<div ng-if="testRestObj.labResultDetailsViewDto.refrangeTypeId==1">{{testRestObj.labResultDetailsViewDto.parameterMin}} -
+													{{testRestObj.labResultDetailsViewDto.parameterMax}}</div>
+												<div ng-if="testRestObj.labResultDetailsViewDto.refrangeTypeId==2">{{testRestObj.labResultDetailsViewDto.textualRangeName}}</div>
+												<div ng-if="testRestObj.labResultDetailsViewDto.refrangeTypeId==3">{{testRestObj.labResultDetailsViewDto.multitextaulRange}} </div>
+											</td>
+											<td class="text-center">
+												<div class="padding-top4">
+													<i class="fa fa-info-circle" aria-hidden="true" 
+														ng-click="showHelpValue(testRestObj.labResultDetailsViewDto.listHelpValueMaster);"
+														data-toggle="modal" data-target="#helpValue"></i>
+												</div>
+											</td>
+											<td>{{testRestObj.labResultDetailsViewDto.isDeltaFlag=='Y'?'Yes':'-'}}</td>
+											<td class="text-center">
+												<div class="padding-top4">
+													<i class="fa fa-info-circle" aria-hidden="true" data-toggle="modal" data-target="#informedTo"></i>
+												</div>
+											</td>
+											<td>{{testRestObj.resultEnterByUser}}({{testRestObj.resultEnterDatetime| date : "dd/MM/y h:mm a"}})</td>
+											<td>{{testRestObj.resultValidatedByUser}}({{testRestObj.resultValidatedDatetime| date : "dd/MM/y h:mm a"}})</td>
+										</tr>
+									</table>
+									<div class="row margin-top8">
+										<div class="col-lg-1 col-md-1 col-sm-2 text-right text-width-auto padding-left-right-set4">
+											<label>Remark:</label>
+										</div>
+										<div class="col-lg-11 col-md-11 col-sm-10 padding-left-right8">
+											<textarea row="1" class="form-control"></textarea>
+										</div>
+									</div>
+								</td>
+								
+							</tr>
+							<tr> <td colspan="7"><div class="row margin-top8"  ng-if="testRestObj.testType==1">
+										<div class="col-lg-1 col-md-1 col-sm-2 text-right text-width-auto padding-left-right-set4">
+											<label>Remark:</label>
+										</div>
+										<div class="col-lg-11 col-md-11 col-sm-10 padding-left-right8">
+											<textarea row="1" class="form-control" ng-model="testRestObj.footsNotes"></textarea>
+										</div>
+							</div></td></tr>
+							</tbody>
+						</table>
+						</form>
+					</div>
+				</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- *********************** Reset Details Modal End ******************** -->
+<!-- *********************** Informed To Modal start ******************** -->
+<div id="informedTo" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Informed To
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body bg-color-set">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 padding-left-right-set4 bg-color-set height-table-with-scroll">
+						<div class="row margin-top8">
+							<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" class="text-input floating-label dirty">
+											<label for="" class="LISDynamicLabel">Informed To :</label>
+										</div>
+									</div>
+								</div>
+							</div>					
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-10 text-width-auto">
+										<b class="padding-right10 ">Complaint Details:</b>
+									</div>
+									<div class="col-lg-9 col-md-9 col-sm-9 padding-left-right-set4">
+										<textarea rows="2" class="dirty"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float-right">
+							   <div class="">
+								  <a href="">
+									   <input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+								   </a>
+							   </div>
+						   </div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-lg-12 common-popup-height-330">
+								<table class="table table-bordered  margin-top8">
+									<thead>
+										<tr>
+											<th class="width8">Informed Date</th>
+											<th class="width8">Informed To</th>
+											<th class="width12">Notes</th>
+											<th class="width4">Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>15/05/2018</td>
+											<td>-</td>
+											<td>Notes</td>
+											<td>Edit</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<!-- *********************** Informed To Modal start ******************** -->
+<div ng-include="'./views/common/help-value.html'"></div>
+<div ng-include="'./views/common/previous-result.html'"></div>
+
+<script type="text/javascript">
+
+$( document ).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+ 	
+ 	$('.clockpicker').clockpicker();
+ 	
+	$(".selectedPageName").text("Details Of Report Release Work List");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	
+	$("#tableTwo").hide();
+   	$(".details-btn").click(function(){
+	   $("#tableOne").show();
+	   $("#tableTwo").show();
+   	});
+   	
+   	$(".details-for-test-name").hide();
+   	$(".worklist-test-name").click(function() {
+   		//alert("in function");
+   		$(this).next().first().toggle();
+   		$(this).next().second().toggle();
+   	})
+});
+</script>

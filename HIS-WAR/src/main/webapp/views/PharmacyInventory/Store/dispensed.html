@@ -1,0 +1,552 @@
+<!-- /********************************************************************************************************************************************
+Inventory - store - pending-handover-worklist main page
+Created by - Pranita Patil
+Created Date - 11-Dec-2017 
+/********************************************************************************************************************************************/ -->
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<div class="row">
+				<div class="row padding-left-right-10 padding-left0 margin-top10">
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<select class="text-input floating-label"> <option value=""></option> </select> <label for="code">Select Visit Type</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10"> <div class="row input-container"> <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> <i class="fa fa-user" aria-hidden="true"></i> </div> <div class="col-lg-11 col-sm-11 col-md-11"> <div class=""> <input type="text" name="code" id="" class="text-input floating-label"> <label for="code">Patient Name</label> </div> </div> </div> </div> <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top10"> <div class="row input-container"> <div class="col-lg-2 col-sm-2 col-md-2 polymer-icon"> <i class="fa fa-bullseye" aria-hidden="true"></i> </div> <div class="col-lg-10 col-sm-10 col-md-10"> <div class=""> <input type="text" name="code" id="" class="text-input floating-label"> <label for="code">UHID</label> </div> </div> </div> </div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-user-md fa-color" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label">
+									<label for="code">Doctor Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-top10">
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set0">
+							<div class="row input-container">
+								<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label">
+										<label for="code">From Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set0">
+							<div class="row input-container">
+								<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label">
+										<label for="code">To Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<select class="text-input floating-label"> <option value=""></option> </select> <label for="code">Ward</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row padding-top10">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<select class="text-input floating-label"> <option value=""></option> </select> <label for="code">Status</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+						<div class="common-save-button" style="padding-top:  0px;"> 
+								 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+								 	<i class="fa fa-search" aria-hidden="true"></i> 
+								 </a> 
+							</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+						<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px">
+						<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+					</div>
+				</div>
+				
+				<div class="row padding-left-right-set4 margin-top4">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<table class="table table-bordered">
+							<tr class="">
+								<th class="width6">
+									Visit Type
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width9">
+									Visit Date Time
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width7">
+									Prescription Date
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width15">
+									Patient Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width12">
+									Doctor Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th  class="width8">
+									Ward No
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width5">
+									Bed No
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width7">
+									Priority
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width7">
+									Payment Status
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width7">
+									Dispensed By
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									Print
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8 text-center">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>TC890</td>
+								<td >
+									<div>John Deo 26/M </div>
+								</td>
+								<td>
+									<div>Dr. Andy Qnyty, Homotology</div>
+								</td>
+								<td>
+									<div>Ward No.-1</div>
+								</td>
+								<td>
+									<div>BM678905</div>
+								</td>
+								<td>
+									<div>Normal</div>
+								</td>
+								<td></td>
+								<td></td>
+								<td>
+									<select class="select-box">
+										<option>Select</option>
+										<option>Drug Label</option>
+										<option>Patient Demographics</option>
+										<option>Prescription</option>
+									</select>
+								</td>
+								<!-- <td>
+									<select class="select-box">
+										<option>Select</option>
+										<option>Pending</option>
+										<option>Closed</option>
+										<option>Intervention</option>
+										<option>Intervention Resolved</option>
+										<option>Cancelled</option>
+									</select>
+								</td> -->
+								<td class="text-center vertical-middle cursor-pointer">
+									<span><a title="Print">
+										<i class="fa fa-print" aria-hidden="true"></i>
+									</a></span>
+									<span class="padding-left10"><a data-toggle="modal" data-target="#detailsModal">Details</a>
+									</span></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>
+
+<!-- details modal start -->
+<div id="detailsModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10 padding-left-right-set4" id="pharmacologyDetailsTableId"><!-- id for the table td fix height -->
+						<table class="table table-bordered table-striped">
+							<tr class="table-th-bg">
+								<th class="width7">
+									Product Code
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Medication Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width11">
+									Manufacturer
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									Flag
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									UOM
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									Qty Ordered
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width7">
+									Amount 
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width7">
+									Batch No.
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width5">
+									Expiry Date
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width7">
+									Qty Issued
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									Rate
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width9">
+									Total Amount
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width7">
+									Discount 
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-9 col-md-8"></div>
+					<div class="col-lg-2 col-md-2 text-left padding-top4 padding-left-right-set4">
+						<input type="text" class="w-100" placeholder="Receiver">
+					</div>
+					<div class="col-lg-1 col-md-2">
+						<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Save</button>
+					</div>
+					<!-- <div class="col-lg-1 col-md-2  padding-left10">
+						<button type="button" class="btn btn-primary text-width-auto" data-dismiss="modal" data-toggle="modal" data-target="#handoverModal">Handover Details</button>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+<!-- Handover modal start -->
+<div id="handoverModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Handover Item Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10 padding-left-right-set4" id="pharmacologyDetailsTableId"><!-- id for the table td fix height -->
+						<table class="table table-bordered table-striped">
+							<tr class="table-th-bg">
+								<th class="width10">
+									 Item Code
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									Item Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									 Generic Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									Batch No
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Expiry Date
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									Qty 
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									Name Of Receiver 
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<div class="row">
+					<div class="col-lg-10 col-md-10"></div>
+					<div class="col-lg-1 col-md-1">
+						<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Handover</button>
+					</div>
+					<div class="col-lg-2 col-md-1 text-right">
+						<button type="button" class="btn btn-primary " data-dismiss="modal" data-toggle="modal" data-target="#detailsModal">Back</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Handover modal end -->
+
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".selectedPageName").text("Dispensed");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	
+});
+</script>

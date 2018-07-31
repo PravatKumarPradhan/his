@@ -1,0 +1,135 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style ">
+		<!-- <legend class="heading-div">Holiday Calendar Master</legend> -->
+
+		<div class="row margin-top10">
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="form-group">
+							<select class="text-input floating-label" name="" required="">
+								<option>Select Year</option>
+								<!-- ngRepeat: info in prefixList -->
+							</select> <label for="code"></label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="form-group">
+							<select class="text-input floating-label" name="prefixId"
+								required="">
+								<option>Select Day</option>
+								<!-- ngRepeat: info in prefixList -->
+							</select> <label for="code"></label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 padding-top10 text-center">
+				<div class="checkbox">
+					<label class="common-lable-color-set"><input
+						type="checkbox" value="" class="isHalfday">Is Halfday</label>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 fromtotime">
+				<div
+					class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="text" name="" class="text-input floating-label">
+								<label for="description" class="">From Time</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="form-group">
+								<input type="text" name="" class="text-input floating-label">
+								<label for="description" class="">To Time</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto margin-top10">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"
+						data-toggle="modal" data-target="#confirmLogout"> <i
+						class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div
+				class="col-lg-3 col-md-2 col-sm-3 padding-left-right-set0 float_right margin-top10">
+				<input type="text" class="text-search-box" placeholder="Search"
+					style="margin-top: 0px"> <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top8">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tbody>
+						<tr class="">
+							<th class="width10">Year</th>
+							<th class="width10">Day</th>
+							<th class="width10">Date</th>
+							<th class="width10">Is Halfday</th>
+							<th class="width10">From Time</th>
+							<th class="width10">To Time</th>
+							<th class="width5 text-center">Status</th>
+							<th class="width5 text-center">Action</th>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="text-center"><label class="switch"> <input type="checkbox">
+									<div class="slider round"></div>
+							</label></td>
+							<td class="padding-edit-button-table text-center vertical-middle"><a> <i
+									class="fa fa-pencil" aria-hidden="true" title="Edit"></i>
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$(".fromtotime").hide();
+$(".isHalfday").click(function() {
+    if($(this).is(":checked")) {
+        $(".fromtotime").show();
+    } else {
+        $(".fromtotime").hide();
+    }
+});
+</script>

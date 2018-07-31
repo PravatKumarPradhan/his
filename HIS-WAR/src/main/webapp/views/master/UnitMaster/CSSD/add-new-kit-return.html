@@ -1,0 +1,235 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<!-- <legend class="heading-div">Material Return</legend> -->
+			<div class="row margin-top10">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-md-2 col-sm-2 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<select class="text-input floating-label dirty">
+									<option>Pharmacy Store</option>
+								</select>
+								<label for="code">From Store</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-md-2 col-sm-2 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<select class="text-input floating-label dirty">
+									<option>Main Store</option>
+								</select>
+								<label for="code">To Store</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="col-md-1 padding-left-right-set1">
+					<div class="common-save-button pull-right">
+						<input type="button" value="Get Issue" class="btn btn-primary btn-save-box-shadow" data-target="#getItemList" data-toggle="modal">
+					</div>
+				</div> -->
+				<!-- <div class=" col-lg-3 col-md-3 col-sm-3 padding-left-right-set1 padding-top10">
+					<label class="cursor-pointer radio-inline padding-top10"><input type="radio" name="optradio" class="radioAcceptedHold4" data-toggle="modal" data-target="#searchKit" checked>Get Item</label> 
+					<label class="cursor-pointer radio-inline padding-top10"><input type="radio" name="optradio" class="radioRejected4" data-toggle="modal" data-target="#ur">Near Expiry</label>
+				</div> -->
+				<div class="col-lg-1 col-sm-1 col-md-1 padding-top4 padding-left-right-set4">
+					<div class="common-save-button"> 
+						 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;" data-target="#searchKit" data-toggle="modal"> 
+						 	Get Kit 
+						 </a> 
+					</div> 
+				</div>
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-set0 padding-top4">
+			<div class="col-md-12 col-lg-12 col-sm-8 padding-left-right-set4"  id="nonBillableTableHt">
+				<fieldset>
+					<!-- <legend class="heading-div">Table</legend> -->
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+							<table class="table table-bordered">
+						<thead>
+							<tr>
+							<th class="width1 vertical-middle text-center"><input type="checkbox" class=""></th>
+								<th class="width4">Kit Code
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">Kit Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<!-- <th class="width5">Generic Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th> -->
+								<th class="width5">Stock Available
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<!-- <th class="width3">UOM
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width4">UOM Unit
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th> -->
+								<th class="width6">Batch No.
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width4">Expiry Date
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width3">Return Qty
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">Reason for Return
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width1"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="vertical-middle text-center"><input type="checkbox"></td>
+								<td class="vertical-middle"></td>
+								<td class="vertical-middle"></td>
+								<td class="vertical-middle"></td>
+								<td class="vertical-middle">BT-672</td>
+								<td class="vertical-middle">25/02/2019	</td>
+								<td class="vertical-middle"><input type="Number" class="w-100 ng-pristine ng-valid ng-empty ng-touched select-box" value="5"></td>
+								<td class="vertical-middle">
+									<!-- <select class="border-dropdown ng-pristine ng-valid ng-empty ng-touched select-box" ng-model="paramRefrengMaster.ageGroupId" style="">
+											<option selected="" value="">Please Select Return Reason</option>
+									</select> -->
+									<select class="border-dropdown select-box">
+										<option>Unuse</option>
+									</select>
+								</td>
+								<td class="text-center vertical-middle"><a><i class="fa fa-times"></i></a></td>
+							</tr>
+						</tbody>
+					</table>
+						</div>
+					</div>
+				</fieldset>
+				<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+					<div class="row his-style margin-top10 padding-right20">
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-caret-square-o-right " aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label dirty">
+										<option value="">Saeed G</option>
+									</select> <label for="code">Carrier</label>
+								</div>
+							</div>
+						</div>
+					</div>
+						<div class="col-md-1 text-right">
+							<label>Remark:</label>
+						</div>
+						<div class="col-lg-7 col-md-7 col-sm-7 padding-left-right8">
+							<textarea row="1" class="form-control"></textarea>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left0px-right6px">
+							<div class="">
+								<!-- common-save-button -->
+								<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left0px-right6px">
+							<div class="">
+								<!-- common-save-button -->
+								<a href="#/KitReturn">
+									<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+								</a>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="resources/assets/js/common/page-height.js"></script>

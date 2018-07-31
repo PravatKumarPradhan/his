@@ -1,0 +1,136 @@
+<div id="page-content-wrapper" style="height: 100%; overflow-y: auto">
+	<div class="container-fluid his-style">
+		<div class="row">
+			<div
+				class="col-md-2 col-sm-2 padding-left-right-set4 text-width-auto padding-top4">
+				<div class=" ">
+					<a> <input type="button" value="Get Item"
+						class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+			<div
+				class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right margin-top5">
+				<input type="text" class="text-search-box dirty"
+					placeholder="Search" style="margin-top: 0px"> <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-top8">
+			<div class="col-md-12 col-lg-12 col-sm-12" id="nonBillableTableHt">
+				<div class="row">
+					<div
+						class="col-lg-12 col-md-12 col-sm-12 height55-table-with-scroll padding-left-right-set4">
+						<table class="table table-bordered first-checkBox-padding">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width8">Item Code</th>
+									<th class="width8">Item Name</th>
+									<th class="width8">UOM</th>
+									<th class="width8">UOM Unit</th>
+									<th class="width8">Reusable Qty</th>
+									<th class="width5 text-center">Reusable Details</th>
+									<th class="width3 text-center vertical-middle">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td class="text-center">
+										<a class="cursor-pointer" data-toggle="modal" data-target="#ETOItemConfigModalDetails">Add</a>&nbsp;<a><i
+												class="fa fa-info-circle"></i></a></td>
+										<td class="text-center"><a title="Edit"><i
+												class="fa fa-times" aria-hidden="true"></i></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+				<div class="col-md-10">
+				</div>
+				<div class="col-md-1 padding-left0px-right6px">
+					<div class=""><!-- common-save-button -->
+						<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+					</div>
+				</div>
+				<div class="col-md-1 padding-left0px-right6px">
+					<div class=""><!-- common-save-button -->
+						<a href="#/ETOItemConfiguration">
+							<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+	</div>
+</div>
+
+<!-- ETOItemConfigModalDetails Modal START -->
+<div id="ETOItemConfigModalDetails" class="modal fade ng-scope in common-medium-popup"
+	role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					ETO Item Configuration
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4 padding-top4">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<table class="table table-bordered first-checkBox-padding">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr class="">
+									<th class="width1">Sr No.</th>
+									<th class="width8">Charging Time</th>
+									<th class="width8">Charges</th>
+									<th class="width2">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td class=""><input type="button" name="" id="" value="+"
+										class="btn btn-info add-dynamic-row"
+										style="padding: 0 2px !important;"></td>
+								</tr>
+								<tr>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td class="">
+									<input type="button" name="" id="" value="+"
+										class="btn btn-info add-dynamic-row"
+										style="padding: 0 2px !important;">&nbsp;<input type="button" name="" id="" value="-"
+										class="btn btn-info add-dynamic-row"
+										style="padding: 0 2px !important;"></td>
+								</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary"
+					id="">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ETOItemConfigModalDetails Modal END -->

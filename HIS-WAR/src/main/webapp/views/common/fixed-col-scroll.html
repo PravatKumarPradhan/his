@@ -1,0 +1,178 @@
+<head><style>
+	.table-scroll {
+	position:relative;
+	max-width:110%;
+	margin:auto;
+	overflow:hidden;
+	border:1px solid #ddd;
+}
+.table-wrap {
+	width:100%;
+	overflow:auto;
+}
+.table-scroll table {
+	width:100%;
+	margin:auto;
+	border-collapse:collapse;
+	border-spacing:0;
+}
+.table-scroll th, .table-scroll td {
+	padding:5px 10px;
+	border:1px solid #ddd;
+	background:#fff;
+	white-space:nowrap;
+	vertical-align:top;
+}
+/* .main-table>tbody>tr>th, .main-table>thead>tr>th, .main-table>tfoot>tr>td, .main-table>tfoot>tr>th
+	{
+	background-color: #F5F5A6 !important; 
+	}
+	.main-table>tbody>tr>td
+	{
+		background-color: #FFFFCE; 
+	} */
+.th-bg{background-color: #F5F5A6 !important;}
+.td-bg{background-color: #FFFFCE !important;}
+.clone {
+	position:absolute;
+	top:0;
+	left:0;
+	pointer-events:none;
+	background-color: transparent !important;
+}
+.clone th, .clone td {
+	visibility:hidden
+}
+.clone td, .clone th {
+	border-color:transparent
+}
+.clone tbody th {
+	visibility:visible;
+}
+.clone .fixed-side {
+	border:1px solid #ddd;
+	visibility:visible;
+}
+.clone thead, .clone tfoot{background:transparent;}
+</style>
+</head>
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<div class="row padding-top10">
+			<div id="table-scroll" class="table-scroll">
+			  <div class="table-wrap">
+			    <table class="main-table">
+			      <thead>
+			        <tr>
+			          <th class="fixed-side width5 th-bg" scope="col">222222222222</th>
+			          <th class="fixed-side width10 th-bg" scope="col">1111111</th>
+			          <th scope="col" class="">Header 2</th>
+			          <th scope="col">Header 3</th>
+			          <th scope="col">Header 4</th>
+			          <th scope="col">Header 5</th>
+			          <th scope="col">Header 6</th>
+			          <th scope="col">Header 7</th>
+			          <th scope="col">Header 8</th>
+			          <th scope="col">Header 2</th>
+			          
+			          <th scope="col">Header 4</th>
+			          <th scope="col">Header 5</th>
+			          <th scope="col">Header 7</th>
+			          <th scope="col">Header 4</th>
+			          <th scope="col">Header 5</th>
+			          <th scope="col">Header 7</th>
+			          <th class="fixed-side width5 th-bg" scope="col">222222222222</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <tr>
+			          <td class="fixed-side td-bg">232</td>
+			          <td class="fixed-side td-bg">123</td>
+			          <td class="td-bg">Cell content<br>
+			            test</td>
+			          <td><a href="#">Cell content longer</a></td>
+			          <td>Cell content</td>
+			          <td>Cell content</td>
+			          <td>Cell content</td>
+			          <td>Cell content</td>
+			          <td>Cell content</td>
+			          <td>Cell content<br>
+			            test</td>
+			          
+			          <td>Cell content</td>
+			          <td>Cell content</td>
+			          <td>Cell content</td>
+			           <td>Cell content</td>
+			            <td>Cell content</td>
+			             <td>Cell content</td>
+			         <td class="fixed-side td-bg">232</td>
+			          
+			        </tr>
+			      </tbody>
+			      <!-- <tfoot>
+			        <tr>
+			          <td class="fixed-side">8121111</td>
+			          <td class="fixed-side">121212</td>
+			          <td>Footer 2</td>
+			          <td>Footer 3</td>
+			          <td>Footer 4</td>
+			          <td>Footer 5</td>
+			          <td>Footer 6</td>
+			          <td>Footer 7</td>
+			          <td>Footer 8</td>
+			          <td>Footer 2</td>
+			          <td>Footer 3</td>
+			          <td>Footer 4</td>
+			          <td>Footer 5</td>
+			          <td>Footer 6</td>
+			          <td>Footer 7</td>
+			          <td>Footer 8</td>
+			        </tr>
+			      </tfoot> -->
+			    </table>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+//requires jquery library
+jQuery(document).ready(function() {
+   jQuery(".main-table").clone(true).appendTo('#table-scroll').addClass('clone');
+ });
+</script>
+<!-- <div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<div class="row padding-top10">
+			<table id="showcase-fixedcolumns" datatable="" dt-options="showCase.dtOptions">
+        <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+            <th>Extn.</th>
+            <th>E-mail</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>Tiger</td>
+            <td>Nixon</td>
+            <td>System Architect</td>
+            <td>Edinburgh</td>
+            <td>61</td>
+            <td>2011/04/25</td>
+            <td>$320,800</td>
+            <td>5421</td>
+            <td>t.nixon@datatables.net</td>
+        </tr></tbody>
+    </table>
+		</div>
+	</div>
+</div> -->

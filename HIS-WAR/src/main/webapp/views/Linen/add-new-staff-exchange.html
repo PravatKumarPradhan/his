@@ -1,0 +1,267 @@
+<div id="page-content-wrapper" class="ng-scope">
+  <div class="container-fluid his-style">
+    <fieldset class="main-fieldset">
+      <!-- <legend class="heading-div">Store Indent</legend> -->
+   <div class="row margin-top10">
+      <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+        <div class="row input-container">
+          <div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+            <i class="fa fa-tasks" aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-11 col-sm-11 col-md-10">
+            <div class="">
+              <select class="dirty text-input floating-label ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.model.fromStore">
+                <option value="">ICU</option>
+                <!-- ngRepeat: datum in vm.model.storeList -->
+              </select>
+              <label for="code">From Store</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+        <div class="row input-container">
+          <div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+            <i class="fa fa-tasks" aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-11 col-sm-11 col-md-10">
+            <div class="">
+              <select class="dirty text-input floating-label ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.model.toStore">
+                <option value="">Main Store</option>
+                <!-- ngRepeat: datum in vm.model.storeList -->
+              </select>
+              <label for="code">To Store</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-2 padding-left-right-set padding-top10">
+        <div class="row input-container">
+          <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+             <i class="fa fa-tasks" aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-5 col-sm-3 col-md-4">
+            <div class="">
+              <select class="dirty text-input floating-label ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.model.prioritySelect">
+                <option value="">Normal</option>
+                <!-- ngRepeat: datum in vm.model.priorityDataList -->
+              </select>
+              <label for="code">Priority</label>
+            </div>
+          </div>
+            <!--  <div class="col-lg-6 col-md-7 col-sm-2 padding-left-right-set">
+            <div class="checkbox">
+              <label class="common-lable-color-set"><input type="checkbox" value="" ng-model="vm.model.isConsignment" class="ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" style="">Is Consignment</label>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      
+      <div class="checkbox">
+          <label class="common-lable-color-set">
+          <input type="checkbox" class="getNameList">Get Item List
+          </label>
+        </div>
+      <div class="col-lg-3 col-md-2 col-sm-3 padding-left-right-set4 padding-top10 pull-right">
+        <div class="row input-container">
+          <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-11 col-sm-11 col-md-11">
+            <div class="">
+              <input type="text" name="code" id="" ng-model="searchStoreIndent" class="text-input floating-label ng-pristine ng-valid ng-empty ng-touched" style="">
+              <label for="code">Search Item</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        </fieldset> 
+        <div class="row ">
+      <div class="padding-left-right-set4 margin-top4" id="nonBillableTableHt">
+        <fieldset class="">
+          <!-- <legend class="heading-div">Table</legend> -->
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 height500-table-with-scroll">
+          <table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+            <thead class="mainServiceTableCommon">
+              <tr>
+                <th class="width1 text-center">
+                  <input type="checkbox"  class="ng-pristine ng-untouched ng-valid ng-empty">
+                </th>
+                <th class="width6">
+                 Staff Name
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width7">
+                  Linen Name
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width8">
+                  Total Issue Qty
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width8">
+                  Frequency
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width7">
+                  Start Date
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width5">
+                  Stop Date 
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width7">
+                 Accept Qty
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width3 text-center">
+                   Action
+                  <div class="float_right">
+                    <div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+                    <div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              	 <td class=" text-center">
+                  <input type="checkbox"  class="ng-pristine ng-untouched ng-valid ng-empty">
+                </td>
+              	<td>Robert R</td>
+              	<td>Nurse Dress</td>
+              	<td>3</td>
+              	<td>Once in a 2 day</td>
+              	<td>01/05/2018</td>
+              	<td>01/05/2019</td>
+              	<td><input type="text" value="1"></td>
+              	<td><a title="Cancel"><i class="fa fa-times" aria-hidden="true" ></i></a></td>
+              </tr>
+               <tr>
+               	 <td class=" text-center">
+                  <input type="checkbox"  class="ng-pristine ng-untouched ng-valid ng-empty">
+                </td>
+              	<td>Elizabeth</td>
+              	<td>Nurse Dress</td>
+              	<td>3</td>
+              	<td>Once in a 2 day</td>
+              	<td>01/05/2018</td>
+              	<td>01/05/2019</td>
+              	<td><input type="text" value="1"></td>
+              	<td><a title="Cancel"><i class="fa fa-times" aria-hidden="true" ></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+        </fieldset>
+        <footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row padding-top5 padding-right10">
+				<div class="col-lg-10 col-md-10 col-sm-10"></div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left0px-right6px">
+					<a>
+						<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left10">
+					<a href="#/staffExchangeLinen">
+						<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>	
+		</footer>
+      </div>
+    </div>
+    </div>
+</div>
+
+   <div ng-include="'./views/common/get-asset-list.html'"></div>
+
+	<script type="text/javascript">
+$( document ).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+	$('.clockpicker').clockpicker();
+	$(".medication-text-box").hide();
+	$( ".radioRejected" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$("#accepatReject").modal();
+		}
+	});
+	$(".selectedPageName").text("Staff Exchange Linen");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="linenIndent"]').parents("li").addClass("active");
+	
+});
+
+$(".getNameList").click(function()
+		{
+			$("#getAssetSearch").modal().show();
+		});
+
+
+</script>
+
+
+
+
+
+
+

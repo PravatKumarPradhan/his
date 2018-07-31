@@ -1,0 +1,178 @@
+<style>
+.activeTab
+{
+background-color:#5F9EA0;
+}
+</style>
+		<!-- Page Content -->
+		<div id="page-content-wrapper" class="">
+			<div class="container-fluid his-style">
+
+				<div class="row">
+					<div class="tabbable boxed parentTabs">
+						<ul class="tabs nav nav-tabs tabs nav nav-tabs padding-left-right-10">
+							<li style="width: 132px;background-color:#5F9EA0;" class="appoin-type"
+								id="vacanttab" value="1"><a ng-click="vacantMortuaryBed()">Vacant</a>
+							</li>
+							<li class="appoin-type" value="2" id="occupiedtab">
+							<a ng-click="occupiedMortuaryBed()">Reserved</a></li><!-- #set2 is not working-->
+						</ul>
+					
+					
+					<div class="tab-content " style="padding: 2px;">
+						<div class="tab-pane fade active in" id="set1" ng-if="vacantMortuaryFlag == true">
+							<div class="row padding-top10">
+					<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-10" ng-repeat="info in mortuaryBedList" ng-if="info.bedStatusId == '6'">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h4 class="fs14">{{info.mortuaryBedNumber}}</h4></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn padding-left-right-set4" data-toggle="modal" data-target="#BedBooking" ng-click="patientDetails(info)"  >Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+			    	
+				</div>
+						</div>
+						<div class="tab-pane fade active in" id="set1" ng-if="occupiedMortuaryFlag == true">
+							<div class="row padding-top10">
+					<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-10" ng-repeat="info in mortuaryBedList" ng-if="info.bedStatusId == '4'">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h4 class="fs14">{{info.mortuaryBedNumber}}</h4></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn padding-left-right-set4" ng-disabled="true">Reserved</button>
+			    				</div>
+							</div>
+			    		</div>
+			    	
+				</div>
+						</div>
+					</div> 
+					
+					</div>
+				</div>
+				<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+					<div class="row padding-top5 margin-top10 padding-right20">
+						<div class="col-lg-11 col-md-11 "></div>
+						<div class="col-lg-1 col-md-1 padding-left-right-set4">
+							<a href="#/morguePendinglist">
+								<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+							</a>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+			
+<div id="BedBooking" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					<span class="profile_pic margin-left10"> 
+			<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+		</span> 
+		<span class="margin-left10">{{patientName}}</span>
+		<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> {{uhidNumber}}</span>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 fix-height-scroll300 padding-top10 padding-left-right-set4">
+						
+						
+						<div class="row">
+					<div class="col-md-3 col-sm-3 col-xs-6 padding-top10 padding-left-right-set4">
+								<div class="col-lg-3 col-md-3 col-sm-3">
+									<div>
+										<input type="radio" name="turnAroundTime" ng-model="deathObject.durationFormat" ng-value="1"><label>Duration</label>
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-9">
+									<select class="text-input floating-label" ng-model="timeValueOfDuration">
+										<option></option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+										<option>11</option>
+										<option>12</option>
+										<option>13</option>
+										<option>14</option>
+										<option>15</option>
+										<option>16</option>
+										<option>17</option>
+										<option>18</option>
+										<option>19</option>
+										<option>20</option>
+										<option>21</option>
+										<option>22</option>
+										<option>23</option>
+										<option>24</option>
+									</select> <label for="code">Select Duration</label>
+								</div>
+							</div>
+							
+							<div class="col-md-3 col-sm-3 col-xs-6 padding-top10">
+								<div class="col-lg-2 col-md-2 col-sm-2">
+									<div>
+										<input type="radio" name="turnAroundTime" ng-model="deathObject.durationFormat" ng-value="2"><label>Day</label>
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-9">
+									<select class="text-input floating-label" ng-model="timeValueOfDay">
+										<option></option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+									</select> <label for="code">Select Day</label>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer margin-top8">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Save"  ng-click="allotMorgueBed()"class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	$(".selectedPageName").text("Mortuary Availability");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="morgueAvailability"]').parents("li").addClass("active");
+	
+	});
+
+</script>

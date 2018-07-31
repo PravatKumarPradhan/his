@@ -1,0 +1,376 @@
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<div class="row padding-left-right-set4">
+			<div class="col-lg-9 col-md-9 col-sm-9 padding-left-right-set4">
+				<div class="row">
+					<div class="col-lg-4 col-md-4 padding-top8">
+						<div class="search">
+							<label class="show-entries">Show <select
+								name="DataTables_Table_0_length"
+								aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 ">
+				<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set4">
+					<input type="text" class="text-search-box" placeholder="Search" ng-model="searchKeyword">
+					<i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set0 float_right">
+					<div class="width-div-for-patient-reg padding-top4 ">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" data-toggle="modal" data-target="#sendToResultEntry"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row margin-top8">
+			<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="width1">
+							<input type="checkbox" ng-model="selectedAll" ng-click="checkAll();">
+						</th>
+						<th>Visit Type
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("visitType")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("visitType")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>UHID
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("uhid")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("uhid")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>Patient Details
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>Test Name
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("testDesc")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("testDesc")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>Priority
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("priorityName")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("priorityName")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>Doctor Details
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("doctorDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("doctorDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>Ward No
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("wardCode")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("wardCode")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>Bed No
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("bedNumber")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("bedNumber")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>Bar Code
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("sampleBarcode")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("sampleBarcode")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th>Status</th>
+						<th class="width10">Media</th>
+					</tr>
+					<tr
+						ng-repeat="microbiologyWork in microbiologyWorklist|orderBy:column:reverse|filter:searchKeyword track by $index">
+						<td><input type="checkbox" ng-model="microbiologyWork.sampleStatusId" ></td>
+						<td style="color: {{microbiologyWork.colorCode}}">{{microbiologyWork.visitType}}</td>
+						<td style="color: {{microbiologyWork.colorCode}}">{{microbiologyWork.uhid}}</td>
+						<td style="color: {{microbiologyWork.colorCode}}">
+							<div>{{microbiologyWork.patientDetails}}</div>
+						</td>
+						<td style="color: {{microbiologyWork.colorCode}}">
+							<div>{{microbiologyWork.testDesc}}</div>
+						</td>
+						<td>
+							<div style="color: {{microbiologyWork.colorCode}}">{{microbiologyWork.priorityName}}</div>
+						</td>
+						<td style="color: {{microbiologyWork.colorCode}}">
+							<div>{{microbiologyWork.doctorDetails}}</div>
+						</td>
+						<td style="color: {{microbiologyWork.colorCode}}">
+							<div> {{(microbiologyWork.wardCode != null) ? microbiologyWork.wardCode : "-"}}</div>
+						</td>
+						<td style="color: {{microbiologyWork.colorCode}}">
+							<div>  {{(microbiologyWork.bedNumber != null) ? microbiologyWork.bedNumber : "-"}}</div>
+						</td>
+						<td style="color: {{microbiologyWork.colorCode}}">
+							<div>{{(microbiologyWork.sampleBarcode != null) ? microbiologyWork.sampleBarcode : "-"}}</div>   
+						</td>
+						<td><select ng-model="microbiologyWork.sampWrkStatusId">
+							<option selected value>Please Select Status</option>
+							<option ng-repeat="smpstatus in sampleStatusList"
+								value="{{smpstatus.sampleStatusId}}">{{smpstatus.statusName}}</option>
+							</select>
+						</td>
+						<td>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+								<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow"  ng-click="getMediaListBySampleId(microbiologyWork.labSampleDtlsId,microbiologyWork.sampleId);">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+								<input type="button" value="View" class="btn btn-primary btn-save-box-shadow"  ng-click="getIncubationMedia(microbiologyWork.labSampleDtlsId);">
+							</div>
+						</td>
+					</tr>
+
+				</table>
+				<table class="table table-bordered">
+					<tr ng-if="(microbiologyWorklist|filter:searchKeyword)==''">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="sendToResultEntry" class="modal fade ng-scope in" role="dialog"
+	style="padding-left: 17px;">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<h5>Are you sure you want to Save?</h5>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary"
+					id="" ng-click="sendToReportEntry();">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--// Page Content -->
+<!-- ****************** media Details Add modal start************************ -->	
+<div id="mediaDetailsAddModal" class="modal fade ng-scope in common-medium-popup" role="dialog" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+     					Media 
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-set4" id="">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width1 text-center">
+										 <input type="checkbox" ng-model="selectedAllMedia" ng-click="checkAllMedia();"/>
+									</th>
+									<th class="width8">
+										Media
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down"  aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width25">
+										Remarks
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down"  aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="sampleMediaadd in listTMicroSampleMediaDto">
+									<th class=" text-center">
+										<input type="checkbox" ng-model="sampleMediaadd.isSelected" />
+									</th>
+									<td>
+										<input type="text" class="select-box" ng-model="sampleMediaadd.desc"/>
+									</td>
+									<td>
+										<textarea rows="2" ng-model="sampleMediaadd.remark"></textarea>
+									</td>
+								</tr>
+									
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="padding:5px">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow" ng-click="saveIncubationMedia();">
+						</div>
+					</div>
+				</div>
+			</div> 
+		</div>
+	</div>
+</div>
+<!-- ****************** media Details Add modal end************************ -->	
+<!-- ****************** media Details View modal start************************ -->	
+<div id="mediaDetailsViewModal" class="modal fade ng-scope in common-medium-popup" role="dialog" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+     					Media 
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-set4" id="">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width8">
+										Media
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down"  aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width25">
+										Remarks
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down"  aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="sampleMediaObj in listTMicroSampleMediaDto">
+									<td>{{sampleMediaObj.desc}}</td>
+									<td>{{sampleMediaObj.remark}}</td>
+								</tr>
+									
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ****************** media Details View modal end************************ -->	
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+		$('.clockpicker').clockpicker();
+		$(".selectedPageName").text("Work List For Department");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+	});
+</script>

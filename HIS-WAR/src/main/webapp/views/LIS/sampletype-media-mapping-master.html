@@ -1,0 +1,195 @@
+<div ng-include="'./views/common/common-information-modal.html'"></div>	
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Sample Type Media Mapper Master</legend> -->
+			<div class="row margin-top10">
+			 <form name="sampleTypeMediaMapform" novalidate>
+			 	<div class="row common-table-height-130">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set1">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-list-ol " aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="form-group" show-errors>
+								<label for="code">Sample Type</label>
+								 <select class="text-input floating-label"
+									ng-model="common.sampleId" name="sampleId" required>
+									<option value="">Please Select Sample Type</option>
+									<option ng-repeat="sampleTypeList in colonyList"
+										value="{{sampleTypeList.id}}">{{sampleTypeList.name}}</option>
+								</select>
+								<p class="help-block" ng-if="sampleTypeMediaMapform.sampleId.$error.required">{{plzSelectSampletype}}</p>
+							</div>
+								</div>
+							</div>
+						</div>
+				     </div>
+				     
+				     <div class="row padding-top10">
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4"></div>
+						<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4">
+							<div class="row col-md-5set" id="">
+								<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+									<div class="">
+										<label class="common-lable-color-set">Media</label>
+										<div class="masterborderScroll">
+											<div class="checkbox"  ng-repeat="getcolonyList in mediaList">
+												<label class="common-lable-color-set">
+												<input type="checkbox" ng-model="colony[getcolonyList.id]" ng-click="addTempColony(getcolonyList.id,getcolonyList.name)" value="{{getcolonyList.id}}">{{getcolonyList.name}}</label>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+									<div class="text-center margintop120">
+									<button type="button" class="btn btn-primary text-width-auto btn-sm" ng-click="selectColony()"> << >> </button>
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+									<div class="">
+										<label class="common-lable-color-set">Selected Media</label>
+										<div class="masterborderScroll">
+											<div class="checkbox" ng-repeat="selectColony in selectedColonyList">
+												<label  class="common-lable-color-set">{{selectColony.desc}}</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4"></div>
+					</div>
+				     
+				</form>
+			</div>
+		</fieldset>
+		
+		
+		<div class="row padding-top10">
+				<div class="col-md-6 col-sm-7 padding-left-right-set4">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-sm-6" style="padding-left: 0px;">
+								<div class="search">
+								<label class="show-entries">Show 
+								<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+									ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+									ng-change="setNoOfRecords();" class="search-popUp-ddl">
+										<option value="10">10</option>
+										<option value="25">25</option>
+										<option value="50">50</option>
+										<option value="100">100</option>
+								</select> entries
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" ng-click="save()" ng-if="saveBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="update()" ng-if="updateBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      </div>
+			      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+			        <input type="text" class="text-search-box ng-pristine ng-untouched ng-valid ng-empty search-popUp-ddl" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+			        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			      </div>
+			</div>
+		
+	<div class="row padding-left-right-set4 margin-top8">
+				<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr class="">
+							<th class="LISDynamicLabelOne">
+								Sample Type
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("sampleName")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("sampleName")' class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+
+							</th>
+							<th class="width15">
+								<label class="LISDynamicLabel common-lable-color">Media</label>
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("mediaName")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("mediaName")' class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th style="width: 8%">Status</th>
+							<th class="text-center" style="width: 8%">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="info in commonList|orderBy:column:reverse|filter:searchKeyword">
+							<td>{{info.sampleDesc}}</td>
+							<td class="text-center">
+								<a>
+									<i class="fa fa-info-circle" ng-click="getColonyListByMediaId(info.sampleId)"  aria-hidden="true" data-toggle="modal" data-target="#informationDetailsSampleMedia"></i>
+								</a>
+							</td>
+							<td><label class="switch"> <input type="checkbox"
+									ng-model="info.sampleMediaStatus" ng-checked="info.sampleMediaStatus=='A'"
+									ng-true-value="'A'" ng-false-value="'I'"
+									ng-change="updateStatus(info.sampleId,info.sampleMediaStatus)">
+									<div class="slider round"></div>
+							</label></td>
+							<td class="text-center"><a><i class="fa fa-pencil"
+									aria-hidden="true" ng-click="showUpdateBtn(info.sampleId)"></i></a></td>
+						</tr>
+					</tbody>
+				</table>
+					<table class="table table-bordered">
+					<tr ng-if="(commonList|filter:searchKeyword)==''">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+				</div>
+
+			</div>	
+		<!-- *************** table end ***************** -->
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+});	
+	$(".selectedPageName").text("Sample Type Media Mapping Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="sampleTypeMediaMappingMaster"]').parents("li").addClass("active");
+</script>

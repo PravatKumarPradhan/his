@@ -1,0 +1,134 @@
+<div id="page-content-wrapper" style="height:100%; overflow-y:auto ">
+	<div class="container-fluid his-style">
+		<div class="row margin-top8">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<select class="text-input floating-label ">
+								<option value=""></option>
+								<option value="">Material</option>
+							</select>
+							<label for="code">Template Type</label>
+						</div>
+					</div>
+				</div>
+			 </div>
+			 <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="description" id="" class="text-input floating-label "> 
+							<label for="description" class="LISDynamicLabel">Template Code</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="description" id="" class="text-input floating-label "> 
+							<label for="description" class="LISDynamicLabel">Template Description</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top4">
+				<div class=" ">
+					<a>
+						<input type="button" value="Get Item" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right margin-top4">
+				<input type="text" class="text-search-box dirty" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-top10">
+			<div class="col-md-12 col-lg-12 col-sm-12" id="nonBillableTableHt">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 height55-table-with-scroll padding-left-right-set4">
+						<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width8">
+										Item Code
+									</th>
+									<th class="width8">
+										Item Name
+									</th>
+									<th class="width8">
+										UOM
+									</th>
+									<th class="width8">
+										UOM Unit
+									</th>
+									<th class="width5">
+										Qty
+									</th>
+									<th class="width3 text-center vertical-middle">Action
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>			
+									<td></td>
+									<td></td>
+									<td></td>
+									<td><input type="text" class="w-100 dirty"></td>
+									<td class="text-center">
+										<a title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+									</td>	
+								</tr>
+							</tbody>
+						</table>
+					</div>
+			   </div>
+			</div>
+		</div>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+				<div class="col-md-10">
+				</div>
+				<div class="col-md-1 padding-left0px-right6px">
+					<div class=""><!-- common-save-button -->
+						<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+					</div>
+				</div>
+				<div class="col-md-1 padding-left0px-right6px">
+					<div class=""><!-- common-save-button -->
+						<a href="#/indentTemplateMaster">
+							<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+
+<script src="resources/assets/js/common/page-height.js"></script>
+<script>
+
+$(document).ready(function() {  
+	// $(".patienttSearchResult").hide();
+	 $(".selectedPageName").text("Indent Template Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="indentTemplateMaster"]').parents("li").addClass("active");
+});
+</script>

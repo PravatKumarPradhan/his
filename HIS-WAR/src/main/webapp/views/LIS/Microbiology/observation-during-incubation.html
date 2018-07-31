@@ -1,0 +1,550 @@
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<div class="row margin-top10 padding-left-right-10">
+			<div class="col-md-8 col-sm-8 padding-left-right-set4 padding-top4">
+            			<label class="show-entries">Show <select
+								name="DataTables_Table_0_length"
+								aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries
+							</label>
+            		</div>
+
+			<div
+				class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search"
+					style="margin-top: 0px" ng-model="searchKeyword" > <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-10 margin-top10" id="tableOne">
+			<div class="col-md-12">
+				<!-- table one for report entry -->
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="width8">Visit Type
+							<div>
+								<i ng-click='sortColumn("visitType")' class="fa fa-caret-up"
+									aria-hidden="true"></i>
+							</div>
+							<div class="margin-top-8">
+								<i ng-click='sortColumn("visitType")' class="fa fa-caret-down"
+									aria-hidden="true"></i>
+							</div>
+						</th>
+						<th class="UHID-width">UHID
+							<div>
+								<i ng-click='sortColumn("uhid")' class="fa fa-caret-up"
+									aria-hidden="true"></i>
+							</div>
+							<div class="margin-top-8">
+								<i ng-click='sortColumn("uhid")' class="fa fa-caret-down"
+									aria-hidden="true"></i>
+							</div>
+						</th>
+						<th class="patient-doc-details-width">Patient Details
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="test-name-width">Doctor Details
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("doctorDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("doctorDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="patient-doc-details-width">Test Name
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("testDesc")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("testDesc")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="priority-width">Sample Type
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("sampleDesc")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("sampleDesc")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="patient-doc-details-width">Priority
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("priorityName")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("priorityName")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="patient-doc-details-width">Bar Code/Sample No
+							<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("labSampleNo")' class="fa fa-caret-up"
+										aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("labSampleNo")'
+										class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="status">Action
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+					</tr>
+
+					<tr
+						ng-repeat="incubationObj in incubationObservationList|orderBy:column:reverse|filter:searchKeyword track by $index">
+						<td style="color: {{incubationObj.colorCode}}">{{incubationObj.visitType}}</td>
+						<td style="color: {{incubationObj.colorCode}}">
+							{{incubationObj.uhid}}</td>
+						<td style="color: {{incubationObj.colorCode}}">
+							<div>{{incubationObj.patientDetails}}</div>
+						</td>
+						<td style="color: {{incubationObj.colorCode}}">
+							<div>{{incubationObj.doctorDetails}}</div>
+						</td>
+						<td style="color: {{incubationObj.colorCode}}">
+							<div>{{incubationObj.testDesc}}</div>
+						</td>
+						<td style="color: {{incubationObj.colorCode}}">
+							<div>{{incubationObj.sampleDesc}}</div>
+						</td>
+						<td style="color: {{incubationObj.colorCode}}">
+							<div>{{incubationObj.priorityName}}</div>
+						</td>
+						<td style="color: {{incubationObj.colorCode}}">{{incubationObj.labSampleNo}}</td>
+						<td><a  ng-click="getIncucationObjservationDetails(incubationObj);">Details</a>
+						</td>
+					</tr>
+				</table>
+				<table class="table table-bordered">
+					<tr ng-if="(incubationObservationList|filter:searchKeyword)==''">
+						<td><p
+								style="text-align: center; margin-top: 0px !important; margin-bottom: 1px !important;">No
+								Records Found</p></td>
+					</tr>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+					<!--// table one for report entry -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--// Page Content -->
+</div>
+
+
+	<div id="details" class="modal fade ng-scope in common-large-popup"
+		role="dialog">
+		<div class="modal-dialog">
+			<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Observation During Incubation Details
+						<button type="button" class="close" data-dismiss="modal">X</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="row patient-details-row">
+						<div class="col-md-11 col-sm-11 col-xs-11 ">
+							<span class="profile_pic margin-left10"> <img alt=""
+								src="resources/assets/images/tempImages/m.jpg"
+								class="img-circle" style="width: 30px">
+							</span> <span class="margin-left10">{{incubationObservationObjList[0].patientDetails}}</span> 
+							      <span class="margin-left10"><b class="padding-right5 ">UHID :</b> {{incubationObservationObjList[0].uhid}}</span> 
+							      <span class="margin-left10"><b class="padding-right10 ">Priority :</b>{{incubationObservationObjList[0].priorityName}}</span> 
+							      <span class="margin-left10">{{incubationObservationObjList[0].doctorDetails}}</span>
+						</div>
+					</div>
+
+					<div class="row ">
+						<ul class="tabs nav nav-tabs">
+							<li ng-class="{ active : isSetFirstTabLevel(1) }" id="case-sheet">
+								<a href ng-click="setFirstTabLevel(1)">Incubation</a>
+							</li>
+							<li ng-class="{ active : isSetFirstTabLevel(2) }" id="complaints"
+								style="width: 183px;"><a href
+								ng-click="setFirstTabLevel(2)">Macroscopic Examination</a></li>
+							<li ng-class="{ active : isSetFirstTabLevel(3) }" id="History"
+								style="width: 183px;"><a href
+								ng-click="setFirstTabLevel(3)">Microscopic Examination</a></li>
+						</ul>
+						<div class="row">
+							<div ng-show="isSetFirstTabLevel(1)">
+							 <form name="incubationform" novalidate>
+								<div class="row margin-top10">
+									<div class="col-lg-3 col-md-3 padding-left-right-set">
+										<div class="row input-container margin-top10">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-clock-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div  class="form-group"  show-errors>
+													<select class="text-input floating-label" name="incubationPeriodId" ng-model="incubationPeriodId" required>
+														<option selected value>Select Incubation Period </option>
+										                <option ng-repeat="incuperiod in incubationPeriodList"
+											                       value="{{incuperiod.id}}">{{incuperiod.name}}</option>
+													</select> 
+													<p class="help-block"  ng-if="incubationform.incubationPeriodId.$error.required">{{plzSelectIncubationPeriod}}</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 col-lg-1 margin-top10">
+										<div class="" style="margin-top: -2px;">
+											<input type="button" name="" id="addr" value="Add Media"  ng-click="addMedia();"
+												class="btn btn-info">&nbsp;&nbsp;
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-2 padding-left-right-set">
+										<div class="row input-container margin-top10">
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<span class="input-group"> 
+													<input name="date"
+														id="date1" type="text" class="form-control"
+														uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+														placeholder="DD/MM/YYYY" tabindex="13" ng-model="incubationStartDate"
+														model-view-value="true" is-open="popup.opened"
+														datepicker-options="dateOptions" show-button-bar="false" />
+														<span class="input-group-btn" >
+															<button type="button" class="btn btn-default"
+																ng-click="open()" style="padding:5px 10px !important;">
+																<i class="fa fa-calendar fa-1"></i>
+															</button>
+													</span>
+												</span>
+											</div>
+										</div>
+
+
+									</div>
+									<div class="col-lg-2 col-md-2 padding-left-right-set">
+										<div class="row input-container margin-top10">
+											<div class="col-lg-12 col-sm-12 col-md-12">
+											<div  class="form-group"  show-errors>
+												<div class="input-group clockpicker"  ng-init="initTime();">
+														<input type="text " class="form-control" name="incubationStartTime" ng-model="incubationStartTime"  required>
+														<span class="input-group-btn" >
+															<button type="button" class="btn btn-default" style="padding:5px 10px !important;">
+																<i class="fa fa-clock-o fa-1"></i>
+															</button>
+														</span>
+												</div>
+												<p class="help-block"  ng-if="incubationform.incubationStartTime.$error.required">{{plzSelectIncubationStartTime}}</p>
+											</div>
+											</div>
+										</div>
+
+
+									</div>
+								</div>
+								<div class="row padding-left-right-set4">
+									<div
+										class="col-lg-12 col-md-12 common-popup-height-350 margin-top10">
+										<table class="table table-striped table-bordered"
+											id="observationDuringIncubationDetails">
+											<thead class="table-th-bg">
+												<tr>
+													<th class="nursing-order-width">Media</th>
+													<th class="nursing-order-width">Incubation Period</th>
+													<th class="width8">Growth Found</th>
+													<th class="width20">Remark</th>
+													<th class="width8">Action</th>
+												</tr>
+											</thead>
+											<tbody class="">
+												<tr class="add-incubation" ng-repeat = "microResdtlsObj in  listMicrobioResultDtlsMaster track by $index"  ng-disabled="microResdtlsObj.microbioResultDetailsId!=null && microResdtlsObj.microbioResultDetailsId!=''" ng-form="incuSubForm">
+													<td>
+														<div  class="form-group"  show-errors>
+														<select class="text-box-for-ICU"  name="mediaId" ng-model="microResdtlsObj.mediaId" convert-to-number ng-disabled = "microResdtlsObj.microbioResultDetailsId!=null && microResdtlsObj.microbioResultDetailsId!=''" required>
+																<option selected value>Select Media</option>
+										                              <option ng-repeat="media in mediaList"
+											                       value="{{media.id}}">{{media.name}}</option>
+															</select>
+															<p class="help-block"  ng-if="incuSubForm.mediaId.$error.required">{{plzSelectMediaName}}</p>
+														</div>
+													</td>
+													<td>
+														<div  class="form-group"  show-errors>
+															<select class="text-box-for-ICU" name="incubationPeriodId" ng-model="microResdtlsObj.incubationPeriodId" convert-to-number ng-disabled = "microResdtlsObj.microbioResultDetailsId!=null && microResdtlsObj.microbioResultDetailsId!=''" required>
+																<option selected value>Select Incubation Period </option>
+										                              <option ng-repeat="incuperiod in incubationPeriodList"
+											                       value="{{incuperiod.id}}">{{incuperiod.name}}</option>
+															</select>
+																<p class="help-block"  ng-if="incuSubForm.incubationPeriodId.$error.required">{{plzSelectIncubationName}}</p>
+														</div>
+													</td>
+													<td>
+														<div>
+															<label class="switch">
+															 <input type="checkbox" ng-model="microResdtlsObj.isGrowthFound"
+																class="switchCheckbox"  ng-checked="microResdtlsObj.isGrowthFound=='Y'"
+									                                      ng-true-value="'Y'" ng-false-value="'N'"> 
+																<div class="slider round"></div>
+															</label>
+														</div>
+													</td>
+													<td>
+													  <input type="text" id=""  name="remark" class="text-box-for-ICU" ng-model="microResdtlsObj.incuRemark">
+													  </div>
+													</td>
+													<td>
+														<div class="" style="margin-top: -2px;">
+															<input style="width: 36px;" type="button" name=""
+																 value="+" class="btn btn-info" ng-click ="addMediaRow();">&nbsp;&nbsp;
+																<input style="width: 36px;" type="button" name=""
+																 value="-" class="btn btn-info" ng-click ="removeMediaRow($index);">&nbsp;&nbsp;
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+							</form>
+							</div>
+							<div ng-show="isSetFirstTabLevel(2)">
+								 <form name="macroscopicform" novalidate>
+								<div class="row padding-left-right-set4 common-popup-height-350">
+									<div class="col-md-4 col-sm-4 col-xs-4">
+										<div  class="form-group"  show-errors>
+										<span>Details</span>
+										<textarea id="" rows="6" name="microscopicExamination" ng-model="microscopicExamination" required></textarea>
+										<p class="help-block"  ng-if="macroscopicform.microscopicExamination.$error.required">{{microscopicExaminationDetials}}</p>
+									</div>
+									</div>
+								</div>
+								</form>
+							</div>
+							<div ng-show="isSetFirstTabLevel(3)">
+							 <form name="microscopicform" novalidate>
+								<div class="row margin-top10">
+									<div class="col-lg-3 col-md-3 padding-left-right-set">
+										<div class="row input-container margin-top10">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-clock-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div  class="form-group"  show-errors>
+													<select class="text-input floating-label" ng-model="stainingId" name="stainingId" ng-change="getStainingId(stainingId);" required>
+														<option selected value>Select Staining</option>
+										                              <option ng-repeat="staining in stainingList"
+											                       value="{{staining.id}}">{{staining.name}}</option>
+													</select> 
+													<p class="help-block"  ng-if="microscopicform.stainingId.$error.required">{{plzSelectStainingName}}</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-1 col-lg-1 margin-top10">
+										<div class="" style="margin-top: -2px;">
+											<input style="width: 36px" type="button" name="" id="addr"
+												value="+" class="btn btn-info"  ng-click="addStaining();">&nbsp;&nbsp;
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div
+										class="col-lg-12 col-md-12 common-popup-height-350 padding-left-right-set4">
+										<table class="table ">
+										<tbody>
+										<tr ng-repeat = "microScopeExaObj in listMicroscopicExaMaster track by $index  " ng-init="parentIndex = $index" ng-form="microForm">
+										<td>
+										<table class="table table-striped table-bordered margin-top4">
+											<thead class="create-slide">
+												<tr>
+													<th colspan="2" class="row"><span
+														class="col-md-3 col-sm-4">Staining name :{{microScopeExaObj.stainingName}}</span> <span
+														class="col-md-3 col-sm-3">
+														<div  class="form-group"  show-errors>
+														 <select ng-model="microScopeExaObj.organismGroupId" name="organismGroupId" ng-change="getMicroOrganismGroupId(microScopeExaObj.organismGroupId);" 
+															required class="select-box" convert-to-number  >
+																<option selected value>Select Micro Organism Group</option>
+										                              <option ng-repeat="microOrgGrp in microOrganismGroupList"
+											                       value="{{microOrgGrp.id}}">{{microOrgGrp.name}}</option>
+													</select> 
+													<p class="help-block"  ng-if="microForm.organismGroupId.$error.required">{{plzSelectOrganismGroup}}</p>
+													</div>
+													</span> <span class="col-md-1 col-sm-1"> <input
+															style="width: 36px" type="button" name="" 
+															value="+" class="btn btn-info"  ng-click="addOrganismByGroup(parentIndex);">&nbsp;&nbsp;
+													</span></th>
+												</tr>
+											</thead>
+											</table>
+									<table>
+										<tbody>
+											<tr ng-repeat = "microScopeExaDetails in microScopeExaObj.listMicroscopicExaminationDetailsMasters  track by $index" ng-init="childIndex = $index" ><!-- new row for repeat tbody -->
+											<td>
+											<table>
+											<tbody >
+												<tr>
+													<th colspan="2" class="row width30"><span>Organization 
+															Group :{{microScopeExaDetails.microOrgGroupName}} </span></th>
+												</tr>
+												<tr >
+													<td colspan="2">
+														<div class="row ">
+															<div class="col-lg-12 col-md-12 padding-left10 ddp-margin-bottom">
+																<table class="table table-striped table-bordered "
+																	id="slideCreation">
+																	<thead class="table-th-bg">
+																		<tr>
+																			<th class="test-name-width">Organism Name</th>
+																			<th class="test-name-width">Remark</th>
+																			<th class="status">Action</th>
+																		</tr>
+																	</thead>
+																	<tbody class="">
+																		<tr ng-repeat ="microOrgObj in microScopeExaDetails.listMicroscopicExaminationSubDetailsMaster  track by $index" ng-init="subChildIndex = $index" ng-form="microSubForm">
+																			<td>
+																				<div  class="form-group"  show-errors>
+																				<!-- ng-repeat="organism in organismList" -->
+																					<select class="select-box" ng-model = "microOrgObj.organismId" name="organismId" convert-to-number ng-disabled = "microOrgObj.microexaSubDetailsId!=null && microOrgObj.microexaSubDetailsId!=''" required>
+																						<option selected value>Select Organism Name</option>
+																						  <option ng-repeat="organism in microScopeExaObj.listCommonDto track by $index"
+											                                             value="{{organism.id}}">{{organism.name}}</option>
+																					</select>
+																					<p class="help-block"  ng-if="microSubForm.organismId.$error.required">{{plzSelectOrganismGroup}}</p>
+																				</div>
+																			</td>
+																			<td><input type="text" id="" ng-model="microOrgObj.microRemark"
+																				class="text-box-for-ICU" ></td>
+																			<td>
+																				<div class="" style="margin-top: -2px;">
+																					<input style="width: 36px" type="button" name=""
+																						 value="+" class="btn btn-info" ng-click="addMicroOrgsism(parentIndex,childIndex);">&nbsp;&nbsp;
+																					 <input style="width: 36px" type="button" name=""
+																						 value="-" class="btn btn-info" ng-click="removeMicroOrgnism(parentIndex,childIndex,subChildIndex);">&nbsp;&nbsp;	
+																				</div>
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+												</table>
+											</td>
+											</tr>
+											</tbody>
+										</table>
+										
+										</td>
+										</tr>
+										</tbody>
+										</table>
+									</div>
+								</div>
+								</form>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer" style="border: none;">
+					<div class="row">
+						<div class="col-md-4 col-sm-4 padding-left-right-set0 text-left">
+						     <label>Complete</label>
+							<label class="switch"> <input type="checkbox"
+									ng-model="isComplete" ng-checked="isComplete=='Y'"
+									ng-true-value="'Y'" ng-false-value="'N'" >
+									<div class="slider round"></div>
+							</label>
+						</div>
+						<div class="col-md-8 col-sm-8 padding-left-right-set0 text-right">
+							<button type="button"  class="btn btn-primary width12"
+								id="" ng-click="finalRelease();" >Final Release</button>
+							<button type="button"  class="btn btn-primary width15"
+								id="" ng-click="partialRelease();">Partial Release</button>
+							<button type="button"  class="btn btn-primary width20"
+								id="" ng-click="releaseForSensitivity();" >Release for Sensitivity</button>
+							<button type="button"  class="btn btn-primary"
+								id="" ng-click="saveDetails();">Save</button>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script type="text/javascript">
+		/* $(".add-incubation").hide();
+		$(".btn-add-incubation").click(function()
+		{
+			$(".add-incubation").show();
+		}); */
+
+		$('.clockpicker').clockpicker();
+
+		$(document).ready(function() 
+		{
+			var documentHeight = $(window).height();
+			var sideBarHeight = documentHeight - 55;
+			$("#page-content-wrapper").css("height", sideBarHeight + "px");
+			$(".selectedPageName").text("Observation During Incubation");
+			$(".sidebar-nav li").each(function() {
+				$(this).find("a").parents("li").removeClass("active");
+			});
+		});
+
+		$("#organism-multiselect").multipleSelect({
+			placeholder : "Select Organism"
+		});
+
+	</script>

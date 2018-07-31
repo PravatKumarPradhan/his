@@ -1,0 +1,841 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Item Master</legend> -->
+
+			<!-- row 1 -->
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select name="assetType" id="assetType" class="text-input floating-label" ng-model="vm.model.assetType" data-ng-options="assetType.type for assetType in vm.model.assetTypes"
+								 ng-change="vm.model.isassetTypeValid = false; vm.model.PopulateAssetCategory(vm.model.assetType)">
+								</select>
+								<p ng-if="vm.model.isassetTypeValid" class="errorMsg">Asset Type is required</p>
+								<label for="code">Asset Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select name="assetCategory" id="assetCategory" class="text-input floating-label" data-ng-options="assetCategory.category for assetCategory in vm.model.assetCategories"
+								 ng-model="vm.model.assetCategory" ng-change="vm.model.isassetCategoryValid = false; vm.model.PopulateProductCategory(vm.model.assetCategory)"></select>
+								<p ng-if="vm.model.isassetCategoryValid" class="errorMsg">Asset Category is required</p>
+								<label for="code">Asset Category</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select name="productCategory" id="productCategory" class="text-input floating-label" data-ng-options="productCategory.category for productCategory in vm.model.productCategories"
+								 ng-model="vm.model.productCategory" ng-change="vm.model.isproductCatgeoryValid = false; vm.model.PopulateFormulationType(vm.model.productCategory); vm.model.PopulateGenerics(vm.model.productCategory)">
+								</select>
+								<p ng-if="vm.model.isproductCatgeoryValid" class="errorMsg">Product Category is required</p>
+								<label for="code">Product Category</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select name="formulationType" id="formulationType" class="text-input floating-label" ng-model="vm.model.formulationType"
+								 data-ng-options="formulationType.type for formulationType in vm.model.formulationTypes" ng-change="vm.model.isformulationTypeValid = false;">
+								</select>
+								<p ng-if="vm.model.isformulationTypeValid" class="errorMsg">Formulation Type is required</p>
+								<label for="code">Formulation Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //row 1 -->
+			<!-- row 2 -->
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<input type="text" name="itemCode" id="itemCode" ng-model="vm.model.itemCode" ng-class="{dirty: vm.model.itemCode}" class="text-input floating-label"
+									 ng-change="vm.model.isitemCodeValid = false" show-focus="vm.model.itemCode">
+									<p ng-if="vm.model.isitemCodeValid" class="errorMsg">Item Code is required</p>
+									<label for="code">Item Code</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<input type="text" name="productCode" id="productCode" ng-model="vm.model.productCode" ng-class="{dirty: vm.model.productCode}"
+									 class="text-input floating-label" ng-change="vm.model.isproductCodeValid = false" show-focus="vm.model.productCode">
+									<p ng-if="vm.model.isproductCodeValid" class="errorMsg">Product Code is required</p>
+									<label for="code">Product Code</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="itemName" id="itemName" ng-model="vm.model.itemName" ng-class="{dirty: vm.model.itemName}" class="text-input floating-label"
+								 ng-change="vm.model.isitemNameValid = false" show-focus="vm.model.itemName">
+								<p ng-if="vm.model.isitemNameValid" class="errorMsg">Brand/Item Name is required</p>
+								<label for="code">Brand / Item Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select name="genericName" id="genericName" class="text-input floating-label" ng-model="vm.model.genericName" data-ng-options="genericName.name for genericName in vm.model.Generics"
+								 ng-change="vm.model.isgenericNameValid = false;">
+								</select>
+								<p ng-if="vm.model.isgenericNameValid" class="errorMsg">Generic Name is required</p>
+								<label for="code">Generic Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<input type="text" name="strength" id="strength" ng-model="vm.model.strength" ng-class="{dirty: vm.model.strength}" class="text-input floating-label"
+									 ng-change="vm.model.isstrengthValid = false" show-focus="vm.model.strength">
+									<p ng-if="vm.model.isstrengthValid" class="errorMsg">Strength is required</p>
+									<label for="code">Strength</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<select name="unitName" id="unitName" class="text-input floating-label" ng-model="vm.model.unitName" data-ng-options="unitName.unit for unitName in vm.model.Units"
+									 ng-change="vm.model.isunitValid = false; ">
+									</select>
+									<p ng-if="vm.model.isunitValid" class="errorMsg">Unit is required</p>
+									<label for="" style="padding-left:5px">Unit</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- // row 2 -->
+			<!-- row 3 -->
+			<div class="row margin-top10">
+				<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+									<option>Vital</option>
+									<option>Essential</option>
+									<option>Desirable Analysis</option>
+								</select>
+								<label for="code">Select VED</label>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container test-master-sample">
+						<div class="col-lg-1 col-sm-2 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-11">
+							<div class="">
+								<select name="classificationName" id="classificationName" class="text-input floating-label" ng-model="vm.model.classificationName"
+								 data-ng-options="classificationName.classification for classificationName in vm.model.Pharmalogicals" ng-change="vm.model.ispharmalogicalClassificationValid = false; ">
+								</select>
+								<p ng-if="vm.model.ispharmalogicalClassificationValid" class="errorMsg">Pharmalogical Classification is required</p>
+								<label for="code">Pharmacological Classification</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container test-master-sample">
+						<div class="col-lg-1 col-sm-2 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-11">
+							<div class="">
+								<select name="manufactureName" id="manufactureName" class="text-input floating-label" ng-model="vm.model.manufactureName"
+								 data-ng-options="manufactureName.name for manufactureName in vm.model.Manufactures" ng-change="vm.model.ismanufacturerValid = false; ">
+								</select>
+								<p ng-if="vm.model.ismanufacturerValid" class="errorMsg">Manufacture is required</p>
+								<label for="code">Manufacture</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set1">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-10">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<select name="purchaseTax" id="purchaseTax" class="text-input floating-label" ng-model="vm.model.purchaseTax" data-ng-options="purchaseTax.component for purchaseTax in vm.model.PurchaseTaxes"
+									 ng-change="vm.model.ispurchaseTaxValid = false; ">
+									</select>
+									<p ng-if="vm.model.ispurchaseTaxValid" class="errorMsg">Purchase Tax is required</p>
+									<label for="code">Purchase Tax</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<select name="saleTax" id="saleTax" class="text-input floating-label" ng-model="vm.model.saleTax" data-ng-options="saleTax.component for saleTax in vm.model.SaleTaxes"
+									 ng-change="vm.model.issaleTaxValid = false; ">
+									</select>
+									<p ng-if="vm.model.issaleTaxValid" class="errorMsg">Sale Tax is required</p>
+									<label for="code">Sale Tax</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set1">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-10">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<input type="text" name="hsnCode" id="hsnCode" ng-model="vm.model.hsnCode" ng-class="{dirty: vm.model.hsnCode}" class="text-input floating-label"
+									 ng-change="vm.model.ishsnCodeValid = false" show-focus="vm.model.hsnCode">
+									<p ng-if="vm.model.ishsnCodeValid" class="errorMsg">HSN Code is required</p>
+									<label for="code">HSN Code</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<input type="text" name="storageUnit" id="storageUnit" ng-model="vm.model.storageUnit" ng-class="{dirty: vm.model.storageUnit}"
+									 class="text-input floating-label" ng-change="vm.model.isstorageUnitValid = false" show-focus="vm.model.storageUnit">
+									<p ng-if="vm.model.isstorageUnitValid" class="errorMsg">Storage Unit is required</p>
+									<label for="code">Storage Unit</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container test-master-sample pull-left">
+							<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+								<label class="checkbox-inline">
+									<input type="checkbox" value="vm.model.isitemReusable" ng-checked="vm.model.isitemReusable" name="vm.model.isitemReusable"
+									 ng-model="vm.model.isitemReusable">ItemReusable</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container test-master-sample pull-left">
+							<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+								<label class="checkbox-inline">
+									<input type="checkbox" value="vm.model.isVaccine" ng-checked="vm.model.isVaccine" name="vm.model.isVaccine" ng-model="vm.model.isVaccine">Is Vaccine</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container test-master-sample pull-left">
+							<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+								<label class="checkbox-inline">
+									<input type="checkbox" value="vm.model.isCombination" ng-checked="vm.model.isCombination" name="vm.model.isCombination" ng-model="vm.model.isCombination">Is Combination</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container test-master-sample pull-left">
+							<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+								<label class="checkbox-inline">
+									<input type="checkbox" value="vm.model.batchRequired" ng-checked="vm.model.batchRequired" name="vm.model.batchRequired" ng-model="vm.model.batchRequired">Batch Required</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container test-master-sample pull-left">
+							<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+								<label class="checkbox-inline">
+									<input type="checkbox" value="vm.model.highRisk" ng-checked="vm.model.highRisk" name="vm.model.highRisk" ng-model="vm.model.highRisk">High Risk</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container test-master-sample pull-left">
+							<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+								<label class="checkbox-inline">
+									<input type="checkbox" value="vm.model.psychotropic" ng-checked="vm.model.psychotropic" name="vm.model.psychotropic" ng-model="vm.model.psychotropic">Psychotropic</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container test-master-sample pull-left">
+							<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+								<label class="checkbox-inline">
+									<input type="checkbox" value="vm.model.isKit" ng-checked="vm.model.isKit" name="vm.model.isKit" ng-model="vm.model.isKit">Is Kit</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container test-master-sample pull-left">
+							<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+								<label class="checkbox-inline">
+									<input type="checkbox" value="vm.model.isInfusion" ng-checked="vm.model.isInfusion" name="vm.model.isInfusion" ng-model="vm.model.isInfusion">Is Infusion</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-4 padding-left-right-set4">
+						<div class="row input-container test-master-sample pull-left">
+							<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+								<label class="checkbox-inline">
+									<input type="checkbox" value="vm.model.isNarcotics" ng-checked="vm.model.isNarcotics" name="vm.model.isNarcotics" ng-model="vm.model.isNarcotics">Is Narcotic</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--// row 4 -->
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-set4">
+			<div class="col-lg-3 col-md-6 col-sm-3 padding-left-right-set4">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set0">
+					<div class="row input-container test-master-sample pull-left">
+						<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+							<label class="checkbox-inline">
+								<input type="checkbox" value="vm.model.hospitalFormulary" ng-checked="vm.model.hospitalFormulary" name="vm.model.hospitalFormulary"
+								 ng-model="vm.model.hospitalFormulary">Hospital Formulary</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+					<div class="row input-container test-master-sample pull-left">
+						<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+							<label class="checkbox-inline">
+								<input type="checkbox" value="vm.model.isConsumable" ng-checked="vm.model.isConsumable" name="vm.model.isConsumable" ng-model="vm.model.isConsumable">Is Consumable</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 col-sm-3 padding-left-right-set4">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+					<div class="row input-container test-master-sample pull-left">
+						<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+							<label class="checkbox-inline">
+								<input type="checkbox" value="vm.model.isConsignment" ng-checked="vm.model.isConsignment" name="vm.model.isConsignment" ng-model="vm.model.isConsignment">Is Consignment</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+					<div class="row input-container test-master-sample pull-left">
+						<div class="col-lg-12 col-md-12 col-sm-12 polymer-icon appointment-table-th">
+							<label class="checkbox-inline">
+								<input type="checkbox" value="vm.model.isOTC" ng-checked="vm.model.isOTC" name="vm.model.isOTC" ng-model="vm.model.isOTC">Is OTC</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmSave">
+						<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" ng-model="search" placeholder="Search" style="margin-top: 0px">
+				<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top10">
+			<div class="col-lg-12 col-md-12 ">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="" title="Product Code">
+							Product Code
+							<div class="float_right" ng-click="sortType = 'productCode'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width15" title="Brand / Item Name">
+							Brand / Item Name
+							<div class="float_right" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="Generic Name">
+							Generic Name
+							<div class="float_right" ng-click="sortType = 'genericName'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="Asset Type">
+							Asset Type
+							<div class="float_right" ng-click="sortType = 'assetType'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="Asset Category">
+							Asset Category
+							<div class="float_right" ng-click="sortType = 'assetCategory'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="Product Category">
+							Product Category
+							<div class="float_right" ng-click="sortType = 'productCategory'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="Formulation Type">
+							Formulation Type
+							<div class="float_right" ng-click="sortType = 'formulationType'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width6" title="Strength">
+							Strength
+							<div class="float_right" ng-click="sortType = 'strength'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5" title="Unit">
+							Unit
+							<div class="float_right" ng-click="sortType = 'strengthUnit'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5" title="Status">
+							Status
+							<div class="float_right" ng-click="sortType = 'status'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5" title="Action">
+							Action
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+						<th class="width1"></th>
+					</tr>
+					<tr ng-repeat="itemMaster in vm.model.ItemMasterDataList | filter : search | orderBy:sortType:sortReverse">
+						<td>{{itemMaster.productCode}}</td>
+						<td>{{itemMaster.name}}</td>
+						<td>{{itemMaster.genericName}}</td>
+						<td>{{itemMaster.assetType}}</td>
+						<td>{{itemMaster.assetCategory}}</td>
+						<td>{{itemMaster.productCategory}}</td>
+						<td>{{itemMaster.formulationType}}</td>
+						<td>{{itemMaster.strength}}</td>
+						<td>{{itemMaster.strengthUnit}}</td>
+						<td>
+							<label class="switch switch-small">
+								<input type="checkbox" class="switchInput" data-target="#confirmSave" ng-model="itemMaster.status" 
+								ng-change="vm.model.ToggleStatus(itemMaster)">
+								<div class="slider round slider-small"></div>
+							</label>
+						</td> 
+						<td class="padding-edit-button-table text-center vertical-middle">
+							<a ng-click="vm.model.PopulateItemMaster(itemMaster.id)">
+								<i class="fa fa-pencil" aria-hidden="true" title="Edit"></i>
+							</a>
+						</td>
+						<td class="padding-edit-button-table vertical-middle">
+							<div class="">
+								<a>
+									<i class="fa fa-info-circle" aria-hidden="true" title="Details" data-toggle="modal" data-target="#detailsAddModal1" ng-click="vm.model.GetItemDetails(itemMaster)"></i>
+								</a>
+								<!-- #detailsAddModal -->
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- information details modal start -->
+<div id="detailsAddModal1" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 padding-bottom10 padding-top8" id="">
+						<!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table">
+							<tr class="">
+								<td class="width10">
+									<label>
+										<b>Item Code :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>{{vm.model.Item_Details.code}}</label>
+								</td>
+								<td class="width15">
+									<label>
+										<b>Pharmacological Classification :</b>
+									</label>
+								</td>
+								<td class="width10">
+									<label>{{vm.model.Item_Details.pharmacologicalClassification}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>Manufacture :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>{{vm.model.Item_Details.manufacture}}</label>
+								</td>
+								<td class="width10">
+									<label>
+										<b>Purchase Tax :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>{{vm.model.Item_Details.purchaseTax}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>Sales Tax :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>{{vm.model.Item_Details.salesTax}}</label>
+								</td>
+								<td class="width10">
+									<label>
+										<b>HSN Code :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>{{vm.model.Item_Details.hsnCode}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>Storage Unit :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>{{vm.model.Item_Details.storageUnit}}</label>
+								</td>
+								<td class="width10">
+									<label>
+										<b>ItemReusable :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>
+										<i class="fa {{vm.model.Item_Details.isReusable == true ?  'fa-check' : 'fa-times'}}" style="color: #3131d2;"></i>
+									</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>Is Vaccine :</b>
+									</label>
+								</td>
+								<td class="width18">
+									<label>
+										<i class="fa {{vm.model.Item_Details.isVaccine == true ?  'fa-check' : 'fa-times'}}" style="color: #3131d2;"></i>
+									</label>
+								</td>
+								<td class="width10">
+									<label>
+										<b>Is OTC :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>
+										<i class="fa {{vm.model.Item_Details.isOtc == true ?  'fa-check' : 'fa-times'}}" style="color: #3131d2;"></i>
+									</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>Is Combination :</b>
+									</label>
+								</td>
+								<td class="width18">
+									<label>
+										<i class="fa {{vm.model.Item_Details.isCombination == true ?  'fa-check' : 'fa-times'}}" style="color: #3131d2;"></i>
+									</label>
+								</td>
+								<td class="width10">
+									<label>
+										<b>Batch Required :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>
+										<i class="fa {{vm.model.Item_Details.isBatchRequired == true ?  'fa-check' : 'fa-times'}}" style="color: #3131d2;"></i>
+									</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>High Risk :</b>
+									</label>
+								</td>
+								<td class="width18">
+									<label>
+										<i class="fa {{vm.model.Item_Details.isHighrisk == true ?  'fa-check' : 'fa-times'}}" style="color: #3131d2;"></i>
+									</label>
+								</td>
+								<td class="width10">
+									<label>
+										<b>Psychotropic :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>
+										<i class="fa {{vm.model.Item_Details.isPsychotropic == true ?  'fa-check' : 'fa-times'}}" style="color: #3131d2;"></i>
+									</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>Is Kit :</b>
+									</label>
+								</td>
+								<td class="width18">
+									<label>
+										<i class="fa {{vm.model.Item_Details.isKit == true ?  'fa-check' : 'fa-times'}}" style="color: #3131d2;"></i>
+									</label>
+								</td>
+								<td class="width10">
+									<label>
+										<b>Is Infusion :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>
+										<i class="fa {{vm.model.Item_Details.isInfusion == true ?  'fa-check' : 'fa-times'}}" style="color: #3131d2;"></i>
+									</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>Is Narcotic :</b>
+									</label>
+								</td>
+								<td class="width18">
+									<label>
+										<i class="fa {{vm.model.Item_Details.isNarcotic == true ?  'fa-check' : 'fa-times'}}" style="color: #3131d2;"></i>
+									</label>
+								</td>
+								<td class="width10">
+									<label>
+										<b>Hospital Formulary :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>
+										<i class="fa {{vm.model.Item_Details.isHospitalFormulary == true ?  'fa-check' : 'fa-times'}}" style="color: #3131d2;"></i>
+									</label>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal start -->
+
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+		<div class="modal-content" style="border-radius: 0px !important;">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Are you sure you want to Save?</span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" ng-click="vm.model.SaveItemMaster()" data-dismiss="modal" class="btn btn-primary">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal end -->
+<!-- information details modal end -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Item Master");
+		$(".sidebar-nav li").each(function () {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="itemMasterGlobal"]').parents("li").addClass("active");
+	});
+</script>

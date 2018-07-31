@@ -1,0 +1,193 @@
+<div id="page-content-wrapper" class="ng-scope">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<div class="row">
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class=""><b class="padding-right10 ">Ret
+							GP No. :</b> <label>{{vm.model.returnableGatepassData.gatepassNo}}</label></span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Ret
+							GP Date:</b><label>{{vm.model.returnableGatepassData.gatepassDate | date:'dd/MM/yyyy'}}</label> </span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">
+							Store :</b><label>{{vm.model.returnableGatepassData.store}}</label> </span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">
+							Vendor :</b><label>{{vm.model.returnableGatepassData.vendor}}</label> </span>
+				</div>
+
+			</div>
+			<div class="row margin-top10">
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class=""><b class="padding-right10 ">
+							Type :</b><label>{{vm.model.returnableGatepassData.assetType}}</label></span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Against:</b>
+						<label>{{vm.model.returnableGatepassData.against}}</label>
+					</span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Reference
+							No:</b><label>{{vm.model.returnableGatepassData.referenceNo}}</label> </span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Requested
+							By:</b><label>{{vm.model.returnableGatepassData.requestedBy}}</label> </span>
+				</div>
+			</div>
+			<div class="padding-top10">
+			<div class="row table-scroll">
+				<div class="col-lg-12 col-md-12 table-wrap">
+					<table class="table table-bordered main-table">
+						<thead>
+
+							<tr>
+								<th class="width6">Item Code</th>
+								<th class="width8">Item Name <!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+								</th>
+								<th class="width5">UOM <!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+								</th>
+								<th class="width5">UOM Unit <!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+								</th>
+								<th class="width5">Batch No. <!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+								</th>
+								<th class="width5" title="Vendor Invoice Date">Expiry Date
+									<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+								</th>
+								<th class="width5">Lot No. <!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+								</th>
+								<th class="width5">Vendor <!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+								</th>
+								<th class="width5">Available Qty <!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+								</th>
+								<th class="width5">Return Qty <!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+								</th>
+								<th class="width5">COP <!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+								</th>
+								<th class="width5">Tax Code</th>
+								<th class="width5">Tax %</th>
+								<th class="width5">Total Amount</th>
+								<th class="width5">Tax Amount</th>
+								<th class="width5">Net Amount</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="greturn in vm.model.returnableGatepassData.items | orderBy:sortType:sortReverse">
+								<td>{{greturn.itemCode}}</td>
+								<td>{{greturn.itemName}}</td>
+								<td>{{greturn.uomType}}</td>
+								<td>{{greturn.uomUnit}}</td>
+								<td>{{greturn.batchNo}}</td>
+								<td>{{greturn.expiry| date:'MMM-yyyy' }}</td>
+								<td>{{greturn.lotNo}}</td>
+								<td>{{greturn.vendor}}</td>
+								<td>{{greturn.availableQuantity}}</td>
+								<td>{{greturn.returnQuantity}}</td>
+								<td>{{greturn.cop}}</td>
+								<td>{{greturn.taxCode}}</td>
+								<td>{{greturn.taxPercentage}}</td>
+								<td>{{greturn.totalAmount}}</td>
+								<td>{{greturn.totalTaxAmount}}</td>
+								<td>{{greturn.netAmount}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			</div>
+		</fieldset>
+		<footer
+			class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row padding-top5 margin-top10 padding-right20">
+				<div class="col-lg-11 col-sm-11"></div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a href="#/returnableGatepass"> <input type="button"
+						value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>

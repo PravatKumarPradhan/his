@@ -1,0 +1,197 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Storage Unit Master</legend> -->
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="code" class="text-input floating-label form-control"
+								 ng-change="vm.model.isstorageUnitCodeValid = false"
+								 ng-class="{dirty: vm.model.code}" ng-model="vm.model.code" />
+								<p ng-if="vm.model.isstorageUnitCodeValid" class="errorMsg">Storage Unit Code is required</p>
+								<label for="code">Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-th-list " aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label form-control"
+								 ng-class="{dirty: vm.model.unitName}" ng-change="vm.model.isstorageUnitValid = false"
+								 ng-model="vm.model.unitName">
+								 <p ng-if="vm.model.isstorageUnitValid" class="errorMsg">Storage Unit is required</p>
+								<label for="code">Storage Unit</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+								</select> <label for="code">Package</label>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-set1">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmSave">
+						<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" ng-model="search" class="text-search-box" placeholder="Search" style="margin-top: 0px">
+				<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top8">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="" title="Code">
+							Code
+							<div class="float_right" ng-click="sortType = 'code'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="Storage Unit">
+							Storage Unit
+							<div class="float_right" ng-click="sortType = 'unitName'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<!-- <th>Package
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th> -->
+						<th class="width8" title="Status">
+							Status
+							<div class="float_right" ng-click="sortType = 'status'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8 text-center" title="Action">
+							Action
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+					</tr>
+					<tbody>
+						<tr ng-repeat="storageUnit in vm.model.storageUnitList | filter : search | orderBy:sortType:sortReverse">
+							<td>
+								{{storageUnit.code}}
+							</td>
+							<td>
+								{{storageUnit.unitName}}
+							</td>
+							<td>
+								<label class="switch switch-small">
+									<input type="checkbox" class="switchInput" ng-model="storageUnit.status" ng-change="vm.model.ToggleStatus(storageUnit)" data-target="#confirmSave">
+									<div class="slider round slider-small"></div>
+								</label>
+							</td>
+							<!-- focusInput=true; -->
+							<td class="text-center">
+								<a ng-click="vm.model.PopulateStorageUnit(storageUnit.id);">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!--  confirmSave modal start -->
+
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+		<div class="modal-content" style="border-radius: 0px !important;">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Are you sure you want to Save?</span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" ng-click="vm.model.SaveStorageUnits()" data-dismiss="modal" class="btn btn-primary">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal end -->
+
+
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+	});
+
+	$(".selectedPageName").text("Storage Unit Master");
+	$(".sidebar-nav li").each(function () {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="storageunitMaster"]').parents("li").addClass("active");
+</script>

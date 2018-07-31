@@ -1,0 +1,172 @@
+<!-- *****************************************************************************************************************************
+										Top Up Indent
+****************************************************************************************************************************** -->
+<!-- Page Content start-->
+<div id="page-content-wrapper" >
+	<div class="container-fluid his-style">
+		<div class="row">
+       		<div class="col-md-8"></div>
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" data-toggle="modal" data-target="#confirmLogout"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-10">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="width1 text-center padding-btntop10">
+							<input type="checkbox" />
+						</th>
+						<th class="width8">
+							Store
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width10">
+							Item Name
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width10">
+							Generic Name
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width5">
+							Stock Available
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th  class="width5">
+							Last Month Sales
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width6">
+							Current Month Sales
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width6">
+							Pending Indent Qty
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width5">
+							Stock In Transit
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width3">
+							Indent Qty
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width8">
+							Reason For Top Up
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width5">
+							Priority
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>
+							-
+						</td>
+						<td>
+							<input type="text" class="select-box"/>
+						</td>
+						<td>
+							<input type="text" class="select-box"/>
+						</td>
+						<td>
+							<div>-</div>
+						</td>
+						<td>
+							<div>-</div>
+						</td>
+						<td>
+							<div>-</div>
+						</td>
+						<td>
+							<div>-</div>
+						</td>
+						<td>
+							<div>-</div>
+						</td>
+						<td>
+							<input type="text" class="select-box"/>
+						</td>
+						<td>
+							<select class="select-box">
+								<option>Select</option>
+								<option> 1</option>
+								<option> 2</option>
+								<option>	 3</option>
+							</select>
+						</td>
+						<td>
+							<select class="select-box">
+								<option>Select</option>
+								<option>Priority 1</option>
+								<option>Priority 2</option>
+								<option>Priority 3</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Page Content start-->
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedPageName").text("Patient Indent");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="topUpIndent"]').parents("li").addClass("active");
+});
+</script>

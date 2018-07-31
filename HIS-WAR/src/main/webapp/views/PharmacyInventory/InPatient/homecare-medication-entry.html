@@ -1,0 +1,193 @@
+<!-- *****************************************************************************************************************************
+													
+****************************************************************************************************************************** -->
+	   <!-- Page Content -->
+    	<div id="page-content-wrapper" class="">
+       		<div class="container-fluid his-style">
+       			<div class="row padding-left-right-set4">
+       				<div ng-include="'./views/common/common-patient-search-opd-without-counter.html'" style="margin-top:-5px"></div>
+			 		<div ng-include="'./views/common/patient-demography.html'"></div>
+       			</div>
+       			<div class="row margin-top10 padding-left-right-set4">
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+						<div class=" ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+						<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+					</div>
+				</div>
+            	<!-- <div class="padding-left-right-10">
+	            	<div class="row searched-patient-details-row">
+						<div class="col-md-11 col-sm-11 col-xs-11 ">
+							<span class="profile_pic margin-left10"> 
+								<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+							</span> 
+							<span class="margin-left10">John Deo 26/M </span>
+							<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> Pune-769</span>
+							<span class="margin-left10"><b class="padding-right10 ">WARD NO :</b> W1112</span>
+							<span class="margin-left10"><b class="padding-right10 ">BED NO :</b> BM129091</span>
+							<span class="margin-left10">Dr. Suresh Pathak</span>
+						</div>
+					</div>	
+				</div> -->
+            	<!-- table start-->
+          		<div class="row padding-left-right-set4 margin-top4">
+					<div class="col-md-12 fix-height-scroll500">
+						<table class="table table-bordered  table-responsive" id="homecareEntry">
+							<tr class="">
+								<th class="width18">
+									Name of Doctor
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width18">
+									Medication Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width15">
+									Generic Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width12">
+									Frequency
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">
+									Batch No.
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">
+									Expiry Date
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">
+									Qty
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									Action
+								</th>
+							</tr>
+							<tr>
+								<!-- <td>UH123456</td>	
+								<td>John Deo 26/M </td>	 -->
+								<td><input type="text" class="select-box" value="Dr. David Johnson"></td>	
+								<td><input type="text" class="select-box" value="Aspro-clear"></td>
+								<td><input type="text" class="select-box" value="Aspirin"></td>
+								<td>
+									<select class="select-box">
+										<option>Thrice in a day</option>
+										<option></option>
+									</select>
+								</td>
+								<td>KLPHTYU</td>
+								<td>May,2020</td>
+								<td>2</td>
+								<td><input type="button" style="width:36px" name="" id="addr" value="+" onclick="addRowMedicationTable()" class="btn btn-info add-dynamic-row" style="padding: 3px 7px;"></td>					
+							</tr>
+						</table>
+					</div>
+				</div>
+				<!-- table end-->
+       		</div>
+       		
+       		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+       		
+        </div>
+
+	<script type="text/javascript">
+	$(".selectedPageName").text("Homecare Medication Entry");
+	
+	function addRowMedicationTable() {
+		//alert();
+		var n = document.getElementById("homecareEntry").rows.length;
+		var id = Number(n);
+		//alert(id);
+		var test =
+
+		'<tr>'
+				+'<td><input type="text" class="select-box"></td>'
+				+'<td><input type="text" class="select-box"></td>'
+				+'<td><input type="text" class="select-box"></td>'
+				+'<td>'
+			    +'<select class="select-box">'
+				+'<option>Select Frequency</option>'
+				+'<option></option>'
+				+'</select>'
+				+'</td>'
+				+'<td></td>'
+				+'<td></td>'
+				+'<td></td>'
+				+ '<td>'
+				+ '<input type="button" style="width:36px" name="" id="addr" value="+" onclick="addRowMedicationTable()" class="btn btn-info add-dynamic-row" style="padding: 3px 7px;">&nbsp;'
+				+ '<input type="button" name="" id="delrow" value="-" onclick="delRowMedicationTable(this)" class="btn btn-info" style="padding: 3px 9px;">'
+				+ '</td>' + '</tr>';
+
+		$("#homecareEntry").append(test);
+
+	}
+	function delRowMedicationTable(r) {
+		var i = r.parentNode.parentNode.rowIndex;
+		document.getElementById("homecareEntry").deleteRow(i);
+	}
+	
+	</script>

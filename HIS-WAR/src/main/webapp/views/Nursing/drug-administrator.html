@@ -1,0 +1,387 @@
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid his-style">
+            
+            	<div ng-include="'./views/common/patient-demography.html'" class="ng-scope"></div>
+            	<div class="row padding-top10">
+            		<div class="col-lg-10 col-md-10 col-sm-9">
+            			<div class="bed-transfer-ward-div">
+							<label class=""><b>Last Order Date:</b>09/01/2018</label>
+						</div>
+            		</div>
+					<div class="col-lg-2 col-md-2 col-sm-3 padding-leftright15">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon"> 
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-10 ">
+								<div class="">
+									<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepicker"
+									model-view-value="true" is-open="datepicker.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker()"> 
+									<label for="code"> Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-10 margin-top10">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<tr class="">
+								<td></td>
+								<td colspan="6" class="today-yest">Yesterday</td>
+								<td colspan="24" class="today-yest">Today</td>
+							</tr>
+							<tr>
+								<th style="width:15%">Drug Name (6)</th>
+								<th style="width:30px">1</th>
+								<th style="width:30px">2</th>
+								<th style="width:30px">3</th>
+								<th style="width:30px">4</th>
+								<th style="width:30px">5</th>
+								<th style="width:30px">6</th>
+								
+								<th style="width:30px">1</th>
+								<th style="width:30px">2</th>
+								<th style="width:30px">3</th>
+								<th style="width:30px">4</th>
+								<th style="width:30px">5</th>
+								<th style="width:30px">6</th>
+								<th style="width:30px">7</th>
+								<th style="width:30px">8</th>
+								<th style="width:30px">9</th>
+								<th style="width:30px">10</th>
+								<th style="width:30px">11</th>
+								<th style="width:30px">12</th>
+								<th style="width:30px">13</th>
+								<th style="width:30px">14</th>
+								<th style="width:30px">15</th>
+								<th style="width:30px">16</th>
+								<th style="width:30px">17</th>
+								<th style="width:30px">18</th>
+								<th style="width:30px">19</th>
+								<th style="width:30px">20</th>
+								<th style="width:30px">21</th>
+								<th style="width:30px">22</th>
+								<th style="width:30px">23</th>
+								<th style="width:30px">24</th>
+							</tr>
+							<tr class="">
+								<td><span class="cursor-pointer">Zoton 15 mg</span>
+									<img class="NonOpaque" alt= "stop" src="resources/assets/images/icon/bed/Stop.png" style="cursor:pointer">
+								</td>
+								<td></td>
+								<td class="table-space table-space-green stopped-tablet">02:07</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-blue stopped-tablet">04:05</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-red stopped-tablet">16:45</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								
+							</tr>
+							<tr>
+								<td><span class="cursor-pointer" data-toggle="modal" data-target="#drugInformation">Istin 5 mg</span></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-green" data-toggle="modal" data-target="#checkTabletstatus">01:00</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-blue" data-toggle="modal" data-target="#checkTabletstatus">12:05</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-blue" data-toggle="modal" data-target="#checkTabletstatus">23:10</td>
+								<td></td>
+								
+							</tr>
+							<tr>
+								<td><span class="cursor-pointer" data-toggle="modal" data-target="#drugInformation">Amlostin 5 mg</span></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-green" data-toggle="modal" data-target="#checkTabletstatus">05:05</td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-blue" data-toggle="modal" data-target="#checkTabletstatus">02:05</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-green" data-toggle="modal" data-target="#checkTabletstatus">13:04</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-red"data-toggle="modal" data-target="#checkTabletstatus">23:30</td>
+								<td></td>
+								
+							</tr>
+							<tr>
+								<td><span class="cursor-pointer" data-toggle="modal" data-target="#drugInformation">Zanprol Tablet 10 mg</span>
+									<img data-toggle="modal" data-target="#drugInformation" alt= "sos" src="resources/assets/images/icon/bed/SOS.png" style="cursor:pointer">
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-green" data-toggle="modal" data-target="#checkSOSTabletstatus">02:15</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								
+							</tr>
+							<tr>
+								<td><span class="cursor-pointer" data-toggle="modal" data-target="#drugInformation">Losec Capsule 10 mg</span></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-blue" data-toggle="modal" data-target="#checkTabletstatus">05:05</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-green" data-toggle="modal" data-target="#checkTabletstatus">10:12</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								
+							</tr>
+							<tr>
+								<!-- <td class="table-padding0"><span class="cursor-pointer" data-toggle="modal" data-target="#drugInformation">Asmasal + <br>
+									Wellbutrin Ciprofloxacin</span>
+								</td> -->
+								<td class="table-padding0"><span class="cursor-pointer" data-toggle="modal" data-target="#drugInformation">Asmasal 100 MCG </span>
+								</td>
+								<td></td>
+								<td class="table-space table-space-green" data-toggle="modal" data-target="#checkTabletstatus">02:07</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-blue" data-toggle="modal" data-target="#checkTabletstatus">04:05</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="table-space table-space-red" data-toggle="modal" data-target="#checkTabletstatus">16:45</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+  			</div>
+  			<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10">1</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+		</div>
+	
+	
+
+<!-- ********************************* SOS CONDITION ************************************ -->
+
+<div id="checkSOSTabletstatus" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Drug Administrator
+					<button type="button" class="close" data-dismiss="modal">X</button>
+				</div>
+			</div>
+			<div class="modal-body his-style margin-top10">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>Administration Time</label>
+						<div class="input-group clockpicker">
+								<input type="text" class="form-control" value="02:15">
+								<span class="input-group-addon">
+									<span class="fa fa-clock-o"></span>
+								</span>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>Note</label>
+						<div class="">
+							<input type="text"  class="text-box-style" value="Givin when body temprature was 38.5 ℃">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ********************************* DRUG INFORMATION ************************************ -->
+<div id="drugInformation" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Drug Information
+					<button type="button" class="close" data-dismiss="modal">X</button>
+				</div>
+			</div>
+			<div class="modal-body his-style margin-bottom10 margin-left10 margin-right10">
+				<div class="row margin-top10">
+					<table class="table table-bordered table-striped ">
+						<tr>
+							<th style="width:10%">Start Date</th>
+							<th style="width:40%">Frequency</th>
+							<th style="width:10%">No. of Days</th>
+							<th style="width:40%">Instruction</th>
+						</tr>
+						<tr>
+							<td>09/01/2018</td>
+							<td>PRN</td>
+							<td>-</td>
+							<td>To be giving when body temprature is more than 38 ℃</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+<script src="resources/assets/js/common/page-height.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".selectedPageName").text("Drug Administration");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="drugAdministrator"]').parents("li").addClass("active");
+	
+	
+	
+	$('.clockpicker').clockpicker();
+	
+});
+
+</script>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+	<!-- <configuration> <date-format>dd-MM-yyyy HH:mm:ss</date-format> </configuration> -->
+
+	<mapping map-id="opd_AppointmentMasterDto_to_AppointmentMaster" date-format="dd-MM-yyyy HH:mm:ss">
+		<class-a>com.param.opd.appointment.model.AppointmentMaster</class-a>
+		<class-b>com.param.opd.appointment.dto.AppointmentMasterDto</class-b>
+		<field-exclude> 
+		  <a>timeSlot</a> 
+		  <b>timeSlot</b> 
+</field-exclude>  
+	</mapping>
+	
+	<mapping map-id="PatientRegistrationDto_to_PatientRegistration"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.PatientRegistration
+		</class-a>
+		<class-b> com.param.global.dto.PatientRegistrationDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="PatientRegistrationDto_to_PatientDetails"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.PatientDetails
+		</class-a>
+		<class-b> com.param.global.dto.PatientRegistrationDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="PatientRegistrationDto_to_PatientRegistrationLog"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.PatientRegistrationLog
+		</class-a>
+		<class-b> com.param.global.dto.PatientRegistrationDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="opd_EncounterMasterDto_to_EncounterMaster" date-format="dd-MM-yyyy HH:mm:ss">
+		<class-a>com.param.opd.coversheet.model.EncounterMaster</class-a>
+		<class-b>com.param.opd.encounter.dto.EncounterMasterDto</class-b>
+		<field-exclude> 
+		  <a>encounterTime</a> 
+		  <b>encounterTime</b> 
+		</field-exclude>  
+	</mapping>
+	
+	<mapping map-id="BillingDetailsDto_to_BillingDetails" date-format="dd-MM-yyyy HH:mm:ss">
+		<class-a>com.param.billing.global.transaction.dto.BillingDetailsDto</class-a>
+		<class-b>com.param.billing.global.transaction.model.BillingMaster</class-b>
+	</mapping>
+	
+	<mapping map-id="SlotMasterDto_to_AppointmentMaster" date-format="dd-MM-yyyy HH:mm:ss">
+		<class-a>com.param.global.dto.SlotMasterDto</class-a>
+		<class-b>com.param.opd.appointment.model.AppointmentMaster</class-b>
+	</mapping>
+	
+	<mapping map-id="DiagnosisPatientAppointmentMapperDto_to_DiagnosisPatientAppointmentMapper" date-format="dd-MM-yyyy HH:mm:ss">
+		<class-a>com.param.opd.coversheet.dto.DiagnosisPatientAppointmentMapperDto</class-a>
+		<class-b>com.param.opd.coversheet.model.DiagnosisPatientAppointmentMapper</class-b>
+	</mapping>
+	
+		<!-- <mapping map-id="EncounterAssignmenMapperDto_to_EncounterAssignmenMapper" date-format="dd-MM-yyyy HH:mm:ss">
+		<class-a>com.param.opd.coversheet.dto.EncounterAssignmenMapperDto</class-a>
+		<class-b>com.param.opd.coversheet.model.EncounterAssignmenMapper</class-b>
+	</mapping> -->
+	
+	
+</mappings>

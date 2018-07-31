@@ -1,0 +1,247 @@
+<!-- *****************************************************************************************************************************
+													
+****************************************************************************************************************************** -->
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		 <fieldset class="main-fieldset">
+			<!-- <legend class="main-heading-div">Items For Auction</legend> -->
+		    <div class="row margin-top10">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label">
+								<label for="code">From Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label">
+								<label for="description" class="LISDynamicLabel">To Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-building-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+									<option>Store 1</option>
+									<option>Store 2</option>
+								</select>
+								<label for="description" class="LISDynamicLabel">Store</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+									<option>All</option>
+									<option>Rejected</option>
+									<option>Completed</option>
+									<option>Cancel</option>
+								</select>
+								<label for="description" class="LISDynamicLabel">Status</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label">
+								<label for="code">Search</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1  padding-top8" >
+					<div class="width-div-for-patient-reg " style="float:  initial;">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save">
+						<i class="fa fa-search" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top4">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#collectPayment"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<!-- <div class="row padding-left-right-set1">
+          	<div class="col-md-11 col-sm-10"></div>
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#collectPayment"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+		</div> -->
+		
+		<div class="row padding-left-right-set0 margin-top4">
+			<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set0"  id="nonBillableTableHt">
+				<fieldset class="main-fieldset">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 height500-table-with-scroll"><!-- height55-table-with-scroll -->
+						<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width1 text-center">
+											<input type="checkbox"/>
+										</th>
+										<th class="width9">
+											Requisition No
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">
+											Requisition Date
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width12">
+											Store
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">
+											Requisition By
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width5">
+											Status
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8 text-center vertical-middle">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-center">
+											<input type="checkbox"/>
+										</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td class="text-center vertical-middle">
+											<span><a title="Print">
+												<i class="fa fa-print" aria-hidden="true"></i>
+											</a></span>
+											<span class="padding-left10"><a href="#/itemsAuctionDetails">Details</a></span><a href="#/auctionReqDetails">
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="row his-style margin-top10">
+			<div class="col-md-2 col-sm-2 text-right" >
+				<label>Remark:</label>
+			</div>
+			<div class="col-md-10 col-sm-10 padding-left-right8">
+				<input class="form-control"/>
+			</div>
+		</div>
+		
+    </div>
+</div>
+<script src="resources/assets/js/common/page-height.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".selectedServicesList").hide();
+	$(".selectedPageName").text("Items For Auction");
+	$(".sidebar-nav li").each(function() {
+	$(this).find("a").parents("li").removeClass("active");
+	$('a[href$="witnessApproval"]').parents("li").addClass("active");
+	$( ".radioRejected" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$("#accepatReject").modal();
+		}
+	});
+	
+});
+$(".table-th-bg").click(function(){
+	//alert();
+	$(this).next().find(".selectedServicesList").toggle();
+});
+	/*************************** rejection radio button function*********************************/
+	$(".rejection-details-row").hide();
+	$( ".radioRejected" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row").show();
+		}
+	});
+	$( ".radioAccepted" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".rejection-details-row").hide();
+		}
+	});
+});
+/*************************** add button function start*********************************/
+</script>

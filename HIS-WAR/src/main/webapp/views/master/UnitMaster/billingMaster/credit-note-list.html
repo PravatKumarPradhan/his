@@ -1,0 +1,755 @@
+<div id="page-content-wrapper" style="height:100%; overflow-y:auto ">
+	<div class="container-fluid his-style">
+		<fieldset class="" style="margin-top:-5px !important">
+		
+			 		<div ng-include="'./views/common/common-patient-search-opd.html'"></div>
+			 		<div ng-include="'./views/common/patient-demography-info.html'" class="margin-top4"></div>
+			 		
+				 	<div class="row">
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label"> 
+										<label for="description" class="LISDynamicLabel">Form Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label"> 
+										<label for="description" class="LISDynamicLabel">To Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+											<option>-</option>
+										</select> <label for="code">Visit Type</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label"> 
+										<label for="description" class="LISDynamicLabel">Credit Note No.</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+											<option>-</option>
+										</select> <label for="code">Bill Status</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 margin-top10 margin-left5 padding-top10 text-center">
+
+					<div class="checkbox">
+						<label><input type="checkbox" value="" name="registrationType">OTC</label>
+					</div>
+
+				</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 text-width-auto padding-top4 pull-right">
+				          <div class="common-save-button"> 
+				             <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+				              <i class="fa fa-search" aria-hidden="true"></i> 
+				             </a> 
+				          </div> 
+				        </div>
+						
+						
+				</div>
+				
+				<div class="row padding-left-right-set4 padding-top10">
+					<div class="col-lg-9 col-md-9"></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+		        <input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+		        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+		      </div>
+				</div>
+				<div class="row padding-top10 padding-left-right-set4">
+					<div class="col-md-12 col-lg-12 ">
+						<table class="table table-bordered">
+						       <tr>
+						       <th class="width8">
+						        <span class="">CR Date</span>
+						       </th>
+						       <th class="width10">
+						         <span class="">CR No.</span>
+						       </th>
+						       <th class="width12">
+						        UHID
+						       </th>
+						       <th class="width15">
+						        Patient Name
+						       </th>
+						       <th class="width8">
+						        Visit Type
+						       </th>
+						       <th class="width8">
+						        Visit Date
+						       </th>
+						       <th class="width8">
+						        Visit No.
+						       </th>
+						       <th class="width10">
+						        Against Bill No.
+						       </th>
+						       <th class="width8">
+						        Total DN Amount
+						       </th>
+						       <th class="width10">
+						       Net Payable
+						       </th>
+						       <th class="width8">
+						        Amount Paid
+						       </th>
+						       <th class="width8">
+						       Balance Amount
+						       </th>
+						        <th class="width8">
+						       Status
+						       </th>
+						       <th class="width8">
+						        Created By
+						       </th>
+						      
+						       <th class="width1">
+						        Action
+						       </th>
+						      </tr>
+						      <tr>
+						      	<td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						      
+						       <th class="width1">
+						         <a href="" data-toggle="modal" data-target="#creditNoteListView">View</a>
+						         <!-- <a href="" data-toggle="modal" data-target="#billListView">View</a> -->
+						       </th>
+						      </tr>
+						       <tr>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						      
+						       <th class="width1">
+						        <a href="" data-toggle="modal" data-target="#debitNoteListView">View</a>
+						       </th>
+						      </tr>
+						      <tr>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						       -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						      
+						       <th class="width1">
+						        <a href="" data-toggle="modal" data-target="#debitNoteListView">View</a>
+						       </th>
+						      </tr>
+						      <tr>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						      
+						       <th class="width1">
+						        <a href="" data-toggle="modal" data-target="#">View</a>
+						       </th>
+						      </tr>
+						      <tr>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						     
+						       <th class="width1">
+						        <a href="" data-toggle="modal" data-target="#">View</a>
+						       </th>
+						      </tr>
+						      <tr>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						      
+						       <th class="width1">
+						        <a href="" data-toggle="modal" data-target="#">View</a>
+						       </th>
+						      </tr>
+						      <tr>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						      
+						       <th class="width1">
+						        <a href="" data-toggle="modal" data-target="#debitNoteListView">View</a>
+						       </th>
+						      </tr>
+					</table>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+	<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+</div>
+
+
+
+
+<!-- CREDIT NOTE LIST VIEW POPUP -->
+<div id="creditNoteListView" class="common-large-popup modal fade ng-scope in his-style" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Credit Note Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body row">
+					<div class="col-md-12">
+						<div class="row margin-top8">
+								<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 ">
+									<!-- <div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow" ng-href="#/billList/serviceDetails">Service Details</a>
+									</div> -->
+								</div>
+								<div class="col-lg-4"></div>
+								<div class="col-lg-3 col-md-3 col-lg-3 padding-left-right-set4 pull-right">
+									<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+									<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+								</div>
+						</div>
+						<div class="row margin-top10 padding-left-right-set4">
+							<div class="col-md-12 col-lg-12  OPDBillService">
+									<table class="table table-bordered OPDBillService">
+									<thead>
+										<tr>
+										<th class="width8">
+											<span class="">Order No</span>
+										</th>
+										<th class="width15">
+											 <span class="">Service Name</span>
+										</th>
+										<th class="width15">
+											Doctor
+										</th>
+										<th class="width5">
+											Qty
+										</th>
+										<th class="width5">
+											Unit Price
+										</th>
+										<th class="width8">
+											Total Amount
+										</th>
+										<th class="width8">
+											Concession
+										</th>
+										<th class="width5">
+											Discount
+										</th>
+										<th class="width5">
+											GST
+										</th>
+										<th class="width5">
+											Net Amount
+										</th>
+										<th class="width5">
+											Disc %
+										</th>
+										<th class="width5">
+											Discount Amount
+										</th>
+										<th class="width5">
+											Discount Category
+										</th>
+										<th class="width5">
+											CR Amount
+										</th>
+										<th class="width8">
+											Refund Amount
+										</th>
+										<th class="width8">
+											Balance Amount
+										</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											<input type="text" class="width50px">
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											<input type="text" class="width50px">
+										</td>
+										<td>
+											<input type="text" class="width50px">
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										
+									</tr>
+									<tr>
+										
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											<input type="text" class="width50px">
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											<input type="text" class="width50px">
+										</td>
+										<td>
+											<input type="text" class="width50px">
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="14" class="text-right">
+											<span>Account Summary</span>
+											<input type="text" class="width62px">
+										</td>
+										<td class="width5">
+											<input type="text" class="width100">
+										</td>
+										<td class="width5">
+											<input type="text" class="width62px">
+										</td>
+									</tr>
+									<tr>
+										<td colspan="16" class="text-right">
+											<span>Reason For CR</span>
+											<input type="text" class="width20">
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+							</div>
+					</div>
+					<div class="row margin-top10" style="margin-bottom:10px">
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 float_right text-width-auto">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Print">
+								Print
+							</a>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set1 float_right text-width-auto">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Print">
+								Refund
+							</a>
+						</div>		
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+
+<script>
+
+$(document).ready(function() { 
+	 $(".patienttSearchResult").hide();
+	 $(".selectedPageName").text("Credit Note List");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="creditNoteList"]').parents("li").addClass("active");
+});
+
+</script>
+
+
+
+
+

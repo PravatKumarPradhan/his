@@ -1,0 +1,495 @@
+<!-- /********************************************************************************************************************************************
+Inventory - store - Add item Batch Exp Date Change - sub page
+Created by - Pranita Patil
+Created Date - 13-Dec-2017 
+/********************************************************************************************************************************************/ -->
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Batch/MRP/Expiry Date Change</legend> -->
+			<div class="row margin-top10">
+					<div class="col-lg-3 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+							  <div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-tasks" aria-hidden="true"></i>
+							  </div>
+							  <div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+								  <!-- <select class="text-input floating-label" ng-model="vm.model.storeData" ng-options="datum.id as datum.name for datum in vm.model.storeList"
+									  ng-class="{dirty: vm.model.storeData}" ng-change="vm.model.openingBalanceData = []" ng-disabled="vm.model.storeFlag">
+									</select> -->
+				  
+								  <select name="store" id="store" class="text-input floating-label dirty" ng-disabled="!!vm.model.batchId" data-ng-options="store.store for store in vm.model.stores"
+									ng-model="vm.model.store">
+								  </select>
+				  
+								  <label for="code">Store</label>
+								</div>
+							  </div>
+							</div>
+						  </div>
+				<!-- <div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set1 padding-top10 text-center">
+					<div class="row input-container padding-top10">
+						<label class="font-weight700" for="chkAddItemList">
+							<input type="checkbox" id="chkAddItemList" class="margin-right10" />Get Item </label>
+					</div>
+				</div> -->
+		
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set padding-top10 text-center">
+						<div class="row input-container margin-top10"> 
+						  <button type="button" ng-disabled="!vm.model.store.id" data-dismiss="modal" class="btn btn-primary" style="margin-top: -9px;"
+							id="" ng-click="vm.model.GetItemList()">Add Item</button> 
+			  
+						</div>
+					  </div>
+		
+			</div>
+		</fieldset>
+		<fieldset>
+			<div class="row padding-left-right-set4 padding-top10">
+				<div class="col-md-12 col-lg-12 col-sm-8 padding-left-right-set4" id="nonBillableTableHt">
+					<fieldset>
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12 height500-table-with-scroll">
+								<table class="table table-bordered first-checkBox-padding">
+									<!-- mainServiceTable -->
+									<thead class="mainServiceTableCommon">
+										<tr>
+											<th class="width10">
+												Item Code
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width10">
+												Item Name
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width7">
+												UOM
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width7">
+												UOM Unit
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width8">
+												Batch No.
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width8">
+												Expiry Date
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width8">
+												MRP
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width8">
+												New Batch No
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width8">
+												New Expiry Date
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width8">
+												New MRP
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width5 text-center vertical-middle">
+												Action
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="itemChange in vm.model.itemList" >
+											<td>{{itemChange.itemCode}}</td>
+											<td>{{itemChange.itemName}}</td>
+											<td>{{itemChange.uomType}}</td>
+											<td>{{itemChange.uomUnit}}</td>
+											<td>{{itemChange.batchNo}}</td>
+											<td>{{itemChange.expiry  | date:'MMM-yyyy'}}</td>
+											<td>{{itemChange.mrp}}</td>
+											<td>
+												<input type="text" ng-model="itemChange.newBatchNo"  class="select-box" />
+											</td>
+											<td>
+													<input type="text" class="w-100 text-center" name="itemChange.newExpiry" id="itemChange.newExpiry" datepicker-options="{minMode: 'month'}"
+													uib-datepicker-popup="MM/yyyy" placeholder="__/____" ng-model="itemChange.newExpiry" model-view-value="true" ng-change="vm.model.setSelectedDate(itemChange)"
+													is-open="vm.model.dateOpen[$index]" datepicker-options="vm.model.dateOptions" show-button-bar="false"
+													ng-click="vm.model.OpenExpiryDate($index)">
+											</td>
+											<td>
+												<input type="text" ng-model="itemChange.newMrp" numbers-only class="select-box" />
+											</td>
+											<td class="text-center vertical-middle">
+												<a title="Remove" ng-click="vm.model.removeRowData(itemChange)">
+													<i class="fa fa-times"></i>
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+		</fieldset>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+
+				</div>
+				<div class="col-md-1 text-right">
+
+				</div>
+				<div class="col-lg-7 col-md-7 col-sm-7 padding-left-right8">
+
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left0px-right6px">
+					<div class="">
+						<!-- common-save-button -->
+						<input type="button" value="Save" ng-click="vm.model.SaveBatchChange()" class="btn btn-primary btn-save-box-shadow">
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left0px-right6px">
+					<div class="">
+						<!-- common-save-button -->
+						<a href="#/batchExpDateChange">
+							<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+<div id="additemlist" class="modal fade ng-scope in common-large-popup" role="dialog">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <div class="modal-title patient-details-row">
+				Add Item List
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+			</div>
+			<div class="modal-body height-table-with-scroll	">
+					<fieldset class="get-request-row">
+							<div class="row margin-top10">
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-2 col-md-2 col-sm-2 polymer-icon">
+											<i class="fa fa-tasks" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="">
+													<select name="assetCategory" id="assetCategory" class="text-input floating-label dirty" data-ng-options="category.category for category in vm.model.assetCategories"
+													ng-model="vm.model.assetCategory" ng-change="vm.model.GetProductCategoryList(vm.model.assetCategory.id)">
+												  </select>
+												  <label for="code">Asset Category</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-2 col-md-2 col-sm-2 polymer-icon">
+											<i class="fa fa-tasks" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="">
+													<select name="productCategory" id="productCategory" class="text-input floating-label dirty" data-ng-options="category.category for category in vm.model.productCategories"
+													ng-model="vm.model.productCategory">
+												  </select>
+												  <label for="code">Product Category</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+											<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="">
+												<input type="text" name="code" id="" ng-model="search.itemCode" class="text-input floating-label dirty"> <label for="code">Item Code</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+											<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="">
+												<input type="text" name="code" id="" ng-model="search.itemName" class="text-input floating-label dirty"> <label for="code">Item Name</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+											<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="">
+												<input type="text" name="code" id="" ng-model="search.BatchName" class="text-input floating-label dirty"> <label for="code">Batch Name</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-search" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<input type="text" name="code" id="" class="text-input floating-label"> <label for="code">Search</label>
+											</div>
+										</div>
+									</div>
+								</div> -->
+								<div class="col-lg-1 col-md-1 col-sm-1 padding-left8px-right-0px padding-top10 his-style">
+									<div class="common-save-button" style="padding-top:  0px;"> 
+										 <a href="" class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.searchNewItem()" style="width: auto;"> 
+											 <i class="fa fa-search" aria-hidden="true"></i> 
+										 </a> 
+									</div> 
+								</div>
+							</div>
+							<div class="row padding-top10 padding-left-right-set4">
+							<div class="col-lg-12 col-md-12 col-sm-12"> <!-- height500-table-with-scroll -->
+							<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width1 text-center vertical-middle">
+												<input type="checkbox" ng-model="vm.model.selectAllRows" ng-click="vm.model.SelectAllItems()" />
+										</th>
+										<th class="width10">
+											Asset Category
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">
+											Product Category
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Item Code
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Item Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											UOM
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											UOM Unit
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Batch Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Expiry Date
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">
+											Available Qty
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="item in vm.model.NewItemList | orderBy:sortType:sortReverse | filter : search ">
+										<td class="text-center vertical-middle">
+												<input type="checkbox" ng-model="item.isSelected" ng-click="vm.model.SelectItem(item)" />
+										</td>
+										<td>{{item.assetCategory}}</td>
+										<td>{{item.productCategory}}</td>
+										<td>{{item.itemCode}}</td>
+										<td>{{item.itemName}}</td>
+										<td>{{item.uomType}}</td>
+										<td>{{item.uomUnit}}</td>
+										<td>{{item.batchNo}}</td>
+										<td>{{item.expiry | date:'MMM-yyyy'}}</td>
+										<td>{{item.availableQuantity}}</td>
+									</tr>
+								</tbody>
+							</table>
+							</div>
+						</div>
+						</fieldset>
+			</div>
+			<div class="modal-footer">
+			  <div class="row his-style">
+				<div class="col-md-11"></div>
+				<div class="col-md-1 padding-left0px-right6px">
+				  <div class="common-save-button">
+					<input type="button" value="Add" ng-disabled="!vm.model.isItemChecked" class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.getAllItemDetails	()"
+					  data-dismiss="modal">
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+ 
+<script type="text/javascript">
+	$(document).ready(function () {
+		$(".selectedPageName").text("Batch/MRP/Expiry Date Change");
+		$(".sidebar-nav li").each(function () {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		// $('#chkAddItemList').click(function () {
+		// 	if ($('#chkAddItemList').is(":checked")) {
+		// 		$('#getItemList').modal('show');
+		// 	} else {
+		// 		$('#getItemList').modal('hide');
+		// 	}
+		// });
+	});
+</script>

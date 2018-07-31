@@ -1,0 +1,42 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">		
+		<fieldset>
+			<legend class="heading-div">Glasgow Coma Scale(GCS)</legend>
+			<div class="row margin-top4 padding-left-right15">
+				<div class="row margin-top4">
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary btn-save-box-shadow"  ui-sref=".GCShistory">History</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary  btn-save-box-shadow" ui-sref=".GCSnew">Add</a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12 margin-top10"  ui-view>
+						
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>
+		
+<script type="text/javascript">
+$(document).ready(function() {
+
+	var documentHeight = $(window).height();
+	var sideBarHeight = documentHeight - 55;
+	$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+	$(".selectedPageName").text("Appointments");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="GCS/GCSnew"]').parents("li").addClass("active");
+});
+</script>

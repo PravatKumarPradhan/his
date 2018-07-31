@@ -1,0 +1,207 @@
+<div id="page-content-wrapper" style="height:100%; overflow-y:auto ">
+	<div class="container-fluid his-style">
+			 	<fieldset class="normalRegistration sub-fieldset">
+					<legend class="sub-legend border-bottom-none commonPatientSearch cursor-pointer">Order Set List</legend>
+					 	
+					<div class="row margin-top8">
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right">
+							<div class="width-div-for-patient-reg ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" >
+								 <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+							<div class="">
+								<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+								<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+							</div>
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 col-lg-12 margin-top10 padding-left-right-set4">
+							<table class="table table-bordered">
+							       <tr>
+								       <th class="width1">
+								       </th>
+								       <th class="width10">
+								        Code
+								       </th>
+								       <th class="width15">
+								        Order Set Name
+								       </th>
+								       <th class="width5">
+								        Action
+								       </th>
+							      </tr>
+							      <tr>
+								       <td>
+								       	<input type="checkbox">
+								       </td>
+								       <td>
+								        -
+								       </td>
+								       <td>
+								        -
+								       </td>
+								       <td>
+								       	<a href="" data-toggle="modal" data-target="#orderSetListOfDetails">View</a>
+								       </td>
+							      </tr>
+							         <tr>
+								       <td>
+								       	<input type="checkbox">
+								       </td>
+								       <td>
+								        -
+								       </td>
+								       <td>
+								        -
+								       </td>
+								       <td>
+								       	<a href="" data-toggle="modal" data-target="#orderSetListOfDetails">View</a>
+								       </td>
+							      </tr>
+							      <tr>
+								       <td>
+								       	<input type="checkbox">
+								       </td>
+								       <td>
+								        -
+								       </td>
+								       <td>
+								        -
+								       </td>
+								       <td>
+								       	<a href="" data-toggle="modal" data-target="#orderSetListOfDetails">View</a>
+								       </td>
+							      </tr>
+							       <tr>
+								       <td>
+								       	<input type="checkbox">
+								       </td>
+								       <td>
+								        -
+								       </td>
+								       <td>
+								        -
+								       </td>
+								       <td>
+								       	<a href="" data-toggle="modal" data-target="#orderSetListOfDetails">View</a>
+								       </td>
+							      </tr>
+							      <tr>
+								       <td>
+								       	<input type="checkbox">
+								       </td>
+								       <td>
+								        -
+								       </td>
+								       <td>
+								        -
+								       </td>
+								       <td>
+								       	<a href="" data-toggle="modal" data-target="#orderSetListOfDetails">View</a>
+								       </td>
+							      </tr>
+							      <tr>
+								       <td>
+								       	<input type="checkbox">
+								       </td>
+								       <td>
+								        -
+								       </td>
+								       <td>
+								        -
+								       </td>
+								       <td>
+								       	<a href="" data-toggle="modal" data-target="#orderSetListOfDetails">View</a>
+								       </td>
+							      </tr>
+						</table>
+					</div>
+				</div>
+		</fieldset>
+	</div>
+</div>
+
+
+
+
+
+<!-- LIST OF PANELS LIST VIEW POPUP -->
+<div id="orderSetListOfDetails" class="common-small-popup modal fade ng-scope in his-style" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Order Set Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="col-md-12 padding-left-right-set4 fix-heigh-scroll-200" style="background-color: white">
+						<div class="row margin-top8 margin-bottom10">
+								<table class="table table-bordered">
+								    <tr>
+								       <th class="width10">
+								        Code
+								       </th>
+								       <th class="width15">
+								        Service Name
+								       </th>
+								       <th class="width8">
+								        Qty
+								       </th>
+								      </tr>
+								      <tr>
+									       <td>
+									        -
+									       </td>
+									       <td>
+									        -
+									       </td>
+									        <td>
+									        -
+									       </td>
+									       
+								      </tr>
+								      <tr>
+									       <td>
+									        -
+									       </td>
+									       <td>
+									        -
+									       </td>
+									        <td>
+									        -
+									       </td>
+									      
+								      </tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+<script>
+
+$(document).ready(function() {  
+	 $(".selectedPageName").text("Order Set List");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="orderSetList"]').parents("li").addClass("active");
+});
+
+</script>
+
+
+
+
+

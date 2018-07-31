@@ -1,0 +1,141 @@
+
+		<fieldset class="margin-top4">
+			<legend class="heading-div">Company Details</legend>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10" style="margin-left: -17px;">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="description" id="" class="text-input floating-label" ng-model="patientObj.companyName"> <label for="description" class="">Company Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10" style="margin-left: -17px;">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="description" id="" class="text-input floating-label" ng-model="patientObj.companyAddress"> <label for="description" class="">Address</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+					<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" ng-model="patientObj.companyCountryId" ng-change="getStateByCountry(patientObj.companyCountryId,'C')">
+										<option></option>
+										<option ng-repeat="info in countryList" value="{{info.countryId}}">{{info.countryName}}</option>
+									</select> <label for="code">Country</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" ng-model="patientObj.companyStateId" ng-change="getDistrictByState(patientObj.companyStateId,'C')">
+										<option></option>
+										<option ng-repeat="info in CompanyStateList" value="{{info.stateId}}">{{info.stateName}}</option>
+									</select> <label for="code">State</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-university" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class=""   >
+								<select class="text-input floating-label" name="districtId" ng-model="patientObj.companyDistrictId" ng-change="getCityByDistrict(patientObj.companyDistrictId,'C')" >
+									<option>Select District</option>
+									<option ng-repeat="info in CompanyDistrictList" value="{{info.districtId}}">{{info.districtName}}</option>
+								</select> <label for="code">District</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+					<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" ng-model="patientObj.companyCityId" ng-change="getAreaByCity(patientObj.companyCityId,'C')">
+										<option></option>
+										<option ng-repeat="info in CompanyCityList" value="{{info.cityId}}">{{info.cityName}}</option>
+									</select> <label for="code">City</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" ng-model="patientObj.companyAreaId">
+										<option></option>
+										<option ng-repeat="info in CompanyAreaList" value="{{info.areaId}}">{{info.areaName}}</option>
+									</select> <label for="code">Area</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" class="text-input floating-label" ng-model="patientObj.companyPostCode"> <label for="description" class="">Zip Code</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" class="text-input floating-label" ng-model="patientObj.companyNumber"> <label for="description" class="">Mobile Number</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- <div class="row">
+					<div class="col-md-12 col-lg-12">
+					  	<div class="width-div-for-patient-reg margin-top10">
+							<input  type="button" value="Submit" class="btn btn-primary btn-save-box-shadow ">
+						</div>
+					</div>
+				</div> -->
+		</fieldset>

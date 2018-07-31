@@ -1,0 +1,168 @@
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" class="padding10">
+            <div class="container-fluid his-style">
+            	
+            	<div class="row">
+            		<div class="col-md-8"></div>
+					<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" data-toggle="modal" data-target="#confirmLogout"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+					
+				</div>
+			</div>
+				</div>
+            	
+				<div class="row padding-left-right-10">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<tr class="">
+								<th class="UHID-width">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Doctor Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Location
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Specimen Type
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Specimen Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="bed-no-width">
+									Frozen Section
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="bed-no-width">
+									Histopathology No.
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="status">
+									Note
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td>UH123456</td>
+								<td>
+									<div>John Deo 26/M </div>
+								</td>
+								<td>
+									<div>Dr. Andy Qnyty, Homotology</div>
+								</td>
+								<td><div>-</div></td>
+								<td>
+									<div>FNA</div>
+								</td>
+								
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td class="text-center"><i class="fa fa-commenting font-size20" aria-hidden="true" data-toggle="modal" data-target="#notesForall"></i></td>
+							</tr>
+							<tr>
+								<td>UH123456</td>
+								<td>
+									<div>Soni Raut 20/F</div>
+								</td>
+								<td>
+									<div>Dr. Andy Qnyty, Homotology</div>
+								</td>
+								<td><div>-</div></td>
+								<td>
+									<div>FNA</div>
+								</td>
+								
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td class="text-center"><i class="fa fa-commenting font-size20" aria-hidden="true" data-toggle="modal" data-target="#notesForall"></i></td>
+							</tr>
+							
+						</table>
+					</div>
+				</div>
+  			</div>
+		</div>
+	
+	
+	
+	
+	<script type="text/javascript">
+$('.clockpicker').clockpicker();
+
+$( document ).ready(function() {
+	$( ".radioRejected" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$("#accepatReject").modal();
+		}
+	});
+	$(".selectedPageName").text("Macroscopic Examiniation Work List");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	
+	
+});
+
+</script>

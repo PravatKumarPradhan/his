@@ -1,0 +1,126 @@
+  <!-- <div class="row">
+            		<div class="col-md-8"></div>
+					<div class="col-md-3">
+						<div>
+							  <input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required/>
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-md-1 ">
+						<div class="" style="padding-top:3px !important" >
+							<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveModalityRequest()">
+							<a href="" value="Save" class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Save" ng-click="saveModalityRequest()">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div> -->
+				<modal visible="showModal"></modal> 
+					<div class="row padding-left-right-set4 margin-top5 height-table-with-scroll">
+						<div class="col-md-12">
+							<table class="table table-bordered ">
+								<tr class="">
+								<th></th>
+									<th>
+										Investigation Name
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+										<th>
+										Modality Name
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th style="width:10%">
+										Time
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th style="width:10%">
+										Transfer Time
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th>
+										Destination
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th>
+										Note
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+								</tr>
+								<!-- <tr>
+								<td>
+								
+								</td>
+									<td></td>
+									<td>
+										<div class="input-group clockpicker">
+											<input type="text" class="form-control"  value="9:30">
+											<span class="input-group-addon">
+												<span class="fa fa-clock-o"></span>
+											</span>
+										</div>
+								
+									</td>
+									<td>
+										<div class="input-group clockpicker">
+											<input type="text" class="form-control" value="9:30">
+											<span class="input-group-addon">
+												<span class="fa fa-clock-o"></span>
+											</span>
+										</div>
+									</td>
+									<td>Ward-A Bed No. BM123456</td>
+									<td><input type="text" class="text-box-style"></td>
+								</tr> -->
+								<tr ng-repeat="info in patientModalityList">
+								<td>
+								<input type="radio" name="radioName" value="info.patientServiceOrderId" ng-model="patientServiceOrder" ng-click="selectItem(info)" />
+								</td>
+									<td>{{info.serviceStandardName}}</td>
+									<td>{{info.modalityDesc}}</td>
+									<td>
+										<div class="input-group clockpicker">
+											<input type="text" class="form-control"  ng-model="info.fromTime2"   ng-init="initClockPicker()">
+											<span class="input-group-addon">
+												<span class="fa fa-clock-o"></span>
+											</span>
+										</div>
+								
+									</td>
+									<td>
+										<div class="input-group clockpicker">
+											<input type="text" class="form-control" ng-model="info.transferTime"  ng-init="initClockPicker()">
+											<span class="input-group-addon">
+												<span class="fa fa-clock-o"></span>
+											</span>
+										</div>
+									</td>
+									<td>Ward-A Bed No. BM123456</td>
+									<td><input type="text" class="text-box-style" ng-model="info.note"></td>
+								</tr>
+							
+							</table>
+						</div>
+					</div>
+<script type="text/javascript">
+	$(".btn-hide").show();
+</script>

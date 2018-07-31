@@ -1,0 +1,178 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div"> Immunization Schedule</legend> -->
+			<div class="row">
+				<form action="">
+					<div class="row padding-top10">
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-leftright15 padding-top10">
+							<div class="row input-container clockpicker">
+								<div class="col-lg-3 col-sm-3 col-md-3 polymer-icon">
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-9 col-sm-9 col-md-9">
+									<div class="">
+										<select class="text-input floating-label" name="code">
+											<option></option>
+											<option>Day</option>
+											<option>Month</option>
+											<option>Year</option>
+										</select>
+										<label for="code">Age</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+							<div class="form-group">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div
+							class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container clockpicker">
+								<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-crosshairs" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10 ">
+									<div class="">
+										<select class="text-input floating-label" name="code">
+											<option></option>
+										</select>
+										<label for="code">Vaccine</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10 text-center">
+							<button type="button" class="btn btn-info btn-sm padding-left-right-set4" data-toggle="modal" data-target="#diseaseList">Disease List</button>
+						</div>
+						<div
+							class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container clockpicker">
+								<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-list-ol" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10 ">
+									<div class="">
+										<select class="text-input floating-label" name="code">
+											<option></option>
+										</select> <label for="code">Sequence</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top8">
+							<div class="common-save-button"> 
+								 <a href="" class="btn btn-primary btn-save-box-shadow text-width-auto">+
+								 	 
+								 </a> 
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-set1">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top10">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="width10">Age
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width15">Vaccine
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width6">Disease
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">Sequence
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<!-- <th class="width8">Status
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="text-center width8">Action
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th> -->
+					</tr>
+					<tr>
+						<td>-</td>
+						<td>-</td>
+						<td><a class="cursor-pointer" data-toggle="modal" data-target="#diseaseList">View Disease List</a></td>
+						<td>-</td>
+						<!-- <td><label class="switch"> <input type="checkbox">
+								<div class="slider round"></div></label></td>
+						<td class="padding-edit-button-table text-center"><a><i
+								class="fa fa-pencil" aria-hidden="true"></i></a></td> -->
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+	});
+	$(".selectedPageName").text(" Immunization Schedule");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="immunizationSchedule"]').parents("li").addClass("active");
+</script>

@@ -1,0 +1,38 @@
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid ">
+			<div class="row margin-top4">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 text-width-auto">
+					<div class="tab-btn-primary">
+						<a class="btn btn-primary btn-save-box-shadow" ui-sref=".pendingList">Returnable Gatepass Pending List</a> <!-- ng-href="#/appointments/home" -->
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 text-width-auto">
+					<div class="tab-btn-primary">
+						<a class="btn btn-primary  btn-save-box-shadow"
+							ui-sref=".list">Returnable Gatepass List</a> <!-- ng-href="#/appointments/emergency" -->
+					</div>
+				</div>
+				
+			</div>
+			<div class="row padding-top8">
+				<div class="" ui-view>
+					
+				</div>
+			</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Returnable Gatepass Request");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="returnableGatepassRequest/pendingList"]').parents("li").addClass("active");
+		
+	});
+</script>

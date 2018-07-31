@@ -1,0 +1,236 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Formulation Type Master</legend> --><!-- /*old name product cat master*/ -->
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+								<input type="hidden" ng-model="vm.mode.formulationTypeId" value="0" />
+								<select class="text-input floating-label" ng-class="{dirty: vm.model.id}" name="assetType" ng-change="vm.model.PopulateAssetCategoryDropdown(vm.model.assetType); vm.model.isAssetTypeIdValid = false"
+								 ng-model="vm.model.assetType" ng-options="assetType.type for assetType in vm.model.assetTypeList">
+								</select>
+								<p ng-if="vm.model.isAssetTypeIdValid" class="errorMsg">Asset Type Code is required</p>
+								<label for="code">Asset Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-outdent" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+								<select class="text-input floating-label" ng-class="{dirty: vm.model.id}" name="assetCategory" ng-model="vm.model.assetCategory"
+								 ng-options="assetCategory.category for assetCategory in vm.model.assetCategoryList" ng-change="vm.model.PopulateProductCategoryDropdown(vm.model.assetCategory); vm.model.isAssetCategoryIdValid = false">
+								</select>
+								<p ng-if="vm.model.isAssetCategoryIdValid" class="errorMsg">Asset Category is required</p>
+								<label for="code">Asset Category</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-outdent" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+								<select class="text-input floating-label" ng-model="vm.model.productCategory" name="code" ng-options=" productCategory.category for productCategory in vm.model.productCategoryList"
+								 ng-class="{dirty: vm.model.id}" ng-change="vm.model.isValidProductCat = false">
+								</select>
+								<label for="code">Product Category</label>
+							</div>
+							<p ng-if="vm.model.isValidProductCat" class="errorMsg">Enter Product Category</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="">
+								<input type="text" name="code" class="text-input floating-label" ng-model="vm.model.formulationTypeCode" ng-class="{dirty: vm.model.formulationTypeCode}"
+								ng-change="vm.model.isValidFormulationTypeCode = false" required>
+								<label for="code">Formulation Type Code</label>
+							</div>
+							<p ng-if="vm.model.isValidFormulationTypeCode" class="errorMsg">Enter Formulation Type Code</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="code" class="text-input floating-label" ng-model="vm.model.formulationTypeName" ng-class="{dirty: vm.model.formulationTypeName}"
+								ng-change="vm.model.isValidFormulationType = false" required> 
+								<label for="code">Formulation Type</label>
+							</div>
+							<p ng-if="vm.model.isValidFormulationType" class="errorMsg">Enter Formulation Type</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>	
+			<div class="row margin-top10 padding-left-right-set4">
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmSave"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+					<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+			</div>
+			<div class="row padding-left-right-set4 margin-top10">
+				<div class="col-md-12">
+					<table class="table table-bordered">
+						<tbody>
+							<tr class="">
+								<th class="width10">Asset Type
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>	
+								<th class="width10">Asset Category
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>	
+								<th class="width12">Product Category
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>	
+								<th class="width15">Formulation Type Code
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width15">Formulation Type
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">Status
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5 text-center">Action
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+							</tr>
+							<tr ng-repeat="formulationType in vm.model.formulationTypeDataList | filter : search">
+								<td>{{formulationType.assetType}}</td>
+								<td>{{formulationType.assetCategory}}</td>
+								<td>{{formulationType.productCategory}}</td>
+								<td>{{formulationType.type}}</td>
+								<td>{{formulationType.code}}</td>
+								<td>
+									<label class="switch">
+										<input type="checkbox" class="switchInput" ng-model="formulationType.status" ng-change="vm.model.ToggleStatus(formulationType)">
+										<div class="slider round"></div>
+									</label>
+								</td>
+								<td class="text-center">
+									<a ng-click="vm.model.PopulateFormulationType(formulationType.id)">
+										<i class="fa fa-pencil" aria-hidden="true"></i>
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>	
+	</div>
+</div>
+
+<!--  confirmSave modal start -->
+
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+		<div class="modal-content" style="border-radius: 0px !important;">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Are you sure you want to Save?</span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" ng-click="vm.model.SaveFormulationType()">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal end -->
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Formulation Type Master");
+		$(".sidebar-nav li").each(function () {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="pharmacyformulationTypeMaster"]').parents("li").addClass("active");
+	});
+</script>

@@ -1,0 +1,1275 @@
+ <div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset class="" style="margin-top:-5px !important">
+			 	
+				<div ng-include="'./views/common/common-patient-search-opd.html'"></div>
+			 	<div ng-include="'./views/common/patient-demography.html'"></div>
+			 	
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set0">
+						<fieldset class="normalRegistration sub-fieldset">
+								<div class="row">
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+													<select class="text-input floating-label">
+														<option></option>
+														<option>-</option>
+													</select> <label for="code">Admission No.</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text" name="description" id="" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Admission Date</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+													<select class="text-input floating-label">
+														<option></option>
+														<option>-</option>
+													</select> <label for="code">Referred By</label>
+												</div>
+											</div>
+										</div>
+									</div> 
+								</div>
+								<div class="row">
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+													<input type="text" name="description" id="" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Department</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text" name="description" id="" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Treating Doctor</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<select class="text-input floating-label dirty">
+														<option value=""></option>
+														<option value="-">-</option>
+													</select> 
+													<label for="description" class="LISDynamicLabel">Bed Billing Category</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+						</fieldset>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+						<fieldset class="normalRegistration sub-fieldset">
+								<div class="row">
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+													<input type="text" name="description" id="" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Patient Category</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text" name="description" id="" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Payment Entitlement</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+													<select class="text-input floating-label">
+														<option></option>
+														<option>-</option>
+													</select> <label for="code">Payer</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text" name="description" id="" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Contract</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+													<input type="text" name="description" id="" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Bed Category</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+													<input readonly="readonly" type="text" name="description" id="" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Contract Validity</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+						</fieldset>
+					</div>
+				</div>
+				<!-- <div class="row margin-top4">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set0 float_right">
+						<div class="col-lg-4 col-md-4 col-sm-4"></div>
+						<div class="col-lg-5 col-md-5 col-sm-5">
+							<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+							<i class="fa fa-search common-search-text-icon1" aria-hidden="true"></i>
+						</div>
+						<div class="col-md-2 col-sm-2 padding-left-right-set4">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="" data-toggle="modal" data-target="#addServicePopup">
+									Add Service
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow"
+									title="Save" data-toggle="modal" data-target="#collectPayment"><i
+									class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<div class="row margin-top4">
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 float_right width4">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow"
+									title="Save" data-toggle="modal" data-target="#collectPayment">
+									<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 float_right text-width-auto">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="" data-toggle="modal" data-target="#addServicePopup">
+									Add Service
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+							<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+				</div>
+				<fieldset class="normalRegistration">
+					<div class="row custom-sub-tab padding-left-right-set4">
+						<ul class="tabs nav nav-tabs">
+							<li ng-class="{ active : isSetThirdTabLevel(1) }" class="active" style="width: 80px;"><a href="" ng-click="setThirdTabLevel(1)">Service</a></li>
+							<li ng-class="{ active : isSetThirdTabLevel(2) }" style="width: 80px;" class=""><a href="" ng-click="setThirdTabLevel(2)">Groupwise</a></li>
+							<li ng-class="{ active : isSetThirdTabLevel(3) }" style="width: 80px;" class=""><a href="" ng-click="setThirdTabLevel(3)">Package</a></li>
+							<li ng-class="{ active : isSetThirdTabLevel(4) }" style="width: 80px;" class=""><a href="" ng-click="setThirdTabLevel(4)">Transfer</a></li>
+							<li ng-class="{ active : isSetThirdTabLevel(5) }" style="width: 80px;" class=""><a href="" ng-click="setThirdTabLevel(5)">Cancelled</a></li>
+							<li ng-class="{ active : isSetThirdTabLevel(6) }" style="width: 80px;" class=""><a href="" ng-click="setThirdTabLevel(6)">Procedure</a></li>
+							<li ng-class="{ active : isSetThirdTabLevel(7) }" style="width: 80px;" class=""><a href="" ng-click="setThirdTabLevel(7)">Periodicity</a></li>
+							<li ng-class="{ active : isSetThirdTabLevel(8) }" style="width: 94px;" class=""><a href="" ng-click="setThirdTabLevel(8)">Intermediate</a></li>
+							<li ng-class="{ active : isSetThirdTabLevel(9) }" style="width: 80px;" class=""><a href="" ng-click="setThirdTabLevel(9)">Drug</a></li>
+							<li ng-class="{ active : isSetThirdTabLevel(10) }" style="width: 80px;" class=""><a href="" ng-click="setThirdTabLevel(10)">Payer</a></li>
+							<li ng-class="{ active : isSetThirdTabLevel(11) }" style="width: 80px;" class=""><a href="" ng-click="setThirdTabLevel(11)">Deposit</a></li>
+						</ul>
+					</div>
+					<div class="row padding-left-right-set4">
+						<div ng-show="isSetThirdTabLevel(1)" class="second-level-tab-display-div" style="">
+						<div class="row padding-left-right-set1 table-container">
+							<div class="table-container">
+							   <div class="table-container-header">
+							      <table class="table table-striped table-hover table-condensed table-bordered">
+							         <thead>
+							            <tr>
+									       <th class="width8" title="Order No.">
+									        Order No.
+									       </th>
+									       <th class="width8" title="Service Name">
+									        Service Name
+									       </th>
+									       <th class="width8" title="Specialty">
+									        Specialty
+									       </th>
+									       <th class="width8" title=" Doctor">
+									        Doctor
+									       </th>
+									       <th class="width6" title="Qty">
+									        Qty
+									       </th>
+									       <th class="width8" title="Unit Price">
+									       Unit Price
+									       </th>
+									       <th class="width8" title="Total Amount">
+									        Total Amount
+									       </th>
+									       <th class="width8" title="Concession">
+									        Concession
+									       </th>
+									       <th class="width8" title="Discount %">
+									        Disc %
+									       </th>
+									       <th class="width8" title="Discount Amount">
+									        Disc Amt
+									       </th>
+									       <th class="width6" title="GST">
+									        GST
+									       </th>
+									       <th class="width6" title="GST %">
+									        GST %
+									       </th>
+									       <th class="width8" title=" GST Amount">
+									        GST Amt
+									       </th>
+									       <th class="width8" title=" Net Payable">
+									        Net Payable
+									       </th>
+									       <th class="width8" title="Discount Category">
+									        Disc Category
+									       </th>
+									       <th class="width8" title="Discount Details">
+									        Discount Details
+									       </th>
+									       <th class="width6" title="Order By">
+									        Order By
+									       </th>
+									       <th class="width8" title="Order On">
+									        Order On
+									       </th>
+									       <th class="width4" title="">
+									        
+									       </th>
+								      </tr>
+							         </thead>
+							      </table>
+							   </div>
+							   <div class="table-container-body" style="overflow: overlay;background: #ffffce;">
+							      <table class="table table-striped table-hover table-condensed table-bordered">
+							         <tbody>
+							            <tr>
+							         		<td class="width8">-</td>
+							         		<td class="width8">-</td>
+							         		<td class="width8">-</td>
+							         		<td class="width8">-</td>
+							         		<td class="width6">-</td>
+							         		<td class="width8">-</td>
+							         		<td class="width8">-</td>
+							         		<td class="width8">-</td>
+							         		<td class="width8">-</td>
+							         		<td class="width8">-</td>
+							         		<td class="width6">-</td>
+							         		<td class="width6">-</td>
+							         		<td class="width8">-</td>
+							         		<td class="width8">-</td>
+							         		<td class="width8">
+							         			<div class="form-group">
+												<select class="border-dropdown dirty" style="">
+													<option selected="" value=""></option>
+												</select>
+											</div>
+							         		</td>
+							         		<td class="width8 text-center">
+							         			<span title="Add"><a class="cursor-pointer" data-toggle="modal" data-target="#addViewDiscountDetails">Add</a></span>
+							         			<span title="View"><a class="cursor-pointer" data-toggle="modal" data-target="#addViewDiscountDetails"><i class="fa fa-info-circle"></i></a></span></td>
+							         		<td class="width6">-</td>
+							         		<td class="width8">-</td>
+							         		<td class="width4 text-center"><a title="Cancel" data-toggle="modal" data-target="#serviceCancellationModal"><i class="fa fa-times"></i></a></td>
+							         	</tr>
+							         </tbody>
+							      </table>
+							   </div>
+							   <div class="table-container-footer">
+							      <table class="table table-striped table-hover table-condensed table-bordered">
+							         <tfoot>
+							         	<tr>
+							         		<td class="width8 border-right-none"></td>
+							         		<td class="width8 border-right-none"></td>
+							         		<td class="width8 border-right-none"></td>
+							         		<td class="width8 border-right-none"></td>
+							         		<td class="width6 border-right-none"></td>
+							         		<td class="width8" title="Account Summary">Summary</td>
+							         		<td class="width8"><input type="text" style="width:100%" class="dirty"></td>
+							         		<td class="width8"><input type="text" style="width:100%" class="dirty"></td>
+							         		<td class="width8"></td>
+							         		<td class="width8"><input type="text" style="width:100%" class="dirty"></td>
+							         		<td class="width6 border-right-none"></td>
+							         		<td class="width6"></td>
+							         		<td class="width8"><input type="text" style="width:100%" class="dirty"></td>
+							         		<td class="width8"><input type="text" style="width:100%" class="dirty"></td>
+							         		<td class="width8 border-right-none"></td>
+							         		<td class="width8 border-right-none"></td>
+							         		<td class="width6 border-right-none"></td>
+							         		<td class="width8 border-right-none"></td>
+							         		<td class="width4 text-center border-right-none"></td>
+							         	</tr>
+							         </tfoot>
+							      </table>
+							   </div>
+							</div>
+						</div>
+					</div>
+						<div ng-show="isSetThirdTabLevel(2)" class="second-level-tab-display-div ng-hide" style="">
+						<div class="row padding-left-right-set1 table-container">
+							<div class="table-container">
+								<div class="table-container-header">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<thead>
+											<tr>
+												<th class="width15" title="Group Name">Group Name</th>
+												<th class="width15" title="Total Amount">Total Amount</th>
+												<th class="width15" title="Total Concession">Total
+													Concession</th>
+												<th class="width15" title="Total Discount">Total
+													Discount</th>
+												<th class="width15" title="Total GST">Total GST</th>
+												<th class="width15" title="Total Net Payable">Total Net
+													Payable</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="table-container-body"
+									style="overflow: overlay; background: #ffffce;">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<tbody>
+											<tr>
+												<td class="width15">-</td>
+												<td class="width15">-</td>
+												<td class="width15">-</td>
+												<td class="width15">-</td>
+												<td class="width15">-</td>
+												<td class="width15">-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="table-container-footer">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<tfoot>
+											<tr>
+												<td class=" width15"><span>Account Summary</span></td>
+												<td class="width15"><input type="text" class="w-100"></td>
+												<td class="width15"><input type="text" class="w-100"></td>
+												<td class="width15"><input type="text" class="w-100"></td>
+												<td class="width15"><input type="text" class="w-100"></td>
+												<td class="width15"><input type="text" class="w-100"></td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div ng-show="isSetThirdTabLevel(3)"
+						class="second-level-tab-display-div ng-hide" style="">
+						<div class="OPDBillService">
+							<div ng-include="'./views/common/billing/comon-package.html'"></div>
+						</div>
+					</div>
+					<div ng-show="isSetThirdTabLevel(4)"
+						class="second-level-tab-display-div ng-hide" style="">
+						<div
+							class="row padding-left-right-set1 table-container">
+							<div class="table-container">
+								<div class="table-container-header">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<thead>
+											<tr>
+												<th class="width10" title="From Date">From Date</th>
+												<th class="width10" title="From Ward">From Ward</th>
+												<th class="width10" title="From Bed Room">From Bed Room</th>
+												<th class="width10" title="To Date">To Date</th>
+												<th class="width10" title="To Ward">To Ward</th>
+												<th class="width10" title="To Bed Room">To Bed Room</th>
+												<th class="width10" title="Reason For Transfer">Reason
+													For Transfer</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="table-container-body"
+									style="overflow: overlay; background: #ffffce;">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<tbody>
+											<tr>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div
+							class="row padding-left-right-set4 table-container padding-top8">
+							<div class="table-container">
+								<div class="table-container-header">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<thead>
+											<tr>
+												<th class="width10"><span class="">From Date</span></th>
+												<th class="width10"><span class="">From
+														Department</span></th>
+												<th class="width10"><span class="">From
+														Care/Doctor</span></th>
+												<th class="width10">To Date</th>
+												<th class="width10">To Department</th>
+												<th class="width10">To Care/Doctor</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="table-container-body"
+									style="overflow: overlay; background: #ffffce;">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<tbody>
+											<tr>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+						<div ng-show="isSetThirdTabLevel(5)" class="second-level-tab-display-div ng-hide" style="">
+						<div
+							class="row padding-left-right-set1 table-container">
+							<div class="table-container">
+								<div class="table-container-header">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<thead>
+											<tr>
+												<th class="width10" title="Order No.">Order No.</span></th>
+												<th class="width10" title="Order Date">Order Date</span></th>
+												<th class="width10" title="Service Name">Service Name</span></th>
+												<th class="width10" title="Cancel Qty">Cancel Qty</th>
+												<th class="width10" title="Amount">Amount</th>
+												<th class="width10" title="Cancelled By">Cancelled By</th>
+												<th class="width10" title="Cancelled On">Cancelled On</th>
+												<th class="width10" title="Reason">Reason</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="table-container-body"
+									style="overflow: overlay; background: #ffffce;">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<tbody>
+											<tr>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+					</div>
+						<div ng-show="isSetThirdTabLevel(6)" class="second-level-tab-display-div ng-hide" style="">
+						<div
+							class="row padding-left-right-set1 table-container">
+							<div class="table-container">
+								<div class="table-container-header">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<thead>
+											<tr>
+												<th class="width10" title="Order No.">Order No.</th>
+												<th class="width10" title="Order Date">Order Date</th>
+												<th class="width10" title="Procedure Code">Procedure
+													Code</th>
+												<th class="width10" title="Procedure Name">Procedure
+													Name</th>
+												<th class="width10" title="Procedure Date">Procedure
+													Date</th>
+												<th class="width10" title="Grade">Grade</th>
+												<th class="width10" title="Service Code">Service Code</th>
+												<th class="width10" title="Service Name">Service Name</th>
+												<th class="width10" title="Qty">Qty</th>
+												<th class="width10" title="Order By">Order By</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="table-container-body"
+									style="overflow: overlay; background: #ffffce;">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<tbody>
+											<tr>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+					</div>
+						<div ng-show="isSetThirdTabLevel(7)" class="second-level-tab-display-div ng-hide" style="">
+						<div
+							class="row padding-left-right-set1 table-container">
+							<div class="table-container">
+								<div class="table-container-header">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<thead>
+											<tr>
+												<th class="width10" title="Order No.">Order No.</th>
+												<th class="width10" title="Order Date">Order Date</th>
+												<th class="width10" title="From Date/Time">From
+													Date/Time</th>
+												<th class="width10" title="To Date/Time">To Date/Time</th>
+												<th class="width10" title="Service Name">Service Name</th>
+												<th class="width10" title="Qty">Qty</th>
+												<th class="width10" title="Order By">Order By</th>
+												<th class="width10" title="Order From">Order From</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="table-container-body"
+									style="overflow: overlay; background: #ffffce;">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<tbody>
+											<tr>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+						<div ng-show="isSetThirdTabLevel(8)" class="second-level-tab-display-div ng-hide" style="">
+						<div class="col-md-12 col-lg-12 padding-top4 padding-bottom10">
+							<div
+								class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top5">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" name="registrationNumber" id=""
+												class="text-input floating-label"> <label
+												for="description" class="LISDynamicLabel">From Date</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top5">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" name="description" id=""
+												class="text-input floating-label"> <label
+												for="description" class="LISDynamicLabel">To Date</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="col-md-1 col-sm-1 padding-left-right-set4 float_right padding-top5">
+								<div class=" ">
+									<a href="" class="btn btn-primary btn-save-box-shadow" title="">
+										Generate </a>
+								</div>
+							</div>
+						</div>
+						<div
+							class="row padding-left-right-set1 table-container">
+							<div class="table-container">
+								<div class="table-container-header">
+									<table class="table table-striped table-hover table-condensed table-bordered">
+										<thead>
+											<tr>
+												<th class="width10" title="Intrim Bill No.">Intrim Bill No.</th>
+												<th class="width10" title="Intrim Bill Date">Intrim
+													Bill Date</th>
+												<th class="width10" title="From Date">From Date</th>
+												<th class="width10" title="To Date">To Date</th>
+												<th class="width10" title="Total Bill Amount">Total
+													Bill Amt</th>
+												<th class="width10" title="Prepared By">Prepared By</th>
+												<th class="width3 text-center" title="Details">Details</th>
+												<th class="width3 text-center" title="Print">Print</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="table-container-body"
+									style="overflow: overlay; background: #ffffce;">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<tbody>
+											<tr>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width3 text-center"><i
+													class="fa fa-info-circle" aria-hidden="true"
+													data-toggle="modal" data-target="#billListDetails"></i></td>
+												<td class="width3 text-center"><i class="fa fa-print"
+													aria-hidden="true"></i></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+
+						<div
+							ng-include="'./views/master/UnitMaster/billingMaster/common/bill-list-details.html'"></div>
+
+					</div>
+						<div ng-show="isSetThirdTabLevel(9)" class="second-level-tab-display-div ng-hide" style="">
+						<div
+							class="row padding-left-right-set1 table-container">
+							<div class="table-container">
+								<div class="table-container-header">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<thead>
+											<tr>
+												<th class="width10" title="Issue No.">Issue No.</th>
+												<th class="width10" title="Issue Date">Issue Date</th>
+												<th class="width10" title="Item Code">Item Code</th>
+												<th class="width10" title="Item Name">Item Name</th>
+												<th class="width10" title="Unit Price">Unit Price</th>
+												<th class="width10" title="Qty">Qty</th>
+												<th class="width10" title="Total Amt">Total Amount</th>
+												<th class="width10" title="Issue From">Issue From</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="table-container-body"
+									style="overflow: overlay; background: #ffffce;">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<tbody>
+											<tr>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+												<td class="width10">-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="table-container-footer">
+									<table class="table table-striped table-hover table-condensed table-bordered">
+										<tfoot>
+											<tr>
+												<td class="width10 border-right-none"></td>
+												<td class="width10 border-right-none"></td>
+												<td class="width10 border-right-none"></td>
+												<td class="width10 border-right-none"></td>
+												<td class="width10 border-right-none"></td>
+												<td class="width10 text-right">Summary</td>
+												<td class="width10"></td>
+												<td class="width10"></td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+						</div>
+
+					</div>
+						<div ng-show="isSetThirdTabLevel(10)" class="second-level-tab-display-div ng-hide" style="">
+						<div
+							class="row padding-left-right-set1 table-container">
+							<div class="table-container">
+								<div class="table-container-header">
+									<table class="table table-striped table-hover table-condensed table-bordered">
+										<thead>
+											<tr>
+												<th class="width8" title="Payer Code">Payer Code</th>
+												<th class="width8" title="Payer Name">Payer Name</th>
+												<th class="width8" title="Authorization No.">Authorization
+													No.</th>
+												<th class="width8" title="Authorization Date">Authorization
+													Date</th>
+												<th class="width8" title="Insurance ID No.">Insurance
+													ID No.</th>
+												<th class="width8" title="GT Type">GT Type</th>
+												<th class="width8" title="Validity From">Validity From</th>
+												<th class="width8" title="Validity To">Validity To</th>
+												<th class="width8" title="GL Status">GL Status</th>
+												<th class="width8" title="GL Amount">GL Amt</th>
+												<th class="width8" title="Approved Amount">Approved Amt</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="table-container-body"
+									style="overflow: overlay; background: #ffffce;">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<tbody>
+											<tr>
+												<td class="width8">-</td>
+												<td class="width8">-</td>
+												<td class="width8">-</td>
+												<td class="width8">-</td>
+												<td class="width8">-</td>
+												<td class="width8">-</td>
+												<td class="width8">-</td>
+												<td class="width8">-</td>
+												<td class="width8">-</td>
+												<td class="width8">-</td>
+												<td class="width8">-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+						<div ng-show="isSetThirdTabLevel(11)" class="second-level-tab-display-div ng-hide" style="">
+						<div
+							class="row padding-left-right-set1 table-container">
+							<div class="table-container">
+								<div class="table-container-header">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<thead>
+											<tr>
+												<th class="width15" title="Receipt No.">Receipt No.</th>
+												<th class="width15" title="Receipt Date">Receipt Date</th>
+												<th class="width15" title="Deposit Type">Deposit Type</th>
+												<th class="width15" title="Visit Type">Visit Type</th>
+												<th class="width15" title="Encounter No.">Encounter No.</th>
+												<th class="width15" title="Deposit Amount">Deposit Amt</th>
+												<th class="width15" title="Balance Amount">Balance Amt</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="table-container-body"
+									style="overflow: overlay; background: #ffffce;">
+									<table
+										class="table table-striped table-hover table-condensed table-bordered">
+										<tbody>
+											<tr>
+												<td class="width15">-</td>
+												<td class="width15">-</td>
+												<td class="width15">-</td>
+												<td class="width15">-</td>
+												<td class="width15">-</td>
+												<td class="width15">-</td>
+												<td class="width15">-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="table-container-footer">
+									<table class="table table-striped table-hover table-condensed table-bordered">
+										<tfoot>
+											<tr>
+												<td class="width15 border-right-none"></td>
+												<td class="width15 border-right-none"></td>
+												<td class="width15 border-right-none"></td>
+												<td class="width15 border-right-none"></td>
+												<td class="width15 text-right">Summary</td>
+												<td class="width15"></td>
+												<td class="width15"></td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				</fieldset>
+				<!-- <div class="row margin-top4">
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 ">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary btn-save-box-shadow" ng-href="#/IPDCharges/serviceDetailsForIPDCharge">Service</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 ">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/IPDCharges/groupWiseForIPDCharge">Groupwise</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 ">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary btn-save-box-shadow" ng-href="#/IPDCharges/packageForIPDCharge">Package</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/IPDCharges/transferHistoryForIPDCharge">Transfer</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 ">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary btn-save-box-shadow" ng-href="#/IPDCharges/cancelServiceForIPDCharge">Cancelled</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 ">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/IPDCharges/procedureDetailsForIPDCharge">Procedure</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 ">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary btn-save-box-shadow" ng-href="#/IPDCharges/periodicityDetailsForIPDCharge">Periodicity</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 ">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/IPDCharges/intrimBillForIPDCharge">Intermediate</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/IPDCharges/drugDetailsForIPDCharge">Drug</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 ">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/IPDCharges/payerDetailsForIPDCharge">Payer</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 ">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/IPDCharges/depositDetailsForIPDCharge">Deposit</a>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top4 padding-left-right-set4">
+					<div class="" ui-view>
+				
+					</div>
+				</div> -->
+		</fieldset>
+		<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<fieldset class="normalRegistration">
+							<legend class="heading-div">Discount Details</legend>
+								 <div class="row">
+									<div id="mediaType" class="col-lg-4 col-md-4 col-sm-4 customRadioBtn">													
+										<span>
+												<input id="billDiscount" name="discount" type="radio" value="1" val="yes" checked="checked">
+												<label for="billDiscount">Bill Wise Discount</label>
+										</span>
+										<span>
+												<input id="groupDiscount" name="discount" type="radio" value="2">
+												<label for="groupDiscount" data-toggle="modal" data-target="#groupWiseDiscountModal">Group Wise Discount</label>
+										</span>
+										<span>
+												<input id="" name="discount" type="radio" value="2">
+												<label for="">Cancel Discount</label>
+										</span>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+										
+										<div class="row">
+											<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+												<div class="row input-container">
+													<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+														<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+													</div>
+													<div class="col-lg-11 col-sm-11 col-md-11">
+														<div class="">
+															<input type="text" name="description" id="" class="text-input floating-label ng-pristine ng-valid dirty ng-empty ng-touched ng-untouched" ng-model="discountObj.discountPercentage" ng-disabled="isDiscountPercentageDisabled" ng-blur="validateDiscountAmount()" style=""><!-- ng-blur="calculateDiscountAmount()" --> 
+															<label for="description" class="LISDynamicLabel">Discount %</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+												<div class="row input-container">
+													<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+														<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+													</div>
+													<div class="col-lg-11 col-sm-11 col-md-11">
+														<div class="">
+															<input type="text" name="description" id="" class="text-input floating-label ng-pristine ng-valid dirty ng-empty ng-touched ng-untouched" ng-model="discountObj.discountAmount" ng-disabled="isDiscountAmountDisabled" ng-blur="validateDiscountPercentage()" style=""> <!--  ng-blur="calculateDiscountPercentage()" -->
+															<label for="description" class="LISDynamicLabel">Discount Amount</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+												<div class="row input-container">
+													<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+														<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+													</div>
+													<div class="col-lg-11 col-sm-11 col-md-11 ">
+														<div class="">
+															<select class="text-input floating-label ng-valid dirty ng-touched ng-dirty ng-valid-parse ng-pristine ng-untouched ng-empty" ng-model="discountObj.discountCategoryId" style=""><option value="? undefined:undefined ?"></option>
+																<option value="1">1</option>
+																<option value="2">2</option>
+															</select> <label for="code">Discount Category</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+												<div class="row input-container">
+													<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+														<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+													</div>
+													<div class="col-lg-11 col-sm-11 col-md-11 ">
+														<div class="">
+															<select class="text-input floating-label ng-valid dirty ng-touched ng-dirty ng-valid-parse ng-pristine ng-untouched ng-empty" ng-model="discountObj.discountGivenBy" style=""><option value="? undefined:undefined ?"></option>
+																<option value="1">1</option>
+																<option value="2">2</option>
+															</select> <label for="code">Discount Given By</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-1 col-md-2 text-width-auto">
+												<div class=" margin-left-padding-top">
+													<a href="" class="btn btn-primary btn-save-box-shadow" ng-click="applyDiscount()">
+														Apply
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+										<div class="row">
+											<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+												<div class="row input-container">
+													<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+														<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+													</div>
+													<div class="col-lg-11 col-sm-11 col-md-11 ">
+														<div class="">
+															<input type="text" name="description" id="" class="text-input floating-label dirty"> 
+															<label for="description" class="LISDynamicLabel">Self Payable</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+												<div class="row input-container">
+													<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+														<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+													</div>
+													<div class="col-lg-11 col-sm-11 col-md-11 ">
+														<div class="">
+															<input type="text" name="description" id="" class="text-input floating-label dirty"> 
+															<label for="description" class="LISDynamicLabel">Credit Payable</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+												<div class="row input-container">
+													<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+														<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+													</div>
+													<div class="col-lg-11 col-sm-11 col-md-11 ">
+														<div class="">
+															<input type="text" name="description" id="" class="text-input floating-label dirty"> 
+															<label for="description" class="LISDynamicLabel">Deposit</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+												<div class="row input-container">
+													<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+														<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+													</div>
+													<div class="col-lg-11 col-sm-11 col-md-11 ">
+														<div class="">
+															<input type="text" name="description" id="" class="text-input floating-label dirty"> 
+															<label for="description" class="LISDynamicLabel">Transfer</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div id="mediaType" class="col-lg-6 col-md-6 col-sm-6 uk-input-group customRadioBtn">													
+											<span>
+													<input id="groupRadio" name="groupService" type="radio" value="1" val="yes" checked="checked">
+													<label for="groupRadio">Groupwise</label>
+											</span>
+											<span>
+													<input id="serviceRadio" name="groupService" type="radio" value="2">
+													<label for="serviceRadio">Servicewise</label>
+											</span>
+										</div>
+											<div class="col-lg-1 col-md-2 text-width-auto pull-right">
+												<div class=" margin-left-padding-top">
+													<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow">
+														Back
+													</a>
+												</div>
+											</div>
+											<div class="col-lg-1 col-md-2 text-width-auto pull-right">
+												<div class=" margin-left-padding-top">
+													<a href="" class="btn btn-primary btn-save-box-shadow">
+														Print
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+						</fieldset>
+					</div>
+				</div>
+</div>
+
+</div>
+
+ <div ng-include="'./views/AdmissionDischarge/nok-details-only.html'" ></div>
+
+ <div ng-include="'./views/master/UnitMaster/billingMaster/common/service-packge-details-popup.html'" ></div>
+
+
+
+
+<script src="resources/assets/js/common/page-height.js"></script>
+
+<div ng-include="'./views/master/UnitMaster/billingMaster/common/add-service.html'" ></div>
+
+<!-- <div ng-include="'./views/master/UnitMaster/billingMaster/common/collect-payment.html'" ></div> -->
+
+ 
+<!-- PACKAGE NAME DETAILLS POPUP -->
+<div id="packageDetailsForIPD" class="modal fade ng-scope in common-large-popup" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Package Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row serachedPatientList">
+					<div class="col-md-12 col-lg-12  fix-height-scroll230">
+						<table class="table table-bordered  margin-top8">
+							<tr>
+								<th>
+									<span class="">Order No</span>
+								</th>
+								<th>
+									<span class="">Order Date</span>
+								</th>
+								<th>
+									<span class="">Service Code</span>
+								</th>
+								<th>
+									<span class="">Service Name</span>
+								</th>
+								<th>
+									<span class="">Qty</span>
+								</th>
+								<th>
+									<span class="">Order By</span>
+								</th>
+							</tr>
+							<tr>
+								<td>
+									-
+								</td>
+								<td>
+									-
+								</td>
+								<td>
+									-
+								</td>
+								<td>
+									-
+								</td>
+								<td>
+									-
+								</td>
+								<td>
+									-
+								</td>
+							</tr>
+							
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+
+$(document).ready(function() {
+	//$(".patienttSearchResult").hide();
+	$(".useActiveDepositList").hide();
+	
+	 $(".sponserTable").hide();
+	 
+	 $(".selectedPageName").text("IPD Charge");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="opdBilling"]').parents("li").addClass("active");
+});
+
+$(".useActiveDeposit").click(function()
+{
+	$(".useActiveDepositList").toggle();
+})
+
+$(".insuranceRadio").click(function()
+{
+	$(".insuranceTable").show();
+	$(".sponserTable").hide();
+})
+$(".sponsorRadio").click(function()
+{
+	$(".sponserTable").show();
+	$(".insuranceTable").hide();
+})
+
+
+
+</script>

@@ -1,0 +1,175 @@
+
+
+<!-- WORKLIST DETAILS POPUP -->
+
+<div id="workListDetails"
+	class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog" >
+	<form name="worklistForReportEntryForm" novalidate>
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+		<!--  <form  novalidate> -->
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Test Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row patient-details-row">
+					<div class="col-md-11 col-sm-11 col-xs-11 ">
+						<span class="profile_pic margin-left10"> <img alt=""
+							src="resources/assets/images/tempImages/m.jpg" class="img-circle"
+							style="width: 30px">
+						</span> <span class="margin-left10">{{labSampleDetails[0].patientDetails}} </span> <span
+							class="margin-left10"><b class="padding-right5 ">UHID 
+								:</b> {{labSampleDetails[0].uhid}}</span> <span class="margin-left10"><b
+							class="padding-right10 ">Priority : </b> {{labSampleDetails[0].priorityName}}</span> <span
+							class="margin-left10">{{labSampleDetails[0].doctorDetails}} </span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 fix-height-scroll450">
+						<table class="table table-bordered table-striped">
+							<tr>
+								<th class="test-name-width">Test Name</th>
+								<th class="date-column">Test Code</th>
+								<th class="date-column">Test Technique</th>
+							</tr>
+							<tr class="worklist-test-name cursor-pointer">
+								<td>
+									<div>{{resultListMultyParamTestHeaderDtls.testDesc}}</div>
+								</td>
+								<td>{{resultListMultyParamTestHeaderDtls.testCode}}</td>
+
+								<td>{{resultListMultyParamTestHeaderDtls.techniqueName}}</td>
+							</tr>
+							<tr class="details-for-test-name" ng-if="testType==1"
+								ng-repeat="paramTestHeaderDtls in resultListMultyParamTestHeaderDtls.listMultyParamTestHeaderDto track by $index">
+								<td colspan="6">
+									<table class="table table-bordered table-striped">
+										<tr >
+											<td colspan="5"><b>Header Name
+												:</b>{{paramTestHeaderDtls.headerCode}}</td>
+										</tr>
+										<tr>
+											<td class="width15"><div>Parameter Name</div></td>
+											<td class="width6"><div>Result</div></td>
+											<td class="width3"><div>Previous Result</div></td>
+											<td class="width8"><div>Unit</div></td>
+											<td class="width8"><div>Reference Range</div></td>
+											<td class="width3"><div>Help Values</div></td>
+										</tr>
+										<tr ng-repeat="labResultDetails in paramTestHeaderDtls.listLabResultDetailsViewDto track by $index" >
+											<td>
+												<div>{{labResultDetails.paramName}}</div>
+											</td>
+											<td> 
+											   <div class="form-group col-lg-10 col-md-12 padding-left-right-set4" show-errors>
+													<span class="text-left">
+														<input type="text" value="9" name="finalResult"   ng-model="labResultDetails.finalResult" class="urgent-text width80" ng-blur="changeArrowPosition(labResultDetails);" required/>
+													</span>
+													<span class="">
+														<i ng-class="arrowClass" aria-hidden="true"></i>
+													</span>
+													<p class="help-block"
+										            ng-if="worklistForReportEntryForm.finalResult.$error.required">{{resultReqMsg}}</p>
+												</div>
+												<div class="text-right col-lg-2 col-md-12 padding-left-right-set4 padding-top4">
+													<i class="fa fa-info-circle color-green" ng-if="isRecollected" 
+												ng-click="getResultEntryDataList(labResultDetails.orgId,labResultDetails.orgUnitId,labResultDetails.labResultId);" data-toggle="modal" data-target="#previousResult"></i>
+												</div>
+											</td>
+											
+											
+											<td><div>{{labResultDetails.paramUnit}}</div></td>
+											<td>
+												<div>{{labResultDetails.parameterMin}} -
+													{{labResultDetails.parameterMax}}</div>
+											</td>
+											<td class="text-center">
+												<div>
+													<i class="fa fa-info-circle" aria-hidden="true"
+														ng-click="showHelpValue(labResultDetails.listHelpValueMaster);"
+														data-toggle="modal" data-target="#helpValue"></i>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							
+							
+							<tr class="details-for-test-name" ng-if="testType==0">
+								<td colspan="5">
+									<table class="table table-bordered table-striped">
+										<tr>
+											<td class="width15"><div>Parameter Name</div></td>
+											<td class="width6"><div>Result</div></td>
+											<td class="width8"><div>Unit</div></td>
+											<td class="width8"><div>Reference Range</div></td>
+											<td class="width3"><div>Help Values</div></td>
+										</tr>
+										 <tr>
+											<td>
+												<div>{{resultListMultyParamTestHeaderDtls.labResultDetailsViewDto.paramName}}</div>
+											</td>
+											<td> 
+											   <div class="form-group col-lg-10 col-md-12 padding-left-right-set4" show-errors>
+													<span class="text-left">
+														<input type="text" value="9" name="finalResult"   ng-model="resultListMultyParamTestHeaderDtls.labResultDetailsViewDto.finalResult" class="urgent-text width80" ng-blur="changeArrowPosition(resultListMultyParamTestHeaderDtls.labResultDetailsViewDto);" required/>
+													</span>
+													<span class="">
+														<i ng-class="arrowClass" aria-hidden="true"></i>
+													</span>
+													<p class="help-block"
+										            ng-if="worklistForReportEntryForm.finalResult.$error.required">{{resultReqMsg}}</p>
+												</div>
+												<div class="text-right col-lg-2 col-md-12 padding-left-right-set4 padding-top4">
+													<i class="fa fa-info-circle color-green" ng-if="isRecollected" 
+												ng-click="getResultEntryDataList();" data-toggle="modal" data-target="#previousResult"></i>
+												</div>
+											</td>
+											<td><div>{{resultListMultyParamTestHeaderDtls.labResultDetailsViewDto.paramUnit}}</div></td>
+											<td>
+												<div>{{resultListMultyParamTestHeaderDtls.labResultDetailsViewDto.parameterMin}} -
+													{{resultListMultyParamTestHeaderDtls.labResultDetailsViewDto.parameterMax}}</div>
+											</td>
+											<td class="text-center">
+												<div class="padding-top4">
+													<i class="fa fa-info-circle" aria-hidden="true" 
+														ng-click="showHelpValue(resultListMultyParamTestHeaderDtls.labResultDetailsViewDto.listHelpValueMaster);"
+														data-toggle="modal" data-target="#helpValue"></i>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+					<button type="button" data-dismiss="modal"  class="btn btn-primary"  ng-click="reTestResultEntryDetails();" >Retest</button>
+					<button type="button"  data-dismiss="modal"  class="btn btn-primary"  ng-click="reCollectResultEntryDetails();" ng-if="thirdLevel">Recollect</button>
+				    <button type="button"  class="btn btn-primary"  ng-click="saveResultEntryDetails();" id="">Save</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>
+<div ng-include="'./views/common/help-value.html'"></div>
+<div ng-include="'./views/common/previous-result.html'"></div>
+<script>
+$(".details-for-test-name").hide();
+$(".worklist-test-name").click(function() {
+	//alert("in function");
+	$(this).next().first().toggle();
+})
+
+	
+
+
+</script>

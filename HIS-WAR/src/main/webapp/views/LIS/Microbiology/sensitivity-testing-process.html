@@ -1,0 +1,520 @@
+    
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid his-style">
+                
+              
+              
+            	<div class="row padding-top4 padding-left-right-set4">
+            		<div class="col-md-8 col-sm-8 padding-left-right-set4 padding-top4">
+            			<label class="show-entries">Show <select
+								name="DataTables_Table_0_length"
+								aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries
+							</label>
+            		</div>
+            	
+            		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+						<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> 
+						<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+					</div>
+            	</div>
+            	<div class="row padding-left-right-set4 padding-top10"  id="tableOne">
+					<div class="col-md-12">
+						<!-- table one for report entry -->
+						<table class="table table-bordered">
+							<tr class="">
+								<th class="width8">
+									Visit Type
+									<div>
+								<i ng-click='sortColumn("visitType")' class="fa fa-caret-up"
+									aria-hidden="true"></i>
+							</div>
+							<div class="margin-top-8">
+								<i ng-click='sortColumn("visitType")' class="fa fa-caret-down"
+									aria-hidden="true"></i>
+							</div>
+								</th>
+								<th class="UHID-width">
+									UHID
+									<div>
+								<i ng-click='sortColumn("uhid")' class="fa fa-caret-up"
+									aria-hidden="true"></i>
+							</div>
+							<div class="margin-top-8">
+								<i ng-click='sortColumn("uhid")' class="fa fa-caret-down"
+									aria-hidden="true"></i>
+							</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Details
+									<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+								</th>
+								<th class="test-name-width">
+									Doctor Details
+									<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("doctorDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("doctorDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+								</th>
+								<th class="priority-width">
+									Sample
+									<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("sampleDesc")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("sampleDesc")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Priority
+									<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("priorityName")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("priorityName")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Test Name
+									<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("testDesc")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("testDesc")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Bar Code/Sample No
+									<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("labSampleNo")' class="fa fa-caret-up"
+										aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("labSampleNo")'
+										class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+								</th>
+								<th class="width10">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							
+						<tr ng-repeat="incubationObj in incubationObservationList|orderBy:column:reverse|filter:searchKeyword track by $index">
+						<td style="color: {{incubationObj.colorCode}}">{{incubationObj.visitType}}</td>
+						<td style="color: {{incubationObj.colorCode}}">
+							{{incubationObj.uhid}}</td>
+						<td style="color: {{incubationObj.colorCode}}">
+							<div>{{incubationObj.patientDetails}}</div>
+						</td>
+						<td style="color: {{incubationObj.colorCode}}">	
+							<div>{{incubationObj.doctorDetails}}</div>
+						</td>
+						<td style="color: {{incubationObj.colorCode}}">
+							<div>{{incubationObj.sampleDesc}}</div>
+						</td>
+						<td style="color: {{incubationObj.colorCode}}">
+							<div>{{incubationObj.priorityName}}</div>
+						</td>
+						<td style="color: {{incubationObj.colorCode}}">
+							<div>{{incubationObj.testDesc}}</div>
+						</td>
+						<td style="color: {{incubationObj.colorCode}}">{{incubationObj.labSampleNo}}</td>
+						<td class="text-center">
+									<button type="button" data-dismiss="modal" class="btn btn-primary"  ng-click="getSenisitivityDetails(incubationObj);"  >Details</button><!-- ng-disabled="(incubationObj.sensitivityResultId==null) ? 'false' : 'true'" --> 
+									<button type="button" data-dismiss="modal" class="btn btn-primary"   class="margin-left5" ng-click="getSensitivityCheckTestDetails(incubationObj);">Check Test</button>
+					
+						</td>
+					</tr>
+							
+						</table>
+					<table class="table table-bordered">
+					<tr ng-if="(incubationObservationList|filter:searchKeyword)==''">
+						<td><p
+								style="text-align: center; margin-top: 0px !important; margin-bottom: 1px !important;">No
+								Records Found</p></td>
+					</tr>
+				</table>
+						<!--// table one for report entry -->
+						<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+					<!--// table one for report entry -->
+				</div>
+				
+				</div>
+            </div>
+        </div>
+        <!--// Page Content -->
+    
+<div id="details" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Sensitivity Testing Process Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+			<div class="modal-body">
+				<div class="row patient-details-row">
+					<div class="col-md-11 col-sm-11 col-xs-11 ">
+						<span class="profile_pic margin-left10"> 
+							<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+						</span> 
+						<span class="margin-left10">{{incubationObservationObjList[0].patientDetails}}</span> 
+					    <span class="margin-left10"><b class="padding-right5 ">UHID :</b> {{incubationObservationObjList[0].uhid}}</span> 
+					    <span class="margin-left10"><b class="padding-right10 ">Priority :</b>{{incubationObservationObjList[0].priorityName}}</span> 
+					    <span class="margin-left10">{{incubationObservationObjList[0].doctorDetails}}</span>
+					</div>
+				</div>
+				<div class="row margin-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-clone" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" name="code"  ng-model="organismGroupId" ng-change="getMicroOrganismList(organismGroupId);">
+										<option></option>
+										<option selected value>Select Micro Organism Group</option>
+										<option ng-repeat="microOrgGrp in microOrganismGroupList" value="{{microOrgGrp.id}}">{{microOrgGrp.name}}</option>
+									</select>		
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-square-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+											<select class="text-input floating-label" ng-model = "organismId" convert-to-number >
+								             <option selected value>Select Organism Name</option>
+							                 <option ng-repeat="organism in organismList" value="{{organism.id}}">{{organism.name}}</option>
+						     	      </select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+						<div class="">
+							<a ng-click="addMicroOrganismGroup();" class="btn btn-primary btn-save-box-shadow" style="width: 36%;">
+								<i class="fa fa-plus" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top10 padding-left-right-set4" >
+					<div class="col-lg-8 col-md-8 common-popup-height-350" ng-repeat = "sensitivityResdtls in listSensitivityTestResultDetailsMasterDto track by $index"  ng-init="parentIndex = $index">
+						<table class="table table-striped table-bordered margin-top4">
+						
+							<thead class="create-slide-bg">	
+								<tr>
+									<th colspan="3">{{sensitivityResdtls.organismGroupName}}</th>
+								</tr>
+								<tr>
+									<th colspan="3">{{sensitivityResdtls.organismName}}</th>
+								</tr>
+								<tr>
+									<th class="status text-center">
+										<input type="checkbox"  ng-model="sensitivityResdtls.selectedAll" ng-click="checkAll(parentIndex);">
+									</th>
+									<th>
+										<span>Antibiotic Name</span>
+										<span class="margin-left10"><input type="text"
+										ng-model="antibiotics" placeholder="Search"
+										uib-typeahead="antibiotic.name for antibiotic in getAntibioticAutocompleteList($viewValue)"
+										typeahead-editable="false"
+										typeahead-on-select="selectAnitbiotic($item, $model, $label);"
+										name="antibiotics" autocomplete="off"
+										 /></span>
+										<span>
+											<a ng-click="addAntibiotic(parentIndex);" class="btn btn-primary btn-save-box-shadow" style="width: 8%;">
+												<i class="fa fa-plus" aria-hidden="true"></i>
+											</a>
+										</span>
+									</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat = "antibiotics in sensitivityResdtls.listSensitivityTestResultSubDetailsMaster track by $index" >
+									<td class="text-center">
+										<div>
+											<input type="checkbox" ng-model="antibiotics.isChecked">
+										</div>
+									</td>
+									<td>
+										<div>
+											{{antibiotics.antibioticName}}
+										</div>
+									</td>
+									<td>
+										<div>
+											<i class="fa fa-times" aria-hidden="true" ng-click="removeAntibiotics(parentIndex,$index);"></i>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="saveSensitivityResult(34);">Save</button>
+			</div>
+		</div>
+	</div>
+ </div> 
+   <div id="sensitivityTesting" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Check Testing Process
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row patient-details-row">
+					<div class="col-md-11 col-sm-11 col-xs-11 ">
+						<span class="profile_pic margin-left10"> 
+							<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+						</span> 
+						<span class="margin-left10">{{incubationObservationObjList[0].patientDetails}}</span> 
+							      <span class="margin-left10"><b class="padding-right5 ">UHID :</b> {{incubationObservationObjList[0].uhid}}</span> 
+							      <span class="margin-left10"><b class="padding-right10 ">Priority :</b>{{incubationObservationObjList[0].priorityName}}</span> 
+							      <span class="margin-left10">{{incubationObservationObjList[0].doctorDetails}}</span>
+					</div>
+				</div>
+				<div class="row his-style margin-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<!-- <label>Organism Group</label>
+						<select>
+							<option>Select Organism Group</option>
+							<option>Organism-1</option>
+							<option>Organism-2</option>
+							<option>Organism-3</option>
+						</select> -->
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-clone" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" name="code"  ng-model="organismGroupId" ng-change="getMicroOrganismList(organismGroupId);">
+										<option></option>
+										<option selected value>Select Micro Organism Group</option>
+										<option ng-repeat="microOrgGrp in microOrganismGroupList" value="{{microOrgGrp.id}}">{{microOrgGrp.name}}</option>
+									</select>		
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-square-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+											<select class="text-input floating-label" ng-model="organismId" convert-to-number>
+								             <option selected value>Select Organism Name</option>
+							                 <option ng-repeat="organism in organismList" value="{{organism.id}}">{{organism.name}}</option>
+						     	      </select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+						<div class="">
+							<a ng-click="addMicroOrganismGroup();" class="btn btn-primary btn-save-box-shadow" style="width: 36%;">
+								<i class="fa fa-plus" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top10 padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 common-popup-height-350"  ng-repeat = "sensitivityResdtls in listSensitivityTestResultDetailsMasterDto track by $index"  ng-init="parentIndex = $index">
+						<table class="table table-striped table-bordered margin-top4">
+							<thead class="create-slide" id="create-slideID">
+								<tr>
+									<th colspan="3">{{sensitivityResdtls.organismGroupName}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th colspan="3">{{sensitivityResdtls.organismName}}</th>
+								</tr>
+								<tr>
+									<th class="width20">
+										Antibiotic Group
+									</th>
+									<th class="width30">
+										<span>Antibiotic Name</span>
+										<span class="margin-left10"><input type="text"
+										ng-model="antibiotics" placeholder="Search"
+										uib-typeahead="antibiotic.name for antibiotic in getAntibioticAutocompleteList($viewValue)"
+										typeahead-editable="false"
+										typeahead-on-select="selectAnitbiotic($item, $model, $label);"
+										name="antibiotics" autocomplete="off"
+										 /></span>
+										<span>
+											<a  ng-click="addAntibiotic(parentIndex);" class="btn btn-primary btn-save-box-shadow" style="width: 8%;">
+												<i class="fa fa-plus" aria-hidden="true"></i>
+											</a>
+										</span>
+									</th>
+									<th>Sensitivity</th>
+								</tr>
+								<tr  ng-repeat = "antibiotics in sensitivityResdtls.listSensitivityTestResultSubDetailsMaster track by $index" >
+									<td>
+										<div>
+											{{antibiotics.antibioticName}}
+										</div>
+									</td>
+									<td>
+										<div>
+											{{antibiotics.antibioticName}}
+										</div>
+									</td>
+									<td>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="row">
+												<div class="col-md-2">
+													<input type="radio" name="sensitiveRadio" ng-model="antibiotics.sensitivityId" value="1" >
+													<span>Resistant</span>
+												</div>
+												<div class="col-md-2">
+													<input type="radio" name="sensitiveRadio"  ng-model="antibiotics.sensitivityId" value="2">
+													<span>Sensitive</span>
+												</div>
+												
+												<div class="col-md-8" ng-if="antibiotics.sensitivityId==2">
+													<div class="row">
+														<div class="col-md-3 padding-left-right-set4">
+															<input type="text" placeholder="MIC" class="text-box-for-ICU"  ng-model="antibiotics.mic">
+														</div>
+														<div class="col-md-3 padding-left-right-set4">
+															<select  class="select-box" ng-model="antibiotics.microLabPriorityId" convert-to-number>
+								                                    <option selected value>Select Priority</option>
+							                                        <option ng-repeat="priority in microLabPriorityList" value="{{priority.id}}">{{priority.name}}</option>
+															</select>
+															
+															
+														</div>
+														<div class="col-md-6 padding-left-right-set4">
+															<input type="text" placeholder="Remark" class="text-box-for-ICU" ng-model="antibiotics.remark">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+					<button type="button" data-dismiss="modal" class="btn btn-primary" ng-click="saveSensitivityResult(35);">Save</button>
+					<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="saveSensitivityResult(8);">Release</button>
+			</div>
+		</div>
+	</div>
+</div>
+    
+    
+    
+    
+<script type="text/javascript">
+$('.clockpicker').clockpicker();
+
+$( document ).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+	$(".selectedPageName").text("Sensitivity Testing Process");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	
+	 /*************************** tbody hide show function *********************************/
+	 $(".create-slide").click(function(){ 
+		/* alert("ok"); */
+		$(this).next("tbody").toggle("slow");
+	});	
+	 
+	 /*************************** SENSITIVITY radio button *********************************/
+		$(".sensitive-text-box").hide();
+		$( ".radioSensitive" ).change(function() {
+			if ($(this).is(":checked"))
+			{
+				// alert("in"+ $(this).parent("row").siblings(".sensitive-text-box").show()); 
+				 $(this).parent().siblings(".sensitive-text-box").show(); 
+			}
+		});
+		$( ".radioResistant" ).change(function() {
+			if ($(this).is(":checked"))
+			{
+				$(this).parent().siblings(".sensitive-text-box").hide();
+			}
+		});
+			 
+});
+
+	
+
+
+</script>

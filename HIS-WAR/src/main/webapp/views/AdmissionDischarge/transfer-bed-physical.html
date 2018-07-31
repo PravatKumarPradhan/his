@@ -1,0 +1,159 @@
+				<!-- <div class="row his-style margin-top4">
+            		<div class="col-lg-8"></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<input type="text" class="text-search-box" style="margin-top: 0px" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required/>
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+            		<div class="col-md-1 padding-left0px-right6px">
+						<div class="width-div-for-patient-reg ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="submitRequest()"><i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a>	
+						</div>
+					</div>
+					</div> -->
+					<div class="row margin-top10 padding-left-right-set4 his-style">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+							<input type="text" class="text-search-box" style="margin-top: 0px" ng-model="groupName" placeholder="Search"
+                       		uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       		typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required style="margin-top: 0px"/>
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="row his-style padding-left-right-set4 margin-top10">
+										<div class="col-md-12 margin-top4 fix-height-scroll230 ">
+											<table class="table table-bordered ">
+												<tr class="">
+													<th class="UHID-width">
+														UHID
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="patient-doc-details-width">
+														Patient Details
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="patient-doc-details-width">
+														Ward
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="patient-doc-details-width">
+														BedRoom						
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="patient-doc-details-width">
+														Current Bed Category						
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="patient-doc-details-width">
+														To Ward							
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="patient-doc-details-width">
+														To BedRoom								
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="patient-doc-details-width">
+														To Bed Category							
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="patient-doc-details-width">
+														Reason for Transfer					
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													
+													<th class="patient-doc-details-width">
+														Reason Details Doctor		
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="patient-doc-details-width">
+														Reason Details Ward			
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="patient-doc-details-width">
+														Transfer			
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="patient-doc-details-width">
+														Abort			
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="patient-doc-details-width">
+														Status			
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+												</tr>
+												<tr  ng-repeat="info in listOfAdmittedPatientList" ng-if="info.transferStatusId != '1' && info.transferTypeId == '1'">
+													<td>{{info.uhidnumber}}</td>
+													<td ng-init='age=getAge(info.dob)'>
+														<div ng-if="info.patientId > 0">{{info.patientFullName+' '+age+'/'+info.genderCode}}</div>
+														<div  ng-if="info.tPatientId > 0">{{info.patientFullName+' '+info.dob+'/'+info.genderCode}}</div>
+													</td>
+													<td >{{info.wardName}}</td>
+													<td>{{info.bedNumber}}</td>
+													<td>{{info.bedCategoryDesc}}</td>
+													<td>{{info.toWardName}}</td>
+													<td>{{info.toBedNumber}}</td>
+													<td>{{info.toBedCategoryDesc}}</td>
+													<td>{{info.reasonDesc}}</td>
+													<td><a href="" data-toggle="modal" data-target="#reasonDetailsDoctor" ng-click="reasonPopupDoctor(info.doctorReasonDesc
+													,info.doctorRejectReason)"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
+													<td>
+														<a href="" data-toggle="modal" data-target="#reasonDetails" ng-click="reasonPopupADT(info.adtReasonDesc,info.adtRejectReason)"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+													</td>
+													<td >
+														<a href="" data-toggle="modal" data-target="{{info.transferStatusId == 6 ? '#commonNote':''}}"  ng-click="getAdmissionDataAccept(info)" ><i class="fa fa-exchange" aria-hidden="true"></i></a>
+													</td>
+													<td class="text-center">
+														<a href="" data-toggle="modal" data-target="{{info.transferStatusId == 6 ? '#accepatReject':''}}"  ng-click="getAdmissionDataAccept(info)"  ng-disabled="{{info.transferStatusId != 6}}"><i class="fa fa-window-close" aria-hidden="true" ></i> </a>
+													</td>
+													<td>{{info.transferStatusDesc}}</td>
+													
+												</tr>
+											</table>
+									</div>
+									</div>
+				

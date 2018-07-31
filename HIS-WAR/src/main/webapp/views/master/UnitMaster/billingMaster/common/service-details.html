@@ -1,0 +1,306 @@
+<div class="row margin-top8">
+	<div class="col-md-12 col-lg-12 fix-height-scroll230 padding-left-right-set4">
+		<table class="table table-bordered  margin-top8">
+			<thead>
+				<tr>
+					<th class="width5">
+						<span class="">Order No.</span>
+					</th>
+					<th class="width10">
+						 <span class="">Service Name</span>
+					</th>
+					<th class="width10">
+						Doctor
+					</th>
+					<th class="width3">
+						Qty
+					</th>
+					<th class="width5">
+						Unit Price
+					</th>
+					<th class="width5">
+						Total Amt
+					</th>
+					<th class="width5">
+						Concession
+					</th>
+					<th class="width5">
+						Disc %
+					</th>
+					<th class="width6">
+						Discount Amt
+					</th>
+					<th class="width6">
+						GST Type
+					</th>
+					<th class="width5">
+						GST %
+					</th>
+					<th class="width5">
+						GST Amt
+					</th>
+					<th class="width6">
+						Net Payable
+					</th>
+					<th class="width6">
+						Order By
+					</th>
+					<th class="width5">
+						Order On
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="service in billServicesList|filter:searchAddedService">
+					<td>
+						{{service.orderNo}}
+					</td>
+					<td>
+						{{service.serviceStandardName}}
+					</td>
+					<td>
+						{{service.doctorName}}
+					</td>
+					<td>
+						{{service.quantity}}
+					</td>
+					<td>
+						{{parseFloatNum(service.unitPrice)}}
+					</td>
+					<td>
+						{{parseFloatNum(service.grossAmount)}}
+					</td>
+					<td>
+						{{parseFloatNum(service.concession)}}
+					</td>
+					<td>
+						{{parseFloatNum(service.discountPercentage)}}%
+					</td>
+					<td>
+						{{parseFloatNum(service.discount)}}
+					</td>
+					<td>
+						{{service.taxName}}
+					</td>
+					<td>
+						{{parseFloatNum(service.taxPercentage)}}%
+					</td>
+					<td>
+						{{parseFloatNum(service.taxAmount)}}
+					</td>
+					<td>
+						{{parseFloatNum(service.netAmt)}}
+					</td>
+					<td>
+						-
+					</td>
+					<td>
+						{{service.orderDateString}}
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="5" class="text-right">
+						<span>Account Summary</span>
+					</td>
+					<td class="text-left">
+						<!-- <input type="text" class="width62px" value="60"> -->{{totalAmtQuaBase}}
+					</td>
+					<td class="width5">
+						<!-- <input type="text" class="width100"> -->{{totalAmtConcession}}
+					</td>
+					<td colspan="2" class="text-right">
+						<!-- <input type="text" class="width62px"> -->{{totalAmtDiscount}}
+					</td>
+					<td colspan="3" class="text-right">
+						<!-- <input type="text" class="width62px"> -->{{totalAmtGst}}
+					</td>
+					<td class="width5">
+						<!-- <input type="text" class="width62px" value="60"> -->{{totalNetPayableAmt}}
+					</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<!-- <tr>
+					<td colspan="12" class="text-right">
+						<span>Self Payable</span>
+					</td>
+					<td colspan="3">
+						<input type="text" class="width62px" value="60">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="12" class="text-right">
+						<span>Credit Payable</span>
+					</td>
+					<td class="text-left">
+						<input type="text" class="width62px" value="">
+					</td>
+					<td colspan="2">
+						<span>Deposit</span>
+						<input type=	"text" class="width62px" value="">
+					</td>
+				</tr> -->
+			</tfoot>
+		</table>
+ </div>
+</div>
+<div class="row margin-top8">
+		<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+			<fieldset class="normalRegistration sub-fieldset bill-details-summery" >
+				<legend class="sub-legend border-bottom-none">Payer Summary</legend>
+					<table class="table table-bordered ">
+						<tr>
+							<th class=" width15"><b>Payer Code</b></th>
+							<th class=" width15"><b>Payer Name</b></th>
+							<th class=" width15"><b>Total Amount</b></th>
+							<th class=" width15"><b>Paid Amount</b></th>
+							<th class=" width15"><b>Balance Amount</b></th>
+						</tr>
+						 <tr ng-repeat="payee in payeeList">
+							<td >{{payee.companyCode}}</td>
+							<td>{{payee.companyDesc}}</td>
+							<td >{{parseFloatNum(payee.billAmount)}}</td>
+							<td>{{parseFloatNum(payee.paidAmount)}}</td>
+							<td >{{parseFloatNum(payee.dueAmount)}}</td>
+						</tr>
+					</table>
+			</fieldset>
+		</div>
+		<!-- <div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+			<fieldset class="normalRegistration sub-fieldset bill-details-summery">
+				<legend class="sub-legend border-bottom-none">Account Summary</legend>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 ">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 text-align-right">
+									<span class="font-size13">Available Deposit</span>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<input type="text" class="display-text-box">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 ">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 text-align-right">
+									<span class="font-size13">Total Bill Amount</span>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<input type="text" class="display-text-box">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 ">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 text-align-right">
+									<span class="font-size13">Consumed Deposit</span>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<input type="text" class="display-text-box">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 ">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 text-align-right">
+									<span class="font-size13">Total Discount</span>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<input type="text" class="display-text-box">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 ">
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 ">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 text-align-right">
+									<span class="font-size13">Total Concession</span>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<input type="text" class="display-text-box">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 ">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 text-align-right">
+									<span class="font-size13">Self Payable</span>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<input type="text" class="display-text-box">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 ">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 text-align-right">
+									<span class="font-size13">Total GST</span>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<input type="text" class="display-text-box">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 ">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 text-align-right">
+									<span class="font-size13">Credit Payable</span>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<input type="text" class="display-text-box">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 ">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 text-align-right">
+									<span class="font-size13">Net Payable</span>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<input type="text" class="display-text-box">
+								</div>
+							</div>
+						</div>
+					</div>
+			</fieldset>
+		</div> -->
+	</div>
+	<div class="row margin-top8" style="margin-bottom:20px">
+		<!-- <div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 ">
+			<input type="radio" name="registrationType"><span class="margin-left5 font-weight600">Summary Bill</span>
+			<input type="radio" name="registrationType" class="margin-left5"><span class="margin-left5 font-weight600">Detail Bill</span>
+			
+		</div> -->
+		<div id="mediaType" class="col-lg-6 col-md-6 col-sm-6 uk-input-group customRadioBtn">													
+				<span>
+						<input id="summaryRadio" name="bill" type="radio" value="1" val="yes" checked="checked">
+						<label for="summaryRadio">Summary Bill</label>
+				</span>
+				<span>
+						<input id="detailsRadio" name="bill" type="radio" value="2">
+						<label for="detailsRadio">Detail Bill</label>
+				</span>
+		</div>
+		
+		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 float_right">
+			<a href="" class="btn btn-primary btn-save-box-shadow" title="Settlement" ng-disabled="billDisabled"  ng-click="settlementClick()">
+				Settlement 
+			</a>
+		</div>	
+		<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 float_right">
+			<a href="" class="btn btn-primary btn-save-box-shadow" title="Print">
+				Print
+			</a>
+		</div>	
+	</div>

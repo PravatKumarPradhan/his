@@ -1,0 +1,1154 @@
+
+<style>
+.panel-body{
+        min-height: 200px !important;
+}
+.fc-day{
+	padding: 4px;
+	cursor:pointer;
+} 
+.fc-header-right
+{
+display:none;
+}
+.panel-body {
+   padding: 0px !important;
+   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+   height: 286px;
+}
+.padding_top30{
+	padding-top: 10px;
+}
+.padding_top80{
+	padding-top: 60px;
+}
+.panel-heading1{
+	padding: 10px 15px;
+	color: #fff;
+    background-color: #fe5722;
+}
+.panel-heading2{
+	padding: 10px 15px;
+	color: #fff;
+    background-color: #04bcd4;
+}
+.panel-heading3{
+	padding: 10px 15px;
+	color: #fff;
+    background-color: #4052b6;
+}
+.panel-heading4{
+	padding: 10px 15px;
+	color: #fff;
+    background-color: #019587;
+}
+#search .input{
+	width: 100px;
+	padding: 5px 2px 3px 10px;
+	margin-right: 12px;
+	
+} 
+.margin-top3{
+margin-top:3px;
+}
+.circle{
+    position:relative;
+    background:#666;
+    width:35px;
+    height:35px;
+    text-align:center;    
+    -webkit-border-radius: 25px;  
+    -moz-border-radius: 25px;  
+    border-radius: 25px;
+}
+.circle p
+{
+    font-size:15px;
+    color:#fff;
+    vertical-align:middle;
+    height:25px; 
+    position: inherit;
+        top:25%   
+}
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .fa {
+      position: absolute;
+    padding: 4px;
+    pointer-events: none;
+  /*   padding-right: 10px; */
+    margin: 4px;
+    color: grey;
+}
+
+/* align icon */
+.left-addon .fa  { left:  0px;}
+.right-addon .fa 
+{ 
+ 	right: 0px;
+    border-left: 1px solid #a9a6a6;
+}
+.form-control {
+    height: 32px !important;
+    }
+    
+  /************** start demo css*************/
+ .myRow {
+     position: relative; 
+}
+
+.dashboard-box{
+ display: inline-block; 
+    /* display: table; */
+}
+/*   .myRow1{
+    position: relative; 
+}
+
+.dashboard-box1{
+    display: inline-block;
+} */
+.padding-right-set
+{ 
+ padding-right: 0px !important; 
+}
+#notificationDetailsModal .modal-dialog{
+    width: 650px !important; 
+   
+}
+
+/* Modal css */
+.model-common-header
+{
+
+background-color: #4EA9F8;
+    color: white;
+}
+.margin-ul
+{
+margin-left: -66px;
+    height: 200px;
+    overflow-y: auto;
+}
+.modal-footer
+{
+border-top:none !important;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(43, 43, 43, 0.9); /* Black w/ opacity */
+}
+</style>
+
+          <div id="page-content-wrapper">
+           <div class="container-fluid row " id="">
+					<div class="row  myRow" style="position: relative;">
+						<!-- <div class="dashboard-box padding_top30 "  id="boxQueue">
+							<div class="panel panel-default">
+							    <div class="panel-heading1">
+							    	<div class="row">
+							             <div class="col-md-11 col-sm-11 col-xs-11">Queue</div>
+							             <div class="col-md-1 col-sm-1 col-xs-1 padding-right-set"><i class="fa fa-external-link float_right" id="boxQueueIcon"></i></div>
+							         </div>
+							    </div>
+								<div class="panel-body" id="panelBodyQueue">
+				                        	<div class="row ">
+										      	<table id="myTable" class="table table-border table-striped responsive">
+										      		<thead>
+											      		<tr style="background-color:#fff">
+											      			<th >Patient Details</th>
+											      			<th>Status</th>
+											      			<th>Sponsors</th>
+											      		</tr>
+											      	</thead>
+											     <tbody id="">
+											     <tr>
+											     	<td colspan="4" style="font-weight: 600;font-size: 20px;" id="emptyDataRow">No Checked-in Appointments today...</td>
+											     </tr>
+										      		<tr class="patient-queue patient-row" id = "${appointmentList.patientId}#${appointmentList.appointmentId}#${appointmentList.appointmentStatusId}" style="cursor:pointer">
+										      				<td>
+										      				<div class="row " >
+										      					<div class="col-md-3 col-sm-3">
+														      		<div class="col-md-4 col-sm-4">
+														      			<img src="${appointmentList.patientPhoto}"  class="cursor-pointer img-circle" width="60" height="60">
+														      		</div>
+														      	</div>
+										      				<div class="col-md-8 col-sm-8 float-right-td">
+														      			<div class="patient-name">Suresh Kale</div>
+														      			<div class="patient">12345678910</div>
+														      			<div class="patient-details">
+														      				<span class="patient-details patient">M</span>
+														      				<span class="patient-details patient">26</span>
+														      				<span class="patient-details patient">||||||</span>
+														      				<span class="patient-details patient">info</span>
+														      			</div>
+														      </div>
+														     </div>
+														      </td>
+											      			<td>-</td>
+											      			<td>-</td>
+								      				</tr>
+								      			</tbody>	
+									      	</table>
+									      	<div id = "patientSearchMsg" style="text-align: center;font-size: 18px"></div>
+									      </div>
+			      		
+								</div>end queue panel body 
+							</div>	
+						</div> --> 
+						
+						<div class="dashboard-box padding_top30" id="boxQueue" style="width: 647.52px; height: 286px; top: -38px; left: 0px; position: relative;">
+							<div class="panel panel-default">
+							    <div class="panel-heading1">
+							    	<div class="row">
+							             <div class="col-md-11 col-sm-11 col-xs-11">Queue</div>
+							             <div class="col-md-1 col-sm-1 col-xs-1 padding-right-set"><i class="fa fa-external-link float_right" id="boxQueueIcon"></i></div>
+							         </div>
+							    </div>
+								<div class="panel-body" id="panelBodyQueue" style="height: 286px;"><!--start queue panel body  -->
+									
+				                        	<div class="row ">
+										      	<table id="myTable" class="table table-border table-striped responsive">
+										      		<thead>
+											      		<tr style="background-color:#fff">
+											      			<th>Patient Details</th>
+											      			<th>Status</th>
+											      			<th>Sponsors</th>
+											      		</tr>
+											      	</thead>
+											     <tbody id="">
+										      		<tr class="patient-queue patient-row" id="2#997#2" style="cursor: pointer; display: table-row;">
+										      				<td>
+										      				<div class="row ">
+										      					<div class="col-md-3 col-sm-3">
+														      		<div class="col-md-4 col-sm-4">
+														      		
+														      		
+														      			<img src="https://clinivantage-patient-profiles.s3.amazonaws.com/PC-17-0007" class="cursor-pointer img-circle" width="60" height="60">
+														      		
+														      			
+																														      			
+														      		</div>
+														      	</div>
+										      				<div class="col-md-8 col-sm-8 float-right-td">
+														      			<div class="patient-name">Mr David Brown</div>
+														      			<div class="patient">PC-17-0007</div>
+														      			<div class="patient-details">
+														      				<span class="patient-details patient">M</span>
+														      				<span class="patient-details patient">29Y 10M 15D </span>
+														      				<span class="patient-details patient">||||||</span>
+														      				<span class="patient-details patient">info</span>
+														      			</div>
+														      </div>
+														     </div>
+														      </td>
+											      			<td>Checked In</td>
+											      			<td>Self</td>
+								      				</tr>
+										      		<tr class="patient-queue patient-row" id="14#998#2" style="cursor: pointer; display: table-row;">
+										      				<td>
+										      				<div class="row ">
+										      					<div class="col-md-3 col-sm-3">
+														      		<div class="col-md-4 col-sm-4">
+														      		
+														      		
+														      			<img src="https://clinivantage-patient-profiles.s3.amazonaws.com/PC-17-0014" class="cursor-pointer img-circle" width="60" height="60">
+														      		
+														      			
+																														      			
+														      		</div>
+														      	</div>
+										      				<div class="col-md-8 col-sm-8 float-right-td">
+														      			<div class="patient-name">Mrs Sarita Gill</div>
+														      			<div class="patient">PC-17-0014</div>
+														      			<div class="patient-details">
+														      				<span class="patient-details patient">F</span>
+														      				<span class="patient-details patient">31Y 3M 29D </span>
+														      				<span class="patient-details patient">||||||</span>
+														      				<span class="patient-details patient">info</span>
+														      			</div>
+														      </div>
+														     </div>
+														      </td>
+											      			<td>Checked In</td>
+											      			<td>Self</td>
+								      				</tr>
+										      		<tr class="patient-queue patient-row" id="12#999#2" style="cursor: pointer; display: none;">
+										      				<td>
+										      				<div class="row ">
+										      					<div class="col-md-3 col-sm-3">
+														      		<div class="col-md-4 col-sm-4">
+														      		
+														      		
+														      			<img src="https://clinivantage-patient-profiles.s3.amazonaws.com/PC-17-0012" class="cursor-pointer img-circle" width="60" height="60">
+														      		
+														      			
+																														      			
+														      		</div>
+														      	</div>
+										      				<div class="col-md-8 col-sm-8 float-right-td">
+														      			<div class="patient-name">Mr James  Edwards</div>
+														      			<div class="patient">PC-17-0012</div>
+														      			<div class="patient-details">
+														      				<span class="patient-details patient">M</span>
+														      				<span class="patient-details patient">31Y 10M 11D </span>
+														      				<span class="patient-details patient">||||||</span>
+														      				<span class="patient-details patient">info</span>
+														      			</div>
+														      </div>
+														     </div>
+														      </td>
+											      			<td>Checked In</td>
+											      			<td>Self</td>
+								      				</tr>
+										      		<tr class="patient-queue patient-row" id="8#1000#2" style="cursor: pointer; display: none;">
+										      				<td>
+										      				<div class="row ">
+										      					<div class="col-md-3 col-sm-3">
+														      		<div class="col-md-4 col-sm-4">
+														      			<img src="/resources/assets/common/images/project-images/m.jpg" class="cursor-pointer img-circle" width="60" height="60">
+														      		</div>
+														      	</div>
+										      				<div class="col-md-8 col-sm-8 float-right-td">
+														      			<div class="patient-name">Mr Ganesh  Chaudhari</div>
+														      			<div class="patient">PC-17-0008</div>
+														      			<div class="patient-details">
+														      				<span class="patient-details patient">M</span>
+														      				<span class="patient-details patient">25Y 4M 21D </span>
+														      				<span class="patient-details patient">||||||</span>
+														      				<span class="patient-details patient">info</span>
+														      			</div>
+														      </div>
+														     </div>
+														      </td>
+											      			<td>Checked In</td>
+											      			<td>Self</td>
+								      				</tr>
+								      			</tbody>	
+									      	</table>
+									      	<div class="pagination_tag" style="text-align: center; margin-bottom: 20px; display: none;"><button class="btn btn-danger" style="margin-right: 8px;">Previous</button><span>1 to 1 of 1 entries</span><button class="btn btn-danger" style="margin-left: 8px;">Next</button></div>
+									      	<div id="patientSearchMsg" style="text-align: center;font-size: 18px"></div>
+									      </div>
+			      		
+								</div><!-- end queue panel body  -->
+							</div>	
+						</div>
+						
+						
+						<div class="dashboard-box padding_top30" id="boxCalendar" style="width: 647.52px; height: 286px; top: 0px; left: 0px; position: relative;">
+							<div class="panel panel-default">
+							    <div class="panel-heading2">
+							    	<div class="row">
+						        	 	<div class="col-md-11 col-sm-11 col-xs-11">Calendar</div>
+						         		<div class="col-md-1 col-sm-1 col-xs-1 padding-right-set"><i class="fa fa-external-link float_right" id="boxCalendarIcon"></i></div>
+						    		</div>
+							    </div>
+									<div class="panel-body responsive" id="panelBodyCalendar" style="height: 286px; display: block;">
+								 		 <div id='calendar'></div>
+									</div>
+							</div>
+						</div>
+					</div>	
+					
+					<div class="row myRow" style="position: relative;">
+						<div class="dashboard-box padding_top80" id="boxDoctor1" style="width: 647.52px; height: 286px; top: -38px; left: 0px; position: relative;">
+							<div class="panel panel-default">
+							    <div class="panel-heading3">
+							    	<div class="row">
+							             <div class="col-md-11 col-sm-11 col-xs-11">Outstanding</div>
+							             <div class="col-md-1 col-sm-1 col-xs-1 padding-right-set "><i class="fa fa-external-link float_right" id="boxDoctor1Icon"></i></div>
+							        </div>
+							    </div>
+								<div class="panel-body" id="panelBodyDoctor1" style="height: 286px;">
+									<div id="collection_Div" class="row">
+							 		  	<div class="col-md-12 col-sm-12 col-xs-12">
+								 		  	<div class="row">
+										      	<table class="table table-border table-striped table-hover responsive" id="outStTable">
+										      		<thead>
+											      		<tr style="background-color:#fff">
+											      			<th>Patient</th>
+											      			<th></th>
+											      			<th></th>
+											      			<th></th>
+											      			<th></th>
+											      			<th></th>
+											      			<th></th>
+											      			<th>Amount</th>
+											      		</tr>
+											      	</thead>
+											     <tbody id="myTable2">
+								      				
+										      		
+										      		<tr style="display: table-row;">
+											      			<td>Paul  Taylor</td>
+											      			<td></td>
+											      			<td></td>
+											      			<td></td>
+											      			<td></td>
+											      			<td></td>
+											      			<td></td>
+											      			<td>
+											      				<div> 
+    																<p>24.0</p> 
+															</div>
+											      			</td>
+								      				</tr>
+								      				
+										      		<tr style="display: table-row;">
+											      			<td>Peter Wilson</td>
+											      			<td></td>
+											      			<td></td>
+											      			<td></td>
+											      			<td></td>
+											      			<td></td>
+											      			<td></td>
+											      			<td>
+											      				<div> 
+    																<p>30.0</p> 
+															</div>
+											      			</td>
+								      				</tr>
+								      			</tbody>	
+									      	</table><div class="pagination_tag" style="text-align: center; margin-bottom: 20px;"><button class="btn btn-danger" style="margin-right: 8px;">Previous</button><span>1 to 2 of 7 entries</span><button class="btn btn-danger" style="margin-left: 8px;">Next</button></div>
+								 		  	<!-- Pie diagram goes here -->
+									 		 	<!-- <div id="last7Pie" style="margin-left: 10px;margin-top:-10px; text-align: center" >
+									 		 	
+									 		 	</div> -->
+								 		 	</div>
+							 		 	</div>
+								 	</div>
+								</div>
+							</div>
+						</div>
+						<div class="dashboard-box padding_top80" id="boxDoctor2" style="width: 647.52px; height: 286px; top: -38px; left: 651.52px; position: absolute;">
+							<div class="panel panel-default">
+							    <div class="panel-heading4">
+							    	<div class="row">
+							             <div class="col-md-11 col-sm-11 col-xs-11">Task And Notification</div>
+							             <div class="col-md-1 col-sm-1 col-xs-1 padding-right-set"><i class="fa fa-external-link float_right" id="boxDoctor2Icon"></i></div>
+							        </div>
+							    </div>
+								<div class="panel-body" id="panelBodyDoctor2" style="height: 286px;">
+									<!-- <div class="row">
+										<div class="col-md-12 col-sm-12">
+											<div class="col-md-6 col-sm-6">
+												<input type="search" class="form-control input-sm" placeholder="Search" aria-controls="">
+												<div class="inner-addon right-addon" >
+												 	<i class="fa fa-search" aria-hidden="true"></i>
+						      						<input class="form-control" id="" placeholder="Search" type="text" name=""  >
+											  </div>
+											</div>
+											<div class="col-md-6 col-sm-6 pager-text-align margin-top3">
+												<ul class="pagination pagination-sm pager " id="myPager2"></ul>
+											</div>
+										</div>
+									</div> -->
+				                        	<div class="row">
+										      	<table class="table table-border table-striped table-hover responsive" id="taskTable">
+										      		<thead>
+											      		<tr style="background-color:#fff">
+											      			<th>User</th>
+											      			<th></th>
+											      			<th></th>
+											      			<th></th>
+											      			<th></th>
+											      			<th></th>
+											      			<th></th>
+											      			<th>Message</th>
+											      		</tr>
+											      	</thead>
+											     <tbody id="myTable2">
+								      					
+								      			</tbody>	
+									      	</table><div class="pagination_tag" style="text-align: center; margin-bottom: 20px; display: none;"><button class="btn btn-danger" style="margin-right: 8px;">Previous</button><span>1 to 0 of 0 entries</span><button class="btn btn-danger" style="margin-left: 8px;">Next</button></div>
+									      </div>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="col-md-1">
+							col-md-1
+						</div> -->					
+					</div>
+			</div>
+		</div>
+		<!--End Page Content -->
+
+
+ <script type="text/javascript">
+$(document).ready(function(){
+	//alert("ready");
+	var applength = $('#myTable tbody tr').length;
+	var appointmentList = '${appointmentList}';
+	if(appointmentList != '' && applength == 0){
+		$('#myTable').append("<tr><td colspan='4' style='font-weight: 600;font-size: 20px;' id='emptyDataRow'>No Checked-in Appointments today...</td></tr>");
+		}
+	
+	var doctorUpdateMsg = '${doctorUpdateMsg}';
+	if(doctorUpdateMsg != ''){
+		$.notify("Doctor details updated successfully...","success");
+	}
+	
+	getAppointmentDatesByDoctor();
+	getDoctorDashboardReport();
+	 resetBoxes();
+	 $('#boxDoctor2Icon').trigger('click');
+	$.fn.pageMe = function(opts){
+	    var $this = this,
+	        defaults = {
+	            perPage: 7,
+	            showPrevNext: false,
+	            hidePageNumbers: false
+	        },
+	        settings = $.extend(defaults, opts);
+	    
+	    var listElement = $this;
+	    var perPage = settings.perPage; 
+	    var children = listElement.children();
+	    var pager = $('.pager');
+	    
+	    if (typeof settings.childSelector!="undefined") {
+	        children = listElement.find(settings.childSelector);
+	    }
+	    
+	    if (typeof settings.pagerSelector!="undefined") {
+	        pager = $(settings.pagerSelector);
+	    }
+	    
+	    var numItems = children.size();
+	    var numPages = Math.ceil(numItems/perPage);
+
+	    pager.data("curr",0);
+	    
+	    if (settings.showPrevNext){
+	        $('<li><a href="#" class="prev_link">«</a></li>').appendTo(pager);
+	    }
+	    
+	    var curr = 0;
+	    while(numPages > curr && (settings.hidePageNumbers==false)){
+	        $('<li><a href="#" class="page_link">'+(curr+1)+'</a></li>').appendTo(pager);
+	        curr++;
+	    }
+	    
+	    if (settings.showPrevNext){
+	        $('<li><a href="#" class="next_link">»</a></li>').appendTo(pager);
+	    }
+	    
+	    pager.find('.page_link:first').addClass('active');
+	    pager.find('.prev_link').hide();
+	    if (numPages<=1) {
+	        pager.find('.next_link').hide();
+	    }
+	  	pager.children().eq(1).addClass("active");
+	    
+	    children.hide();
+	    children.slice(0, perPage).show();
+	    
+	    pager.find('li .page_link').click(function(){
+	        var clickedPage = $(this).html().valueOf()-1;
+	        goTo(clickedPage,perPage);
+	        return false;
+	    });
+	    pager.find('li .prev_link').click(function(){
+	        previous();
+	        return false;
+	    });
+	    pager.find('li .next_link').click(function(){
+	        next();
+	        return false;
+	    });
+	    
+	    function previous(){
+	        var goToPage = parseInt(pager.data("curr")) - 1;
+	        goTo(goToPage);
+	    }
+	     
+	    function next(){
+	        goToPage = parseInt(pager.data("curr")) + 1;
+	        goTo(goToPage);
+	    }
+	    
+	    function goTo(page){
+	        var startAt = page * perPage,
+	            endOn = startAt + perPage;
+	        
+	        children.css('display','none').slice(startAt, endOn).show();
+	        
+	        if (page>=1) {
+	            pager.find('.prev_link').show();
+	        }
+	        else {
+	            pager.find('.prev_link').hide();
+	        }
+	        
+	        if (page<(numPages-1)) {
+	            pager.find('.next_link').show();
+	        }
+	        else {
+	            pager.find('.next_link').hide();
+	        }
+	        
+	        pager.data("curr",page);
+	      	pager.children().removeClass("active");
+	        pager.children().eq(page+1).addClass("active");
+	    
+	    }
+	};
+	
+	//add logo for procare
+	$('.selectedPageName').html("<img src='${pageContext.request.contextPath}/resources/assets/common/images/project-images/ProCareLogosPMS.png' style='margin-top: -12px;' class='img-responsive img-responsive-logo' width='140'></img>");
+	});
+	
+</script>
+<script type="text/javascript">
+
+/* ---Calendar script--- */
+var $calendar = $('#calendar').fullCalendar({
+	  header: {
+	    left: 'prev,next today',
+	    center: 'title',
+	    right: 'month,basicWeek,basicDay'
+	  },
+
+	  defaultView: 'month',
+
+	  dayRender: function(date, cell) {
+
+	    var today = new Date();
+	    var end = new Date();
+	    end.setDate(today.getDate() + 7);
+
+	    if (date.getDate() === today.getDate()) {
+	      cell.css("background-color", "rgb(213, 214, 216)");
+	    }
+	  }
+	});
+	
+/******* expand div script start**********/
+var zoom = false;
+var boxPadding = 4;
+var sideHeight = window.innerHeight/3;
+var windowHeight = window.innerHeight;
+var pieZoom = false;
+/* var smSize = 80;
+var bigSize = $(window).width() * 60 / 100; */
+var boxHeight =  286;
+var defaultSize = $(window).width() * 48 / 100;
+var smSize = $(window).width() * 28 / 100;
+var bigSize = $(window).width() * 62 / 100;
+
+function clearSiblings($elem) {
+    var deferred = $.Deferred();
+    
+    $elem.siblings('.dashboard-box').each(function(i){
+        $(this).animate({
+        	width: smSize,
+            height: boxHeight,
+            top: 0,
+            left: '70%',
+            //left: i % 2 == 0 ? bigSize + boxPadding : bigSize + (2*boxPadding),
+			
+        }, 'fast', function() {
+            $(this).css({position: 'absolute'});
+            $(this).removeClass('padding_top80').removeClass('padding_top30').addClass('padding_top30');
+			deferred.resolve();
+        });
+    });
+	 $elem.parent().siblings('.myRow').find('.dashboard-box').each(function(i){
+		 var topVal = 0;
+		 if($(this).attr('id')=="boxDoctor2" || $(this).attr('id')=="boxDoctor1") {
+			 topVal = ((Math.floor((i)) * smSize) + Math.floor(i/2) * boxPadding) ;
+			 topVal = (topVal==0)?50:topVal;
+		 }else{
+			 topVal = ((Math.floor((i+1)) * smSize) + Math.floor(i/2) * boxPadding)- ((i+1) * 35);
+		 }
+        $(this).animate({
+        	width: smSize,
+            height: boxHeight,
+            top: topVal,
+            left: '70%',
+            //left: bigSize + boxPadding,
+        }, 'fast', function() {
+            $(this).css({position: 'absolute'});
+            $(this).removeClass('padding_top80').removeClass('padding_top30').addClass('padding_top30');
+            deferred.resolve();
+        });
+    });
+	
+	
+    return deferred.promise();
+}
+
+function resetBoxes() {
+	var windowHeight = $(window).height();
+	var windowWidth = $(window).width();
+	var sub = (windowWidth/100)*1;// percent of width	
+	//alert(windowHeight + " : "+windowWidth);
+	// Screen for less than 10 inches
+	
+	$('.pagination_tag').remove();
+	activatePagination("myTable",2);
+	activatePagination("taskTable",2);	
+	activatePagination("outStTable",2);
+	
+	 if(windowHeight <= 695 && windowWidth <= 1007){
+		$('#boxQueue').css({'width':windowWidth - sub,'padding-left':'6px'});
+		$('#boxCalendar').css({'width':windowWidth - sub,'padding-left':'6px'});
+		$('#boxDoctor1').css({'width':windowWidth - sub,'padding-left':'6px'});
+		$('#boxDoctor2').css({'width':windowWidth - sub,'padding-left':'6px'});
+		
+		hideAnimationIcons();
+	}else{ 
+    $('.myRow > div.dashboard-box').each(function(i){
+        $(this).animate({
+            width: defaultSize,
+            height: boxHeight,
+            top: 0,
+            left: (i % 2 * defaultSize) + (i % 2 * boxPadding),
+        }, 'fast', function(){
+            if ( i % 2 == 0 ) {
+                $(this).css({position: 'relative'});
+                $(this).find('.panel-body').css({height:286});
+            }
+            else {
+                $(this).css({position: 'absolute'});
+                $(this).find('.panel-body').css({height:286});
+            }
+            if(i==2 ||i==3){
+            	$(this).removeClass('padding_top30').addClass('padding_top80');
+            }
+        });
+    });
+    showAnimationIcons();
+	}
+    zoom = false;
+}
+
+$(document).ready(function(){
+   
+});
+
+$(document).on("click", ".fa-external-link", function() {
+    $this = $(this).closest(".dashboard-box");
+    if (!zoom) {
+        $this.css({position: 'relative'});
+        clearSiblings($this).done(function() {
+            $this.animate({
+                //width: bigSize,
+                width: '69.5%',
+                height: boxHeight,
+                left: 0
+            }, 'slow', function(){
+            	$(this).removeClass('padding_top80').removeClass('padding_top30').addClass('padding_top30');
+                $this.find('.panel-body').css({height:700});
+                if($(this).attr('id') == 'boxQueue'){
+                	boxQueueAnimate();
+                }
+                if($(this).attr('id') == 'boxCalendar'){
+                	boxCalendarAnimate();
+                }else{
+                	decreaseCalendarHeight();
+                	calendarZoom = false;
+                }                
+               if($(this).attr('id') == 'boxDoctor1'){
+            	   $('div > .myRow').each(function(){
+                  		$(this).css('position','inherit');
+                  	});
+            	   boxPieChartAnimate();
+               }else{
+            	   pieZoom = false;
+               }
+               if($(this).attr('id') == 'boxDoctor2'){
+            	   boxTaskChartAnimate();
+               }
+            });
+        });
+        zoom = true;
+    }
+    else {
+    	$('div > .myRow').each(function(){
+      		$(this).css('position','relative');
+      	});
+    	addActiveToPage1();
+        decreaseCalendarHeight();
+        resetBoxes();
+        $('#last7Pie').css('margin-left','10px');
+        showLegends();
+        calendarZoom = false;
+        pieZoom = true;
+        $('#panelBodyDoctor2').show();
+        $('#panelBodyCalendar').show();
+        $('.fc-header-left').show();
+        addCalendarTablePadding();
+        redrawGraph();
+    }
+});
+
+function increaseCalendarHeight(){
+	$('.fc-week').each(function(){
+		$(this).css('height','60px');
+	});
+}
+function decreaseCalendarHeight(){
+	removeNoOfAppointmentTags();
+	$('.fc-week').each(function(){
+		$(this).css({
+			'height':'0px',
+			'font-size':'10px',
+			});
+	});
+}
+
+function addActiveToPage1(){
+	$('.page_link').each(function(){
+    	var page = $(this).text();
+    	if(page != 1){
+    		$(this).removeClass('active');
+    		$(this).closest('li').removeClass('active');
+    		}else{
+    			$(this).addClass('active');
+    		}
+    	});
+}
+$(document).keyup(function(e) {
+    if (e.keyCode == 27 && zoom) {
+        resetBoxes();
+    }
+});
+
+function hideLegends(){
+	try{
+		$('.c3-legend-item').each(function(){
+			$(this).hide();
+		});
+	}catch(e){
+		console.log(e.message);
+	}
+}
+function showLegends(){
+	try{
+		$('.c3-legend-item').each(function(){
+			$(this).show();
+		});
+	}catch(e){
+		console.log(e.message);
+	}
+}
+/******* expand div end **********/
+
+//=====================================***====================================================//
+function removeCalendarTablePadding(){
+	$('.fc-day').each(function(){
+		$(this).css({
+			padding : 0,
+		})
+	});
+}
+
+function addCalendarTablePadding(){
+	$('.fc-day').each(function(){
+		$(this).css({
+			padding : 4,
+		})
+	});
+}
+
+
+function redrawGraph(){
+	//---- Draw Pie Diagram ---//
+	if(!pieZoom){
+		$('#last7Pie').css({
+			'margin-left' : '70px',
+			'margin-top' : '-35px'
+		});
+	var graph = c3.generate({
+		bindto: '#last7Pie',
+		size: {
+			width: 250,
+	        height: 230
+	    },
+		    data: {
+		    	columns:  pieColumns,
+		        type : 'pie'
+		    },
+		    legend: {
+		        show: true,
+		        position: 'right'
+		    },
+		    tooltip: {
+		    	 contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+		             return "<font color='black'>Collection || </font>" +
+		                 "<font color='black'>" + d[0].value + "</font>";
+		         }
+		    },
+		});
+	}else{
+		$('#last7Pie').css({
+		'margin-left': '10px',
+		'margin-top': '-10px',
+		'text-align' : 'center'
+		});
+		var graph = c3.generate({
+			bindto: '#last7Pie',
+			size: {
+				width: 400,
+		        height: 270
+		    },
+			    data: {
+			    	columns:  pieColumns,
+			        type : 'pie'
+			    },
+			    legend: {
+			        show: true,
+			        position: 'right'
+			    },
+			    tooltip: {
+			    	 contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+			             return "<font color='black'>Collection || </font>" +
+			                 "<font color='black'>" + d[0].value + "</font>";
+			         }
+			    },
+			});
+		pieZoom = false;
+	}
+}
+
+// function for Queue animation
+function boxQueueAnimate(){
+	try{
+	$('.pagination_tag').remove();
+	activatePagination('myTable',6);
+	$('.pagination_tag').remove();
+	activatePagination("outStTable",2);
+if(navigator.userAgent.indexOf("Firefox") != -1 )
+{
+	$('#last7Pie').css('margin-left','10px');
+	$('.fc-header-left').hide();
+	
+	//remove calendar cell padding
+	removeCalendarTablePadding();
+	
+	// set panel height
+	$('#panelBodyCalendar').css('height',sideHeight-2);
+	$('#panelBodyDoctor1').css('height',sideHeight-2);
+	$('#panelBodyDoctor2').css({'height':sideHeight-183});
+	
+	$('#boxDoctor1').css('top','-28px');
+	$('#boxDoctor2').css('top','230px');
+	 redrawGraph();
+	
+	$('#panelBodyQueue').css({'height':windowHeight-116});
+	$('#panelBodyDoctor2').hide();
+	addActiveToPage1();
+	pieZoom = true;
+}else{
+$('#last7Pie').css('margin-left','10px');
+$('.fc-header-left').hide();
+
+//remove calendar cell padding
+removeCalendarTablePadding();
+
+//set panel height
+$('#panelBodyCalendar').css('height',sideHeight-13);
+$('#panelBodyDoctor1').css('height',sideHeight-13);
+$('#panelBodyDoctor2').css({'height':sideHeight-183});
+
+$('#boxDoctor1').css('top','-30px');
+$('#boxDoctor2').css('top','225px');
+redrawGraph();
+
+$('#panelBodyQueue').css({'height':windowHeight - 116});
+$('#panelBodyDoctor2').hide();
+addActiveToPage1();
+pieZoom = true;
+}
+}catch(e){
+	console.log(e.message);
+}
+}
+
+//function for Calendar animation
+function boxCalendarAnimate(){
+	try{
+		$('.pagination_tag').remove();
+		activatePagination('myTable',1);
+		activatePagination("outStTable",2);
+		if(navigator.userAgent.indexOf("Firefox") != -1 )
+        {
+    		$('#last7Pie').css('margin-left','10px');
+        	increaseCalendarHeight();
+        	calendarZoom = true;
+        	getAppointmentDatesByDoctor();
+        	
+        	// Set Panel Height
+        	$('#panelBodyQueue').css({'height':sideHeight-8});
+        	$('#panelBodyDoctor1').css('height',sideHeight-8);
+        	
+        	redrawGraph();
+        	$('#panelBodyCalendar').css({'height':windowHeight - 116});
+        	$('#boxDoctor1').css('top','-222px');
+        	$('#boxDoctor2').css('top','40px');
+        	$('#panelBodyDoctor2').hide();
+        }else{
+        //Code for Chrome
+    	$('#last7Pie').css('margin-left','10px');
+    	
+    	increaseCalendarHeight();
+    	calendarZoom = true;
+    	getAppointmentDatesByDoctor();
+    	
+    	// Set Panel Height
+    	$('#panelBodyQueue').css({'height':sideHeight-13});
+    	$('#panelBodyDoctor1').css('height',sideHeight-13);
+    	
+    	redrawGraph();
+    	$('#panelBodyCalendar').css({'height':windowHeight - 116});
+    	$('#boxDoctor1').css('top','-28px');
+    	$('#boxDoctor2').css('top','230px');
+    	$('#panelBodyDoctor2').hide();
+    	
+        }
+	}catch(e){
+		console.log(e.message);
+	}
+}
+
+//function for PieChart animation
+function boxPieChartAnimate(){
+	try{
+		activatePagination("outStTable",6);
+		$('.pagination_tag').remove();
+		activatePagination("myTable",1);
+		activatePagination("taskTable",1);	
+		// Code for FireFox
+ 	   if(navigator.userAgent.indexOf("Firefox") != -1 )
+        {
+ 		  $('#panelBodyQueue').css({'height':sideHeight-8});
+   		 $('#panelBodyDoctor2').css('height',sideHeight-8);
+   		 $('#panelBodyDoctor1').css({'height':windowHeight - 116});
+   		 $('#panelBodyCalendar').hide();
+ 		   
+ 		   $(this).css('top','0px');
+     	   $('#boxQueue').css('top','0px');
+     	   $('#boxCalendar').css('top','520px');
+     	   $('#boxDoctor2').css('top','260px');
+     		pieZoom = true;
+        }else{
+     	 //Code for Chrome
+     	 $('#panelBodyDoctor1').css({'height':windowHeight - 116});
+     	 $('#panelBodyQueue').css({'height':sideHeight-13});
+ 		 $('#panelBodyDoctor2').css('height',sideHeight-13);
+ 		 $('#panelBodyCalendar').hide();
+     	 
+ 	  	 $('#boxQueue').css('top','0px');
+ 	  	 $('#boxCalendar').css('top','510px');
+ 		 $('#boxDoctor2').css('top','255px');
+ 		 
+ 	   showLegends();
+ 	   pieZoom = true;
+        }
+	}catch(e){
+		console.log(e.message);
+	}
+}
+
+//function for Task&Notification animation
+function boxTaskChartAnimate(){
+	try{
+		$('.pagination_tag').remove();
+		activatePagination("myTable",1);
+		activatePagination("taskTable",6);	
+		activatePagination("outStTable",2);
+		$('#taskTable').siblings().closest('.pagination_tag').remove();
+		// Code for FireFox
+ 	   if(navigator.userAgent.indexOf("Firefox") != -1 )
+        {
+ 		   redrawGraph();
+ 		  $('#panelBodyDoctor1').css('height',sideHeight-8);
+ 		  $('#panelBodyQueue').css({'height':sideHeight-8});
+ 		  $('#panelBodyDoctor2').css('height',windowHeight - 116);
+ 		  $('#panelBodyCalendar').hide();
+ 		  
+ 		   $('#last7Pie').css('margin-left','10px');
+     	   $('#boxQueue').css('top','262px');
+     	   $('#boxCalendar').css('top','523px');
+        }else{
+     	 //Code for Chrome
+     	redrawGraph();
+     	$('#panelBodyDoctor1').css('height',sideHeight-13);
+     	$('#panelBodyQueue').css({'height':sideHeight-13});
+     	$('#panelBodyDoctor2').css('height',windowHeight - 116);
+     	$('#panelBodyCalendar').hide();
+     	
+ 	   $('#last7Pie').css('margin-left','10px');
+ 	   $('#boxQueue').css('top','255px');
+ 	   $('#boxCalendar').css('top','510px');
+        }
+	}catch(e){
+		console.log(e.message);
+	}
+	}
+	
+function hideAnimationIcons(){
+		try{
+			$('.fa-external-link').each(function(){
+				$(this).hide();
+			});
+		}catch(e){
+			console.log(e.message)
+		}
+}
+function showAnimationIcons(){
+	try{
+		$('.fa-external-link').each(function(){
+			$(this).show();
+		});
+	}catch(e){
+		console.log(e.message)
+	}
+}
+$('.patient-row').click(function(){
+	try{
+	var temp = $(this).attr('id');
+	var patientId = temp.split('#')[0];
+	var appointmentId = temp.split('#')[1];
+	var appointmentStatusId = temp.split('#')[2];
+	if(appointmentStatusId == 2){
+		if(ukFlag){
+			window.location.href="coverPageUk/" + patientId + "/" + appointmentId + "/" + appointmentStatusId;
+		}else{
+			window.location.href="doctorCoverPage";
+		}
+	}   
+	}catch(e){
+		console.log(e.message);
+	}
+});
+
+$(document).on('click','.fc-day',function(){
+	try{
+		var userClickDate = $(this).attr('data-date').split("-");
+		var userDate = new Date(userClickDate[2], (userClickDate[1] - 1), userClickDate[0]);
+		var today = new Date();
+		if(userDate.getTime() > today.getTime()){
+			window.location.href = "appointmentList/" + $(this).attr('data-date');
+		}
+		
+	}catch(e){
+		console.log(e.message);
+	}
+});
+</script> 
+</body>
+</html>

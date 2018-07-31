@@ -1,0 +1,242 @@
+
+ <!-- Page Content -->
+ <div id="page-content-wrapper">
+     <div class="container-fluid his-style">
+    	<div ng-include="'./views/common/patient-demography-info.html'"></div>
+		<div class="row margin-top4">
+		<form name="macroscopicExaminationForm" novalidate>
+			<div class="col-lg-12 col-md-12 height-table-with-scroll padding-left-right-set4">
+				<table class="table table-striped table-bordered margin-top4">
+					<thead>
+						<tr>
+							<th class="UHID-width">Histopathlogy No.</th>
+							<th class="width12">Specimen Name</th>
+							<th class="width10">Sub Specimen Required</th>
+							<th class="width15">Capture Note</th>
+							<th class="status">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+						<tr>
+							<td><div>{{tSpecimanMaster.histopathlogyNumber}}</div></td>
+							<td><div>{{tSpecimanMaster.specimanName}}</div></td>
+							<td>
+								<div>
+								<div  class="form-group"  show-errors>
+									<select class="select-box" name="isSubSpecimanReq"  ng-model="isSubSpecimanReq" ng-change="addSpecimen();" required> 
+										<option selected value>Select</option>
+										<option value="1">Yes</option>
+										<option value="0">No</option>
+									</select>
+									<p class="help-block"  ng-if="macroscopicExaminationForm.isSubSpecimanReq.$error.required">{{subSpspecimenNameReq}}</p>
+									</div>
+								</div>
+							</td>
+							<td>
+								<div>
+								<div  class="form-group"  show-errors>
+								<input type="text" class="select-box"  name="captureNote" ng-model="tSpecimanMaster.captureNote" required />
+								<p class="help-block"  ng-if="macroscopicExaminationForm.captureNote.$error.required">{{captureReq}}</p>
+								</div>
+								</div>
+							</td>
+							<td>
+								<div>
+									<!-- <a href="" class="create-slide ">Gross Table</a> -->
+									<input style="width:36px" type="button" name="" id="addr" value="+" class="btn btn-info gross-table-button" >&nbsp;
+								</div>
+							</td>
+						</tr>
+						 <tr  ng-if="isSubSpecimanReq==0" >
+				      		<td colspan="5">
+					      		<div class="row">
+					      			<div class="col-lg-12 col-md-12 padding-left15">
+					      				<table class="table table-striped table-bordered " id="slideCreation">
+										<thead class="table-th-bg">	
+											<tr>
+												<th class="test-name-width">Gross No.</th>
+												<th class="width80">Capture Note</th>
+												<th class="width8">Action</th>
+												
+											</tr>
+										</thead>
+										<tbody class="">
+											<tr ng-repeat="gross in listTSubSpecimanMaster[0].listTGrossMaster track by $index" ng-form="noGrossForm">
+												<td>
+													<div>{{gross.grossNo}}</div>
+												</td>
+												<td>
+													<div>
+														<div  class="form-group"  show-errors>
+														<input type="text"  id="" name="grossDesc" class="text-box-for-ICU" ng-model="gross.grossDesc" required>
+														<p class="help-block"  ng-if="noGrossForm.grossDesc.$error.required">{{grossReq}}</p>
+													</div>
+													</div>
+												</td>
+												<td>
+													<div class="" style="margin-top: -2px;">
+														<input style="width:36px" type="button" value="+" id="addr" class="btn btn-info" ng-click="addGross(0);">
+														<input style="width:36px" type="button" value="-" id="addr" class="btn btn-info" ng-click="removeGrossWithoutSubSpeciman($index);" ng-if="$index>0">
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+					      			</div>
+					      		</div>
+				      		</td>
+				      	</tr>
+				      	
+						<tr ng-if="isSubSpecimanReq==1">
+				      		<td colspan="5">
+					      		<div class="row">
+					      			<div class="col-lg-12 col-md-12 padding-left15">
+					      				<table class="table table-striped table-bordered " id="slideCreation">
+										<thead class="table-th-bg">	
+											<tr>
+												<th class="width8">Sub Specimen No</th>
+												<th class="width18">Sub Specimen Name</th>
+												<th class="width50">Capture Note</th>
+												<th class="width8">Action </th>
+													
+											</tr>
+										</thead>
+										<tbody ng-repeat="subSpecimen in tSpecimanMaster.listTSubSpecimanMaster track by $index" ng-init="subSpecimenIndex=$index" ng-form="subSpecimenForm">
+											<tr>
+												<td>
+													<div>{{subSpecimen.subSpcimanNo}}</div>
+												</td>
+												<td><div>
+												<div  class="form-group"  show-errors>
+												<input type="text"  id="" name="subSpecimanName" class="text-box-for-ICU" ng-model="subSpecimen.subSpecimanName" required>
+												<p class="help-block"  ng-if="subSpecimenForm.subSpecimanName.$error.required">{{subSpspecimenNameReq}}</p>
+												</div>
+												</div></td>
+												<td>
+													<div>
+													<div  class="form-group"  show-errors>
+													<input type="text"  id="" name="captureNote" class="text-box-for-ICU" ng-model="subSpecimen.captureNote" required>
+													<p class="help-block"  ng-if="subSpecimenForm.captureNote.$error.required">{{subSpspecimenCaptureNoteReq}}</p>
+													</div>
+													</div>
+												</td>
+												<td>
+													<div class="" style="margin-top: -2px;">
+														<input style="width:36px" type="button" value="+" id="addr" class="btn btn-info gross-subtable-yes" ng-click="addSubSpecimen();">
+														<input style="width:36px" type="button" value="-" id="addr" class="btn btn-info gross-subtable-yes" ng-click="removeSubSpecimen(subSpecimenIndex);" ng-if="subSpecimenIndex>0">
+													</div>
+												</td>
+											</tr>
+											<tr >
+												<td colspan="4">
+													<div class="row">
+										      			<div class="col-lg-12 col-md-12">
+										      				<table class="table table-striped table-bordered " id="slideCreation">
+																<thead class="table-th-bg">	
+																	<tr>
+																		<th class="width10">Gross No.</th>
+																		<th class="width50">Capture Note</th>
+																		<th class="width8">Action</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr ng-repeat="gross in subSpecimen.listTGrossMaster track by $index" ng-form="subGrossForm">
+																			<td>
+																				<div>{{gross.grossNo}}</div>
+																			</td>
+																			<td>
+																				<div>
+																				<div  class="form-group"  show-errors>
+																					<input type="text" id="" name="grossDesc" class="text-box-for-ICU"
+																						ng-model="gross.grossDesc" required>
+																				<p class="help-block"  ng-if="subGrossForm.grossDesc.$error.required">{{grossReq}}</p>
+																				</div>
+																				</div>
+																			</td>
+																			<td>
+																				<div class="" style="margin-top: -2px;">
+																					<input style="width: 36px" type="button" value="+"
+																						id="addr" class="btn btn-info"
+																						ng-click="addGross(subSpecimenIndex);">
+																					<input style="width:36px" type="button" value="-" id="addr" class="btn btn-info" ng-click="removeGrossWithSubSpeciman(subSpecimenIndex,$index);" ng-if="$index>0">	
+																				</div>
+																			</td>
+																		</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+					      			</div>
+					      		</div>
+				      		</td>
+				      	</tr>
+					</tbody>
+				</table>
+				
+			</div>
+			</form>
+		</div>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row padding-top5 margin-top10 padding-right20">
+				<div class="col-lg-10 col-md-10 "></div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a >
+						<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow" ng-click="histoCreateGross();">
+					</a>
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a href="#/microscopeExamination">
+						<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+	
+	
+	
+	
+	<script type="text/javascript">
+$('.clockpicker').clockpicker();
+
+$( document ).ready(function() {
+
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+	$( ".radioRejected" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$("#accepatReject").modal();
+		}
+	});
+	$(".selectedPageName").text("Macroscopic Examiniation Work List");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="macroscopicExamination"]').parents("li").addClass("active");
+	
+	$(".created-gross-table-row").click(function(){
+	       // $(".block-expand").next("tr").toggle();
+	       alert("ok");
+	        $(this).parentsUntil('tr').parent().next().toggle("slow");
+	    });
+		$(".gross-table-button").click(function(){
+			$(".gross-table-show").toggle("slow");
+		});
+		$(".gross-table-button-yes").click(function(){
+			$(".gross-table-show-yes").toggle("slow");
+		});
+		$(".gross-subtable-yes").click(function(){
+			$(".gross-subtable-show-yes").toggle("slow");
+		});
+});
+
+</script>

@@ -1,0 +1,285 @@
+<style>
+.th-border-none{
+    border-top: 1px solid transparent !important;
+    border-left: 1px solid transparent !important;
+}
+.editDishicon{
+	    position: unset;
+    top: 0px;
+    right: 0;
+    left: 0;
+    /* width: 0; */
+    height: 0;
+}
+.fa-pencil-square-o{
+	font-size:12px !important;
+}
+</style>
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Day Wise Diet Template</legend> -->
+			<div class="row padding-top10 padding-left-right-set4">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-th" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option value=""></option>
+								</select> <label for="code">Diet Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-3 col-md-4 col-sm-3 padding-left-right-set padding-top10">
+					<div class="row input-container border-set-type">
+							<input type="radio" name="FixedAssestRadioB" id="FixedAssestRadioB" class=""> 
+						<label for="FixedAssestRadioB" class="checkbox-margin-left-right cursor-pointer">Vegetarian</label> 
+						
+							<input type="radio" name="FixedAssestRadioB" id="FixedAssestRadioB2" class=""> 
+						<label for="FixedAssestRadioB2" class="checkbox-margin-left-right cursor-pointer">Non-Vegetarian</label>
+						
+							<input type="radio" name="FixedAssestRadioB" id="FixedAssestRadioB3" class=""> 
+						<label for="FixedAssestRadioB3" class="checkbox-margin-left-right cursor-pointer">Vegan</label>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-3"></div>
+				<!-- <div class="col-md-1 padding-left0px-right6px">
+					<div class="common-save-button">
+						<a href="" data-toggle="modal" data-target="#DietTemplate" class="btn btn-primary btn-save-box-shadow btn-padding">View</a>
+					</div>
+			</div> -->
+			<!-- <div class="col-md-1 padding-left0px-right6px">
+					<div class="common-save-button">
+						<a href="#/daywiseDietTemplate" class="btn btn-primary btn-save-box-shadow btn-padding">Back</a>
+					</div>
+			</div> -->
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="updateHouseKeepingRequest()"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+							<div class=" ">
+								<a href="#/daywiseDietTemplate" class="btn btn-primary btn-save-box-shadow btn-padding">Back</a>
+							</div>
+						</div>
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-set4 padding-top10">
+			<div class="col-md-12">
+				<table class="table table-bordered" id="AddDish">
+					<tr>
+						<th class="th-border-none"></th>
+						<th scope="col" class="text-uppercase text-center width20 vertical-middle">
+						Monday
+						</th>
+						<th scope="col" class="text-uppercase text-center width20 vertical-middle">
+						Tuesday
+						</th>
+						<th scope="col" class="text-uppercase text-center width20 vertical-middle">
+						Wednesday
+						</th>
+						<th scope="col" class="text-uppercase text-center width20 vertical-middle">
+						Thursday
+						</th>
+						<th scope="col" class="text-uppercase text-center width20 vertical-middle">
+						Friday
+						</th>
+						<th scope="col" class="text-uppercase text-center width20 vertical-middle">
+						Saturday
+						</th>
+						<th scope="col" class="text-uppercase text-center width20 vertical-middle">
+						Sunday
+						</th>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">BreakFast</th>
+						<!-- <td class="padding-zero">
+								<div class="maxheight90">
+								<table class="table" id="AddDishQty">
+									<tbody>
+									<tr>
+										<td class="width25"><select class="border-dropdown"><option value="">Select Dish</option></select></td>
+										<td class="width10"><input type="text" placeholder="Qty" class="w-100"></td>
+										<td class="width5"><input type="button" name="" id="" value="+" onclick="addDishRow()" class="btn btn-info add-dynamic-row addbtn"></td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="row addDish-bg text-center">
+								<span>360</span> <span>Cal</span>
+							</div>
+						</td> -->
+						<td class="text-center padding-zero">
+						<div class="float_right editDishicon">
+								<div class="margin-top2"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit" data-toggle="modal" data-target="#editDietTemplate"></i></div>
+							</div>
+							<div><span>5</span> <span>Roti</span></div>
+							<!-- <div class="row addDish-bg text-center">
+								<span>360</span> <span>Cal</span> 
+							</div> -->
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Snacks</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Lunch</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Snacks</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Dinner</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Dessert</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tfoot>
+						<tr class="table-th-bg ">
+							<th class="text-uppercase text-center">Total Nutrition</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Edit Diet Template Start -->
+<div id="editDietTemplate"
+	class="modal fade ng-scope common-popup-header-content in"
+	role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Edit Diet Template
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body his-style">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10" id="">
+						<table class="table">
+							<thead>
+								<tr>
+									<th class="width25">Dish</th>
+									<th class="width15">Qty</th>
+									<th class="width5">Action</th>
+								</tr>
+							</thead>
+							<tbody id="AddDishQty">
+								<tr>
+									<td class=""><select class="border-dropdown"><option
+												value="">Select Dish</option></select></td>
+									<td class=""><input type="text" placeholder="Qty"
+										class="w-100"></td>
+									<td class=""><input type="button" name="" id="" value="+"
+										onclick="addDishRow()"
+										class="btn btn-info add-dynamic-row addbtn"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+							</div>
+		</div>
+	</div>
+</div>
+<!-- Edit Diet Template -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Day Wise Diet Template ");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="daywiseDietTemplate"]').parents("li").addClass("active");
+	});
+	function addDishRow() {
+		//alert();
+		var n = document.getElementById("AddDishQty").rows.length;
+		var id = Number(n);
+		//alert(id);
+		var test =
+
+		'<tr>'
+				+'<td class=""><select class="border-dropdown"><option value="">Select Dish</option></select></td>'
+				+'<td class=""><input type="text" class="w-100" placeholder="Qty"></td>'
+				+'<td class="">'
+				+ '<input type="button" name="" id="addr" value="+" onclick="addDishRow()" class="btn btn-info add-dynamic-row addbtn" style="padding: 0 2px;">&nbsp;'
+				+ '<input type="button" name="" id="delrow" value="-" onclick="delRow(this)" class="btn btn-info addbtn" style="padding: 0 4px;">'
+				+ '</td>'
+				+ '</tr>';
+
+		$("#AddDishQty").append(test);
+
+	}
+
+	function delRow(r) {
+		var i = r.parentNode.parentNode.rowIndex;
+		document.getElementById("AddDishQty").deleteRow(i);
+	}
+</script>

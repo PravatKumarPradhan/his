@@ -1,0 +1,176 @@
+<div id="page-content-wrapper" class="ng-scope">
+	<div class="container-fluid his-style">
+		<div class="row padding-top10">
+			<div class="col-md-8 col-sm-8"></div>
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-9 col-md-8 col-sm-8">
+					<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4 float_right">
+					<div class="">
+						<a href="#/addnewDaywiseRotaCreation"
+							class="btn btn-primary btn-save-box-shadow" title="Add New">Add New</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 padding-top10">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th class="width10">Type</th>
+							<th class="width10">Ward</th>
+							<th class="width10">Nursing Station</th>
+							<th class="width5">Start Date</th>
+							<th class="width5">End Date</th>
+							<th class="width5 text-center">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td class="padding-edit-button-table text-center"> 
+								<span><a href="#/addnewDaywiseRotaCreation"><i class="fa fa-pencil" aria-hidden="true" title="Edit"></i></a></span>
+								<span><a href=""><i class="fa fa-eye" aria-hidden="true" title="View" data-toggle="modal" data-target="#DietTemplate"></i></a></span>
+								<span><a href=""><i class="fa fa-times" aria-hidden="true" title="Cancel"></i></a></span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- RotaCreation Modal-->
+<div id="DietTemplate" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content"> 
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					 Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-10 padding-top10 padding-bottom10">
+			<div class="col-md-12">
+				<table class="table table-bordered" id="AddDish">
+					<tbody><tr>
+						<th class="th-border-none width10"></th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>08 Jan 18</div>
+						Monday
+						</th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>09 Jan 18</div>
+						Tuesday
+						</th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>10 Jan 18</div>
+						Wednesday
+						</th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>11 Jan 18</div>
+						Thursday
+						</th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>12 Jan 18</div>
+						Friday
+						</th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>13 Jan 18</div>
+						Saturday
+						</th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>14 Jan 18</div>
+						Sunday
+						</th>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Nurse 1</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Nurse 2</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Nurse 3</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Nurse 4</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Nurse 5</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					</tbody>
+					<!-- <tfoot>
+						<tr class="table-th-bg ">
+							<th class="text-uppercase text-center">Total Nutrition</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tfoot> -->
+				</table>
+			</div>
+		</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- RotaCreation Modal-->
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".selectedServicesList").hide();
+	$(".selectedPageName").text("Day Wise Rota Creation Master");
+	$(".sidebar-nav li").each(function() {
+	$(this).find("a").parents("li").removeClass("active");
+	$('a[href$="rotaCreation"]').parents("li").addClass("active");
+	});
+});
+</script>

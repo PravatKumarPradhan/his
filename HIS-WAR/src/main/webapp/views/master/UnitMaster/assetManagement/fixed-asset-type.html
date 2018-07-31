@@ -1,0 +1,168 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<legend class="heading-div">Fixed Asset Type</legend>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="fixedAssetCode" class="text-input floating-label form-control" ng-change="vm.model.isfixedAssetCodeValid = false"
+								 ng-class="{dirty: vm.model.fixedAssetCode}" ng-model="vm.model.fixedAssetCode" />
+						
+								<label for="code">Fixed Asset Code</label>
+							</div>
+							<p ng-if="vm.model.isfixedAssetCodeValid" class="errorMsg">Fixed Asset Code is required</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="fixedAssetType" class="text-input floating-label form-control" ng-change="vm.model.isfixedAssetTypeValid = false"
+								 ng-class="{dirty: vm.model.fixedAssetType}" ng-model="vm.model.fixedAssetType" />
+								
+								<label for="code">Fixed Asset Type</label>
+							</div>
+							<p ng-if="vm.model.isfixedAssetTypeValid" class="errorMsg">Fixed Asset Type is required</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+
+				</div>
+			</div>
+		</fieldset>
+		<div class="row margin-top10">
+			<div class="col-md-8"></div>
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" ng-model="search" class="text-search-box" placeholder="Search">
+					<i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg padding-top4">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmSave">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-10 margin-top8">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="width15" title="Fixed Asset Code">
+							Fixed Asset Code
+							<div class="float_right" ng-click="sortType = 'fixedAssetCode'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width20" title="Fixed Asset Type">
+							Fixed Asset Type
+							<div class="float_right" ng-click="sortType = 'fixedAssetType'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5" title="Status">
+							Status
+							<div class="float_right" ng-click="sortType = 'status'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5" title="Action">
+							Action
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+					</tr>
+					<tr ng-repeat="fixedassettype in vm.model.FixedAssetTypeList | filter : search | orderBy:sortType:sortReverse">
+						<td>{{fixedassettype.fixedAssetCode}}</td>
+						<td>{{fixedassettype.fixedAssetType}}</td>
+						<td>
+							<label class="switch switch-small">
+								<input type="checkbox" class="switchInput" ng-model="fixedassettype.status" ng-change="vm.model.ToggleStatus(fixedassettype)" data-target="#confirmSave">
+								<div class="slider round slider-small"></div>
+							</label>
+						</td>
+						<td class="padding-edit-button-table">
+							<a ng-click="vm.model.getFixedAssetTypeForEdit(fixedassettype.id);">
+								<i class="fa fa-pencil" aria-hidden="true" title="Edit"></i>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal start -->
+
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+		<div class="modal-content" style="border-radius: 0px !important;">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Are you sure you want to Save?</span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" ng-click="vm.model.SaveFixedAssetType()" data-dismiss="modal" class="btn btn-primary">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal end -->
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text(" Fixed Asset Type Master");
+		$(".sidebar-nav li").each(function () {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="fixedAssetType"]').parents("li").addClass("active");
+	});
+</script>

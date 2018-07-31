@@ -1,0 +1,1522 @@
+<!--==============================================================================================
+Page One - Package With CAP Start
+==================================================================================================== -->
+<div class="row"  id="IP-package-row-ID" >
+		<fieldset>
+			<div class="row">
+			  	<!-- ****************************************************** Tabs row start ************************************************** -->
+			  	<div class="row  custom-sub-tab"><!-- schedulerTabs -->
+					<ul class="tabs nav nav-tabs">
+						<li ng-class="{ active : isSetFirstTabLevel(1) }" id="" class="padding-top-bottom width15">
+							<a href ng-click="setFirstTabLevel(1)">Service Details</a>
+						</li>
+						<li ng-class="{ active : isSetFirstTabLevel(2) }" id="" class="padding-top-bottom width15">
+							<a href ng-click="setFirstTabLevel(2)">Group Wise CAP</a>
+						</li>
+						<li ng-class="{ active : isSetFirstTabLevel(3) }" id="" class="padding-top-bottom width15">
+							<a href ng-click="setFirstTabLevel(3)">Bed Category </a>
+						</li>
+						<li ng-class="{ active : isSetFirstTabLevel(4) }" id="" class="padding-top-bottom width15">
+							<a href ng-click="setFirstTabLevel(4)">Consumable Details</a>
+						</li>
+						<li ng-class="{ active : isSetFirstTabLevel(5) }" id="" class="padding-top-bottom width15">
+							<a href ng-click="setFirstTabLevel(5)">Category Wise Consumables</a>
+						</li>
+						<li ng-class="{ active : isSetFirstTabLevel(6) }" id="" class="padding-top-bottom width15">
+							<a href ng-click="setFirstTabLevel(6)">Consumable Wise Amount</a>
+						</li>
+					</ul>
+				</div>
+			  <!-- ****************************************************	Tabs row end ****************************************************** -->
+			  
+			  <!-- ****************************************************	Tabs content row start ****************************************************** -->
+			  <div class="row "><!-- common-popup-height-350 -->
+			  		<!-- *********** Tab 1 - Service Details start ********* -->
+			  		<div class="row">
+			  			<div ng-show="isSetFirstTabLevel(1)" class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+			  				<div class="row">
+			  					<div class="col-lg-2 col-md-2 col-sm-2 float-right padding-left-right-set4">
+									<div class="common-save-button">
+										<input type="button" value="Get Service" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#packageWithCapServicesModal" >
+									</div>
+								</div>
+			  				</div>
+			  				<div class="row common-table-height-250">
+				  				<table class="table table-bordered">
+									<thead>
+										<tr class="">
+											<th class="width6">
+												Group
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width8">
+												Sub Group
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width6">
+												Service Code
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width8">
+												Service Name
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="status">
+												Rate
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="width6">
+												Package Qty
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="status">
+												Total
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th class="status">
+												Action
+												<div class="float_right">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+									 	</tr>
+									 </thead>
+									 <tbody>
+									 	<tr ng-repeat="serv in serviceDtlsServiceList">
+									 		<td>{{serv.groupDesc}}</td>
+									 		<td>{{serv.subGroup}}</td>
+									 		<td>{{serv.serviceCode}}</td>
+									 		<td>{{serv.serviceDescription}}</td>
+									 		<td>{{serv.rate != null ? parseFloatNum(serv.rate) : 'Rate not available'}}</td>
+									 		<td>
+									 			<input type="text" ng-model="serv.qty" ng-decimal="200" ng-change="serv.total = serv.qty * serv.rate;calculateSummaryAmt()" class="select-box"/>
+									 		</td>
+									 		<td>{{parseFloatNum(serv.total)}}</td>
+									 		<td>
+									 			<a>
+									 				<i class="fa fa-times" ng-click="removeServiceDtlsService($index)" aria-hidden="true"></i>
+									 			</a>
+									 		</td>
+									 	</tr>
+									 </tbody>
+								</table>
+							</div>
+			  			</div>
+			  		</div>
+			  		<!-- *********** Tab 1 - Service Details end ********* -->
+			  		
+			  		<!-- *********** Tab 2 - Group Wise CAP start ********* -->
+			  		<div class="row">
+			  			<div ng-show="isSetFirstTabLevel(2)" class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+			  				<div class="row">
+			  					<div class="col-lg-8 col-md-8 col-sm-8 padding-top8 schedulerTabs">
+									<ul class="tabs nav nav-tabs">
+										<li ng-class="{ active : isSetSecondTabLevel(1) }" class="tabs-style">
+											<a href ng-click="setSecondTabLevel(1)">Group Details</a>
+										</li>
+										<li ng-class="{ active : isSetSecondTabLevel(2) }" class="tabs-style">
+											<a href ng-click="setSecondTabLevel(2)">Inclusion</a>
+										</li>
+										<li ng-class="{ active : isSetSecondTabLevel(3) }" class="tabs-style">
+											<a href ng-click="setSecondTabLevel(3)">Exclusion</a>
+										</li>
+									</ul>
+								</div>
+								<!-- <div class="col-lg-2 col-md-2 col-sm-2 float-right second-level-tab-display-div-PkgCAP text-width-auto padding-top10">
+									<div class="common-save-button"  ng-show="isSetSecondTabLevel(1)" >
+										<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow"> data-toggle="modal" data-target="#addDepartmentModal"
+									</div>
+								</div> -->
+								<div class="col-lg-2 col-md-2 col-sm-2 float-right second-level-tab-display-div-PkgCAP text-width-auto padding-top10">
+									<div class="common-save-button"   ng-show="isSetSecondTabLevel(2)">
+										<input type="button" value="Get Service" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#packageWithCapServicesModal">
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 float-right second-level-tab-display-div-PkgCAP text-width-auto padding-top10">
+									<div class="common-save-button"  ng-show="isSetSecondTabLevel(3)" >
+										<input type="button" value="Get Service" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="	#packageWithCapServicesModal">
+									</div>
+								</div>
+			  				</div>
+			  				<div class="row">
+			  					<!-- ***********  Group Details tab content start  *********** -->
+			  					<div ng-show="isSetSecondTabLevel(1)" class="second-level-tab-display-div-PkgCAP" >
+			  						<div class="row padding-bottom10 padding-top1">
+			  							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+											<div class="row input-container test-master-sample">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+													<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+												</div>
+												<div class="col-lg-11 col-sm-11 col-md-11">
+													<div class="">
+									<input type="text" class="text-input floating-label"  ng-model="speciality.specialityName" placeholder="Search" uib-typeahead=" spec.specialityName for spec in specialityList | filter:$viewValue | limitTo:5"
+								           typeahead-editable="false" typeahead-on-select="selectSpeciality($item, $model, $label);" ng-keyup="speciality.specialityId = $event.keyCode == 8 ? '' : speciality.specialityId" name="" autocomplete="on" >
+														<label for="code">Group</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+											<div class="row input-container test-master-sample">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+													<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+												</div>
+												<div class="col-lg-11 col-sm-11 col-md-11">
+													<div class="">
+														<input type="text" class="text-input floating-label"  ng-model="subSpeciality.subSpecialityName" placeholder="Search" uib-typeahead=" subsp.subSpecialityMasterName for subsp in subSpecialityList | filter:$viewValue | limitTo:5"
+								           typeahead-editable="false" typeahead-on-select="selectSubSpeciality($item, $model, $label);" ng-keyup="subSpeciality.subSpecialityId = $event.keyCode == 8 ? '' : subSpeciality.subSpecialityId" name="" autocomplete="on" >
+														<label for="code">Sub Group </label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-sm-2 text-width-auto text-center">
+											<div class="common-save-button">
+												<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" ng-click="addGroupDetails()"> <!-- data-toggle="modal" data-target="#addDepartmentModal" -->
+											</div>
+										</div>
+			  						</div>
+			  						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set0">
+						  				<div class="row common-table-height-250">
+							  				<table class="table table-bordered">
+												<thead>
+													<tr class="">
+														<th class="width18">
+															Group
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width18">
+															Sub Group
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">
+															CAP Amount 
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width3">
+															Action
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+												 	</tr>
+												 </thead>
+												 <tbody>
+												 	<tr ng-repeat="grpdtls in groupDetailsList">
+												 		<td>{{grpdtls.groupDesc}}</td>
+												 		<td>{{grpdtls.subGroupDesc != '' ? grpdtls.subGroupDesc : '-'}}</td>
+												 		<td>
+												 		<div ng-if="grpdtls.subDepartmentId != ''">
+												 			<input type="text" ng-model="grpdtls.subDepartmentCapAmount" ng-change="calculateSummaryAmt()" ng-decimal="200" class="select-box"/>
+												 		</div>	
+												 		<div ng-if="grpdtls.subDepartmentId == ''">
+												 			<input type="text" ng-model="grpdtls.departmentCapAmount" ng-change="calculateSummaryAmt()" ng-decimal="200" class="select-box"/>
+												 		</div>
+												 		</td>
+												 		
+												 		<td>
+												 			<a ng-click="removeGroupDetails($index,grpdtls)">
+												 				<i class="fa fa-times" aria-hidden="true"></i>
+												 			</a>
+												 		</td>
+												 	</tr>
+												 </tbody>
+											</table>
+										</div>
+						  			</div>
+			  					</div>
+			  					<!-- ***********  Group Details tab content end ***********  -->
+			  					
+			  					<!-- ***********  Inclusion tab content start  *********** -->
+			  					<div ng-show="isSetSecondTabLevel(2)" class="second-level-tab-display-div-PkgCAP" >
+			  						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+						  				<div class="row common-table-height-250">
+							  				<table class="table table-bordered">
+												<thead>
+													<tr class="">
+														
+														<th class="width20">
+															Group
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width20">
+															Sub Group
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width15">
+															Service Code
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">
+															Service Name
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width3">
+															Action
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+												 	</tr>
+												 </thead>
+												 <tbody>
+												 	<tr ng-repeat="grpwsincex in groupWiseIncExcList" ng-if="grpwsincex.isInclusiveService == 1">
+												 		<td>{{grpwsincex.groupDesc}}</td>
+														<td>{{grpwsincex.subGroup}}</td>
+														<td>{{grpwsincex.serviceCode}}</td>
+														<td>{{grpwsincex.serviceDescription}}</td>
+												 		<td>
+												 			<a>
+												 				<i class="fa fa-times" aria-hidden="true" ng-click="removeIncExGrpServices($index)"></i>
+												 			</a>
+												 		</td>
+												 	</tr>
+												 </tbody>
+											</table>
+										</div>
+						  			</div>
+			  					</div>
+			  					<!-- ***********  Inclusion tab content end ***********  -->
+			  					<!-- ***********  Exclusion tab content start  *********** -->
+			  					<div ng-show="isSetSecondTabLevel(3)" class="second-level-tab-display-div-PkgCAP" >
+			  						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+						  				<div class="row common-table-height-250">
+							  				<table class="table table-bordered">
+												<thead>
+													<tr class="">
+														
+														<th class="width20">
+															Group
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width20">
+															Sub Group
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width15">
+															Service Code
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">
+															Service Name
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width3">
+															Action
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+												 	</tr>
+												 </thead>
+												 <tbody>
+												 	<tr ng-repeat="grpwsincex in groupWiseIncExcList" ng-if="grpwsincex.isInclusiveService == 2">
+												 		<td>{{grpwsincex.groupDesc}}</td>
+														<td>{{grpwsincex.subGroup}}</td>
+														<td>{{grpwsincex.serviceCode}}</td>
+														<td>{{grpwsincex.serviceDescription}}</td>
+												 		<td>
+												 			<a>
+												 				<i class="fa fa-times" aria-hidden="true" ng-click="removeIncExGrpServices($index)"></i>
+												 			</a>
+												 		</td>
+												 	</tr>
+												 </tbody>
+											</table>
+										</div>
+						  			</div>
+			  					</div>
+			  					<!-- ***********  Exclusion tab content end ***********  -->
+			  				</div>
+			  			</div>
+			  		</div>
+			  		<!-- *********** Tab 2 - Group Wise CAP end ********* -->
+			  		
+			  		<!-- *********** Tab 3 - Bed Category start ********* -->
+			  		<div class="row">
+			  			<div ng-show="isSetFirstTabLevel(3)" class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+			  				<div class="row">
+			  					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<select class="text-input floating-label dirty" ng-model="bedCategory.bedCategoryId">
+													<option value="">-</option>
+													<option ng-repeat="bedCat in bedCategoryList" value="{{bedCat.bedCategoryId}}">{{bedCat.bedCategoryDesc}}</option>
+												</select>
+												<label for="code">Bed Category </label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 text-width-auto text-center">
+									<div class="common-save-button">
+										<input type="button" value="Add" ng-click="addBedCategory()" class="btn btn-primary btn-save-box-shadow"> 
+										<!-- <input type="button" value="Get Bed Category" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#addBedCategoryModal"> -->
+									</div>
+								</div>
+			  				</div>
+			  				<div class="row common-table-height-250 margin-top4">
+			  					<div class="col-lg-12 col-sm-12 col-md-12">
+			  						<table class="table table-bordered">
+										<thead>
+											<tr class="">
+												<th class="width8">
+													Bed Category
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Applicable Days
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width6">
+													Total Amount
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="status">
+													Action
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+										 	</tr>
+										 </thead>
+										 <tbody>
+										 	<tr ng-repeat="bedCat in packageBedCategoryList">
+										 		<td>{{bedCat.bedCategoryDesc}}</td>
+										 		<td>
+										 			<input type="text" ng-model="bedCat.applicableDays" ng-decimal="200" class="select-box"/>
+										 		</td>
+										 		<td>-</td>
+										 		<td>
+										 			<a ng-click="removeBedCategory($index)">
+										 				<i class="fa fa-times" aria-hidden="true"></i>
+										 			</a>
+										 		</td>
+										 	</tr>
+										 </tbody>
+									</table>
+			  					</div>
+			  				</div>
+			  			</div>
+			  		</div>
+			  		<!-- *********** Tab 3 - Bed Category end ********* -->
+			  		
+			  		<!-- *********** Tab 4 - Consumable Details start ********* -->
+			  		<div class="row">
+			  			<div ng-show="isSetFirstTabLevel(4)"  class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+			  				<div class="row ">
+				  				<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+				  					<div class="row">
+					  					<div class="col-lg-2 col-md-2 col-sm-2 float-right padding-left-right-set4 text-width-auto">
+											<input type="button" value="Get Item" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#addConsumableWiseItemModal">
+										</div>
+					  				</div>
+				  				</div>
+				  				<div class="row common-table-height-250 margin-top4 table-border-set-packageCAP" style="border:1px solid #ddeeff;">
+					  				<table class="table table-bordered">
+										<thead>
+											<tr class="">
+												<th class="width8">
+													Product Category
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Item Code
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Item Name
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width6">
+													Package Qty
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="status">
+													Action
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+										 	</tr>
+										 </thead>
+										 <tbody>
+										 	<tr ng-repeat="consum in consumableDetailsList">
+										 		<td>{{consum.productCategory}}</td>
+										 		<td>{{consum.itemCode}}</td>
+										 		<td>{{consum.itemName}}</td>
+										 		<td>
+										 			<input type="text" ng-decimal="200" ng-model="consum.qty" class="select-box"/>
+										 		</td>
+										 		<td>
+										 			<a ng-click="removeConsumableDetails($index)">
+										 				<i class="fa fa-times" aria-hidden="true"></i>
+										 			</a>
+										 		</td>
+										 	</tr>
+										 </tbody>
+									</table>
+								</div>
+			  			   </div>
+			  			</div>
+			  		</div>
+			  		<!-- *********** Tab 4 - Consumable Details end ********* -->
+			  		
+			  		<!-- *********** Tab 5 - Category Wise Consumables start ********* -->
+			  		<div class="row">
+			  			<div ng-show="isSetFirstTabLevel(5)">
+			  				<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set0 ">
+			  					<div class="row">
+			  						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set40 ">
+					  				<div class="row">
+					  					<div class="col-lg-4 col-md-4 col-sm-4 padding-top8 schedulerTabs">
+											<ul class="tabs nav nav-tabs">
+												<li ng-class="{ active : isSetSecondTabLevel(1) }" class="tabs-style">
+													<a href ng-click="setSecondTabLevel(1)">Category Wise Consumables</a>
+												</li>
+												<li ng-class="{ active : isSetSecondTabLevel(2) }" class="tabs-style">
+													<a href ng-click="setSecondTabLevel(2)">Exclusion</a>
+												</li>
+											</ul>
+										</div>
+										
+										<div class="col-lg-8 col-md-8 col-sm-8 float-right second-level-tab-display-div-PkgCAP  padding-top10 padding-left-right-set4">
+											<div ng-show="isSetSecondTabLevel(1)" >
+												<!-- <input type="button" value="Get Product Category" class="btn btn-primary btn-save-box-shadow"  data-toggle="modal" data-target="#addCategoryModal"> -->
+												<div class="row">
+													<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4 padding-top10">
+														<div class="row input-container test-master-sample">
+															<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+																<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+															</div>
+															<div class="col-lg-11 col-sm-11 col-md-11">
+																<div class="">
+																	<select class="text-input floating-label dirty" ng-model="categoryWise.assetCategoryId" ng-change="getProductCatByAssestCat(categoryWise.assetCategoryId)">
+																		<option value="">-</option>
+																		<option ng-repeat="assetCat in assetCategoryList" value="{{assetCat.id}}" >{{assetCat.category}}</option>
+																	</select>
+																	<label for="code">Asset Category</label>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4 padding-top10">
+														<div class="row input-container test-master-sample">
+															<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+																<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+															</div>
+															<div class="col-lg-11 col-sm-11 col-md-11">
+																<div class="">
+																	<select class="text-input floating-label" ng-model="categoryWise.productCategoryId">
+																		<option value="">-</option>
+																		<option ng-repeat="prodCat in productCategoryList" value="{{prodCat.id}}">{{prodCat.category}}</option>
+																	</select>
+																	<label for="code">Product Category</label>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-2 col-md-2 col-sm-2 text-width-auto text-center">
+														<div class="common-save-button">
+															<input type="button" value="Add" ng-click="addCategoryWiseConsumableProduct(categoryWise)" class="btn btn-primary btn-save-box-shadow">
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<div ng-show="isSetSecondTabLevel(2)" class=" float-right">
+												<input type="button" value="Get Item" class="padding-left-right-10 text-width-auto btn btn-primary btn-save-box-shadow"  data-toggle="modal" data-target="#addCategoryWiseItemModal">
+											</div>
+											
+										</div>
+					  				</div>
+					  				<div class="row ">
+					  					<!-- ***********  Service Details tab content start  *********** -->
+					  					<div ng-show="isSetSecondTabLevel(1)" class="second-level-tab-display-div-PkgCAP" >
+					  						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set1 ">
+								  				<div class="row common-table-height-250">
+									  				<table class="table table-bordered">
+														<thead>
+															<tr class="">
+																
+																<th class="width8">
+																	Product Category
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">
+																	Applicable Qty
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="status">
+																	Action
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+														 	</tr>
+														 </thead>
+														 <tbody>
+														 	<tr ng-repeat="catwise in categoryWiseConsumables">
+														 		<td>{{catwise.category}}</td>
+														 		<td>
+														 			<input type="text" ng-model="catwise.qty" ng-decimal="200" class="select-box"/>
+														 		</td>
+														 		<td>
+														 			<a>
+														 				<i class="fa fa-times" ng-click="removeCategoryWiseConsumableProduct($index)" aria-hidden="true"></i>
+														 				<!-- data-toggle="modal" data-target="#confirmCancel" -->
+														 			</a>
+														 		</td>
+														 	</tr>
+														 </tbody>
+													</table>
+												</div>
+			  								</div>
+					  					</div>
+					  					<!-- ***********  Service Details tab content end ***********  -->
+					  					
+					  					<!-- ***********  Exclusion tab content start  *********** -->
+					  					<div ng-show="isSetSecondTabLevel(2)" class="second-level-tab-display-div-PkgCAP" >
+					  						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+								  				<div class="row common-table-height-250">
+									  				<table class="table table-bordered">
+														<thead>
+															<tr class="">
+																<th class="width8">
+																	Product Category
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">
+																	Item Code
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">
+																	Item Name
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="status">
+																	Action
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+														 	</tr>
+														 </thead>
+														 <tbody>
+														 	<tr ng-repeat="catWiseEx in categoryWiseExclusionItemsList">
+														 		<td>{{catWiseEx.productCategory}}</td>
+														 		<td>{{catWiseEx.itemCode}}</td>
+														 		<td>{{catWiseEx.itemName}}</td>
+														 		<td>
+														 			<a ng-click="removeCategoryExclusionItems($index)">
+														 				<i class="fa fa-times" aria-hidden="true"></i>
+														 				<!-- data-toggle="modal" data-target="#confirmCancel" -->
+														 			</a>
+														 		</td>
+														 	</tr>
+														 </tbody>
+													</table>
+												</div>
+			  								</div>
+					  						
+					  					</div>
+					  					<!-- ***********  Exclusion tab content end ***********  -->
+					  				</div>
+			  						</div>
+			  					</div>
+			  				</div>
+			  			</div>
+			  		</div>
+			  		<!-- *********** Tab 5 - Category Wise Consumables end ********* -->
+			  		
+			  		<!-- *********** Tab 6 - Consumable Wise Amount start ********* -->
+			  		<div class="row">
+			  			 <div ng-show="isSetFirstTabLevel(6)" >
+			  				<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+			  					<div class="row">
+			  						<div class="row">
+					  					<div class="col-lg-6 col-md-6 col-sm-12 padding-top8 schedulerTabs">
+											<ul class="tabs nav nav-tabs">
+												<li ng-class="{ active : isSetSecondTabLevel(1) }" class="tabs-style">
+													<a href ng-click="setSecondTabLevel(1)">Product Details</a>
+												</li>
+												<li ng-class="{ active : isSetSecondTabLevel(2) }" class="tabs-style">
+													<a href ng-click="setSecondTabLevel(2)">Inclusion</a>
+												</li>
+												<li ng-class="{ active : isSetSecondTabLevel(3) }" class="tabs-style">
+													<a href ng-click="setSecondTabLevel(3)">Exclusion</a>
+												</li>
+											</ul>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-12 float-right second-level-tab-display-div-PkgCAP  padding-top10 padding-left-right-set4">
+											<div ng-show="isSetSecondTabLevel(1)">
+												<!-- <input type="button" value="Get Product Category" class="btn btn-primary btn-save-box-shadow"  data-toggle="modal" data-target="#addCategoryModal"> -->
+												<div class="row">
+													<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4 padding-top10">
+														<div class="row input-container test-master-sample">
+															<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+																<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+															</div>
+															<div class="col-lg-11 col-sm-11 col-md-11">
+																<div class="">
+																	<select class="text-input floating-label dirty" ng-model="consumWise.assetCategoryId" ng-change="getProductCatByAssestCat(consumWise.assetCategoryId)">
+																		<option value="">-</option>
+																		<option ng-repeat="assetCat in assetCategoryList" value="{{assetCat.id}}" >{{assetCat.category}}</option>
+																	</select>
+																	<label for="code">Asset Category</label>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4 padding-top10">
+														<div class="row input-container test-master-sample">
+															<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+																<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+															</div>
+															<div class="col-lg-11 col-sm-11 col-md-11">
+																<div class="">
+																	<select class="text-input floating-label" ng-model="consumWise.productCategoryId">
+																		<option value="">-</option>
+																		<option ng-repeat="prodCat in productCategoryList" value="{{prodCat.id}}">{{prodCat.category}}</option>
+																	</select>
+																	<label for="code">Product Category</label>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-2 col-md-2 col-sm-2 text-width-auto text-center">
+														<div class="common-save-button">
+															<input type="button" value="Add" ng-click="addConsumableWiseProduct(consumWise)" class="btn btn-primary btn-save-box-shadow">
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<div ng-show="isSetSecondTabLevel(2)">
+												<div class="row">
+													<div >
+														<input type="button" value="Get Item" class="btn btn-primary btn-save-box-shadow text-width-auto float-right"  data-toggle="modal" data-target="#addCategoryWiseIncExcModal">
+													</div>
+												</div>
+											</div>
+											
+											<div ng-show="isSetSecondTabLevel(3)">
+												<div class="row">
+													<div>
+														<input type="button" value="Get Item" class="btn btn-primary btn-save-box-shadow text-width-auto float-right"  data-toggle="modal" data-target="#addCategoryWiseIncExcModal">
+													</div>
+												</div>
+											</div>
+											
+										</div>
+					  				</div>
+					  				<div class="row">
+					  					<!-- ***********  Product Details tab content start  *********** -->
+					  					<div ng-show="isSetSecondTabLevel(1)" class="second-level-tab-display-div-PkgCAP" >
+					  						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set1">
+								  				<div class="row common-table-height-250">
+									  				<table class="table table-bordered">
+														<thead>
+															<tr class="">
+																<th class="width8">
+																	Product Category
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">
+																	CAP Amount
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																
+																<th class="status">
+																	Action
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+														 	</tr>
+														 </thead>
+														 <tbody>
+														 	<tr ng-repeat="consum in consumableWiseProductList">
+														 		<td>{{consum.category}}</td>
+														 		<td>
+														 			<input ng-decimal="200" ng-model="consum.productCateroyCapAmount" ng-change="calculateSummaryAmt()" type="text" class="select-box"/> 
+														 		</td>
+														 		<td>
+														 			<a ng-click="removeConsumableWiseProduct($index)">
+														 				<i class="fa fa-times" aria-hidden="true"></i>
+														 				<!-- data-toggle="modal" data-target="#confirmCancel" -->
+														 			</a>
+														 		</td>
+														 	</tr>
+														 </tbody>
+													</table>
+												</div>
+			  								</div>
+					  					</div>
+					  					<!-- ***********  Product Details tab content end  *********** -->
+					  					
+					  					<!-- ***********  Inclusion tab content start  *********** -->
+					  					<div ng-show="isSetSecondTabLevel(2)" class="second-level-tab-display-div-PkgCAP" >
+					  						<div class="row common-table-height-250">
+								  				<div class="col-lg-12 col-md-12 col-sm-12">
+									  				<table class="table table-bordered">
+														<thead>
+															<tr class="">
+																<th class="width8">
+																	Product Category
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">
+																	Item Code
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">
+																	Item Name
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="status">
+																	Action
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+														 	</tr>
+														 </thead>
+														 <tbody>
+														 	<tr ng-repeat="consumIncEx in consumableWiseIncExcItemList" ng-if="consumIncEx.isInclusiveService == 1">
+														 	
+														 		<td>{{consumIncEx.productCategory}}</td>
+														 		<td>{{consumIncEx.itemCode}}</td>
+														 		<td>{{consumIncEx.itemName}}</td>
+														 		<td>
+														 			<a>
+														 				<i class="fa fa-times" ng-click="removeConsumIncExcItem($index)" aria-hidden="true"></i>
+														 			</a>
+														 		</td>
+														 	</tr>
+														 </tbody>
+													</table>
+												</div>
+			  								</div>
+					  					</div>
+					  					<!-- ***********  Inclusion tab content end  *********** -->
+					  					
+					  					<!-- ***********  Exclusion tab content start  *********** -->
+					  					<div ng-show="isSetSecondTabLevel(3)" class="second-level-tab-display-div-PkgCAP" >
+					  						<div class="row" >
+								  				<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set0 common-table-height-250">
+									  				<table class="table table-bordered">
+														<thead>
+															<tr class="">
+																<th class="width8">
+																	Product Category
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">
+																	Item Code
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">
+																	Item Name
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="status">
+																	Action
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+														 	</tr>
+														 </thead>
+														 <tbody>
+														 	<tr ng-repeat="consumIncEx in consumableWiseIncExcItemList" ng-if="consumIncEx.isInclusiveService == 2">
+														 	
+														 		<td>{{consumIncEx.productCategory}}</td>
+														 		<td>{{consumIncEx.itemCode}}</td>
+														 		<td>{{consumIncEx.itemName}}</td>
+														 		<td>
+														 			<a>
+														 				<i class="fa fa-times" ng-click="removeConsumIncExcItem($index)" aria-hidden="true"></i>
+														 			</a>
+														 		</td>
+														 	</tr>
+														 </tbody>
+													</table>
+												</div>
+			  								</div>
+					  					</div>
+					  					<!-- ***********  Exclusion tab content end  *********** -->
+					  					
+					  				</div>
+			  					</div>
+			  				</div>
+			  			</div>
+			  		</div>
+			  		<!-- *********** Tab 6 - Consumable Wise Amount end ********* -->
+			  		
+			  </div>
+			  <!-- ****************************************************	Tabs content row end ****************************************************** -->
+			</div>
+		</fieldset>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20" style="margin-bottom:15px !important;">
+			<!-- ************** Footer Block start ************** -->
+				<div class="row padding-left-right-set4">
+				<div class="col-lg-12 col-md-12 col-sm-12 padding-right20">
+					<table class=" table table-bordered">
+						<tbody>
+							<tr>
+								<td class="width15">
+									<label>Service Wise Summary</label>
+								</td>
+								<td class="width5">
+									<input type="text" ng-model="summary.serviceSummary" ng-decimal="200" readonly class="select-box dirty">
+								</td>
+								<td class="width12">
+									<label>Group Wise Summary</label>
+								</td>
+								<td class="width5">
+									<input type="text" ng-model="summary.groupWiseSummary" ng-decimal="200" readonly class="select-box dirty">
+								</td>
+								
+								<td class="width8">
+									<label>Grand Total</label>
+								</td>
+								<td class="width5">
+									<input type="text" ng-model="summary.grandTotal" ng-decimal="200" readonly class="select-box dirty">
+								</td>
+								<td class="width8">
+									 <div class=" col-md-4 col-sm-4 col-lg-4 padding-left-right-set1 padding-top8">	
+								        <label>Select</label>
+								    </div>
+									<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set1">
+										<select class="select-box dirty" ng-model="packageObj.isMarkupDown" ng-change="calculateSummaryAmt()">
+											<option value="1">Mark Up</option>
+											<option value="2">Mark Down</option>
+										</select>
+                                    </div>
+								</td>
+								<td class="width5">
+									<input type="text" ng-model="packageObj.markupDownInPercentage" ng-change="calculateSummaryAmt()" ng-decimal="200" class="select-box dirty">
+								</td>
+								<td class="width8">
+									<label>Package Price</label>
+								</td>
+								<td class="width5">
+									<input type="text" ng-model="packageObj.packageCost" readonly class="select-box dirty">
+								</td>
+							</tr>
+							<tr>
+								<td class="width15">
+									<label>Bed Category Wise Summary</label>
+								</td>
+								<td class="width5">
+									<input type="text" ng-model="summary.bedCatSummary" ng-decimal="200" readonly class="select-box dirty">
+								</td>
+								<td class="width12">
+									<label>Consumable Details Summary</label>
+								</td>
+								<td class="width5">
+									<input type="text" ng-model="summary.consumDtlsSummary" ng-decimal="200" readonly class="select-box dirty">
+								</td>
+								<td class="width8">
+									
+								</td>
+								<td class="width5">
+									
+								</td>
+								<td class="width8">
+									
+								</td>
+								<td class="width5">
+									
+								</td>
+								<td class="width8">
+									 <div class="col-lg-8 col-md-8 col-sm-8  padding-left-right-set1 padding-top8">	
+								       <label>Round Off</label>
+								    </div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set1">
+										<select class="select-box dirty" ng-model="packageObj.roundOffPositNeg" ng-change="calculateSummaryAmt()">
+												<option value="1"> + </option>
+												<option value="2"> - </option>
+											</select>
+                                    </div>
+								</td>
+								<td class="width5">
+									<input type="text" ng-model="packageObj.manualRoundoffAmount" ng-change="calculateSummaryAmt()" ng-decimal="200" class="select-box dirty">
+								</td>
+							</tr>
+							<tr>
+								<td class="width15">
+									<label>Category Wise Consumable Summary</label>
+								</td>
+								<td class="width5">
+									<input type="text" ng-model="summary.catWiseConsumSummary" ng-decimal="200" readonly class="select-box dirty">
+								</td>
+								<td class="width12">
+									<label>Consumable Wise Summary</label>
+								</td>
+								<td class="width5">
+									<input type="text" ng-model="summary.consumWiseSummary" ng-decimal="200" readonly class="select-box dirty">
+								</td>
+								<td class="width8">
+									
+								</td>
+								<td class="width5">
+									
+								</td>
+								<td class="width8">
+									
+								</td>
+								<td class="width5">
+									<a href="" ng-click="savePackageWithCap()" class="btn btn-primary btn-save-box-shadow text-width-10" title="Save">
+										<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+			        				</a>
+								</td>
+								<td class="width8">
+									<label>Final Package Price</label>
+								</td>
+								<td class="width5">
+									<input type="text" ng-model="packageObj.packagePrice" ng-decimal="200" readonly class="select-box dirty">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+				<!-- ************** Footer Block end ************** --> 
+		</footer>
+</div>
+<!--==============================================================================================
+Page One - Package With CAP End
+#Common modal content Start below 
+==================================================================================================== -->
+
+
+
+<!-- ************************************** Import From Package Modal START  ************************************** -->
+<div id="importFromPackageModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Import From Package
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<select class="text-input floating-label dirty">
+										<option value="">Select</option>
+									</select> <label for="code">Package Type</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<input type="text" class="text-input floating-label dirty"/>
+									 <label for="code">Package Code</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<input type="text" class="text-input floating-label dirty"/>
+									 <label for="code">Package Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-1 col-md-1 col-sm-1 text-width-auto padding-left-right-10">
+						<div class="common-save-button" style="padding-top: 0px;">
+							<a class="btn btn-primary btn-save-box-shadow"style="width: auto;">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-10 padding-top5">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+						<table class="table table-bordered">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width1 text-center"><input type="checkbox"></th>
+									<th class="width8">Package Type</th>
+									<th class="width10">Package Code</th>
+									<th class="width15">Package Name</th>
+									<th class="width8">Visit Type</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="width1 text-center"><input type="checkbox"></td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- **************************************  Import From Package Modal END  ************************************** -->
+<!-- Get Services modal start -->
+<div id="packageWithCapServicesModal"
+	class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Get Services
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll" ng-include="'./views/master/UnitMaster/billingMaster/get-service-modal-EHC-package.html'" ></div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal"	ng-click="addServiceDetailsServices()">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Get Services modal end -->
+<!-- <div ng-include="'./views/PharmacyInventory/Store/get-item-list.html'" ></div> -->
+<!-- Get Consumable wise item list -->
+<div id="addConsumableWiseItemModal" class="modal fade ng-scope in common-large-popup" role="dialog" >
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Add Item List
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body" ng-include="'./views/master/UnitMaster/billingMaster/get-item-list-package-modal.html'" ></div>
+			
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add" ng-click="addConsumableItems()" class="btn btn-primary btn-save-box-shadow"  data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Get Consumable wise item list -->
+
+<!-- Get Category wise item list -->
+<div id="addCategoryWiseItemModal" class="modal fade ng-scope in common-large-popup" role="dialog" >
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Add Item List
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body" ng-include="'./views/master/UnitMaster/billingMaster/get-item-list-package-modal.html'" ></div>
+			
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add" ng-click="addCategoryExclusionItems()" class="btn btn-primary btn-save-box-shadow"  data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Get Category wise item list -->
+
+<!-- Get Category wise inclusion exclusion item list -->
+<div id="addCategoryWiseIncExcModal" class="modal fade ng-scope in common-large-popup" role="dialog" >
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Add Item List
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body" ng-include="'./views/master/UnitMaster/billingMaster/get-item-list-package-modal.html'" ></div>
+			
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add" ng-click="addConsumableWiseIncExc()" class="btn btn-primary btn-save-box-shadow"  data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Get Category wise inclusion exclusion item list -->
+

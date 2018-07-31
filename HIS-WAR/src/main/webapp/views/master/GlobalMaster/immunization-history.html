@@ -1,0 +1,127 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<div ng-include="'./views/common/common-patient-search-opd-without-counter.html'" style="margin-top:-5px !important"></div>
+		<div class="padding-left-right-set4" ng-include="'./views/common/patient-demography.html'"></div>
+	
+		<div class="row margin-top4 padding-left-right-set0">
+			<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 float_right width4">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow"
+						title="Save" data-toggle="modal" data-target="#collectPayment">
+						<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+				<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row margin-top4">
+			<div class="col-md-12 col-sm-12 padding-left-right-set4">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="width5">Age
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">Vaccine
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">Disease
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						
+						<th class="width5">Administered
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5 vaccinationDate">Vaccination Date
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width10">Remark
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<td>-</td>
+						<td>-</td>
+						<td><a class="cursor-pointer" data-toggle="modal"
+							data-target="#diseaseList">View Disease List</a></td>
+						<td><select class="border-dropdown SelectAdministered">
+							<option value="">Select Administered</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+						</td>
+						<td class="vaccinationDate"><input type="text" class="w-100"></td>
+						<td><input type="text" class="w-100"></td>
+						<!-- <td class="padding-edit-button-table text-center"><a><i
+								class="fa fa-pencil" aria-hidden="true"></i></a></td> -->
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+	});
+	$(".selectedPageName").text("Immunization History");/* immunization-history */
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="immuniztionHistory"]').parents("li").addClass("active");
+	
+	 $('.vaccinationDate').hide(); 
+	$('.SelectAdministered').change(function(){
+        if($('.SelectAdministered').val() == 'yes') {
+            $('.vaccinationDate').show(); 
+        } else {
+            $('.vaccinationDate').hide(); 
+        } 
+    });
+</script>

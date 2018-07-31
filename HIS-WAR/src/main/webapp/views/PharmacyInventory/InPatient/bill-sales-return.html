@@ -1,0 +1,449 @@
+<!-- *****************************************************************************************************************************
+												Bill Sales Returns
+****************************************************************************************************************************** -->
+<!-- Page Content start-->
+<div id="page-content-wrapper"  class=" ">
+	<div class="container-fluid his-style" style="height: 740px;">
+			<div class="row padding-left-right-set4 margin-top10">
+				<div class="col-lg-3 col-md-4 col-sm-4 padding-top10">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set0">
+						<div class="row input-container">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<input type="text" class="text-input floating-label dirty" name="fromDate" id="fromDate" uib-datepicker-popup="dd/MM/yyyy"
+										placeholder="DD/MM/YYYY" ng-model="vm.model.fromDate" model-view-value="true" is-open="vm.model.fromDateOpened" datepicker-options="vm.model.fromDateOptions"
+										show-button-bar="false" ng-click="vm.model.OpenFromDate()">
+									<label for="fromDate" class="">From Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set0">
+						<div class="row input-container">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<input type="text" class="text-input floating-label dirty" name="toDate" id="toDate" uib-datepicker-popup="dd/MM/yyyy" placeholder="DD/MM/YYYY"
+										ng-model="vm.model.toDate" model-view-value="true" is-open="vm.model.toDateOpened" datepicker-options="vm.model.toDateOptions"
+										show-button-bar="false" ng-click="vm.model.OpenToDate()">
+									<label for="toDate" class="">To Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+									<input type="text" name="patientName" id="patientName" class="text-input floating-label" ng-model="vm.model.patientName"
+									uib-typeahead="patientNames.patientName as patientNames.details for patientNames in vm.model.SearchpatientNames($viewValue)"
+									typeahead-on-select="vm.model.AddUHID($item); vm.model.search = '';">
+									
+								<label for="patientName">Patient Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-bullseye" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+									<input type="text" name="uhid" ng-model="vm.model.uhid" ng-class="{dirty:vm.model.uhid}" id="" class="text-input floating-label"> <label
+									for="code">UHID</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-user-md fa-color" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label">
+								<label for="code">Doctor Name</label>
+							</div>
+						</div>
+					</div>
+				</div> -->
+				
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top8">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-8 col-sm-8 col-md-8">
+							<div class="">
+								<input type="text"  name="returnNo" ng-model="vm.model.returnNo"id="" class="text-input floating-label">
+								<label for="returnNo">Return No.</label>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 text-width-auto pull-right">
+							<div class=" ">
+								<a href="" ng-click="vm.model.GetSalesReturnBillList()" class="btn btn-primary btn-save-box-shadow" title="Search">
+								<i class="fa fa-search" aria-hidden="true"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				 <div class="col-md-2 col-sm-2 padding-left-right-set4 text-width-auto padding-top10 pull-right">
+					<div class=" ">
+						<a href="#/addNewbillSalesReturn">
+							<input type="button" value="Add New" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+ 			<!-- <div class="row margin-top10 padding-left-right-set4">
+			<div
+				class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"
+						data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o"
+						style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div
+				class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search"
+					style="margin-top: 0px"> <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div> -->
+			<div class="row margin-top10">
+				<div class="col-md-12 col-lg-12 table-responsive padding-left-right-set4">
+					<div class="table-container padding-left-right-set4 padding-top5">
+						<div class="table-container-header">
+							<table class="table table-striped table-hover table-condensed table-bordered">
+								<thead>
+									<tr class="">
+										<th class="width10" title="Return Date">
+											Return Date
+											<div class="float_right" ng-click="sortType = 'returnDate'; sortReverse = !sortReverse">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width8" title="Return No.">
+											Return No.
+											<div class="float_right" ng-click="sortType = 'returnNo'; sortReverse = !sortReverse">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th  class="width6" title="UHID">
+											UHID
+											<div class="float_right" ng-click="sortType = 'uhid'; sortReverse = !sortReverse">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width10" title="Patient Details">
+											Patient Details
+											<div class="float_right" ng-click="sortType = 'patientDetail'; sortReverse = !sortReverse">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width6" title="Bill No.">
+											Bill No.
+											<div class="float_right" ng-click="sortType = 'billNo'; sortReverse = !sortReverse">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width6" title="Bill Date">
+											Bill Date
+											<div class="float_right" ng-click="sortType = 'billDate'; sortReverse = !sortReverse">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width6" title="Return Amount">
+											Return Amount
+											<div class="float_right" ng-click="sortType = 'returnAmount'; sortReverse = !sortReverse">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width6 text-center" title="Action">
+											Action
+										</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						<div class="table-container-body" style="height:500px; overflow-y: scroll; background: #ffffce;">		
+							<table class="table table-striped table-hover table-condensed table-bordered">
+								<tbody>	
+									<tr ng-repeat="salesReturnBill in vm.model.salesReturnBillList | filter : search |   orderBy:sortType:sortReverse">
+										<td class="width10" title="{{salesReturnBill.returnDate | date:'dd-MM-yyyy'}}">{{salesReturnBill.returnDate | date:'dd/MM/yyyy':'UTC'}}</td>
+										<td class="width8" title="{{salesReturnBill.returnNo}}">{{salesReturnBill.returnNo}}</td>
+										<td class="width6" title="{{salesReturnBill.uhid}}">{{salesReturnBill.uhid ? salesReturnBill.uhid : '-'}}</td>
+										<td class="width10" title="{{salesReturnBill.patientDetail}}">{{salesReturnBill.patientDetail}}</td>
+										<td class="width6" title="{{salesReturnBill.billNo}}">{{salesReturnBill.billNo}}</td>
+										<td class="width6" title="{{salesReturnBill.billDate | date:'dd-MM-yyyy'}}">{{salesReturnBill.billDate | date:'dd-MM-yyyy'}}</td>
+										<td class="width6" title="{{vm.model.Currency}} {{salesReturnBill.returnAmount  | number:2}}" style="text-align: right">{{vm.model.Currency}} {{salesReturnBill.returnAmount  | number:2}}</td>
+										<td style="width: 5.77% !important;" class="text-center vertical-middle">
+											<span><a title="Print">
+												<i class="fa fa-print" aria-hidden="true"></i>
+											</a></span>
+											<span class="padding-left10"><a class="cursor-pointer" ng-click="vm.model.SalesReturnBillDetails(salesReturnBill)" data-toggle="modal" data-target="#detailsModal">Details</a></span>
+										</td>
+									</tr>
+								</tbody>	
+							</table>
+						</div>
+					</div>		
+				</div>	
+			</div>
+	</div>
+</div>
+<!-- Page Content start-->
+
+<!--************************* details modal start *************************-->
+<div id="detailsModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog" style="width: auto !important;"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Sales Returns Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<!-- <div ng-include="'./views/common/patient-demography-info.html'"></div> -->
+
+				<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+					<span class="profile_pic"> 
+						<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:35px"  data-toggle="modal" data-target="#patientDetailsModal">
+					</span>
+					<span class="margin-left10"> </span>
+					<span class="margin-left10"><span class="padding-right5 font-weight600">UHID	:</span> {{vm.model.SalesReturnBillDetailList.uhid}}</span>
+					<span class="margin-left10"><span class="padding-right5 font-weight600">Patient Detail :</span> {{vm.model.SalesReturnBillDetailList.patientDetail}}</span>
+					<!-- <span class=""><span class=" font-weight600">/</span> {{SalesReturnBillDetailList.genderCode}}</span> -->
+					<!-- <span class=""><span class=" font-weight600">/</span> {{SalesReturnBillDetailList.age}}</span> -->
+					<span class="margin-left10"><span class="padding-right5 font-weight600">DOB	:</span> {{vm.model.SalesReturnBillDetailList.dob}}</span>
+					<span class="margin-left10 bed-mang-box-icon">
+						<img src="resources/assets/images/icon/bed/Allergies.png" title="Allergies" alt="Allergy" style="width:20px" class="popper" data-toggle="popover" data-trigger="hover">
+						<div class="popper-content hide">
+							<div>1.Eczema</div>
+							<div>2.Anaphylaxis</div>
+							<div>3.Diagnosis</div>
+						</div>
+					</span>
+					<span class="margin-left10 bed-mang-box-icon">
+						<img src="resources/assets/images/icon/bed/other investigation order.png" title="Comorbidity" alt="Allergy" style="width:20px" class="popper" data-toggle="popover" data-trigger="hover">
+						<div class="popper-content hide">
+							<div>1.Arthritis</div>
+							<div>2.High Blood Pressure</div>
+							<div>3.Sleep Apnea</div>
+						</div>
+					</span>
+					<span class="margin-left10 bed-mang-box-icon">
+						<img src="resources/assets/images/icon/bed/High Risk Patient.png" title="High Risk" alt="Allergy" style="width:20px" class="popper" data-toggle="popover" data-trigger="hover">
+						<div class="popper-content hide">
+							<div>1.Anti-infectives</div>
+							<div>2.Narcotics and Other Sedatives</div>
+							<div>3.Chemotherapeutic Agents</div>
+						</div>
+					</span>
+					
+				</div>
+
+				<div class="table-container padding-left-right-set4 padding-top5">
+					<div class="table-container-header">
+						<table class="table table-striped table-hover table-condensed table-bordered">
+							<thead>
+								<tr class="table-th-bg">
+									<th class="width15" title="Item Name">
+										Item Name
+										<div class="float_right" ng-click="sortType = 'itemName'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width12" title="Generic Name">
+										Generic Name
+										<div class="float_right" ng-click="sortType = 'genericName'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width8" title="Batch No.">
+										Batch No.
+										<div class="float_right" ng-click="sortType = 'batchNo'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width8" title="Expiry Date">
+										Expiry Date
+										<div class="float_right" ng-click="sortType = 'expiryDate'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width5" title="UOM">
+										UOM
+										<div class="float_right" ng-click="sortType = 'uomUnit'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width5" title="Qty Issued">
+										Qty Issued
+										<div class="float_right" ng-click="sortType = 'quantityIssued'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>								
+									<th class="width5" title="Rate">
+										Rate
+										<div class="float_right" ng-click="sortType = 'rate'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width5" title="Total Amount">
+										Total Amount
+										<div class="float_right" ng-click="sortType = 'totalAmount'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width5" title="Discount">
+										Discount
+										<div class="float_right" ng-click="sortType = 'discountAmount'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width5" title="Net Amount">
+										Net Amount
+										<div class="float_right" ng-click="sortType = 'netAmount'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width5" title="Qty Returned">
+										Qty Returned		
+										<div class="float_right" ng-click="sortType = 'returnQuantity'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width5" title="Refund Amount">
+										Refund Amount
+										<div class="float_right" ng-click="sortType = 'refundAmount'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width8" title="Return Reason">
+										Return Reason
+										<div class="float_right" ng-click="sortType = 'reason'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table-container-body" style="height:268px; overflow-y: scroll; background: #ffffce;">
+						<table class="table table-striped table-hover table-condensed table-bordered">
+							<tbody>	
+								<tr ng-repeat="item in vm.model.SalesReturnBillDetailList.item | filter : search |   orderBy:sortType:sortReverse">
+									<td class="width15" title="{{item.itemName}}">
+										<div>{{item.itemName}}</div>
+									</td>
+									<td class="width12" title="{{item.genericName}}">
+										<div>{{item.genericName}}</div>
+									</td>
+									<td class="width8" title="{{item.batchNo}}">
+										<div>{{item.batchNo}}</div>
+									</td>
+									<td class="width8" title="{{item.expiryDate | date:'MMM-yyyy'}}">
+										<div>{{item.expiryDate | date:'MMM-yyyy'}}</div>
+									</td>
+									<td class="width5" title="{{item.uomUnit}}">
+										<div>{{item.uomUnit}}</div>
+									</td>
+									<td style="text-align: right" class="width5" title="{{item.quantityIssued}}">
+										<div>{{item.quantityIssued}}</div>								
+									</td>
+									<td style="text-align: right" class="width5" title="{{vm.model.Currency}} {{item.rate  | number:2}}">
+										<div>{{vm.model.Currency}} {{item.rate  | number:2}}</div>
+									</td>
+									<td style="text-align: right" class="width5" title="{{vm.model.Currency}} {{item.totalAmount  | number:2}}">
+										<div>{{vm.model.Currency}} {{item.totalAmount  | number:2}}</div>
+									</td>
+									<td style="text-align: right" class="width5" title="{{vm.model.Currency}} {{item.discountAmount  | number:2}}">
+										<div>{{vm.model.Currency}} {{item.discountAmount  | number:2}}</div>
+									</td>
+									<td style="text-align: right" class="width5" title="{{vm.model.Currency}} {{item.netAmount  | number:2}}">
+										<div>{{vm.model.Currency}} {{item.netAmount  | number:2}}</div>
+									</td>
+									<td style="text-align: right" class="width5" title="{{item.returnQuantity}}">
+										<div>{{item.returnQuantity}}</div>
+									</td>
+									<td style="text-align: right" class="width5" title="{{vm.model.Currency}} {{item.refundAmount  | number:2}}">
+										<div>{{vm.model.Currency}} {{item.refundAmount  | number:2}}</div>
+									</td>
+									<td style="width: 8.25% !important;" title="{{item.reason}}">
+										<div>{{item.reason}}</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+					<div class="table-container-footer">
+						<table class="table table-striped table-hover table-condensed table-bordered">
+							<tfoot>
+								<tr class="table-th-bg"> 
+									<td colspan="12" class="text-right color-label">
+										<label>Total Refund Amount</label>
+									</td>
+									<td style="text-align: right" title="{{vm.model.Currency}} {{vm.model.SalesReturnBillDetailList.totalRefundAmount  | number:2}}">
+										{{vm.model.Currency}} {{vm.model.SalesReturnBillDetailList.totalRefundAmount  | number:2}}
+										<!-- <input type="text" value="200"  class="width94" placeholder="Total" title="Refund Total Amount" readonly disabled/> -->
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>	
+				</div> 
+			</div>
+		</div>
+		<div class="modal-footer" style="border:none;">
+			<div class="pull-right padding-left-right-set4">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Back</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--************************* details modal end *************************-->
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedPageName").text("Sales Returns");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="billSalesReturn"]').parents("li").addClass("active");
+});
+</script>

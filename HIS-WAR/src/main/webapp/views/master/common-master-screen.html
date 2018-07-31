@@ -1,0 +1,489 @@
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Details</legend> -->
+			<div class="row margin-top10">
+				<form name="commonform" novalidate>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<input type="hidden" ng-model="common.incremetedId"> <input
+										type="hidden" ng-model="commonType"> <input
+										type="text" name="commonCode" id=""
+										class="text-input floating-label" ng-model="common.code"   ng-class="{'dirty':updateBtnFlag == true}" ng-maxlength="10"
+										required> <label for="code" class="LISDynamicLabelOne">Code</label>
+									<p class="help-block"
+										ng-if="commonform.commonCode.$error.required">Code is
+										required</p>
+										<p class="help-block"
+										ng-if="commonform.commonCode.$error.maxlength">Maxmimum 10 character are allowed.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon width4">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<input type="text" name="commonDesc" id=""
+										ng-model="common.desc" class="text-input floating-label"   ng-class="{'dirty':updateBtnFlag == true}" ng-maxlength="256"
+										required> <label for="description"
+										class="LISDynamicLabel">{{LISDynamicLabel}}</label>
+									<p class="help-block"
+										ng-if="commonform.commonDesc.$error.required">Description
+										is required</p>
+										<p class="help-block"
+										ng-if="commonform.commonDesc.$error.maxlength">Maxmimum 256 character are allowed.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+
+		<!-- <div class="row">
+			<div class="col-md-8"></div>
+			<div class="col-md-4">
+				<div class="width-div-for-patient-reg ">
+					   <a href="" value="Save" ng-click="save()"
+						class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto"
+						title="Save" ng-if="saveBtnFlag" style="padding:4px 10px !important"><i class="fa fa-floppy-o"
+						style="font-size: 21px" aria-hidden="true" ></i></a> 
+						<a href=""
+						value="Update" ng-click="update()"
+						class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto"
+						title="Update" ng-if="updateBtnFlag"><i
+						class="fa fa-refresh" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+		</div> -->
+
+		<modal visible="showModal"></modal>
+			<!-- <div class="row padding-left-right-10 margin-top8">
+				<div class="col-lg-2 col-md-2">
+					 style="top: -11px;"
+					<div class="ssearch">
+						<span class="fa fa-search icon-size search-icon-for-search"></span> <input placeholder="Search" ng-model="searchKeyword" class="search-popUp-ddl">
+					</div>
+				</div>
+				<div class="col-lg-7  col-md-7"></div>
+				<div class="col-lg-2 col-md-2" style="text-align: right; padding-right: 0px;">
+					<div class="search">
+						<label class="show-entries">Show 
+						<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+							ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+							ng-change="setNoOfRecords();" class="search-popUp-ddl">
+								<option value="10">10</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+						</select> entries
+						</label>
+					</div>
+				</div>
+			
+			</div> -->
+			
+			<div class="row padding-top10">
+				<div class="col-md-6 col-sm-7 padding-left-right-set4">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-sm-6" style="padding-left: 0px;">
+								<div class="search">
+									<label class="show-entries">Show 
+									<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+										ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+										ng-change="setNoOfRecords();" class="search-popUp-ddl">
+											<option value="10">10</option>   	
+											<option value="25">25</option>
+											<option value="50">50</option>
+											<option value="100">100</option>
+									</select> entries
+									</label>
+								</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" ng-click="save()" ng-if="saveBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="update()" ng-if="updateBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      </div>
+			      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+			        <input type="text" class="text-search-box ng-pristine ng-untouched ng-valid ng-empty search-popUp-ddl" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+			        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			      </div>
+			</div>
+
+			<div class="row padding-left-right-set4 margin-top8">
+				<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr class="">
+							<th class="LISDynamicLabelOne">
+								<!-- <label class="LISDynamicLabelOne" >{{LISDynamicLabel}}</label> -->
+								Code
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("code")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("code")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+
+							</th>
+							<th class="common-lable-color-set"><label
+								class="LISDynamicLabel common-lable-color">{{LISDynamicLabel}}</label>
+
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("desc")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("desc")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div></th>
+							<th style="width: 8%">Status</th>
+							<th class="text-center" style="width: 8%">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="info in commonList|orderBy:column:reverse|filter:searchKeyword">
+							<td>{{info.code}}</td>
+							<td>{{info.desc}}</td>
+							<td><label class="switch"> <input type="checkbox"
+									ng-model="info.status" ng-checked="info.status=='A'"
+									ng-true-value="'A'" ng-false-value="'I'"
+									ng-change="updateStatus(info.id,info.status)">
+									<div class="slider round"></div>
+							</label></td>
+							<td class="text-center"><a><i class="fa fa-pencil"
+									aria-hidden="true" ng-click="showUpdateBtn(info.id)"></i></a></td>
+						</tr>
+					</tbody>
+				</table>
+					<table class="table table-bordered">
+					<tr ng-if="(commonList|filter:searchKeyword)=='' || (commonList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+				</div>
+
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- </div> -->
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		/* var pageFlag = $(".LISDynamicLabel").html().toLowerCase();
+		if(pageFlag == "department")
+		{
+			 $(".LISDynamicLabel").text("Department");
+			 $(".selectedPageName").text("Department Master");
+		
+		}
+		else if(pageFlag == "phlebotomy")
+		{
+			$(".LISDynamicLabel").text("Phlebotomy");
+			$(".selectedPageName").text("Phlebotomy Master");
+		
+		}
+		else if(pageFlag == "container")
+		{
+			$(".LISDynamicLabel").text("Container");
+			$(".selectedPageName").text("Container Master");
+		
+		}
+		else if(pageFlag == "sample")
+		{
+			$(".LISDynamicLabel").text("Sample");
+			$(".selectedPageName").text("Sample Master");
+			
+		}
+		else if(pageFlag == "report")
+		{
+			$(".LISDynamicLabel").text("Report Type");	
+			$(".selectedPageName").text("Report Type Master");
+			
+		}
+		else if(pageFlag == "techinque")
+		{
+			$(".LISDynamicLabel").text("Techinque");
+			$(".selectedPageName").text("Techinque Master");
+			
+		}
+		else if(pageFlag == "prerequisites")
+		{
+			$(".LISDynamicLabel").text("Prerequisites");	
+			$(".selectedPageName").text("Prerequisites Master");
+		
+		}
+		/* else if(pageFlag == "ageGroup")
+		{
+			$(".LISDynamicLabel").text("Age Group");
+			$(".selectedPageName").text("Age Group Master");
+		} */
+		/* else if(pageFlag == "unit")
+		{
+			$(".LISDynamicLabel").text("Unit");	
+			$(".selectedPageName").text("Unit Master");
+			
+		}
+		else if(pageFlag == "priority")
+		{
+			$(".LISDynamicLabel").text("Priority");	
+			$(".selectedPageName").text("Priority Master");
+			
+		}
+		else if(pageFlag == "regent")
+		{
+			$(".LISDynamicLabel").text("Reagent");	
+			$(".selectedPageName").text("Reagent Master");
+			
+		
+		}
+		else if(pageFlag == "bacteria")
+		{
+			$(".LISDynamicLabel").text("Bacteria shape");	
+			$(".selectedPageName").text("Bacteria Shape Master");
+			
+		}
+		else if(pageFlag == "microbiology")
+		{
+			$(".LISDynamicLabel").text("Microbiology Strength");	
+			$(".selectedPageName").text("Microbiology Strength Master");
+			
+		}
+		else if(pageFlag == "wetfilmstudy")
+		{
+			$(".LISDynamicLabel").text("Wet Film Study");	
+			$(".selectedPageName").text("Wet Film Study Master");
+			
+		} */
+		/* *******************Billing Master********************* */
+		/* else if(pageFlag == "payment master")
+		{
+			$(".LISDynamicLabel").text("Payment Entitlement");	
+			$(".selectedPageName").text("Payment Entitlement Master");
+		
+		}
+		else if(pageFlag == "patient category master")
+		{
+			$(".LISDynamicLabel").text("Patient Category");	
+			$(".selectedPageName").text("Patient Category Master");
+		
+		}
+		else if(pageFlag == "payment mode master")
+		{
+			$(".LISDynamicLabel").text("Payment Mode");	
+			$(".selectedPageName").text("Payment Mode Master");
+		
+		}
+		else if(pageFlag == "visit type master")
+		{
+			$(".LISDynamicLabel").text("Visit Type");	
+			$(".selectedPageName").text("Visit Type Master");
+		
+		}
+		else if(pageFlag == "bed type master")
+		{
+			$(".LISDynamicLabel").text("Bed Type");	
+			$(".selectedPageName").text("Bed Type Master");
+
+		}
+		else if(pageFlag == "discount reason master")
+		{
+			$(".LISDynamicLabel").text("Discount Reason");	
+			$(".selectedPageName").text("Discount Reason Master");
+		
+		}
+		else if(pageFlag == "billing department master")
+		{
+			$(".LISDynamicLabel").text("Department");	
+			$(".selectedPageName").text("Department Master");
+		
+		}
+		else if(pageFlag == "equipment master")
+		{
+			$(".LISDynamicLabel").text("Equipment ");	
+			$(".selectedPageName").text("Equipment Master");
+		
+		}
+		else if(pageFlag == "consultant master")
+		{
+			$(".LISDynamicLabel").text("Consultant Type");	
+			$(".selectedPageName").text("Consultant Type Master");
+
+		} */
+		/********************Pharmacy & Intventory Controll Master**********************/
+		/* else if(pageFlag == "pharmacy product master")
+		{
+			$(".LISDynamicLabel").text("Product Category");	
+			$(".selectedPageName").text("Product Category Master");
+		
+		}
+		else if(pageFlag == "product type master")
+		{
+			$(".LISDynamicLabel").text("Product Type");	
+			$(".selectedPageName").text("Product Type Master");
+		
+		}
+		else if(pageFlag == "product strength master")
+		{
+			$(".LISDynamicLabel").text("Product Strength");	
+			$(".selectedPageName").text("Product Strength Master");
+		
+		}
+		else if(pageFlag == "admin route master")
+		{
+			$(".LISDynamicLabel").text("Route of Administration");	
+			$(".selectedPageName").text("Administration Route Master");
+			
+		}
+		else if(pageFlag == "frequency master")
+		{
+			$(".LISDynamicLabel").text("Frequency");	
+			$(".selectedPageName").text("Frequency Master");
+			
+		}
+		else if(pageFlag == "schedule master")
+		{
+			$(".LISDynamicLabel").text("Schedule");	
+			$(".selectedPageName").text("Schedule Master");
+		
+		}
+		else if(pageFlag == "manufacture master")
+		{
+			$(".LISDynamicLabel").text("Manufacture");	
+			$(".selectedPageName").text("Manufacture Master");
+		
+		}
+		else if(pageFlag == "vendor master")
+		{
+			$(".LISDynamicLabel").text("Vendor");	
+			$(".selectedPageName").text("Vendor Master");
+		
+		}
+		else if(pageFlag == "rack master")
+		{
+			$(".LISDynamicLabel").text("Rack");	
+			$(".selectedPageName").text("Rack Master");
+		
+		}
+		else if(pageFlag == "store master")
+		{
+			$(".LISDynamicLabel").text("Store");	
+			$(".selectedPageName").text("Store Master");
+			
+		}
+		else if(pageFlag == "reason master")
+		{
+			$(".LISDynamicLabel").text("Reason");	
+			$(".selectedPageName").text("Reason Master");
+		
+		}
+		else if(pageFlag == "icutype")
+		{
+			$(".LISDynamicLabelOne").text("ICU");	
+			$(".LISDynamicLabel").text("ICU Type");	
+			$(".selectedPageName").text("ICU Type Master");
+		
+		}
+		else if(pageFlag == "identificationmaster")
+		{
+			$(".LISDynamicLabel").text("Identification Card");	
+			$(".selectedPageName").text("Identification Card Master");
+		
+		}
+		else if(pageFlag == "sexmaster")
+		{
+			$(".LISDynamicLabel").text("Sex");	
+			$(".selectedPageName").text("Sex Master");
+		
+		}
+		else if(pageFlag == "relationmaster")
+		{
+			$(".LISDynamicLabel").text("Relation");	
+			$(".selectedPageName").text("Relation Master");
+		
+		}
+		else if(pageFlag == "maritalstatus")
+		{
+			$(".LISDynamicLabel").text("Marital Status");	
+			$(".selectedPageName").text("Marital Status Master");
+		
+		}
+		else if(pageFlag == "religion")
+		{
+			$(".LISDynamicLabel").text("Religion");	
+			$(".selectedPageName").text("Religion Master");
+		
+		}
+		else if(pageFlag == "occupation")
+		{
+			$(".LISDynamicLabel").text("Occupation");	
+			$(".selectedPageName").text("Occupation Master");
+		
+		}
+		else if(pageFlag == "patientsource")
+		{
+			$(".LISDynamicLabel").text("Patient Source");	
+			$(".selectedPageName").text("Patient Source Master");
+		
+		}
+		else if(pageFlag == "referraltype")
+		{
+			$(".LISDynamicLabel").text("Referral Type");	
+			$(".selectedPageName").text("Referral Type Master");
+		
+		} */
+		/******************** Unit Master**********************/
+		/*else if(pageFlag == "Floor")
+		{
+			$(".LISDynamicLabel").text("Floor");	
+			$(".selectedPageName").text("Floor Master");
+		
+		} */
+	});
+</script>

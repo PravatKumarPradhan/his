@@ -1,0 +1,217 @@
+<div id="page-content-wrapper" style="height: 607px;">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<legend class="heading-div">Rack Master</legend>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<select name="store" id="store" class="text-input floating-label dirty" data-ng-options="store.store for store in vm.model.Stores"
+								 ng-model="vm.model.store" ng-change="vm.model.isstoreValid = false" show-focus="vm.model.store">
+								</select>
+								<p ng-if="vm.model.isstoreValid" class="errorMsg">Store is required</p>
+								<label for="code">Store</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="rackCode" id="rackCode" ng-model="vm.model.rackCode" ng-class="{dirty: vm.model.rackCode}" class="text-input floating-label"
+								 ng-change="vm.model.israckCodeValid = false" show-focus="vm.model.rackCode">
+								<p ng-if="vm.model.israckCodeValid" class="errorMsg">Rack Code is required</p>
+								<label for="description" class="LISDynamicLabel">Rack Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-info-circle" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="rackName" id="rackName" ng-model="vm.model.rackName" ng-class="{dirty: vm.model.rackName}" class="text-input floating-label"
+								 ng-change="vm.model.israckNameValid = false" show-focus="vm.model.rackName">
+								<p ng-if="vm.model.israckNameValid" class="errorMsg">Rack Name is required</p>
+								<label for="description" class="LISDynamicLabel">Rack Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<!-- <label>Delta</label> -->
+					<div class="radio-btn-div-style table-responsive refarnce-range">
+						<table class="table table-bordered" id="delta">
+							<tbody>
+								<tr class="">
+									<th>Shelf Code</th>
+									<th>Shelf Name</th>
+									<th>Action</th>
+								</tr>
+								<tr ng-repeat="Shelf in vm.model.shelf_details">
+									<td class="width12">
+										<input type="text" ng-model="Shelf.shelfCode" class="select-box" ng-change="vm.model.isShelfCodeValid[$index] = false" ng-class="{borderRed: vm.model.isShelfCodeValid[$index]}"
+										/>
+									</td>
+									<td class="width10">
+										<input type="text" ng-model="Shelf.shelfName" class="select-box" ng-change="vm.model.isShelfNameValid[$index] = false" ng-class="{borderRed: vm.model.isShelfNameValid[$index]}"
+										/>
+									</td>
+									<td class="width4" style="width: 3.8% !important">
+										<span>
+											<input type="button" ng-click="vm.model.AddDuplicateRow($index)" value="+" class="btn btn-info add-dynamic-row note-width">
+										</span>
+										<span>
+											<input type="button" ng-click="vm.model.RemoveRowData($index)" value="-" class="btn btn-info add-dynamic-row note-width"
+											 ng-if="$index !== 0">
+										</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-10 ">
+			<div class="col-md-8 "></div>
+			<div class="col-md-4 col-sm-4 " style="padding-top: 5px; ">
+				<div class="col-lg-10 col-md-9 col-sm-9 ">
+					<input type="text " class="text-search-box " ng-model="search" name="search" placeholder="Search ">
+					<i class="fa fa-search common-search-text-icon " aria-hidden="true " style="top: 14px; "></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg padding-top8">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmSave">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-10 " style="padding-top: 20px; ">
+			<div class="col-md-12 ">
+				<table class="table table-bordered ">
+					<thead>
+						<tr>
+							<th>
+								Store
+								<div class="float_right " ng-click="sortType='storeName' ; sortReverse=! sortReverse ">
+									<div>
+										<i class="fa fa-caret-up " aria-hidden="true "></i>
+									</div>
+									<div class="margin-top-8 ">
+										<i class="fa fa-caret-down " aria-hidden="true "></i>
+									</div>
+								</div>
+							</th>
+							<th>
+								Rack Code
+								<div class="float_right " ng-click="sortType='rackCode' ; sortReverse=! sortReverse ">
+									<div>
+										<i class="fa fa-caret-up " aria-hidden="true "></i>
+									</div>
+									<div class="margin-top-8 ">
+										<i class="fa fa-caret-down " aria-hidden="true "></i>
+									</div>
+								</div>
+							</th>
+							<th>
+								Rack Name
+								<div class="float_right " ng-click="sortType='rackName' ; sortReverse=! sortReverse ">
+									<div>
+										<i class="fa fa-caret-up " aria-hidden="true "></i>
+									</div>
+									<div class="margin-top-8 ">
+										<i class="fa fa-caret-down " aria-hidden="true "></i>
+									</div>
+								</div>
+							</th>
+							<th class="width8 ">
+								Status
+								<div class="float_right " ng-click="sortType='status' ; sortReverse=! sortReverse ">
+									<div>
+										<i class="fa fa-caret-up " aria-hidden="true "></i>
+									</div>
+									<div class="margin-top-8 ">
+										<i class="fa fa-caret-down " aria-hidden="true "></i>
+									</div>
+								</div>
+							</th>
+							<th class="width8 ">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="rackMaster in vm.model.RackList | filter : search | orderBy:sortType:sortReverse ">
+							<td>{{rackMaster.storeName}}</td>
+							<td>{{rackMaster.rackCode}}</td>
+							<td>{{rackMaster.rackName}}</td>
+							<td>
+								<label class="switch switch-small ">
+									<input type="checkbox" class="switchInput " data-target="#confirmSave" ng-model="rackMaster.status" ng-change="vm.model.ToggleStatus(rackMaster) ">
+									<div class="slider round slider-small"></div>
+								</label>
+							</td>
+							<td class="padding-edit-button-table text-center ">
+								<a ng-click="vm.model.PopulateRackMaster(rackMaster.id)">
+									<i class="fa fa-pencil " aria-hidden="true " title="Edit "></i>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal start -->
+
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+		<div class="modal-content" style="border-radius: 0px !important;">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Are you sure you want to Save?</span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none; ">
+				<button type="button" ng-click="vm.model.SaveRackMaster()" data-dismiss="modal" class="btn btn-primary">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal end -->
+
+<script type="text/javascript ">
+	$(document).ready(function () {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper ").css("height ", sideBarHeight + "px ");
+
+		$(".selectedPageName ").text("Rack Master ");
+		$(".sidebar-nav li ").each(function () {
+			$(this).find("a ").parents("li ").removeClass("active ");
+		});
+		$('a[href$="rackMaster "]').parents("li ").addClass("active ");
+	});
+</script>

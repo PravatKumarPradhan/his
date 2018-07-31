@@ -1,0 +1,299 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		
+		<div class="row patient-details-row">
+			<div class="col-md-11 col-sm-11 col-xs-11 ">
+				<span class="profile_pic margin-left10"> 
+					<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+				</span> 
+				<span class="margin-left10">{{tSubSpecimanMaster.patientDetails}}&nbsp;{{tSubSpecimanMaster.age}}/{{tSubSpecimanMaster.genderName}} </span>
+				<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> {{tSubSpecimanMaster.uhid}}</span>
+				<!-- <span class="margin-left10"><b class="padding-right10 ">Priority :</b> Normal</span> -->
+				<span class="margin-left10">{{tSubSpecimanMaster.doctorDetails}}</span>
+			</div>
+		</div>
+		
+		<div class="row" ng-repeat="grossObj in listTRestainRequestDetailsMaster track by $index" ng-init="grossIndex=$index">
+			<div class="col-lg-12 col-md-12  padding-left-right-set4"><!-- height-table-with-scroll -->
+				<table class="table table-striped table-bordered margin-top4">
+							<thead class="create-slide" >
+								<tr>
+									<th colspan="4">
+										<div class="row">
+											<div class="col-lg-4 col-md-4 col-sm-4"> Gross No.: {{grossObj.grossNo}} </div>
+											<div class="col-lg-4 col-md-4 col-sm-4"> Specimen Name : {{tSubSpecimanMaster.specimanName}}</div>
+											<div class="col-lg-4 col-md-4 col-sm-4"> Histopathology No.: {{tSubSpecimanMaster.histopathlogyNumber}} </div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody  ng-repeat="blockObj  in grossObj.listTRestainingRequestDetailsMasterDto track by $index" ng-init="blockIndex=$index">
+								<tr>
+									<th class="width50">Block No.</th>
+									<th class="width50" colspan="3">Restaining Against</th>
+								</tr>
+								<tr>
+									<td>
+										<strong>{{blockObj.blockNo}}</strong>
+									</td>
+									<td colspan="3">
+										<div class="col-md-2 padding-left-right-set4">
+											<a data-toggle="modal"  ng-click="getSlidesAgainstExisting(grossIndex,blockIndex);">Existing Slide</a>
+										</div>
+										<div class="col-md-2 padding-left-right-set4">
+											<a data-toggle="modal" ng-click="getSlidesAgainstNew(grossIndex,blockIndex);">New Slide</a>
+										</div>
+									</td>
+								</tr>
+								<tr ng-repeat="restainRequestSubDtls in blockObj.listTRestainingReqSubDetailsMaster track by $index" ng-init="slideIndex=$index" >
+									<td>
+										<!-- <select class="select-box" ng-model="restainRequestSubDtls.tSlideId"  name="tSlideId" required convert-to-number>
+												<option selected value>Please Select Slides</option>
+												<option ng-repeat="slides in blockObj.listSlidesNo" value="{{slides.id}}">{{slides.name}}</option>
+									    </select> -->
+									    {{restainRequestSubDtls.slideNo}}
+										
+									</td>
+									<td>
+										<select class="select-box" ng-model="restainRequestSubDtls.stainingId"  name="stainingId" required convert-to-number disabled>
+												<option selected value>Please Select Stain</option>
+												<option ng-repeat="stainObj in stainingList" value="{{stainObj.id}}">{{stainObj.name}}</option>
+									   </select>
+									</td>
+									<td>
+										<div>
+											<input type="text"  id="" class="text-box-for-ICU" name="Remark" ng-model="restainRequestSubDtls.remark" disabled>
+										</div>
+									</td>
+									<td>
+										<div class="" style="margin-top: -2px;">
+											<input style="width:36px" type="button" name="" id="addr" value="-" ng-click="removeRestainSlides(grossIndex,blockIndex,slideIndex);" class="btn btn-info" ng-if="slideIndex>0">&nbsp;&nbsp;
+										</div>
+									</td>
+								</tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+				<div class="col-md-10"></div>
+				<div class="col-md-1 padding-left-right-set4">
+					<div class="">
+						<a ng-click="saveRestainRequestDetails();">
+							<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+				<div class="col-md-1 padding-left0px-right6px">
+					<div class="">
+						<a ng-click="generateReportCreationUrl();">
+							<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+
+<div id="existingSlideModal"  role="dialog" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Existing Slide
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 height-table-with-scroll padding-left-right-set4">
+						<table class="table table-striped table-bordered margin-top4">
+								<thead class="">
+									<tr>
+										<th class="width30">
+											Slide No
+										</th>
+										<th class="width20">
+											Stain
+										</th>
+										<th class="width50">
+											Remark
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+										    <select class="select-box" ng-model="tSlideId"  name="tSlideId" required convert-to-number>
+												<option selected value>Please Select Slides</option>
+												<option ng-repeat="slides in slideList track by $index" value="{{slides.id}}">{{slides.name}}</option>
+									       </select>
+									   </td>
+										<td>
+											<select class="select-box" ng-model="stainingId"  name="stainingId" required convert-to-number>
+												<option selected value>Please Select Stain</option>
+												<option ng-repeat="stainObj in stainingList" value="{{stainObj.id}}">{{stainObj.name}}</option>
+									       </select>
+										</td>
+										<td>
+											<input type="text" class="select-box" ng-model="remark">
+										</td>
+									</tr>
+								</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<div class="row">
+            		<div class="col-md-6"></div>
+					
+					<div class="col-md-3 ">
+					</div>
+					<div class="col-md-1 ">
+					</div>
+					<div class="col-md-2">
+						<div class="">
+							<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow" ng-click="addSlidesAgainstExisting();" >
+						</div>
+					</div>
+            	</div>
+			</div>
+		</div>
+	</div>
+</div>	
+<div id="newSlideModal"  role="dialog" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					 New Slide
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+				<div class="col-lg-12 col-md-12 height-table-with-scroll padding-left-right-set4">
+					<table class="table table-striped table-bordered margin-top4">
+					<thead>
+						<tr>
+									<th colspan="3">
+											<label>No. of Slide</label>
+										<div>
+											<select class="noOfSlideDropDown select-box" ng-model="noOfslide" ng-change="selectNewSlides(noOfslide);">
+												<option>Select No Of Slide</option>
+												<option ng-repeat="noOfslides in noOfSlideList" value="{{noOfslides.id}}">{{noOfslides.no}}</option>
+											</select>
+										</div>
+									</th>
+								</tr>
+					</thead>
+					</table>
+					<table class="table table-striped table-bordered margin-top4">
+							<thead class="">
+								
+								<tr>
+									<th class="width30">
+										Slide No
+									</th>
+									<th class="width20">
+										Stain
+									</th>
+									<th class="width50">
+										Remark
+									</th>
+								</tr>
+							</thead>
+							<tbody ng-repeat="restainRequestObj in listTRestainingReqSubDetailsMaster track by $index">
+								<tr>
+									<td>-</td>
+									<td>
+										<select class="select-box" ng-model="restainRequestObj.stainingId"  name="stainingId" required convert-to-number>
+												<option selected value>Please Select Stain</option>
+												<option ng-repeat="stainObj in stainingList" value="{{stainObj.id}}">{{stainObj.name}}</option>
+									     </select>
+									</td>
+									<td>
+										<input type="text" class="select-box" ng-model="restainRequestObj.remark">
+									</td>
+								</tr>
+							</tbody>
+					</table>
+				</div>
+			</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<div class="row">
+            		<div class="col-md-6"></div>
+					
+					<div class="col-md-3 ">
+					</div>
+					<div class="col-md-1 ">
+					</div>
+					<div class="col-md-2">
+						<div class="">
+							<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow" ng-click="addSlidesAgainstNew();">
+						</div>
+					</div>
+            	</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<script type="text/javascript">
+	$( document ).ready(function() {
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	 	
+	$(".selectedPageName").text("Restaining Request");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="requestInterConsult"]').parents("li").addClass("active");
+	
+	});
+	
+	$( ".grossDropDown" ).change(function() {
+		 $(".restainingBlock").show();
+		});
+	$( ".noOfSlideDropDown" ).change(function() {
+		$("#restainingRequestForStain tbody").empty();
+		var selectedValue = $('.noOfSlideDropDown :selected').text();
+		for(var i=1; i<= selectedValue; i++){
+			var createdTableDependsSelectedSlide = "<tr>"
+													+"<td>"
+													+"<div>"
+													+	i 
+													+"</div>" 
+													+"</td>"
+													+"<td>"
+													+"<div>"
+													+	"<input type='text'  id='' class='text-box-for-ICU'>"
+													+"</div>"
+													+"</td>"
+													+"<td>"
+													+"<div>"
+													+	"<input type='text'  id='' class='text-box-for-ICU'>"
+													+"</div>"
+													+"</td>"
+													+"</tr>"
+			$("#restainingRequestForStain tbody").append(createdTableDependsSelectedSlide);
+		}
+		$(".created-gross-table-row").click(function(){
+			 alert("2");
+		       $(".block-expand").next("tr").toggle();
+		        $(this).parentsUntil('tr').parent().next().toggle("slow");
+		    });
+			$(".create-slide").click(function(){
+				alert("1");
+				$(this).next("tbody").toggle("slow");
+				//$(this).next("tbody").toggle("slow");
+			});
+	});
+	
+	
+</script>

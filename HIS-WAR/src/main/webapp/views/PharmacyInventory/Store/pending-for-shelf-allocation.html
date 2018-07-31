@@ -1,0 +1,718 @@
+<!-- /********************************************************************************************************************************************
+Inventory - store - Pending For Shelf Allocation - main page
+Created by - Pranita Patil
+Created Date - 11-Dec-2017 
+/********************************************************************************************************************************************/ -->
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<div class="row margin-top4">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-building-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select name="store" id="store" class="text-input floating-label dirty" ng-disabled="!!vm.model.opbId" data-ng-options="store.store for store in vm.model.stores"
+								 ng-model="vm.model.store">
+								</select>
+								<label for="description" class="LISDynamicLabel">Store</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select name="assetCategory" id="assetCategory" class="text-input floating-label dirty" data-ng-options="category.category for category in vm.model.assetCategories"
+								 ng-model="vm.model.assetCategory" ng-change="vm.model.GetProductCategoryList(vm.model.assetCategory.id)">
+								</select>
+
+
+								<label for="description" class="LISDynamicLabel">Asset Category</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select name="productCategory" id="productCategory" class="text-input floating-label dirty" data-ng-options="category.category for category in vm.model.productCategories"
+								 ng-model="vm.model.productCategory">
+								</select>
+								<label for="description" class="LISDynamicLabel">Product Category</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id="" ng-model="vm.model.itemCode" class="text-input floating-label dirty">
+								<label for="code">Item Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id="" ng-model="vm.model.itemName" class="text-input floating-label dirty">
+								<label for="code">Item Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label dirty">
+										<label for="code">Batch No.</label>
+									</div>
+								</div>
+							</div>
+						</div> -->
+
+
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-10 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-9 col-sm-9 col-md-8 padding-left-right-set4">
+							<div class="">
+								<input type="text" name="code" id="" ng-model="vm.model.batchNo" class="text-input floating-label dirty">
+								<label for="code">Batch No.</label>
+							</div>
+						</div>
+						<div class="col-lg-2 col-sm-2 col-md-3">
+							<div class="common-save-button" style="padding-top: 0px;">
+								<a href="" class="btn btn-primary btn-save-box-shadow text-width-auto" ng-click="vm.model.PendingShelfAllocationSearch();">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="row padding-left-right-set4 margin-top4 custom-sub-tab">
+				<ul class="tabs nav nav-tabs">
+					<li class="{{vm.model.ActiveTab == 1 ? 'active' : ''}} width18">
+						<a href="" ng-click="vm.model.ActiveTab = 1">Allocated Item</a>
+					</li>
+					<li class="{{vm.model.ActiveTab == 2 ? 'active' : ''}} width18">
+						<a href="" ng-click="vm.model.ActiveTab = 2">Pending For Allocation</a>
+					</li>
+				</ul>
+			</div>
+			<div class="row padding-left-right-set4">
+				<div ng-show="vm.model.ActiveTab == 1" class="second-level-tab-display-div">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set1 float_right">
+							<input type="text" class="text-search-box dirty" ng-model="searchAllocationData" placeholder="Search" style="margin-top:0px">
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="row padding-top10">
+						<div class="container-fluid his-style">
+							<div class="table-container padding-left-right-set4 padding-top5">
+								<div class="table-container-header">
+									<table class="table table-striped table-hover table-condensed table-bordered">
+										<thead class="mainServiceTableCommon">
+											<tr>
+												<th class="width8">
+													Item Code
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Item Name
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Batch No
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Expiry Date
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Available Qty
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Rack
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Shelf
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width4 text-center">
+													Status
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width3 text-center">
+													Action
+												</th>
+
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="table-container-body" style="height:400px; overflow-y: scroll;">
+									<table class="table table-striped table-hover table-condensed table-bordered">
+										<tbody>
+											<tr ng-repeat="shelf in vm.model.allocationData | orderBy:sortType:sortReverse | filter:searchAllocationData">
+												<td class="width8">{{shelf.itemCode}}</td>
+												<td class="width8">{{shelf.itemName}}</td>
+												<td class="width8">{{shelf.batchNo}}</td>
+												<td class="width8">{{shelf.expiry | date:'MMM-yyyy' }}</td>
+												<td class="width8">{{shelf.availableQuantity}}</td>
+												<td class="width8">{{shelf.rack}}</td>
+												<td class="width8">{{shelf.shelf}}</td>
+												<td class="width4 text-center">
+													<label class="switch">
+														<input type="checkbox" ng-model="shelf.status" ng-change="vm.model.UpdateStatus(shelf)">
+														<div class="slider round"></div>
+													</label>
+												</td>
+												<td style="    width: 2.74%! important;" class="text-center">
+													<a title="Edit" ng-click="vm.model.allocatePopup(shelf)" data-toggle="modal">
+														<i class="fa fa-pencil"></i>
+													</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div ng-show="vm.model.ActiveTab == 2" class="second-level-tab-display-div">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set1 float_right">
+							<input type="text" class="text-search-box dirty" ng-model="searchPendingShelfAllocationData" placeholder="Search" style="margin-top:0px">
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="row padding-top10">
+						<div class="container-fluid his-style">
+							<div class="table-container padding-left-right-set4 padding-top5">
+								<div class="table-container-header">
+									<table class="table table-striped table-hover table-condensed table-bordered">
+										<thead class="mainServiceTableCommon">
+											<tr>
+												<th class="width6">
+													Item Code
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Item Name
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Batch No
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Expiry Date
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Available Qty
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width3 text-center">
+													Action
+												</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="table-container-body" style="height:400px; overflow-y: scroll;">
+									<table class="table table-striped table-hover table-condensed table-bordered">
+										<tbody>
+											<tr ng-repeat="shelf in vm.model.pendingShelfAllocationData | orderBy:sortType:sortReverse | filter:searchPendingShelfAllocationData">
+												<td class="width6">{{shelf.itemCode}}</td>
+												<td class="width8">{{shelf.itemName}}</td>
+												<td class="width8">{{shelf.batchNo}}</td>
+												<td class="width8">{{shelf.expiry | date:'MMM-yyyy' }}</td>
+												<td class="width8">{{shelf.availableQuantity}}</td>
+												<td style="    width: 2.81% !important;" class=" text-center">
+													<a class="cursor-pointer" ng-click="vm.model.allocatePopup(shelf)" data-toggle="modal">Allocate</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>
+<!-- EditAllocate Modal START  -->
+<div id="editAllocatedItemModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Edit Allocated Item
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll205 padding-left-right-set4 margin-top4">
+						<table class="table table-bordered first-checkBox-padding">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width8">
+										Rack
+									</th>
+									<th class="width8">
+										Shelf
+									</th>
+									<th class="width1">
+										Action
+									</th>
+									<th class="width1">
+
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+									<td></td>
+									<td>
+										<input type="button" name="" id="" value="+" class="btn btn-info add-dynamic-row" style="padding: 0 2px !important;">
+									</td>
+									<td class="text-center">
+										<a class="cursor-pointer" data-target="#viewAllocatedItemModal" data-toggle="modal">View</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right text-width-auto">
+					<div class=" ">
+						<a class="btn btn-primary btn-save-box-shadow" title="Save" data-dismiss="modal">Save</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- EditAllocate Modal END -->
+<!-- ViewAllocate Modal START  -->
+<div id="viewAllocatedItemModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					View Allocated Item
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll205 padding-left-right-set4 margin-top4">
+						<table class="table table-bordered first-checkBox-padding">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width8">
+										Item Code
+									</th>
+									<th class="width8">
+										Item Name
+									</th>
+									<th class="width8">
+										Batch No.
+									</th>
+									<th class="width8">
+										Expiry Date
+									</th>
+									<th class="width8">
+										Available Qty
+									</th>
+									<th class="width8">
+										Rack
+									</th>
+									<th class="width8">
+										Self
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right text-width-auto">
+					<div class=" ">
+						<a class="btn btn-primary btn-save-box-shadow" title="" data-dismiss="modal">OK</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ViewAllocate Modal END -->
+<!-- EditPendingAllocate Modal START  -->
+<div id="editPendingAllocatedItemModal" class="modal fade ng-scope in common-medium-popup" style="height: auto;">
+	<div class="modal-dialog" style="width: 1000px !important">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Allocated Pending List
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select name="rack" id="rack" class="text-input floating-label dirty" ng-change="vm.model.PopulateShelfDropdown()" ng-disabled="!!vm.model.opbId"
+									 data-ng-options="rack.rack for rack in vm.model.racks" ng-model="vm.model.rack">
+									</select>
+									<label for="description" class="">Rack</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select name="shelf" id="shelf" class="text-input floating-label dirty" data-ng-options="shelf.shelf for shelf in vm.model.shelfs"
+									 ng-model="vm.model.shelf">
+										<option value="">Select Shelf</option>
+									</select>
+									<input type="hidden" value="0" ng-model="vm.model.storeId">
+									<label for="description" class="">Shelf</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 text-width-auto padding-top4 pull-right">
+						<div class="common-save-button">
+							<button type="button" ng-disabled="vm.model.rack.id <= 0 && vm.model.shelf.id <= 0" class="btn btn-primary" ng-click="vm.model.addButtonClick()"
+							 style="margin-top: -9px;" id="">Add</button>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 pull-right">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll200 padding-left-right-set4 margin-top4">
+						<table class="table table-bordered first-checkBox-padding">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width8">
+										Rack
+									</th>
+									<th class="width8">
+										Shelf
+									</th>
+									<th class="width1">
+										Action
+									</th>
+								</tr>
+							</thead>
+							<tbody ng-repeat="item in vm.model.itemList">
+								<tr>
+									<td>{{item.rack}}</td>
+									<td>{{item.shelf}}</td>
+									<td class="text-center">
+										<a class="cursor-pointer" ng-click="vm.model.onViewClick($index , item)">View</a>
+										<!-- data-target="#viewPendingAllocatedItemModal" -->
+										<a title="Remove" ng-click="vm.model.removeRowData(item)">
+											<i class="fa fa-times"></i>
+										</a>
+									</td>
+								</tr>
+								<tr class="{{(vm.model.activeIndex == $index ? 'ng-show' : 'ng-hide')}}">
+									<td colspan="4">
+										<div class="selectedServicesList">
+											<div class="table-container padding-left-right-set4 padding-top5">
+												<div class="table-container-header">
+													<table class="table table-striped table-hover table-condensed table-bordered">
+														<tbody>
+															<tr>
+																<th class="width8">
+																	Item Code
+																</th>
+																<th class="width8">
+																	Item Name
+																</th>
+																<th class="width8">
+																	Batch No.
+																</th>
+																<th class="width8">
+																	Expiry Date
+																</th>
+																<th class="width8">
+																	Available Qty
+																</th>
+																<th class="width8">
+																	Rack
+																</th>
+																<th class="width8">
+																	Self
+																</th>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<div class="table-container-body" style="max-height: 112px;overflow-y: scroll;height: auto;">
+													<table class="table table-striped table-hover table-condensed table-bordered">
+														<tbody ng-repeat="itemDetail in vm.model.itemDetailList">
+															<td>{{itemDetail.itemCode}}</td>
+															<td>{{itemDetail.itemName}}</td>
+															<td>{{itemDetail.batchNo}}</td>
+															<td>{{itemDetail.expiry}}</td>
+															<td>{{itemDetail.availableQuantity}}</td>
+															<td>{{itemDetail.rack}}</td>
+															<td>{{itemDetail.shelf}}</td>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right text-width-auto">
+					<div class=" ">
+						<a class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.saveNewPendingShelf(itemDetail)" title="Save" data-dismiss="modal">Save</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- EditPendingAllocate Modal END -->
+<!-- ViewPendingAllocate Modal START  -->
+<div id="viewPendingAllocatedItemModal" class="modal fade ng-scope in common-medium-popup">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					View Pending For Allocated
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll205 padding-left-right-set4 margin-top4">
+						<table class="table table-bordered first-checkBox-padding">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width8">
+										Item Code
+									</th>
+									<th class="width8">
+										Item Name
+									</th>
+									<th class="width8">
+										Batch No.
+									</th>
+									<th class="width8">
+										Expiry Date
+									</th>
+									<th class="width8">
+										Available Qty
+									</th>
+									<th class="width8">
+										Rack
+									</th>
+									<th class="width8">
+										Self
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right text-width-auto">
+					<div class=" ">
+						<a class="btn btn-primary btn-save-box-shadow" title="" data-dismiss="modal">OK</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ViewPendingAllocate Modal END -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		$(".selectedPageName").text("Pending For Shelf Allocation");
+		$(".sidebar-nav li").each(function () {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+
+	});
+</script>

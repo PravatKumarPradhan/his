@@ -1,0 +1,518 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<div class="row margin-top10">
+				<div class="col-lg-10 col-md-10 padding-left-right-10">
+					<!-- ***********Details row start *************** -->
+					<div class="row margin-top10">
+						<div class="col-md-2 col-sm-4">
+							<span><label>QR No:</label></span>
+							<span>123456</span>
+						</div>
+						<div class="col-md-2 col-sm-4">
+							<span><label>QR Date:</label></span>
+							<span>15/11/2017</span>
+						</div>
+						<div class="col-md-2 col-sm-4">
+							<span><label>VQR No:</label></span>
+							<span>1234</span>
+						</div>
+						<div class="col-md-2 col-sm-4">
+							<span><label>VQR Date:</label></span>
+							<span>16/11/2017</span>
+						</div>
+						<div class="col-md-2 col-sm-4">
+							<span><label>Vendor Name:</label></span>
+							<span>Vikram Sharma</span>
+						</div>
+					</div>
+					<!-- ***********Details row end *************** -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 fix-height-scroll550 padding-top10 padding-left-right-set4">
+					<table class="table table-bordered">
+						<thead>
+							<tr class="table-th-bg">
+								<th colspan="13" class="font-weight700">Item Details</th>
+							</tr>
+							<tr>
+								<th class="width8">Item Code
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width12">Item Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">UOM
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width6">UOM Unit
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">Qty
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width6">Vendor COP
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width3 text-center">Remarks</th>
+								<th class="width5 text-center">On Hold Reason</th>
+								<th class="width6 text-center">Accessories</th>
+								<th class="width6 text-center">Support Terms</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="text-center">
+									<a class="cursor-pointer" title="Remark Details">
+										<i class="fa fa-info-circle" aria-hidden="true" title="Remark" data-target="#remarksDetailsModal" data-toggle="modal"></i>
+									</a>
+								</td>
+								<td class="text-center">
+									<a class="cursor-pointer" title="On Hold Reason Details">
+										<i class="fa fa-info-circle" aria-hidden="true" title="Remark" data-target="#onHoldReasonDetailsModal" data-toggle="modal"></i>
+									</a>
+								</td>
+								<td class="text-center media-middle">
+									<a class="cursor-pointer" title="Accessories Details">
+										<i class="fa fa-info-circle" aria-hidden="true" title="Terms" data-target="#AcceseriesDetailsModal" data-toggle="modal"></i>
+									</a>
+								</td>
+								<td class="text-center media-middle">
+									<a  class="cursor-pointer">
+										<i class="fa fa-info-circle" aria-hidden="true" title="Terms" data-target="#vendorSelectionDetailsModal2" data-toggle="modal"></i>
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row margin-top10">
+			<div class="col-lg-10 col-md-10 padding-left-right-set4"></div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a href="">
+						<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a href="#/quotationFillIn">
+						<input type="button" value="Back"  class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+		</div>
+		
+	</div>
+</div>
+<!-- Accesories details modal start -->
+<div id="AcceseriesDetailsModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Accessories Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row fix-height-scroll500">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10" id=""><!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width10">Name
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width45">Details
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width45">Vendor Details
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Mouse</td>
+									<td>
+										<textarea class="resize-set" rows="4" cols="30" readonly>This HPD Hardware Limited Warranty gives you, the customer, express limited warranty rights.</textarea>
+									</td>
+									<td>
+										<textarea class="resize-set" rows="4" cols="30"></textarea>
+									</td>
+	 									
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Accesories details modal end -->
+<!-- Expected terms Details modal start -->
+<div id="vendorSelectionDetailsModal2" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Support Terms
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="fix-height-scroll500 padding-top10">
+						
+						<div class="col-lg-12 col-md-12 col-xs-12">
+							<div class="row">
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow">Warranty Period</a>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow" >Support Terms</a><!-- ng-href="#/quotationEDetails/supportTerms" -->
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow">Payment Terms</a><!-- ng-href="#/quotationEDetails/paymentTerms" -->
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow">Technical Specification</a><!-- ng-href="#/quotationEDetails/technicalSpecification" -->
+									</div>
+								</div>
+							</div>
+							<div class="row dayWiseSlot" ui-view>
+								<!-- *************Expected support terms start********************* -->
+								<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+									<div class="row searched-patient-details-row margin-top8 bg-grey-for-list">
+										<div class="col-md-12 col-sm-12 col-xs-12 ">
+											<fieldset class=" div-fieldset ">
+												<legend class="heading-div">
+													<span>Expected Support Terms </span>
+												</legend>
+												<div class="row common-table-height-130">
+													<div class="col-md-12">
+														<table class="table table-bordered">
+															<tbody>
+																<tr>
+																	<td>Terms 1</td>
+																</tr>
+																<tr>
+																	<td>Terms 2</td>
+																</tr>
+																<tr>
+																	<td>Terms 3</td>
+																</tr>
+																<tr>
+																	<td>Terms 4</td>
+																</tr>
+																<tr>
+																	<td>Terms 5</td>
+																</tr>
+																<tr>
+																	<td>Terms 6</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</fieldset>
+											<fieldset class=" div-fieldset">
+												<legend class="heading-div">
+													<span>Vendor Support Terms </span>
+												</legend>
+												<div class="row common-table-height-130">
+													<div class="col-md-12"><input type="text" class="select-box" readonly/></div>
+												</div>
+											</fieldset> 
+										</div>
+									</div>					
+								</div>
+								<!-- *************Expected payment terms end********************** -->
+							</div>
+						</div>	
+						  
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Expected terms Details modal end -->
+<!-- Accessories terms Details modal start -->
+<div id="accessssoriesDetailsModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					 Accessories terms
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="fix-height-scroll500 padding-top10 padding-left-right-set4">
+						
+						<div class="col-lg-12 col-md-12 col-xs-12">
+							<div class="row">
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow">Warranty Period</a>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow" >Support Terms</a><!-- ng-href="#/quotationEDetails/supportTerms" -->
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow">Payment Terms</a><!-- ng-href="#/quotationEDetails/paymentTerms" -->
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow">Technical Specification</a><!-- ng-href="#/quotationEDetails/technicalSpecification" -->
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+									<!-- <div class=" ">width-div-for-patient-reg
+										<a href="" class="btn btn-primary btn-save-box-shadow width65" title="Save">
+											<i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i>
+										</a>	
+									</div> -->
+								</div>
+							</div>
+							<div class="row dayWiseSlot" ui-view>
+								<!-- *************Expected support terms start********************* -->
+								<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+									<div class="row searched-patient-details-row margin-top8 bg-grey-for-list">
+										<div class="col-md-12 col-sm-12 col-xs-12 ">
+											<fieldset class=" div-fieldset">
+												<legend class="heading-div">
+													<span>Support Terms </span>
+												</legend>
+												<div class="row common-table-height-130">
+													<div class="col-md-12"><input type="text" class="select-box" readonly/></div>
+												</div>
+											</fieldset> 
+										</div>
+									</div>					
+								</div>
+								<!-- *************Expected payment terms end********************** -->
+							</div>
+						</div>	
+						  
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Accessories terms Details modal end -->
+<!-- remarks Details modal start -->
+<div id="remarksDetailsModal" class="modal fade ng-scope in common-small-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Remark Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="fix-height-scroll500 padding-top10">
+						
+						<div class="col-lg-12 col-md-12 col-xs-12">
+							<div class="row ">
+								<!-- *************remark row start********************* -->
+								<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+									<div class="row searched-patient-details-row margin-top8 bg-grey-for-list">
+										<div class="col-md-12 col-sm-12 col-xs-12 ">
+											<fieldset class=" div-fieldset">
+												<legend class="heading-div">
+													<span>Remark</span>
+												</legend>
+												<div class="row common-table-height-130">
+													<div class="col-md-12">
+														<textarea rows="4" cols="30" readonly class="width96"></textarea>
+													</div>
+												</div>
+											</fieldset>
+										</div>
+									</div>					
+								</div>
+								<!-- *************remark row end********************** -->
+							</div>
+						</div>	
+						  
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input value="Save" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal" type="button">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<!-- remarks Details modal end -->
+<!-- On Hold Reason Details modal start -->
+<div id="onHoldReasonDetailsModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					On Hold Reason Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="fix-height-scroll500 padding-top10 padding-left-right-set4">
+						
+						<div class="col-lg-12 col-md-12 col-xs-12">
+							<div class="row ">
+								<!-- *************remark row start********************* -->
+								<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+									<div class="row searched-patient-details-row margin-top8 bg-grey-for-list">
+										<div class="col-md-12 col-sm-12 col-xs-12 ">
+											<fieldset class=" div-fieldset">
+												<legend class="heading-div">
+													<span>Reason For Hold On</span>
+												</legend>
+												<div class="row common-table-height-130">
+													<div class="col-md-12">
+														<textarea rows="4" cols="30" readonly class="width96"></textarea>
+													</div>
+												</div>
+											</fieldset> 
+											<fieldset class=" div-fieldset">
+												<legend class="heading-div">
+													<span>Solutions</span>
+												</legend>
+												<div class="row common-table-height-130">
+													<div class="col-md-12">
+														<textarea rows="4" cols="30" class="width96"></textarea>
+													</div>
+												</div>
+											</fieldset> 
+										</div>
+									</div>					
+								</div>
+								<!-- *************remark row end********************** -->
+							</div>
+						</div>	
+						  
+					</div>
+				</div>
+			</div>
+			
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input value="Save" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal" type="button">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<!-- On Hold Reason Details modal end -->
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".selectedPageName").text("Quotation Fill In Details");
+})
+</script>
+<script src="resources/assets/js/common/page-height.js"></script>

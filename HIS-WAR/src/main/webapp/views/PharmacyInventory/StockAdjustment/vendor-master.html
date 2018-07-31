@@ -1,0 +1,650 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" style="height: 607px;">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="form-group">
+								<input type="hidden" ng-model="vendorId" value="0" />
+								<select name="manufactureName" id="manufactureName" class="text-input floating-label" ng-model="vm.model.manufactureName"
+								 data-ng-options="manufactureName.name for manufactureName in vm.model.Manufactures" ng-change="vm.model.isManufacturerValid = false"
+								 show-focus="vm.model.manufactureName">
+								</select>
+								<p ng-if="vm.model.isManufacturerValid" class="errorMsg">Manufacturer is required</p>
+								<label for="manufactureName">Manufacturer</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="vendorCode" id="vendorCode" ng-model="vm.model.vendorCode" ng-class="{dirty: vm.model.vendorCode}"
+								 class="text-input floating-label" ng-change="vm.model.isvendorCodeValid = false" show-focus="vm.model.vendorCode">
+								<p ng-if="vm.model.isvendorCodeValid" class="errorMsg">Vendor Code is required</p>
+								<label for="vendorCode" class="LISDynamicLabel">Vendor Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="vendorName" id="vendorName" ng-model="vm.model.vendorName" ng-class="{dirty: vm.model.vendorName}"
+								 class="text-input floating-label" ng-change="vm.model.isvendorNameValid = false" show-focus="vm.model.vendorName">
+								<p ng-if="vm.model.isvendorNameValid" class="errorMsg">Vendor Name is required</p>
+								<label for="vendorName" class="LISDynamicLabel">Vendor Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id=""
+										class="text-input floating-label"> <label
+										for="description" class="LISDynamicLabel">Vendor Address</label>
+								</div>
+							</div>
+						</div>
+					</div> -->
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="contactPersonName" id="contactPersonName" ng-model="vm.model.contactPersonName" ng-class="{dirty: vm.model.contactPersonName}"
+								 class="text-input floating-label" ng-change="vm.model.iscontactPersonNameValid = false" show-focus="vm.model.contactPersonName">
+								<p ng-if="vm.model.iscontactPersonNameValid" class="errorMsg">Contact Person Name is required</p>
+								<label for="contactPersonName" class="LISDynamicLabel">Contact Person Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-list-ol" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="drugLicenseNo" id="drugLicenseNo" ng-model="vm.model.drugLicenseNo" ng-class="{dirty: vm.model.drugLicenseNo}"
+								 class="text-input floating-label" ng-change="vm.model.isdrugLiscenceNoValid = false" show-focus="vm.model.drugLicenseNo">
+								<p ng-if="vm.model.isdrugLiscenceNoValid" class="errorMsg">Drug License No. is required</p>
+								<label for="drugLicenseNo" class="LISDynamicLabel">Drug License No.
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-list-ol" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="gstNo" id="gstNo" ng-model="vm.model.gstNo" ng-class="{dirty: vm.model.gstNo}" class="text-input floating-label"
+								 ng-change="vm.model.isgstNoValid = false" show-focus="vm.model.gstNo">
+								<p ng-if="vm.model.isgstNoValid" class="errorMsg">GST No. is required</p>
+								<label for="gstNo" class="LISDynamicLabel">GST No.</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 margin-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-location-arrow" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="address" id="address" ng-model="vm.model.address" ng-class="{dirty: vm.model.address}" class="text-input floating-label"
+								 ng-change="vm.model.isaddressValid = false" show-focus="vm.model.address">
+								<p ng-if="vm.model.isaddressValid" class="errorMsg">Address is required</p>
+								<label for="address" class="LISDynamicLabel">Address</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 margin-top10">
+					<div class="row input-container test-master-sample">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon" style="padding-left: 19px; padding-right: 15px;">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10 " style="padding-left: 15px;">
+							<div class="form-group">
+								<select name="countryName" id="countryName" class="text-input floating-label" ng-model="vm.model.countryName" 
+								data-ng-options="countryName.countryName for countryName in vm.model.Countries"
+								 ng-change="vm.model.iscountryNameValid = false; vm.model.PopulateStates(vm.model.countryName)" show-focus="vm.model.countryName">
+								</select>
+								<p ng-if="vm.model.iscountryNameValid" class="errorMsg">Country is required</p>
+								<label for="code" class="LISDynamicLabel">Country</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 margin-top10">
+					<div class="row input-container test-master-sample">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-bandcamp" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<select name="stateName" id="stateName" class="text-input floating-label" ng-model="vm.model.stateName" 
+								data-ng-options="stateName.stateName for stateName in vm.model.States"
+								 ng-change="vm.model.isstateNameValid = false; vm.model.PopulateCities(vm.model.stateName)" show-focus="vm.model.stateName">
+								</select>
+								<p ng-if="vm.model.isstateNameValid" class="errorMsg">State is required</p>
+								<label for="code" class="LISDynamicLabel">State</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="row">
+
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 margin-top10">
+					<div class="row input-container test-master-sample">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-map-signs" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="form-group">
+								<select name="cityName" id="cityName" class="text-input floating-label" ng-model="vm.model.cityName" 
+								data-ng-options="cityName.cityName for cityName in vm.model.Cities"
+								 ng-change="vm.model.iscityNameValid = false; vm.model.PopulateAreas(vm.model.cityName)" show-focus="vm.model.cityName">
+								</select>
+								<p ng-if="vm.model.iscityNameValid" class="errorMsg">City is required</p>
+								<label for="code" class="LISDynamicLabel">City</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 margin-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-location-arrow" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group">
+								<select name="areaName" id="areaName" class="text-input floating-label" ng-model="vm.model.areaName" 
+								data-ng-options="areaName.areaName for areaName in vm.model.Areas"
+								 ng-change="vm.model.isareaNameValid = false" show-focus="vm.model.areaName">
+								</select>
+								<p ng-if="vm.model.isareaNameValid" class="errorMsg">Area is required</p>
+								<label for="code" class="LISDynamicLabel">Area</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 margin-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-map-pin" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group">
+								<input type="text" name="zipCode" id="zipCode" ng-model="vm.model.zipCode" ng-class="{dirty: vm.model.zipCode}" class="text-input floating-label"
+								 ng-change="vm.model.iszipCodeValid = false" show-focus="vm.model.zipCode">
+								<p ng-if="vm.model.iszipCodeValid" class="errorMsg">Zip Code is required</p>
+								<label for="zipCode" class="LISDynamicLabel">Zip Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-mobile" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group">
+								<input type="text" name="phoneNumber" id="phoneNumber" ng-model="vm.model.phoneNumber" ng-class="{dirty: vm.model.phoneNumber}"
+								 class="text-input floating-label" ng-change="vm.model.isphoneNumberValid = false" show-focus="vm.model.phoneNumber">
+								<p ng-if="vm.model.isphoneNumberValid" class="errorMsg">Phone Number is required</p>
+								<label for="phoneNumber" class="LISDynamicLabel">Phone Number</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-envelope-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="emailAddress" id="emailAddress" ng-model="vm.model.emailAddress" ng-class="{dirty: vm.model.emailAddress}"
+								 class="text-input floating-label" ng-change="vm.model.isemailValid = false" show-focus="vm.model.emailAddress">
+								<p ng-if="vm.model.isemailValid" class="errorMsg">Email Address is required</p>
+								<label for="emailAddress" class="LISDynamicLabel">Email Address</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-envelope-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group">
+								<select name="modeOfPayment" id="modeOfPayment" class="text-input floating-label" ng-model="vm.model.modeOfPayment" 
+								data-ng-options="modeOfPayment.paymentModeDesc for modeOfPayment in vm.model.modeOfPayments"
+								 ng-change="vm.model.ismodofPaymentValid = false" show-focus="vm.model.modeOfPayment">
+								</select>
+								<p ng-if="vm.model.ismodofPaymentValid" class="errorMsg">Mode of Payment is required</p>
+								<label for="code">Mode of Payment</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-envelope-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group">
+								<input type="text" name="paymentTerms" id="paymentTerms" ng-model="vm.model.paymentTerms" ng-class="{dirty: vm.model.paymentTerms}"
+								 class="text-input floating-label" ng-change="vm.model.ispaymentTermsValid = false" show-focus="vm.model.paymentTerms">
+								<p ng-if="vm.model.ispaymentTermsValid" class="errorMsg">Payment Terms is required</p>
+								<label for="code">Payment Terms</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-leftright15 padding-top10">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="" ng-model="vm.model.isLocalPurchase" ng-class="{dirty: vm.model.isLocalPurchase}" ng-checked="vm.model.isLocalPurchase">Local Purchase Vendor</label>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-10">
+			<div class="col-md-8"></div>
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" ng-model="search" placeholder="Search" ng-model="search">
+					<i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg padding-top8">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmSave">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-10 padding-top8">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="" title="Manufacturer">
+							<!-- <label class="LISDynamicLabelOne" >{{LISDynamicLabel}}</label> -->
+							Manufacturer
+							<div class="float_right" ng-click="sortType = 'manufacturerName'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="Vendor Code">
+							Vendor Code
+							<div class="float_right" ng-click="sortType = 'code'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="Vendor Name">
+							Vendor Name
+							<div class="float_right" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="Contact Person Name">
+							Contact Person Name
+							<div class="float_right" ng-click="sortType = 'contactPersonName'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="Drug License No.">
+							Drug License No.
+							<div class="float_right" ng-click="sortType = 'drugLicenseNo'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="GST No.">
+							GST No.
+							<div class="float_right" ng-click="sortType = 'gstNo'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="Phone Number">
+							Phone Number
+							<div class="float_right" ng-click="sortType = 'phoneNumber'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8" title="Email Address">
+							Email Address
+							<div class="float_right" ng-click="sortType = 'emailId'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="" title="Payment Mode">
+							Payment Mode
+							<div class="float_right" ng-click="sortType = 'paymentModeDesc'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8" title="Payment Terms">
+							Payment Terms
+							<div class="float_right" ng-click="sortType = 'paymentTerm'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8" title="Local Purchase Vendor">
+							Local Purchase Vendor
+							<div class="float_right" ng-click="sortType = 'isLocalPurchase'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<!-- <th class="">
+							Store Code
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="">Store Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div></th> -->
+						<th class="width5" title="Status">
+							Status
+							<div class="float_right" ng-click="sortType = 'status'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="text-center width5" title="Action">
+							Action
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+						<th></th>
+					</tr>
+					<tr ng-repeat="vendorMaster in vm.model.vendorMasterDataList | filter : search | orderBy:sortType:sortReverse">
+						<td>{{vendorMaster.manufacturerName}}</td>
+						<td>{{vendorMaster.code}} </td>
+						<td>{{vendorMaster.name}} </td>
+						<td>{{vendorMaster.contactPersonName}} </td>
+						<td>{{vendorMaster.drugLicenseNo}} </td>
+						<td>{{vendorMaster.gstNo}} </td>
+						<!--<td>{{vendorMasterData.address}} </td>
+							<td>{{vendorMasterData.countryId}} </td>
+							<td>{{vendorMasterData.stateId}} </td>
+							<td>{{vendorMasterData.cityId}} </td>             
+							<td>{{vendorMasterData.areaId}} </td>              
+							<td>{{vendorMasterData.zipcodeId}} </td> -->
+						<td>{{vendorMaster.phoneNumber}} </td>
+						<td>{{vendorMaster.emailId}} </td>
+						<td>{{vendorMaster.paymentModeDesc}} </td>
+						<td>{{vendorMaster.paymentTerm}} </td>
+						<td>
+							<i class="fa {{vendorMaster.isLocalPurchase==true ? 'fa-check' : 'fa-times' }} " style="color: #3131d2;" aria-hidden="true "></i>
+						</td>
+						<td>
+							<label class="switch switch-small">
+								<input type="checkbox" class="switchInput" data-target="#confirmSave" ng-model="vendorMaster.status" ng-change="vm.model.ToggleStatus(vendorMaster)">
+								<div class="slider round slider-small"></div>
+							</label>
+						</td>
+						<td class="text-center ">
+							<a ng-click="vm.model.PopulateVendorMaster(vendorMaster.id)">
+								<i class="fa fa-pencil" aria-hidden="true "></i>
+							</a>
+						</td>
+						<td class="padding-edit-button-table">
+							<div class=" ">
+								<a>
+									<i class="fa fa-info-circle" aria-hidden="true" 
+									ng-click="vm.model.getAddressDetails(vendorMaster)" 
+									title="Details" data-toggle="modal" data-target="#detailsAddressModal"></i>
+								</a>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- </div> -->
+
+<!--  confirmSave modal start -->
+
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+		<div class="modal-content" style="border-radius: 0px !important;">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Are you sure you want to Save?</span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" ng-click="vm.model.SaveVendorMaster()" data-dismiss="modal" class="btn btn-primary">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal end -->
+
+<!-- address details modal start -->
+<div id="detailsAddressModal" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Address Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10" style='height: 197px;' id="">
+						<!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table">
+							<tr class="">
+								<td class="width10">
+									<label>
+										<b>Address :</b>
+									</label>
+								</td>
+								<td class="width20">
+									<label>{{vm.model.detail_address.address}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>Country :</b>
+									</label>
+								</td>
+								<td class="width10">
+									<label>{{vm.model.detail_address.country}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>State :</b>
+									</label>
+								</td>
+								<td class="width18">
+									<label>{{vm.model.detail_address.state}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>City :</b>
+									</label>
+								</td>
+								<td class="width18">
+									<label>{{vm.model.detail_address.city}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>Area :</b>
+									</label>
+								</td>
+								<td class="width18">
+									<label>{{vm.model.detail_address.area}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label>
+										<b>ZIP Code :</b>
+									</label>
+								</td>
+								<td class="width18">
+									<label>{{vm.model.detail_address.zipcode}}</label>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- address details modal end -->
+
+<script type="text/javascript ">
+	$(document).ready(function () {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper ").css("height ", sideBarHeight + "px ");
+
+		$(".selectedPageName ").text("Vendor Master ");
+		$(".sidebar-nav li ").each(function () {
+			$(this).find("a ").parents("li ").removeClass("active ");
+		});
+		$('a[href$="vendormaster "]').parents("li ").addClass("active ");
+	});
+</script>

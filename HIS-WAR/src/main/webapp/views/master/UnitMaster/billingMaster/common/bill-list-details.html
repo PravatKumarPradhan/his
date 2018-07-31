@@ -1,0 +1,60 @@
+
+<!-- BILL LIST VIEW POPUP -->
+ <div id="billListDetails" class="common-large-popup modal fade ng-scope in his-style" role="dialog">
+		<div class="modal-dialog"> 
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Bill Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body row">
+					 <div class="col-md-12">
+						<div class="row">
+							<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										 <div class="">
+											<select class="text-input floating-label" ng-model="payeeId" ng-change="changePayee(payeeId)">
+												<option>-</option>
+												<option ng-repeat="payee in payeeList" value="{{payee.payeeId}}" >{{payee.companyDesc}}</option>
+											</select> <label for="code">Payer</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row margin-top8">
+								
+								<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 ">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow" ng-href="#/billList/serviceDetails">Service Details</a>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 ">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow" ng-href="#/billList/groupDetails">Group Details</a>
+									</div>
+								</div>
+								<div class="col-lg-4"></div>
+								<div class="col-lg-4 col-md-4 col-lg-4 padding-left-right-set4">
+									<input type="text" class="text-search-box" placeholder="Search"  ng-model="searchAddedService" style="margin-top:0px">
+									<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+								</div>
+						</div>
+						 <div class="" ui-view="">
+			
+						</div>
+					</div> 
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+

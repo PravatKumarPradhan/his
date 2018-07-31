@@ -1,0 +1,649 @@
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid  his-style">
+            	<!-- <div class="row margin-top10">
+            		<div class="col-md-8"></div>
+					<div class="col-md-3">
+						<div>
+							<input type="text" class="text-search-box" placeholder="Search">
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="width-div-for-patient-reg ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"><i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a>	
+						</div>
+					</div>
+				</div> -->
+				
+				
+				<div class="row margin-top10" >
+            		<div class="col-md-7"></div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label">
+										<option></option>
+										<option>-</option>
+										<option>-</option>
+									</select> <label for="code">Allocation Type</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" name="registrationNumber" id="" class="text-input floating-label">
+											<label for="description" class="LISDynamicLabel">Patient Search</label>
+										</div>
+									</div>
+								</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px">
+						<div class="common-save-button">
+							<a href=""  class="btn btn-primary btn-save-box-shadow" style="    width: 36%;margin-top: 6px;">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+            	</div>
+		   		<div class="col-md-12 bed-management">
+		   		<fieldset ng-repeat="info in activeFloorList">
+    				<legend class="heading-div">{{info.floorName}}</legend>
+			    	<div class="row patient-row margin-top10 margin-bottom10">
+			    	<!-- <div class="col-md-2 col-sm-4 col-xs-4">
+			    			<div class="card">
+			    				<div class="row">
+			    					<div class="col-md-10 col-sm-10 col-xs-10">
+			    						 <div class="patient-details">
+										    <div><b></b>John Doe 26/M</div>
+										    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+										    <div><b class="padding-right10 color-blue">DOA</b>04/06/2017</div>
+										    <div><b class="padding-right10 color-blue">PDD</b>12/07/2017  </div>
+										   <div>Dr. Ross Hunter</div>
+										    <div><b class="color-blue">Self</b></div>
+								 		</div>
+								  		<div class="text-center">
+								  			<img src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar" >
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-green margin-top10">
+								  			<span>MEWS 4</span>
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-blue margin-top4">
+								  			<span>Nursing Scale </span>
+								  		</div>
+								  		<div class="row bed-number margin-top4">
+								  		  <div class="col-lg-8 col-md-8 col-sm-8 bed-no-span">
+								  		  	<span class="font-size12 ">
+									  			BM9874501478520
+									  		</span>
+								  		  </div>
+								  		  <div class="col-lg-2 col-md-2 col-sm-2">
+								  		  	<span class="font-size12 bed-notify-icon">
+									  			<img src="resources/assets/images/icon/bed/money red.png" alt="Avatar" style="width:20px">
+									  		</span>
+								  		  </div>
+								  		  <div class="col-lg-2 col-md-2 col-sm-2">
+								  		  	<span data-toggle="modal" data-target="#patientServices"><span class="ellipsis-div"><i class="fa fa-ellipsis-v" aria-hidden="true"  ></i></span></span>
+								  		  </div>
+								  		</div>
+			    					</div>
+			    					<div class="col-md-1 col-sm-1 col-xs-1">
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Allergies.png" title="Allergy" alt="Allergy" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Blood sample.png" title="Blood Sample" alt="Blood Sample" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Blood transfusion.png" title="Blood Transfusion" alt="Blood Transfusion" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Drug Administration.png" title="Drug Administration" alt="Drug Administration" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/High Risk Patient.png" title="High Risk Patient" alt="High Risk Patient" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Imaging.png" title="Imaging" alt="Imaging" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/NBM.png" title="NBM" alt="NBM" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/other investigation order.png" title="Other Investigation Order" alt="Other Investigation Order" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Procedure order.png" title="Procedure Order" alt="Procedure Order" style="width:20px"></div>
+			    					</div>
+			    				</div>
+							</div>
+							<div class="overlay">
+								<i class="icon fa fa-eye" data-toggle="modal" data-target="#shortLeave"></i>
+								<span>Short Leave</span>
+							</div>
+			    		</div> -->
+			    		<div class="col-md-2 col-sm-4 col-xs-4" ng-repeat="mapList in patientBedList| filter: { floorId : info.floorId }">
+			    			<div class="card">
+			    				<div class="row">
+			    					<div class="col-md-10 col-sm-10 col-xs-10">
+			    						 <div class="patient-details">
+										    <div ng-show="{{mapList.patientId > 0}}" ng-init='age=getAge(mapList.dob)'>
+								<b>{{mapList.patientName+' '+age+'/'+mapList.genderName}}</b>
+								</div>
+								<div ng-show="{{mapList.tPatientId > 0}}">
+								<b>{{mapList.patientName+' '+mapList.dob+'/'+mapList.genderName}}</b>
+								</div>
+										    <div><b class="padding-right5 color-blue">UHID</b>{{mapList.uhidnumber}}</div>
+										    <div><b class="padding-right10 color-blue">DOA</b>{{mapList.doa}}</div>
+										    <div><b class="padding-right10 color-blue">PDD</b>{{mapList.pdd}}</div>
+										    <div>Dr. {{mapList.dFirstName}}</div>
+										    <div><b class="color-blue">Self</b></div>
+								 		</div>
+								  		<div class="text-center">
+								  			<img ng-if="mapList.genderName == 'F'" src="resources/assets/images/icon/bed/Female bed.png" alt="Avatar">
+								  			<img ng-if="mapList.genderName != 'F'" src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar">
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-red margin-top10">
+								  			<span>MEWS 7</span>
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-blue margin-top4">
+								  			<span>Nursing Scale </span>
+								  		</div>
+					    				<div class="row bed-number margin-top4">
+								  		  <div class="col-lg-8 col-md-8 col-sm-8 bed-no-span">
+								  		  	<span class="font-size12 ">
+									  			{{mapList.bedNumber}}
+									  		</span>
+								  		  </div>
+								  		  <div class="col-lg-2 col-md-2 col-sm-2">
+								  		  	<span class="font-size12 bed-notify-icon">
+									  			<img src="resources/assets/images/icon/bed/money orenge.png" alt="Avatar" style="width:20px">
+									  		</span>
+								  		  </div>
+								  		  <div class="col-lg-2 col-md-2 col-sm-2">
+								  		  	<span data-toggle="modal" data-target="#patientServices" ng-click="popupData(mapList)"><span class="ellipsis-div"><i class="fa fa-ellipsis-v" aria-hidden="true"  ></i></span></span>
+								  		  </div>
+								  		</div>
+			    					</div>
+			    					<div class="col-md-1 col-sm-1 col-xs-1 height201">
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Allergies.png" title="Allergy" alt="Allergy" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/other investigation order.png" title="Other Investigation Order" alt="Other Investigation Order" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Procedure order.png" title="Procedure Order" alt="Procedure Order" style="width:20px"></div>
+			    						
+			    					</div>
+			    				</div>
+							</div>
+			    		</div>
+			    		<!-- <div class="col-md-2 col-sm-4 col-xs-4">
+			    			<div class="card cretical-patient-bed">
+			    				<div class="row">
+			    					<div class="col-md-10 col-sm-10 col-xs-10">
+			    						 <div class="patient-details">
+										    <div><b></b>Smith Berry 26/M</div>
+										    <div><b class="padding-right5 color-blue">UHID</b>Pune-103</div>
+										    <div><b class="padding-right10 color-blue">DOA</b>02/06/2017</div>
+										    <div><b class="padding-right10 color-blue">PDD</b>10/06/2017  </div>
+										    <div>Dr. Johnson Bennett</div>
+										    <div><b class="color-blue">Self</b></div>
+								 		</div>
+								  		<div class="text-center">
+								  			<img src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar" >
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-transperant margin-top10">
+								  			<span>MEWS </span>
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-blue margin-top4">
+								  			<span>Nursing Scale </span>
+								  		</div>
+								  		<div class="row bed-number margin-top4">
+								  		  <div class="col-lg-8 col-md-8 col-sm-8 bed-no-span">
+								  		  	<span class="font-size12 ">
+									  			BM987452
+									  		</span>
+								  		  </div>
+								  		  <div class="col-lg-2 col-md-2 col-sm-2">
+								  		  	<span class="font-size12 bed-notify-icon">
+									  			<img src="resources/assets/images/icon/bed/money green.png" alt="Avatar" style="width:20px">
+									  		</span>
+								  		  </div>
+								  		  <div class="col-lg-2 col-md-2 col-sm-2">
+								  		  	<span data-toggle="modal" data-target="#patientServices"><span class="ellipsis-div"><i class="fa fa-ellipsis-v" aria-hidden="true"  ></i></span></span>
+								  		  </div>
+								  		</div>
+			    					</div>
+			    					<div class="col-md-1 col-sm-1 col-xs-1 height201">
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Allergies.png" title="Allergy" alt="Allergy" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Blood sample.png" title="Blood Sample" alt="Blood Sample" style="width:20px"></div>
+			    					</div>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-4 col-xs-4">
+			    			<div class="card">
+			    				<div class="row">
+			    					<div class="col-md-10 col-sm-10 col-xs-10">
+			    						 <div class="patient-details">
+										    <div><b></b>Payal Soni 15/F</div>
+										    <div><b class="padding-right5 color-blue">UHID</b>Pune-104</div>
+										    <div><b class="padding-right10 color-blue">DOA</b>02/05/2017</div>
+										    <div><b class="padding-right10 color-blue">PDD</b>01/06/2017  </div>
+										   <div>Dr. Ross Hunter</div>
+										    <div><b class="color-blue">Self</b></div>
+								 		</div>
+								  		<div class="text-center">
+								  			<img src="resources/assets/images/icon/bed/Empty bed.png" alt="Avatar" >
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-transperant margin-top10">
+								  			<span>MEWS </span>
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-blue margin-top4">
+								  			<span>Nursing Scale </span>
+								  		</div>
+								  		<div class="row bed-number margin-top4">
+								  		  <div class="col-lg-8 col-md-8 col-sm-8 bed-no-span">
+								  		  	<span class="font-size12 ">
+									  			BM987453
+									  		</span>
+								  		  </div>
+								  		  <div class="col-lg-2 col-md-2 col-sm-2">
+								  		  	<span class="font-size12 bed-notify-icon">
+									  			<img src="resources/assets/images/icon/bed/money green.png" alt="Avatar" style="width:20px">
+									  		</span>
+								  		  </div>
+								  		  <div class="col-lg-2 col-md-2 col-sm-2">
+								  		  	<span data-toggle="modal" data-target="#patientServices"><span class="ellipsis-div"><i class="fa fa-ellipsis-v" aria-hidden="true"  ></i></span></span>
+								  		  </div>
+								  		</div>
+			    					</div>
+			    					<div class="col-md-1 col-sm-1 col-xs-1 height201">
+			    						
+			    					</div>
+			    				</div>
+			    				
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-4 col-xs-4">
+			    			<div class="card">
+			    				<div class="row">
+			    					<div class="col-md-10 col-sm-10 col-xs-10">
+			    						 <div class="patient-details">
+										    <div><b></b>Taylor 	Fox 27/M</div>
+										    <div><b class="padding-right5 color-blue">UHID</b>Pune-105</div>
+										    <div><b class="padding-right10 color-blue">DOA</b>03/06/2017</div>
+										    <div><b class="padding-right10 color-blue">PDD</b>27/06/2017  </div>
+										    <div>Dr. Ross Hunter</div>
+										    <div><b class="color-blue">Self</b></div>
+								 		</div>
+								  		<div class="text-center">
+								  			<img src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar">
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-red margin-top10">
+								  			<span>MEWS 9</span>
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-blue margin-top4">
+								  			<span>Nursing Scale </span>
+								  		</div>
+								  		<div class="row bed-number margin-top4">
+								  		  <div class="col-lg-8 col-md-8 col-sm-8 bed-no-span">
+								  		  	<span class="font-size12 ">
+									  			BM987454
+									  		</span>
+								  		  </div>
+								  		  <div class="col-lg-2 col-md-2 col-sm-2">
+								  		  	<span class="font-size12 bed-notify-icon">
+									  			<img src="resources/assets/images/icon/bed/money red.png" alt="Avatar" style="width:20px">
+									  		</span>
+								  		  </div>
+								  		  <div class="col-lg-2 col-md-2 col-sm-2">
+								  		  	<span data-toggle="modal" data-target="#patientServices"><span class="ellipsis-div"><i class="fa fa-ellipsis-v" aria-hidden="true"  ></i></span></span>
+								  		  </div>
+								  		</div>
+			    					</div>
+			    					<div class="col-md-1 col-sm-1 col-xs-1 height201">
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Blood sample.png" title="Blood Sample" alt="Blood Sample" style="width:20px"></div>
+			    					</div>
+			    				</div>
+							</div>
+			    		</div> -->
+			    	</div>
+			    	</fieldset>
+			    	<!-- <fieldset>
+    				<legend class="heading-div">Second Floor</legend>
+			    	<div class="row patient-row margin-top10 margin-bottom10">
+			    		<div class="col-md-2 col-sm-4 col-xs-4">
+			    			<div class="card cretical-patient-bed">
+			    				<div class="row">
+			    					<div class="col-md-10 col-sm-10 col-xs-10">
+			    						 <div class="patient-details">
+										    <div><b></b>Ava Edwards 20/F</div>
+										    <div><b class="padding-right5 color-blue">UHID</b>Pune-201</div>
+										    <div><b class="padding-right10 color-blue">DOA</b>05/06/2017 </div>
+										    <div><b class="padding-right10 color-blue">PDD</b>01/07/2017</div>
+										    <div>Dr. Ellis Ward</div>
+										    <div><b class="color-blue">Self</b></div>
+								 		</div>
+								  		<div class="text-center">
+								  			<img src="resources/assets/images/icon/bed/Female bed.png" alt="Avatar" >
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-green margin-top10">
+								  			<span>MEWS 3</span>
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-blue margin-top4">
+								  			<span>Nursing Scale </span>
+								  		</div>
+								  		<div class="margin-top8">
+									  		<span class="font-size12 bed-no-span">BM987455</span>
+									  		<span class="font-size12 bed-notify-icon">
+									  			<img src="resources/assets/images/icon/bed/money green.png" alt="Avatar" style="width:20px">
+									  		</span>
+									  		<span data-toggle="modal" data-target="#patientServices"><span class="ellipsis-div"><i class="fa fa-ellipsis-v" aria-hidden="true"  ></i></span></span>
+								  		</div>
+			    					</div>
+			    					<div class="col-md-1 col-sm-1 col-xs-1 height201">
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Blood transfusion.png" title="Blood Transfusion" alt="Blood Transfusion" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Drug Administration.png" title="Drug Administration" alt="Drug Administration" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/High Risk Patient.png" title="High Risk Patient" alt="High Risk Patient" style="width:20px"></div>
+			    						
+			    					</div>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-4 col-xs-4">
+			    			<div class="card">
+			    				<div class="row">
+			    					<div class="col-md-10 col-sm-10 col-xs-10 height201">
+			    						 <div class="patient-details">
+										    <div><b></b>Bailey Simpson 26/M</div>
+										    <div><b class="padding-right5 color-blue">UHID</b>Pune-202</div>
+										    <div><b class="padding-right10 color-blue">DOA</b>06/06/2017  </div>
+										    <div><b class="padding-right10 color-blue">PDD</b>10/06/2017  </div>
+										    <div>Dr. Price Poppy</div>
+										    <div><b class="color-blue">Self</b></div>
+								 		</div>
+								  		<div class="text-center">
+								  			<img src="resources/assets/images/icon/bed/Empty bed.png" alt="Avatar" >
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-green margin-top10">
+								  			<span>MEWS 3</span>
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-blue margin-top4">
+								  			<span>Nursing Scale </span>
+								  		</div>
+								  		<div class="margin-top8">
+									  		<span class="font-size12 bed-no-span">BM987456</span>
+									  		<span class="font-size12 bed-notify-icon">
+									  			<img src="resources/assets/images/icon/bed/money red.png" alt="Avatar" style="width:20px">
+									  		</span>
+									  		<span data-toggle="modal" data-target="#patientServices"><span class="ellipsis-div"><i class="fa fa-ellipsis-v" aria-hidden="true"  ></i></span></span>
+								  		</div>
+			    					</div>
+			    					<div class="col-md-1 col-sm-1 col-xs-1 height201">
+			    						
+			    					</div>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-4 col-xs-4">
+			    			<div class="card">
+			    				<div class="row">
+			    					<div class="col-md-10 col-sm-10 col-xs-10">
+			    						 <div class="patient-details">
+										    <div><b></b>Davies Doe 26/M</div>
+										    <div><b class="padding-right5 color-blue">UHID</b>Pune-203</div>
+										    <div><b class="padding-right10 color-blue">DOA</b>07/06/2017  </div>
+										    <div><b class="padding-right10 color-blue">PDD</b>20/06/2017  </div>
+										     <div>Dr. Price Poppy</div>
+										    <div><b class="color-blue">Self</b></div>
+								 		</div>
+								  		<div class="text-center">
+								  			<img src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar" >
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-red margin-top10">
+								  			<span>MEWS 12</span>
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-blue margin-top4">
+								  			<span>Nursing Scale </span>
+								  		</div>
+								  		<div class="margin-top8">
+									  		<span class="font-size12 bed-no-span">BM987457</span>
+									  		<span class="font-size12 bed-notify-icon ">
+									  		<img src="resources/assets/images/icon/bed/money green.png" alt="Avatar" style="width:20px">
+									  		</span>
+									  		<span data-toggle="modal" data-target="#patientServices"><span class="ellipsis-div"><i class="fa fa-ellipsis-v" aria-hidden="true"  ></i></span></span>
+								  		</div>
+			    					</div>
+			    					<div class="col-md-1 col-sm-1 col-xs-1 height201">
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Allergies.png" title="Allergy" alt="Allergy" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Blood sample.png" title="Blood Sample" alt="Blood Sample" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Blood transfusion.png" title="Blood Transfusion" alt="Blood Transfusion" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Drug Administration.png" title="Drug Administration" alt="Drug Administration" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/High Risk Patient.png" title="High Risk Patient" alt="High Risk Patient" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Imaging.png" title="Imaging" alt="Imaging" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/NBM.png" title="NBM" alt="NBM" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/other investigation order.png" title="Other Investigation Order" alt="Other Investigation Order" style="width:20px"></div>
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/Procedure order.png" title="Procedure Order" alt="Procedure Order" style="width:20px"></div>
+			    					</div>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-4 col-xs-4">
+			    			<div class="card">
+			    				<div class="row">
+			    					<div class="col-md-10 col-sm-10 col-xs-10">
+			    						 <div class="patient-details">
+										    <div><b></b>Young Doe 27/M</div>
+										    <div><b class="padding-right5 color-blue">UHID</b>Pune-204</div>
+										    <div><b class="padding-right10 color-blue">DOA</b>07/06/2017  </div>
+										    <div><b class="padding-right10 color-blue">PDD</b>15/06/2017  </div>
+										    <div>Dr. Gill George</div>
+										    <div><b class="color-blue">Self</b></div>
+								 		</div>
+								  		<div class="text-center">
+								  			<img src="resources/assets/images/icon/bed/Female bed.png" alt="Avatar">
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-red margin-top10">
+								  			<span>MEWS 12</span>
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-blue margin-top4">
+								  			<span>Nursing Scale </span>
+								  		</div>
+								  		<div class="margin-top8">
+									  		<span class="font-size12 bed-no-span">BM987458</span>
+									  		<span class="font-size12 bed-notify-icon"></span>
+									  		<span data-toggle="modal" data-target="#patientServices"><span class="ellipsis-div"><i class="fa fa-ellipsis-v" aria-hidden="true"  ></i></span></span>
+								  		</div> 
+			    					</div>
+			    					<div class="col-md-1 col-sm-1 col-xs-1 height201">
+			    						
+			    					</div>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-4 col-xs-4">
+			    			<div class="card">
+			    				<div class="row">
+			    					<div class="col-md-10 col-sm-10 col-xs-10">
+			    						 <div class="patient-details">
+										    <div><b></b>Ella Butler 15/F</div>
+										    <div><b class="padding-right5 color-blue">UHID</b>Pune-205</div>
+										    <div><b class="padding-right10 color-blue">DOA</b>05/06/2017  </div>
+										    <div><b class="padding-right10 color-blue">PDD</b>28/08/2017  </div>
+										    <div>Dr. Anderson Lawson</div>
+										    <div><b class="color-blue">Self</b></div>
+								 		</div>
+								  		<div class="text-center">
+								  			<img src="resources/assets/images/icon/bed/Female bed.png" alt="Avatar" >
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-green margin-top10">
+								  			<span>MEWS 1</span>
+								  		</div>
+								  		<div class="MEWS-Nursing-Div bg-blue margin-top4">
+								  			<span>Nursing Scale </span>
+								  		</div>
+								  		<div class="margin-top8">
+									  		<span class="font-size12 bed-no-span">BM987459</span>
+									  		<span class="font-size12 bed-notify-icon ">
+									  		</span>
+									  		<span data-toggle="modal" data-target="#patientServices"><span class="ellipsis-div"><i class="fa fa-ellipsis-v" aria-hidden="true"  ></i></span></span>
+								  		</div> 
+			    					</div>
+			    					<div class="col-md-1 col-sm-1 col-xs-1 height201">
+			    						<div class="bed-mang-box-icon"><img src="resources/assets/images/icon/bed/High Risk Patient.png" title="High Risk Patient" alt="High Risk Patient" style="width:20px"></div>
+			    					</div>
+			    				</div>
+							</div>
+			    		</div>
+			    	</div>
+			    	</fieldset> -->
+			    </div>
+  			</div>
+	</div>
+	
+	
+
+<!-- <form action="">
+  
+  <div class="input-container">
+    <input class="text-input floating-label" type="text" name="sample" />
+    <label for="sample">Text Input</label>
+    <input  type="text" readonly="readonly" id="MRN" name="mrnNumber" class="text-input floating-label"/>
+    <label for="mrnNumber">MRN</label>
+  </div>
+  
+  <div class="input-container">
+    <input class="floating-label text-input" type="text" pattern="[0-9]*" name="sample" />
+    <label for="sample">Numbers Only</label>
+    <span class="error">Input is not a number!</span>
+  </div>
+  
+</form>	  -->
+	
+	
+	<div class="modal fade" id="patientServices" role="dialog">
+			<div class="modal-dialog">
+			<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-body">
+							<div ng-include="'./views/common/common-patient-details.html'"></div>
+							<div class="row margin-top10 margin-left10">
+								<div class="col-md-4 col-sm-4 col-xs-4">
+									<input type="text" placeholder="Search" class="search-box-for-bed">
+									<i class="fa fa-search errspan" aria-hidden="true"></i>
+								</div>
+							</div>
+							<div class="row margin-top10 margin-left10 margin-bottom10">
+								<div class="col-md-12">
+									<a id="anchorTag" href="#/drugAdministrator"></a><div id="anchorTagID"><a>Drug Administration</a></div>
+									<!--  above sequence is for the click -->
+									<a id="anchorTag1" href="#/sampleCollection"></a><div id="anchorTagID1"><a>Sample Collection</a></div>
+									<a id="anchorTag2" href="#/pendingNursingOrder"></a><div id="anchorTagID2"><a>Nursing Order</a></div>
+									<a id="anchorTag3" ng-click="callAdmissionNote()" ></a><div id="anchorTagID3"><a >Admission Note</a></div>
+								</div>
+							</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	
+	 <!-- ************************** START SHORT LEAVE POPUP ********************************-->
+	<div id="shortLeave" class="modal fade ng-scope in common-small-popup" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Short Leave Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12 padding-left-right-set">
+							 <div class="row input-container margin-top10">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text"  class="text-input floating-label dirty" name="datepicker" id="datepicker"  
+										uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999" placeholder="DD/MM/YYYY" 
+					            		ng-model="datepicker"  model-view-value="true"
+					            		is-open="datepicker.opened" datepicker-options="dateOptions" show-button-bar="false" ng-click="openDatePicker()">
+										<label for="code">Date</label>
+									</div>
+								</div>
+							</div>  
+							<div class="row input-container margin-top10">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-bullseye" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="clockpicker">
+										<input type="text" class="text-input floating-label" name="PDD">
+										<label for="PDD">Time</label>
+									</div>
+								</div>
+							</div>
+							<div class="row input-container margin-top10">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-sticky-note" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<textarea name="code" rows="4" id=""
+													class="text-input floating-label"></textarea>
+												<label for="code">Note</label>
+											</div>
+										</div>
+									</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer" style="border:none;">
+					<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	 <!-- ************************** START SHORT LEAVE POPUP ********************************-->
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('.clockpicker').clockpicker();
+			var documentHeight= $(window).height();
+		    var sideBarHeight = documentHeight - 55;
+		 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );  
+		 	
+			$(".selectedPageName").text("Map Of   Bed");
+			$(".sidebar-nav li").each(function() {
+				$(this).find("a").parents("li").removeClass("active");
+			});
+			$('a[href$="bedManagement"]').parents("li").addClass("active");
+			
+		});
+    	$('#anchorTagID').click(function() {
+		     $('#patientServices').modal('hide');
+		     setTimeout( function(){ 
+		         // Do something after 1 second 
+		       $('#anchorTag').trigger('click');
+		       }  , 1000 );
+		 });
+    	$('#anchorTagID1').click(function() {
+		     $('#patientServices').modal('hide');
+		     setTimeout( function(){ 
+		         // Do something after 1 second 
+		       $('#anchorTag1').trigger('click');
+		       }  , 1000 );
+		    
+		 });
+    	$('#anchorTagID2').click(function() {
+		     $('#patientServices').modal('hide');
+		     setTimeout( function(){ 
+		         // Do something after 1 second 
+		       $('#anchorTag2').trigger('click');
+		       }  , 1000 );
+	
+		     
+		 });
+    	$('#anchorTagID3').click(function() {
+		     $('#patientServices').modal('hide');
+		     setTimeout( function(){ 
+		         // Do something after 1 second 
+		       $('#anchorTag3').trigger('click');
+		       }  , 1000 );
+	
+		     
+		 });
+		</script>

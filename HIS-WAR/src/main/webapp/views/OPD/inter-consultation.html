@@ -1,0 +1,71 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset class="normalRegistration sub-fieldset">
+			<legend class="sub-legend border-bottom-none">OPD Cover-sheet</legend>
+			<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" class="text-input floating-label"> 
+									<label for="description" class="">Consult Order</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" class="text-input floating-label"> 
+									<label for="description" class="">Doctor Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2 col-lg-2 padding-left-right-set4">
+						<div class="width-div-for-patient-reg ">
+							<a href="" data-toggle="modal" data-target="" class="btn btn-primary btn-save-box-shadow" title="">
+								<i class="fa fa-plus" style="font-size:21px" aria-hidden="true"></i>
+							</a>	
+						</div>
+					</div>
+				</div>
+				<div class="col-md-10 col-xs-10 col-sm-10 uk-input-group">
+			  	 	<table class="table" id="doctorConsultListTable">
+					  <thead class="thead-inverse">
+					    <tr style="background-color:rgba(151, 173, 214, 0.23) !important;">
+					      <th>Sr</th>
+					      <th>Consult Order</th>
+					      <th>From Doctor Name</th>
+					      <th>To Doctor Name</th>
+					      <th>Status</th>
+					      <th>Acknowledgement</th>
+					    </tr>
+					  </thead>
+					  <tbody></tbody>
+			  	 	</table>
+			   </div>
+		</fieldset>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		
+		$(".selectedPageName").text("Consult Order");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="interconsultation"]').parents("li").addClass("active");
+
+	});
+</script>

@@ -1,0 +1,241 @@
+<div id="page-content-wrapper" style="height:100%; overflow-y:auto ">
+	<div class="container-fluid his-style">
+			 	<fieldset class="normalRegistration sub-fieldset">
+					<legend class="sub-legend border-bottom-none commonPatientSearch cursor-pointer">Unit Service Master</legend>
+					 	<div class="row">
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label" ng-model="unitService.specialityId" ng-change="getSubSpecialityBySpecialityId(unitService.specialityId)" convert-to-number>
+												<option value="{{speciality.specialityId}}" ng-repeat="speciality in specialityMasterList">{{speciality.specialityName}}</option>
+											</select> <label for="code">Department</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label" ng-model="unitService.subSpecialityId" ng-change="getServicesBySpecialityAndSubSpeciality(unitService.specialityId, unitService.subSpecialityId)" convert-to-number>
+												<option></option>
+												<option ng-repeat = "subSpeciality in subSpecialityMasterList" value="{{subSpeciality.subSpecialityId}}">{{subSpeciality.subSpecialityName}}</option>
+											</select> <label for="code">Sub Department</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" name="description" id="" class="text-input floating-label"> 
+											<label for="description" class="LISDynamicLabel">Service</label>
+										</div>
+									</div>
+								</div>
+							</div> -->
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right">
+							<div class="width-div-for-patient-reg ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveUnitServiceMapper()">
+								 <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="row">
+						<div class="col-md-12 col-lg-12 margin-top10 padding-left-right-set4">
+							<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4">
+								<div class="row col-md-5set" id="">
+									<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+										<div class="">
+											<label class="common-lable-color-set"> Global Master</label>
+											<div class="masterborderScroll1">
+												<table class="table table-bordered">
+													    <tr>
+													       <th class="width1">
+													       </th>
+													       <th class="width10">
+													        Code
+													       </th>
+													       <th class="width15">
+													        Service Name
+													       </th>
+													      </tr>
+													      <tr ng-repeat = "service in servicesList">
+														       <td>
+														        <input type="checkbox" ng-model="serviceMst[service.serviceMasterId]" ng-click="addTempService(service.serviceMasterId,service.serviceStandardCode,service.serviceStandardName)"  value="{{service.serviceMasterId}}" ng-checked="selectedServiceList.indexOf(service.serviceMasterId) != -1 ">
+														       </td>
+														       <td>
+														        {{service.serviceStandardCode}}
+														       </td>
+														       <td>
+														        {{service.serviceStandardName}}
+														       </td>
+													      </tr>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+										<div class="text-center margintop120">
+											<button type="button" class="btn btn-primary text-width-auto btn-sm" ng-click="selectServices()">&lt;&lt;&gt;&gt;</button>
+										</div>
+									</div>
+									<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+										<div class="">
+											<label class="common-lable-color-set">Unit Master</label>
+											<div class="masterborderScroll1">
+												<table class="table table-bordered">
+													    <tr>
+													       <!-- <th class="width1">
+													       </th> -->
+													       <th class="width10">
+													        Code
+													       </th>
+													       <th class="width15">
+													        Service Name
+													       </th>
+													      </tr>
+													      <tr ng-repeat = "selectedService in selectedServiceList">
+														       <!-- <td>
+														        <input type="checkbox">
+														       </td> -->
+														       <td>
+														          {{selectedService.serviceStandardCode}}
+														       </td>
+														       <td>
+														          {{selectedService.serviceStandardName}}
+														       </td>
+													      </tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+		</fieldset>
+		<fieldset>
+		<div class="row padding-left-right-set4">
+			<div class="col-lg-9 col-md-9 col-sm-9"></div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+	        	<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+	        	<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+	      	</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-lg-12 margin-top10 padding-left-right-set4">
+				<table class="table table-bordered">
+					<thead>
+				       <tr>
+					       <th class="width15">
+					        	Speciality
+					        	<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+					       </th>
+					       <th class="width15">
+					        	Sub Speciality
+					        	<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+					       </th>
+					       <th class="width15">
+					       		Service Name
+					       		<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+					       </th>
+					       <th class="width5">
+					         Action
+					       </th>
+				      </tr>
+				     </thead>
+				     <tbody>
+				     	<tr ng-repeat = "mapper in unitServiceMapperList |orderBy:column:reverse|filter:searchKeyword">
+				     		<td>{{mapper.specialityName}}</td>
+				     		<td>{{mapper.subSpecialityName}}</td>
+				     		<td>{{mapper.serviceStandardName}}</td>
+				     		<td>
+				     			<label class="switch">
+				     				<input type="checkbox" ng-model="mapper.status" ng-checked="mapper.status=='A'" ng-true-value="'A'" ng-false-value="'I'"
+				     				 ng-change="changeUnitServiceMapperStatus(mapper.serviceId,mapper.status)">
+									<div class="slider round"></div>
+								</label>
+				     		</td>
+				     	</tr>
+				     </tbody>
+				  </table>
+				  <div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>
+
+
+
+
+
+<script>
+
+$(document).ready(function() {  
+	 $(".selectedPageName").text("Unit Service Mapping");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="debitNoteList"]').parents("li").addClass("active");
+});
+
+</script>
+
+
+
+
+

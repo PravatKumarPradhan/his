@@ -1,0 +1,155 @@
+<div id="page-content-wrapper" class="ng-scope">
+	<div class="container-fluid his-style">
+		<div class="row padding-top10">
+			<div class="col-md-8 col-sm-8"></div>
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-9 col-md-8 col-sm-8">
+					<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4 float_right">
+					<div class="">
+						<a href="#/addnewdaywiseDietTemplate"
+							class="btn btn-primary btn-save-box-shadow" title="Add New">Add
+							New</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 padding-top10">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th class="width15">Diet Type</th>
+							<th class="width15">Food Type</th>
+							<th class="width10">Created On</th>
+							<th class="width5 text-center">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Sodium</td>
+							<td>Vegetarian</td>
+							<td></td>
+							<td class="padding-edit-button-table text-center"> 
+								<span><a href="#/addnewdaywiseDietTemplate"><i class="fa fa-pencil" aria-hidden="true" title="Edit"></i></a></span>
+								<span><i class="fa fa-eye" aria-hidden="true" title="View" data-toggle="modal" data-target="#DietTemplate"></i></span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- DietTemplate Modal-->
+<div id="DietTemplate" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content"> 
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					 Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-10 padding-top10 padding-bottom10">
+			<div class="col-md-12">
+				<table class="table table-bordered" id="AddDish">
+					<tr>
+						<th class="th-border-none"></th>
+						<th scope="col" class="text-uppercase text-center width25">Monday</th>
+						<th scope="col" class="text-uppercase text-center width25">Tuesday</th>
+						<th scope="col" class="text-uppercase text-center width25">Wednesday</th>
+						<th scope="col" class="text-uppercase text-center width25">Thursday</th>
+						<th scope="col" class="text-uppercase text-center width25">Friday</th>
+						<th scope="col" class="text-uppercase text-center width25">Saturday</th>
+						<th scope="col" class="text-uppercase text-center width25">Sunday</th>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">BreakFast</th>
+						<td class="text-center padding-zero">
+							<div><span>5</span> <span>Roti</span></div>
+							<!-- <div class="row addDish-bg text-center">
+								<span>360</span> <span>Cal</span> 
+							</div> -->
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Snacks</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Lunch</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Snacks</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Dinner</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Dessert</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tfoot>
+						<tr class="table-th-bg ">
+							<th class="text-uppercase text-center">Total Nutrition</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- DietTemplate Modal-->

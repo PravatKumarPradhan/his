@@ -1,0 +1,173 @@
+ <!-- Page Content -->
+    	<div id="page-content-wrapper" class="clockPopupOver ">
+	<div class="container-fluid his-style">
+		<div class="row padding-left-right-set4 margin-top10">
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-2 col-md-1 polymer-icon">
+						<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+					</div>
+					<input type="hidden" ng-model="data.opVisitRuleId">
+					<div class="col-lg-11 col-sm-10 col-md-11">
+						<div class="">
+						
+							<select class="text-input floating-label" ng-model="data.specialityId" ng-disabled="disableField">
+							<option value=" "></option>
+								<option ng-repeat="info in specialityMasterList" ng-if="info.isClinicalSpeciality =='Y'" value="{{info.specialityId}}">{{info.specialityName}}</option>
+							</select> <label for="code">Speciality</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label" ng-model="data.followupVisitDays"> <label for="code">Follow up Visit Days</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label" ng-model="data.followupVisitCount"> <label for="code">Follow up Visit Count</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label" ng-model="data.secondaryVisitDays"> 
+							<label for="code">Secondary Visit Days</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label" ng-model="data.secondaryVisitCount"> 
+							<label for="code">Secondary Visit Count</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row margin-top10">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+		        <div class=" ">
+		           <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" ng-click="saveOPCosultationConfigurationMaster()" ng-if="saveBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="updategetOPCosultationConfigurationMaster()" ng-if="updateBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+		        </div>
+		     </div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+			<!-- table start-->
+				<div class="row padding-left-right-set4 common-popup-height-410 padding-top5">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<tr class="">
+								<th class="width6">Speciality
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width6">Follow up Visit Days
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width6">Follow up Visit Count
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width6">Secondary Visit Days
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width6">Secondary Visit Count
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width2 text-center vertical-middle">Action</th>
+							</tr>
+							<tr ng-repeat="info in opConsultationConfigurationList">
+								
+								<td>{{info.specialityName}}</td>
+								<td>{{info.followupVisitDays}}</td>
+								<td>{{info.followupVisitCount}}</td>
+								<td>{{info.secondaryVisitDays}}</td>
+								<td>{{info.secondaryVisitCount}}</td>
+								<td class="text-center vertical-middle">
+									<span>
+										<a title="Print">
+											<i class="fa fa-pencil" aria-hidden="true" ng-click="getOPCosultationConfigurationListById(info.opVisitRuleId)"></i>
+										</a>
+									</span>
+									<!-- <span class="padding-left10"><a href="#/detailsMaterialPending">Details</a></span> -->
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div><modal visible="showModal"></modal>
+				<!-- table end-->
+	</div>
+</div><script type="text/javascript">
+$( document ).ready(function() {
+	$(".selectedPageName").text("OP Consultation Configuration Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="serviceMaster"]').parents("li").addClass("active");
+});
+</script>

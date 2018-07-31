@@ -1,0 +1,141 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<div class="row padding-top4">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10">
+					<b class="padding-right10 ">Request No. :</b>
+					<label>{{vm.model.wasteDisposalDetailData.requestNo}}</label>
+				</span>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10">
+					<b class="padding-right10 ">Request Date:
+					</b>
+					<label>{{vm.model.wasteDisposalDetailData.requestDate | date:'dd/MM/yyyy'}}</label>
+				</span>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10">
+					<b class="padding-right10 ">
+						Store :</b>
+					<label>{{vm.model.wasteDisposalDetailData.storeName}}</label>
+				</span>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10">
+					<b class="padding-right10 "> Type :
+					</b>
+					<label>{{vm.model.wasteDisposalDetailData.assetType}}</label>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10">
+					<b class="padding-right10 ">Requested By :
+					</b>
+					<label>{{vm.model.wasteDisposalDetailData.requestedBy}}</label>
+				</span>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10">
+					<b class="padding-right10 ">Witness :
+					</b>
+					<label>{{vm.model.wasteDisposalDetailData.witnessName}}</label>
+				</span>
+			</div>
+		</div>
+		<!-- Assets Table START -->
+		<div class="row padding-left-right-set4" ng-show="vm.model.wasteDisposalDetailData.assetTypeId == 1">
+			<div class="col-lg-12 col-md-12 padding-top10">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th class="width5">Item Code</th>
+							<th class="width5">Item Name</th>
+							<th class="width6">Generic Name</th>
+							<th class="width4">UOM</th>
+							<th class="width4">UOM Unit</th>
+							<th class="width4">Batch No.</th>
+							<th class="width5">Expiry Date</th>
+							<th class="width4"> Scrap Qty</th>
+							<th class="width10">Reason for Scrap</th>
+							<th class="width3">Disposed Qty</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="disposal in vm.model.wasteDisposalDetailData.items | orderBy:sortType:sortReverse">
+							<td>{{disposal.itemCode}}</td>
+							<td>{{disposal.itemName}}</td>
+							<td>{{disposal.genericName}}</td>
+							<td>{{disposal.uomType}}</td>
+							<td>{{disposal.uomUnit}}</td>
+							<td>{{disposal.batchNo}}</td>
+							<td>{{disposal.expiryDate | date:'MMM-yyyy'}}</td>
+							<td>{{disposal.scrapQuantity}}</td>
+							<td>{{disposal.scrapReason}}</td>
+							<td>
+								<input type="text" numbers-only ng-model="disposal.disposeQuantity" >
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- Assets Table END -->
+		<!-- Consumable Table START -->
+		<div class="row padding-left-right-set4" ng-show="vm.model.wasteDisposalDetailData.assetTypeId == 2">
+			<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th class="width5">Item Code</th>
+							<th class="width5">Item Name</th>
+							<th class="width5">Serial No.</th>
+							<th class="width5">Lot No.</th>
+							<th class="width4"> Scrap Qty</th>
+							<th class="width10">Reason for Scrap</th>
+							<th class="width3">Disposed Qty</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+								<input class="w-100" type="text">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- Consumable Table END -->
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style padding-right20">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right8">
+				</div>
+				<div class="col-md-1 col-sm-1 padding-left0px-right6px">
+					<div class="">
+						<input type="button" value="Save" ng-click="vm.model.SaveApproval()" class="btn btn-primary btn-save-box-shadow">
+
+					</div>
+				</div>
+				<div class="col-md-1 col-sm-1 padding-left0px-right6px">
+					<div class="">
+						<a href="#/wasteAssetDisposalWorklist">
+							<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>

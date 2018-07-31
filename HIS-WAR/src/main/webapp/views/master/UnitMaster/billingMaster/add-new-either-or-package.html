@@ -1,0 +1,929 @@
+<!--==============================================================================================
+Page Three - Either or Package Start
+==================================================================================================== -->
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<legend class="heading-div">Package</legend>
+			<div class="row margin-top8">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10" ><!-- ng-controller="samplecontroller" -->
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" ng-model="packageObj.packageTypeId">
+									<option ng-repeat="packType in packageTypeList" value="{{packType.id}}" ng-if="packType.id == 2">{{packType.name}}</option>
+								</select>
+								<label class="LISDynamicLabel">Package Type</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" class="text-input floating-label" tabindex="3"
+										 ng-model="packageService" placeholder="Search" uib-typeahead=" serv.name for serv in getPackageServiceList($viewValue)"
+										 typeahead-editable="false" typeahead-on-select="selectPackageService($item, $model, $label);"
+										 name="" autocomplete="off" />
+								<label for="code">Package Service</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-tasks" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label" ng-model="packageObj.tariffId" ng-change="getPaymentEntitlementList(packageObj.tariffId);getPatientTypeList(packageObj.tariffId);">
+									<option value="">-</option>
+									<option ng-repeat="tariff in tariffList" value="{{tariff.id}}">{{tariff.name}}</option>
+								</select>
+								<label for="code">Tariff</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+								<select class="text-input floating-label" ng-model="packageObj.paymentEntitlementTypeId">
+									<option value="">-</option>
+									<option ng-repeat="payEnt in paymentEntitlementList" value="{{payEnt.id}}">{{payEnt.name}}</option>
+								</select>
+								<label class="LISDynamicLabel">Payment Entitlement</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label dirty" ng-model="packageObj.sexId">
+										<option value="">-</option>
+										<option value="1">Male</option>
+										<option value="2">Female</option>
+										<option value="3">Other</option>
+									</select>
+									<label class="LISDynamicLabel">Sex</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				 
+			</div>
+			<div class="row margin-top8">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<select class="text-input floating-label" ng-model="packageObj.patientTypeId">
+									<option value="">-</option>
+									<option ng-repeat="patTy in patientTypeList" value="{{patTy.id}}">{{patTy.name}}</option>
+								</select>
+								<label for="code">Patient Type</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" ng-model="packageObj.visitTypeId">
+									<option value="">-</option>
+									<option value="1">OP</option>
+									<option value="2">IP</option>
+									<option value="3">Day Care</option>
+									<option value="4">ER</option>
+								</select>
+								<label class="LISDynamicLabel">Visit Type</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<select class="text-input floating-label" ng-model="packageObj.billingBedCategoryId">
+									<option value="">-</option>
+        							 <option ng-repeat="bedBillCategory in bedBillingCategoryList" value="{{bedBillCategory.billingBedCategoryId}}">{{bedBillCategory.billingBedDesc}}</option>
+								</select>
+								<label class="LISDynamicLabel">Bed Billing Category</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <div class="col-lg-2 col-md-2 col-sm-2 float-right padding-left-right-set1">
+					<div class="common-save-button">
+						<input type="button" value="Import From Package" class="btn btn-primary btn-save-box-shadow text-width-auto" data-target="#importFromPackageModal" data-toggle="modal">
+						
+						<span class="padding-left-right-set0">
+							<a href="" class="btn btn-primary btn-save-box-shadow text-width-auto" ng-click="saveEitherOrPackage()" title="Save">
+								<i class="fa fa-floppy-o"  style="font-size: 21px" aria-hidden="true"></i>
+	        				</a>
+	        			</span>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 float-right padding-left-right-set0">
+					<div class="common-save-button">
+						<a href="#/eitherOrPackage">
+							<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	
+			<div class="row" id="either_or_package_row_ID" >
+				<div class="row">
+					<!-- ****************************************************** Either or Package Tabs row start ************************************************** -->
+				  	<div class="row  custom-sub-tab"><!-- schedulerTabs -->
+				  		<div class="col-lg-8 col-md-8 col-sm-8 padding-top8 ">
+							<ul class="tabs nav nav-tabs">
+								<li ng-class="{ active : isSetFirstTabLevel(1) }" id="" class="padding-top-bottom width25">
+									<a href ng-click="setFirstTabLevel(1)">Package Group Wise Details</a>
+								</li>
+								<li ng-class="{ active : isSetFirstTabLevel(2) }" id="" class="padding-top-bottom width25">
+									<a href ng-click="setFirstTabLevel(2)">Service Wise Details</a>
+								</li>
+							</ul>
+						</div>
+						<div ng-show="isSetFirstTabLevel(1)" class="col-lg-1 col-md-1 col-sm-1 float-right padding-left-right-set4">
+							<div class="common-save-button">
+								<a>
+									<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-target="#addDetailsModal" data-toggle="modal">
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 float-right second-level-tab-display-div-PkgCAP text-width-auto padding-top10">
+							<div class="common-save-button"  ng-show="isSetFirstTabLevel(2)" >
+								<input type="button" value="Get Service" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#getServicesModal-Eitheror" >
+							</div>
+						</div>
+					</div>
+					 <!-- **************************************************** Either or Package Tabs row end ****************************************************** -->
+						<!-- *********** Tab 1 - Either or package - Pacakge Group wise  Start ********* -->
+					  	<div class="row">
+				  			<div ng-show="isSetFirstTabLevel(1)"  class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+				  				<div class="row ">
+				  					<div class="col-lg-12 col-md-12 col-sm-12 common-table-height-250">
+						  				<table class="table table-bordered">
+											<thead>
+												<tr class="">
+													<!-- <th class="width1 text-center">
+														<input type="checkbox"/>
+													</th> -->
+													<th class="width10">
+														Package Group
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+													<th class="width3">
+														Details
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+													<th class="width6">
+														Package Qty
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+													<!-- <th class="width8">
+														Rate
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th> -->
+													<th class="width8">
+														Total
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+													<th class="status">
+														Action
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+											 	</tr>
+											 </thead>
+											 <tbody>
+											 	<tr ng-repeat="packageGroupDtls in listTPackageEitherorGroupDetailsDto">
+											 		<!-- <td class="width1 text-center">
+														<input type="checkbox"/>
+													</td> -->
+											 		<td>{{packageGroupDtls.packageGroupName}}</td>
+													<td>
+													      <div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+													    	<input type="button" value="View" ng-click="viewPackageGroup(packageGroupDtls)" class="btn btn-primary btn-save-box-shadow" data-target="#viewDetailsModal" data-toggle="modal">
+													    </div>
+													</td>
+													<td>
+														<input type="text" class="select-box" ng-model="packageGroupDtls.numberServiceUsable" ng-decimal="200" />
+													</td>
+											 		<!-- <td>{{packageGroupDtls.groupPrice}}</td> -->
+											 		<td>{{parseFloatNum(packageGroupDtls.groupPrice)}}</td>
+											 		<td>
+											 			<a>
+											 				<i class="fa fa-times" aria-hidden="true" ng-click="removePackageGroup($index)"></i>
+											 			</a>
+											 		</td>
+											 	</tr>
+											 </tbody>
+										</table>
+									</div>
+								</div>
+				  			</div>
+						</div>
+					  	<!-- *********** Tab 1 - Either or package - Pacakge Group wise  End ********* -->
+						<!-- *********** Tab 2 - Either or package - Service wise Start ********* -->
+						<div class="row">
+				  			<div ng-show="isSetFirstTabLevel(2)"  class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+				  				<div class="row ">
+				  					<div class="col-lg-12 col-md-12 col-sm-12 common-table-height-250">
+						  				<table class="table table-bordered">
+											<thead>
+												<tr class="">
+													<th class="width8">
+														Group
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+													<th class="width8">
+														Sub Group
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+													<th class="width8">
+														Service Code
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+													<th class="width8">
+														Service Name
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+													<th class="width6">
+														Rate
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+													<th class="width6">
+														Package Qty
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+													<th class="width5">
+														Total
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+													<th class="status">
+														Action
+														<div class="float_right">
+															<div>
+																<i class="fa fa-caret-up" aria-hidden="true"></i>
+															</div>
+															<div class="margin-top-8">
+																<i class="fa fa-caret-down" aria-hidden="true"></i>
+															</div>
+														</div>
+													</th>
+											 	</tr>
+											 </thead>
+											 <tbody>
+											 	<tr ng-repeat="serv in listTPackageServicesDetailsDto">
+											 		<td>{{serv.groupDesc}}</td>
+													<td>{{serv.subGroup}}</td>
+											 		<td>{{serv.serviceCode}}</td>
+											 		<td>{{serv.serviceDescription}}</td>
+													<td>{{serv.rate != null ? parseFloatNum(serv.rate) : 'Rate not available'}}</td>
+													<td>
+														<input type="text" ng-model="serv.qty" ng-change="serv.total = serv.rate * serv.qty;calculateSummaryAmounts()" class="select-box" />
+													</td>
+													<td>{{parseFloatNum(serv.total)}}</td>
+											 		<td>
+											 			<a ng-click="removeService($index)">
+											 				<i class="fa fa-times" aria-hidden="true"></i>
+											 			</a>
+											 		</td>
+											 	</tr>
+											 </tbody>
+										</table>
+									</div>
+								</div>
+				  			</div>
+						</div>
+						<!-- *********** Tab 2 - Either or package - Service wise  End ********* -->
+					    
+					  
+					  
+					<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20" style="margin-bottom:15px !important; ">
+						<!-- ************** Footer Block start ************** -->
+						<div class="row padding-left-right-set4">
+							<div class="col-lg-12 col-md-12 col-sm-12 padding-right20">
+								<table class=" table table-bordered">
+									<tbody>
+										<tr>
+											<td class="width15">
+												<label>Package Group Summary</label>
+											</td>
+											<td class="width5">
+												<input type="text" ng-model="summary.packageGroupAmt" ng-decimal="200" readonly  class="select-box dirty">
+											</td>
+											<td class="width15">
+												<label>Group Total</label>
+											</td>
+											<td class="width5">
+												<input type="text" ng-model="summary.groupTotal" ng-decimal="200" readonly class="select-box dirty">
+											</td>
+											<td class="width8">
+												 <div class=" col-md-4 col-sm-4 col-lg-4 padding-left-right-set1 padding-top8">	
+											        <label>Select</label>
+											    </div>
+												<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set1">
+													<select class="select-box dirty" ng-model="packageObj.isMarkupDown" ng-change="calculateSummaryAmounts()">
+														<option value="1">Mark Up</option>
+														<option value="2">Mark Down</option>
+													</select>
+				                                   </div>
+											</td>
+											<td class="width5">
+												<input type="text" ng-model="packageObj.markupDownInPercentage" ng-change="calculateSummaryAmounts()" ng-decimal="200" class="select-box dirty">
+											</td>
+											<td class="width8">
+												<label>Package Price</label>
+											</td>
+											<td class="width5">
+												<input type="text" ng-model="packageObj.packageCost" readonly class="select-box dirty">
+											</td>
+										</tr>
+										<tr>
+											<td class="width15">
+												<label>Service Wise Summary</label>
+											</td>
+											<td class="width5">
+												<input type="text" ng-model="summary.serviceGroupAmt" ng-decimal="200" readonly class="select-box dirty">
+											</td>
+											<td colspan="4"></td>
+											<td class="width8">
+												 <div class="col-lg-8 col-md-8 col-sm-8  padding-left-right-set1 padding-top8">	
+											       <label>Round Off</label>
+											    </div>
+												<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set1">
+													<select class="select-box dirty" ng-model="packageObj.roundOffPositNeg" ng-change="calculateSummaryAmounts()">
+														<option value="1"> + </option>
+														<option value="2"> - </option>
+													</select>
+				                                   </div>
+												</td>
+											<td class="width5">
+												<input type="text" ng-model="packageObj.manualRoundoffAmount" ng-change="calculateSummaryAmounts()" ng-decimal="200" class="select-box dirty">
+											</td>
+										</tr>
+										<tr>
+											<td colspan="6"></td>
+											<td class="width8">
+												<label>Final Package Price</label>
+											</td>
+											<td class="width5">
+												<input type="text" ng-model="packageObj.packagePrice" ng-decimal="200" readonly class="select-box dirty">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- ************** Footer Block end ************** -->
+					</footer>
+				</div>
+			</div>
+	</div>
+</div>
+<!--==============================================================================================
+Page Three - Either or Package End
+#Common modal content Start below 
+==================================================================================================== -->
+<!-- ************************************** Add Details Modal START  ************************************** -->
+<div id="addDetailsModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Add Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-top8">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<input type="text" ng-model="packageGroup.packageGroupName" class="text-input floating-label dirty">
+									 <label for="code">Package Group Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4  text-width-auto float-right ">
+						<div class="common-save-button" style="padding-top: 0px;">
+							<input type="button" value="Get Service" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#getServicesModal-Eitheror">
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4  text-width-auto float-right ">
+						<div class="common-save-button" style="padding-top: 0px;">
+							<input type="button" value="Add" data-dismiss="modal" ng-click="addPackageGoup(packageGroup)" class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-set4 ">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+						<table class="table table-bordered">
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<!-- <th class="width1 text-center">
+										<input type="checkbox">
+									</th> -->
+									<th class="width8">Group
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Sub Group
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Service Code
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Service Name
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width4">Rate
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width1">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="serv in groupServices">
+									<!-- <td class="width1 text-center">
+										<input type="checkbox">
+									</td> -->
+									<td>{{serv.groupDesc}}</td>
+									<td>{{serv.subGroup}}</td>
+									<td>{{serv.serviceCode}}</td>
+									<td>{{serv.serviceDescription}}</td>
+									<td>{{serv.rate}}</td>
+									<td>
+										<a ng-click="removeGroupServices($index)">
+							 				<i class="fa fa-times" aria-hidden="true" ></i>
+							 			</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer padding-left-right-set4" style="border: none;padding: 4px !important;">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 ">
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td class="width10">Max Price</td>
+									<td class="width5">
+										<input type="text" ng-model="packageGroup.maxPrice" ng-decimal="200" readonly class="select-box dirty">
+									</td>
+									<td class="width10">Min Price</td>
+									<td class="width5">
+										<input type="text" ng-model="packageGroup.minPrice" ng-decimal="200" readonly class="select-box dirty">
+									</td>
+									<td class="width10">Average Price</td>
+									<td class="width5">
+										<input type="text" ng-model="packageGroup.avgPrice" ng-decimal="200" readonly class="select-box dirty">
+									</td>
+									<td class="width10">Group Price</td>
+									<td class="width5">
+										<input type="text" ng-model="packageGroup.groupPrice" ng-decimal="200"  class="select-box dirty">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- **************************************  Add Details Modal END  ************************************** -->
+<!-- ************************************** View Details Modal START  ************************************** -->
+<div id="viewDetailsModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					View Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<!-- <div class="row padding-top5">
+					<div class="col-lg-2 col-md-2 col-sm-2 text-width-auto padding-left-right-set4 float-right">
+						<div class="common-save-button" style="padding-top: 0px;">
+							<input type="button" value="Get Service" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#getServicesModal-Eitheror">
+						</div>
+					</div>
+				</div> -->
+				<div class="row padding-left-right-set4 padding-top5">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+						<table class="table table-bordered">
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width8">Group
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Sub Group
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Service Code
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width10">Service Name
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width4">Rate
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="packageGroupServ in viewPackageGroupServices">
+									<td>{{packageGroupServ.groupDesc}}</td>
+									<td>{{packageGroupServ.subGroup}}</td>
+									<td>{{packageGroupServ.serviceCode}}</td>
+									<td>{{packageGroupServ.serviceDescription}}</td>
+									<td>{{packageGroupServ.rate}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer padding-left-right-set4" style="border: none;padding: 4px !important;">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 ">
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td class="width10">Max Price</td>
+									<td class="width5">
+										<input type="text" ng-model="viewPackageObj.maxPrice" ng-decimal="200" class="select-box dirty" readonly>
+									</td>
+									<td class="width10">Min Price</td>
+									<td class="width5">
+										<input type="text" ng-model="viewPackageObj.minPrice" ng-decimal="200" class="select-box dirty" readonly>
+									</td>
+									<td class="width10">Average Price</td>
+									<td class="width5">
+										<input type="text" ng-model="viewPackageObj.avgPrice" ng-decimal="200" class="select-box dirty" readonly>
+									</td>
+									<td class="width10">Group Price</td>
+									<td class="width5">
+										<input type="text" ng-model="viewPackageObj.groupPrice" ng-decimal="200" class="select-box dirty" readonly>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- **************************************  View Details Modal END  ************************************** -->
+<!-- GetService Modal START -->
+<div id="getServicesModal-Eitheror" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			 <div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Get Services
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll" ng-include="'./views/master/UnitMaster/billingMaster/get-service-modal-EHC-package.html'" ></div>
+				<div class="modal-footer">
+					<div class="row his-style">
+						<div class="col-md-11"></div>
+						<div class="col-md-1 padding-left0px-right6px">
+							<div class="common-save-button">
+								<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal" ng-click="addGroupServices()">
+							</div>
+						</div>
+					</div>
+				</div>
+		</div> 
+		</div>
+	</div>
+</div>
+<!-- GetService Modal END -->
+<!-- ************************************** Import From Package Modal START  ************************************** -->
+<div id="importFromPackageModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Import From Package
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<select class="text-input floating-label dirty">
+										<option value="">Select</option>
+									</select> <label for="code">Package Type</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<input type="text" class="text-input floating-label dirty"/>
+									 <label for="code">Package Code</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<input type="text" class="text-input floating-label dirty"/>
+									 <label for="code">Package Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-1 col-md-1 col-sm-1 text-width-auto padding-left-right-10">
+						<div class="common-save-button" style="padding-top: 0px;">
+							<a class="btn btn-primary btn-save-box-shadow"style="width: auto;">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-10 padding-top5">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+						<table class="table table-bordered">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width1 text-center"><input type="checkbox"></th>
+									<th class="width8">Package Type</th>
+									<th class="width10">Package Code</th>
+									<th class="width15">Package Name</th>
+									<th class="width8">Visit Type</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="width1 text-center"><input type="checkbox"></td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- **************************************  Import From Package Modal END  ************************************** -->
+<div ng-include="'./views/PharmacyInventory/Store/get-item-list.html'" ></div>
+
+
+<!-- Page Content -->        
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedServicesList").hide();
+	
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+  
+  $(".selectedPageName").text("Add New Either Or Package");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="=addNewEitherOrPackage"]').parents("li").addClass("active");
+});
+$(".table-th-bg").click(function(){
+	//alert("23======");
+	$(this).next().find(".selectedServicesList").toggle();
+});
+
+
+</script>

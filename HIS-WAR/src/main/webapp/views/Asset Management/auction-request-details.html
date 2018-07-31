@@ -1,0 +1,356 @@
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<div class="row padding-top10">
+				<div class="col-lg-10 col-md-10 padding-left-right-10">
+					<!-- ***********Details row start *************** -->
+					<div class="row margin-top10">
+						<div class="col-md-3 col-sm-4">
+							<span><label>Requisition Number:</label></span>
+							<span>123456</span>
+						</div>
+						<div class="col-md-3 col-sm-4">
+							<span><label>Requisition Date:</label></span>
+							<span>15/11/2017</span>
+						</div>
+						<div class="col-md-3 col-sm-4">
+							<span><label>Store:</label></span>
+							<span>Store 1</span>
+						</div>
+						<div class="col-md-3 col-sm-4">
+							<span><label>Status:</label></span>
+							<span>Completed</span>
+						</div>
+					</div>
+					<!-- ***********Details row end *************** -->
+				</div>
+			</div>
+			<div class="row">
+					<div class="col-lg-12 col-md-12 height500-table-with-scroll padding-top10">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width6">Asset Code</th>
+									<th class="width10">Asset Name</th>
+									<th class="width6">Serial No</th>
+									<th class="width6">Lot No</th>
+									<th class="width8">
+										<span title="GRN Vendor">Vendor Name</span>
+									</th>
+									<th class="width6">GRN No</th>
+									<th class="width5">GRN Date</th>
+									<th class="width5">COP</th>
+									<th class="width5">Qty</th>
+									<th class="width8">Auction Price</th>
+									<th class="width8">Amount @ COP</th>
+									<th class="width8">Amount @ Price</th>
+									<th class="width6">Accessories </th>
+									<th class="width10">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>
+										<input type="text" class="select-box"/>
+									</td>
+									<td></td>
+									<td>
+										<input type="text" class="select-box"/>
+									</td>
+									<td class="text-center media-middle">
+										<a>
+											<i class="fa fa-plus-circle" aria-hidden="true" title="View Asset" data-toggle="modal" data-target="#addAsset"></i>
+										</a>
+									</td>
+									<td class="vertical-middle">
+										<div class="row">
+											<input type="radio" name="radioBtnForTransferRqust" class="radioAccepted"><span>Accept</span>
+											<input type="radio" name="radioBtnForTransferRqust" class="radioRejected"><span>Reject</span>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+		</fieldset>
+		
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+				<div class="col-md-1 text-right" >
+					<label>Remark:</label>
+				</div>
+				<div class="col-md-9 padding-left-right8">
+					<input class="form-control" readonly/>
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a href="">
+						<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a href="#/auctionRequest">
+						<input type="button" value="Back"  class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+<!--  Add Asset modal start -->
+<div id="addAsset" class="modal fade ng-scope in padding-left0" role="dialog"> <!-- getRequestWasteStore -->
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					 Asset Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll	">
+					<div class="row padding-top5 padding-left-right-set4">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="">
+										<th colspan="4" class="font-weight700">Asset Details</th>
+									</tr>
+									<!-- <tr>
+								    	<th class="width1"></th>
+								        <th>Asset Code</th>
+								        <th>Asset Name</th>
+								        <th>Asset Id</th>
+								        <th>Serical No</th>
+								        <th>Manufacturing Date</th>
+								    </tr> -->
+								</thead>
+								<tbody>
+									<tr>
+										<td colspan="5">
+											<div class="">
+											<table class="table table-bordered ">
+												<tbody>
+													
+													<!-- ***************** Style 1 start **************** -->
+													<tr class="add-accessories table-th-bg">
+														<td class="width1 text-center"><input type="checkbox" />
+														</td>
+														<td>A-1202</td>
+														<td>QWER</td>
+														<td>A2344432</td>
+														<td>014744421541</td>
+														<td>13/11/2017</td>
+													</tr>
+													<tr>
+														<td colspan="6" class="selectedServicesList " style="">
+															<div>
+																<table class="table table-bordered "style="border: 3px solid #8080805e;">
+																	<tbody>
+																		<tr class="">
+																			<td colspan="6">Accessories Details</td>
+																		</tr>
+																		<tr>
+																			<td class="text-center width1"><input
+																				type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																		<tr>
+																			<td class="text-center width1"><input
+																				type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																		<tr>
+																			<td class="text-center width1"><input
+																				type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																		<tr>
+																			<td class="text-center width1"><input
+																				type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</td>
+													</tr>
+													<!-- <tr class="add-accessories table-th-bg">
+														<td class="width1 text-center"><input type="checkbox" />
+														</td>
+														<td>A-1203</td>
+														<td>QWER</td>
+														<td>A2344432</td>
+														<td>014744421541</td>
+														<td>13/11/2017</td>
+													</tr>
+													<tr>
+														<td colspan="6" class="selectedServicesList " style="">
+															<div>
+																<table class="table table-bordered" style="border: 3px solid #8080805e;">
+																	<tbody>
+																		<tr class="">
+																			<td colspan="6">Accessories Details</td>
+																		</tr>
+																		<tr>
+																			<td class="text-center width1"><input
+																				type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																		<tr>
+																			<td class="text-center width1"><input
+																				type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</td>
+													</tr> -->
+													<!-- <tr class="add-accessories table-th-bg">
+														<td class="width1 text-center"><input type="checkbox" />
+														</td>
+														<td>A-1204</td>
+														<td>QWER</td>
+														<td>A2344432</td>
+														<td>014744421541</td>
+														<td>13/11/2017</td>
+													</tr>
+													<tr>
+														<td colspan="6" class="selectedServicesList " style="">
+															<div>
+																<table class="table table-bordered" style="border: 3px solid #8080805e;">
+																	<tbody>
+																		<tr class="">
+																			<td colspan="6">Accessories Details</td>
+																		</tr>
+																		<tr>
+																			<td class="text-center width1"><input
+																				type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																		<tr>
+																			<td class="text-center width1"><input
+																				type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</td>
+													</tr> -->
+													<!-- <tr class="add-accessories table-th-bg">
+														<td class="width1 text-center"><input type="checkbox" />
+														</td>
+														<td>A-1205</td>
+														<td>QWER</td>
+														<td>A2344432</td>
+														<td>014744421541</td>
+														<td>13/11/2017</td>
+													</tr>
+													<tr>
+														<td colspan="6" class="selectedServicesList " style="">
+															<div>
+																<table class="table table-bordered" style="border: 3px solid #8080805e;">
+																	<tbody>
+																		<tr class="">
+																			<td colspan="6">Accessories Details</td>
+																		</tr>
+																		<tr>
+																			<td class="text-center width1"><input
+																				type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																		<tr>
+																			<td class="text-center width1"><input
+																				type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</td>
+													</tr> -->
+												</tbody>
+											</table>
+										</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  Add Asset modal END-->
+<script src="resources/assets/js/common/page-height.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".selectedServicesList").hide();
+	});
+
+	$(".add-accessories").click(function(){
+		$(this).next().find(".selectedServicesList").toggle();
+	});
+</script>
+

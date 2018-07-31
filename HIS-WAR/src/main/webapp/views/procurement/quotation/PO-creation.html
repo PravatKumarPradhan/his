@@ -1,0 +1,563 @@
+<!-- /********************************************************************************************************************************************
+Procurement - quotation - PO Creation main page
+Created by - Pranita Patil
+Created Date - 26-Oct-2017      
+/********************************************************************************************************************************************/ -->
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset  class="main-fieldset">
+			<div class="row margin-top10">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+                <input type="text" class="text-input floating-label dirty" name="fromDate" id="fromDate" uib-datepicker-popup="dd/MM/yyyy" placeholder="DD/MM/YYYY" ng-model="vm.model.fromDate" model-view-value="true" is-open="vm.model.fromDateOpened" datepicker-options="vm.model.fromDateOptions" show-button-bar="false" ng-click="vm.model.OpenFromDate()">
+                <label for="fromDate">From Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="">
+                <input type="text" class="text-input floating-label dirty" name="toDate" id="toDate" uib-datepicker-popup="dd/MM/yyyy" placeholder="DD/MM/YYYY" ng-model="vm.model.toDate" model-view-value="true" is-open="vm.model.toDateOpened" datepicker-options="vm.model.toDateOptions" show-button-bar="false" ng-click="vm.model.OpenToDate()">
+                <label for="toDate" class="LISDynamicLabel">To Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-building-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="">
+                <select name="store" id="store" class="text-input floating-label" ng-model="vm.model.store" data-ng-options="store.store for store in vm.model.storeList" ng-class="{dirty: vm.model.store}">
+                </select>
+                <label for="store" class="LISDynamicLabel">Store</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+                <input type="text" name="vendorName" id="vendorName" class="text-input floating-label" ng-model="vm.model.vendorName" uib-typeahead="vendorNames.detail for vendorNames in vm.model.SearchVendorNames($viewValue)" typeahead-on-select="vm.model.AddVendorName($item); vm.model.search = '';" ng-class="{dirty: vm.model.vendorName}">
+								<label for="vendorName">Vendor</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" ng-model="vm.model.purchaseOrderNo" name="purchaseOrderNo" id="purchaseOrderNo" class="text-input floating-label" ng-class="{dirty: vm.model.purchaseOrderNo}">
+								<label for="purchaseOrderNo">Purchase Order No</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-8 col-sm-8 col-md-8">
+							<div class="">
+                <select name="status" id="status" class="text-input floating-label dirty" ng-model="vm.model.status" data-ng-options="status.status for status in vm.model.statuses">
+                </select>
+                <label for="status" class="LISDynamicLabel">Status</label>
+							</div>
+						</div>
+						<div class="col-lg-2 col-sm-2 col-md-2 padding-left-right-set4" style="">
+							<div class="common-save-button" style="padding-top: 0px;"> 
+								 <a href="" ng-click="vm.model.GetPurchaseOrderList()" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+								 	<i class="fa fa-search" aria-hidden="true"></i> 
+								 </a> 
+							</div> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+			<div class="row margin-top4">
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+					<div class=" ">
+						<a href="" ng-click="vm.model.ValidateAndUpdate('Update', 'confirmSave', {})" class="btn btn-primary btn-save-box-shadow" title="Save">
+						<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div>
+			   <div class="col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+					<div class=" ">
+						<a href ng-click="vm.model.NavigateToAddNew()">
+							<input type="button" value="Add New" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="row margin-top4">
+				<div class="col-md-12 col-lg-12 col-sm-8">
+					<fieldset>
+					<div class="row table-container padding-left-right-set4 padding-top5">
+						<div class="table-container-header">
+						<table class="table table-striped table-hover table-condensed table-bordered first-checkBox-padding">
+							<thead>
+								<tr>
+									<th class="width1 text-center">
+                    <input type="checkbox" ng-click="vm.model.SelectAllOrders()" ng-model="vm.model.selectAllRows" ng-disabled="!vm.model.purchaseOrders || vm.model.purchaseOrders == false" />
+									</th>
+                  <th class="width5" title="Purchase Date">
+                    Purchase Date
+                    <div class="float_right" ng-click="sortType = 'poDate'; sortReverse = !sortReverse">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+									<th class="width5" title="Purchase No">
+										Purchase No
+										<div class="float_right" ng-click="sortType = 'poNo'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5" title="Purchase Type" style="white-space: normal;">
+										Purchase Type
+										<div class="float_right" ng-click="sortType = 'assetType'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8" title="Vendor">
+										Vendor
+										<div class="float_right" ng-click="sortType = 'vendorName'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8" title="Against">
+										Against
+										<div class="float_right" ng-click="sortType = 'poAgainst'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8" title="Added By">
+										Added By
+										<div class="float_right" ng-click="sortType = 'requestedBy'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5" title="Added On">
+										Added On
+										<div class="float_right" ng-click="sortType = 'requestedOn'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5" title="Status">
+										Status
+										<div class="float_right" ng-click="sortType = 'status'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+                  <th class="width6" title="Approval Status">
+                    Approval Status
+                    <div class="float_right" ng-click="sortType = 'approvalStatus'; sortReverse = !sortReverse">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+									<th class="width7" title="Action">Action</th>
+								</tr>
+							</thead>
+          </table>
+        </div>
+        <div class="table-container-body" style="height: 580px; overflow-y: scroll;">
+          <table class="table table-striped table-hover table-condensed table-bordered">
+							<tbody>
+								<tr ng-repeat="purchaseOrder in vm.model.purchaseOrders | filter: search | orderBy:sortType:sortReverse">
+									<td class="width1 text-center">
+                    <input type="checkbox" ng-model="purchaseOrder.isSelected" ng-click="vm.model.SelectPurchaseOrder(purchaseOrder)" ng-disabled="vm.model.isDisable(purchaseOrder)" />
+									</td>
+                  <td class="width5" title="{{purchaseOrder.purchaseDate | date: 'dd/MM/yyyy'}}">{{purchaseOrder.purchaseDate | date: 'dd/MM/yyyy'}}</td>
+									<td class="width5" title="{{purchaseOrder.purchaseNo}}">{{purchaseOrder.purchaseNo}}</td>
+									<td class="width5" title="{{purchaseOrder.type}}">{{purchaseOrder.type}}</td>
+									<td class="width8" title="{{purchaseOrder.vendorName}}">{{purchaseOrder.vendorName}}</td>
+									<td class="width8" title="{{purchaseOrder.purchaseType}}">{{purchaseOrder.purchaseType}}</td>
+									<td class="width8" title="{{purchaseOrder.addedBy}}">{{purchaseOrder.addedBy}}</td>
+									<td class="width5" title="{{purchaseOrder.purchaseDate | date: 'dd/MM/yyyy'}}">{{purchaseOrder.purchaseDate | date: 'dd/MM/yyyy'}}</td>
+                  <td class="width5" title="{{purchaseOrder.status}}">{{purchaseOrder.status}}</td>
+                  <td class="width6" title="{{purchaseOrder.approvalStatus}}">{{purchaseOrder.approvalStatus}}</td>
+									<td class="width7" style="width: 6.8% !important">
+										<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+                      <a title="Edit" ng-click="vm.model.NavigateToEdit(purchaseOrder)" ng-class="{disabled: vm.model.isEdit(purchaseOrder)}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+										</div>
+										<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+											<a title="Print" ><i class="fa fa-print" aria-hidden="true" ></i></a>
+										</div>
+										<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+                      <a title="Cancel" ng-class="{disabled: vm.model.isCancel(purchaseOrder)}" ng-click="vm.model.ValidateAndUpdate('Cancel', 'cancelPO', purchaseOrder); vm.model.PopulateReasonDropdown()"><i class="fa fa-ban" aria-hidden="true"></i></a>
+										</div>
+										<div class="col-lg-6 col-md-6 padding-left-right-set4 text-right">
+                    <a class="cursor-pointer" ng-click="vm.model.NavigateToDetails(purchaseOrder)">Details</a>
+										</div>
+									</td>
+								</tr>
+                <tr ng-if="!vm.model.purchaseOrders || vm.model.purchaseOrders == false">
+                  <td class="text-center" colspan="11">
+                    <p>No Record Found</p>
+                  </td>
+                </tr>
+							</tbody>
+						</table>
+						</div>
+					</div>
+					</fieldset>
+				</div>
+			</div>
+	</div>
+</div>
+<!-- details modal start -->
+<div id="wasteStoreDetailsModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Purchase Order Creation Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10 padding-left-right-set4">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Item Code
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th>Item Name
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<!-- <th>Batch No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th>Expiry Date
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th> -->
+									<th>Purchase No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th>Purchase Date
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th>Vendor
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th title="Vendor Invoice Date">Invoice Date
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th>COP
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5">Qty
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5">Bounce Qty
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Amount At COP
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Discount Amount
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">Consignment
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>10001</td>
+									<td>X Ray</td>
+									<td>PO111</td>
+									<td>03/01/2018</td>
+									<td>Hamamatsu Photonics UK Ltd</td>
+									<td>03/01/2018</td>
+									<td>3150</td>
+									<td>1</td>
+									<td>0</td>
+									<td>3150</td>
+									<td>-</td>
+									<td>Y</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+<!-- confirmSave modal start -->
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+  <div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+    <div class="modal-content">
+      <div class="modal-header" style="padding: 0px!important;">
+        <div class="modal-title patient-details-row">
+          Confirm
+          <button type="button" class="close" ng-click="vm.model.ModalDismiss('confirmSave')">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="margin-left10"><span>Are you sure you want to Save?</span></div>
+      </div>
+      <div class="modal-footer" style="border:none;">
+        <button type="button" class="btn btn-primary" ng-click="vm.model.UpdatePurchaseOrder()">Ok</button>
+        <button type="button" ng-click="vm.model.ModalDismiss('confirmSave')" class="btn btn-primary">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- confirmSave modal end -->
+<!-- cancelPO Start -->
+<div id="cancelPO" class="modal fade ng-scope in common-small-popup" role="dialog" style="background: rgba(0, 0, 0, 0.33); z-index: 1300 !important;">
+    <div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title patient-details-row">
+            Cancellation
+            <button type="button" class="close" ng-click="vm.model.ModalDismiss('cancelPO')">&times;</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12 padding-left-right-set">
+              <div class="row input-container margin-top10">
+                  <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+                    <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-lg-11 col-sm-11 col-md-11 ">
+                    <div class="">
+                      <select name="cancelReason" id="cancelReason" class="text-input floating-label" ng-model="vm.model.cancelReason" ng-class="{dirty: vm.model.cancelReason}" ng-change="vm.model.isReasonValid = false">
+                         <!-- ng-options="cancelReason.reason for cancelReason in vm.model.reasons" -->
+                        <option></option>
+                        <option ng-repeat="reason in vm.model.reasons" value="{{reason.id}}">{{reason.reason}}</option>
+                      </select>
+                      <label for="code">Select Reasons</label>
+                    </div>
+                    <p ng-if="vm.model.isReasonValid" class="errorMsg">Select Reason</p>
+                  </div>
+                </div>
+              <div class="row input-container margin-top10">
+                <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+                  <i class="fa fa-sticky-note" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-11 col-sm-11 col-md-11 ">
+                  <div class="">
+                    <textarea name="rejectNote" rows="4" id="noteReject" class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.model.rejectNote" ng-class="{dirty: vm.model.rejectNote}"></textarea>
+                    <label for="rejectNote">Note</label>
+                  </div>
+                </div>
+              </div>
+              <!-- <input type="text" id="commonId" /> -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" style="border:none;">
+          <button type="button" class="btn btn-primary" ng-click="vm.model.UpdatePurchaseOrder()">Save</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".selectedPageName").text("Purchase Order Creation");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	
+	$(".selectedServicesList").hide();
+	/*************************** rejection radio button function*********************************/
+	$(".add-new-item-row").hide();
+	$(".get-request-row").hide();
+	 $( ".addNewItemRadioBtnClass" ).change(function() {
+			if ($(this).is(":checked"))
+			{
+				$(".add-new-item-row").show('slow');
+				$(".get-request-row").hide('slow');
+			}
+		}); 
+	$( ".getRequestListBtnClass" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(".add-new-item-row").hide('slow');
+			$(".get-request-row").show('slow');
+		}
+	}); 
+
+});
+/*************************** add button function start*********************************/
+$(".table-th-bg").click(function(){
+	/* alert(); */
+	$(this).next().find(".selectedServicesList").toggle();
+});
+
+
+</script>

@@ -1,0 +1,174 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<legend class="heading-div">Nursing Station Ward Mapping</legend>
+			<div class="row margin-top10">
+				<form action="">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-tasks" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label">
+										<option></option>
+									</select> <label for="code">Nursing Station</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4">
+							<div class="row col-md-5set" id="">
+								<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+									<div class="">
+										<label class="common-lable-color-set">Ward</label>
+										<div class="masterborder">
+											<div class="checkbox">
+												<label class="common-lable-color-set"><input
+													type="checkbox" value="">Ward 1</label>
+											</div>
+											<div class="checkbox">
+												<label class="common-lable-color-set"><input
+													type="checkbox" value="">Ward 2</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+									<div class="text-center margintop120">
+										<button type="button"
+											class="btn btn-primary width40 btn-sm">>></button>
+										<div class="padding-top10">
+											<button type="button"
+												class="btn btn-primary width40 btn-sm"> << </button>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+									<div class="">
+										<label class="common-lable-color-set">Selected Ward</label>
+										<div class="masterborder">
+											<div class="checkbox">
+												<label class="common-lable-color-set"><input
+													type="checkbox" value="">Ward 1</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-10">
+			<div
+				class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"
+						data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o"
+						style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div
+				class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search"
+					style="margin-top: 0px"> <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-10 margin-top8">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class=" ">
+						<th class="width20">
+							Nursing Station
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width20">
+							Ward
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width20">
+							Selected Ward
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">
+						Status
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="text-center width8">
+						Action
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<!-- <th class="width5"></th> -->
+					</tr>
+					<tr>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td><label class="switch"> <input type="checkbox">
+								<div class="slider round"></div></label></td>
+						<td class="padding-edit-button-table text-center"><a><i class="fa fa-pencil"
+								aria-hidden="true"></i></a></td>
+						<!-- <td class="padding-edit-button-table text-center">
+							<div class="">
+								<a><i class="fa fa-info-circle" aria-hidden="true" title="Details" data-toggle="modal" data-target="#wardDetails"></i></a>
+							</div>
+						</td> -->
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+});	
+	$(".selectedPageName").text("Nursing Station Ward Mapping");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="nursingStationWardMapping"]').parents("li").addClass("active");
+</script>

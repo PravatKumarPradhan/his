@@ -1,0 +1,359 @@
+<fieldset class="normalRegistration sub-fieldset">
+			<legend class="sub-legend">Payment Entitlement</legend>
+				<div class="row">
+					<div class="col-lg-2 col-md-3 col-sm-3 margin-left5">
+						<label class="radio-inline"><input type="radio" ng-model="appointmentMasterObj.paymentEntitlementTypeId" name="registrationType" class="otherRegistrationType paymentEntitSelf" value="1" checked="checked" >Self</label>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-3">
+						<label class="radio-inline"><input type="radio" ng-model="appointmentMasterObj.paymentEntitlementTypeId" name="registrationType" class="otherRegistrationType paymentEntitInsurance" value="2">Insurance</label>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-3">
+						<label class="radio-inline"><input type="radio" ng-model="appointmentMasterObj.paymentEntitlementTypeId" name="registrationType" class="otherRegistrationType paymentEntitCorporate"value="3">Corporate</label>
+					</div>
+				</div>
+				<div class="row">
+						<table class="table table-bordered">
+								<thead>
+								<tr>
+									<th class="width8">
+										<div>Payment Entitlement</div>
+									</th>
+									<th class="width8">
+										<div>Company Name</div>
+									</th>
+									<th class="width6">
+										<div>Tariff</div>
+									</th>
+									<th class="width8">
+										<div>Contract</div>
+									</th>
+									<th class="width10">
+										<div>Insurance Company</div>
+									</th>
+									<th class="width8">
+										<div>Insurance Number</div>
+									</th>
+									<th class="width5">
+										<div>Start Date</div>
+									</th>
+									<th class="width5">
+										<div>End Date</div>
+									</th>
+									<th class="width3">
+										<div>Priority</div>
+									</th>
+									<th class="width3 text-center">
+										<div>Upload</div>
+									</th>
+									<th class="width3 text-center">
+										<div>Action</div>
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>
+										<div>-</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									
+									<td class="text-center">
+										<div>
+											<span><a data-toggle="modal" data-target="#documentUploadModal"><i class="fa fa-upload"></i></a></span>
+											<span><a data-toggle="modal" data-target="#documentUploadModal"><i class="fa fa-eye"></i></a></span>
+										</div>
+									</td>
+									<td>
+										<span><a><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+										<span class="margin-left10"><a><i class="fa fa-times" aria-hidden="true"></i></a></span>
+									</td>
+									
+								</tr>
+							</tbody></table>
+					</div>
+				<div class="paymentEntitInsuranceDiv" >
+				
+				<div class="row padding-left-right-set4">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label" ng-model="companyId" ng-change="getAssociatedCompanyMasterListByCompanyId(companyId)">
+											<option></option>
+											<option ng-repeat="company in companyMasterList" value="{{company.companyId}}">{{company.companyDesc}}</option>
+										</select> <label for="code">Select Company Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 associateCompanyName">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+											<option ng-repeat="assoCompany in associatedCompanyList" value={{assoCompany.associatedCompanyMasterId}}>{{assoCompany.associatedCompanyName}}</option>
+										</select> <label for="code">Associate Company Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+											<option>-</option>
+										</select> <label for="code">Select Contract </label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 insuranceNumber">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+											<option>-</option>
+										</select> <label for="code">Insurance Number</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label"> <label for="description" class="">Validity Start Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label"> <label for="description" class="">Validity End Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right padding-top10"> 
+							<div class="width-div-for-patient-reg"> 
+								<a href="" data-toggle="modal" class="btn btn-primary btn-save-box-shadow" title="Save">+ </a> 
+							</div> 
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-10 padding-top10 insuredAmount">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label"> <label for="description" class="">Insured Amount</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				
+			</div>
+			
+	</fieldset>
+	<!-- DocumentUpload Modal START -->
+		<div id="documentUploadModal" class="modal fade ng-scope in" role="dialog">
+			<div class="modal-dialog">
+				<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+				<div class="modal-content">
+					<div class="modal-header padding-zero">
+						<div class="modal-title patient-details-row">
+							Document Upload
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="row" >
+					<div class="row padding-left-right-set4">
+						<table class="table table-bordered">
+								<tr>
+									<th class="width15">
+										<div>Document Date</div>
+									</th>
+									<th class="width15">
+										<div>Select Type </div>
+									</th>
+									<th class="width15">
+										
+										<div>File</div>
+									</th>
+									<th class="width15">
+										<div>File Name</div>
+									</th>
+									
+									<th class="width8 text-center">
+										
+										<div>Action</div>
+									</th>
+								</tr>
+								<tr>
+									<td>
+										<div>13-10-2017</div>
+									</td>
+									<td>
+										<div>Police</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									
+									<td>
+										<div>xyz.jpg</div>
+									</td>
+									<td class="text-center">
+										<a><span class="margin-left10" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+										<a><span class="margin-left10" title="view"><i class="fa fa-eye" aria-hidden="true"></i></span></a>
+										<a><span class="margin-left10" title="Remove"><i class="fa fa-times" aria-hidden="true"></i></span></a>
+									</td>
+									
+								</tr>
+							</table>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="registrationNumber" id="" class="text-input floating-label">
+									<label for="description" class="LISDynamicLabel">Document Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label">
+										<option></option>
+										<option ng-repeat="docType in documentTypeList" value="docType.documentTypeId">{{docType.documentTypeName}}</option>
+									</select> <label for="code">Select Type </label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+								<div class="">
+									<input type="file" name="description" id="" class="text-input floating-label"> 
+								</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" class="text-input floating-label"> <label for="description" class="">Document Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right padding-top10"> 
+							<div class="width-div-for-patient-reg"> 
+								<a href="" data-toggle="modal" class="btn btn-primary btn-save-box-shadow" title="Save">+ </a> 
+							</div> 
+						</div>
+				</div>
+						</div>
+					</div>
+					<!-- <div class="modal-footer" style="border: none;">
+						<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="sendToDepartment();">Ok</button>
+						<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	<!-- DocumentUpload Modal END -->
+	
+	<script>
+	$(".paymentEntitInsuranceDiv").hide();
+	$(".insuranceNumber").hide();
+	$(".insuredAmount").hide();
+	$(".associateCompanyName").hide();
+		$(".paymentEntitSelf").click(function()
+		{
+			$(".paymentEntitSelfDiv").show();
+			$(".paymentEntitInsuranceDiv").hide();
+		});
+		$(".paymentEntitInsurance").click(function()
+		{
+				$(".paymentEntitInsuranceDiv").show();
+				$(".paymentEntitSelfDiv").hide();
+				$(".insuranceNumber").show();
+				$(".insuredAmount").show();
+				$(".associateCompanyName").show();
+		});
+		$(".paymentEntitCorporate").click(function()
+				{
+						$(".paymentEntitInsuranceDiv").show();
+						$(".paymentEntitSelfDiv").hide();
+						$(".insuranceNumber").hide();
+						$(".insuredAmount").hide();
+						$(".associateCompanyName").hide();
+						
+				});
+		
+		
+	</script>

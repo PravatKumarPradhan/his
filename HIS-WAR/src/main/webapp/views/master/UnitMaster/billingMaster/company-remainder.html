@@ -1,0 +1,381 @@
+
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset class="">
+			<div class="row padding-top5">
+				<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set0">
+					<fieldset class="normalRegistration sub-fieldset">
+						<div class="row">
+							<div
+								class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label">
+												<option value=""></option>
+												<option value="Insurance">Insurance</option>
+												<option value="Corporate">Corporate</option>
+											</select> <label for="code">Company Type</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label">
+												<option value=""></option>
+												<option value="-">-</option>
+											</select> <label for="code">Company</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label">
+												<option value=""></option>
+												<option value="-">-</option>
+											</select> <label for="code">TPA</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<div class="">
+												<input type="text" name="description" id=""
+													class="text-input floating-label"> <label
+													for="description" class="LISDynamicLabel">From Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<div class="">
+												<input type="text" name="description" id=""
+													class="text-input floating-label"> <label
+													for="description" class="LISDynamicLabel">To Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<div class="row margin-top4">
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+					<input type="text" class="text-search-box" placeholder="Search"
+						style="margin-top: 0px"> <i
+						class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+			</div>
+			<div class="row margin-top4">
+				<div class="col-md-12 col-lg-12  OPDBillService table-responsive">
+					<table
+						class="table table-bordered OPDBillService common-tbody-scroll">
+						<thead>
+							<tr>
+								<th class="width1"></th>
+								<th class="width10"><span class="">Invoice Date</span></th>
+								<th class="width10">Invoice No</th>
+								<th class="width10">Credit Bill Amount</th>
+								<th class="width10">Due Amount</th>
+								<th class="width5 text-center">Reminder</th>
+								<th class="width5 text-center">Action</th>
+							</tr>
+						</thead>
+						<tbody class="scrollable">
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td class="text-center vertical-middle"><a>
+								<i class="fa fa-clock-o" data-toggle="modal"
+										data-target="#reminderModal" title="Reminder"></i></a></td>
+								<td class="text-center vertical-middle">
+								<a class="cursor-pointer" data-toggle="modal"
+										data-target="#detailsreminderModal" title="Reminder Details">Details
+								</a></td>
+								<!-- <td>
+									<a href="" data-toggle="modal" data-target="#tpaCreditPartyRemainderBillDetails">Details</a>
+								</td> -->
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+
+</div>
+
+
+
+<!-- TPA CREDIT PARTY REMAINDER BILL DETAILS POPUP -->
+<div id="tpaCreditPartyRemainderBillDetails"
+	class="common-large-popup modal fade ng-scope in his-style"
+	role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Bill Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body row">
+				<div class="col-md-12">
+					<div class="row margin-top4">
+						<div
+							class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+							<input type="text" class="text-search-box" placeholder="Search"
+								style="margin-top: 0px"> <i
+								class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<fieldset
+						class="normalRegistration sub-fieldset border-none useActiveDepositList">
+						<div class="row serachedPatientList margin-top10">
+							<div
+								class="col-md-12 col-lg-12  fix-height-scroll230 padding-left-right-set4">
+								<table class="table table-bordered  margin-top8">
+									<tr>
+										<th class="width1"></th>
+										<th class="width10"><span class="">Bill Date</span></th>
+										<th class="width10">Bill No</th>
+										<th class="width10">UHID</th>
+										<th class="width10">Patient Name</th>
+										<th class="width10">Total Bill Amount</th>
+										<th class="width10">Net Payable</th>
+										<th class="width10">Paid Amount</th>
+										<th class="width10">Balance Amount</th>
+										<th class="width10">Previous Quieries</th>
+									</tr>
+									<tr>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+									</tr>
+
+								</table>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Reminder Modal START -->
+<div id="reminderModal"
+	class="modal fade ng-scope in common-small-popup" role="dialog"
+	style="background: rgba(0, 0, 0, 0.33); z-index: 1300 !important;">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Reminder
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12 padding-left-right-set">
+						<div class="row input-container margin-top10">
+							<div
+								class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<div class="">
+												<input type="text" name="description" id=""
+													class="text-input floating-label"> <label
+													for="description" class="LISDynamicLabel">Reminder
+													Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row input-container margin-top10">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<textarea name="code" rows="4" id="noteReject"
+										class="text-input floating-label ng-pristine ng-valid ng-empty ng-touched"
+										ng-model="noteReject" style=""></textarea>
+									<label for="code">Remark</label>
+								</div>
+							</div>
+						</div>
+						<!-- <input type="text" id="commonId" /> -->
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary"
+					id="" ng-click="saveAcceptReject()">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- reminder Modal END -->
+
+<!-- details Reminder Modal START -->
+<div id="detailsreminderModal"
+	class="modal fade ng-scope in common-small-popup" role="dialog"
+	style="background: rgba(0, 0, 0, 0.33); z-index: 1300 !important;">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12 padding-left-right-set">
+						<div class="row input-container margin-top10">
+							<div
+								class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<div class="">
+												<input type="text" name="description" id=""
+													class="text-input floating-label"> <label
+													for="description" class="LISDynamicLabel">Reminder
+													Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row input-container margin-top10">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<textarea name="code" rows="1" id="noteReject"
+										class="text-input floating-label ng-pristine ng-valid ng-empty ng-touched"
+										ng-model="noteReject" style=""></textarea>
+									<label for="code">Details</label>
+								</div>
+							</div>
+						</div>
+						<div class="row input-container margin-top10">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<textarea name="code" rows="1" id="noteReject"
+										class="text-input floating-label ng-pristine ng-valid ng-empty ng-touched"
+										ng-model="noteReject" style=""></textarea>
+									<label for="code">Response</label>
+								</div>
+							</div>
+						</div>
+						<!-- <input type="text" id="commonId" /> -->
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary"
+					id="" ng-click="saveAcceptReject()">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END -->
+
+<script src="resources/assets/js/common/page-height.js"></script>
+
+<script>
+
+$(document).ready(function() {
+	 
+	 $(".selectedPageName").text("Company Remainder");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="companyRemainder"]').parents("li").addClass("active");
+});
+
+
+
+</script>

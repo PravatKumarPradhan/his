@@ -1,0 +1,233 @@
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid his-style">
+				<fieldset>
+					<legend class="heading-div">Header Master</legend>
+						<div class="row margin-top10">
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+										<i class="fa fa-indent" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label" name="code">
+												<option></option>
+												<option>Choose Test</option>
+											</select>		
+											<label for="code">Test Name</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-lg-9 col-md-9 col-sm-9 padding-left-right-set4">
+							<div class="headerHeight">							
+								<table class="table table-striped table-bordered" id="headerTable">
+									<tbody>
+										<tr class="table-th-bg">
+											<th>Header</th>
+											<th class="table-column-width5">Sequence</th>
+											<th class="table-column-width5">Action</th>
+										</tr>
+										<tr>
+											<td>
+												<div>
+													<input type="text" name="" id="" class="text-box-for-ICU">
+												</div>
+											</td>
+											<td>
+												<div>
+													<input type="text" name="" id="" class="text-box-for-ICU">
+												</div>
+											</td>
+											<td>
+												<div class="" style="margin-top: -2px;">
+													<input type="button" name="" id="addr" value="+" onclick="addRowForHeaderTable()" class="btn btn-info">&nbsp;&nbsp;
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								</div>
+							</div>
+							
+						</div>
+						<div class="row margin-top10">
+					  </div>
+							
+						<!-- <div class="row"> -->
+							<!-- <div class="col-md-4 col-sm-4">
+								<div class="div-form-for-ICU">
+									<div class="row">
+									<div class="col-md-12 col-sm-12">
+										<div class="padding-left-right-10">
+										<label>Test Name</label> <select>
+											<option>Choose Test</option>
+										</select>
+										</div>
+										</div>
+									</div>
+									<div class="row table-responsive padding-left-right-10 padding-top10 maxheight148">divscroll
+										<table class="table table-striped table-bordered" id="headerTable">
+											<thead class="table-th-bg">
+												<tr>
+													<th>Header</th>
+													<th class="table-column-width5">Sequence</th>
+													<th class="table-column-width5">Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<div>
+															<input type="text" name="header[0]" id=""
+																class="text-box-for-ICU">
+														</div>
+													</td>
+													<td>
+														<div>
+															<input type="text" name="header[0]" id=""
+																class="text-box-for-ICU">
+														</div>
+													</td>
+													<td>
+												<div class="" style="margin-top: -2px;">
+													<input type="button" name="" id="addr" value="+" onclick="addRowForMainTable()" class="btn btn-info">&nbsp;&nbsp;</div>
+												</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div> -->
+					<!-- </div> -->
+				</fieldset>
+				<div class="row">
+            		<div class="col-md-8"></div>
+					<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" data-toggle="modal" data-target="#confirmLogout"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div>
+			</div>
+				</div>
+				<div class="row padding-left-right-10">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<tr class="">
+								<th>
+									Test Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th>
+									<label class="">Header</label>
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th>
+									Sequence
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th>
+									Status
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="text-center" style="width:8%">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								</tr>
+								<tr>
+									<td>Test 1</td>
+									<td>-</td>
+									<td class=""></td>
+									<td class="">
+										<label class="switch"> <input type="checkbox">
+										<div class="slider round"></div></label>
+									</td>
+									<td class="text-center"><a><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+								</tr>
+								<tr>
+									<td>Test 2</td>
+									<td>-</td>
+									<td class=""></td>
+									<td class="">
+										<label class="switch"> <input type="checkbox">
+										<div class="slider round"></div></label>
+									</td>
+									<td class="text-center"><a><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+								</tr>
+							</table> 
+						</div>
+					</div>
+			</div>
+		</div>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		
+ $(".selectedPageName").text("Header Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="headerMaster"]').parents("li").addClass("active");
+	
+	});
+	function addRowForHeaderTable() {
+		//alert();
+		var n = document.getElementById("headerTable").rows.length;
+		var id = Number(n);
+		//alert(id);
+		var test =
+
+		'<tr>'
+				+ '<td>'
+				+ '<div>'
+				+ '<input type="text" name="" id="" class="text-box-for-ICU">'
+				+ '</div>'
+				+ '</td>'
+				+ '<td>'
+				+ '<div>'
+				+ '<input type="text" name="" id="" class="text-box-for-ICU">'
+				+ '</div>'
+				+ '</td>'
+				+ '<td style="width:9%">'
+				+ '<input type="button" name="" id="addr" value="+" onclick="addRowForHeaderTable()" class="btn btn-info" style="margin-top: -2px;">&nbsp;&nbsp;'
+				+ '<input type="button" name="" id="delr" value="-" onclick="delRowForMainTable(this)" class="btn btn-info" style="margin-top: -2px;">'
+				+ '</td>' + '</tr>';
+
+		$("#headerTable").append(test);
+
+	}
+
+	function delRowForMainTable(r) {
+		var i = r.parentNode.parentNode.rowIndex;
+		document.getElementById("headerTable").deleteRow(i);
+	}
+</script>

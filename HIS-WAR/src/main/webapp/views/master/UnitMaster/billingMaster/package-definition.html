@@ -1,0 +1,508 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<div ng-include="'./views/common-billing-package.html'"></div>
+		<fieldset>
+			<legend class="heading-div">Services</legend>
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+									<option>Type 1</option>
+									<option>Type 2</option>
+								</select> <label for="code">Service Category</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="description" id=""
+									class="text-input floating-label"> <label
+									for="description" class="LISDynamicLabel">Services</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-10">
+			<div class="col-md-9"></div>
+			
+			<div class="col-md-1 padding-left0px-right6px">
+				<div class="common-save-button">
+					<input type="button" value="Edit" class="btn btn-primary btn-save-box-shadow">
+				</div>
+			</div>
+			<div class="col-md-1 padding-left0px-right6px">
+				<div class="common-save-button">
+					<input type="button" value="Save As" class="btn btn-primary btn-save-box-shadow">
+				</div>
+			</div>
+			<div class="col-md-1 padding-left0px-right6px">
+				<div class="common-save-button">
+					<input type="button" value="Submit" class="btn btn-primary btn-save-box-shadow">
+				</div>
+			</div>
+		</div> 
+		<div class="row padding-left-right-10 margin-top10">
+			<div class="col-md-12">
+				<table class="table table-bordered table-striped "><!-- mainServiceTable -->
+					<thead class="mainServiceTableCommon">
+						<tr>
+							<th class="width15">
+								Service Name
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							 <th class="width10">
+								Start Date
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">
+								End Date
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">
+								Price
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="type-container">
+								Quantity
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">
+								Total Price
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody class="mainServiceTableCommon">
+						<tr class="table-th-bg cursor-pointer">
+							<td colspan="4" class="font-weight700">Lab Service</td>
+							<td class="font-style-text-align">Group Total</td>
+							<td >
+								<div class="col-md-8 col-sm-6">900</div>
+								<div class="col-md-4 col-sm-6 float_right">
+									<input type="button" value="Save" class="btn button-sm btn-primary btn-save-box-shadow " />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="6">
+								<div class="selectedServicesList">
+									<table class="table table-bordered table-striped">
+										<tbody>
+											<tr>
+												<td class="width15">Lab services-1</td>
+												<td class="width10">21-09-2017</td>
+												<td class="width10">12-10-2017</td>
+												<td class="width10">150</td>
+												<td class="width10">2</td>
+												<td class="width10">300</td>
+											</tr>
+											<tr>
+												<td class="width15">Lab services-2</td>
+												<td class="width10">21-09-2017</td>
+												<td class="width10">12-10-2017</td>
+												<td class="width10">150</td>
+												<td class="width10">2</td>
+												<td class="width10">300</td>
+											</tr>
+											<tr>
+												<td class="width15">Lab services-3</td>
+												<td class="width10">21-09-2017</td>
+												<td class="width10">12-10-2017</td>
+												<td class="width10">150</td>
+												<td class="width10">2</td>
+												<td class="width10">300</td>
+											</tr>			
+										</tbody>
+									</table>
+								</div>
+							</td>
+						</tr>
+						<tr class="table-th-bg cursor-pointer">
+							<td colspan="4" class="font-weight700">Radiology Service</td>
+							<td class="font-style-text-align">Group Total</td>
+							<td >
+								<div class="col-md-8 col-sm-6">
+									900
+								</div>
+								<div class="col-md-4 col-sm-6 float_right">
+									<input type="button" value="Save" class="btn button-sm btn-primary btn-save-box-shadow " />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="6">
+								<div class="selectedServicesList">
+									<table class="table table-bordered table-striped">
+										<tr>
+											<td  class="width15">Lab services-1</td>
+											<td class="width10">21-09-2017</td>
+											<td class="width10">12-10-2017</td>
+											<td class="width10">150</td>
+											<td class="width10">2</td>
+											<td class="width10">300</td>
+										</tr>
+										<tr>
+											<td  class="width15">Lab services-2</td>
+											<td class="width10">21-09-2017</td>
+											<td class="width10">12-10-2017</td>
+											<td class="width10">150</td>
+											<td class="width10">2</td>
+											<td class="width10">300</td>
+										</tr>
+										<tr>
+											<td  class="width15">Lab services-3</td>
+											<td class="width10">21-09-2017</td>
+											<td class="width10">12-10-2017</td>
+											<td class="width10">150</td>
+											<td class="width10">2</td>
+											<td class="width10">300</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot class="mainServiceTableCommon">
+						<!-- <tr class="">
+							<td >
+								Mark Up<input type="radio" name="markupDownUp">
+								Mark Down<input type="radio" name="markupDownUp">
+								<input type="text" class="text-box-width98px" placeholder="%">
+							</td>
+							<td class="">Package Cost
+								<input type="text" class="text-box-width98px" placeholder="" value="1800" readonly>
+							</td>
+							<td >
+								Possitve<input type="radio" name="possitiveNegtive">
+								Negative<input type="radio" name="possitiveNegtive">
+								<input type="text" class="width30" placeholder="%">text-box-width98px
+							</td>
+							<td colspan="2">Package Price
+								<input type="text" class="text-box-width98px" placeholder="Package Price" readonly>
+							</td>
+							<td>
+								<span class=" margin-right10">
+									<input type="button" value="Display Details" class="btn button-sm btn-primary btn-save-box-shadow width50" data-toggle="modal" data-target="#packageDetailsModal" />
+								</span>	
+							</td>
+						</tr> -->
+						<tr class="">
+							<td colspan="4" class="text-right">
+							</td>
+							<td class="font-style-text-align">Package Cost</td>
+							<td>
+								<input type="text" class="text-box-width98px" placeholder="" value="1800">
+							</td>
+						</tr>
+						<tr class="">
+							<td colspan="3" class="text-right">
+								Mark Up<input type="radio" name="markupDownUp">
+								Mark Down<input type="radio" name="markupDownUp">
+								<input type="text" class="text-box-width98px" placeholder="%">
+							</td>
+							<td>
+								Possitve<input type="radio" name="possitiveNegtive">
+								Negative<input type="radio" name="possitiveNegtive">
+								<input type="text" class="width30" placeholder="%">
+							</td>
+							<td class="font-style-text-align">Package Price</td>
+							<td>
+								<div class="pull-left">
+									<input type="text" class="text-box-width98px" placeholder="" value="">
+								</div>
+								<div class="pull-right">
+									<input type="button" value="Display Details" class="padding-left-right8 btn button-sm btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#packageDetailsModal" />
+								</div>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- </div> -->
+
+<!--******************** Apportioned price modal of package start ********************-->
+<div id="packageDetailsModal" class="modal fade in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Apportioned Price Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10" id=""><!-- id for the table td fix height -->
+						<div class="col-md-12">
+							<table class="table table-bordered table-striped "><!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width15">
+											Service Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Price
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="type-container">
+											Quantity
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Total Price
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Apportioned Price
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+									</tr>
+								</thead>
+								<tbody class="mainServiceTableCommon">
+									<tr class="table-th-bg cursor-pointer">
+										<td colspan="3" class="font-weight700">Lab Service</td>
+										<td class="font-style-text-align"></td><!-- Package Price -->
+										<td></td><!-- 900 -->
+									</tr>
+									<tr>
+										<td colspan="6">
+											<div class="selectedServicesList" style="">
+												<table class="table table-bordered table-striped">
+													<tbody>
+														<tr>
+															<td class="width15">Lab services-1</td>
+															<td class="width10">150</td>
+															<td class="width10">2</td>
+															<td class="width10">300</td>
+															<td class="width10">270</td>
+														</tr>
+														<tr>
+															<td class="width15">Lab services-2</td>
+															<td class="width10">150</td>
+															<td class="width10">2</td>
+															<td class="width10">300</td>
+															<td class="width10">270</td>
+														</tr>
+														<tr>
+															<td class="width15">Lab services-3</td>
+															<td class="width10">150</td>
+															<td class="width10">2</td>
+															<td class="width10">300</td>
+															<td class="width10">270</td>
+														</tr>			
+														<tr>
+															<td colspan="3" class="font-style-text-align">
+																Group Total
+															</td>
+															<td>
+																<div class="pull-left">
+																	900
+																</div>
+																<div class="font-style-text-align">Total</div>
+															</td>
+															<td>
+																<span>810</span>
+															</td>
+														</tr>
+														<!-- <td colspan="3" class="font-style-text-align">Group Total</td>
+															<td>
+																<div class="pull-left">900</div>
+																<div class="font-style-text-align">
+																	Total
+																</div>
+															</td>
+															<td>
+																<span>810</span>
+															</td> -->
+													</tbody>
+												</table>
+											</div>
+										</td>
+									</tr>
+									
+									<tr class="table-th-bg cursor-pointer">
+										<td colspan="3" class="font-weight700">Radiology Service</td>
+										<td class="font-style-text-align"></td><!-- Package Price -->
+										<td></td><!-- 900 -->
+									</tr>
+									<tr>
+										<td colspan="6">
+											<div class="selectedServicesList" style="">
+												<table class="table table-bordered table-striped">
+														<tbody>
+														<tr>
+															<td class="width15">Lab services-1</td>
+															<td class="width10">150</td>
+															<td class="width10">2</td>
+															<td class="width10">300</td>
+															<td class="width10">270</td>
+														</tr>
+														<tr>
+															<td class="width15">Lab services-2</td>
+															<td class="width10">150</td>
+															<td class="width10">2</td>
+															<td class="width10">300</td>
+															<td class="width10">270</td>
+														</tr>
+														<tr>
+															<td class="width15">Lab services-3</td>
+															<td class="width10">150</td>
+															<td class="width10">2</td>
+															<td class="width10">300</td>
+															<td class="width10">270</td>
+														</tr>
+														<tr class="">
+															<td colspan="3" class="font-style-text-align">Group Total</td>
+															<td>
+																<div class="pull-left">900</div>
+																<div class="font-style-text-align">
+																	Total
+																</div>
+															</td>
+															<td>
+																<span>810</span>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="3" class="font-style-text-align">Package Cost</td>
+										<td class="">
+											<div class=" pull-left">
+												1800
+											</div>
+											<div class="font-style-text-align"> 
+												Package Price
+											</div>
+										</td>
+										<td>1620</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--******************** Apportioned price modal of package end ********************-->
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedServicesList").hide();
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+  
+  $(".selectedPageName").text("Package Definition");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="packageDefinition"]').parents("li").addClass("active");
+});
+$(".table-th-bg").click(function(){
+	//alert();
+	$(this).next().find(".selectedServicesList").toggle();
+});
+</script>

@@ -1,0 +1,383 @@
+<div id="page-content-wrapper" style="height:100%; overflow-y:auto ">
+	<div class="container-fluid his-style">
+			 	<fieldset class="normalRegistration sub-fieldset">
+					<legend class="sub-legend border-bottom-none commonPatientSearch cursor-pointer">Schedule Price Unit Service</legend>
+					 	<div class="row">
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label">
+												<option></option>
+												<option>-</option>
+											</select> <label for="code">Department</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label">
+												<option></option>
+												<option>-</option>
+											</select> <label for="code">Sub Department</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" name="description" id="" class="text-input floating-label"> 
+											<label for="description" class="LISDynamicLabel">Service</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<input class="" type="checkbox" name="registrationType"><span class="margin-left5">Is Procedure</span>
+								<input type="checkbox" name="registrationType"><span class="margin-left5">Is Panel</span>
+							</div>
+					</div>
+					
+					
+					<div class="row">
+						<div class="col-md-12 col-lg-12 margin-top10 padding-left-right-set4">
+								<div class="row" id="">
+									<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+										<div class="">
+											<label class="common-lable-color-set"> Service Master</label>
+											<div class="masterborderScroll1">
+												<table class="table table-bordered">
+													    <tr>
+													       <th class="width1">
+													       </th>
+													       <th class="width10">
+													        Code
+													       </th>
+													       <th class="width15">
+													        Service Name
+													       </th>
+													       <th class="width8">
+													        Base Price
+													       </th>
+													       <th class="width10">
+													        From
+													       </th>
+													       <th class="width8">
+													        Package
+													       </th>
+													        <th class="width8">
+													        Panel
+													       </th>
+													      </tr>
+													      <tr>
+														       <td>
+														        <input type="checkbox">
+														       </td>
+														       <td>
+														        -
+														       </td>
+														       <td>
+														        -
+														       </td>
+														        <td>
+														        	<input type="text" style="width:100%">
+														       </td>
+														        <td>
+														        -
+														       </td>
+														        <td>
+														        	<a href="" data-toggle="modal" data-target="#listOfPackageForSchedulePrice">View</a>
+														       </td>
+														        <td>
+														        	<a href="" data-toggle="modal" data-target="#listOfPanelForSchedulePrice">View</a>
+														       </td>
+													      </tr>
+													      <tr>
+														       <td>
+														        <input type="checkbox">
+														       </td>
+														       <td>
+														        -
+														       </td>
+														       <td>
+														        -
+														       </td>
+														        <td>
+														        	<input type="text" style="width:100%">
+														       </td>
+														        <td>
+														        -
+														       </td>
+														        <td>
+														        	<a href="">View</a>
+														       </td>
+														        <td>
+														        	<a href="">View</a>
+														       </td>
+													      </tr>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+										<div class="text-center ">
+											<div class="common-lable-color-set">Validity Start</div>
+											<div ><input type="text" class="select-box"></div>
+										</div>
+										<div class="text-center ">
+											<div class="common-lable-color-set">Percentage</div>
+											<div>
+												<input type="radio"><i class="fa fa-minus" aria-hidden="true"></i>
+												<input type="radio"><i class="fa fa-plus" aria-hidden="true"></i>
+											</div>
+											<div><input type="text" class="select-box"></div>
+										</div>
+										<div class="text-center ">
+											<div class="common-lable-color-set">Round</div>
+											<div>
+												<select class="select-box">
+													<option>1</option>
+													<option>2</option>
+												</select>
+											</div>
+										</div>
+										<div class="text-center margin-top4">
+											<button type="button" class="btn btn-primary text-width-auto btn-sm" ng-click="selectSpeciality()">&lt;&lt;&gt;&gt;</button>
+										</div>
+									</div>
+									<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+										<div class="">
+											<label class="common-lable-color-set">Service Master</label>
+											<div class="masterborderScroll1">
+												<table class="table table-bordered">
+													    <tr>
+													       <th class="width1">
+													       </th>
+													       <th class="width10">
+													        Code
+													       </th>
+													       <th class="width15">
+													        Service Name
+													       </th>
+													       <th class="width8">
+													        Base Price
+													       </th>
+													       <th class="width10">
+													        Start Date
+													       </th>
+													      </tr>
+													      <tr>
+														       <td>
+														        <input type="checkbox">
+														       </td>
+														       <td>
+														        -
+														       </td>
+														       <td>
+														        -
+														       </td>
+														        <td>
+														        	<input type="text" style="width:100%">
+														       </td>
+														        <td>
+														        -
+														       </td>
+														       
+													      </tr>
+													      <tr>
+														       <td>
+														        <input type="checkbox">
+														       </td>
+														       <td>
+														        -
+														       </td>
+														       <td>
+														        -
+														       </td>
+														        <td>
+														        	<input type="text" style="width:100%">
+														       </td>
+														        <td>
+														        -
+														       </td>
+														      
+													      </tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+					</div>
+				</div>
+		</fieldset>
+	</div>
+</div>
+
+
+
+
+<!-- LIST OF PACKAGE LIST VIEW POPUP -->
+<div id="listOfPackageForSchedulePrice" class="common-small-popup modal fade ng-scope in his-style" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						List Of Package
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="col-md-12 padding-left-right-set4 fix-heigh-scroll-200" style="background-color: white">
+						<div class="row margin-top8 margin-bottom10">
+								<table class="table table-bordered">
+								    <tr>
+								       <th class="width10">
+								        Code
+								       </th>
+								       <th class="width15">
+								        Package Name
+								       </th>
+								       <th class="width8">
+								        Validity From
+								       </th>
+								       <th class="width10">
+								        Validity To
+								       </th>
+								      </tr>
+								      <tr>
+									       <td>
+									        -
+									       </td>
+									       <td>
+									        -
+									       </td>
+									        <td>
+									        -
+									       </td>
+									        <td>
+									        -
+									       </td>
+									       
+								      </tr>
+								      <tr>
+									       <td>
+									        -
+									       </td>
+									       <td>
+									        -
+									       </td>
+									        <td>
+									        -
+									       </td>
+									        <td>
+									        -
+									       </td>
+									       
+								      </tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+<!-- LIST OF PANELS LIST VIEW POPUP -->
+<div id="listOfPanelForSchedulePrice" class="common-small-popup modal fade ng-scope in his-style" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						List Of Panels
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="col-md-12 padding-left-right-set4 fix-heigh-scroll-200" style="background-color: white">
+						<div class="row margin-top8 margin-bottom10">
+								<table class="table table-bordered">
+								    <tr>
+								       <th class="width10">
+								        Code
+								       </th>
+								       <th class="width15">
+								        Panel Name
+								       </th>
+								       <th class="width8">
+								        Validity From
+								       </th>
+								       <th class="width10">
+								        Validity To
+								       </th>
+								      </tr>
+								      <tr>
+									       <td>
+									        -
+									       </td>
+									       <td>
+									        -
+									       </td>
+									        <td>
+									        -
+									       </td>
+									        <td>
+									        -
+									       </td>
+									       
+								      </tr>
+								      <tr>
+									       <td>
+									        -
+									       </td>
+									       <td>
+									        -
+									       </td>
+									        <td>
+									        -
+									       </td>
+									        <td>
+									        -
+									       </td>
+									       
+								      </tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+<script>
+
+$(document).ready(function() {  
+	 $(".selectedPageName").text("Schedule Price Unit Service");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="debitNoteList"]').parents("li").addClass("active");
+});
+
+</script>
+
+
+
+
+

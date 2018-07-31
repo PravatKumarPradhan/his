@@ -1,0 +1,491 @@
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid his-style">
+            	
+            	<div class="row margin-top10">
+            		<!--************* Date div start ***************-->
+            		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+            			<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-11 col-md-10 ">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label">
+										<label for="" class="LISDynamicLabel">From Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-11 col-md-10 ">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label">
+										<label for="" class="LISDynamicLabel">To Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+            		</div>
+            		<!--************* Date div end ***************-->
+            		<!--************* patient name block start ***************-->
+            		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-user" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label">
+									<label for="description" class="LISDynamicLabel">Patient Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+            		<!--************* patient name block end ***************-->
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label">
+									<label for="" class="LISDynamicLabel">UHID</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--************* type div start ***************-->
+            		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+            			<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-11 col-md-10 ">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label">
+										<label for="" class="LISDynamicLabel">Visit Type</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-11 col-md-10 ">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+											<option>Type 1</option>
+											<option>Type 2</option>
+										</select>
+										<label for="" class="LISDynamicLabel">Specimen Type</label>
+									</div>
+								</div>
+							</div>
+						</div>
+            		</div>
+            		<!--************* type div end ***************-->
+					<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+						<div class="common-save-button" style="padding-top:  0px;"> 
+							 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+							 	<i class="fa fa-search" aria-hidden="true"></i> 
+							 </a> 
+						</div> 
+					</div>
+			</div>
+            	
+            	<div class="row margin-top4">
+            	   <div class="col-md-8 col-sm-8 padding-left-right-set4 padding-top4">
+            			<label class="show-entries">Show <select
+								name="DataTables_Table_0_length"
+								aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries
+							</label>
+            		</div>
+            		<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+	            		<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set4 padding-top4">
+								<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+								<i class="fa fa-search common-search-text-icon padding-top4" aria-hidden="true" style="padding-left:4px"></i>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 float_right">
+							<div class="width-div-for-patient-reg padding-top4 ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#specimanAccpet">
+									<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+            	</div>
+            	<div class="row padding-left-right-set4 margin-top10" id="tableOne">
+					<div class="col-md-12">
+						<!-- table one for report entry -->
+						<table class="table table-bordered">
+							<tr class="">
+								<th class="UHID-width">
+									UHID
+									<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("uhid")' class="fa fa-caret-up"
+										aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("uhid")' class="fa fa-caret-down"
+										aria-hidden="true"></i>
+								</div>
+							</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Details
+									<div class="float_right">
+										<div>
+										<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Doctor Details
+									<div class="float_right">
+										<div>
+										<i ng-click='sortColumn("doctorDetails")'
+											class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("doctorDetails")'
+											class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+									</div>
+								</th>
+								<th class="width8">
+									Visit Type
+									<div class="float_right">
+										<div>
+										<i ng-click='sortColumn("visitType")'
+											class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("visitType")'
+											class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+									</div>
+								</th>
+								<th class="width8">
+									Specimen Type
+									<div class="float_right">
+												<div>
+										<i ng-click='sortColumn("specimanType")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("specimanType")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+									</div>
+								</th>
+								<th class="width8">
+									Specimen Name
+									<div class="float_right">
+											<div>
+										        <i ng-click='sortColumn("subSpecimanName")' class="fa fa-caret-up"
+											    aria-hidden="true"></i>
+									       </div>
+									   <div class="margin-top-8">
+										    <i ng-click='sortColumn("subSpecimanName")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									   </div>
+									</div>
+								</th>
+								<th class="width8">
+									Histopathalogy No.
+									<div class="float_right">
+										<div>
+										        <i ng-click='sortColumn("histopathlogyNumber")' class="fa fa-caret-up"
+											    aria-hidden="true"></i>
+									       </div>
+									   <div class="margin-top-8">
+										    <i ng-click='sortColumn("histopathlogyNumber")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									   </div>
+									</div>
+								</th>
+								<th class="status">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr ng-repeat="slideObj in slideCreationList|orderBy:column:reverse|filter:searchKeyword track by $index">
+								<td>{{slideObj.uhid}}</td>
+								<td>
+									<div>{{slideObj.patientDetails}}({{slideObj.age}}/{{slideObj.genderName}})</div>
+								</td>
+								<td>
+									<div>{{slideObj.doctorDetails}}</div>
+								</td>
+								<td><div>{{slideObj.visitType}}</div></td>
+								<td><div>{{slideObj.specimanType}}</div></td>
+								<td><div>{{slideObj.subSpecimanName==null?'-':slideObj.subSpecimanName}}</div></td>
+								<td><div>{{slideObj.histopathlogyNumber}}</div></td>
+								<td>
+									<a  ng-click="getMicroscopicExamWorkDetails(slideObj);">Create Slide</a>
+									
+									<!-- <a href="" data-toggle="modal" data-target="#details">Create Slide</a> -->
+									<!-- <input type="button" value="Create Slide"  class="btn btn-primary btn-save-box-shadow details-btn" data-toggle="modal" data-target="#details"> -->
+									<!-- <input type="button" value="Create Block"  class="btn btn-primary btn-save-box-shadow details-btn" data-toggle="modal" data-target="#details"> -->
+								</td>
+							</tr>
+						
+						</table>
+						<!--// table one for report entry -->
+								<table class="table table-bordered">
+					<tr
+						ng-if="(slideCreationList|filter:searchKeyword)==''||(slideCreationList|filter:searchKeyword)==null">
+						<td><p
+								style="text-align: center; margin-top: 0px !important; margin-bottom: 1px !important;">No
+								Records Found</p></td>
+					</tr>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+					</div>
+				</div>
+            </div>
+        </div>
+        <!--// Page Content -->
+    
+    
+    
+   <div id="details" class="modal fade ng-scope in common-large-popup" role="dialog">
+    <form name="slideCreationForm" novalidate>
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					 Create Slide
+					<button type="button" class="close" data-dismiss="modal">x</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row patient-details-row">
+					<div class="col-md-11 col-sm-11 col-xs-11 ">
+						<span class="profile_pic margin-left10"> 
+							<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+						</span> 
+						<span class="margin-left10">{{tGrossMaster.patientDetails}}&nbsp;{{tGrossMaster.age}}/{{tGrossMaster.genderName}} </span>
+						<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> {{tGrossMaster.uhid}}</span>
+						<!-- <span class="margin-left10"><b class="padding-right10 ">Priority :</b> Normal</span> -->
+						<span class="margin-left10">{{tGrossMaster.doctorDetails}}</span>
+					</div>
+				</div>
+				<div class="row" ng-repeat="grossObj in listTGrossMaster track by $index" ng-init="grossIndex=$index">
+					<div class="col-lg-12 col-md-12  padding-left-right-set4">
+						<table class="table table-striped table-bordered margin-top4">
+							<thead class="create-slide" >
+								<tr>
+									<th colspan="2">
+										<div class="row">
+											<div class="col-lg-4 col-md-4 col-sm-4"> Gross No.: {{grossObj.grossNo}} </div>
+											<div class="col-lg-4 col-md-4 col-sm-4"> Speciman Name : {{subSpecimanName}}</div>
+											<div class="col-lg-4 col-md-4 col-sm-4"> Histopathology No.: -{{histopathlogyNumber}} </div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody ng-repeat="blockObj in grossObj.listTBlockMaster track by $index" ng-init="blockIndex=$index" >
+								<tr>
+									<th class="width40">Block No.</th>
+									<th class="status">Action</th>
+								</tr>
+								<tr >
+									<td>
+										<div>
+											{{blockObj.blockNo}}
+										</div>
+									</td>
+									<td>
+										<div>
+											<a href="" class="created-gross-table-row" ng-click="addSlide(grossIndex,blockIndex,slideIndex);" >Create Slide</a>
+											<!-- <input type="button" value="Create Slide"  class="btn btn-primary btn-save-box-shadow details-btn created-gross-table-row" > -->
+										</div>
+									</td>
+								</tr>
+								 <tr class="block-expand" >
+						      		<td colspan="2">
+						      		<div class="row">
+						      			<div class="col-lg-12 col-md-12">
+						      				<table class="table table-striped table-bordered " id="slideCreation">
+											<thead class="table-th-bg">
+												<tr>
+													<th class="test-name-width">Slide No.</th>
+													<th class="test-name-width">Stain</th>
+													<th class="width15">Capture Note</th>
+													<th class="status">Action</th>
+												</tr>
+											</thead>
+											<tbody class=""  ng-repeat="slideObj in blockObj.listTSlideMaster track by $index" ng-init="slideIndex=$index">
+												<tr>
+													<td>
+														<div>
+															<input type="text"  id="" class="text-box-for-ICU" ng-model="slideObj.slideNo" ng-disabled="true">
+														</div>
+													</td>
+													<td>
+														
+														<div class="form-group"  show-errors>
+														<select class="border-dropdown"
+															ng-model="slideObj.stainingId"  name="stainingId" required convert-to-number>
+																<option selected value>Please Select Stain</option>
+																<option ng-repeat="getstainingList in stainingList"
+																	value="{{getstainingList.id}}">{{getstainingList.name}}</option>
+														</select>
+															<p class="help-block" ng-if="slideCreationForm.stainingId.$error.required">{{stainingReq}}</p>																		
+														</div>
+														
+													</td>
+													<td>
+														<div>
+														   <div class="form-group" show-errors>
+															<input type="text"  id="" class="text-box-for-ICU" name="captureNote" ng-model="slideObj.captureNote" required>
+															<p class="help-block"
+																		ng-if="slideCreationForm.captureNote.$error.required">{{blockCaptureNoteReq}}</p>
+															</div>
+														</div>
+													</td>
+													<td>
+														<div class="" style="margin-top: -2px;">
+															<input style="width:36px" type="button" name="" id="addr" value="+" ng-click="addSlide(grossIndex,blockIndex,slideIndex);" class="btn btn-info">&nbsp;&nbsp;
+															<input style="width:36px" type="button" name="" id="addr" value="-" ng-click="removeSlide(grossIndex,blockIndex,slideIndex);" class="btn btn-info" ng-if="$index>0">&nbsp;&nbsp;
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+						      			</div>
+						      		</div>
+						      		</td>
+						      	</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<div class="row">
+            		<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 float_right">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow"
+									title="Save" data-toggle="modal"  ng-click="saveSlideDetails();">
+									Save</a>
+							</div>
+						</div>
+            	</div>
+			</div>
+		</div>
+	</div>
+	</form>
+</div>
+    
+    
+    
+    
+<script type="text/javascript">
+$('.clockpicker').clockpicker();
+
+$( document ).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+ 	
+	$(".selectedPageName").text("Slide Creation");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+});
+	
+	function addRowForMainTable() {
+		//alert();
+		var n = document.getElementById("slideCreation").rows.length;
+		var id = Number(n);
+		//alert(id);
+		var test =
+
+		'<tr>'
+				+ '<td>'
+				+ '<div>'
+				+ '<input type="text"  id="" class="text-box-for-ICU">'
+				+ '</div>'
+				+ '</td>'
+				+'<td>'
+				+'<select class="select-box">'
+				+'<option>Select Staining</option>'
+				+'<option>1</option>'
+				+'<option>2</option>'
+				+'<option>3</option>'
+				+ '</select>'
+			    + '</td>'
+			    + '<td>'
+				+ '<div>'
+				+ '<input type="text"  id="" class="text-box-for-ICU">'
+				+ '</div>'
+				+ '</td>'
+				+ '<td>'
+				+ '<input type="button" name="" id="addr" value="+" onclick="addRowForMainTable()" class="btn btn-info" style="margin-top: -2px;">&nbsp;&nbsp;'
+				+ '<input type="button" name="" id="delr" value="-" onclick="delRowForMainTable(this)" class="btn btn-info" style="margin-top: -2px;">'
+				+ '</td>' + '</tr>';
+
+		$("#slideCreation").append(test);
+
+	}
+
+	function delRowForMainTable(r) {
+		var i = r.parentNode.parentNode.rowIndex;
+		document.getElementById("slideCreation").deleteRow(i);
+	}
+	
+	$(".created-gross-table-row").click(function(){
+       // $(".block-expand").next("tr").toggle();
+        $(this).parentsUntil('tr').parent().next().toggle("slow");
+    });
+	$(".create-slide").click(function(){
+		$(this).next("tbody").toggle("slow");
+	});
+
+</script>

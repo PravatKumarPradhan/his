@@ -1,0 +1,91 @@
+    	<!--  <div class="row">
+            		<div class="col-md-8"></div>
+					<div class="col-md-3">
+						<div>
+							  <input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required/>
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					
+				</div> -->
+				 <div class="row margin-top10 his-style padding-left-right-set1 ng-scope">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+						<input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required style="margin-top: 0px" />
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="row padding-left-right-set4 padding-top10 common-popup-height-410">
+					<div class="col-md-12">
+						<table class="table table-bordered ">
+							<tr class="">
+								<th class="width15">
+									Surgery Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Surgery Time
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Transfer Time
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width12">
+									Destination 
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width12">
+									Bed To Be Retained
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Transfer Status
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr ng-repeat="info in patientSurgeryTransferList">
+								<td>{{info.surgeryName}}</td>
+								<td>
+									{{info.surgeryTimeString}}
+								</td>
+								<td>
+									{{info.transferTimeString}}
+								</td>
+								<td>Floor-5 ward-B Bed No: BM2589630</td>
+								<td>{{info.isRetained}}</td>
+								<td><div ng-if="info.transferStatusId != '12'">{{ info.transferStatusDesc }}</div>
+								<div ng-if="info.transferStatusId == '12'"><div class="row">
+										<input type="radio" name="radioBtnForTransferRqust" class="radioAccepted" ng-click="acceptRequest()"><span>Accept</span>
+										<input type="radio" name="radioBtnForTransferRqust" class="radioRejected" data-toggle="modal" data-target="#accepatReject" ><span>Reject</span>
+									</div></div></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				 <modal visible="showModal"></modal> 
+				<div ng-include="'./views/common/accept-reject.html'"></div>
+				<script type="text/javascript">
+					$(".btn-hide").hide();
+				</script>				

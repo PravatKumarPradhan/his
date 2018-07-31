@@ -1,0 +1,26 @@
+<!-- Page Content start-->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">		
+		<fieldset>
+			<legend class="heading-div">Role Configuration</legend>
+			<div class="row">
+				
+			</div>
+		</fieldset>
+	</div>
+</div>
+<!-- Page Content end-->
+<script type="text/javascript">
+$(document).ready(function() {
+
+	var documentHeight = $(window).height();
+	var sideBarHeight = documentHeight - 55;
+	$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+	$(".selectedPageName").text("Appointments");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="roleConfig"]').parents("li").addClass("active");
+});
+</script>

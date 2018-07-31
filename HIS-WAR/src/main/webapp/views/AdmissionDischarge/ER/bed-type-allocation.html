@@ -1,0 +1,288 @@
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" class="">
+            <div class="container-fluid his-style">
+            	<!-- <div class="row">
+            		<div class="col-md-8"></div>
+					<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" ng-click="saveAdmittedPatientER()"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+					
+				</div>
+			</div>
+				</div> -->
+				
+				<modal visible="showModal"></modal> 
+				
+				<!-- <div class="row padding-left-right-10 margin-top8">
+				<div class="col-lg-2 col-md-2">
+					 style="top: -11px;"
+					<div class="ssearch">
+						<span class="fa fa-search icon-size search-icon-for-search"></span> <input placeholder="Search" ng-model="searchKeyword" class="search-popUp-ddl">
+					</div>
+				</div>
+				<div class="col-lg-7  col-md-7"></div>
+				<div class="col-lg-2 col-md-2" style="text-align: right; padding-right: 0px;">
+					<div class="search">
+						<label class="show-entries">Show 
+						<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+							ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+							ng-change="setNoOfRecords();" class="search-popUp-ddl">
+								<option value="10">10</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+						</select> entries 
+						</label>
+					</div>
+				</div>
+			</div> -->
+			
+			<div class="row padding-left-right-set4 padding-top8">
+			<div class="col-md-6 col-sm-7" style="padding-left: 0px;">
+				<div class="row">
+					<div class="col-lg-3 col-md-6"
+						style="padding-left: 0px;">
+						<div class="search">
+						<label class="show-entries">Show 
+						<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+							ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+							ng-change="setNoOfRecords();" class="search-popUp-ddl">
+								<option value="10">10</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+						</select> entries 
+						</label>
+					</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+		       <div class=" ">
+		        <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal"  ng-click="saveAdmittedPatientER()"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+		       </div>
+		      </div>
+		      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+		        <input type="text" class="text-search-box search-popUp-ddl" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+		        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+		      </div>
+		</div>
+		
+				<div class="row padding-left-right-set4">
+					<div class="col-md-12 margin-top8">
+						<table class="table table-bordered">
+							<tr class="">
+							<th class="width1"></th>
+								<th class="UHID-width">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Encounter No.
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Encounter Date							
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Priority							
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Triage Category									
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Doctor Details						
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Allocation Type					
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								
+							</tr>
+							<tr ng-repeat="info in bedTypeAllocationList|filter:searchKeyword">
+							<td>
+									<input type="radio" name="radioName" value="info.admissionId" ng-model="bedTypeAllocationEr" ng-click="selectItem(info)" />
+								</td>
+								<td>
+								
+								{{info.uhidnumber}}
+								</td>
+								<td >
+									<div ng-show="{{info.patientId > 0}}" ng-init='age=getAge(info.dob)'>
+								{{info.patientName+' '+age+'/'+info.genderName}}
+								</div>
+								<div ng-show="{{info.tpatientId > 0}}">
+								{{info.patientName+' '+info.dob+'/'+info.genderName}}
+								</div>
+								</td>
+								<td>{{info.admissionNumber}}</td>
+								<td>{{info.encounterDate}}</td>
+								<td>{{info.priorityDesc}}</td>
+								<td><div><select class="select-box" ng-model="info.triageCategoryId">
+											<option value="">Select Traige Category</option>
+											<option value="1">Triage Cat 1</option>
+											<option value="2">Triage Cat 2</option>
+											<option value="3">Triage Cat 3</option>
+											<option value="4">Triage Cat 4</option>
+											<option value="5">Triage Cat 5</option>
+										</select></div></td>
+								<td>
+									<div> <select class="select-box" ng-model="info.doctorId">
+											<option value="">Select Doctor</option>
+											<option ng-repeat="doc in doctorsList" value="{{doc.doctorId}}">{{doc.firstName}}</option>
+										</select></div>
+								</td>
+								<td>
+									<div>
+										<select class="select-box select-ER" ng-model="info.ErAreaId" ng-change="getERBedPopup(info.ErAreaId)">
+											<option value="">Select</option>
+											<option value="1">ER</option>
+											<option value="2">Observation</option>
+											<option value="3">Resuscitation</option>
+										</select>
+									</div>
+								</td>
+							</tr>
+						</table>
+						
+						<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+						
+					</div>
+				</div>
+  			</div>
+		</div>
+	
+	
+	<!-- ******************** START MODEL FOR BED ALLOCATION ER BED **************************** -->
+<div id="bedAllocationForER" class="modal fade ng-scope in common-popup-header-content" role="dialog">
+		<div class="modal-dialog">
+			<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						ER Bed
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					
+					<div class="row margin-top10 fix-height-scroll450">
+					<div class="col-md-12">
+							<div class="row padding-bottom10" >
+					<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15 padding-top10" ng-repeat="info in activeERBedList">
+						
+			    			<div class="card text-center cursor-pointer">
+			    				<input type="radio" name="radioName1" value="info.bedId" ng-model="bedEr" ng-click="selectItemBed(info)" />
+			    				<div>
+			    					<label style="color: #04bcd4;" class="cursor-pointer" >{{info.bedNumber}}</label>
+			    				</div>
+			    				<div class="text-center bed-management">
+								  	<img src="resources/assets/images/icon/bed/Empty bed.png" alt="Avatar" >
+								 </div>
+							</div>
+			    		</div>
+				</div>
+					</div>
+				</div>
+				</div>
+				 <div class="modal-footer his-style" style="border: none;">
+				 	<div class="row">
+				 		<div class="col-lg-10 col-sm-10 col-md-10"> 
+				 		</div>
+						<div class="col-lg-2 col-sm-2 col-md-2"> 
+		 					<input type="button" value="Save"  ng-click="selectedBedObject()" class="btn btn-primary btn-save-box-shadow">
+		 				</div>
+				 	</div>
+				</div>
+			</div>
+		</div>
+</div>
+ 			<!-- ******************** END MODEL FOR BED ALLOCATION ER BED **************************** -->	
+	
+	
+	<script type="text/javascript">
+	$( document ).ready(function() {
+	
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		
+		$(".selectedPageName").text("Pending List for Triagging");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="pendingAdmissionDischarge"]').parents("li").addClass("active");
+		
+	});
+	
+/* 	$( ".select-ER" ).change(function() {
+		alert();
+		 var selectedValue = $('.select-ER :selected').text();
+		if(selectedValue == "ER")
+			{
+				$('#bedAllocationForER').modal();
+			}
+	}); */
+	
+	
+</script>
+</body>
+</html>

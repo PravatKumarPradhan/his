@@ -1,0 +1,968 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid his-style">
+    <fieldset>
+      <!-- <legend class="heading-div">Store Indent Approval Details</legend> -->
+      <div class="row margin-top10">
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10">
+            <b class="padding-right10">Purchase No. :</b> {{vm.model.purchaseOrders.poNumber}} </span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10">
+            <b class="padding-right10">Purchase Date:
+            </b> {{vm.model.purchaseOrders.addedDate | date : 'dd/MM/yyyy'}} </span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10">
+            <b class="padding-right10">Purchase Type :
+            </b> {{vm.model.purchaseOrders.assetType}} </span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10">
+            <b class="padding-right10">Vendor Name :
+            </b> {{vm.model.purchaseOrders.vendorName}} </span>
+        </div>
+      </div>
+      <div class="row margin-top10">
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10">
+            <b class="padding-right10 ">Store: </b> {{vm.model.purchaseOrders.storeName}} </span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10">
+            <b class="padding-right10 ">Against: </b> {{vm.model.purchaseOrders.purchaseType}}
+          </span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10">
+            <b class="padding-right10 ">Added By: </b> {{vm.model.purchaseOrders.addedBy}}
+          </span>
+        </div>
+      </div>
+    </fieldset>
+    <!-- <div ng-include="'./views/procurement/quotation/details-PO-creation-assets.html'" class="ng-scope" style=""></div> -->
+    <!--<div ng-include="'./views/procurement/quotation/details-PO-creation-consumables.html'" class="ng-scope" style=""></div> -->
+    <div id="consumbleRowId" class="table-scroll row margin-top10 padding-left-right-set4" style="margin-top: 10px !important">
+      <div class="table-wrap" style="overflow: auto;">
+        <table class="table table-bordered main-table" style="max-width:300%;min-width:300%;">
+          <thead>
+            <tr>
+              <th colspan="3" class="fixed-side" scope="col">Item Details</th>
+              <th colspan="1" class="font-weight700" scope="col">PR Qty Details</th>
+              <th colspan="6" class="font-weight700" scope="col">PO Qty Details</th>
+              <th colspan="4" class="font-weight700" scope="col">Bonus Qty Details</th>
+              <th colspan="5" class="font-weight700" scope="col">PO Amount Details</th>
+              <th colspan="5" class="font-weight700" scope="col">PO Amount Total Details</th>
+              <th colspan="10" class="font-weight700" scope="col">Other Details</th>
+            </tr>
+            <tr>
+              <th class="fixed-side width1 text-center" scope="col">
+                <input type="checkbox" ng-model="vm.model.selectAllRows" ng-click="vm.model.SelectAllItems()" ng-disabled="!vm.model.purchaseOrders || vm.model.purchaseOrders.statusId == 8">
+                <!-- || vm.model.purchaseOrders.status == 'Cancelled' || !vm.model.purchaseOrders.status == 'Pending Approval' || vm.model.purchaseOrders.status == 'Approved' -->
+              </th>
+              <th class="fixed-side width1" scope="col">
+                Code
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="fixed-side width1" scope="col">
+                Name
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width1">
+                PR Quantity
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width2">
+                Quantity
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width2 vertical-middle">Reject Quantity</th>
+              <th class="width2 vertical-middle">Approved Quantity</th>
+              <th class="width1 vertical-middle">Reject</th>
+              <th class="width2 vertical-middle">
+                UOM
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width1">
+                UOM Unit
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width1">
+                Qty
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <!-- 1 -->
+              <th class="width4 vertical-middle">Approved Bonus Quantity</th>
+              <th class="width2">
+                UOM
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width1">
+                UOM Unit
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width2">
+                COP
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width2">
+                MRP
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width1">
+                Tax Code
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width1">
+                Tax %
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width1">
+                Disc %
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width3">
+                Amount
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width2">
+                Disc Amount
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width2">
+                Tax Amount
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width2">
+                Other Charges
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width3">
+                Net Amount
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width1 vertical-middle">PR No.</th>
+              <th class="width3 vertical-middle ">Manufacture</th>
+              <th class="width4 vertical-middle">Specification</th>
+              <th class="width4 vertical-middle">Remark</th>
+              <th class="width1 vertical-middle text-center">Upload</th>
+              <th class="width1 vertical-middle text-center">Action</th>
+              <!-- <th class="width1 vertical-middle"></th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <!-- class="td-height-set40" -->
+            <tr ng-repeat="item in vm.model.purchaseOrders.items">
+              <td class="fixed-side text-center">
+                <input type="checkbox" ng-model="item.isSelected" ng-click="vm.model.SelectItem(item)" ng-disabled="item.statusId == 5 || item.statusId == 7 || item.statusId == 8 || item.statusId == 9" />
+                <!-- ng-disabled="item.statusId != 10" -->
+              </td>
+              <td class="fixed-side">{{item.itemCode}}</td>
+              <td class="fixed-side">{{item.itemName}}</td>
+              <td class="vertical-middle">
+                {{item.prQuantity = (item.prList | sumByColumn: 'prQuantity') }}
+              </td>
+              <td class="vertical-middle" ng-class="{borderRed: vm.model.isValidPoQuantity[$index]}">
+                <div class="col-md-10 padding-left-right-set4">
+                  {{item.poQuantity}}
+                </div>
+                <div class="col-md-2 text-left vertical-middle">
+                  <a data-target="#AddQtyModal_ETOitemConfig" ng-click="vm.model.ViewStagedQuantity(item)" data-toggle="modal" title="Add Qty">
+                    <i class="fa fa-info-circle"></i>
+                  </a>
+                </div>
+              </td>
+              <td class="vertical-middle">{{!!item.rejectQuantity ? item.rejectQuantity : 0}}</td>
+              <td>
+                <div class="row">
+                  <input type="text" class="w-100" ng-model="item.approvedQuantity" ng-blur="vm.model.SaveApproval(item)" ng-if="!item.isDisabled"
+                    numbers-only>
+                  <div ng-if="item.isDisabled">{{!!item.approvedQuantity ? item.approvedQuantity : 0 }}</div>
+                </div>
+              </td>
+              <td class="vertical-middle text-center">
+                <div class="checkbox">
+                  <label class="switch switch-small">
+                    <input type="checkbox" class="switchInput" ng-disabled="item.isDisabled" ng-click="vm.model.RejectionPopup(item)" ng-model="item.isReject">
+                    <div class="slider round slider-small"></div>
+                  </label>
+                </div>
+              </td>
+              <td>
+                {{item.poUomType}}
+              </td>
+              <td class="vertical-middle">
+                <span>{{item.poUomUnit}}</span>
+                <span class="pull-right text-right">
+                  <a data-target="#selectUOM_modal" ng-click="vm.model.ViewPOUom(item)" data-toggle="modal">
+                    <i class="fa fa-info-circle"></i>
+                  </a>
+                </span>
+              </td>
+              <td>
+                {{item.bonusQuantity}}
+              </td>
+              <td>
+                <div class="row">
+                  <input type="text" class="w-100" ng-model="item.bonusApprovedQuantity" ng-if="!item.isDisabled" numbers-only>
+                  <div ng-if="item.isDisabled">{{!!item.bonusApprovedQuantity ? item.bonusApprovedQuantity : 0 }}</div>
+                </div>
+              </td>
+              <td>
+                {{item.bonusUomType}}
+              </td>
+              <td class="vertical-middle">
+                <span>{{item.bonusUomUnit}}</span>
+                <span class="pull-right text-right">
+                  <a data-target="#bouns_selectUOM_modal" ng-click="vm.model.ViewBonusUom(item)" data-toggle="modal">
+                    <i class="fa fa-info-circle"></i>
+                  </a>
+                </span>
+              </td>
+              <td>
+                {{item.cop | number:2}}
+              </td>
+              <td>
+                {{item.mrp | number:2}}
+              </td>
+              <td>
+                {{item.taxCode}}
+              </td>
+              <td>
+                {{item.taxPercentage | number:2}}
+              </td>
+              <td>
+                {{item.discount | number:2}}
+              </td>
+              <td>
+                {{item.totalAmount | number:2}}
+              </td>
+              <td name="discountAmount">
+                {{item.totalDiscount | number:2}}
+              </td>
+              <td name="taxAmount">{{ item.taxAmount | number:2}}</td>
+              <td>
+                <div class="col-md-10 text-left vertical-middle padding-top5">
+                  {{item.totalOtherAmount | number:2}}
+                </div>
+                <div class="col-md-2 text-left vertical-middle padding-top5">
+                  <a ng-click="vm.model.ViewOtherCharges(item)" data-target="#otherCharges_Modal" data-toggle="modal" title="Other Charges">
+                    <i class="fa fa-info-circle"></i>
+                  </a>
+                </div>
+              </td>
+              <td name="netAmount"> {{item.netAmount | number:2}}</td>
+              <td class="vertical-middle text-center">
+                <div>
+                  <a>
+                    <i class="fa fa-info-circle" aria-hidden="true" title="Purchase Request Details" data-toggle="modal" data-target="#purchaseRequestDetails"
+                      ng-click="vm.model.fillPRModalList(item.prList)"></i>
+                  </a>
+                </div>
+              </td>
+              <td>
+                {{item.manufacturerName}}
+              </td>
+              <td>
+                {{item.specification}}
+              </td>
+              <td>
+                {{item.remark}}
+              </td>
+              <td class="vertical-middle text-center">
+                <a>
+                  <i class="fa fa-upload" title="Upload"></i>
+                </a>
+              </td>
+              <td class="vertical-middle text-center">
+                <div>
+                  <a>
+                    <i class="fa fa-info-circle" aria-hidden="true" title="Last Purchase Details" data-toggle="modal" data-target="#lastPurchaseDetails"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- table two end -->
+    </div>
+    <footer class="col-lg-12 col-md-12 col-sm-12 padding-right20">
+      <fieldset>
+        <div class="row padding-left-right-set4">
+          <div class="col-lg-12 col-md-12 col-sm-12 padding-right20">
+            <table class=" table table-bordered">
+              <tbody>
+                <tr>
+                  <th class="width8">
+                    <label>Payment Mode</label>
+                  </th>
+                  <td class="width8">
+                    {{vm.model.purchaseOrders.paymentCode}}
+                  </td>
+                  <th class="width7">
+                    <label>Total Amount</label>
+                  </th>
+                  <td class="width8">
+                    {{vm.model.purchaseOrders.totalAmount | number: 2}}
+                  </td>
+                  <th class="width7">
+                    <label>Total Discount</label>
+                  </th>
+                  <td class="width8">
+                    {{vm.model.purchaseOrders.totalDiscount | number: 2}}
+                  </td>
+                  <th class="width8">
+                    <label>Total Tax Amount</label>
+                  </th>
+                  <td class="width8">
+                    {{vm.model.purchaseOrders.totalTaxAmount | number: 2}}
+                  </td>
+                </tr>
+                <tr>
+                  <th class="width8" colspan="2">
+                  </th>
+                  <th class="width10">
+                    <label>Total Other Charges</label>
+                  </th>
+                  <td class="width8">
+                    {{vm.model.purchaseOrders.totalOtherAmount | number: 2}}
+                  </td>
+                  <th class="width7">
+                    <label>Round Off</label>
+                  </th>
+                  <td class="width8">
+                    {{vm.model.purchaseOrders.roundOffAmount | number: 2}}
+                  </td>
+                  <th class="width8">
+                    <label>Net Amount</label>
+                  </th>
+                  <td class="width8">
+                    {{vm.model.purchaseOrders.netAmount | number: 2}}
+                  </td>
+                </tr>
+                <tr>
+                  <th colspan="3">
+                    <div class="row">
+                      <div class="col-lg-2 col-md-2 col-sm-2 padding-top5">
+                        <label>Discount</label>
+                      </div>
+                      <div class="col-lg-2 col-md-2 col-sm-2 padding-top5">
+                        <label ng-if="vm.model.purchaseOrders.discountTypeId == 1">
+                          Percentage :
+                        </label>
+                      </div>
+                      <div class="col-lg-2 col-md-2 col-sm-2 padding-top5">
+                        <label ng-if="vm.model.purchaseOrders.discountTypeId == 1">
+                          {{vm.model.purchaseOrders.discount}}
+                        </label>
+                      </div>
+                      <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-10 padding-top10 text-width-auto">
+                        <label ng-if="vm.model.purchaseOrders.discountTypeId == 2">
+                          Amount :
+                        </label>
+                      </div>
+                      <label ng-if="vm.model.purchaseOrders.discountTypeId == 2">
+                        {{vm.model.purchaseOrders.discount}}
+                      </label>
+                    </div>
+                  </th>
+                  <th class="width8 padding-top10">
+                    <label>Remark:</label>
+                  </th>
+                  <td class="width8" colspan="5">
+                    {{vm.model.purchaseOrders.remark}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </fieldset>
+      <div class="row padding-right20 margin-top4">
+        <div class="col-lg-10 col-md-10 col-sm-8 text-right"></div>
+        <div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px">
+          <div>
+            <a href="">
+              <input type="button" ng-click="vm.model.SavePOApproval()" value="Approve" class="btn btn-primary btn-save-box-shadow">
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px">
+          <div>
+            <a href="" ng-click="vm.model.NavigateToBack()">
+              <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+<div id="AddQtyModal_ETOitemConfig" class="modal fade ng-scope in common-small-popup" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+          Staged Qty
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-set4" id="">
+            <!-- pharmacologyDetailsTableId id for the table td fix height -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="width3">
+                    Sr No.
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                  <th class="width8">
+                    Date
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                  <th class="width5">
+                    Qty
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="data in vm.model.stagedQuantity">
+                  <td>{{$index+1}}</td>
+                  <td>
+                    {{data.stagedDate}}
+                  </td>
+                  <td>
+                    {{data.quantity}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <div class="row his-style">
+          <div class="col-md-10"></div>
+          <div class="col-md-2 padding-left0px-right6px">
+            <div class="common-save-button">
+              <input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+<div id="lastPurchaseDetails" class="modal fade ng-scope in common-large-popup" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+          Last Purchase Order Details
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 common-table-height-250 padding-top10 padding-left-right-set4">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Purchase Order No.</th>
+                  <th>Purchase Order Date</th>
+                  <th>Vendor</th>
+                  <th>GRN No.</th>
+                  <th>GRN Date</th>
+                  <th>Invoice No.</th>
+                  <th>Batch No</th>
+                  <th>Receive Qty</th>
+                  <th>Bounce Qty</th>
+                  <th>COP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <!-- <td>PO111</td>
+                  <td>Hamamatsu Photonics UK Ltd</td>
+                  <td>05/12/2017</td>
+                  <td>X Ray</td>
+                  <td>12086</td>
+                  <td>10</td>
+                  <td>0</td>
+                  <td>2800</td>
+                  <td>0</td>
+                  <td>2800</td> -->
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div id="selectUOM_modal" class="modal fade ng-scope in common-small-popup" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+          Select UOM
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-set4" id="">
+            <!-- pharmacologyDetailsTableId id for the table td fix height -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="width3">
+                    UOM
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                  <th class="width6">
+                    UOM Unit
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                  <th class="width6">
+                    Conversion Factor
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="uom in vm.model.POUoms">
+                  <td>{{uom.uomType}}</td>
+                  <td>{{uom.uomUnit}}</td>
+                  <td>{{uom.conversion}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!--  <div class="modal-footer">
+        <div class="row his-style">
+          <div class="col-md-10"></div>
+          <div class="col-md-2 padding-left0px-right6px">
+            <div class="common-save-button">
+              <input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+<div id="bouns_selectUOM_modal" class="modal fade ng-scope in common-small-popup" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+          Select Bouns Qty UOM
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-set4" id="">
+            <!-- pharmacologyDetailsTableId id for the table td fix height -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="width3">
+                    UOM
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                  <th class="width6">
+                    UOM Unit
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                  <th class="width6">
+                    Conversion Factor
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="uom in vm.model.bonusUoms">
+                  <td>{{uom.uomType}}</td>
+                  <td>{{uom.uomUnit}}</td>
+                  <td>{{uom.conversion}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="otherCharges_Modal" class="modal fade ng-scope in common-small-popup" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+          Other Charges
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-set4" id="">
+            <!-- pharmacologyDetailsTableId id for the table td fix height -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="width3">
+                    Other Charges
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                  <th class="width6">
+                    Amount
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th>
+                  <!-- <th class="width2">
+                     Action
+                    <div class="float_right">
+                      <div>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                      </div>
+                      <div class="margin-top-8">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </th> -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="data in vm.model.otherCharges">
+                  <td>
+                    {{data.otherCharges}}
+                    <!-- <select class="select-box">
+                      <option></option>
+                    </select> -->
+                  </td>
+                  <td>
+                    {{data.amount}}
+                    <!-- <input type="text" class="select-box"> -->
+                  </td>
+                  <!-- <td>
+                    <div>
+                      <input type="button" value="+" class="btn btn-primary btn-save-box-shadow width35">
+                    </div>
+                  </td> -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <div class="row his-style">
+          <div class="col-md-10"></div>
+          <div class="col-md-2 padding-left0px-right6px">
+            <div class="common-save-button">
+              <input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+<div id="qtyaccepatReject" class="modal fade ng-scope in common-small-popup" role="dialog" style="z-index:1300 !important;background: rgba(0, 0, 0, 0.33);">
+  <div class="modal-dialog">
+    <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+          Rejection
+          <button type="button" ng-click="vm.model.ModalDismiss('qtyaccepatReject')" class="close">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12 padding-left-right-set">
+            <div class="row input-container margin-top10">
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+                  <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-11 col-sm-11 col-md-11">
+                  <div>
+                    <input type="rejectQty" name="rejectQty" ng-model="vm.model.rejectQty" class="text-input floating-label" ng-class="{dirty: vm.model.rejectQty}"
+                      numbers-only>
+                    <label for="rejectQty">Qty</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+                  <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-11 col-sm-11 col-md-11 ">
+                  <div>
+                    <select name="rejectReason" id="rejectReason" class="text-input floating-label" ng-model="vm.model.rejectReason" data-ng-options="rejectReason.reason for rejectReason in vm.model.reasons"
+                      ng-class="{dirty: vm.model.rejectReason}">
+                      <option></option>
+                    </select>
+                    <label for="rejectReason">Select Reason</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row input-container margin-top10">
+              <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+                <i class="fa fa-sticky-note" aria-hidden="true"></i>
+              </div>
+              <div class="col-lg-11 col-sm-11 col-md-11 ">
+                <div>
+                  <textarea name="rejectNote" rows="4" id="rejectNote" class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty"
+                    ng-model="vm.model.rejectNote" ng-class="{dirty: vm.model.rejectNote}"></textarea>
+                  <label for="rejectNote">Note</label>
+                </div>
+              </div>
+            </div>
+            <!-- <input type="text" id="commonId" /> -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="border:none;">
+        <button type="button" class="btn btn-primary" ng-click="vm.model.SaveRejection()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  function setCloneTable () {
+    setTimeout(function(){ jQuery(".main-table").clone(true).appendTo('#consumbleRowId').addClass('clone'); }, 500);
+  }
+</script>
+<!-- <div ng-include="'./views/common/qty-accept-reject.html'" class="ng-scope" style=""></div> -->

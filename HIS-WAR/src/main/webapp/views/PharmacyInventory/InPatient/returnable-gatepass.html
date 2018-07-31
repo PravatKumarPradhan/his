@@ -1,0 +1,357 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<!-- <legend class="heading-div">Add New Item</legend> -->
+			<div class="row margin-top10">
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<!-- <input type="text" name="code" id="" class="text-input floating-label" ng-model="vm.model.fromDate" ng-class="{dirty: vm.model.fromDate}"> -->
+								<input type="text" class="text-input floating-label dirty" name="fromDate" id="fromDate" uib-datepicker-popup="dd/MM/yyyy"
+								 placeholder="DD/MM/YYYY" ng-model="vm.model.fromDate" model-view-value="true" is-open="vm.model.fromDateOpened" datepicker-options="vm.model.fromDateOptions"
+								 show-button-bar="false" ng-click="vm.model.OpenFromDate()">
+								<label for="code">From Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<!-- <input type="text" name="code" id="" class="text-input floating-label" ng-model="vm.model.toDate" ng-class="{dirty: vm.model.toDate}"> -->
+								<input type="text" class="text-input floating-label dirty" name="toDate" id="toDate" uib-datepicker-popup="dd/MM/yyyy" placeholder="DD/MM/YYYY"
+								 ng-model="vm.model.toDate" model-view-value="true" is-open="vm.model.toDateOpened" datepicker-options="vm.model.toDateOptions"
+								 show-button-bar="false" ng-click="vm.model.OpenToDate()">
+								<label for="description" class="LISDynamicLabel">To Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-building-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select name="store" id="store" class="text-input floating-label dirty" ng-model="vm.model.store" data-ng-options="store.store for store in vm.model.stores">
+								</select>
+								<label for="description" class="LISDynamicLabel">Store</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div>
+								<input type="text" name="vendorName" id="vendorName" class="text-input floating-label" ng-model="vm.model.vendorName" uib-typeahead="vendorNames.detail for vendorNames in vm.model.SearchVendorNames($viewValue)"
+								 typeahead-on-select="vm.model.AddVendorName($item); vm.model.search = '';" ng-class="{dirty: vm.model.vendorName}">
+								<label for="vendorName" class="LISDynamicLabel">Vendor</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select name="assetType" id="assetType" class="text-input floating-label dirty" ng-model="vm.model.assetType" data-ng-options="assetType.type for assetType in vm.model.assetTypes">
+								</select>
+								<label for="description" class="LISDynamicLabel">Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label">
+									<option id="againstId" value="">All GRN</option>
+									<option id="againstId" value="5">Against GRN</option>
+									<option id="againstId" value="6">Against Non-Moving</option>
+									<option id="againstId" value="7">Against Expiry</option>
+								</select>
+								<label for="description" class="LISDynamicLabel">Against</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="code" id="" ng-model="vm.model.gatepassNo" class="text-input floating-label dirty">
+								<label for="description" class="LISDynamicLabel">Returnable GP No.</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select name="status" id="fromStore" class="text-input floating-label dirty" ng-model="vm.model.status" data-ng-options="status.status for status in vm.model.statuses">
+								</select>
+								<label for="description" class="LISDynamicLabel">Status</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right text-width-auto padding-top8">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.ReturnableGatepassSearch()" title="Search">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top8">
+					<div class=" ">
+						<a>
+							<input type="button" value="Add New" ng-click="vm.model.AddReturnable()" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row margin-top4">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+						<a class="btn btn-primary btn-save-box-shadow" ng-class="{disabled: !vm.model.isItemChecked }" title="Save" ng-click="vm.model.ValidateAndUpdate('Update','confirmLogout1', {})">
+						<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+				<input type="text" class="text-search-box" ng-model="search" placeholder="Search" style="margin-top:0px">
+				<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row margin-top4">
+			<div class="col-md-12 col-lg-12 col-sm-12" id="nonBillableTableHt">
+				<fieldset>
+					<!-- <legend class="heading-div">Table</legend> -->
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 height55-table-with-scroll padding-left-right-set4">
+							<table class="table table-bordered first-checkBox-padding">
+								<!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width1 text-center">
+											<input type="checkbox" ng-click="vm.model.SelectAllRequests()" ng-model="vm.model.selectAllRows" ng-disabled="vm.model.returnableGatepassData == false"
+											/>
+										</th>
+										<th class="width8">
+											Ret GP No.
+										</th>
+										<th class="width8">
+											Ret GP Date
+										</th>
+										<th class="width8">
+											Type
+										</th>
+										<th class="width8">
+											Against
+										</th>
+										<th class="width8">
+											Store
+										</th>
+										<th class="width8">
+											Vendor
+										</th>
+										<th class="width8">
+											Requested By
+										</th>
+										<th class="width8">
+											Status
+										</th>
+										<th class="width8">
+											Approval Status
+										</th>
+										<th class="width8 text-center">Action
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="greturn in vm.model.returnableGatepassData | orderBy:sortType:sortReverse | filter:search">
+										<td class="text-center">
+											<input type="checkbox" ng-model="greturn.isSelected" ng-click="vm.model.SelectGatepassRequest(greturn)" ng-disabled="vm.model.isDisable(greturn)"
+											/>
+										</td>
+										<td>{{greturn.gatepassNo}}</td>
+										<td>{{greturn.gatepassDate | date:'dd/MM/yyyy'}}</td>
+										<td>{{greturn.assetType}}</td>
+										<td>{{greturn.against}}</td>
+										<td>{{greturn.store}}</td>
+										<td>{{greturn.vendor}}</td>
+										<td>{{greturn.requestedBy}}</td>
+										<td>{{greturn.status}}</td>
+										<td>{{greturn.approvalStatus}}</td>
+										<td>
+											<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+													<a title="Edit" ng-click="vm.model.EditReturnable(greturn)" ng-class="{disabled: vm.model.isDisable(greturn)}">
+													<i class="fa fa-pencil" aria-hidden="true"></i>
+												</a>
+											</div>
+											<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+												<a title="Print">
+													<i class="fa fa-print" aria-hidden="true"></i>
+												</a>
+											</div>
+											<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+													<a title="Cancel">
+															<i class="fa fa-ban" aria-hidden="true" ng-class="{disabled: vm.model.isDisable(greturn)}" ng-click="vm.model.ValidateAndUpdate('Cancel','confirmCancel', greturn.id)"></i>
+													</a>
+											</div>
+											<div class="col-lg-6 col-md-6 padding-left-right-set4 text-right">
+												<a class="cursor-pointer" ng-click="vm.model.ReturnableDetails(greturn);">Details</a>
+											</div>
+										</td>
+										<!-- <td class="text-center">
+									<div class="col-md-4 ">
+										<a title="Edit" class="padding-left-right-5"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+									</div>
+									<div class="col-md-4 ">
+										<a title="Print" class="padding-left-right-5"><i class="fa fa-print" aria-hidden="true" ></i></a>
+									</div>
+									<div class="col-md-4 ">
+										<a title="Cancel" class="padding-left-right-5"><i class="fa fa-times-circle-o" aria-hidden="true" data-toggle="modal" data-target="#confirmCancel"></i></a>
+									</div>
+								</td>	
+								<td>
+									<input type="button" value="Details"  class="btn btn-primary btn-save-box-shadow details-btn" data-toggle="modal" data-target="#wasteStoreDetailsModal" style="width:auto !important;">
+								</td> -->
+									</tr>
+									<tr ng-if="!vm.model.returnableGatepassData || vm.model.returnableGatepassData == false">
+											<td colspan="11" class="text-center">
+												<p>No Record Found</p>
+											</td>
+										</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="confirmLogout1" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+		<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+			<!-- style="width: 25% !important;margin: 200px 0 0 510px !important;" -->
+			<div class="modal-content">
+				<div class="modal-header" style="padding: 0px!important;">
+					<div class="modal-title patient-details-row">
+						Confirm
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="margin-left10">
+						<span>Are you sure you want to Save?</span>
+					</div>
+				</div>
+				<div class="modal-footer" style="border:none;">
+					<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="vm.model.ApproveReturnableGatepass();">Ok</button>
+					<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div> 
+
+		<!-- confirmCancel Start -->
+<div id="confirmCancel" class="modal fade ng-scope in common-small-popup" role="dialog" style="background: rgba(0, 0, 0, 0.33); z-index: 1300 !important;">
+		<div class="modal-dialog">
+		  <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <div class="modal-title patient-details-row">
+				Cancellation
+				<button type="button" class="close" data-dismiss="modal" ng-click="vm.model.ModalDismiss('confirmCancel')">&times;</button>
+			  </div>
+			</div>
+			<div class="modal-body">
+			  <div class="row">
+				<div class="col-md-12 padding-left-right-set">
+				  <div class="row input-container margin-top10">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					  <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+					  <div class="">
+						<select name="cancelReason" id="cancelReason" class="text-input floating-label" ng-model="vm.model.cancelReason" ng-class="{dirty: vm.model.cancelReason}"
+						  ng-change="vm.model.isReasonValid = false">
+						  <!-- ng-options="cancelReason.reason for cancelReason in vm.model.reasons" -->
+						  <option  value="">Select Reason</option>
+						  <option ng-repeat="reason in vm.model.reasons" value="{{reason.id}}">{{reason.reason}}</option>
+						</select>
+						<label for="code">Select Reasons</label>
+					  </div>
+					  <p ng-if="vm.model.isReasonValid" class="errorMsg">Select Reason</p>
+					</div>
+				  </div>
+				  <div class="row input-container margin-top10">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					  <i class="fa fa-sticky-note" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+					  <div class="">
+						<textarea name="cancelNote" rows="4" id="cancelNote" class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty"
+						  ng-model="vm.model.cancelNote" ng-class="{dirty: vm.model.cancelNote}"></textarea>
+						<label for="cancelNote">Note</label>
+					  </div>
+					</div>
+				  </div>
+				  <!-- <input type="text" id="commonId" /> -->
+				</div>
+			  </div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+			  <button type="button"  data-dismiss="modal" ng-disabled="cancelNote == ''" class="btn btn-primary" ng-click="vm.model.ApproveReturnableGatepass();">Save</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- cancelPurchaseReqest END -->
+<script type="text/javascript">
+	$(document).ready(function () {
+
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Returnable GatePass Master");
+		$(".sidebar-nav li").each(function () {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="returnableGatepass"]').parents("li").addClass("active");
+	});
+</script>

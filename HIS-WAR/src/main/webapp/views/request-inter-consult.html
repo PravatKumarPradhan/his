@@ -1,0 +1,126 @@
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid his-style">
+				<!-- <div class="row searched-patient-details-row">
+						<div class="col-md-11 col-sm-11 col-xs-11 ">
+							<span class="profile_pic margin-left10"> 
+								<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+							</span> 
+							<span class="margin-left10">John Deo 26/M </span>
+							<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> Pune-769</span>
+							<span class="margin-left10"><b class="padding-right10 ">WARD NO :</b> W1112</span>
+							<span class="margin-left10"><b class="padding-right10 ">BED NO :</b> BM129091</span>
+							<span class="margin-left10">Dr. Suresh Pathak</span>
+						</div>
+					</div> -->
+					<div ng-include="'./views/common/patient-demography.html'" class="padding-left-right-set4"></div>
+				<fieldset>
+				<!-- <legend class="heading-div">Request Inter Consult</legend> -->
+							<div class="row padding-left-right-set4">
+								
+								<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 margin-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-gratipay" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<select class="text-input floating-label" name="code">
+													<option></option>
+													<option>Homotology</option>
+													<option>Cardiology</option>
+													</select>		
+													<label for="code">Choose Specialty</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								
+								<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 margin-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa  fa-user-md fa-color" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<select class="text-input floating-label" name="code">
+													<option></option>
+													<option>Dr. Robert W. Marshall</option>
+													<option>Dr. Mark Bloomfield</option>
+													<option>Dr. David Cooper</option>
+												</select> <label for="code">Choose Doctor Name</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 margin-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa  fa-sticky-note-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<select class="text-input floating-label" name="code">
+													<option></option>
+													<option>Reason-1</option>
+													<option>Reason-2</option>
+													<option>Reason-3</option>
+												</select> <label for="code">Choose Reason</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						<div class="row padding-left-right-set4">
+							<div
+								class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<textarea name="code" rows="4" id=""
+												class="text-input floating-label"></textarea>
+											<label for="code">Note</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+			</fieldset>
+			<div class="row">
+				<div class="col-md-8"></div>
+				<div class="col-md-3"></div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+								<div class=" ">
+									<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+								</div>
+							</div>
+			</div>
+		</div>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+</div>
+<script type="text/javascript">
+		$(document).ready(function(){
+			var documentHeight= $(window).height();
+		    var sideBarHeight = documentHeight - 55;
+		 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+			
+		$(".selectedPageName").text("Request Inter Consult");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="requestInterConsult"]').parents("li").addClass("active");
+		});
+	</script>

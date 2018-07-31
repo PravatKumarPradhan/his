@@ -1,0 +1,74 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<legend class="heading-div">Staff Details</legend>
+			<div class="row padding-top10">
+				<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="tab-btn-primary">
+						<a class="btn btn-primary btn-save-box-shadow" ng-href="#/staffRegistration/personal">Personal</a>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="tab-btn-primary">
+						<a class="btn  btn-primary btn-save-box-shadow" ng-href="#/staffRegistration/contact">Contact</a>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="tab-btn-primary">
+						<a class="btn  btn-primary btn-save-box-shadow" ng-href="#/staffRegistration/professional">Professional</a>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="tab-btn-primary">
+						<a class="btn  btn-primary btn-save-box-shadow" ng-href="#/staffRegistration/employment">Employment </a>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="tab-btn-primary">
+						<a class="btn  btn-primary btn-save-box-shadow text-width-auto padding-left-right-set4" ng-href="#/staffRegistration/dependentDetails">Dependent Details</a>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"><i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a>	
+					</div>
+				</div>
+			</div>
+			<div class="row padding-top10">
+				<div class="" ui-view>
+			
+				</div>
+			</div>
+			
+		</fieldset>
+		
+	</div>
+</div>
+<!-- </div> -->
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	//$(".remainingPersonalDetials").hide();
+	
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+  
+  $(".selectedPageName").text("Staff Registration");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="staffRegistration"]').parents("li").addClass("active");
+});
+ $(document).on('click','.heading-div', function(){
+	 //alert();
+	$(this).next(".serachedPatientList").toggle();
+});
+ 
+
+ 
+
+</script>

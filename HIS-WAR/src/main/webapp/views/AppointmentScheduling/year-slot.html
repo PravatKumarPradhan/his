@@ -1,0 +1,109 @@
+<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+						<div class="row searched-patient-details-row margin-top8 bg-grey-for-list">
+							<div class="col-md-12 col-sm-12 col-xs-12 ">
+								<span class="profile_pic margin-left10"> 
+									<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+								</span> 
+								<span class="margin-left10"><!-- Dr. Mark Potter -->{{doctorName}}</span>
+								<span class="margin-left10"><b class="padding-right5 " ng-if="specialityName != null">Specialty :</b>{{specialityName}} <!-- Cardiology --></span>
+								<fieldset class=" div-fieldset ">
+										<legend class="heading-div">
+											<span>Year </span>
+										</legend>
+										<div class="row">
+										
+										 <div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab" ng-repeat="info in yearSlotList">
+												<a href="#/appointmentScheduling/month" ng-click="getMonthWiseSlot(info.fromDate,'Y')">
+													<div class="div-time"> 
+														{{info.appointmentDate}}
+													</div>
+												</a>
+											</div>
+											
+										
+										
+											<!-- <div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+												<a href="#/appointmentScheduling/month">
+													<div class="div-time"> 
+														Oct 2017
+													</div>
+												</a>
+											</div>
+											<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+												<div class="div-time "> 
+													Nov 2017
+												</div>
+											</div>
+											<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+												<div class="div-time">
+													 Dec 2017
+												</div>
+											</div>
+										<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+											<div class="div-time doc-not-available-ellapse"> 
+											  	Jan 2018
+											 </div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+											<div class="div-time"> 
+											    Feb 2018
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+											<div class="div-time"> 
+											   Mar 2018
+											</div>
+										</div>
+										
+										<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+											<div class="div-time"> 
+												Apr 2018
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+											<div class="div-time"> 
+												May 2018
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+											<div class="div-time">
+												 June 2018
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+											<div class="div-time"> 
+											  	July 2018
+											 </div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+											<div class="div-time"> 
+											    Aug 2018
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+											<div class="div-time"> 
+											   Sep 2018
+											</div>
+										</div>
+										
+										<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+											<div class="div-time"> 
+											  	Oct 2018
+											 </div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+											<div class="div-time"> 
+											    Nov 2018
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-xs-4 col-sm-3 padding-left-right-set4 col-lg-2-year-tab">
+											<div class="div-time"> 
+											   Dec 2018
+											</div>
+										</div> -->
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					
+</div>

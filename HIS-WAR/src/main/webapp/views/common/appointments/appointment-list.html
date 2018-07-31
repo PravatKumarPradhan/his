@@ -1,0 +1,2207 @@
+<div id="page-content-wrapper" class=""> 
+	<div class="container-fluid ">
+		<!-- ************************** tabs level one start ****************************** -->
+		<div class="row schedulerTabs">
+				<ul class="tabs nav nav-tabs">
+					<li ng-class="{ active : isSetFirstTabLevel(1) }" id="" class="padding-top-bottom width15">
+						<a href ng-click="setFirstTabLevel(1)">Doctor</a>
+					</li>
+					<li ng-class="{ active : isSetFirstTabLevel(2) }" id="" class="padding-top-bottom width15">
+						<a href ng-click="setFirstTabLevel(2)">Modality</a>
+					</li>
+					<li ng-class="{ active : isSetFirstTabLevel(3) }" id="" class="padding-top-bottom width15">
+						<a href ng-click="setFirstTabLevel(3)">Health Checkup</a>
+					</li>
+					<li ng-class="{ active : isSetFirstTabLevel(4) }" id="" class="padding-top-bottom width15">
+						<a href ng-click="setFirstTabLevel(4)">Missed Call</a>
+					</li>
+				</ul>
+				<!-- <a href="" class="btn btn-primary btn-save-box-shadow" title="Save">
+				<i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a> -->
+		</div>
+		<div class="row">
+			<!-- **************  CONTENT FOR Doctor TAB start ************** ************** ************** ************** -->
+			<div ng-show="isSetFirstTabLevel(1)">
+				<div class="row his-style">
+					<!-- ****************  row one start **************** -->
+					
+					<!-- ****************  row one end **************** -->
+					<!-- ****************  row two start **************** -->
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-10 col-sm-10 col-md-10">
+										<div class="">
+											<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepickerFromDate"
+									model-view-value="true" is-open="datepickerFromDate.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerFromDate()" > 
+												<label for="code">From Date</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-10 col-sm-10 col-md-10">
+										<div class="">
+										<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepickerToDate"
+									model-view-value="true" is-open="datepickerToDate.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerToDate()" > 
+												<label for="code">To Date</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="form-group">
+												<!-- <input type="text" name="description" id="" class="text-input floating-label">
+												<label for="description" class=""></label> -->
+												
+												<select class="text-input floating-label" name="specialityId" ng-model="appointmentSearchObject.specialityId" ng-change="getDoctorBySpeciality(appointmentSearchObject.specialityId)" >
+													<option value="0">All</option>
+													<option ng-repeat="info in specialityList" value="{{info.specialityId}}">{{info.specialityName}}</option>
+												</select> 
+												<label for="code">Specialty</label>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-user-md" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="form-group">
+												<!-- <input type="text" name="description" id="" class="text-input floating-label">
+												<label for="description" class="">Doctor</label> -->
+												<select class="text-input floating-label" name="doctorId" ng-model="appointmentSearchObject.doctorId" >
+												<option value="0">All</option>
+												<option ng-repeat="info in doctorList" value="{{info.doctorId}}">{{info.firstName+' '+info.lastName}}</option>
+											</select>
+												<label for="code">Doctor</label>
+											</div>
+										</div>
+									</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="col-lg-5 col-md-5 col-sm-6 padding-left-right-set4">
+								<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="form-group">
+											<input type="text"  class="text-input floating-label" tabindex="3" ng-model="uhidNumber" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidNumber+'|'+group.mobileNumber  for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off">
+												<label for="code">Registration No </label>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="col-lg-7 col-md-7 col-sm-6 padding-left-right-set4">
+								<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="form-group">
+												<input type="text"  class="text-input floating-label" tabindex="3" ng-model="patientName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidNumber+'|'+group.mobileNumber  for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off">
+												<label for="code">Patient Name</label>
+											</div>
+										</div>
+									</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4 ">
+								<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="form-group">
+												<input type="text"  class="text-input floating-label" tabindex="3" ng-model="mobileNumber" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.mobileNumber  for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off">
+												<label for="code">Mobile Number</label>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+								<div class=""><!-- width-div-for-patient-reg pull-left -->
+									<a href="" class="btn btn-primary btn-save-box-shadow" title="Clear" ng-click="clearSearchObject()" >
+									<i class="fa fa-eraser" style="" aria-hidden="true"></i></a>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+									<div class=""><!-- width-div-for-patient-reg pull-left -->
+										<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="searchAppointment(appointmentSearchObject)">
+										<i class="fa fa-search" style="" aria-hidden="true"></i></a>
+									</div>
+								</div>
+							
+						</div>
+						<!-- ******** DATE COLUMN START ******* -->
+						
+						
+						<!-- ********  DATE COLUMN END ******* -->
+							
+								
+								
+								
+								
+								
+								 
+									
+							</div>
+							
+							<div class="row">
+						<div ng-include="'./views/common/common-patient-search-appointment-schdule.html'"></div>
+					</div>
+					<!-- ****************  row two start **************** -->
+					<!-- ****************  row three start **************** -->
+					<div class="row">
+						<div class="row">
+							<div class="col-md-8 col-sm-8 padding-top8">
+								<ul class="tabs nav nav-tabs">
+									<li ng-class="{ active : isSetSecondTabLevel(1) }" class="tabs-style">
+										<a href ng-click="setSecondTabLevel(1)">Appointment List</a>
+									</li>
+									<li ng-class="{ active : isSetSecondTabLevel(2) }" class="tabs-style">
+										<a href ng-click="setSecondTabLevel(2)">Reschedule Worklist</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<div class="row">
+								
+									<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set0 padding-top10">
+										<input type="text" class="text-search-box" placeholder="Search" ng-model="searchKeyword" style="margin-top: 0px">
+											<i class="fa fa-search common-search-text-icon padding-top10" aria-hidden="true"></i>
+									</div>  
+									<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top8 pull-right width12">
+										<div>
+											<a class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout">
+												<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div ng-show="isSetSecondTabLevel(1)" class="second-level-tab-display-div" >
+								<!-- Appointment List content start -->
+								<div class="row">
+									<!--************************ doctor name row one start ************************ -->
+										<div class="row">
+											<div class="doc-row row">
+												<!-- <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4" style="cursor: pointer;">
+													<div class="col-md-4 col-sm-4 col-xs-4" style="text-align: center;">
+														<img src="resources/assets/images/tempImages/Dr2 copy.png" style="cursor: pointer;" class="img-circle">
+													</div>
+													<div class="col-md-8 col-sm-8 col-xs-8">
+														<div class="doc-name">Dr. Mark Potter</div>
+														<div class="doc-Spaciality">Cardiologist</div>
+													</div>
+												</div> -->
+												<div class="col-lg-10 col-md-8 col-sm-8">
+													<ul class="tabs nav nav-tabs">
+														<li class="" >
+															<a ng-click="getPendingAppointmentList(0)">All</a>
+															<div class="div-circle-doc div-circle-doc-bg-all" id="allCount3_new" >{{allCount}}</div>
+														</li>
+														<li>
+															<a ng-click="getPendingAppointmentList(1)">Pending</a>
+															<div class="div-circle-doc div-circle-doc-bg-pending" id="allPending3_new">{{pendingCount}}</div>
+														</li>
+														<li>
+															<a ng-click="getPendingAppointmentList(5)">Checked In</a>
+															<div class="div-circle-doc div-circle-doc-bg-checked" id="allChecked3_new">{{checkInCount}}</div>
+														</li>
+														<li>
+															<a ng-click="getPendingAppointmentList(6)">Completed</a>
+															<div class="div-circle-doc div-circle-doc-bg-completed" id="allCompleted3_new">0</div>
+														</li>
+														<li class="text-width-auto">
+															<a ng-click="getPendingAppointmentList(3)">Reschedule/Cancelled</a>
+															<div class="div-circle-doc div-circle-doc-reschedule" id="allReschedule3_new">{{rescheduledAndCancelledCount}}</div>
+														</li>
+														<!-- <li>
+															<a ng-click="getPendingAppointmentList(9)">No Show</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-show" id="allNoShow3_new">{{noShowCount}}</div>
+														</li> -->
+														<li class="text-width-auto" >
+															<a ng-click="getPendingAppointmentList(7)">Checked Out</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-walkout" id="allWalkOut3_new">0</div>
+														</li>
+														<li>
+															<a>Emergency</a>
+															<div class="div-circle-doc div-circle-doc-emergancy" id="allEmergency3_new">0</div>
+														</li>
+														<li>
+															<a ng-click="getPendingAppointmentList(8)">Admitted</a>
+															<div class="div-circle-doc div-circle-doc-bg-walkins" id="allWalkins3_new">{{admittedCount}}</div>
+														</li>
+														<!-- <li>
+															<a >Walkins</a>
+															<div class="div-circle-doc div-circle-doc-bg-walkins" id="allWalkins3_new">0</div>
+														</li>
+														<li>
+															<a >Telephonic</a>
+															<div class="div-circle-doc div-circle-doc-bg-telephonic" id="allTelephonic3_new">0</div>
+														</li>
+														<li>
+															<a>App</a>
+															<div class="div-circle-doc div-circle-doc-bg-app" id="allApp3_new">0</div>
+														</li> -->
+													</ul>
+												</div>
+											</div>
+										</div>
+									<!-- 	************************ doctor name row one start ************************ -->
+									<!-- 	************************ doctor table row two start ************************ -->
+									<div class="row">
+										<div>
+											<div class="row table-responsive">
+												<table class="table table-border">
+													<tbody>
+														<tr>
+															<th class="appointment-table-th width12">Doctor</th>
+															<th class="appointment-table-th width12">Speciality</th>
+															<th class="appointment-table-th">Patient Details</th>
+															<th class="appointment-table-th">Date</th>
+															<th class="appointment-table-th">Time</th>
+															<th class="appointment-table-th">Contact Info</th>
+															<th class="appointment-table-th">Check In</th>
+															<th class="appointment-table-th">Remarks</th>
+															<th class="appointment-table-th">Checkout</th>
+															<th class="appointment-table-th">Status</th>
+														<!-- 	<th class="width3"></th> -->
+															<th class="appointment-table-th">Action</th>
+														</tr>
+														<tr ng-repeat="info in appointmentList | filter:searchKeyword | orderBy:'fromTimeString':false">
+															<td>
+																<span>{{info.doctorName}}</span>
+																	
+															</td>
+															<td><span>{{info.specialityName}}</span></td>
+															<td class="text-center">
+																<div class="row patient-details cursor-pointer" id="45#1247#2_new">
+																	<div class="col-lg-3 col-sm-12 col-md-3">
+																		<div class="" ng-click="info.appointmentStatusId==5 && gotoCoverSheet(info)">
+																			<img src="resources/assets/images/tempImages/m.jpg" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																		</div>
+																	</div>
+																	<div class="col-lg-8 col-sm-12 col-md-8">
+																		<div class="patient-name">{{info.prefixCode+'. '+info.patientName}}
+																	</div>
+																		<div class="patient">{{info.uhidNumber}}</div>
+																		<div class="patient-details">
+																			<span class="patient-details patient">{{info.genderCode}}</span>
+																			<span class="patient-details patient">{{info.age}}
+																			<span class="patient-details patient" >||||||
+																			<span class="patient-details patient" >info</span>
+																			</span></span>
+																		</div>
+																	</div>
+																</div>
+															</td>
+															<td class="text-center">{{info.appointmentDate}}</td>
+															<td class="text-center">{{info.fromTimeString}}</td>
+															<td class="text-center">
+																<span data-toggle="modal" data-target="#contactDetailsPopup" ng-click="getPatientDetailsPopUp(info)">
+																<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																</span>
+															</td>
+															<td class="text-center"><div ng-if="info.appointmentStatusId=='1'"><i class="fa fa-sign-out" aria-hidden="true" ng-click="info.appointmentStatusId==1 && gotoEncounter(info)"></i></div></td>
+															<td class="text-center"><i class="fa fa-commenting" aria-hidden="true" data-toggle="modal" data-target="#notesForall" ng-click="displayRemark(info.remark)"></i></td>
+															<td class="text-center">--</td>
+															<td class="text-center">{{info.appointmentStatusDesc}}</td>
+															<!-- <td class="text-center"><i class="fa fa-sign-out" aria-hidden="true" ng-click="info.appointmentStatusId==1 && gotoEncounter(info)"></i></td> -->
+															<td class="text-center">
+																<a>
+																	<i class="fa fa-print" aria-hidden="true"></i>
+																</a>
+																<i class="fa fa-minus-circle color-red" aria-hidden="true"></i>
+																<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal" ng-click="setObject(info)"></i>&nbsp;&nbsp;
+																<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal" ng-click="setObject(info)"></i>
+															</td>
+														</tr>
+														<!-- <tr>
+															<td>
+																<span>Dr. Mark Potter</span>
+																<span>Cardiology</span>	
+															</td>
+															<td class="text-center">
+																<div class="row patient-details cursor-pointer" id="45#1247#2_new">
+																	<div class="col-lg-3 col-sm-12 col-md-3">
+																		<div class="">
+																			<img src="https://media-exp2.licdn.com/media-proxy/ext?w=800&amp;h=800&amp;hash=Cmfe7vyVpDWLrcij8cq%2FonJHmkI%3D&amp;ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6nlh8Tw1It6a2FowGz60oISIfYC2G8G2f1spyfNT-tdoDSe7ensgUbeikHhlI_IfnwEXO5H9LHVvW4OqcY_PawbZmNUz0sYxYjiWgZ7oEiGFx3kdKpF-qtMWsc8e1-TwyJC73iVV8vLQll8fq4GKH6GWxUi3WUbO71GJlCE-dQppRRy39_rO_BDZ442aV40Dp42VWO0IrqMAEuw7nmKXiZV0YcLkDGa9BTuIWF0TenkVqGjU7mi6yHJLGFEPUY3yWnwcTgeiHXkSxElzMH3CgRnM1mA3v9pvEL0xK0MuQsSwvZhLnkGlGb3Zcb_XQJgtbVLzuuX01ksiBtaJL7ihUSWayfmA" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																		</div>
+																	</div>
+																	<div class="col-lg-8 col-sm-12 col-md-8">
+																		<div class="patient-name">Mr. Andew Smith
+																	</div>
+																		<div class="patient">PC-17-0045</div>
+																		<div class="patient-details">
+																			<span class="patient-details patient">M</span>
+																			<span class="patient-details patient">32Y 0M 15D 
+																			<span class="patient-details patient" >||||||
+																			<span class="patient-details patient" >info</span>
+																			</span></span>
+																		</div>
+																	</div>
+																</div>
+															</td>
+															<td class="text-center">08/02/2018</td>
+															<td class="text-center">09:00</td>
+															<td class="text-center">
+																<span data-toggle="modal" data-target="#contactDetailsPopup">
+																<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																</span>
+															</td>
+															<td class="text-center">08:45 AM</td>
+															<td class="text-center"></td>
+															<td class="text-center">08:45 AM</td>
+															<td class="text-center">Checked In</td>
+															<td class="text-center"><i class="fa fa-sign-out" aria-hidden="true"></i></td>
+															<td class="text-center">
+																<a>
+																	<i class="fa fa-print" aria-hidden="true"></i>
+																</a>
+																<i class="fa fa-minus-circle color-red" aria-hidden="true"></i>
+																<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;
+																<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal"></i>
+															</td>
+														</tr>
+														<tr>
+															<td></td>
+															<td class="text-center"><div class="row patient-details cursor-pointer" id="45#1247#2">
+																	<div class="col-lg-3 col-sm-12 col-md-3">
+																		<div class="">
+																			<img src="resources/assets/images/tempImages/m.jpg" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																		</div>
+																	</div>
+																	<div class="col-lg-8 col-sm-12 col-md-8">
+																		<div class="patient-name">David John Williams
+																	</div>
+																		<div class="patient">PC-17-0198</div>
+																		<div class="patient-details">
+																			<span class="patient-details patient">M</span> <span class="patient-details patient" =""="">24Y 5M 20D <span class="patient-details patient" =""="">||||||<span class="patient-details
+																				patient" =""="">info</span>
+																		</span></span></div>
+																	</div>
+																</div></td>
+															<td class="text-center">08/02/2018</td>
+															<td class="text-center">09:00</td>
+															<td class="text-center">
+																<span data-toggle="modal" data-target="#contactDetailsPopup">
+																<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																</span>
+															</td>
+															<td class="text-center">08:45 AM</td>
+															<td class="text-center"></td>
+															<td class="text-center">08:45 AM</td>
+															<td class="text-center">Checked In</td>
+															<td class="text-center"><i class="fa fa-sign-out" aria-hidden="true"></i></td>
+															<td class="text-center">
+																<a>
+																	<i class="fa fa-print" aria-hidden="true"></i>
+																</a>
+																<i class="fa fa-minus-circle color-red" aria-hidden="true"></i>
+																<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;
+																<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal"></i>
+															</td>
+														</tr>
+														<tr>
+															<td></td>
+															<td class="text-center"><div class="row patient-details cursor-pointer" id="45#1247#2">
+																	<div class="col-lg-3 col-sm-12 col-md-3">
+																		<div class="">
+																			<img src="resources/assets/images/tempImages/m.jpg" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																		</div>
+																	</div>
+																	<div class="col-lg-8 col-sm-12 col-md-8">
+																		<div class="patient-name">Mr. David Robert
+																</div>
+																		<div class="patient">PC-19-0035</div>
+																		<div class="patient-details">
+																			<span class="patient-details patient">M</span>
+																			<span class="patient-details patient">42Y 2M 11D 
+																			<span class="patient-details patient">||||||
+																			<span class="patient-details patient">info</span>
+																			</span></span>
+																		</div>
+																	</div>
+																</div></td>
+															<td class="text-center">08/02/2018</td>
+															<td class="text-center">09:00</td>
+															<td class="text-center">
+																<span data-toggle="modal" data-target="#contactDetailsPopup">
+																<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																</span>
+															</td>
+															<td class="text-center">08:45 AM</td>
+															<td class="text-center"></td>
+															<td class="text-center">08:45 AM</td>
+															<td class="text-center">Checked In</td>
+															<td class="text-center"><i class="fa fa-sign-out" aria-hidden="true"></i></td>
+															<td class="text-center">
+																<a>
+																	<i class="fa fa-print" aria-hidden="true"></i>
+																</a>
+																<i class="fa fa-minus-circle color-red" aria-hidden="true"></i>
+																<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;
+																<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal"></i>
+															</td>
+														</tr> -->
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="text-center">
+											<!-- <h4>No Pending Appointments</h4> -->
+										</div>
+									</div>
+									<!-- 	************************ doctor table row two start ************************ -->
+									</div>
+								<!-- Appointment List content end -->
+							</div>
+							<div ng-show="isSetSecondTabLevel(2)" class="second-level-tab-display-div">
+								<!-- Reschedule Worklist content start  -->
+								<div class="row">
+										<!--************************ doctor name row one start ************************ -->
+										<!-- <div class="row">
+											<div class="doc-row row">
+												<div class="col-lg-2 col-md-4 col-sm-4 col-xs-4" style="cursor: pointer;">
+													<div class="col-md-4 col-sm-4 col-xs-4" style="text-align: center;">
+														<img src="resources/assets/images/tempImages/Dr2 copy.png" style="cursor: pointer;" class="img-circle">
+													</div>
+													<div class="col-md-8 col-sm-8 col-xs-8">
+														<div class="doc-name">Dr. Mark Potter</div>
+														<div class="doc-Spaciality">Cardiologist</div>
+													</div>
+												</div>
+												<div class="col-lg-10 col-md-8 col-sm-8">
+													<ul class="tabs nav nav-tabs">
+														<li class="" >
+															<a>All</a>
+															<div class="div-circle-doc div-circle-doc-bg-all" id="allCount3_new">3</div>
+														</li>
+														<li>
+															<a >Pending</a>
+															<div class="div-circle-doc div-circle-doc-bg-pending" id="allPending3_new">0</div>
+														</li>
+														<li>
+															<a>Checked In</a>
+															<div class="div-circle-doc div-circle-doc-bg-checked" id="allChecked3_new">3</div>
+														</li>
+														<li>
+															<a>Completed</a>
+															<div class="div-circle-doc div-circle-doc-bg-completed" id="allCompleted3_new">0</div>
+														</li>
+														<li class="text-width-auto">
+															<a>Reschedule/Cancelled</a>
+															<div class="div-circle-doc div-circle-doc-reschedule" id="allReschedule3_new">0</div>
+														</li>
+														<li>
+															<a ng-click="getPendingAppointmentList(9)">No Show</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-show" id="allNoShow3_new">0</div>
+														</li>
+														<li class="text-width-auto" >
+															<a>Checked Out</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-walkout" id="allWalkOut3_new">0</div>
+														</li>
+														<li>
+															<a>Emergency</a>
+															<div class="div-circle-doc div-circle-doc-emergancy" id="allEmergency3_new">0</div>
+														</li>
+														<li>
+															<a >Walkins</a>
+															<div class="div-circle-doc div-circle-doc-bg-walkins" id="allWalkins3_new">0</div>
+														</li>
+														<li>
+															<a >Telephonic</a>
+															<div class="div-circle-doc div-circle-doc-bg-telephonic" id="allTelephonic3_new">0</div>
+														</li>
+														<li>
+															<a>App</a>
+															<div class="div-circle-doc div-circle-doc-bg-app" id="allApp3_new">0</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div> -->
+										<!--************************ doctor name row one end ************************ -->
+										<!--************************ doctor table row two start ************************ -->
+										<div class="row">
+											<div>
+												<div class="row table-responsive">
+													<table class="table table-border">
+														<tbody>
+															<tr>
+																<th class="appointment-table-th width12">Doctor Details</th>
+																<th class="appointment-table-th">Patient Details</th>
+																<th class="appointment-table-th">Date</th>
+																<th class="appointment-table-th">Time</th>
+																<th class="appointment-table-th">Contact Info</th>
+																<th class="appointment-table-th">Remarks</th>
+																<th class="appointment-table-th">Reason</th>
+																<th class="appointment-table-th">Blocking By</th>
+																<th class="appointment-table-th">Status</th>
+																<th class="appointment-table-th">Action</th>
+															</tr>
+															
+															<tr ng-repeat="info in reScheduleObjList">
+																<td>
+																	<span>{{info.doctorName}}</span>
+																	<span>{{info.specialityName}}</span>	
+																</td>
+																<td class="text-center">
+																	<div class="row patient-details cursor-pointer" id="45#1247#2_new">
+																		<div class="col-lg-3 col-sm-12 col-md-3">
+																			<div class="">
+																				<img src="https://media-exp2.licdn.com/media-proxy/ext?w=800&amp;h=800&amp;hash=Cmfe7vyVpDWLrcij8cq%2FonJHmkI%3D&amp;ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6nlh8Tw1It6a2FowGz60oISIfYC2G8G2f1spyfNT-tdoDSe7ensgUbeikHhlI_IfnwEXO5H9LHVvW4OqcY_PawbZmNUz0sYxYjiWgZ7oEiGFx3kdKpF-qtMWsc8e1-TwyJC73iVV8vLQll8fq4GKH6GWxUi3WUbO71GJlCE-dQppRRy39_rO_BDZ442aV40Dp42VWO0IrqMAEuw7nmKXiZV0YcLkDGa9BTuIWF0TenkVqGjU7mi6yHJLGFEPUY3yWnwcTgeiHXkSxElzMH3CgRnM1mA3v9pvEL0xK0MuQsSwvZhLnkGlGb3Zcb_XQJgtbVLzuuX01ksiBtaJL7ihUSWayfmA" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																			</div>
+																		</div>
+																		<div class="col-lg-8 col-sm-12 col-md-8">
+																			<div class="patient-name">{{info.prefixCode+' '+info.patientName}}
+																		</div>
+																			<div class="patient">{{info.uhidNumber}}</div>
+																			<div class="patient-details">
+																				<span class="patient-details patient">{{info.genderCode}}</span>
+																				<span class="patient-details patient">{{info.age}} 
+																				<span class="patient-details patient" >||||||
+																				<span class="patient-details patient" >info</span>
+																				</span></span>
+																			</div>
+																		</div>
+																	</div>
+																</td>
+																<td class="text-center">{{info.appointmentDate}}</td>
+																<td class="text-center">{{info.fromTimeString}}</td>
+																<td class="text-center">
+																	<span data-toggle="modal" data-target="#contactDetailsPopup">
+																	<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																	<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																	</span>
+																</td>
+																<td class="text-center">{{info.blockedRemark}}</td>
+																<td class="text-center">{{info.reasonDesc}}</td>
+																<td class="text-center">
+																	<div><label>Jhon Paul</label></div>
+																	<div><label>{{info.createdDate}}</label></div>
+																</td>
+																<td class="text-center">{{info.appointmentStatusDesc}}</td>
+																<td class="text-center">
+																<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal" ng-click="setObject(info)"></i>&nbsp;&nbsp;
+																<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal" ng-click="setObject(info)"></i>
+																</td>
+															</tr>
+															<!-- <tr>
+																<td></td>
+																<td class="text-center"><div class="row patient-details cursor-pointer" id="45#1247#2">
+																		<div class="col-lg-3 col-sm-12 col-md-3">
+																			<div class="">
+																				<img src="resources/assets/images/tempImages/m.jpg" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																			</div>
+																		</div>
+																		<div class="col-lg-8 col-sm-12 col-md-8">
+																			<div class="patient-name">David John Williams
+																		</div>
+																			<div class="patient">PC-17-0198</div>
+																			<div class="patient-details">
+																				<span class="patient-details patient">M</span> <span class="patient-details patient" =""="">24Y 5M 20D <span class="patient-details patient" =""="">||||||<span class="patient-details
+																					patient" =""="">info</span>
+																			</span></span></div>
+																		</div>
+																	</div></td>
+																<td class="text-center">08/02/2018</td>
+																<td class="text-center">09:00</td>
+																<td class="text-center">
+																	<span data-toggle="modal" data-target="#contactDetailsPopup">
+																	<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																	<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																	</span>
+																</td>
+																<td class="text-center"></td>
+																<td class="text-center"></td>
+																<td class="text-center">
+																	<div><label>Jhon Paul</label></div>
+																	<div><label>01/01/2017 05:00pm</label></div>
+																</td>
+																<td class="text-center">Checked In</td>
+																<td class="text-center">
+																	<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;
+																	<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal"></i>
+																</td>
+															</tr>
+															<tr>
+																<td></td>
+																<td class="text-center"><div class="row patient-details cursor-pointer" id="45#1247#2">
+																		<div class="col-lg-3 col-sm-12 col-md-3">
+																			<div class="">
+																				<img src="resources/assets/images/tempImages/m.jpg" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																			</div>
+																		</div>
+																		<div class="col-lg-8 col-sm-12 col-md-8">
+																			<div class="patient-name">Mr. David Robert
+																	</div>
+																			<div class="patient">PC-19-0035</div>
+																			<div class="patient-details">
+																				<span class="patient-details patient">M</span>
+																				<span class="patient-details patient">42Y 2M 11D 
+																				<span class="patient-details patient">||||||
+																				<span class="patient-details patient">info</span>
+																				</span></span>
+																			</div>
+																		</div>
+																	</div></td>
+																<td class="text-center">08/02/2018</td>
+																<td class="text-center">09:00</td>
+																<td class="text-center">
+																	<span data-toggle="modal" data-target="#contactDetailsPopup">
+																	<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																	<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																	</span>
+																</td>
+																<td class="text-center"></td>
+																<td class="text-center"></td>
+																<td class="text-center">
+																	<div><label>Jhon Paul</label></div>
+																	<div><label>01/01/2017 05:00pm</label></div>
+																</td>
+																<td class="text-center">Checked In</td>
+																<td class="text-center">
+																	<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;
+																	<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal"></i>
+																</td>
+															</tr> -->
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<div class="text-center">
+												<!-- <h4>No Pending Appointments</h4> -->
+											</div>
+										</div>
+										<!--************************ doctor table row two end ************************ -->
+									</div>
+								<!-- Reschedule Worklist content end  -->
+							</div>
+						</div>
+					</div>
+					<!-- ****************  row three end **************** -->
+				</div>
+			</div>
+			<!-- **************  CONTENT FOR Doctor TAB end ************** ************** ************** **************  -->
+			
+			<!-- CONTENT FOR 2nd TAB start -->
+			<div ng-show="isSetFirstTabLevel(2)">
+				<div class="row his-style">
+						<!-- ****************  row one start **************** -->
+					
+						<!-- ****************  row one end **************** -->
+						<!-- ****************  row two start **************** -->
+						<div class="row">
+						<div class="col-lg-2 col-md-4 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-3 col-sm-3 col-md-3 polymer-icon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-9 col-sm-9 col-md-9">
+										<div class="">
+											<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepickerFromDate"
+									model-view-value="true" is-open="datepickerFromDate.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerFromDate()" > 
+												<label for="code">From Date</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-3 col-sm-3 col-md-3 polymer-icon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-9 col-sm-9 col-md-9">
+										<div class="">
+										<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepickerToDate"
+									model-view-value="true" is-open="datepickerToDate.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerToDate()" > 
+												<label for="code">To Date</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="form-group">
+												<!-- <input type="text" name="description" id="" class="text-input floating-label">
+												<label for="description" class=""></label> -->
+												
+											<select class="text-input floating-label" ng-model="appointmentSearchObject.specialityId" ng-change="getSubSpecialityBySpecialityId(appointmentSearchObject.specialityId)">
+													<option value="0">All</option>
+													<option ng-repeat="info in specialityList" value="{{info.specialityId}}">{{info.specialityName}}</option>
+												</select> 
+												<label for="code">Speciality Name</label>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-2 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-10 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label" >
+											<option value="0">All</option>
+												<option ng-repeat="info in subSpecialityList" value="{{info.subSpecialityId}}">{{info.subSpecialityName}}</option>
+											</select> 
+											<label for="description" class="">Subs Speciality</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container">
+										<div class="col-lg-2 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-11 col-md-11 ">
+											<div class="form-group">
+												<!-- <input type="text" name="description" id="" class="text-input floating-label">
+												<label for="description" class="">Doctor</label> -->
+												<select class="text-input floating-label" ng-model="appointmentSearchObject.modalityId">
+													<option value="0">All</option>
+													<option ng-repeat="info in modalityList" value="{{info.modalityId}}">{{info.modalityDesc}}</option>
+												</select> 
+												<label for="code">Modality</label>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label" ng-model="appointmentSearchObject.visitTypeId">
+														<option value="1">IP</option>
+														<option value="2">OP</option>
+														<option value="3">Day Care</option>
+														<option value="4">ER</option>
+													</select> 
+											<label for="description" class="">Visit Type</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="col-lg-5 col-md-5 col-sm-6 padding-left-right-set4">
+								<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="form-group">
+											<input type="text"  class="text-input floating-label" tabindex="3" ng-model="uhidNumber" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidNumber+'|'+group.mobileNumber  for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off">
+												<label for="code">Registration No </label>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="col-lg-7 col-md-7 col-sm-6 padding-left-right-set4">
+								<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="form-group">
+												<input type="text"  class="text-input floating-label" tabindex="3" ng-model="patientName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidNumber+'|'+group.mobileNumber  for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off">
+												<label for="code">Patient Name</label>
+											</div>
+										</div>
+									</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-2 col-md-2 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4 ">
+								<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="form-group">
+												<input type="text"  class="text-input floating-label" tabindex="3" ng-model="mobileNumber" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.mobileNumber  for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off">
+												<label for="code">Mobile Number</label>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+								<div class=""><!-- width-div-for-patient-reg pull-left -->
+									<a href="" class="btn btn-primary btn-save-box-shadow" title="Clear" ng-click="clearSearchObject()" >
+									<i class="fa fa-eraser" style="" aria-hidden="true"></i></a>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+									<div class=""><!-- width-div-for-patient-reg pull-left -->
+										<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="searchAppointment(appointmentSearchObject)">
+										<i class="fa fa-search" style="" aria-hidden="true"></i></a>
+									</div>
+								</div>
+							
+						</div>
+						<!-- ******** DATE COLUMN START ******* -->
+						
+						
+						<!-- ********  DATE COLUMN END ******* -->
+									
+							</div>
+								
+					 <div class="row">
+						<div ng-include="'./views/common/common-patient-search-appointment-schdule.html'"></div>
+					</div>
+					
+						<!-- ****************  row two start **************** -->
+						<!-- ****************  row three start **************** -->
+						<div class="row">
+							<!-- *********************** tabs row start *********************** -->
+							<div class="row margin-top4">
+								<ul class="tabs nav nav-tabs">
+									<li ng-class="{ active : isSetForthTabLevel(1) }" class="tabs-style">
+										<a href ng-click="setForthTabLevel(1)">Appointment List</a>
+									</li>
+									<li ng-class="{ active : isSetForthTabLevel(2) }" class="tabs-style">
+										<a href ng-click="setForthTabLevel(2)">Reschedule Worklist</a>
+									</li>
+								</ul>
+							</div>
+							<div class="row">
+								<div ng-show="isSetForthTabLevel(1)">
+									<!-- Appointment list - modality (Tab) - Appointment list (Tab) Content -->
+									<div class="row">
+									<!--************************ doctor name row one start ************************ -->
+										<div class="row">
+											<div class="doc-row row">
+												<!-- <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4" style="cursor: pointer;">
+													<div class="col-md-4 col-sm-4 col-xs-4" style="text-align: center;">
+														<img src="resources/assets/images/tempImages/Dr2 copy.png" style="cursor: pointer;" class="img-circle">
+													</div>
+													<div class="col-md-8 col-sm-8 col-xs-8">
+														<div class="text-center">CT</div>
+														<div class="text-center">CT 01</div>
+														<div class="doc-Spaciality">Equipment CT Scan</div>
+													</div>
+												</div> -->
+												<div class="col-lg-10 col-md-8 col-sm-8">
+													<ul class="tabs nav nav-tabs">
+														<li class="" >
+															<a ng-click="getPendingAppointmentList(0)">All</a>
+															<div class="div-circle-doc div-circle-doc-bg-all" id="allCount3_new">{{allCount}}</div>
+														</li>
+														<li>
+															<a ng-click="getPendingAppointmentList(1)">Pending</a>
+															<div class="div-circle-doc div-circle-doc-bg-pending" id="allPending3_new">{{pendingCount}}</div>
+														</li>
+														<li>
+															<a ng-click="getPendingAppointmentList(5)">Checked In</a>
+															<div class="div-circle-doc div-circle-doc-bg-checked" id="allChecked3_new">{{checkInCount}}</div>
+														</li>
+														<li>
+															<a ng-click="getPendingAppointmentList(6)">Completed</a>
+															<div class="div-circle-doc div-circle-doc-bg-completed" id="allCompleted3_new">{{completeCount}}</div>
+														</li>
+														<li class="text-width-auto">
+															<a ng-click="getPendingAppointmentList(3)">Reschedule/Cancelled</a>
+															<div class="div-circle-doc div-circle-doc-reschedule" id="allReschedule3_new">{{rescheduledAndCancelledCount}}</div>
+														</li>
+													<!-- 	<li >
+															<a >No Show</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-show" id="allNoShow3_new">{{checkInCount}}</div>
+														</li> -->
+														<li class="text-width-auto" >
+															<a ng-click="getPendingAppointmentList(7)">Checked Out</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-walkout" id="allWalkOut3_new">{{checkOutCount}}</div>
+														</li>
+														<li class="text-width-auto" >
+															<a>Admitted</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-walkout" id="allWalkOut3_new">0</div>
+														</li>
+														<li>
+															<a>Emergency</a>
+															<div class="div-circle-doc div-circle-doc-emergancy" id="allEmergency3_new">0</div>
+														</li>
+														<!-- <li>
+															<a >Walkins</a>
+															<div class="div-circle-doc div-circle-doc-bg-walkins" id="allWalkins3_new">0</div>
+														</li>
+														<li>
+															<a >Telephonic</a>
+															<div class="div-circle-doc div-circle-doc-bg-telephonic" id="allTelephonic3_new">0</div>
+														</li>
+														<li>
+															<a>App</a>
+															<div class="div-circle-doc div-circle-doc-bg-app" id="allApp3_new">0</div>
+														</li> -->
+													</ul>
+												</div>
+											</div>
+										</div>
+									<!-- 	************************ doctor name row one start ************************ -->
+									<!-- 	************************ doctor table row two start ************************ -->
+									<div class="row">
+										<div>
+											<div class="row table-responsive">
+												<table class="table table-border">
+													<tbody>
+														<tr>
+															<th class="appointment-table-th width12">Modality Details</th>
+															<th class="appointment-table-th">Patient Details</th>
+															<th class="appointment-table-th">Date</th>
+															<th class="appointment-table-th">Time</th>
+															<th class="appointment-table-th">Contact Info</th>
+															<th class="appointment-table-th">Check In</th>
+															<th class="appointment-table-th">Remarks</th>
+															<th class="appointment-table-th">Checkout</th>
+															<th class="appointment-table-th">Status</th>
+															<!-- <th class="width3"></th> -->
+															<th class="appointment-table-th">Action</th>
+														</tr>
+															<tr ng-repeat="info in appointmentList">
+															<td>
+																<span>{{info.modalityDesc}}</span>
+																<span>{{info.modalityTypeDesc}}</span>	
+															</td>
+															<td class="text-center">
+																<div class="row patient-details cursor-pointer" id="45#1247#2_new">
+																	<div class="col-lg-3 col-sm-12 col-md-3">
+																		<div class="">
+																			<img src="resources/assets/images/tempImages/m.jpg" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																		</div>
+																	</div>
+																	<div class="col-lg-8 col-sm-12 col-md-8">
+																		<div class="patient-name">{{info.prefixCode+'. '+info.patientName}}
+																	</div>
+																		<div class="patient">{{info.uhidNumber}}</div>
+																		<div class="patient-details">
+																			<span class="patient-details patient">{{info.genderCode}}</span>
+																			<span class="patient-details patient">{{info.age}}
+																			<span class="patient-details patient" >||||||
+																			<span class="patient-details patient" >info</span>
+																			</span></span>
+																		</div>
+																	</div>
+																</div>
+															</td>
+															<td class="text-center">{{info.appointmentDate}}</td>
+															<td class="text-center">{{info.fromTimeString}}</td>
+															<td class="text-center">
+																<span data-toggle="modal" data-target="#contactDetailsPopup" ng-click="getPatientDetailsPopUp(info)">
+																<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																</span>
+															</td>
+															<td class="text-center"><div ng-if="info.appointmentStatusId=='1'" ><i class="fa fa-sign-out" aria-hidden="true" ng-click="info.appointmentStatusId==1 && gotoEncounter(info)"></i></div></td>
+															<td class="text-center"><i class="fa fa-commenting" aria-hidden="true" data-toggle="modal" data-target="#notesForall" ng-click="displayRemark(info.remark)"></i></td>
+															<td class="text-center">--</td>
+															<td class="text-center">{{info.appointmentStatusDesc}}</td>
+															<!-- <td class="text-center"><i class="fa fa-sign-out" aria-hidden="true" ng-click="info.appointmentStatusId==1 && gotoEncounter(info)"></i></td> -->
+															<td class="text-center">
+																<a>
+																	<i class="fa fa-print" aria-hidden="true"></i>
+																</a>
+																<i class="fa fa-minus-circle color-red" aria-hidden="true"></i>
+																<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal" ng-click="setObject(info)"></i>&nbsp;&nbsp;
+																<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal" ng-click="setObject(info)"></i>
+															</td>
+														</tr>
+														<!-- <tr>
+															<td>
+																<div class="text-center"><h6 class="margin0">CT</h6></div>
+																<div class="text-center"><h6 class="margin0">CT 01</h6></div>	
+																<div class="text-center">Equipment CT Scan</div>	
+															</td>
+															<td class="text-center">
+																<div class="row patient-details cursor-pointer" id="45#1247#2_new">
+																	<div class="col-lg-3 col-sm-12 col-md-3">
+																		<div class="">
+																			<img src="https://media-exp2.licdn.com/media-proxy/ext?w=800&amp;h=800&amp;hash=Cmfe7vyVpDWLrcij8cq%2FonJHmkI%3D&amp;ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6nlh8Tw1It6a2FowGz60oISIfYC2G8G2f1spyfNT-tdoDSe7ensgUbeikHhlI_IfnwEXO5H9LHVvW4OqcY_PawbZmNUz0sYxYjiWgZ7oEiGFx3kdKpF-qtMWsc8e1-TwyJC73iVV8vLQll8fq4GKH6GWxUi3WUbO71GJlCE-dQppRRy39_rO_BDZ442aV40Dp42VWO0IrqMAEuw7nmKXiZV0YcLkDGa9BTuIWF0TenkVqGjU7mi6yHJLGFEPUY3yWnwcTgeiHXkSxElzMH3CgRnM1mA3v9pvEL0xK0MuQsSwvZhLnkGlGb3Zcb_XQJgtbVLzuuX01ksiBtaJL7ihUSWayfmA" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																		</div>
+																	</div>
+																	<div class="col-lg-8 col-sm-12 col-md-8">
+																		<div class="patient-name">Mr. Andew Smith
+																	</div>
+																		<div class="patient">PC-17-0045</div>
+																		<div class="patient-details">
+																			<span class="patient-details patient">M</span>
+																			<span class="patient-details patient">32Y 0M 15D 
+																			<span class="patient-details patient" >||||||
+																			<span class="patient-details patient" >info</span>
+																			</span></span>
+																		</div>
+																	</div>
+																</div>
+															</td>
+															<td class="text-center">08/02/2018</td>
+															<td class="text-center">09:00</td>
+															<td class="text-center">
+																<span data-toggle="modal" data-target="#contactDetailsPopup">
+																<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																</span>
+															</td>
+															<td class="text-center">08:45 AM</td>
+															<td class="text-center"></td>
+															<td class="text-center">08:45 AM</td>
+															<td class="text-center">Checked In</td>
+															<td class="text-center"><i class="fa fa-sign-out" aria-hidden="true"></i></td>
+															<td class="text-center">
+																<a>
+																	<i class="fa fa-print" aria-hidden="true"></i>
+																</a>
+																<i class="fa fa-minus-circle color-red" aria-hidden="true"></i>
+																<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;
+																<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal"></i>
+															</td>
+														</tr>
+														<tr>
+															<td></td>
+															<td class="text-center"><div class="row patient-details cursor-pointer" id="45#1247#2">
+																	<div class="col-lg-3 col-sm-12 col-md-3">
+																		<div class="">
+																			<img src="resources/assets/images/tempImages/m.jpg" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																		</div>
+																	</div>
+																	<div class="col-lg-8 col-sm-12 col-md-8">
+																		<div class="patient-name">David John Williams
+																	</div>
+																		<div class="patient">PC-17-0198</div>
+																		<div class="patient-details">
+																			<span class="patient-details patient">M</span> <span class="patient-details patient" =""="">24Y 5M 20D <span class="patient-details patient" =""="">||||||<span class="patient-details
+																				patient" =""="">info</span>
+																		</span></span></div>
+																	</div>
+																</div></td>
+															<td class="text-center">08/02/2018</td>
+															<td class="text-center">09:00</td>
+															<td class="text-center">
+																<span data-toggle="modal" data-target="#contactDetailsPopup">
+																<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																</span>
+															</td>
+															<td class="text-center">08:45 AM</td>
+															<td class="text-center"></td>
+															<td class="text-center">08:45 AM</td>
+															<td class="text-center">Checked In</td>
+															<td class="text-center"><i class="fa fa-sign-out" aria-hidden="true"></i></td>
+															<td class="text-center">
+																<a>
+																	<i class="fa fa-print" aria-hidden="true"></i>
+																</a>
+																<i class="fa fa-minus-circle color-red" aria-hidden="true"></i>
+																<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;
+																<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal"></i>
+															</td>
+														</tr>
+														<tr>
+															<td></td>
+															<td class="text-center"><div class="row patient-details cursor-pointer" id="45#1247#2">
+																	<div class="col-lg-3 col-sm-12 col-md-3">
+																		<div class="">
+																			<img src="resources/assets/images/tempImages/m.jpg" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																		</div>
+																	</div>
+																	<div class="col-lg-8 col-sm-12 col-md-8">
+																		<div class="patient-name">Mr. David Robert
+																</div>
+																		<div class="patient">PC-19-0035</div>
+																		<div class="patient-details">
+																			<span class="patient-details patient">M</span>
+																			<span class="patient-details patient">42Y 2M 11D 
+																			<span class="patient-details patient">||||||
+																			<span class="patient-details patient">info</span>
+																			</span></span>
+																		</div>
+																	</div>
+																</div></td>
+															<td class="text-center">08/02/2018</td>
+															<td class="text-center">09:00</td>
+															<td class="text-center">
+																<span data-toggle="modal" data-target="#contactDetailsPopup">
+																<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																</span>
+															</td>
+															<td class="text-center">08:45 AM</td>
+															<td class="text-center"></td>
+															<td class="text-center">08:45 AM</td>
+															<td class="text-center">Checked In</td>
+															<td class="text-center"><i class="fa fa-sign-out" aria-hidden="true"></i></td>
+															<td class="text-center">
+																<a>
+																	<i class="fa fa-print" aria-hidden="true"></i>
+																</a>
+																<i class="fa fa-minus-circle color-red" aria-hidden="true"></i>
+																<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;
+																<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal"></i>
+															</td>
+														</tr> -->
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="text-center">
+											<!-- <h4>No Pending Appointments</h4> -->
+										</div>
+									</div>
+									<!-- 	************************ doctor table row two start ************************ -->
+									</div>
+								</div>
+								<div ng-show="isSetForthTabLevel(2)">
+									<!-- Appointment list - modality (Tab) - Reschedule Worklist (Tab) Content -->
+									<div class="row">
+										<!--************************ doctor name row one start ************************ -->
+										<div class="row">
+											<div class="doc-row row">
+												<div class="col-lg-2 col-md-4 col-sm-4 col-xs-4" style="cursor: pointer;">
+													<div class="col-md-4 col-sm-4 col-xs-4" style="text-align: center;">
+														<img src="resources/assets/images/tempImages/Dr2 copy.png" style="cursor: pointer;" class="img-circle">
+													</div>
+													<div class="col-md-8 col-sm-8 col-xs-8">
+														<div class="doc-name">Dr. Mark Potter</div>
+														<div class="doc-Spaciality">Cardiologist</div>
+													</div>
+												</div>
+												<div class="col-lg-10 col-md-8 col-sm-8">
+													<ul class="tabs nav nav-tabs">
+														<li class="" >
+															<a>All</a>
+															<div class="div-circle-doc div-circle-doc-bg-all" id="allCount3_new">3</div>
+														</li>
+														<li>
+															<a >Pending</a>
+															<div class="div-circle-doc div-circle-doc-bg-pending" id="allPending3_new">0</div>
+														</li>
+														<li>
+															<a>Checked In</a>
+															<div class="div-circle-doc div-circle-doc-bg-checked" id="allChecked3_new">3</div>
+														</li>
+														<li>
+															<a>Completed</a>
+															<div class="div-circle-doc div-circle-doc-bg-completed" id="allCompleted3_new">0</div>
+														</li>
+														<li class="text-width-auto">
+															<a>Reschedule/Cancelled</a>
+															<div class="div-circle-doc div-circle-doc-reschedule" id="allReschedule3_new">0</div>
+														</li>
+														<li>
+															<a >No Show</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-show" id="allNoShow3_new">0</div>
+														</li>
+														<li class="text-width-auto" >
+															<a>Checked Out</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-walkout" id="allWalkOut3_new">0</div>
+														</li>
+														<li>
+															<a>Emergency</a>
+															<div class="div-circle-doc div-circle-doc-emergancy" id="allEmergency3_new">0</div>
+														</li>
+														<li>
+															<a >Walkins</a>
+															<div class="div-circle-doc div-circle-doc-bg-walkins" id="allWalkins3_new">0</div>
+														</li>
+														<li>
+															<a >Telephonic</a>
+															<div class="div-circle-doc div-circle-doc-bg-telephonic" id="allTelephonic3_new">0</div>
+														</li>
+														<li>
+															<a>App</a>
+															<div class="div-circle-doc div-circle-doc-bg-app" id="allApp3_new">0</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<!--************************ doctor name row one end ************************ -->
+										<!--************************ doctor table row two start ************************ -->
+										<div class="row">
+											<div>
+												<div class="row table-responsive">
+													<table class="table table-border">
+														<tbody>
+															<tr>
+																<th class="appointment-table-th width12">Doctor Details</th>
+																<th class="appointment-table-th">Patient Details</th>
+																<th class="appointment-table-th">Date</th>
+																<th class="appointment-table-th">Time</th>
+																<th class="appointment-table-th">Contact Info</th>
+																<th class="appointment-table-th">Remarks</th>
+																<th class="appointment-table-th">Reason</th>
+																<th class="appointment-table-th">Blocking By</th>
+																<th class="width3"></th>
+																<th class="appointment-table-th">Status</th>
+																<th class="appointment-table-th">Action</th>
+															</tr>
+															
+															<tr>
+																<td>
+																	<span>Dr. Mark Potter</span>
+																	<span>Cardiology</span>	
+																</td>
+																<td class="text-center">
+																	<div class="row patient-details cursor-pointer" id="45#1247#2_new">
+																		<div class="col-lg-3 col-sm-12 col-md-3">
+																			<div class="">
+																				<img src="https://media-exp2.licdn.com/media-proxy/ext?w=800&amp;h=800&amp;hash=Cmfe7vyVpDWLrcij8cq%2FonJHmkI%3D&amp;ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6nlh8Tw1It6a2FowGz60oISIfYC2G8G2f1spyfNT-tdoDSe7ensgUbeikHhlI_IfnwEXO5H9LHVvW4OqcY_PawbZmNUz0sYxYjiWgZ7oEiGFx3kdKpF-qtMWsc8e1-TwyJC73iVV8vLQll8fq4GKH6GWxUi3WUbO71GJlCE-dQppRRy39_rO_BDZ442aV40Dp42VWO0IrqMAEuw7nmKXiZV0YcLkDGa9BTuIWF0TenkVqGjU7mi6yHJLGFEPUY3yWnwcTgeiHXkSxElzMH3CgRnM1mA3v9pvEL0xK0MuQsSwvZhLnkGlGb3Zcb_XQJgtbVLzuuX01ksiBtaJL7ihUSWayfmA" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																			</div>
+																		</div>
+																		<div class="col-lg-8 col-sm-12 col-md-8">
+																			<div class="patient-name">Mr. Andew Smith
+																		</div>
+																			<div class="patient">PC-17-0045</div>
+																			<div class="patient-details">
+																				<span class="patient-details patient">M</span>
+																				<span class="patient-details patient">32Y 0M 15D 
+																				<span class="patient-details patient" >||||||
+																				<span class="patient-details patient" >info</span>
+																				</span></span>
+																			</div>
+																		</div>
+																	</div>
+																</td>
+																<td class="text-center">08/02/2018</td>
+																<td class="text-center">09:00</td>
+																<td class="text-center">
+																	<span data-toggle="modal" data-target="#contactDetailsPopup">
+																	<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																	<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																	</span>
+																</td>
+																<td class="text-center"></td>
+																<td class="text-center"></td>
+																<td class="text-center">
+																	<div><label>Jhon Paul</label></div>
+																	<div><label>01/01/2017 05:00pm</label></div>
+																</td>
+																<td class="text-center">Checked In</td>
+																<td class="text-center"><i class="fa fa-sign-out" aria-hidden="true"></i></td>
+																<td class="text-center">
+																	<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;
+																	<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal"></i>
+																</td>
+															</tr>
+															<tr>
+																<td></td>
+																<td class="text-center"><div class="row patient-details cursor-pointer" id="45#1247#2">
+																		<div class="col-lg-3 col-sm-12 col-md-3">
+																			<div class="">
+																				<img src="resources/assets/images/tempImages/m.jpg" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																			</div>
+																		</div>
+																		<div class="col-lg-8 col-sm-12 col-md-8">
+																			<div class="patient-name">David John Williams
+																		</div>
+																			<div class="patient">PC-17-0198</div>
+																			<div class="patient-details">
+																				<span class="patient-details patient">M</span> <span class="patient-details patient" =""="">24Y 5M 20D <span class="patient-details patient" =""="">||||||<span class="patient-details
+																					patient" =""="">info</span>
+																			</span></span></div>
+																		</div>
+																	</div></td>
+																<td class="text-center">08/02/2018</td>
+																<td class="text-center">09:00</td>
+																<td class="text-center">
+																	<span data-toggle="modal" data-target="#contactDetailsPopup">
+																	<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																	<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																	</span>
+																</td>
+																<td class="text-center"></td>
+																<td class="text-center"></td>
+																<td class="text-center">
+																	<div><label>Jhon Paul</label></div>
+																	<div><label>01/01/2017 05:00pm</label></div>
+																</td>
+																<td class="text-center">Checked In</td>
+																<td class="text-center"><i class="fa fa-sign-out" aria-hidden="true"></i></td>
+																<td class="text-center">
+																	<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;
+																	<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal"></i>
+																</td>
+															</tr>
+															<tr>
+																<td></td>
+																<td class="text-center"><div class="row patient-details cursor-pointer" id="45#1247#2">
+																		<div class="col-lg-3 col-sm-12 col-md-3">
+																			<div class="">
+																				<img src="resources/assets/images/tempImages/m.jpg" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																			</div>
+																		</div>
+																		<div class="col-lg-8 col-sm-12 col-md-8">
+																			<div class="patient-name">Mr. David Robert
+																	</div>
+																			<div class="patient">PC-19-0035</div>
+																			<div class="patient-details">
+																				<span class="patient-details patient">M</span>
+																				<span class="patient-details patient">42Y 2M 11D 
+																				<span class="patient-details patient">||||||
+																				<span class="patient-details patient">info</span>
+																				</span></span>
+																			</div>
+																		</div>
+																	</div></td>
+																<td class="text-center">08/02/2018</td>
+																<td class="text-center">09:00</td>
+																<td class="text-center">
+																	<span data-toggle="modal" data-target="#contactDetailsPopup">
+																	<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																	<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																	</span>
+																</td>
+																<td class="text-center"></td>
+																<td class="text-center"></td>
+																<td class="text-center">
+																	<div><label>Jhon Paul</label></div>
+																	<div><label>01/01/2017 05:00pm</label></div>
+																</td>
+																<td class="text-center">Checked In</td>
+																<td class="text-center"><i class="fa fa-sign-out" aria-hidden="true"></i></td>
+																<td class="text-center">
+																	<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;
+																	<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal"></i>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<div class="text-center">
+												<!-- <h4>No Pending Appointments</h4> -->
+											</div>
+										</div>
+										<!--************************ doctor table row two end ************************ -->
+									</div>
+								</div>
+							</div>
+							<!-- ************************ tabs row end ************************ -->
+						</div>
+						<!-- ****************  row three end **************** -->
+					</div>
+			</div>
+			<!-- CONTENT FOR 2nd TAB end -->
+			
+			<!-- CONTENT FOR 3rd TAB start -->
+			<div ng-show="isSetFirstTabLevel(3)" class="second-level-tab-display-div" >
+				<div class="row padding-top10">
+				<!-- ******************************************* Health Checkup Details ****************************************** -->
+					<div class="row his-style">
+					<!-- ****************  row one start **************** -->
+				      <div class="row">
+							<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4 padding-top10">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+											<i class="fa fa-calendar" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-10 col-sm-10 col-md-10">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+										name="datepicker" id="datepicker"
+										uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+										placeholder="DD/MM/YYYY" ng-model="datepickerFromDate"
+										model-view-value="true" is-open="datepickerFromDate.opened"
+										datepicker-options="dateOptions" show-button-bar="false"
+										ng-click="openDatePickerFromDate()" > 
+													<label for="code">From Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-10 col-sm-10 col-md-10">
+										<div class="">
+										<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepickerToDate"
+									model-view-value="true" is-open="datepickerToDate.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerToDate()" > 
+												<label for="code">To Date</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="form-group">
+										<select class="text-input floating-label" ng-model="ehcSearchObj.packageId">
+											<option>All</option>
+											<option></option>
+										</select> 
+										<label for="code">EHC Package</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="col-lg-5 col-md-5 col-sm-6 padding-left-right-set4">
+								<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="form-group">
+											<input type="text"  class="text-input floating-label" tabindex="3" ng-model="uhidNumber" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidNumber+'|'+group.mobileNumber  for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off">
+												<label for="code">Registration No </label>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="col-lg-7 col-md-7 col-sm-6 padding-left-right-set4">
+								<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="form-group">
+												<input type="text"  class="text-input floating-label" tabindex="3" ng-model="patientName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidNumber+'|'+group.mobileNumber  for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off">
+												<label for="code">Patient Name</label>
+											</div>
+										</div>
+									</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4 ">
+								<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="form-group">
+												<input type="text"  class="text-input floating-label" tabindex="3" ng-model="mobileNumber" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.mobileNumber  for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off">
+												<label for="code">Mobile Number</label>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+								<div class=""><!-- width-div-for-patient-reg pull-left -->
+									<a href="" class="btn btn-primary btn-save-box-shadow" title="Clear" ng-click="clearSearchObject()" >
+									<i class="fa fa-eraser" style="" aria-hidden="true"></i></a>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+									<div class=""><!-- width-div-for-patient-reg pull-left -->
+										<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="searchAppointment(appointmentSearchObject)">
+										<i class="fa fa-search" style="" aria-hidden="true"></i></a>
+									</div>
+								</div>
+						</div>
+					</div>						
+				<!-- ****************  row one end **************** -->
+				<!-- ****************  row two end **************** -->
+				<div class="row">
+					<div ng-include="'./views/common/common-patient-search-appointment-schdule.html'"></div>
+				</div>
+				<!-- ****************  row two end **************** -->
+				<!-- ****************  row three end **************** -->
+					<div class="row">
+						<div class="row">
+							<div class="col-md-8 col-sm-8 padding-top8">
+								<ul class="tabs nav nav-tabs">
+									<li ng-class="{ active : isSetSecondTabLevel(111) }" class="tabs-style">
+										<a href ng-click="setSecondTabLevel(111)">Appointment List</a>
+									</li>
+									<li ng-class="{ active : isSetSecondTabLevel(112) }" class="tabs-style">
+										<a href ng-click="setSecondTabLevel(112)">Reschedule Worklist</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<div class="row">
+								
+									<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set0 padding-top10">
+										<input type="text" class="text-search-box" placeholder="Search" ng-model="searchKeyword" style="margin-top: 0px">
+											<i class="fa fa-search common-search-text-icon padding-top10" aria-hidden="true"></i>
+									</div>  
+									<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top8 pull-right width12">
+										<div>
+											<a class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout">
+												<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+								<div ng-show=" isSetSecondTabLevel(111)">
+									<!-- Appointment list - modality (Tab) - Appointment list (Tab) Content -->
+									<div class="row">
+									<!--************************ doctor name row one start ************************ -->
+										<div class="row">
+											<div class="doc-row row">
+												<div class="col-lg-10 col-md-8 col-sm-8">
+													<ul class="tabs nav nav-tabs">
+														<li class="" >
+															<a ng-click="getPendingAppointmentList(0)">All</a>
+															<div class="div-circle-doc div-circle-doc-bg-all" id="allCount3_new">{{allCount}}</div>
+														</li>
+														<li>
+															<a ng-click="getPendingAppointmentList(1)">Pending</a>
+															<div class="div-circle-doc div-circle-doc-bg-pending" id="allPending3_new">{{pendingCount}}</div>
+														</li>
+														<li>
+															<a ng-click="getPendingAppointmentList(5)">Checked In</a>
+															<div class="div-circle-doc div-circle-doc-bg-checked" id="allChecked3_new">{{checkInCount}}</div>
+														</li>
+														<li>
+															<a ng-click="getPendingAppointmentList(6)">Completed</a>
+															<div class="div-circle-doc div-circle-doc-bg-completed" id="allCompleted3_new">{{completeCount}}</div>
+														</li>
+														<li class="text-width-auto">
+															<a ng-click="getPendingAppointmentList(3)">Reschedule/Cancelled</a>
+															<div class="div-circle-doc div-circle-doc-reschedule" id="allReschedule3_new">{{rescheduledAndCancelledCount}}</div>
+														</li>
+														<li class="text-width-auto" >
+															<a ng-click="getPendingAppointmentList(7)">Checked Out</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-walkout" id="allWalkOut3_new">{{checkOutCount}}</div>
+														</li>
+														<li class="text-width-auto" >
+															<a>Admitted</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-walkout" id="allWalkOut3_new">{{admittedCount}}</div>
+														</li>
+														<li>
+															<a>Emergency</a>
+															<div class="div-circle-doc div-circle-doc-emergancy" id="allEmergency3_new">0</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									<!-- 	************************ doctor name row one start ************************ -->
+									<!-- 	************************ doctor table row two start ************************ -->
+									<div class="row">
+										<div>
+											<div class="row table-responsive">
+												<table class="table table-border">
+													<tbody>
+														<tr>
+															<th class="appointment-table-th width12">EHC Package</th>
+															<th class="appointment-table-th">Patient Details</th>
+															<th class="appointment-table-th">Date</th>
+															<th class="appointment-table-th">Contact Info</th>
+															<th class="appointment-table-th">Check In</th>
+															<th class="appointment-table-th">Remarks</th>
+															<th class="appointment-table-th">Checkout</th>
+															<th class="appointment-table-th">Status</th>
+															<!-- <th class="width3"></th> -->
+															<th class="appointment-table-th">Action</th>
+														</tr>
+														<tr ng-repeat="info in appointmentList">
+															<td>
+																<span>EHC_Package</span>
+															</td>
+															<td class="text-center">
+																<div class="row patient-details cursor-pointer" id="45#1247#2_new">
+																	<div class="col-lg-3 col-sm-12 col-md-3">
+																		<div class="">
+																			<img src="resources/assets/images/tempImages/m.jpg" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																		</div>
+																	</div>
+																	<div class="col-lg-8 col-sm-12 col-md-8">
+																		<div class="patient-name">{{info.prefixCode+'. '+info.patientName}}
+																	</div>
+																		<div class="patient">{{info.uhidNumber}}</div>
+																		<div class="patient-details">
+																			<span class="patient-details patient">{{info.genderCode}}</span>
+																			<span class="patient-details patient">{{info.age}}
+																			<span class="patient-details patient" >||||||
+																			<span class="patient-details patient" >info</span>
+																			</span></span>
+																		</div>
+																	</div>
+																</div>
+															</td>
+															<td class="text-center">12/05/2018</td>
+															<td class="text-center">
+																<span data-toggle="modal" data-target="#contactDetailsPopup" ng-click="getPatientDetailsPopUp(info)">
+																<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																</span>
+															</td>
+															<td class="text-center"><div ng-if="info.appointmentStatusId=='1'" ><i class="fa fa-sign-out" aria-hidden="true" ng-click="info.appointmentStatusId==1 && gotoEncounter(info)"></i></div></td>
+															<td class="text-center"><i class="fa fa-commenting" aria-hidden="true" data-toggle="modal" data-target="#notesForall" ng-click="displayRemark(info.remark)"></i></td>
+															<td class="text-center">--</td>
+															<td class="text-center">{{info.appointmentStatusDesc}}</td>
+															<td class="text-center">
+																<a>
+																	<i class="fa fa-print" aria-hidden="true"></i>
+																</a>
+																<i class="fa fa-minus-circle color-red" aria-hidden="true"></i>
+																<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal" ng-click="setObject(info)"></i>&nbsp;&nbsp;
+																<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal" ng-click="setObject(info)"></i>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="text-center">
+											<!-- <h4>No Pending Appointments</h4> -->
+										</div>
+									</div>
+									<!-- 	************************ doctor table row two start ************************ -->
+									</div>
+								</div>
+								<div ng-show=" isSetSecondTabLevel(112)">
+									<!-- Appointment list - modality (Tab) - Reschedule Worklist (Tab) Content -->
+									<div class="row">
+										<!--************************ doctor name row one start ************************ -->
+										<div class="row">
+											<div class="doc-row row">
+												<div class="col-lg-2 col-md-4 col-sm-4 col-xs-4" >
+													
+												</div>
+												<div class="col-lg-10 col-md-8 col-sm-8">
+													<ul class="tabs nav nav-tabs">
+														<li class="" >
+															<a>All</a>
+															<div class="div-circle-doc div-circle-doc-bg-all" id="allCount3_new">3</div>
+														</li>
+														<li>
+															<a >Pending</a>
+															<div class="div-circle-doc div-circle-doc-bg-pending" id="allPending3_new">0</div>
+														</li>
+														<li>
+															<a>Checked In</a>
+															<div class="div-circle-doc div-circle-doc-bg-checked" id="allChecked3_new">3</div>
+														</li>
+														<li>
+															<a>Completed</a>
+															<div class="div-circle-doc div-circle-doc-bg-completed" id="allCompleted3_new">0</div>
+														</li>
+														<li class="text-width-auto">
+															<a>Reschedule/Cancelled</a>
+															<div class="div-circle-doc div-circle-doc-reschedule" id="allReschedule3_new">0</div>
+														</li>
+														<li>
+															<a >No Show</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-show" id="allNoShow3_new">0</div>
+														</li>
+														<li class="text-width-auto" >
+															<a>Checked Out</a>
+															<div class="div-circle-doc div-circle-doc-bg-no-walkout" id="allWalkOut3_new">0</div>
+														</li>
+														<li>
+															<a>Emergency</a>
+															<div class="div-circle-doc div-circle-doc-emergancy" id="allEmergency3_new">0</div>
+														</li>
+														<li>
+															<a >Walkins</a>
+															<div class="div-circle-doc div-circle-doc-bg-walkins" id="allWalkins3_new">0</div>
+														</li>
+														<li>
+															<a >Telephonic</a>
+															<div class="div-circle-doc div-circle-doc-bg-telephonic" id="allTelephonic3_new">0</div>
+														</li>
+														<li>
+															<a>App</a>
+															<div class="div-circle-doc div-circle-doc-bg-app" id="allApp3_new">0</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<!--************************ doctor name row one end ************************ -->
+										<!--************************ doctor table row two start ************************ -->
+										<div class="row">
+											<div>
+												<div class="row table-responsive">
+													<table class="table table-border">
+														<tbody>
+															<tr>
+																<th class="appointment-table-th width12">EHC Package</th>
+																<th class="appointment-table-th">Patient Details</th>
+																<th class="appointment-table-th">Date</th>
+																<th class="appointment-table-th">Contact Info</th>
+																<th class="appointment-table-th">Remarks</th>
+																<th class="appointment-table-th">Reason</th>
+																<th class="appointment-table-th">Blocking By</th>
+																<th class="width3"></th>
+																<th class="appointment-table-th">Status</th>
+																<th class="appointment-table-th">Action</th>
+															</tr>
+															
+															<tr>
+																<td>
+																	<span>EHC_Package</span>	
+																</td>
+																<td class="text-center">
+																	<div class="row patient-details cursor-pointer" id="45#1247#2_new">
+																		<div class="col-lg-3 col-sm-12 col-md-3">
+																			<div class="">
+																				<img src="https://media-exp2.licdn.com/media-proxy/ext?w=800&amp;h=800&amp;hash=Cmfe7vyVpDWLrcij8cq%2FonJHmkI%3D&amp;ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6nlh8Tw1It6a2FowGz60oISIfYC2G8G2f1spyfNT-tdoDSe7ensgUbeikHhlI_IfnwEXO5H9LHVvW4OqcY_PawbZmNUz0sYxYjiWgZ7oEiGFx3kdKpF-qtMWsc8e1-TwyJC73iVV8vLQll8fq4GKH6GWxUi3WUbO71GJlCE-dQppRRy39_rO_BDZ442aV40Dp42VWO0IrqMAEuw7nmKXiZV0YcLkDGa9BTuIWF0TenkVqGjU7mi6yHJLGFEPUY3yWnwcTgeiHXkSxElzMH3CgRnM1mA3v9pvEL0xK0MuQsSwvZhLnkGlGb3Zcb_XQJgtbVLzuuX01ksiBtaJL7ihUSWayfmA" style="cursor: pointer;" class="img-circle" width="60" height="60">
+																			</div>
+																		</div>
+																		<div class="col-lg-8 col-sm-12 col-md-8">
+																			<div class="patient-name">Mr. Andew Smith
+																		</div>
+																			<div class="patient">PC-17-0045</div>
+																			<div class="patient-details">
+																				<span class="patient-details patient">M</span>
+																				<span class="patient-details patient">32Y 0M 15D 
+																				<span class="patient-details patient" >||||||
+																				<span class="patient-details patient" >info</span>
+																				</span></span>
+																			</div>
+																		</div>
+																	</div>
+																</td>
+																<td class="text-center">08/02/2018</td>
+																<td class="text-center">
+																	<span data-toggle="modal" data-target="#contactDetailsPopup">
+																	<i class="fa fa-phone" aria-hidden="true">&nbsp;</i>
+																	<i class="fa fa-envelope" aria-hidden="true">&nbsp;</i>
+																	</span>
+																</td>
+																<td class="text-center"></td>
+																<td class="text-center"></td>
+																<td class="text-center">
+																	<div><label>Jhon Paul</label></div>
+																	<div><label>01/01/2017 05:00pm</label></div>
+																</td>
+																<td class="text-center">Checked In</td>
+																<td class="text-center"><i class="fa fa-sign-out" aria-hidden="true"></i></td>
+																<td class="text-center">
+																	<i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;
+																	<i class="fa fa-times" title="Cancel" aria-hidden="true" data-toggle="modal" data-target="#appCancelModal"></i>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<div class="text-center">
+												<!-- <h4>No Pending Appointments</h4> -->
+											</div>
+										</div>
+										<!--************************ doctor table row two end ************************ -->
+									</div>
+								</div>
+							</div>
+		
+						</div>
+						<!-- ****************  row three end **************** -->
+					</div>	
+				<!-- ******************************************* Health Checkup Details ****************************************** -->
+				</div>
+			</div>
+			<!-- CONTENT FOR 3rd TAB end -->
+			
+			<!-- CONTENT FOR 4th TAB start -->
+			<div ng-show="isSetFirstTabLevel(4)">
+				<div class="row padding-top10">
+					<div class="doc-row row">
+						<div class="col-lg-2 col-md-4 col-sm-4 col-xs-4" style="cursor: pointer;">
+							<div class="col-md-4 col-sm-4 col-xs-4" style="text-align: center;">
+								<img src="resources/assets/images/tempImages/Dr2 copy.png" style="cursor: pointer;" class="img-circle">
+							</div>
+							<div class="col-md-8 col-sm-8 col-xs-8">
+								<div class="doc-name">Dr.Varun Deshmukh</div>
+								<div class="doc-Spaciality">General Medicine</div>
+							</div>
+						</div>
+						<div class="col-lg-10 col-md-8 col-sm-8">
+							<ul class="tabs nav nav-tabs">
+								<li class="" ng-class="{ active : isSet(1) }">
+									<a href ng-click="setTab(1)">All</a>
+									<div class="div-circle-doc div-circle-doc-bg-all" id="allCount3">1</div>
+								</li>
+								<li ng-class="{ active : isSet(2) }">
+									<a href ng-click="setTab(2)">Pending</a>
+									<div class="div-circle-doc div-circle-doc-bg-pending" id="allPending3">0</div>
+								</li>
+								<li ng-class="{ active : isSet(3) }">
+									<a href ng-click="setTab(3)">Checked In</a>
+									<div class="div-circle-doc div-circle-doc-bg-checked" id="allChecked3">2</div>
+								</li>
+								<li ng-class="{ active : isSet(4) }">
+									<a href ng-click="setTab(4)">Completed</a>
+									<div class="div-circle-doc div-circle-doc-bg-completed" id="allCompleted3">0</div>
+								</li>
+								<li class="text-width-auto" ng-class="{ active : isSet(5) }">
+									<a href ng-click="setTab(5)">Reschedule/Cancelled</a>
+									<div class="div-circle-doc div-circle-doc-reschedule" id="allReschedule3">0</div>
+								</li>
+								<li ng-class="{ active : isSet(6) }">
+									<a href ng-click="setTab(6)">No Show</a>
+									<div class="div-circle-doc div-circle-doc-bg-no-show" id="allNoShow3">0</div>
+								</li>
+								<li class="text-width-auto" ng-class="{ active : isSet(7) }">
+									<a href ng-click="setTab(7)">Checked Out</a>
+									<div class="div-circle-doc div-circle-doc-bg-no-walkout" id="allWalkOut3">0</div>
+								</li>
+								<li ng-class="{ active : isSet(8) }">
+									<a href ng-click="setTab(8)">Emergency</a>
+									<div class="div-circle-doc div-circle-doc-emergancy" id="allEmergency3">0</div>
+								</li>
+								<li ng-class="{ active : isSet(9) }">
+									<a href ng-click="setTab(9)">Walkins</a>
+									<div class="div-circle-doc div-circle-doc-bg-walkins" id="allWalkins3">0</div>
+								</li>
+								<li ng-class="{ active : isSet(10) }">
+									<a href ng-click="setTab(10)">Telephonic</a>
+									<div class="div-circle-doc div-circle-doc-bg-telephonic" id="allTelephonic3">2</div>
+								</li>
+								<li ng-class="{ active : isSet(11) }">
+									<a href ng-click="setTab(11)">App</a>
+									<div class="div-circle-doc div-circle-doc-bg-app" id="allApp3">0</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div> <!-- ng-show="isSet(1)" -->
+						<div class="row table-responsive">
+							<table class="table table-border">
+								<tbody>
+									<tr>
+										<th class="appointment-table-th">Patient Details</th>
+										<th class="appointment-table-th">Time</th>
+										<th class="appointment-table-th">Visit Type</th>
+										<th class="appointment-table-th">Contact Info</th>
+										<th class="appointment-table-th">Status</th>
+										<th class="appointment-table-th">Sponsor</th>
+										<th class="appointment-table-th">Advance</th>
+										<th class="appointment-table-th">Check In</th>
+										<th class="appointment-table-th">Checkout</th>
+										<th class="appointment-table-th">Action</th>
+									</tr>
+									<tr>
+										<td class="text-center"><div class="row patient-details cursor-pointer"
+												id="45#1247#2">
+												<div class="col-lg-3 col-sm-12 col-md-3">
+													<div class="">
+														<img src="resources/assets/images/tempImages/m.jpg" style="cursor: pointer;"
+															class="img-circle" width="60" height="60">
+													</div>
+												</div>
+												<div class="col-lg-8 col-sm-12 col-md-8">
+													<div class="patient-name">Ms.Akeel Shetty</div>
+													<div class="patient">PC-17-0045</div>
+													<div class="patient-details">
+														<span class="patient-details patient">M</span> <span
+															class='patient-details patient'="">30Y 0M 20D <span
+															class='patient-details patient'="">||||||<span
+																class='patient-details
+															patient'="">info</spanclass='patient-details></span class='patient-details></span class='patient-details>
+													</div>
+												</div>
+											</div></td>
+										<td class="text-center">08:20</td>
+										<td class="text-center">Consultation</td>
+										<td class="text-center"><span data-toggle="modal" data-target="#contactDetailsPopup"><i class="fa fa-phone" aria-hidden="true">&nbsp;</i><i
+											class="fa fa-envelope" aria-hidden="true">&nbsp;</i></span></td>
+										<td class="text-center">Checked In</td>
+										<td class="text-center">Self</td>
+										<td class="text-center"><i class="fa fa-money" aria-hidden="true"></i></td>
+										<td class="text-center"><i class=" " aria-hidden="true"></i>08:00 AM</td>
+										<td class="text-center"><i class="fa fa-sign-out" aria-hidden="true"></i></td>
+										<td class="text-center"><i class="fa fa-recycle" title="Reschedule" aria-hidden="true" data-toggle="modal" data-target="#appRescheduleModal"></i>&nbsp;&nbsp;<i
+											class="fa fa-times" title="Cancel" aria-hidden="true"></i></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div ng-show="isSet(2)" class="text-center">
+						<h4>No Pending Appointments</h4>
+					</div>
+				</div>
+			</div>
+			<!-- CONTENT FOR 4th TAB end -->
+			
+		</div>
+		<!-- ************************** tabs one end ******************************* -->
+					
+	</div>
+</div>
+</div>
+
+
+<!-- Contact Details Modal START -->
+<div id="appCancelModal" class="modal fade ng-scope in padding-left0" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm Appointment Cancellation
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-bottom10">
+					<div class="">
+						<div class="row padding-left-right-set">
+							<div class=" padding-top10 padding-bottom10">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-top10 padding-left-right-set4">
+									<div class="row input-container">
+										<label for="" class="font-weight700">Cancelled By :</label>
+										<input type="radio" name="FixedAssestRadioB" ng-model="cancelledBy"  value="P" id="FixedAssestRadioB" class="">
+											<label for="FixedAssestRadioB" class="checkbox-margin-left-right cursor-pointer">Provider</label>
+										<input type="radio" name="FixedAssestRadioB" ng-model="cancelledBy"  value="C"  id="FixedAssestRadioB2" class="">
+											<label for="FixedAssestRadioB2" class="checkbox-margin-left-right cursor-pointer">Consumer</label>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-comment" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<select class="text-input floating-label" ng-model="cancelReasonId">
+													<option value=""></option>
+													<option ng-repeat="info in reasonList" value="{{info.reasonMasterId}}">{{info.reasonDesc}}</option>
+												</select>
+												<label for="code">Reason</label>
+											</div>
+										</div>
+									</div>	
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="cancelAppointment()" >Confirm</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+<!-- Appointment Reschedule Modal START -->
+<div id="appRescheduleModal" class="modal fade ng-scope in padding-left0" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm Appointment Reschedule
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set">
+					<div class=" padding-top10 padding-bottom10">
+						<div class="col-lg-4 col-md-4 col-sm-4 padding-top10 padding-left-right-set4">
+							<div class="row input-container">
+								<label for="" class="font-weight700">Rescheduled By :</label>
+								<input type="radio" name="FixedAssestRadioB" id="FixedAssestRadioB" ng-model="reschedulledBy"  value="P" class="">
+									<label for="FixedAssestRadioB" class="checkbox-margin-left-right cursor-pointer">Provider</label>
+								<input type="radio" name="FixedAssestRadioB" id="FixedAssestRadioB2"  ng-model="reschedulledBy"  value="C" class="">
+									<label for="FixedAssestRadioB2" class="checkbox-margin-left-right cursor-pointer">Consumer</label>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-comment" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label" ng-model="rescheduleReasonId">
+											<option value=""></option>
+											<option ng-repeat="info in reasonList" value="{{info.reasonMasterId}}">{{info.reasonDesc}}</option>
+										</select>
+										<label for="code">Reason</label>
+									</div>
+								</div>
+							</div>	
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-10 col-md-10">
+									<div class="">
+										<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepickerReschedule"
+									model-view-value="true" is-open="datepickerReschedule.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerReschedule()" > 
+									<label for="code">Schedule Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="rescheduleAppointment()" >Confirm</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+		</div>
+		</div>
+	</div>
+</div>
+<!-- Appointment Reschedule Modal END -->
+
+<!-- Contact Details Modal START -->
+<div id="contactDetailsPopup" class="modal fade ng-scope in padding-left0" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Contact Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="body-content">
+						<div>
+							<p id="patMobileNumber">Mobile No : {{patientMobileNumber}}</p>
+							<p id="patEmailId">Email-Id : {{patientEmail}}</p>
+						</div>
+						<div style="text-align: right; padding: 10px; margin-top: -55px;">
+							<input type="button" class="btn btn-primary" data-dismiss="modal" value="Ok">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Contact Details Modal END -->
+
+<div id="notesForall" class="modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Note
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body common-sub-table">
+					<div class="row margin-top10" >
+						<div class="col-md-12 padding-left-right-set">
+							<!-- <input type="text" placeholder="Note" class="text-box-style"  ng-model="noteDoctor"> -->
+							<textarea placeholder="Note" ng-model="appointmentRemark" rows="5" readonly="true"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<script src="resources/assets/js/common/page-height.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+/* 
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px"); */
+
+		$(".selectedPageName").text("Appointment List");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="appointmentList/doctor"]').parents("li").addClass("active");
+	});
+</script>

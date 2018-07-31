@@ -1,0 +1,568 @@
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" class="padding10">
+            <div class="container-fluid his-style">
+            	<div class="row">
+            		
+					<!-- <div class="col-md-4">
+						<div>
+							<input type="text" class="text-search-box" placeholder="Search">
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div> -->
+					<div class="col-md-1 col-sm-1 col-xs-2 float_right">
+						<div class=" ">
+							<a href="" style="padding:7px 8px !important"  value="Save" class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Save" ng-click="updatePendingRequest()">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-4 float_right">
+						<p class="pull-right">
+							<a href="" ng-click="bedReserved()" data-toggle="modal" data-target="{{reserverBedPopUpFlag == true ? '#reservedBed':''}}" class="btn btn-primary btn-save-box-shadow btn-padding text-width-auto" >Reserve Bed</a>
+							<a href="" ng-click="bedAllocation()" class="btn btn-primary btn-save-box-shadow btn-padding text-width-auto" >Allocate Bed</a>
+							<a href="#/costEstimation" class="btn btn-primary btn-save-box-shadow btn-padding text-width-auto">Cost Estimation</a>
+						</p>
+					</div>
+					<!-- <div class="col-md-1 padding-left0px-right6px text-width-auto">
+					
+						<div class="common-save-button">
+							<a href="" ng-click="bedReserved()" data-toggle="modal" data-target="{{reserverBedPopUpFlag == true ? '#reservedBed':''}}" class="btn btn-primary btn-save-box-shadow btn-padding" >Reserve Bed</a>
+						</div>
+					</div> -->
+					<!-- <div class="col-md-1 padding-left0px-right6px text-width-auto">
+						<div class="common-save-button">
+							<a href="" ng-click="bedAllocation()" class="btn btn-primary btn-save-box-shadow btn-padding" >Allocate Bed</a>
+						</div>
+					</div> -->
+					<!-- <div class="col-md-2 padding-left0px-right6px text-width-auto">
+						<div class="common-save-button">
+							<a href="#/costEstimation" class="btn btn-primary btn-save-box-shadow btn-padding" >Cost Estimation</a>
+						</div>
+					</div> -->
+					<!-- <div class="col-md-1 padding-left0px-right6px">
+						<div class="">
+							<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow search-button-style"  ng-click="updatePendingRequest()">
+						</div>
+					</div> -->
+				</div>
+				<!-- <div class="row">
+					<div class="col-md-8"></div>
+					<div class="col-md-4">
+						<div class="width-div-for-patient-reg ">
+							<a href="" style="padding:7px 8px !important"  value="Save" class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Save" ng-click="updatePendingRequest()">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</div> -->
+				<modal visible="showModal"></modal> 
+				
+				<div class="row padding-left-right-10 margin-top8">
+					<div class="col-lg-2 col-md-2">
+						<!--  style="top: -11px;" -->
+						<div class="ssearch">
+							<span class="fa fa-search icon-size search-icon-for-search"></span> 
+							<input placeholder="Search" ng-model="searchKeyword" class="search-popUp-ddl">
+						</div>
+					</div>
+					<div class="col-lg-7  col-md-6"></div>
+					<div class="col-lg-2 col-md-3" style="text-align: right; padding-right: 0px;">
+						<div class="search">
+							<label class="show-entries">Show 
+							<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries 
+							</label>
+						</div>
+					</div>
+				</div>
+			
+				<div class="row">
+					<div class="col-md-12 margin-top8">
+						<table class="table table-bordered">
+						<thead>
+							<tr class="">
+								<th class="width1"></th>
+								<th class="width3">
+									Source
+									
+								</th>
+								<th class="width10">
+									UHID
+									
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Details
+								
+								</th>
+								<th class="patient-doc-details-width">
+									Doctor Details									
+									
+								</th>
+								<th class="patient-doc-details-width">
+									Bed Category									
+									
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Category								
+									
+								</th>
+								<th class="patient-doc-details-width">
+									Payment Entitlement								
+									
+								</th>
+								<th class="status">
+									Flexibility
+									
+								</th>
+								<th class="width8">
+									DOA
+									
+								</th>
+								<th class="width8">
+									PDD
+									
+								</th>
+								<th class="note-width">
+									Reason For Admission
+									
+								</th>
+								<th class="status">
+									Bed Category
+									
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="info in pendingAdmissionList | orderBy:'datepicker':false |filter:searchKeyword">
+								<td>
+									<input type="radio" name="radioName" value="info.admissionNoteId" ng-model="pendingAdmissionRequest" ng-click="selectItem(info)" />
+								</td>
+								<td>
+									{{info.visitTypeName}}
+								</td>
+								<td>{{info.uhidnumber}}</td>
+								<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.patientFullName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.patientFullName+' '+info.dob+'/'+info.genderCode}}</div>
+								</td>
+								<td>
+									<div> Dr. {{info.doctorFullName+', '+info.specialityName}}</div>
+								</td>
+								<td>
+									<div>
+										<select class="select-box" ng-model="info.bedCategoryId">
+											<option ng-repeat="infoBedCat in bedCategoryList" value="{{infoBedCat.bedCategoryId}}" >{{infoBedCat.bedCategoryDesc}}</option>
+										</select>
+									</div>
+								</td>
+								<td>
+									<div>
+										<select class="select-box" ng-model="info.patientCategoryId">
+											<option ng-repeat="infoCat in patientCategoryList" value="{{infoCat.patientCategoryId}}" >{{infoCat.patientCategory}}</option>
+										</select>
+									</div>
+								</td>
+								<td>
+									<div>
+									
+										<select class="select-box" ng-model="info.paymentEntitlementId" >
+											<option ng-repeat="infoPay in paymentEntitlementList" value="{{infoPay.paymentEntitlementId}}">{{infoPay.paymentEntitlementDesc}}</option>
+										</select>
+									</div>
+								</td>
+								
+								<td>
+									<div>{{info.isFlexiableDate}}</div>
+								</td>
+								<td class="patient-doc-details-width">
+									<div>
+										<span><i class="fa fa-calendar" aria-hidden="true"></i></span>
+										<span class=" " ng-if="info.isFlexiableDate == 'N'">
+										{{info.datepicker | date:"dd/MM/yyyy"}}
+										<input type="hidden" ng-model="info.datepicker" />
+										</span>
+										<div class="col-lg-11 col-sm-11 col-md-11" ng-if="info.isFlexiableDate == 'Y'">
+										
+										<input type="text" class="text-box-style"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" 
+									placeholder="DD/MM/YYYY" ng-model="info.datepicker"
+									model-view-value="true" is-open="datepicker.opened[$index]"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker($index)">
+										</div>
+
+
+									</div>
+								</td>
+								<td class="patient-doc-details-width">
+								<span><i class="fa fa-calendar" aria-hidden="true"></i></span>
+										<span class="" ng-if="info.isFlexiableDate == 'N'">
+										{{info.datepickerPdd | date:"dd/MM/yyyy"}}
+										<input type="hidden" ng-model="info.datepickerPdd" />
+										</span>
+										<div class="col-lg-11 col-sm-11 col-md-11" ng-if="info.isFlexiableDate == 'Y'">
+											<input type="text" class="text-box-style"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" 
+									placeholder="DD/MM/YYYY" ng-model="info.datepickerPdd"
+									model-view-value="true" is-open="datepickerPdd.opened[$index]"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerPdd($index)">
+										</div>
+								</td>
+								
+								<td>
+									<div>{{info.reasonDesc}}</div>
+								</td>
+								<td>
+									<div class="text-center"><a href="#/bedAvailability">Bed Status</a></div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+						
+						<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+				
+					</div>
+				</div>
+  			</div>
+		</div>
+	
+	   
+   <div id="reservedBed" class="modal fade ng-scope in common-popup-header-content common-large-popup" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Reserved Bed
+					<button type="button" class="close"   data-dismiss="modal">x</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row patient-details-row">
+					<div class="col-md-11 col-sm-11 col-xs-11 ">
+						<span class="profile_pic margin-left10"> 
+							<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+						</span> 
+						<span class="margin-left10">{{patientFullName}}</span>
+						<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> {{uhidNum}}</span>
+						<span class="margin-left10"><b class="padding-right10 ">Priority :</b> Normal</span>
+						<span class="margin-left10">{{doctorFullName}}</span>
+					</div>
+				</div>
+				<div class="row margin-top10">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-bed" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="requiredOn" class="text-input floating-label dirty" value="{{patientCategoryDesc}}" readonly="readonly">
+									<label for="code">Patient Category</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-bed" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label dirty" ng-model="bedCategoryId">
+											<option>Select Bed Category</option>
+											<option ng-repeat="infoBedCat in bedCategoryList" value="{{infoBedCat.bedCategoryId}}" >{{infoBedCat.bedCategoryDesc}}</option>
+										</select>
+									<label for="code">Select Bed Category</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-bed" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label dirty" name="code" ng-model="paymentEntitlementId" >
+										<option selected="selected">Select Payment Entitlement</option>
+										<option ng-repeat="infoPay in paymentEntitlementList" value="{{infoPay.paymentEntitlementId}}">{{infoPay.paymentEntitlementDesc}}</option>
+									</select>
+									<label for="code">Select Payment Entitlement</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row margin-top10">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="requiredOn" class="text-input floating-label dirty" value="{{dateOfAdmission}}" readonly="readonly">
+									<label for="code">Date Of Admission</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="requiredOn" class="text-input floating-label dirty" value="{{patientDischargeDate}}" readonly="readonly">
+									<label for="code">PDD</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top10">
+					<div class="col-lg-12 col-md-12 common-sub-table">
+						<table class="table table-striped table-bordered" id="documentUpload">
+							<thead>
+								<tr>
+									
+									<th class="test-name-width">Document Type</th>
+									<th class="test-name-width">Document Upload </th>
+									<th class="status">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="data in dataList">
+									<td>
+									
+										<div>
+											<select class="select-box" ng-model="data.documentTypeId">
+												<option >Select Document Type</option>
+												<option ng-repeat="info in documentTypeList" value="{{info.documentTypeId}}">{{info.documentTypeName}}</option>
+											</select>
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="file"  id="" file-model="data.documentPath" class="text-box-for-ICU">
+										</div>
+									</td>
+									<td>
+										<div class="">
+											<!-- <input type="button" name="" id="addr" value="+" onclick="addRowForMainTable()" class="btn btn-info"> -->
+											<button ng-click="add()" class="btn btn-info" style="width:36px"><b>+</b></button>
+                    	                    <button ng-if="$index > 0" ng-click="remove()" class="btn btn-info" style="width:36px"><b>-</b></button> &nbsp;&nbsp;
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="row margin-top10">
+							<div class="col-md-10"></div>
+							<div class="col-md-2">
+								<div class="">
+									<input type="button" value="Save" ng-click="saveDocuments()" class="btn btn-primary btn-save-box-shadow">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top10 ">
+					<div class="col-lg-12 col-md-12 common-sub-table">
+						<table class="table table-striped table-bordered" id="documentUpload">
+							<thead>
+								<tr>
+									
+									<th class="test-name-width">Document Type</th>
+									<th class="test-name-width">Document Upload Name</th>
+									<th class="status">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div>
+											Document-type-1
+										</div>
+									</td>
+									<td>
+										<div>
+											Document-Name-1
+										</div>
+									</td>
+									<td>
+										<div>
+											<a href="">View</a>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="row margin-top10 margin-bottom10">
+					<div class="col-md-8"></div>
+					<div class="col-md-2">
+						<div class="">
+							<input type="button" value="Submit" ng-click="savebedReservation()"  class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="">
+							<input type="button" value="Deposit Matrix"  class="btn btn-primary btn-save-box-shadow deposit-matrix btn-padding">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;padding: 0px !important">
+				<div class="row deposit-matrix-bed-reservation margin-bottom10">
+            		<div class="col-lg-12 col-md-12 display-common-sub-table">
+						<table class="table table-striped table-bordered" id="">
+							<thead>
+								<tr>
+									
+									<th class="test-name-width">Bed Category</th>
+									<th class="test-name-width">Bed Reservation Deposit</th>
+									<th class="status">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="text-left">
+										<div>
+											Super-Deluxe
+										</div>
+									</td>
+									<td class="text-left">
+										<div>
+											20,000
+										</div>
+									</td>
+									<td class="text-left">
+										<div>
+											<a href="" class=" deposite-btn">Deposite</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="text-left">
+										<div>
+											Deluxe
+										</div>
+									</td>
+									<td class="text-left">
+										<div>
+											10,000
+										</div>
+									</td>
+									<td class="text-left">
+										<div>
+											<a href="" class="deposite-btn">Deposite</a>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+            	</div>
+			</div>
+		</div>
+	</div>
+</div>
+	
+	
+	<script type="text/javascript">
+	$( document ).ready(function() {
+	
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		
+		$('.deposit-matrix-bed-reservation').hide();
+		$(".selectedPageName").text("Pending Admission Request");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="pendingAdmissionDischarge"]').parents("li").addClass("active");
+		$('.clockpicker').clockpicker();
+	});
+	
+	$(document).on("click",".deposit-matrix",function()
+	{
+		$('.deposit-matrix-bed-reservation').show();
+	});
+	$(document).on("click",".deposite-btn",function()
+	{
+			$('.deposit-matrix-bed-reservation').hide();
+	});
+	
+
+	function addRowForMainTable() {
+		//alert();
+		var n = document.getElementById("documentUpload").rows.length;
+		var id = Number(n);
+		//alert(id);
+		var test =
+
+		'<tr>'
+				+'<td>'
+				+'<div>'
+				+'<select class="select-box">'
+				+'<option>Document-1</option>'
+				+'<option>Document-2</option>'
+				+'</select>'
+				+'</div>'
+				+'</td>'
+			    +'<td>'
+				+'<div>'
+				+'<input type="file"  id="" class="text-box-for-ICU">'
+				+'</div>'
+				+'</td>'
+				+ '<td>'
+				+ '<input type="button" name="" id="addr" value="+" onclick="addRowForMainTable()" class="btn btn-info" >&nbsp;&nbsp;'
+				+ '<input type="button" name="" id="delr" value="-" onclick="delRowForMainTable(this)" class="btn btn-info" >'
+				+ '</td>' + '</tr>';
+
+		$("#documentUpload").append(test);
+
+	}
+
+	function delRowForMainTable(r) {
+		var i = r.parentNode.parentNode.rowIndex;
+		document.getElementById("documentUpload").deleteRow(i);
+	}
+
+	
+	
+</script>
+</body>
+</html>

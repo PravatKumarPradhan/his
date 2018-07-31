@@ -1,0 +1,234 @@
+<!-- Page Content start-->
+<div id="page-content-wrapper" >
+	<div class="container-fluid his-style">
+	
+		<div class="row margin-top8">
+			<div class="col-lg-2 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<input type="text" name="code" class="text-input floating-label dirty">
+							<label for="code">From Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<input type="text" name="code" class="text-input floating-label dirty">
+							<label for="code">To Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+		          <div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+		            	<i class="fa  fa-bullseye" aria-hidden="true"></i>
+		          </div>
+		          <div class="col-lg-10 col-sm-10 col-md-10">
+			            <div class="">
+			              <select class="text-input floating-label dirty">
+			                <option value=""></option>
+			              </select>
+			              <label for="code">Store</label>
+			            </div>
+		          	</div>
+		        </div>
+			</div>
+			<div class="col-lg-2 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+		          <div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+		            	<i class="fa  fa-bullseye" aria-hidden="true"></i>
+		          </div>
+		          <div class="col-lg-10 col-sm-10 col-md-10">
+			            <div class="">
+			              <select class="text-input floating-label dirty">
+			                <option value=""></option>
+			              </select>
+			              <label for="code">Status</label>
+			            </div>
+		          	</div>
+		        </div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-sm-1  padding-left-right-set4 padding-top8 text-width-auto"> 
+	          	<div class="common-save-button" style="padding-top:  0px;">
+					<a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;">
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</a>
+				</div>
+	        </div>
+		</div>
+		<div class="row margin-top4">
+       		<div class="col-lg-8 col-md-8 col-sm-8"></div>
+			<div class="col-lg-4 col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search">
+					<i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg padding-top4">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" data-toggle="modal" data-target="#confirmLogout">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+						</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	 
+	 	<!-- ******************** Table start ***************** -->
+		<div class="row padding-left-right-set4 margin-top10 fix-height-scroll550">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<table class="table table-bordered" id="uploadStockTableId">
+					<thead>
+						<tr class="">
+							<th class="width1 text-center padding-btntop10">
+								<input type="checkbox">
+							</th>
+							<th class="width6">
+								Request No 
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+							<th class="width8">
+								Request Date
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+							<th class="width8">
+								Store
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+							<th class="width12">
+								Request Start Date
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+							<th class="width12">
+								Request Stop Date
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+							<th class="width8">
+								Request By
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+							<th class="width5">
+								Status
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+							<th class="width7">
+								Action
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class=" text-center padding-btntop10">
+								<input type="checkbox"/>
+							</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td class="cursor-pointer">
+								<div class="col-lg-2 col-md-2 col-sm-3">
+									<a title="Print">
+										<i class="fa fa-print" aria-hidden="true"></i>
+									</a>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-3">
+									<a title="Edit">
+										<i class="fa fa-pencil" aria-hidden="true"></i>
+									</a>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-3">
+									<a title="Cancel">
+										<i class="fa fa-times-circle-o" aria-hidden="true"></i>
+									</a>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<a href="#/detailsUploadStockApproval">Details</a>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+			</div>
+		</div>
+		<!-- ******************** Table row end ***************** -->
+		
+	</div>
+</div>
+<!-- Page Content start-->
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedPageName").text("Upload Stock Approval");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="uploadStockApproval"]').parents("li").addClass("active");
+});
+/************ add button funtion ***************/
+function addRowTable() {
+	//alert();
+	var n = document.getElementById("uploadStockTableId").rows.length;
+	var id = Number(n);
+	//alert(id);
+	var test =
+			 '<tr>'
+			+'<td class=" text-center padding-btntop10"><input type="checkbox"/></td>'
+			+'<td>-</td>'
+			+'<td><select class="select-box"><option>Select</option><option>Group 1</option><option>Group 2</option><option>Group 3</option></select></td>'
+			+'<td>-</td>'
+			+'<td>-</td>'
+			+'<td><select class="select-box"><option>Select</option><option>Batch No.1</option><option>Batch No.2</option><option>Batch No.3</option></select></td>'
+			+'<td><select class="select-box"><option>Select</option><option>Batch No.1</option><option>Batch No.2</option><option>Batch No.3</option></select>'
+			+'<td>-</td>'
+ 			+'<td><input type="text" class="select-box"></td>' 
+			+ '<td>'
+			+ '<input type="button" name="" id="addr" value="+" onclick="addRowTable()" class="btn btn-info add-dynamic-row" style="padding: 1px 6px;" />&nbsp;'
+			+ '<input type="button" name="" id="delrow" value="-" onclick="delRowTable(this)" class="btn btn-info" style="padding: 1px 8px;" />'
+			+ '</td>' 
+			+ '</tr>';
+
+	$("#uploadStockTableId").append(test);
+}
+function delRowTable(r) {
+	var i = r.parentNode.parentNode.rowIndex;
+	document.getElementById("uploadStockTableId").deleteRow(i);
+}
+/************ add button funtion ***************/
+</script>
+<!-- <script src="resources/assets/js/common/page-height.js"></script> -->

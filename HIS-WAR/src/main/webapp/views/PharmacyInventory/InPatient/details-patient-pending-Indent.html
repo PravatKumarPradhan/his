@@ -1,0 +1,774 @@
+<style>
+	.tableError {
+		border: 2px solid red !important;
+	}
+
+	.tableError select.w-100.ng-pristine.ng-empty,
+	.tableError input.w-100.ng-valid.ng-empty,
+	.borderRed {
+		border: 2px solid red;
+	}
+
+	.font-W600 td {
+		font-weight: 600 !important;
+	}
+</style>
+
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<!-- <legend class="heading-div">Material Issue</legend> -->
+			<!-- Store  -->
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">To Store :
+						</b>
+						<lable> {{vm.model.patientPendingIndentDetailList.toStore}}</lable>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">Visit Type :
+						</b>
+						<lable> {{vm.model.patientPendingIndentDetailList.visitType}}</lable>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">Patient Name :
+						</b>
+						<lable> {{vm.model.patientPendingIndentDetailList.patientName}}</lable>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">UHID :
+						</b>
+						<lable> {{vm.model.patientPendingIndentDetailList.uhid}}</lable>
+					</span>
+				</div>
+			</div>
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">Ward Name :
+						</b>
+						</lable> {{vm.model.patientPendingIndentDetailList.wardName}}</lable>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">Bed No. :
+							<lable> {{vm.model.patientPendingIndentDetailList.bedNo}}</lable>
+						</b>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">Visit No. :</b>
+						<lable> {{vm.model.patientPendingIndentDetailList.visitNo}}</lable>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10">
+						<b class="padding-right10 ">Indent No. :</b>
+						<lable> {{vm.model.patientPendingIndentDetailList.indentNo}}</lable>
+					</span>
+				</div>
+			</div>
+		</fieldset>
+		<!-- <div class="row margin-top10 padding-left-right-set4">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div> -->
+		<div class="row padding-left-right-set4 padding-top10">
+			<div class="pull-right padding-left-right-set4">
+				<a>
+					<i class="fa fa-life-ring" title="Smart Issue"></i>
+				</a>
+			</div>
+			<div class="table-container padding-left-right-set4 padding-top5">
+				<div class="table-container-header">
+					<table class="table table-striped table-hover table-condensed table-bordered">
+						<tbody>
+							<tr class="table-th-bg cursor-pointer">
+								<th class="width2 text-center vertical-middle">
+									<a class="cursor-pointer">
+										<i class="fa fa-plus-circle"></i>
+									</a>
+								</th>
+								<th class="width6 vertical-middle">Item Code
+									<div class="float_right" ng-click="sortType = 'itemCode'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8 vertical-middle">Item Name
+									<div class="float_right" ng-click="sortType = 'itemName'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8 vertical-middle">Generic Name
+									<div class="float_right" ng-click="sortType = 'genericName'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width6 vertical-middle">UOM
+									<div class="float_right" ng-click="sortType = 'uom'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8 vertical-middle">UOM Unit
+									<div class="float_right" ng-click="sortType = 'uomUnit'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width6 vertical-middle">Indent Qty
+									<div class="float_right" ng-click="sortType = 'indentQuantity'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8 vertical-middle">Issue Qty
+									<div class="float_right" ng-click="sortType = 'issueQuantity'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8 vertical-middle"> Stock Available
+									<div class="float_right" ng-click="sortType = 'stockAvailable'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="table-container-body" style="height: 400px; overflow-y: scroll;">
+					<table class="table table-striped table-hover table-condensed table-bordered">
+						<tbody class="table-th-bg cursor-pointer" ng-if="vm.model.patientPendingIndentDetailList.items == null || !vm.model.patientPendingIndentDetailList.items.length">
+							<td col-span="9">
+								<p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p>
+							</td>
+						</tbody>
+						<tbody ng-repeat="item in vm.model.patientPendingIndentDetailList.items | filter : search |   orderBy:sortType:sortReverse">
+							<tr>
+								<td class="width2 text-center vertical-middle">
+									<a class="cursor-pointer" ng-click="vm.model.activeItem = item.itemId">
+										<i class="fa fa-{{vm.model.activeItem == item.itemId ? 'minus' : 'plus'}}-circle"></i>
+										<!-- <i class="fa fa-plus-circle"></i> -->
+									</a>
+								</td>
+								<td class="width6" title="{{item.itemCode}}">
+									{{item.itemCode}}
+								</td>
+								<td class="width8" title="{{item.itemName}}">
+									{{item.itemName}}
+								</td>
+								<td class="width8" title="{{item.genericName}}">
+									{{item.genericName}}
+								</td>
+								<td class="width6" title="{{item.uom}}">
+									{{item.uom}}
+								</td>
+								<td class="width8" title="{{item.uomUnit}}">
+									{{item.uomUnit}}
+								</td>
+								<td class="width6" title="{{item.indentQuantity}}">
+									{{item.indentQuantity}}
+								</td>
+								<td class="width8" title="{{item.issueQuantity}}">
+									{{item.issueQuantity}}
+								</td>
+								<td style="width:8.35% !important;" title="{{item.stockAvailable}}">
+									{{item.stockAvailable}}
+								</td>
+
+							</tr>
+							<tr ng-show="vm.model.activeItem == item.itemId">
+								<td colspan="9">
+									<div class="selectedServicesList">
+										<div class="table-container padding-left-right-set4 padding-top5">
+											<div class="table-container-header">
+												<table class="table table-striped table-hover table-condensed table-bordered">
+													<tbody>
+														<tr>
+															<th class="width8" title="Batch No.">Batch No.
+																<div class="float_right" ng-click="sortType = 'batchNo'; sortReverse = !sortReverse">
+																	<div>
+																		<i class="fa fa-caret-up" aria-hidden="true"></i>
+																	</div>
+																	<div class="margin-top-8">
+																		<i class="fa fa-caret-down" aria-hidden="true"></i>
+																	</div>
+																</div>
+															</th>
+															<th class="width8" title="Expiry Date">Expiry Date
+																<div class="float_right" ng-click="sortType = 'expiry'; sortReverse = !sortReverse">
+																	<div>
+																		<i class="fa fa-caret-up" aria-hidden="true"></i>
+																	</div>
+																	<div class="margin-top-8">
+																		<i class="fa fa-caret-down" aria-hidden="true"></i>
+																	</div>
+																</div>
+															</th>
+															<th class="width5" title="UOM">UOM
+																<div class="float_right" ng-click="sortType = 'uomType'; sortReverse = !sortReverse">
+																	<div>
+																		<i class="fa fa-caret-up" aria-hidden="true"></i>
+																	</div>
+																	<div class="margin-top-8">
+																		<i class="fa fa-caret-down" aria-hidden="true"></i>
+																	</div>
+																</div>
+															</th>
+															<th class="width6" title="UOM Unit">UOM Unit
+																<div class="float_right" ng-click="sortType = 'uomUnit'; sortReverse = !sortReverse">
+																	<div>
+																		<i class="fa fa-caret-up" aria-hidden="true"></i>
+																	</div>
+																	<div class="margin-top-8">
+																		<i class="fa fa-caret-down" aria-hidden="true"></i>
+																	</div>
+																</div>
+															</th>
+															<th class="width8" title="Available Stock Qty">Available Stock Qty
+																<div class="float_right" ng-click="sortType = 'displayQuantity'; sortReverse = !sortReverse">
+																	<div>
+																		<i class="fa fa-caret-up" aria-hidden="true"></i>
+																	</div>
+																	<div class="margin-top-8">
+																		<i class="fa fa-caret-down" aria-hidden="true"></i>
+																	</div>
+																</div>
+															</th>
+															<th class="width4" title="Issue Qty">Issue Qty
+																<div class="float_right" ng-click="sortType = 'issueQuantity'; sortReverse = !sortReverse">
+																	<div>
+																		<i class="fa fa-caret-up" aria-hidden="true"></i>
+																	</div>
+																	<div class="margin-top-8">
+																		<i class="fa fa-caret-down" aria-hidden="true"></i>
+																	</div>
+																</div>
+															</th>
+															<th class="width3" title="Action">Action
+																<div class="float_right">
+																	<div>
+																		<i class="fa fa-caret-up" aria-hidden="true"></i>
+																	</div>
+																	<div class="margin-top-8">
+																		<i class="fa fa-caret-down" aria-hidden="true"></i>
+																	</div>
+																</div>
+															</th>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="table-container-body" style="max-height: 112px;overflow-y: scroll;height: auto;">
+												<table class="table table-striped table-hover table-condensed table-bordered">
+													<tbody>
+														<!-- <tr ng-repeat="batches in item.batch">
+															<td class="width8">
+																<select ng-model="batches.batchId" ng-change="vm.model.batchOnChange(batch)" ng-options="batch.batchDetails for batch in batches">
+																</select>
+															</td> -->
+														<tr ng-repeat="batchList in item.batchList">
+															<td class="width8" title="{{batch.batchNo}}">
+																<select ng-model="batchList.batchId" ng-change="vm.model.batchOnChange(batchList.batchId, batchList, item.batch)" ng-change="batchList.isBatchValid = false"
+																    data-ng-class="{tableError: batchList.isBatchValid}">
+																	<option value="">Select Batch</option>
+																	<option ng-repeat="batch in item.batch" value="{{batch.batchId}}">{{batch.batchNo}}</option>
+																</select>
+															</td>
+															<td class="width8" title="{{batchList.expiry | date:'MMM-yyyy' : 'UTC'}}">
+																{{batchList.expiry | date:'MMM-yyyy' : 'UTC'}}
+															</td>
+															<td class="width5" title="{{batchList.uomType}}">
+																{{batchList.uomType}}
+															</td>
+															<td class="width6" title="{{batchList.uomUnit}}">
+																{{batchList.uomUnit}}
+															</td>
+															<td class="width8" title="{{batchList.displayQuantity}}">
+																{{batchList.displayQuantity}}
+															</td>
+															<td class="width4" title="batchList.issueQuantity">
+																<input type="text" ng-model="batchList.issueQuantity" ng-change="batchList.isIssueQuantityValid = false" data-ng-class="{tableError: batchList.isIssueQuantityValid}"
+																    class="w-100">
+															</td>
+															<td style="width: 2.86% !important;">
+																<input type="button" name="" id="" value="+" ng-click="vm.model.AddDuplicateRow($index, item)" class="btn btn-info add-dynamic-row addbtn">
+																<!-- onclick="addDetailsRow()" -->
+																<!-- onclick="delRow(this)" -->
+																<input ng-show="item.batchList.length > 1" type="button" name="" id="" value="-" ng-click="vm.model.RemoveRowData(item)"
+																    class="btn btn-info addbtn">
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+				<div class="row his-style padding-right20">
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-caret-square-o-right " aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label dirty" name="Carrier" ng-model="vm.model.carrier" data-ng-options="carrier.carrierName for carrier in vm.model.carrierList"
+									    ng-change="vm.model.isCarrierValid = false; vm.model.isCarrierValid = false">
+									</select>
+									<p ng-if="vm.model.isCarrierValid" class="errorMsg">Carrier is required</p>
+									<label for="code">Carrier</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-1 text-right">
+						<b>
+							<label>Remark:</label>
+						</b>
+					</div>
+					<div class="col-md-7 padding-left-right8">
+						<textarea row="1" ng-model="vm.model.remark" class="form-control"></textarea>
+					</div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="">
+							<a href="">
+								<input type="button" value="Save" ng-click="vm.model.SavePendingIndent()" class="btn btn-primary btn-save-box-shadow">
+							</a>
+						</div>
+					</div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="">
+							<a href="#/patientConsumableIssue">
+								<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+							</a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<!-- Get Indent modal -->
+	<div id="getIndentModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+		<div class="modal-dialog">
+			<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Material With Indent
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<fieldset class="get-request-row">
+						<div class="row margin-top10">
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-tasks" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label">
+												<option value=""></option>
+												<option value="Type 1">Type 1</option>
+												<option value="Type 2">Type 2</option>
+											</select>
+											<label for="code">From Store</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-tasks" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label">
+												<option value=""></option>
+												<option value="Type 1">Type 1</option>
+												<option value="Type 2">Type 2</option>
+											</select>
+											<label for="code">To Store</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-10 col-sm-10 col-md-10">
+										<div class="">
+											<input type="text" name="code" id="" class="text-input floating-label">
+											<label for="code">Date</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label">
+												<option value=""></option>
+												<option value="Type2"></option>
+											</select>
+											<label for="code">Priority</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" name="code" id="" class="text-input floating-label">
+											<label for="code">Search</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-2 col-sm-2 padding-left0px-right6px pull-right text-right padding-top4">
+								<div class="common-save-button">
+									<a href="" class="btn btn-primary btn-save-box-shadow" style="width: 36%;" ng-click="patientSearchByMultipleCriteria()">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="row padding-top10">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+								<table class="table table-bordered">
+									<thead>
+										<tr class="">
+											<th colspan="7" class="font-weight700">Details</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="table-th-bg indent-details cursor-pointer">
+											<td class="text-center">
+												<input type="checkbox">
+											</td>
+											<td>
+												<div class="col-md-4 font-weight700">Indent No.:</div>
+												<div class="col-md-4  text-left">1245144</div>
+												<div class="col-md-4 font-weight700 text-right">
+													Indent Date:</div>
+											</td>
+											<td>
+												<div class="col-md-3  text-left">17/11/17</div>
+												<div class="col-md-4 font-weight700 text-right">From Store:</div>
+												<div class="col-md-4  padding-left-right-10">-</div>
+											</td>
+											<td colspan="2">
+												<div class="col-md-4 font-weight700 text-left" title="Requested By">To Store:</div>
+												<div class="col-md-4  text-left">-</div>
+												<div class="col-md-4 font-weight700 text-right">
+													Priority:</div>
+											</td>
+											<td>
+												<div class="col-md-5   text-left">-</div>
+												<div class="col-md-3 font-weight700 text-right">Type:</div>
+												<div class="col-md-3  text-left padding-left-right-10">-</div>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="6">
+												<div class="selectedServicesList">
+													<table class="table table-bordered ">
+														<tbody>
+															<tr>
+																<th class="width1"></th>
+																<th class="width10">Item Code
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width10">Item Name
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width10">Generic Name
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">UOM Unit
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">Indent Qty
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">Pending Qty
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+															</tr>
+															<tr>
+																<td class=" text-center">
+																	<input type="checkbox">
+																</td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+										<tr class="table-th-bg indent-details cursor-pointer">
+											<td class="text-center">
+												<input type="checkbox">
+											</td>
+											<td>
+												<div class="col-md-4 font-weight700">Indent No.:</div>
+												<div class="col-md-4  text-left">1245144</div>
+												<div class="col-md-4 font-weight700 text-right">
+													Indent Date:</div>
+											</td>
+											<td>
+												<div class="col-md-3  text-left">17/11/17</div>
+												<div class="col-md-4 font-weight700 text-right">From Store:</div>
+												<div class="col-md-4  padding-left-right-10">-</div>
+											</td>
+											<td colspan="2">
+												<div class="col-md-4 font-weight700 text-left" title="Requested By">To Store:</div>
+												<div class="col-md-4  text-left">-</div>
+												<div class="col-md-4 font-weight700 text-right">
+													Priority:</div>
+											</td>
+											<td>
+												<div class="col-md-5   text-left">-</div>
+												<div class="col-md-3 font-weight700 text-right">Type:</div>
+												<div class="col-md-3  text-left padding-left-right-10">-</div>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="6">
+												<div class="selectedServicesList">
+													<table class="table table-bordered">
+														<tbody>
+															<tr>
+																<th class="width1"></th>
+																<th class="width10">Item Code
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width10">Item Name
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width10">Generic Name
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">UOM Unit
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">Indent Qty
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+																<th class="width8">Pending Qty
+																	<div class="float_right">
+																		<div>
+																			<i class="fa fa-caret-up" aria-hidden="true"></i>
+																		</div>
+																		<div class="margin-top-8">
+																			<i class="fa fa-caret-down" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																</th>
+															</tr>
+															<tr>
+																<td class=" text-center">
+																	<input type="checkbox">
+																</td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="modal-footer">
+					<div class="row his-style">
+						<div class="col-md-11"></div>
+						<div class="col-md-1 padding-left0px-right6px">
+							<div class="common-save-button">
+								<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Get Index modal -->
+
+
+
+
+
+	<script type="text/javascript">
+		$(".selectedPageName").text("Patient Consumable Issue");
+		$(".sidebar-nav li").each(function () {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="patientConsumableIssue"]').parents("li").addClass("active");
+		$(document).ready(function () {
+			$(".selectedServicesList").hide();
+			$(".table-th-bg").click(function () {
+				$(this).next().find(".selectedServicesList").toggle();
+			});
+		});
+	</script>
+	<script src="resources/assets/js/common/page-height.js"></script>

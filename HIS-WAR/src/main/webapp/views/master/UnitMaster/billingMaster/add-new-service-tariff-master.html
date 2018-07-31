@@ -1,0 +1,257 @@
+<!-- Page Content -->
+
+<style>
+.highlight td {
+  background-color: #CECECE !important;
+}
+</style>
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<!-- <div ng-include="'./views/common-patient-details.html'"></div> -->
+		<fieldset>
+			<!-- <legend class="heading-div">Tariff Master Configuration</legend> -->
+			<div class="row padding-left-right-set4">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="tariffData"
+									selected-model="tariffModel" checkboxes="true"
+									extra-settings="tariffModelsettings"
+									ng-click="getSelectedValue()"></div>
+								<label for="description" class="LISDynamicLabel">Tariff</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect=""
+									options="paymentEntitlementModeldata"
+									selected-model="paymentEntitlementModel" checkboxes="true"
+									extra-settings="paymentEntitlementModelsettings"></div>
+								<label for="description" class="LISDynamicLabel">Payment Entitlement </label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="visitTypeData"
+									selected-model="visitTypeModel" checkboxes="true"
+									extra-settings="visitTypeModelsettings"></div>
+								<label for="description" class="LISDynamicLabel">Visit Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="patientTypeData"
+									selected-model="patientTypeModel" checkboxes="true"
+									extra-settings="patientTypeModelsettings"></div>
+								<label for="description" class="LISDynamicLabel">Patient Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="bedTypeCategoryData"
+									selected-model="bedTypeCategoryModel" checkboxes="true"
+									extra-settings="bedTypeCategorySettings"></div>
+								<label for="description" class="LISDynamicLabel">Bed Billing Category</label>
+							</div>
+						</div>
+					</div>
+				</div> 
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="specialityModelData"
+									selected-model="specialityModel" checkboxes="true"
+									extra-settings="specialityModelsettings"
+									ng-click="clicked('speciality')"></div>
+								<label for="description" class="LISDynamicLabel">Department</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row padding-left-right-set4">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="dataSubSpecialityData"
+									selected-model="subSpecialityModel" checkboxes="true"
+									extra-settings="subSpecialitysettings" ng-click="getSpecialityAndSubspeciality()"></div>
+								<label for="description" class="LISDynamicLabel">Sub Department</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="serviceData"
+									selected-model="serviceModel" checkboxes="true"
+									extra-settings="serviceSettings"></div>
+								<label for="description" class="LISDynamicLabel">Service Description </label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+<!-- 								<input type="text" name="description" id="" ng-model="" class="text-input floating-label">  -->
+								<input type="text" class="text-input floating-label"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepicker"
+									model-view-value="true" is-open="datepicker.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker()">
+								<label for="description" class="LISDynamicLabel">Effective Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right text-width-auto">
+					<div class=" ">
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set1 pull-right text-width-auto">
+							<div class="common-save-button"> 
+								 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;" ng-click="searchTariffServices()"> 
+								 	<i class="fa fa-search" aria-hidden="true"></i> 
+								 </a> 
+							</div> 
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right text-width-auto padding-top5">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Apply" ng-click="applyDate()">Apply</a>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-set4">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+					<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+		</div>
+		<div class="row padding-top10 padding-left-right-set4">
+			<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+				<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+					<thead class="mainServiceTableCommon">
+						<tr>
+							<th class="width4">Tariff </th>
+							<th class="width12">Payment Entitlement  </th>
+							<th class="width7">Visit Type </th>
+							<th class="width9">Patient Type  </th>
+							<th class="width12">Bed Billing Category </th>
+							<th class="width5">Department </th>
+							<th class="width10">Sub Department</th>
+							<th class="width9">Service Description </th>
+							<th class="width4">Rate</th>
+							<th class="width4">Stat %</th>
+							<th class="width7">Effective Date</th>
+							<th class="width1 text-center">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="info in allDetailsList"  ng-class="{'highlight':info.alreadyExist == 1}">
+						
+							<td >{{info.tariffDesc}}</td>
+							<td> {{info.paymentEntitlementDesc}}</td>
+							<td >{{info.patientTypeDesc}}</td>
+							<td >{{info.visitTypeDesc}}</td>
+							<td >{{info.billingBedCatDesc}}</td>
+							<td >{{info.specialityDesc}}</td>
+							<td >{{info.subSpecialityDesc}}</td>
+							<td >{{info.serviceDesc}}</td>							
+							<td ><input type="text" class="w-100"  ng-model="info.rate"></td>
+							<td ><input type="text" class="w-100" ng-model="info.statPer"></td>
+							<td ><input type="text" class="w-100" ng-model="info.effectiveDate"></td>
+							<td  class="text-center" ng-click="remove($index)"><a title="Remove"><i class="fa fa-times"></i></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				
+				<div class="row his-style margin-top10 padding-right20">
+			<div class="col-lg-10 col-md-10 padding-left-right8">
+			</div>
+			<div class="col-lg-1 col-md-1 padding-left0px-right6px">
+				<div class=""><!-- common-save-button -->
+					<a href="">
+						<input type="button" value="Save" ng-click="saveUnitServiceTariffMaster()" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1 padding-left0px-right6px">
+				<div class=""><!-- common-save-button -->
+					<a href="#/serviceTariffMaster">
+						<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</div>
+				
+				<!-- <div class="row padding-left-right15">
+					<div class="col-lg-10 col-md-10 col-sm-8"></div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="Save">Save</a>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/serviceTariffMaster" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div> -->
+			</footer>
+	</div>
+</div>

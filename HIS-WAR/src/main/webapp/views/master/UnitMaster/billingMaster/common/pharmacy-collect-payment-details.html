@@ -1,0 +1,359 @@
+
+<!-- /********************************************************************************************************************************************
+Pharmacy - OP Pharmacy - bill list Details main page - (collect payment details modal)
+Created by - Pranita Patil
+Created Date - 15-Jan-2018 
+/********************************************************************************************************************************************/ -->
+<!-- BILL LIST VIEW POPUP -->
+<div id="collectPayementDetails" class="common-large-popup modal fade ng-scope in his-style" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Collect Payment
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body row">
+					<div class="col-md-12">
+								<div class="row">
+									<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+										<span>Active Deposit: </span><span>6000</span>
+									</div>
+									<div class="col-lg-2 col-md-3 col-sm-3 margin-left5 padding-top10">
+										<input type="checkbox" name="registrationType" class="useActiveDeposit"><span class="margin-left5">Use Active Deposit</span>
+									</div>
+								</div>
+								
+									<div class="row serachedPatientList">
+										<div class="col-md-12 col-lg-12 headerHeight fix-height-scroll230 padding-left-right-set4">
+											<table class="table table-bordered  margin-top8">
+												<tr>
+													<th class="width1">
+													</th>
+													<th class="width15">
+														<span class="">Date</span>
+													</th>
+													<th class="width15">
+														 <span class="">Voucher No.</span>
+													</th>
+													<th class="width15">
+														Deposit Type
+													</th>
+													
+													<th class="width15">
+														Total Amount
+													</th>
+													<th class="width15">
+														Consume Amount
+													</th>
+													<th class="width15">
+														Balance
+													</th>
+												</tr>
+												<tr>
+													<td>
+														<input type="checkbox">
+													</td>
+													<td>
+														-
+													</td>
+													<td>
+														-
+													</td>
+													<td>
+														-
+													</td>
+													<td>
+														-
+													</td>
+													<td>
+														-
+													</td>
+													<td>
+														-
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<input type="checkbox">
+													</td>
+													<td>
+														-
+													</td>
+													<td>
+														-
+													</td>
+													<td>
+														-
+													</td>
+													<td>
+														-
+													</td>
+													<td>
+														-
+													</td>
+													<td>
+														-
+													</td>
+												</tr>
+												
+											</table>
+										</div>
+									</div>
+							<fieldset class="normalRegistration sub-fieldset padding-left-right-set4">
+								<legend class="heading-div">Credit Details</legend>
+									<div class="row">
+										<div id="mediaType" class="col-lg-2 col-md-2 col-sm-2 uk-input-group customRadioBtn">													
+											<span>
+													<input id="insuranceRadio" name="registrationType" type="radio" value="1" val="yes" checked="checked">
+													<label for="insuranceRadio">Insurance</label>
+											</span>
+											<span>
+													<input id="sponserRadio" name="registrationType" type="radio" value="2">
+													<label for="sponserRadio">Sponsor</label>
+											</span>
+										</div>
+									</div>
+									
+									<div class="col-md-12 col-lg-12 headerHeight fix-height-scroll230 insuranceTable">
+										<table class="table table-bordered  margin-top8">
+											<tr>
+												<th class="width1">
+													<input type="checkbox">
+												</th>
+												<th class="width20">
+													<span class="">Insurance/Credit Name</span>
+												</th>
+												<th class="width15">
+													<span class="">Associated Company</span>
+												</th>
+												<th class="width15">
+													<span class="">Insurance No.</span>
+												</th>
+												<th class="width15">
+													<span class="">Insurance Code</span>
+												</th>
+												<th class="width15">
+													 <span class="">Authorization No.</span>
+												</th>
+												<th class="width10">
+													Date 
+												</th>
+												<th class="width10">
+													Amount
+												</th>
+											</tr>
+											<tr>
+												<td colspan="7" class="text-right">
+													Insurance Payable Amount
+												</td>
+												<td>
+													0.00
+												</td>
+											</tr>
+											<tr>
+												<td colspan="7" class="text-right">
+													Excess Amount
+												</td>
+												<td>
+													0.00
+													<span class="pull-right">
+						      							<span class="iconSet">
+						      								<button class="" id="insCredGenerateCreditNote" disabled="">
+						      								<i class="fa fa-credit-card font-size20 cursor-pointer" aria-hidden="true" title="Generate Credit Note"></i>
+						      								</button>
+						      							</span>
+						      							<span class="iconSet">
+						      								<button class="" id="insCredTransferToActiveDeposit" disabled="">
+						      								<i class="fa fa-money font-size20 cursor-pointer" aria-hidden="true" title="Transfer To Active Deposit"></i>
+						      								</button>
+						      							</span>
+							      					</span>
+												</td>
+											</tr>
+											
+										</table>
+									</div>
+									
+									<!-- <div class="col-md-12 col-lg-12 headerHeight fix-height-scroll230 sponserTable">
+										<table class="table table-bordered  margin-top8">
+											<tr>
+												<th class="width1">
+													<input type="checkbox">
+												</th>
+												<th class="width15">
+													<span class="">Company Name</span>
+												</th>
+												<th class="width15">
+													<span class="">Contract Name</span>
+												</th>
+												<th class="width15">
+													<span class="">Validity From</span>
+												</th>
+												<th class="width15">
+													 <span class="">Validity To</span>
+												</th>
+											</tr>
+											<tr>
+												<td colspan="4" class="text-right">
+													Corporate Payable Amount
+												</td>
+												<td>
+													0.00
+												</td>
+											</tr>
+											<tr>
+												<td colspan="4" class="text-right">
+													Excess Amount
+												</td>
+												<td>
+													0.00
+													<span class="pull-right">
+						      							<span class="iconSet">
+						      								<button class="" id="insCredGenerateCreditNote" disabled="">
+						      								<i class="fa fa-credit-card font-size20 cursor-pointer" aria-hidden="true" title="Generate Credit Note"></i>
+						      								</button>
+						      							</span>
+						      							<span class="iconSet">
+						      								<button class="" id="insCredTransferToActiveDeposit" disabled="">
+						      								<i class="fa fa-money font-size20 cursor-pointer" aria-hidden="true" title="Transfer To Active Deposit"></i>
+						      								</button>
+						      							</span>
+							      					</span>
+												</td>
+											</tr>
+											
+										</table>
+									</div> -->
+									
+							</fieldset>
+							<fieldset class="normalRegistration sub-fieldset padding-left-right-set4">
+						<legend class="heading-div">Payment Mode</legend>
+						<div class="row margin-top4">
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+								<div class="tab-btn-primary">
+									<a class="btn btn-primary btn-save-box-shadow" ng-href="#/pharmacyBillList/cash">Cash</a>
+									<!--   -->
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+								<div class="tab-btn-primary">
+									<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/pharmacyBillList/cheque">Cheque</a>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-1 col-sm-2 padding-left-right-set4 width10">
+								<div class="tab-btn-primary">
+									<a class="btn btn-primary btn-save-box-shadow"  ng-href="#/pharmacyBillList/creditDebitCard">Credit Card</a>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-1 col-sm-2 padding-left-right-set4 width10">
+								<div class="tab-btn-primary">
+									<a class="btn btn-primary btn-save-box-shadow"  ng-href="#/pharmacyBillList/creditDebitCard">Debit Card</a>
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right ">
+								<div class="width-div-for-patient-reg ">
+									<a href="" style="width:40px" class="btn btn-primary btn-save-box-shadow" title="Save">+</a>
+									 <!-- data-toggle="modal" data-target="#confirmLogout" -->	
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="" ui-view>
+						
+							</div>
+						</div>
+						<div class="col-md-12 col-lg-12 headerHeight fix-height-scroll230">
+							<table class="table table-bordered  margin-top8">
+								<tr>
+									<th class="width15">
+										<span class="">Payment Mode</span>
+									</th>
+									<th class="width15">
+										 <span class="">Bank Name</span>
+									</th>
+									<th class="width15">
+										Cheque No/Card No
+									</th>
+									<th class="width15">
+										Total Amount
+									</th>
+									<th class="width5">
+										Action
+									</th>
+								</tr>
+							</table>
+						</div>
+						<div class="col-md-12 col-lg-12">
+							<table class="table table-bordered">
+								<tr>
+									<td  class="text-right">
+										Total Amount
+									</td>
+									<td>
+										0.00
+									</td>
+								
+									<td  class="text-right">
+										Due Amount
+									</td>
+									<td>
+										0.00
+									</td>
+								
+									<td  class="text-right">
+										Refund Amount
+									</td>
+									<td>
+										0.00
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-md-12 col-lg-12">
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<input type="text" name="description" id="" class="text-input floating-label"> 
+												<label for="description" class="">Amount Receive From</label>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<input type="text" name="description" id="" class="text-input floating-label"> 
+												<label for="description" class="">Identification No.</label>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right padding-top10">
+								<div class=" " >
+									<a href="" style="width:100%" data-toggle="modal" data-target="#confirmLogout" class="btn btn-primary btn-save-box-shadow" title="Save">Settle</a>	
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 float_right padding-top10">
+								<input type="radio" name="registrationType"><span class="margin-left5">Transfer To Active Deposit</span>
+							</div>
+						</div>
+					</fieldset>
+					</div>
+				</div>
+			</div>
+	</div>
+</div>
+
+
+
+

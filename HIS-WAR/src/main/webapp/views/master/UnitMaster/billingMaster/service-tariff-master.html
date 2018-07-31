@@ -1,0 +1,222 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<!-- <div ng-include="'./views/common-patient-details.html'"></div> -->
+		<fieldset>
+			<!-- <legend class="heading-div">Tariff Master Configuration</legend> -->
+			<div class="row padding-left-right-set4">
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="tariffData"
+									selected-model="tariffModel" checkboxes="true"
+									extra-settings="tariffModelsettings"
+									ng-click="getSelectedValue()"></div>
+								<label for="description" class="LISDynamicLabel">Tariff</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="visitTypeData"
+									selected-model="visitTypeModel" checkboxes="true"
+									extra-settings="visitTypeModelsettings"></div>
+								<label for="description" class="LISDynamicLabel">Visit
+									Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect=""
+									options="paymentEntitlementModeldata"
+									selected-model="paymentEntitlementModel" checkboxes="true"
+									extra-settings="paymentEntitlementModelsettings"></div>
+								<label for="description" class="LISDynamicLabel">Payment
+									Entitlement</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="patientTypeData"
+									selected-model="patientTypeModel" checkboxes="true"
+									extra-settings="patientTypeModelsettings"></div>
+								<label for="description" class="LISDynamicLabel">Patient
+									Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="bedTypeCategoryData"
+									selected-model="bedTypeCategoryModel" checkboxes="true"
+									extra-settings="bedTypeCategorySettings"></div>
+								 <label for="description" class="LISDynamicLabel">Bed
+									Billing Category </label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="specialityModelData"
+									selected-model="specialityModel" checkboxes="true"
+									extra-settings="specialityModelsettings"
+									ng-click="clicked('speciality')"></div>
+								<label for="description" class="LISDynamicLabel">Department
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row padding-top5">
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="dataSubSpecialityData"
+									selected-model="subSpecialityModel" checkboxes="true"
+									extra-settings="subSpecialitysettings" ng-click="getSpecialityAndSubspeciality()"></div>
+								<label for="description" class="LISDynamicLabel">Sub
+									Department </label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<div ng-dropdown-multiselect="" options="serviceData"
+									selected-model="serviceModel" checkboxes="true"
+									extra-settings="serviceSettings"></div>
+								<label for="description" class="LISDynamicLabel">Service
+									Description </label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set1 pull-right text-width-auto">
+					<div class="common-save-button">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							style="width: auto;" ng-click="searchTariffServices()"> <i class="fa fa-search"
+							aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+				<div
+					class="col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top4">
+					<div class=" ">
+						<a href="#/addNewServiceTariffMaster"> <input type="button"
+							value="Add New" class="btn btn-primary btn-save-box-shadow">
+							<!-- data-toggle="modal" data-target="#wasteStoreAddItemModal" -->
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="row padding-left-right-set4">
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+					<input type="text" class="text-search-box" placeholder="Search"
+						style="margin-top: 0px"> <i
+						class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row padding-top8 padding-left-right-set4 padding-top4">
+			<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+				<table class="table table-bordered first-checkBox-padding">
+					<!-- mainServiceTable -->
+					<thead class="mainServiceTableCommon">
+						<tr>
+							<th class="width4">Tariff</th>
+							<th class="width12">Payment Entitlement</th>
+							<th class="width9">Patient Type</th>
+							<th class="width7">Visit Type</th>
+							<th class="width12">Bed Billing Category</th>
+							<th class="width5">Department</th>
+							<th class="width10">Sub Department</th>
+							<th class="width9">Service</th>
+							<th class="width3">Rate</th>
+							<th class="width5">Stat %</th>
+							<th class="width8">Effective Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="info in allDetailsList">
+							<td>{{info.tariffDesc}}</td>
+							<td>{{info.paymentEntitlementDesc}}</td>
+							<td>{{info.patientTypeDesc}}</td>
+							<td>{{info.visitTypeDesc}}</td>
+							<td>{{info.billingBedCatDesc}}</td>
+							<td>{{info.specialityDesc}}</td>
+							<td>{{info.subSpecialityDesc}}</td>
+							<td>{{info.serviceDesc}}</td>
+							<td>{{info.rate}}</td>
+							<td>{{info.statPer}}</td>
+							<td>{{info.effectiveDate}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".selectedPageName").text("Service Tariff Master");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+	});
+</script>

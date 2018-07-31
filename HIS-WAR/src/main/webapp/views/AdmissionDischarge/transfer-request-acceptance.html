@@ -1,0 +1,369 @@
+ <div id="page-content-wrapper">
+            <div class="container-fluid his-style">
+            	<div class="row margin-top4">
+		          	<div class="col-md-9"></div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+						<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+						<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+					</div>
+				</div>
+            	<div class="row margin-top4">
+					<div class="col-lg-12 col-md-12 col-sm-12 margin-top8 padding-left-right-set4 fix-height-scroll600 table-x-scroll">
+						<table class="table table-bordered">
+							<tr>
+							<th class="width1"> </th>
+								<th class="width10">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width15">
+									Patient Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width7">
+									From Ward
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width7">
+								 Bed Category							
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									Required Bed Category								
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									Reason for Transfer					
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									Remark			
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								
+								<th class="width8">
+									Requested By	
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Requested On	
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									Allot Bed	
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Cost Estimation	
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Action
+									<!-- <div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div> -->
+								</th>
+							</tr>
+							<tr ng-repeat="info in listOfTransferRequestAcceptanceList">
+							<td><input type="radio" id="checkb" name="radioName" value="info.admissionId" ng-model="admittedPatient" ng-click="selectPatient(info)" /></td>
+								<td>{{info.uhidnumber}}</td>
+								<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.patientFullName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.patientFullName+' '+info.dob+'/'+info.genderCode}}</div>
+								</td>
+								<td>{{info.wardName}}</td>
+								<td>{{info.bedCategoryDesc}}</td>
+								<td>{{info.toBedCategoryDesc}}</td>
+								<td>{{info.reasonDesc}}</td>
+								<td>{{info.remark}}</td>
+							<!-- 	<td>{{info.doctorNote}}</td> -->
+								<td>{{info.doctorFullName}}</td>
+								<td>-</td>
+								
+								<td>
+									<a  data-toggle="modal" data-target="#bedAllocationForTransfer" ng-click="bedAllocastionTransfer(info.toBedCategoryId,info.transferId,info.transferTypeId,info.fromWardId,info.toBedId)">Allot</a>
+								</td>
+								<td class="text-center">
+									<i class="fa fa-money" aria-hidden="true" data-toggle="modal" data-target="#costEstimation"></i>
+								</td>
+								<td>
+									<div class="row">
+										<input type="radio" name="radioBtnForTransferRqust" class="radioAccepted" ng-click="acceptRequest(info.transferId)"><span>Accept</span>
+										<input type="radio" name="radioBtnForTransferRqust" class="radioRejected" data-toggle="modal" data-target="{{rejectTransferPopUpFlag == true ? '#accepatReject':''}}" ng-click="rejectRequest(info.transferId)"><span>Reject</span>
+									</div>
+									<div class="row medication-text-box margin-top10">
+										<div class="col-md-12">
+											<input type="text" placeholder="Note" class="text-box-style">
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+				</div>
+				</div>
+				
+            </div>
+ </div>
+ <modal visible="showModal"></modal> 
+ <div id="bedAllocationForTransfer" class="modal fade ng-scope in common-popup-header-content common-large-popup" role="dialog">
+		<div class="modal-dialog">
+			<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Available Bed
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					
+					<div class="row margin-top10 fix-height-scroll450">
+					<div class="col-md-12">
+							<div class="row padding-bottom10" >
+					<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15 padding-top10" ng-repeat="info in activeBedList">
+						
+			    			<div class="card text-center cursor-pointer">
+			    				<input type="radio" name="radioName1"  ng-model="bedTr" ng-click="selectItemBed(info)" ng-checked="{{info.bedId == toSelectedBedId}}" ng-true-value="info.bedId"/>
+			    				<div>
+			    					<label style="color: #04bcd4;" class="cursor-pointer" >{{info.bedNumber}}</label>
+			    				</div>
+			    				<div class="text-center bed-management">
+								  	<img src="resources/assets/images/icon/bed/Empty bed.png" alt="Avatar" >
+								 </div>
+							</div>
+			    		</div>
+				</div>
+					</div>
+				</div>
+				</div>
+				 <div class="modal-footer his-style" style="border: none;">
+				 	<div class="row">
+				 		<div class="col-lg-10 col-sm-10 col-md-10"> 
+				 		</div>
+						<div class="col-lg-2 col-sm-2 col-md-2"> 
+		 					<input type="button" value="Save"  ng-click="selectedBedObject()" class="btn btn-primary btn-save-box-shadow">
+		 				</div>
+				 	</div>
+				</div>
+			</div>
+		</div>
+</div>
+ <div ng-include="'./views/common/accept-reject.html'"></div>
+<div id="rejectTransferModel" class="modal fade ng-scope in common-popup-header-content" role="dialog">
+		<div class="modal-dialog">
+			<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Reject
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+				<div class="row margin-top10 padding-bottom10">
+					<div class="col-md-12">
+						<div class="row his-style margin-top10">
+							<div
+								class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-bullseye" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label" ng-model="rejectReasonId">
+												<option value=""></option>
+												<option ng-repeat="info in reasonList"  value="{{info.reasonMasterId}}">{{info.reasonDesc}}</option>
+											</select> <label for="code"> Rejection Reason</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 padding-left-right8"></div>
+							<div class="col-lg-2 col-sm-2 col-md-2 padding-left-right8"> 
+		 					<input type="button" value="Save"  ng-click="rejectTransferAcceptanceADT()" class="btn btn-primary btn-save-box-shadow">
+		 				</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				 <!-- <div class="modal-footer his-style" style="border: none;"></div> -->
+			</div>
+		</div>
+</div>
+ 
+ <!-- COST ESTIMATION POPUP -->
+ <div id="costEstimation" class="common-large-popup modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> 
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Cost Estimation
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body row">
+					<div class="col-md-12">
+								<div class="row">
+								<div class="col-md-12 col-lg-12 fix-height-scroll230 padding-left-right-set4">
+									<table class="table table-bordered  margin-top8">
+										<thead>
+											<tr>
+												<th class="width10">
+													<span class="">Order No</span>
+												</th>
+												<th class="width10">
+													 <span class="">Order Date</span>
+												</th>
+												<th class="width10">
+													 <span class="">Service Code</span>
+												</th>
+												<th class="width10">
+													Service Name
+												</th>
+												
+												<th class="width5">
+													Unit Price
+												</th>
+												<th class="width5">
+													Qty
+												</th>
+												<th class="width5">
+													Net Amount
+												</th>
+												<th class="width5">
+													Convert Amount
+												</th> 
+												<th class="width5">
+													 Difference
+												</th> 
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													-
+												</td>
+												<td>
+													-
+												</td>
+												<td>
+													-
+												</td>
+												<td>
+													-
+												</td>
+												<td>
+													-
+												</td>
+												<td>
+													-
+												</td>
+												<td>
+													-
+												</td>
+												<td>
+													-
+												</td>
+												<td>
+													-
+												</td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="7" class="text-right">
+													<span>Net Amount</span>
+													<input type="text" style="width:98px">
+												</td>
+												<td><input type="text" style="width:98px"></td>
+												<td><input type="text" style="width:98px"></td>
+											</tr>
+										</tfoot>
+									</table>
+							 </div>
+						</div>
+						
+					</div>
+					<div class="row">
+						<div class="col-lg-11 col-md-10 col-sm-10 margin-top10"></div>
+				   		<div class="col-lg-1 col-md-2 col-sm-2 padding-left0px-right6px margin-top10 text-right">
+							<div class="common-save-button">
+								<button class="btn btn-primary btn-save-box-shadow text-width-auto" data-dismiss="modal">Save</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div> 
+
+ 
+ 
+ 
+ 
+ 
+ <script type="text/javascript">
+	$( document ).ready(function() {
+	
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		
+		$(".selectedPageName").text("Transfer Request Acceptance");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="transferRequest"]').parents("li").addClass("active");
+		
+	});
+	$(".medication-text-box").hide();
+	$( ".radioRejected" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".medication-text-box").show();
+		}
+	});
+	$( ".radioAccepted" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").siblings(".medication-text-box").hide();
+		}
+	});
+
+
+</script>

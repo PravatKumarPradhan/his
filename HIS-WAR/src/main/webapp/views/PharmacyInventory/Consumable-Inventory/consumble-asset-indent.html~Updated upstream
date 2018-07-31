@@ -1,0 +1,363 @@
+<!-- /********************************************************************************************************************************************
+Inventory - Consumble - quotation Enquiry main page
+Created by - Pranita Patil
+Created Date - 04-April-2018 
+/********************************************************************************************************************************************/ -->
+
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+  <div class="container-fluid his-style">
+    <fieldset class="main-fieldset">
+      <!-- <legend class="heading-div">Store Indent</legend> -->
+      <div class="row">
+
+	        <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+		      <div class="row input-container">
+			        <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+			          <i class="fa fa-tasks" aria-hidden="true"></i>
+			        </div>
+			        <div class="col-lg-11 col-sm-11 col-md-11">
+				          <div class="">
+				            <select class="text-input floating-label" >
+				             	<option></option>
+				             	<option>1</option>
+				            </select>
+				            <label for="code">From Store</label>
+				          </div>
+			        </div>
+		        </div>
+	    	</div>
+		    <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+			   <div class="row input-container">
+			      <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+			         <i class="fa fa-tasks" aria-hidden="true"></i>
+			      </div>
+			        <div class="col-lg-11 col-sm-11 col-md-11">
+			          <div class="">
+			            <select class="text-input floating-label">
+			             	<option></option>
+			             	<option>1</option>
+			            </select>
+			            <label for="code">To Store</label>
+			          </div>
+			        </div>
+			    </div>
+		    </div>
+    
+		        <div class="col-lg-2 col-md-2 col-sm-1 padding-left-right-set4 padding-top10">
+		          <div class="row input-container">
+		            <div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+		              <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+		            </div>
+		            <div class="col-lg-10 col-sm-10 col-md-10">
+		              <div class="">
+		                <select class="text-input floating-label">
+		                  <option></option>
+		                  <option >1</option>
+		                </select>
+		                <label for="description" class="LISDynamicLabel">Priority</label>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+        	<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top10 text-width-auto">
+	           <div class="common-save-button" style="padding-top:  0px;"> 
+	              <a href="" class="btn btn-primary btn-save-box-shadow text-width-auto"> 
+	               <i class="fa fa-search" aria-hidden="true"></i> 
+	              </a> 
+	           </div> 
+	        </div>
+	        <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 text-width-auto padding-top10 text-width-auto">
+		       <div class=" ">
+		         <a>
+		           <input type="button" value="Against Replacement" class="btn btn-primary btn-save-box-shadow  text-width-auto padding-left-right8" 
+		            data-toggle="modal" data-target="#againstReplacementModal" />
+		         </a>
+		       </div>
+		     </div>
+		     <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 text-width-auto padding-top10 text-width-auto">
+		       <div class=" ">
+		         <a>
+		           <input type="button" value="New Request" class="btn btn-primary btn-save-box-shadow text-width-auto padding-left-right8"  
+		           data-toggle="modal" data-target="#newRequestModal" />
+		         </a>
+		       </div>
+		     </div>
+      </div>
+</fieldset> 
+      
+		
+		<div class="row ">
+          	   <div class="col-md-8 col-sm-8 padding-left-right-set4 padding-top4">
+          			<!-- <label class="show-entries">Show <select
+						name="DataTables_Table_0_length"
+						aria-controls="DataTables_Table_0"
+						ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+						ng-change="setNoOfRecords();" class="search-popUp-ddl">
+							<option value="10">10</option>
+							<option value="25">25</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+					</select> entries
+					</label> -->
+          		</div>
+          		<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+	           		<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set4 padding-top4">
+							<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+							<i class="fa fa-search common-search-text-icon padding-top4" aria-hidden="true" style="padding-left:4px"></i>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 float_right">
+						<div class="width-div-for-patient-reg padding-top4 "><!-- data-toggle="modal" data-target="#specimanAccpet" -->
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" >
+								<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+          	</div>
+		<div class="row ">
+		      <div class="padding-left-right-set4 margin-top4"  id="">
+		        <fieldset class="">
+		        <div class="row">
+		          	<div class="col-lg-12 col-md-12 col-sm-12 height500-table-with-scroll">
+				          <table class="table table-bordered first-checkBox-padding">
+					            <thead class="mainServiceTableCommon">
+					              <tr>
+					                <th class="width6">
+					                   	Asset Code
+					                  <div class="float_right">
+					                    <div>
+					                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+					                    </div>
+					                    <div class="margin-top-8">
+					                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+					                    </div>
+					                  </div>
+					                </th>
+					                <th class="width8">
+					                  	Asset Name
+					                  <div class="float_right">
+					                    <div>
+					                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+					                    </div>
+					                    <div class="margin-top-8">
+					                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+					                    </div>
+					                  </div>
+					                </th>
+					                <th class="width6">
+					                  	Serial No
+					                  <div class="float_right">
+					                    <div>
+					                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+					                    </div>
+					                    <div class="margin-top-8">
+					                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+					                    </div>
+					                  </div>
+					                </th>
+					                <th class="width5">
+					                 	Lot No
+					                  <div class="float_right">
+					                    <div>
+					                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+					                    </div>
+					                    <div class="margin-top-8">
+					                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+					                    </div>
+					                  </div>
+					                </th>
+					                <th class="width6">
+					                  Indent Qty
+					                  <div class="float_right">
+					                    <div>
+					                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+					                    </div>
+					                    <div class="margin-top-8">
+					                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+					                    </div>
+					                  </div>
+					                </th>
+					                <th class="width10">
+					                  Reason
+					                  <div class="float_right">
+					                    <div>
+					                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+					                    </div>
+					                    <div class="margin-top-8">
+					                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+					                    </div>
+					                  </div>
+					                </th>
+					                <th class="width10">
+					                  Specification
+					                  <div class="float_right">
+					                    <div>
+					                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+					                    </div>
+					                    <div class="margin-top-8">
+					                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+					                    </div>
+					                  </div>
+					                </th>
+					                <th class="width7 text-center">
+					                   Action
+					                  <div class="float_right">
+					                    <div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+					                    	<div class="margin-top-8">
+					                    		<i class="fa fa-caret-down" aria-hidden="true"></i>
+					                    	</div>
+					                  </div>
+					                </th>
+					              </tr>
+					            </thead>
+					            <tbody>
+					              <tr>
+					                <td> 1</td>
+					                <td> </td>
+					                <td> </td>
+					                <td> </td>
+					                <td> </td>
+					                <td> </td>
+					                <td> </td>
+					                <td>
+					                  <div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+					                    <a title="Edit">
+					                    	<i class="fa fa-pencil" aria-hidden="true"></i>
+					                    </a>
+					                  </div>
+					                  <div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+					                    <a title="Print" >
+					                    	<i class="fa fa-print" aria-hidden="true" ></i>
+					                    </a>
+					                  </div>
+					                  <div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+					                    <a title="Cancel"><!-- data-toggle="modal" data-target="#CanellationModal" -->
+					                    	<i class="fa fa-times-circle-o" aria-hidden="true" ></i>
+					                    </a>
+					                  </div>
+					                  <div class="col-lg-6 col-md-6 padding-left-right-set4 text-right">
+					                    <a >Details</a><!-- href="#/DetailsStoreIndenting" -->
+					                  </div>
+					                </td> 
+					              </tr>
+					           </tbody>
+				         </table>
+		          	</div>
+		        </div>
+		        </fieldset>
+		      </div>
+    	</div>
+    </div>
+</div>
+
+ <!-- **************** against Replacement Modal start **************** -->
+<div id="againstReplacementModal" class="modal fade ng-scope in  common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Against Replacement
+					<button type="button" class="close" data-dismiss="modal">x</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 height-table-with-scroll padding-left-right-set4">
+						
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+								<table class="table table-bordered first-checkBox-padding">
+						            <thead class="mainServiceTableCommon">
+						              <tr>
+						                <th class="width6">
+						                   	Asset Code
+						                  <div class="float_right">
+						                    <div>
+						                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+						                    </div>
+						                    <div class="margin-top-8">
+						                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+						                    </div>
+						                  </div>
+						                </th>
+						               </tr>
+						              </thead>
+						        </table>
+						            
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<div class="row">
+					<div class="col-lg-10 col-md-10 col-sm-8 padding-left-right-set4"></div>
+            		<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 ">
+						<div class=" ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Add" data-toggle="modal">Add</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+						<div class=" ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Cancel" data-toggle="modal">Cancel</a>
+						</div>
+					</div>
+            	</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- **************** against Replacement Modal end **************** -->
+<!-- **************** New Request Modal start **************** -->
+<div id="newRequestModal " class="modal fade ng-scope in  common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					New Request
+					<button type="button" class="close" data-dismiss="modal">x</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 height-table-with-scroll padding-left-right-set4">
+						modal 2
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<div class="row">
+					<div class="col-lg-10 col-md-10 col-sm-8 padding-left-right-set4"></div>
+            		<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 ">
+						<div class=" ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Add" data-toggle="modal">Add</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+						<div class=" ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Add" data-toggle="modal">Cancel</a>
+						</div>
+					</div>
+            	</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- **************** New Request Modal end **************** -->
+<script type="text/javascript">
+$( document ).ready(function() {
+  $(".selectedPageName").text("Consumble Asset Indent");
+  $(".sidebar-nav li").each(function() {
+    $(this).find("a").parents("li").removeClass("active");
+  });
+  
+});
+/*************************** add button function start*********************************/
+$(".table-th-bg").click(function(){
+  /* alert(); */
+  $(this).next().find(".selectedServicesList").toggle();
+});
+
+
+</script>

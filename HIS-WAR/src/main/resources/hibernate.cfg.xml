@@ -1,0 +1,1178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<property name="hibernate.jdbc.use_get_generated_keys">true</property>
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+
+		<!-- =====================================================LIS START============================== -->
+
+		<!-- public schema -->
+		<mapping class="com.param.entity.lis.global.TurnAroundTimeMaster" />
+		<mapping class="com.param.entity.lis.global.ColonyMaster" />
+		<mapping class="com.param.entity.lis.global.ContainerMaster" />
+		<mapping class="com.param.entity.lis.global.AgeGroupMaster" />
+		<mapping class="com.param.entity.lis.global.AgeTypeGroupMaster" />
+		<mapping class="com.param.entity.lis.global.AntibioticClassMaster" />
+		<mapping class="com.param.entity.lis.global.AntibioticGroupMaster" />
+		<mapping class="com.param.entity.lis.global.BactClassificationMaster" />
+		<mapping class="com.param.entity.lis.global.BacteriaMaster" />
+		<mapping class="com.param.entity.lis.global.BlockMaster" />
+		<mapping class="com.param.entity.lis.global.LabDayMaster" />
+		<mapping class="com.param.entity.lis.global.HourMaster" />
+		<mapping class="com.param.entity.lis.global.IncubationPeriodMaster" />
+		<mapping class="com.param.entity.lis.global.MediaMaster" />
+		<mapping class="com.param.entity.lis.global.PrerequisitesMaster" />
+		<mapping class="com.param.entity.lis.global.ReagentMaster" />
+		<mapping class="com.param.entity.lis.global.ReportTypeMaster" />
+		<mapping class="com.param.entity.lis.global.SampleMaster" />
+		<mapping class="com.param.entity.lis.global.SensitivityMaster" />
+		<mapping class="com.param.entity.lis.global.SlideProcedureMaster" />
+		<mapping class="com.param.entity.lis.global.SpecimanMaster" />
+		<mapping class="com.param.entity.lis.global.TechniqueMaster" />
+		<mapping class="com.param.entity.lis.global.LabUnitMaster" />
+		<mapping class="com.param.entity.lis.global.WtfilmStudyMaster" />
+		<mapping class="com.param.entity.lis.global.IncubationTestMaster" />
+		<mapping class="com.param.entity.lis.global.IncubationPeriodMaster" />
+		<mapping class="com.param.entity.lis.global.AntibioticAdditionMaster" />
+		<mapping class="com.param.entity.lis.global.SampleTypeMediaMappingMaster" />
+		<mapping class="com.param.entity.lis.global.BactClassificationMaster" />
+		<mapping class="com.param.entity.lis.global.AntibioticMaster" />
+		<mapping class="com.param.entity.lis.global.MicroLabPriorityMaster" />
+		<mapping class="com.param.entity.lis.global.StainigMaster" />
+		<mapping class="com.param.entity.lis.global.OrganismMaster" />
+		<mapping class="com.param.entity.lis.global.OrganismGroupMaster" />
+		<mapping class="com.param.entity.lis.global.MediaColonyMapperMaster" />
+		<mapping class="com.param.entity.lis.global.AntibioticGroupAdditionMaster" />
+		<mapping class="com.param.entity.lis.global.OrganismGroupOrganismMapperMaster" />
+		<mapping class="com.param.entity.lis.global.IncubationTimeMaster" />
+		<mapping class="com.param.entity.lis.global.AntibioticOrganismMpprMaster" />
+		<mapping class="com.param.entity.lis.global.ReportHistoryMaster" />
+		<mapping class="com.param.entity.lis.global.RefRangeTypeMaster" />
+		<mapping class="com.param.entity.lis.global.TextualRangeMaster" />
+	    <mapping class="com.param.entity.lis.global.MicrobiologyStainMaster" />
+
+		<!-- Unit schema -->
+		<mapping class="com.param.entity.lis.unit.TestMaster" />
+		<mapping class="com.param.entity.lis.unit.TestParamMppr" />
+		<mapping class="com.param.entity.lis.unit.ParameterMaster" />
+		<mapping class="com.param.entity.lis.unit.ParamRefrengMaster" />
+		<mapping class="com.param.entity.lis.unit.HelpValueMaster" />
+		<mapping class="com.param.entity.lis.unit.LabTemplateMaster" />
+		<mapping class="com.param.entity.lis.unit.RackMaster" />
+		<mapping class="com.param.entity.lis.unit.RackShelfMaster" />
+		<mapping class="com.param.entity.lis.unit.TPanelDetailsMaster" />
+		<mapping class="com.param.entity.lis.unit.TPanelMaster" />
+		<mapping class="com.param.entity.lis.unit.ParamMultiTextualRangeMaster" />
+		<mapping class="com.param.entity.lis.unit.ParamTextualRanageMaster" />
+		<mapping class="com.param.entity.lis.unit.FormulaDetails" />
+		<mapping class="com.param.entity.lis.unit.FormulaMaster" />
+		
+
+		<!-- Phlebotomy Transaction Schema -->
+		<mapping class="com.param.entity.lis.transaction.LabResultMaster" />
+		<mapping class="com.param.entity.lis.transaction.LabResultDetailsMaster" />
+		<mapping class="com.param.entity.lis.transaction.LabSampleMaster" />
+		<mapping class="com.param.entity.lis.transaction.LabSampleDetailsMaster" />
+		<mapping class="com.param.entity.lis.transaction.SampleAuditTrailMaster" />
+		<mapping class="com.param.entity.lis.transaction.LabPatientArrivalMapperMaster" />
+
+		<mapping class="com.param.entity.lis.unit.DepartmentMaster" />
+		<mapping class="com.param.entity.lis.unit.PhlebotomyMaster" />
+		<mapping class="com.param.entity.lis.unit.StorageLocationMaster" />
+		<mapping class="com.param.entity.lis.unit.HeaderMaster" />
+		<mapping class="com.param.entity.lis.transaction.SampleStatusMaster" />
+		<mapping class="com.param.entity.lis.unit.SpecialtyTemplateMapper" />
+		<mapping class="com.param.entity.lis.unit.MicrobiologyTestMaster" />
+
+		<!-- Microbiology Transaction Schema -->
+		<mapping class="com.param.entity.lis.micro.MicrobioResultEntryMaster" />
+		<mapping class="com.param.entity.lis.micro.MicrobioResultDetailsMaster" />
+		<mapping class="com.param.entity.lis.micro.MicroscopicExaminationMaster" />
+		<mapping class="com.param.entity.lis.micro.MicroscopicExaminationDetailsMaster" />
+		<mapping class="com.param.entity.lis.micro.MicroscopicExaminationSubDetailsMaster" />
+		
+		<mapping class="com.param.entity.lis.micro.SensitivityTestResultMaster" />
+		<mapping class="com.param.entity.lis.micro.SensitivityTestResultDetailsMaster" />
+		<mapping class="com.param.entity.lis.micro.SensitivityTestResultSubDetailsMaster" />
+		
+		<mapping class="com.param.entity.lis.micro.TBiochemicalTestDetailsMaster" />
+		<mapping class="com.param.entity.lis.micro.TBiochemicalTestMaster" />
+		<mapping class="com.param.entity.lis.micro.TMacroscopicExaminationMaster" />
+		<mapping class="com.param.entity.lis.micro.TMicroIncubationDetailsMaster" />
+		<mapping class="com.param.entity.lis.micro.TMicroIncubationMaster" />
+		<mapping class="com.param.entity.lis.micro.TMicroSampleMedia" />
+		
+		<!-- =====================================================LIS END============================== -->
+
+		<!-- Histopathology Transaction Model -->
+		<mapping class="com.param.entity.lis.histo.TBlockMaster" />
+		<mapping class="com.param.entity.lis.histo.TGrossMaster" />
+		<mapping class="com.param.entity.lis.histo.TMicroExaDetails" />
+		<mapping class="com.param.entity.lis.histo.TRestainingReqSubDetailsMaster" />
+		<mapping class="com.param.entity.lis.histo.TRestainingRequestDetailsMaster" />
+		<mapping class="com.param.entity.lis.histo.TRestainingRequestMaster" />
+		<mapping class="com.param.entity.lis.histo.TSlideMaster" />
+		<mapping class="com.param.entity.lis.histo.TSubSpecimanMaster" />
+		<mapping class="com.param.entity.lis.histo.TSpecimanMaster" />
+		<mapping class="com.param.entity.lis.histo.TTemplateResult" />
+		<mapping class="com.param.entity.lis.histo.OutSourceDetailMaster" />
+		<mapping class="com.param.entity.lis.histo.OutSourceMaster" />
+		<mapping class="com.param.entity.lis.histo.TSlideStorageMaster" />
+		<mapping class="com.param.entity.lis.histo.TFrozenSectionReqMaster" />
+
+		<!-- =====================================================LIS END============================== -->
+
+
+		<!-- Glable Master Model ADT -->
+		<mapping class="com.param.adt.master.global.model.BedLogStatus" />
+		<mapping class="com.param.adt.master.global.model.BedMaster" />
+		<mapping class="com.param.adt.master.global.model.BedStatusMaster" />
+		<mapping class="com.param.adt.master.global.model.ConsultantTypeMaster" />
+
+		<mapping class="com.param.adt.master.global.model.ICUTypeMaster" />
+		<mapping class="com.param.entity.org.model.LicenceTypeMaster" />
+		<mapping class="com.param.adt.master.global.model.MaritalStatusMaster" />
+		<mapping class="com.param.adt.master.global.model.NationalityMaster" />
+		<mapping class="com.param.adt.master.global.model.OccupationMaster" />
+		<mapping class="com.param.adt.master.global.model.OrganizationLicenceMaster" />
+		<mapping class="com.param.adt.master.global.model.OrganizationMaster" />
+		<mapping class="com.param.adt.master.global.model.OrganizationUnitMapper" />
+		<mapping
+			class="com.param.adt.master.global.model.OrganizationUnitUserMapper" />
+
+		<mapping class="com.param.adt.master.global.model.PatientSourceMaster" />
+
+		<mapping class="com.param.adt.master.global.model.PaymentModeMaster" />
+		<mapping class="com.param.adt.master.global.model.RaceMaster" />
+		<mapping class="com.param.adt.master.global.model.ReferralMaster" />
+		<mapping class="com.param.adt.master.global.model.ReferralTypeMaster" />
+		<mapping class="com.param.adt.master.global.model.ReligionMaster" />
+		<mapping class="com.param.adt.master.global.model.RenderingDeptMaster" />
+		<mapping class="com.param.adt.master.global.model.RoleMaster" />
+		<mapping class="com.param.adt.master.global.model.ServiceCodeTypeMaster" />
+
+
+		<mapping class="com.param.adt.master.global.model.UnitLicenceMaster" />
+		<mapping class="com.param.adt.master.global.model.UnitMaster" />
+		<mapping class="com.param.adt.master.global.model.UnitUserMapper" />
+		<mapping class="com.param.adt.master.global.model.UnitUserMapperId" />
+		<mapping class="com.param.adt.master.global.model.UserMaster" />
+		<mapping class="com.param.adt.master.global.model.UserRoleMapper" />
+		<mapping class="com.param.adt.master.global.model.UserRoleMapperId" />
+
+		<mapping class="com.param.adt.master.global.model.ZoneMaster" />
+		<mapping class="com.param.adt.master.global.model.DeliveryTypeMaster" />
+		<mapping class="com.param.adt.master.global.model.EncounterTypeMaster" />
+		<mapping class="com.param.adt.master.global.model.ConsentTypeMaster" />
+		<mapping class="com.param.adt.master.global.model.ConsentMaster" />
+		<mapping class="com.param.adt.master.global.model.DocumentTypeMaster" />
+		<mapping class="com.param.adt.master.global.model.ReasonMaster" />
+		<mapping class="com.param.adt.master.global.model.BedCategoryWaitingList" />
+
+		<!--UNIT MASTER -->
+		<mapping class="com.param.adt.master.unit.model.MealPreferenceMaster" />
+		<mapping class="com.param.adt.master.unit.model.MortuaryBedMaster" />
+		<mapping class="com.param.adt.master.unit.model.NursingStationMaster" />
+		<mapping class="com.param.adt.master.unit.model.NursingStationWardMapper" />
+		<mapping class="com.param.adt.master.unit.model.FloorMaster" />
+		<mapping class="com.param.adt.master.unit.model.UnitSpecialityMapper" />
+		<mapping class="com.param.adt.master.unit.model.AmenityMaster" />
+		<mapping class="com.param.adt.master.unit.model.FloorMapMaster" />
+		<mapping class="com.param.adt.master.unit.model.UnitICUTypeMapper" />
+		<mapping class="com.param.adt.master.unit.model.UnitSubSpecialityMapper" />
+		<mapping class="com.param.adt.master.unit.model.WingMaster" />
+		<mapping class="com.param.adt.master.unit.model.RoomMaster" />
+		<mapping class="com.param.adt.master.unit.model.UnitBedCategoryMapper" />
+		<mapping class="com.param.adt.master.unit.model.BillingBedCategoryMaster" />
+		<mapping class="com.param.adt.master.unit.model.WardMaster" />
+		<mapping class="com.param.adt.master.unit.model.MortuaryBedLogStatus" />
+
+
+		<!--ADT TRANSACTIONS -->
+		<mapping class="com.param.adt.admission.model.AdmissionNote" />
+		<mapping class="com.param.adt.admission.model.AdmissionPatientMapper" />
+		<mapping class="com.param.adt.admission.model.Sponsor" />
+		<mapping class="com.param.adt.admission.model.SponsorDetails" />
+		<mapping class="com.param.adt.admission.model.Admission" />
+		<mapping class="com.param.adt.admission.model.AdmissionDetails" />
+		<mapping class="com.param.adt.admission.model.AdmissionPatientDocuments" />
+		<mapping class="com.param.adt.admission.model.UnreservedPatient" />
+		<mapping class="com.param.adt.admission.model.VisitorPassTypeMaster" />
+		<mapping class="com.param.adt.admission.model.VisitorAgainstPatient" />
+		<mapping class="com.param.adt.admission.model.VisitorPatientMapper" />
+		<mapping class="com.param.adt.admission.model.MedicoLeagal" />
+		<mapping class="com.param.adt.transfer.model.Transfer" />
+		<mapping class="com.param.adt.transfer.model.TransferRequest" />
+		<mapping class="com.param.adt.discharge.model.Discharge" />
+		<mapping class="com.param.adt.transfer.model.TransferModalityRequest" />
+		<mapping class="com.param.adt.master.global.model.PatientServicesOrder" />
+		<mapping class="com.param.adt.transfer.model.PatientSurgeryOrder" />
+		<mapping class="com.param.adt.transfer.model.TransferOTRequest" />
+		<mapping class="com.param.adt.transfer.model.TransferOfCareRequest" />
+		<mapping class="com.param.adt.discharge.model.ShortLeave" />
+		<mapping class="com.param.adt.housekeeping.model.HousekeepingLog" />
+		<mapping class="com.param.adt.housekeeping.model.Housekeeping" />
+		<mapping class="com.param.adt.housekeeping.model.HousekeepingStatusMaster" />
+		<mapping class="com.param.adt.mortuary.model.MortuaryRequest" />
+
+		<!--ER -->
+		<mapping class="com.param.ER.model.ERBedTypeAllocation" />
+		<mapping class="com.param.adt.transfer.model.TransferStatusMaster" />
+
+
+		<mapping class="com.param.adt.master.global.model.ShortLeaveReasonMaster" />
+		<mapping class="com.param.adt.master.global.model.OccupancyUnitMaster" />
+		<mapping class="com.param.adt.master.global.model.HierarchyMaster" />
+		<mapping class="com.param.adt.master.global.model.AdmissionTypeMaster" />
+		<mapping class="com.param.adt.master.global.model.BedTypeMaster" />
+		<mapping class="com.param.adt.master.global.model.DischargeTypeMaster" />
+
+
+		<!--Global -->
+
+
+		<mapping class="com.param.global.model.ClinicMaster" />
+		<mapping class="com.param.global.model.AllergyMaster" />
+		<mapping class="com.param.global.model.AllergyTypeMaster" />
+		<mapping class="com.param.global.model.SeverityMaster" />
+		<mapping class="com.param.global.model.VitalMaster" />
+		<mapping class="com.param.global.model.SystemMaster" />
+		<mapping class="com.param.global.model.SystemObervationMaster" />
+		<mapping class="com.param.global.model.SystemObervationPropertyMaster" />
+
+		<mapping class="com.param.global.model.DayMaster" />
+		<mapping class="com.param.global.model.BedCategoryMaster" />
+		<mapping class="com.param.global.model.PatientCategoryMaster" />
+		<mapping class="com.param.global.model.PaymentEntitlementMaster" />
+		<mapping class="com.param.global.model.SpecialityMaster" />
+		<mapping class="com.param.global.model.VisitMaster" />
+		<mapping class="com.param.global.model.VisitTypeMaster" />
+		<mapping class="com.param.global.model.ServiceMaster" />
+		<mapping class="com.param.global.model.GenderMaster" />
+		<mapping class="com.param.global.model.SubSpecialityMaster" />
+		<mapping class="com.param.global.model.PrefixMaster" />
+		<mapping class="com.param.global.model.PatientRegistration" />
+		<mapping class="com.param.global.model.PatientRegistrationLog" />
+		<mapping class="com.param.global.model.PatientDetails" />
+		<mapping class="com.param.global.model.UnknownPatientRegistration" />
+		<mapping class="com.param.global.model.UnitServiceMasterDetails" />
+		<mapping class="com.param.global.model.UnitServiceMapper" />
+		<mapping class="com.param.global.model.KinDetails" />
+		<mapping class="com.param.global.model.OrderStatusMaster" />
+		<mapping class="com.param.global.model.OrderMaster" />
+		<mapping class="com.param.global.model.OrderDetailsMaster" />
+		<mapping class="com.param.global.model.PriorityMaster" />
+		<mapping class="com.param.global.model.DeathRegistration" />
+		<mapping class="com.param.global.model.CompanyMaster" />
+		<mapping class="com.param.global.model.AssociatedCompanyMaster" />
+		<mapping class="com.param.global.model.IdentificationMaster" />
+		<mapping class="com.param.global.model.UnitServiceMasterDetails" />
+		<mapping class="com.param.global.model.UnitServiceMapper" />
+		<mapping class="com.param.global.model.KinDetails" />
+		<mapping class="com.param.global.model.OrderStatusMaster" />
+		<mapping class="com.param.global.model.OrderMaster" />
+		<mapping class="com.param.global.model.OrderDetailsMaster" />
+		<mapping class="com.param.global.model.PriorityMaster" />
+		<mapping class="com.param.global.model.DeathRegistration" />
+		<mapping class="com.param.global.model.CompanyMaster" />
+		<mapping class="com.param.global.model.AssociatedCompanyMaster" />
+		<mapping class="com.param.global.model.IdentificationMaster" />
+		<mapping class="com.param.global.model.DoctorMaster" />
+		<mapping class="com.param.global.model.DoctorDetails" />
+		<mapping class="com.param.global.model.HolidayCalenderMaster" />
+		<mapping class="com.param.global.model.UnitHolidayCalenderMapper" />
+		<mapping class="com.param.global.model.ModalityMaster" />
+		<mapping class="com.param.global.model.EquipmentMaster" />
+		<mapping class="com.param.global.model.DoctorSpecialityMapper" />
+		<mapping class="com.param.global.model.OrderDetailsDiscount" />
+		<mapping class="com.param.global.model.CountryMaster" />
+		<mapping class="com.param.global.model.StateMaster" />
+		<mapping class="com.param.global.model.DistrictMaster" />
+		<mapping class="com.param.global.model.CityMaster" />
+		<mapping class="com.param.global.model.AreaMaster" />
+		<mapping class="com.param.global.model.WeekendMaster" />
+		<mapping class="com.param.global.model.RelationMaster" />
+		<mapping class="com.param.global.model.SurgeryMaster" />
+		<mapping class="com.param.global.model.AccountPayableMaster" />
+		<mapping class="com.param.global.model.DrugMaster" />
+		<mapping class="com.param.global.model.ReferalDetails" />
+		<mapping class="com.param.global.model.PatientSponsorDetails" />
+		<mapping class="com.param.global.model.EmployeeMaster" />
+		<mapping class="com.param.global.model.EmployeeDetails" />
+		<mapping class="com.param.global.model.DependentDetails" />
+		<mapping class="com.param.global.model.DoctorConsultationServiceMapper" />
+		<mapping class="com.param.global.model.OPConsultationConfigurationMaster" />
+		<mapping class="com.param.global.model.HabitMaster" />
+		<mapping class="com.param.global.model.SurgeryGradeMaster" />
+		<mapping class="com.param.global.model.EmployeeCategoryMaster" />
+		<mapping class="com.param.global.model.DoctorCategoryMaster" />
+		<mapping class="com.param.global.model.EmployeeDesignationMaster" />
+		<mapping class="com.param.global.model.ReferalDetails" />
+		<mapping class="com.param.global.model.PatientSponsorDetails" />
+
+		<mapping class="com.param.global.model.DoctorConsultationServiceMapper" />
+		<mapping class="com.param.global.model.OPConsultationConfigurationMaster" />
+		<mapping class="com.param.global.model.TInsurance" />
+
+
+		<mapping class="com.param.global.model.HabitMaster" />
+
+		<mapping class="com.param.global.model.SurgeryGradeMaster" />
+
+
+
+		<!-- billing models -->
+		<mapping
+			class="com.param.billing.global.transaction.config.model.VariablePricingSequenceMaster" />
+		<mapping class="com.param.billing.global.model.BillingGroupMaster" />
+		<mapping
+			class="com.param.billing.global.transaction.model.BillingGroupSpecialityMapper" />
+		<mapping
+			class="com.param.billing.global.transaction.model.ServiceTarrifMaster" />
+		<mapping
+			class="com.param.billing.global.transaction.model.ServiceTarrifBedtypeManager" />
+		<mapping
+			class="com.param.billing.global.transaction.model.ServiceTarrifPatientCategoryManager" />
+		<mapping
+			class="com.param.billing.global.transaction.model.ServiceTarrifPaymentEntitlementManager" />
+		<mapping class="com.param.billing.global.transaction.model.BillingMaster" />
+		<mapping class="com.param.billing.global.transaction.model.BillingDetails" />
+		<mapping class="com.param.billing.global.transaction.model.BillPayeeDetails" />
+		<mapping class="com.param.billing.global.model.CurrencyMaster" />
+		<mapping class="com.param.billing.global.model.CurrencyDenominationMaster" />
+		<mapping class="com.param.billing.global.model.BankMaster" />
+		<mapping class="com.param.billing.global.model.BankBranchMaster" />
+		<mapping class="com.param.billing.global.model.CardTypeMaster" />
+		<mapping
+			class="com.param.billing.global.transaction.model.PaymentRecieptMaster" />
+		<mapping
+			class="com.param.billing.global.transaction.model.PaymentReceiptDetails" />
+		<mapping class="com.param.billing.global.transaction.model.TariffMaster" />
+		<mapping
+			class="com.param.billing.global.transaction.model.TariffPaymentEntitlementMapper" />
+		<mapping
+			class="com.param.billing.global.transaction.model.UnitServiceTariffMaster" />
+		<mapping
+			class="com.param.billing.global.transaction.config.model.UnitApplicationBillingConfiguration" />
+
+		<mapping
+			class="com.param.billing.global.transaction.model.TariffPaymentEntitlementMapper" />
+		<mapping
+			class="com.param.billing.global.transaction.model.UnitServiceTariffMaster" />
+		<mapping
+			class="com.param.billing.global.transaction.config.model.UnitApplicationBillingConfiguration" />
+		<mapping class="com.param.billing.global.model.DepositMaster" />
+		<mapping class="com.param.billing.global.model.PaymentDepositDetails" />
+		<mapping
+			class="com.param.billing.global.transaction.model.ActiveDepositeCreditNoteMapper" />
+		<mapping
+			class="com.param.billing.global.transaction.model.BillingPaymentDetails" />
+		<mapping class="com.param.billing.global.transaction.model.CreditNoteMaster" />
+		<mapping
+			class="com.param.billing.global.transaction.model.BillingStatusMapper"></mapping>
+		<mapping class="com.param.billing.global.model.BillStatusMaster"></mapping>
+		<mapping
+			class="com.param.billing.global.transaction.model.CreditBillMasterStatusLog"></mapping>
+		<mapping class="com.param.billing.global.transaction.model.CreditBillMaster"></mapping>
+		<mapping
+			class="com.param.billing.global.transaction.model.CreditBillMasterPayments"></mapping>
+		<mapping
+			class="com.param.billing.global.transaction.model.CreditBillMasterRecieptMapper"></mapping>
+		<mapping
+			class="com.param.billing.global.transaction.model.CreditBillReciept"></mapping>
+		<mapping
+			class="com.param.billing.global.transaction.model.CreditBillRecieptStatusLog"></mapping>
+		<mapping
+			class="com.param.billing.global.transaction.model.CreditBillPaymentRecieptDetails"></mapping>
+		<mapping class="com.param.billing.global.model.PaymentTypeMaster"></mapping>
+		<mapping class="com.param.billing.global.model.PackageTypeMaster"></mapping>
+
+		<!--XMasters Billing -->
+		<mapping class="com.param.billing.global.xmasters.XServiceMaster" />
+		<mapping
+			class="com.param.billing.global.transaction.config.model.VariablePricingSequenceMaster" />
+		<mapping class="com.param.billing.global.model.BillingGroupMaster" />
+		<mapping
+			class="com.param.billing.global.transaction.model.BillingGroupSpecialityMapper" />
+	 	<mapping class="com.param.billing.packages.model.TPackageConsumptionMaster" />
+	 	<mapping class="com.param.billing.packages.model.TPackageConsumptionCapDetails" />
+	 	<mapping class="com.param.billing.packages.model.TPackageConsumptionEoDetails" />
+	 	<mapping class="com.param.billing.packages.model.TPackageConsumptionServiceDetail" />
+
+		<!--XMasters Billing -->
+		<mapping class="com.param.billing.global.xmasters.XServiceMaster" />
+		
+		    <mapping class="com.param.billing.global.model.TGlobalDocShareGroupWise" />
+			<mapping class="com.param.billing.global.model.TGlobalDocShareServiceWise" />
+			<mapping class="com.param.billing.global.model.TIndividualDocShareGroupWise" />
+			<mapping class="com.param.billing.global.model.TIndividualDocShareServiceWise" />
+
+		<!-- opd schema -->
+
+		<mapping class="com.param.opd.coversheet.model.DoctorClinicMapper" />
+		<mapping class="com.param.opd.appointment.model.AppointmentMaster" />
+		<mapping class="com.param.opd.appointment.model.AppointmentStatusMaster" />
+		<mapping class="com.param.opd.appointment.model.SlotStatusMaster" />
+		<mapping class="com.param.opd.coversheet.model.EncounterMaster" />
+		<mapping class="com.param.opd.coversheet.model.EncounterDetails" />
+		<mapping class="com.param.opd.unit.model.SlotMaster" />
+		<mapping class="com.param.opd.unit.model.SlotBlockUnblockDetail" />
+
+		<!-- Procurement Model -->
+		
+		<!-- commmnet by Pravat -->
+		<!-- <mapping class="com.param.procurement.common.model.AbstractEntity" /> -->
+
+		<!-- Hibernate Entity Models -->
+
+		<mapping class="com.param.opd.coversheet.model.NursingStationClinicMapper" />
+		<mapping class="com.param.opd.coversheet.model.ComplaintAppointmentMapper" />
+		<mapping class="com.param.opd.coversheet.model.DiagnosisMaster" />
+		<mapping class="com.param.opd.coversheet.model.DoctorDiagnosisMapper" />
+
+		<mapping
+			class="com.param.opd.coversheet.model.PatientPersonalHistoryDetails" />
+		<mapping class="com.param.opd.coversheet.model.PatientFamilyHistory" />
+		<mapping class="com.param.opd.coversheet.model.PatientSurgicalHistory" />
+		<mapping class="com.param.opd.coversheet.model.PatientMedicalHistory" />
+		<mapping class="com.param.opd.coversheet.model.ImmunizationHistoryMapper" />
+		<mapping class="com.param.opd.coversheet.model.PatientHabitDetails" />
+		<mapping class="com.param.opd.coversheet.model.AllergyPatientMapper" />
+		<mapping class="com.param.opd.coversheet.model.GeneralExaminationAppoMapper" />
+		<mapping class="com.param.opd.coversheet.model.AppointmentVitalMapper" />
+
+
+		<!-- <mapping class="com.param.opd.coversheet.model.DoctorMaster"/> -->
+
+		<mapping class="com.param.entity.model.base.CommonEntity" />
+		<mapping class="com.param.entity.model.base.BaseEntity" />
+
+		<!-- public schema -->
+		<mapping class="com.param.entity.model.master.Area" />
+		<mapping class="com.param.entity.model.master.AssetCategory" />
+		<mapping class="com.param.entity.model.master.AssetType" />
+		<mapping class="com.param.entity.model.master.CancelReason" />
+		<mapping class="com.param.entity.model.master.City" />
+		<mapping class="com.param.entity.model.master.CompanyType" />
+		<mapping class="com.param.entity.model.master.ConsultantType" />
+		<mapping class="com.param.entity.model.master.ContactType" />
+		<mapping class="com.param.entity.model.master.Country" />
+		<mapping class="com.param.entity.model.master.Currency" />
+		<mapping class="com.param.entity.model.master.Day" />
+		<mapping class="com.param.entity.model.master.DiscountCategory" />
+		<mapping class="com.param.entity.model.master.DiscountType" />
+		<mapping class="com.param.entity.model.master.District" />
+		<mapping class="com.param.entity.model.master.DocumentType" />
+		<mapping class="com.param.entity.model.master.EncounterType" />
+		<mapping class="com.param.entity.model.master.FormulationType" />
+		<mapping class="com.param.entity.model.master.Gender" />
+<!-- 		<mapping class="com.param.entity.model.master.GeneralLedger" /> -->
+		<mapping class="com.param.entity.org.model.GeneralLedgerMaster" />
+		<mapping class="com.param.entity.model.master.Generic" />
+		<mapping class="com.param.entity.model.master.Hour" />
+		<mapping class="com.param.entity.model.master.Item" />
+		<mapping class="com.param.entity.model.master.KinDetail" />
+		<mapping class="com.param.entity.model.master.LicenceType" />
+		<mapping class="com.param.entity.model.master.Manufacturer" />
+		<mapping class="com.param.entity.model.master.MaritalStatus" />
+		<mapping class="com.param.entity.model.master.Modality" />
+		<mapping class="com.param.entity.model.master.ModalityType" />
+		<mapping class="com.param.entity.model.master.Nationality" />
+		<mapping class="com.param.entity.model.master.OccupancyUnit" />
+		<mapping class="com.param.entity.model.master.Occupation" />
+		<mapping class="com.param.entity.model.master.OrderStatus" />
+		<mapping class="com.param.entity.model.master.OrganisationDocumentType" />
+		<mapping class="com.param.entity.model.master.OrganizationLicence" />
+		<mapping class="com.param.entity.model.master.Organization" />
+		<mapping class="com.param.entity.model.master.PatientCategory" />
+		<mapping class="com.param.entity.model.master.PaymentEntitlement" />
+		<mapping class="com.param.entity.model.master.PaymentEntitlementType" />
+		<mapping class="com.param.entity.model.master.PaymentMode" />
+		<mapping class="com.param.entity.model.master.PaymentType" />
+		<mapping class="com.param.entity.model.master.PharmacologicalClassification" />
+		<mapping class="com.param.entity.model.master.Prefix" />
+		<mapping class="com.param.entity.model.master.ProductCategory" />
+		<mapping class="com.param.entity.model.master.ProfitAndCostCenter" />
+		<mapping class="com.param.entity.model.master.Race" />
+		<mapping class="com.param.entity.model.master.RejectReason" />
+		<mapping class="com.param.entity.model.master.Relation" />
+		<mapping class="com.param.entity.model.master.Religion" />
+		<mapping class="com.param.entity.model.master.RequestType" />
+		<mapping class="com.param.entity.model.master.Screen" />
+		<mapping class="com.param.entity.model.master.ScreenPriority" />
+		<mapping class="com.param.entity.model.master.ScreenStatus" />
+		<mapping class="com.param.entity.model.master.Source" />
+		<mapping class="com.param.entity.model.master.State" />
+		<mapping class="com.param.entity.model.master.Status" />
+		<mapping class="com.param.entity.model.master.Store" />
+		<mapping class="com.param.entity.model.master.StoreType" />
+		<mapping class="com.param.entity.model.master.StoreItemMapper" />
+		<mapping class="com.param.entity.model.master.SurgeryGrade" />
+		<mapping class="com.param.entity.model.master.Surgery" />
+		<mapping class="com.param.entity.model.master.SurgeryRisk" />
+		<mapping class="com.param.entity.model.master.Tax" />
+		<mapping class="com.param.entity.model.master.TaxComponent" />
+		<mapping class="com.param.entity.model.master.Unit" />
+		<mapping class="com.param.entity.model.master.UnitOfMeasurement" />
+		<mapping class="com.param.entity.model.master.UomType" />
+		<mapping class="com.param.entity.model.master.UomUnit" />
+		<mapping class="com.param.entity.model.master.User" />
+		<mapping class="com.param.entity.model.master.UserStoreMapper" />
+		<mapping class="com.param.entity.model.master.VisitType" />
+		<mapping class="com.param.entity.model.master.AssociatedCompany" />
+		<mapping class="com.param.entity.model.master.CompanyContractDetail" />
+		<mapping class="com.param.entity.model.master.Company" />
+		<mapping class="com.param.entity.model.master.CurrencyDenomination" />
+		<mapping class="com.param.entity.model.master.OrderDetail" />
+		<mapping class="com.param.entity.model.master.Order" />
+		<mapping class="com.param.entity.model.master.OrganisationContactDetail" />
+		<mapping class="com.param.entity.model.master.OrganisationDocumentDetail" />
+		<mapping class="com.param.entity.model.master.OrganizationUnitMapper" />
+		<mapping class="com.param.entity.model.master.OrganizationUnitUserMapper" />
+		<mapping class="com.param.entity.model.master.PatientSevicesOrder" />
+		<mapping class="com.param.entity.model.master.PatientSurgeryOrder" />
+		<mapping class="com.param.entity.model.master.UnitBedCategoryMapper" />
+		<mapping class="com.param.entity.model.master.UnitHolidayCalenderMapper" />
+		<mapping class="com.param.entity.model.master.UnitIcuTypeMapper" />
+		<mapping class="com.param.entity.model.master.UnitSpecialityMapper" />
+		<mapping class="com.param.entity.model.master.UnitSubSpecialityMapper" />
+		<mapping class="com.param.entity.model.master.UnitUserMapper" />
+		<mapping class="com.param.entity.model.master.UnitLicence" />
+		<mapping class="com.param.entity.model.master.StorageUnit" />
+		<mapping class="com.param.entity.model.master.Vendor" />
+		<mapping class="com.param.entity.model.master.OtherCharge" />
+		<mapping class="com.param.entity.model.master.StoreItemRestriction" />
+		<mapping class="com.param.entity.model.master.StoreProductCategoryMapper" />
+		<mapping class="com.param.entity.model.master.StrengthUnit" />
+		<mapping class="com.param.entity.model.master.Rack" />
+		<mapping class="com.param.entity.model.master.Shelf" />
+		<mapping class="com.param.entity.model.master.FixedAsset" />
+		<mapping class="com.param.entity.model.master.FixedAssetType" />
+		<mapping class="com.param.entity.model.master.StorewiseGenericMapper" />
+		<mapping class="com.param.entity.model.master.RouteOfAdministration" />
+		<mapping class="com.param.entity.model.master.TaxDetail" />
+		<mapping class="com.param.entity.model.master.Schedule" />
+		<mapping class="com.param.entity.model.master.Frequency" />
+		<mapping class="com.param.entity.model.master.FrequencyDetail" />
+		<mapping class="com.param.entity.model.master.Equipment" />
+		<mapping class="com.param.entity.model.master.ConsumableBarcodeConfig" />
+		<mapping class="com.param.entity.model.master.ApplicationConfiguration" />
+		<mapping class="com.param.entity.model.master.Ved" />
+
+		<!-- pharmacy schema -->
+		<mapping class="com.param.entity.model.pharmacy.SaleType" />
+		<mapping class="com.param.entity.model.pharmacy.BatchAllocation" />
+		<mapping class="com.param.entity.model.pharmacy.LastMonthSale" />
+		<mapping class="com.param.entity.model.pharmacy.Sale" />
+		<mapping class="com.param.entity.model.pharmacy.SaleDetail" />
+		<mapping class="com.param.entity.model.pharmacy.TempDoctor" />
+		<mapping class="com.param.entity.model.pharmacy.TempPatientRegistration" />
+		<mapping class="com.param.entity.model.pharmacy.Prescription" />
+		<mapping class="com.param.entity.model.pharmacy.PrescriptionDetail" />
+		<mapping class="com.param.entity.model.pharmacy.Return" />
+		<mapping class="com.param.entity.model.pharmacy.ReturnDetail" />
+		<mapping class="com.param.entity.model.pharmacy.PrescriptionFrequencyDetail" />
+		<mapping class="com.param.entity.model.pharmacy.AssignPicker" />
+		<mapping class="com.param.entity.model.pharmacy.AssignPickerDetail" />
+		<mapping class="com.param.entity.model.pharmacy.Issue" />
+		<mapping class="com.param.entity.model.pharmacy.IssueDetail" />
+		<mapping class="com.param.entity.model.pharmacy.Reject" />
+		<mapping class="com.param.entity.model.pharmacy.RejectDetail" />
+		<mapping class="com.param.entity.model.pharmacy.RejectedRejection" />
+		<mapping class="com.param.entity.model.pharmacy.RejectedRejectionDetail" />
+		<mapping class="com.param.entity.model.pharmacy.PatientIndent" />
+		<mapping class="com.param.entity.model.pharmacy.PatientIndentDetail" />
+		<mapping class="com.param.entity.model.pharmacy.PatientIssueReturn" />
+		<mapping class="com.param.entity.model.pharmacy.PatientIssueReturnDetail" />
+		<mapping class="com.param.entity.model.pharmacy.ReturnOfEmptyAmpoules" />
+		<mapping class="com.param.entity.model.pharmacy.ReturnOfEmptyAmpoulesDetail" />
+		<mapping class="com.param.entity.model.pharmacy.BillableConsumption" />
+		<mapping class="com.param.entity.model.pharmacy.BillableConsumptionDetail" />
+		<mapping class="com.param.entity.model.pharmacy.ReturnBillableConsumption" />
+		<mapping class="com.param.entity.model.pharmacy.ReturnBillableConsumptionDetail" />
+		
+
+		<!-- adt schema -->
+		<mapping class="com.param.entity.model.adt.Admission" />
+		<mapping class="com.param.entity.model.adt.Priority" />
+		<mapping class="com.param.entity.model.adt.AdmissionDetail" />
+		<mapping class="com.param.entity.model.adt.BedMaster" />
+				
+		<mapping class="com.param.entity.model.base.CommonEntity"/>
+		<mapping class="com.param.entity.model.base.BaseEntity"/>
+		
+		<!-- public schema-->
+		<mapping class="com.param.entity.model.master.Area"/>
+		<mapping class="com.param.entity.model.master.AssetCategory"/>
+		<mapping class="com.param.entity.model.master.AssetType"/>
+		<mapping class="com.param.entity.model.master.CancelReason"/>
+		<mapping class="com.param.entity.model.master.City"/>
+		<mapping class="com.param.entity.model.master.CompanyType"/>
+		<mapping class="com.param.entity.model.master.ConsultantType"/>
+		<mapping class="com.param.entity.model.master.ContactType"/>
+		<mapping class="com.param.entity.model.master.Country"/>
+		<mapping class="com.param.entity.model.master.Currency"/>
+		<mapping class="com.param.entity.model.master.Day"/>
+		<mapping class="com.param.entity.model.master.DiscountCategory"/>
+		<mapping class="com.param.entity.model.master.DiscountType"/>
+		<mapping class="com.param.entity.model.master.District"/>
+		<mapping class="com.param.entity.model.master.DocumentType"/>
+		<mapping class="com.param.entity.model.master.EncounterType"/>
+		<mapping class="com.param.entity.model.master.FormulationType"/>
+		<mapping class="com.param.entity.model.master.Gender"/>
+		<mapping class="com.param.entity.model.master.GeneralLedger"/>
+		<mapping class="com.param.entity.model.master.Generic"/>
+		<mapping class="com.param.entity.model.master.Hour"/>
+		<mapping class="com.param.entity.model.master.Item"/>
+		<mapping class="com.param.entity.model.master.KinDetail"/>
+		<mapping class="com.param.entity.model.master.LicenceType"/>
+		<mapping class="com.param.entity.model.master.Manufacturer"/>
+		<mapping class="com.param.entity.model.master.MaritalStatus"/>
+		<mapping class="com.param.entity.model.master.Modality"/>
+		<mapping class="com.param.entity.model.master.ModalityType"/>
+		<mapping class="com.param.entity.model.master.Nationality"/>
+		<mapping class="com.param.entity.model.master.OccupancyUnit"/>
+		<mapping class="com.param.entity.model.master.Occupation"/>
+		<mapping class="com.param.entity.model.master.OrderStatus"/>
+		<mapping class="com.param.entity.model.master.OrganisationDocumentType"/>
+		<mapping class="com.param.entity.model.master.OrganizationLicence"/>
+		<mapping class="com.param.entity.model.master.Organization"/>
+		<mapping class="com.param.entity.model.master.PatientCategory"/>
+		<mapping class="com.param.entity.model.master.PaymentEntitlement"/>
+		<mapping class="com.param.entity.model.master.PaymentEntitlementType"/>
+		<mapping class="com.param.entity.model.master.PaymentMode"/>
+		<mapping class="com.param.entity.model.master.PaymentType"/>
+		<mapping class="com.param.entity.model.master.PharmacologicalClassification"/>
+		<mapping class="com.param.entity.model.master.Prefix"/>
+		<mapping class="com.param.entity.model.master.ProductCategory"/>
+		<mapping class="com.param.entity.model.master.ProfitAndCostCenter"/>
+		<mapping class="com.param.entity.model.master.Race"/>
+		<mapping class="com.param.entity.model.master.RejectReason"/>
+		<mapping class="com.param.entity.model.master.Relation"/>
+		<mapping class="com.param.entity.model.master.Religion"/>
+		<mapping class="com.param.entity.model.master.RequestType"/>
+		<mapping class="com.param.entity.model.master.Screen"/>
+		<mapping class="com.param.entity.model.master.ScreenPriority"/>
+		<mapping class="com.param.entity.model.master.ScreenStatus"/>
+		<mapping class="com.param.entity.model.master.Source"/>
+		<mapping class="com.param.entity.model.master.State"/>
+		<mapping class="com.param.entity.model.master.Status"/>
+		<mapping class="com.param.entity.model.master.Store"/>
+		<mapping class="com.param.entity.model.master.StoreType"/>		
+		<mapping class="com.param.entity.model.master.StoreItemMapper"/>
+		<mapping class="com.param.entity.model.master.SurgeryGrade"/>
+		<mapping class="com.param.entity.model.master.Surgery"/>
+		<mapping class="com.param.entity.model.master.SurgeryRisk"/>
+		<mapping class="com.param.entity.model.master.Tax"/>
+		<mapping class="com.param.entity.model.master.TaxComponent"/>
+		<mapping class="com.param.entity.model.master.Unit"/>
+		<mapping class="com.param.entity.model.master.UnitOfMeasurement"/>
+		<mapping class="com.param.entity.model.master.UomType"/>
+		<mapping class="com.param.entity.model.master.UomUnit"/>
+		<mapping class="com.param.entity.model.master.User"/>
+		<mapping class="com.param.entity.model.master.UserStoreMapper"/>
+		<mapping class="com.param.entity.model.master.VisitType"/>
+		<mapping class="com.param.entity.model.master.AssociatedCompany"/>
+		<mapping class="com.param.entity.model.master.CompanyContractDetail"/>
+		<mapping class="com.param.entity.model.master.Company"/>
+		<mapping class="com.param.entity.model.master.CurrencyDenomination"/>
+		<mapping class="com.param.entity.model.master.OrderDetail"/>
+		<mapping class="com.param.entity.model.master.Order"/>
+		<mapping class="com.param.entity.model.master.OrganisationContactDetail"/>
+		<mapping class="com.param.entity.model.master.OrganisationDocumentDetail"/>
+		<mapping class="com.param.entity.model.master.OrganizationUnitMapper"/>
+		<mapping class="com.param.entity.model.master.OrganizationUnitUserMapper"/>
+		<mapping class="com.param.entity.model.master.PatientSevicesOrder"/>
+		<mapping class="com.param.entity.model.master.PatientSurgeryOrder"/>
+		<mapping class="com.param.entity.model.master.UnitBedCategoryMapper"/>
+		<mapping class="com.param.entity.model.master.UnitHolidayCalenderMapper"/>
+		<mapping class="com.param.entity.model.master.UnitIcuTypeMapper"/>
+		<mapping class="com.param.entity.model.master.UnitSpecialityMapper"/>
+		<mapping class="com.param.entity.model.master.UnitSubSpecialityMapper"/>
+		<mapping class="com.param.entity.model.master.UnitUserMapper"/>
+		<mapping class="com.param.entity.model.master.UnitLicence"/>
+		<mapping class="com.param.entity.model.master.StorageUnit"/>
+		<mapping class="com.param.entity.model.master.Vendor"/>
+		<mapping class="com.param.entity.model.master.OtherCharge"/>		
+		<mapping class="com.param.entity.model.master.StoreItemRestriction"/>
+		<mapping class="com.param.entity.model.master.StoreProductCategoryMapper"/>
+		<mapping class="com.param.entity.model.master.StrengthUnit"/>
+		<mapping class="com.param.entity.model.master.Rack"/>
+		<mapping class="com.param.entity.model.master.Shelf"/>
+		<mapping class="com.param.entity.model.master.FixedAsset"/>
+		<mapping class="com.param.entity.model.master.FixedAssetType"/>
+		<mapping class="com.param.entity.model.master.StorewiseGenericMapper"/>
+		<mapping class="com.param.entity.model.master.RouteOfAdministration"/>
+		<mapping class="com.param.entity.model.master.TaxDetail"/>
+		<mapping class="com.param.entity.model.master.Schedule"/>		
+		<mapping class="com.param.entity.model.master.Frequency"/>
+		<mapping class="com.param.entity.model.master.FrequencyDetail"/>
+		<mapping class="com.param.entity.model.master.ReturnReason"/>
+		<mapping class="com.param.entity.model.master.Equipment"/>
+		
+		<!-- entity public org schema -->
+		<mapping class="com.param.entity.org.model.OrganizationUnitLicenceDetails"/>
+		
+		<!-- pharmacy schema-->
+		<mapping class="com.param.entity.model.pharmacy.SaleType"/>
+		<mapping class="com.param.entity.model.pharmacy.BatchAllocation"/>
+		<mapping class="com.param.entity.model.pharmacy.LastMonthSale"/>
+		<mapping class="com.param.entity.model.pharmacy.Sale"/>
+		<mapping class="com.param.entity.model.pharmacy.SaleDetail"/>
+		<mapping class="com.param.entity.model.pharmacy.TempDoctor"/>
+		<mapping class="com.param.entity.model.pharmacy.TempPatientRegistration"/>
+		<mapping class="com.param.entity.model.pharmacy.Prescription"/>
+		<mapping class="com.param.entity.model.pharmacy.PrescriptionDetail"/>
+		<mapping class="com.param.entity.model.pharmacy.Return"/>
+		<mapping class="com.param.entity.model.pharmacy.ReturnDetail"/>
+		<mapping class="com.param.entity.model.pharmacy.PrescriptionFrequencyDetail"/>
+		<mapping class="com.param.entity.model.pharmacy.AssignPicker"/>
+		<mapping class="com.param.entity.model.pharmacy.AssignPickerDetail"/>
+		<mapping class="com.param.entity.model.pharmacy.Issue"/>
+		<mapping class="com.param.entity.model.pharmacy.IssueDetail"/>
+		<mapping class="com.param.entity.model.pharmacy.Reject"/>
+		<mapping class="com.param.entity.model.pharmacy.RejectDetail"/>
+		<mapping class="com.param.entity.model.pharmacy.RejectedRejection"/>
+		<mapping class="com.param.entity.model.pharmacy.RejectedRejectionDetail"/>
+		<mapping class="com.param.entity.model.pharmacy.PatientIndent"/>
+		<mapping class="com.param.entity.model.pharmacy.PatientIndentDetail"/>
+		<mapping class="com.param.entity.model.pharmacy.IssueDetailBatchMapper"/>
+		
+		<!-- adt schema-->
+		<mapping class="com.param.entity.model.adt.Admission"/>
+		<mapping class="com.param.entity.model.adt.Priority"/>
+		<mapping class="com.param.entity.model.adt.AdmissionDetail"/>
+		<mapping class="com.param.entity.model.adt.BedMaster"/>
+		<mapping class="com.param.entity.model.base.CommonEntity" />
+		<mapping class="com.param.entity.model.base.BaseEntity" />
+
+		<!-- public schema -->
+		<mapping class="com.param.entity.model.master.Area" />
+		<mapping class="com.param.entity.model.master.AssetCategory" />
+		<mapping class="com.param.entity.model.master.AssetType" />
+		<mapping class="com.param.entity.model.master.CancelReason" />
+		<mapping class="com.param.entity.model.master.City" />
+		<mapping class="com.param.entity.model.master.CompanyType" />
+		<mapping class="com.param.entity.model.master.ConsultantType" />
+		<mapping class="com.param.entity.model.master.ContactType" />
+		<mapping class="com.param.entity.model.master.Country" />
+		<mapping class="com.param.entity.model.master.Currency" />
+		<mapping class="com.param.entity.model.master.Day" />
+		<mapping class="com.param.entity.model.master.DiscountCategory" />
+		<mapping class="com.param.entity.model.master.DiscountType" />
+		<mapping class="com.param.entity.model.master.District" />
+		<mapping class="com.param.entity.model.master.DocumentType" />
+		<mapping class="com.param.entity.model.master.EncounterType" />
+		<mapping class="com.param.entity.model.master.FormulationType" />
+		<mapping class="com.param.entity.model.master.Gender" />
+		<mapping class="com.param.entity.model.master.GeneralLedger" />
+		<mapping class="com.param.entity.model.master.Generic" />
+		<mapping class="com.param.entity.model.master.Hour" />
+		<mapping class="com.param.entity.model.master.Item" />
+		<mapping class="com.param.entity.model.master.KinDetail" />
+		<mapping class="com.param.entity.model.master.LicenceType" />
+		<mapping class="com.param.entity.model.master.Manufacturer" />
+		<mapping class="com.param.entity.model.master.MaritalStatus" />
+		<mapping class="com.param.entity.model.master.Modality" />
+		<mapping class="com.param.entity.model.master.ModalityType" />
+		<mapping class="com.param.entity.model.master.Nationality" />
+		<mapping class="com.param.entity.model.master.OccupancyUnit" />
+		<mapping class="com.param.entity.model.master.Occupation" />
+		<mapping class="com.param.entity.model.master.OrderStatus" />
+		<mapping class="com.param.entity.model.master.OrganisationDocumentType" />
+		<mapping class="com.param.entity.model.master.OrganizationLicence" />
+		<mapping class="com.param.entity.model.master.Organization" />
+		<mapping class="com.param.entity.model.master.PatientCategory" />
+		<mapping class="com.param.entity.model.master.PaymentEntitlement" />
+		<mapping class="com.param.entity.model.master.PaymentEntitlementType" />
+		<mapping class="com.param.entity.model.master.PaymentMode" />
+		<mapping class="com.param.entity.model.master.PaymentType" />
+		<mapping class="com.param.entity.model.master.PharmacologicalClassification" />
+		<mapping class="com.param.entity.model.master.Prefix" />
+		<mapping class="com.param.entity.model.master.ProductCategory" />
+		<mapping class="com.param.entity.model.master.ProfitAndCostCenter" />
+		<mapping class="com.param.entity.model.master.Race" />
+		<mapping class="com.param.entity.model.master.RejectReason" />
+		<mapping class="com.param.entity.model.master.Relation" />
+		<mapping class="com.param.entity.model.master.Religion" />
+		<mapping class="com.param.entity.model.master.RequestType" />
+		<mapping class="com.param.entity.model.master.Screen" />
+		<mapping class="com.param.entity.model.master.ScreenPriority" />
+		<mapping class="com.param.entity.model.master.ScreenStatus" />
+		<mapping class="com.param.entity.model.master.Source" />
+		<mapping class="com.param.entity.model.master.State" />
+		<mapping class="com.param.entity.model.master.Status" />
+		<mapping class="com.param.entity.model.master.Store" />
+		<mapping class="com.param.entity.model.master.StoreType" />
+		<mapping class="com.param.entity.model.master.StoreItemMapper" />
+		<mapping class="com.param.entity.model.master.SurgeryGrade" />
+		<mapping class="com.param.entity.model.master.Surgery" />
+		<mapping class="com.param.entity.model.master.SurgeryRisk" />
+		<mapping class="com.param.entity.model.master.Tax" />
+		<mapping class="com.param.entity.model.master.TaxComponent" />
+		<mapping class="com.param.entity.model.master.Unit" />
+		<mapping class="com.param.entity.model.master.UnitOfMeasurement" />
+		<mapping class="com.param.entity.model.master.UomType" />
+		<mapping class="com.param.entity.model.master.UomUnit" />
+		<mapping class="com.param.entity.model.master.User" />
+		<mapping class="com.param.entity.model.master.UserStoreMapper" />
+		<mapping class="com.param.entity.model.master.VisitType" />
+		<mapping class="com.param.entity.model.master.AssociatedCompany" />
+		<mapping class="com.param.entity.model.master.CompanyContractDetail" />
+		<mapping class="com.param.entity.model.master.Company" />
+		<mapping class="com.param.entity.model.master.CurrencyDenomination" />
+		<mapping class="com.param.entity.model.master.OrderDetail" />
+		<mapping class="com.param.entity.model.master.Order" />
+		<mapping class="com.param.entity.model.master.OrganisationContactDetail" />
+		<mapping class="com.param.entity.model.master.OrganisationDocumentDetail" />
+		<mapping class="com.param.entity.model.master.OrganizationUnitMapper" />
+		<mapping class="com.param.entity.model.master.OrganizationUnitUserMapper" />
+		<mapping class="com.param.entity.model.master.PatientSevicesOrder" />
+		<mapping class="com.param.entity.model.master.PatientSurgeryOrder" />
+		<mapping class="com.param.entity.model.master.UnitBedCategoryMapper" />
+		<mapping class="com.param.entity.model.master.UnitHolidayCalenderMapper" />
+		<mapping class="com.param.entity.model.master.UnitIcuTypeMapper" />
+		<mapping class="com.param.entity.model.master.UnitSpecialityMapper" />
+		<mapping class="com.param.entity.model.master.UnitSubSpecialityMapper" />
+		<mapping class="com.param.entity.model.master.UnitUserMapper" />
+		<mapping class="com.param.entity.model.master.UnitLicence" />
+		<mapping class="com.param.entity.model.master.StorageUnit" />
+		<mapping class="com.param.entity.model.master.Vendor" />
+		<mapping class="com.param.entity.model.master.OtherCharge" />
+		<mapping class="com.param.entity.model.master.StoreItemRestriction" />
+		<mapping class="com.param.entity.model.master.StoreProductCategoryMapper" />
+		<mapping class="com.param.entity.model.master.StrengthUnit" />
+		<mapping class="com.param.entity.model.master.Rack" />
+		<mapping class="com.param.entity.model.master.Shelf" />
+		<mapping class="com.param.entity.model.master.FixedAsset" />
+		<mapping class="com.param.entity.model.master.FixedAssetType" />
+		<mapping class="com.param.entity.model.master.StorewiseGenericMapper" />
+		<mapping class="com.param.entity.model.master.RouteOfAdministration" />
+		<mapping class="com.param.entity.model.master.TaxDetail" />
+		<mapping class="com.param.entity.model.master.Schedule" />
+		<mapping class="com.param.entity.model.master.Frequency" />
+		<mapping class="com.param.entity.model.master.FrequencyDetail" />
+		<mapping class="com.param.entity.model.master.ReturnReason" />
+		<mapping class="com.param.entity.model.master.ScrapReason" />
+
+		<!-- pharmacy schema -->
+		<mapping class="com.param.entity.model.pharmacy.SaleType" />
+		<mapping class="com.param.entity.model.pharmacy.BatchAllocation" />
+		<mapping class="com.param.entity.model.pharmacy.LastMonthSale" />
+		<mapping class="com.param.entity.model.pharmacy.Sale" />
+		<mapping class="com.param.entity.model.pharmacy.SaleDetail" />
+		<mapping class="com.param.entity.model.pharmacy.TempDoctor" />
+		<mapping class="com.param.entity.model.pharmacy.TempPatientRegistration" />
+		<mapping class="com.param.entity.model.pharmacy.Prescription" />
+		<mapping class="com.param.entity.model.pharmacy.PrescriptionDetail" />
+		<mapping class="com.param.entity.model.pharmacy.Return" />
+		<mapping class="com.param.entity.model.pharmacy.ReturnDetail" />
+		<mapping class="com.param.entity.model.pharmacy.PrescriptionFrequencyDetail" />
+		<mapping class="com.param.entity.model.pharmacy.AssignPicker" />
+		<mapping class="com.param.entity.model.pharmacy.AssignPickerDetail" />
+		<mapping class="com.param.entity.model.pharmacy.Issue" />
+		<mapping class="com.param.entity.model.pharmacy.IssueDetail" />
+		<mapping class="com.param.entity.model.pharmacy.Reject" />
+		<mapping class="com.param.entity.model.pharmacy.RejectDetail" />
+		<mapping class="com.param.entity.model.pharmacy.RejectedRejection" />
+		<mapping class="com.param.entity.model.pharmacy.RejectedRejectionDetail" />
+		<mapping class="com.param.entity.model.pharmacy.PatientIndent" />
+		<mapping class="com.param.entity.model.pharmacy.PatientIndentDetail" />
+		<mapping class="com.param.entity.model.pharmacy.IssueDetailBatchMapper" />
+
+		<!-- adt schema -->
+		<mapping class="com.param.entity.model.adt.Admission" />
+		<mapping class="com.param.entity.model.adt.Priority" />
+		<mapping class="com.param.entity.model.adt.AdmissionDetail" />
+		<mapping class="com.param.entity.model.adt.BedMaster" />
+		<mapping class="com.param.entity.model.adt.FloorMasters" />
+		<mapping class="com.param.entity.model.adt.WardMasters" />
+
+
+		<!-- doctor schema -->
+		<mapping class="com.param.entity.model.doctor.Doctor" />
+		<mapping class="com.param.entity.model.doctor.DoctorSpecialityMapper" />
+		<mapping class="com.param.entity.model.doctor.Speciality" />
+
+		<!-- opd schema -->
+		<mapping class="com.param.entity.model.opd.Encounter" />
+
+		<!-- patient schema -->
+		<mapping class="com.param.entity.model.patient.PatientRegistration" />
+
+		<!-- inventory schema -->
+		<mapping class="com.param.entity.model.inventory.IndentType" />
+		<mapping class="com.param.entity.model.inventory.Batch" />
+		<mapping class="com.param.entity.model.inventory.OpeningBalance" />
+		<mapping class="com.param.entity.model.inventory.OpeningBalanceDetail" />
+		<mapping class="com.param.entity.model.inventory.StockTransaction" />
+		<mapping class="com.param.entity.model.inventory.StoreIndent" />
+		<mapping class="com.param.entity.model.inventory.StoreIndentDetail" />
+		<mapping class="com.param.entity.model.inventory.StoreStock" />
+		<mapping class="com.param.entity.model.inventory.BatchUomMapper" />
+		<mapping class="com.param.entity.model.inventory.OpbUomMapper" />
+		<mapping class="com.param.entity.model.inventory.MaterialPicker" />
+		<mapping class="com.param.entity.model.inventory.MaterialPickerDetail" />
+		<mapping class="com.param.entity.model.inventory.MaterialPickerBatchMapper" />
+		<mapping class="com.param.entity.model.inventory.MaterialIssue" />
+		<mapping class="com.param.entity.model.inventory.MaterialIssueDetail" />
+		<mapping class="com.param.entity.model.inventory.MaterialIssueBatchMapper" />
+		<mapping class="com.param.entity.model.inventory.Reject" />
+		<mapping class="com.param.entity.model.inventory.RejectDetail" />
+		<mapping class="com.param.entity.model.inventory.ScrapRequest" />
+		<mapping class="com.param.entity.model.inventory.ScrapRequestDetail" />
+		<mapping class="com.param.entity.model.inventory.AssetDisposalWorklistRequest" />
+		<mapping class="com.param.entity.model.inventory.AssetDisposalWorklistRequestDetail" />
+		<mapping class="com.param.entity.model.inventory.MaterialInward" />
+		<mapping class="com.param.entity.model.inventory.WasteAssetDisposalWorklist" />
+		<mapping class="com.param.entity.model.inventory.WasteAssetDisposalWorklistDetail" />
+
+		<!-- procurement schema -->
+		<mapping class="com.param.entity.model.procurement.PurchaseRequest" />
+		<mapping class="com.param.entity.model.procurement.PurchaseRequestDetail" />
+
+		<!-- <mapping class="com.param.procurement.purchase.model.ItemRequest"/> -->
+		<mapping class="com.param.entity.model.procurement.PurchaseOrder" />
+		<mapping class="com.param.entity.model.procurement.PurchaseOrderDetail" />
+		<mapping
+			class="com.param.entity.model.procurement.PurchaseOrderOtherChargesMapper" />
+		<mapping class="com.param.entity.model.procurement.PurchaseOrderUomMapper" />
+		<mapping class="com.param.entity.model.procurement.BonusUomMapper" />
+		<mapping class="com.param.entity.model.procurement.ItemRequest" />
+		<mapping class="com.param.entity.model.procurement.ItemRequestDetail" />
+		<mapping class="com.param.entity.model.procurement.PurchaseOrderStaged" />
+		<mapping class="com.param.entity.model.procurement.GoodReceiptNote" />
+		<mapping class="com.param.entity.model.procurement.GoodReceiptNoteDetail" />
+		<mapping class="com.param.entity.model.procurement.GrnBonusUomMapper" />
+		<mapping class="com.param.entity.model.procurement.GrnOtherChargesMapper" />
+		<mapping class="com.param.entity.model.procurement.GrnUomMapper" />
+		<mapping class="com.param.entity.model.procurement.GRNStagedQuantity" />
+		<mapping class="com.param.entity.model.procurement.QuotationRequest" />
+		<mapping class="com.param.entity.model.procurement.QuotationRequestDetail" />
+		<mapping
+			class="com.param.entity.model.procurement.QuotationRequestAccessoriesMapper" />
+		<mapping class="com.param.entity.model.procurement.ShelfItem" />
+		<mapping class="com.param.entity.model.procurement.PhysicalInspection" />
+		<mapping class="com.param.entity.model.procurement.PhysicalInspectionDetail" />
+		<mapping class="com.param.entity.model.procurement.QuotationVendor" />
+		<mapping class="com.param.entity.model.procurement.QuotationVendorDetail" />
+
+		<mapping class="com.param.entity.model.adt.WardMasters"/>
+		
+		
+		<!-- doctor schema-->
+		<mapping class="com.param.entity.model.doctor.Doctor"/>
+		<mapping class="com.param.entity.model.doctor.DoctorSpecialityMapper"/>
+		<mapping class="com.param.entity.model.doctor.Speciality"/>
+		
+		<!-- opd schema-->
+		<mapping class="com.param.entity.model.opd.Encounter"/>
+		
+		<!-- patient schema-->
+		<mapping class="com.param.entity.model.patient.PatientRegistration"/>
+		
+		<!-- inventory schema-->
+		<mapping class="com.param.entity.model.inventory.IndentType"/>
+		<mapping class="com.param.entity.model.inventory.Batch"/>
+		<mapping class="com.param.entity.model.inventory.OpeningBalance"/>
+		<mapping class="com.param.entity.model.inventory.OpeningBalanceDetail"/>
+		<mapping class="com.param.entity.model.inventory.StockTransaction"/>
+		<mapping class="com.param.entity.model.inventory.StoreIndent"/>
+		<mapping class="com.param.entity.model.inventory.StoreIndentDetail"/>
+		<mapping class="com.param.entity.model.inventory.StoreStock"/>
+		<mapping class="com.param.entity.model.inventory.BatchUomMapper"/>
+		<mapping class="com.param.entity.model.inventory.OpbUomMapper"/>
+		<mapping class="com.param.entity.model.inventory.MaterialPicker"/>
+		<mapping class="com.param.entity.model.inventory.MaterialPickerDetail"/>
+		<mapping class="com.param.entity.model.inventory.MaterialPickerBatchMapper"/>
+		<mapping class="com.param.entity.model.inventory.MaterialIssue"/>
+        <mapping class="com.param.entity.model.inventory.MaterialIssueDetail"/>
+        <mapping class="com.param.entity.model.inventory.MaterialIssueBatchMapper"/>
+        <mapping class="com.param.entity.model.inventory.Reject"/>
+        <mapping class="com.param.entity.model.inventory.RejectDetail"/>
+		
+		<!-- procurement schema-->
+		<mapping class="com.param.entity.model.procurement.PurchaseRequest"/>
+		<mapping class="com.param.entity.model.procurement.PurchaseRequestDetail"/>
+
+		<!--  <mapping class="com.param.procurement.purchase.model.ItemRequest"/>-->
+		<mapping class="com.param.entity.model.procurement.PurchaseOrder"/>
+		<mapping class="com.param.entity.model.procurement.PurchaseOrderDetail"/>
+		<mapping class="com.param.entity.model.procurement.PurchaseOrderOtherChargesMapper"/>
+		<mapping class="com.param.entity.model.procurement.PurchaseOrderUomMapper"/>
+		<mapping class="com.param.entity.model.procurement.BonusUomMapper"/>
+		<mapping class="com.param.entity.model.procurement.ItemRequest"/>
+		<mapping class="com.param.entity.model.procurement.ItemRequestDetail"/>
+		<mapping class="com.param.entity.model.procurement.PurchaseOrderStaged"/>
+		<mapping class="com.param.entity.model.procurement.GoodReceiptNote"/>
+		<mapping class="com.param.entity.model.procurement.GoodReceiptNoteDetail"/>
+		<mapping class="com.param.entity.model.procurement.GrnBonusUomMapper"/>
+		<mapping class="com.param.entity.model.procurement.GrnOtherChargesMapper"/>
+		<mapping class="com.param.entity.model.procurement.GrnUomMapper"/>
+		<mapping class="com.param.entity.model.procurement.GRNStagedQuantity"/>
+		<mapping class="com.param.entity.model.procurement.QuotationRequest"/>
+		<mapping class="com.param.entity.model.procurement.QuotationRequestDetail"/>
+		<mapping class="com.param.entity.model.procurement.QuotationRequestAccessoriesMapper"/>
+		<mapping class="com.param.entity.model.procurement.ShelfItem"/>
+		<mapping class="com.param.entity.model.procurement.PhysicalInspection"/>
+		<mapping class="com.param.entity.model.procurement.PhysicalInspectionDetail"/>
+		<mapping class="com.param.entity.model.procurement.QuotationVendor"/>
+		<mapping class="com.param.entity.model.procurement.QuotationVendorDetail"/>
+		<mapping class="com.param.entity.model.procurement.QuotationFill"/>
+		<mapping class="com.param.entity.model.procurement.QuotationFillDetail"/>
+		<mapping class="com.param.entity.model.procurement.QuotationFillAccessory"/>
+		<mapping class="com.param.entity.model.procurement.TechnicalApproval"/>
+		<mapping class="com.param.entity.model.procurement.TechnicalApprovalDetail"/>
+		<mapping class="com.param.entity.model.procurement.TechnicalApprovalDetailMapper"/>
+		<mapping class="com.param.entity.model.procurement.VendorNegociation"/>
+		<mapping class="com.param.entity.model.procurement.VendorNegociationDetail"/>
+		<mapping class="com.param.entity.model.procurement.VendorNegociationMapper"/>
+		
+
+
+		<mapping class="com.param.entity.model.adt.WardMasters" />
+
+		<!-- doctor schema -->
+		<mapping class="com.param.entity.model.doctor.Doctor" />
+		<mapping class="com.param.entity.model.doctor.DoctorSpecialityMapper" />
+		<mapping class="com.param.entity.model.doctor.Speciality" />
+
+		<!-- opd schema -->
+		<mapping class="com.param.entity.model.opd.Encounter" />
+
+		<!-- patient schema -->
+		<mapping class="com.param.entity.model.patient.PatientRegistration" />
+
+		<!-- inventory schema -->
+		<mapping class="com.param.entity.model.inventory.IndentType" />
+		<mapping class="com.param.entity.model.inventory.Batch" />
+		<mapping class="com.param.entity.model.inventory.OpeningBalance" />
+		<mapping class="com.param.entity.model.inventory.OpeningBalanceDetail" />
+		<mapping class="com.param.entity.model.inventory.StockTransaction" />
+		<mapping class="com.param.entity.model.inventory.StoreIndent" />
+		<mapping class="com.param.entity.model.inventory.StoreIndentDetail" />
+		<mapping class="com.param.entity.model.inventory.StoreStock" />
+		<mapping class="com.param.entity.model.inventory.BatchUomMapper" />
+		<mapping class="com.param.entity.model.inventory.OpbUomMapper" />
+		<mapping class="com.param.entity.model.inventory.MaterialPicker" />
+		<mapping class="com.param.entity.model.inventory.MaterialPickerDetail" />
+		<mapping class="com.param.entity.model.inventory.MaterialPickerBatchMapper" />
+		<mapping class="com.param.entity.model.inventory.MaterialIssue" />
+		<mapping class="com.param.entity.model.inventory.MaterialIssueDetail" />
+		<mapping class="com.param.entity.model.inventory.MaterialIssueBatchMapper" />
+		<mapping class="com.param.entity.model.inventory.Reject" />
+		<mapping class="com.param.entity.model.inventory.RejectDetail" />
+		<mapping class="com.param.entity.model.inventory.Return" />
+		<mapping class="com.param.entity.model.inventory.ReturnDetail" />
+		<mapping class="com.param.entity.model.inventory.BatchExp" />
+		<mapping class="com.param.entity.model.inventory.BatchExpDetail" />
+		<mapping class="com.param.entity.model.inventory.NonBillableConsumption" />
+		<mapping class="com.param.entity.model.inventory.NonBillableConsumptionDetail" />
+		<mapping class="com.param.entity.model.inventory.ReturnableGatepass" />
+		<mapping class="com.param.entity.model.inventory.ReturnableGatepassDetail" />
+		<mapping
+			class="com.param.entity.model.inventory.NonBillableConsumptionDetail" />
+
+
+		<!-- procurement schema -->
+		<mapping class="com.param.entity.model.procurement.PurchaseRequest" />
+		<mapping class="com.param.entity.model.procurement.PurchaseRequestDetail" />
+
+		<!-- <mapping class="com.param.procurement.purchase.model.ItemRequest"/> -->
+		<mapping class="com.param.entity.model.procurement.PurchaseOrder" />
+		<mapping class="com.param.entity.model.procurement.PurchaseOrderDetail" />
+		<mapping
+			class="com.param.entity.model.procurement.PurchaseOrderOtherChargesMapper" />
+		<mapping class="com.param.entity.model.procurement.PurchaseOrderUomMapper" />
+		<mapping class="com.param.entity.model.procurement.BonusUomMapper" />
+		<mapping class="com.param.entity.model.procurement.ItemRequest" />
+		<mapping class="com.param.entity.model.procurement.ItemRequestDetail" />
+		<mapping class="com.param.entity.model.procurement.PurchaseOrderStaged" />
+		<mapping class="com.param.entity.model.procurement.GoodReceiptNote" />
+		<mapping class="com.param.entity.model.procurement.GoodReceiptNoteDetail" />
+		<mapping class="com.param.entity.model.procurement.GrnBonusUomMapper" />
+		<mapping class="com.param.entity.model.procurement.GrnOtherChargesMapper" />
+		<mapping class="com.param.entity.model.procurement.GrnUomMapper" />
+		<mapping class="com.param.entity.model.procurement.GRNStagedQuantity" />
+		<mapping class="com.param.entity.model.procurement.ShelfItem" />
+		<mapping class="com.param.entity.model.procurement.PhysicalInspection" />
+		<mapping class="com.param.entity.model.procurement.PhysicalInspectionDetail" />
+
+
+
+
+		<!-- Diet And Kitchen -->
+		<!-- commented by Pravat for LIS -->
+		<!-- <mapping class="com.param.global.master.model.NutritionalMaster" />
+		<mapping class="com.param.global.master.model.KeyIngredientsMaster" />
+		<mapping class="com.param.global.master.model.UnitOfMeasurmentMaster" />
+		<mapping class="com.param.global.master.model.KeyIngredientsNutritionMapper" />
+		<mapping class="com.param.global.master.model.DietTypeMaster" />
+		<mapping class="com.param.global.master.model.DishMaster" />
+		<mapping class="com.param.global.master.model.DishMasterMapper" />
+ -->
+
+		<!-- OPD appointment patient diagnosis mapper -->
+		<mapping
+			class="com.param.opd.coversheet.model.DiagnosisPatientAppointmentMapper" />
+
+		<!-- OPD appointment patient diagnosis mapper -->
+		<mapping class="com.param.opd.coversheet.model.PatientTravelHistoryDetails" />
+
+		<!-- ADT patient templet -->
+		<mapping class="com.param.adt.templet.model.PatientTemplet" />
+
+		<!-- 		org- common-model -->
+			<mapping class="com.param.global.org.common.model.DegreeMaster" />
+			<mapping class="com.param.global.org.common.model.QualificationMaster" />
+			<mapping class="com.param.global.org.common.model.ReasonTypeMaster" />
+			<mapping class="com.param.global.org.common.model.RejectionMaster" />
+		<!-- Entry to log table  -->
+
+		<mapping class="com.param.global.model.ScheduleLogs" />
+
+		<!-- Service Schema -->
+		<mapping class="com.param.service.global.model.MPackageMaster" />
+		<mapping class="com.param.service.global.model.TPackageBedCategoryDetail" />
+		<mapping class="com.param.service.global.model.TPackageCapDetails" />
+		<mapping
+			class="com.param.service.global.model.TPackageCategoryWiseConsumableDetails" />
+		<mapping class="com.param.service.global.model.TPackageEitherorGroupDetails" />
+		<mapping class="com.param.service.global.model.TPackageIncExcDetails" />
+		<mapping class="com.param.service.global.model.TPackageServicesDetails" />
+
+		<mapping class="com.param.service.global.model.ContractGradeMaster" />
+		<mapping class="com.param.service.global.model.MCompanyContractMaster" />
+		<mapping class="com.param.service.global.model.TContractCapDetails" />
+		<mapping class="com.param.service.global.model.TContractGroupDetails" />
+		<mapping
+			class="com.param.service.global.model.TContractGroupPharmacyExclusionDetails" />
+		<mapping class="com.param.service.global.model.TContractServiceDetails" />
+
+		<!-- Entry to log table  -->
+
+		<mapping class="com.param.global.model.ScheduleLogs" /> 
+		
+		<!-- Service Schema -->
+		<mapping class="com.param.service.global.model.MPackageMaster"/>
+		<mapping class="com.param.service.global.model.TPackageBedCategoryDetail"/>
+		<mapping class="com.param.service.global.model.TPackageCapDetails"/>
+		<mapping class="com.param.service.global.model.TPackageCategoryWiseConsumableDetails"/>
+		<mapping class="com.param.service.global.model.TPackageEitherorGroupDetails"/>
+		<mapping class="com.param.service.global.model.TPackageIncExcDetails"/>
+		<mapping class="com.param.service.global.model.TPackageServicesDetails"/>
+		
+		<mapping class="com.param.service.global.model.ContractGradeMaster"/>
+		<mapping class="com.param.service.global.model.MCompanyContractMaster"/>
+		<mapping class="com.param.service.global.model.TContractCapDetails"/>
+	 	<mapping class="com.param.service.global.model.TContractGroupDetails"/>
+		<mapping class="com.param.service.global.model.TContractGroupPharmacyExclusionDetails"/>
+		<mapping class="com.param.service.global.model.TContractServiceDetails"/>
+		<mapping class="com.param.service.global.model.TContractBedCategoryDetail"/>
+
+	</session-factory>
+
+</hibernate-configuration>

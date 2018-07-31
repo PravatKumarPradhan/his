@@ -1,0 +1,527 @@
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid his-style">
+            	<!-- <div class="row margin-top8">
+            		<div class="col-md-8"></div>
+						<div class="col-md-4 col-sm-4">
+							<div class="col-lg-10 col-md-9 col-sm-9">
+								<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+								<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+							</div>
+								<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+								<div class="width-div-for-patient-reg ">
+									<a href="" class="btn btn-primary btn-save-box-shadow"
+										title="Save" data-toggle="modal" data-target="#confirmLogout"><i
+										class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+								</div>
+						</div>
+					</div>
+				</div> -->
+				<div class="row ng-scope padding-top8">
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right width4">
+						<!-- <div class=" ">
+							<a href="" data-toggle="modal" data-target="#confirmLogout" class="btn btn-primary btn-save-box-shadow" title="Save"><i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a>	
+						</div> -->
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+							<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="row padding-left-right-set4 margin-top10">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<tr class="">
+							
+							<th style="width:15%">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th style="width:15%">
+									Name of Deceased
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th style="width:5%">
+									Bed Number
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th style="width:15%">
+									Next Of Kin Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th style="width:25%">
+									Expected Arrival Date and Time
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th style="width:15%">
+									Duration
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th style="width:25%">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr ng-repeat="info in mortuaryReserveList">
+							   <td>{{info.uhidNumber}}</td>
+								<td>{{info.patientName}}</td>
+								<td>{{info.mortuaryBedNumber}}</td>
+								<td class="text-center">
+									<a><i class="fa fa-info-circle" aria-hidden="true" data-toggle="modal" data-target="#nextToKinDetailsModal" ng-click="nextOfKinDetails(info)"></i></a>
+								</td>
+								<td>
+									<div>{{info.expectedArrivalDate}} </div>
+								</td>
+								<td><div><div ng-if="info.durationFormat == 1">{{info.durationValue+' Hours'}}</div><div ng-if="info.durationFormat == 2">{{info.durationValue+' Day'}}</div></div></td>
+								<td class="text-center">
+									<a  data-toggle="modal" data-target="#BedBooking" ng-click="patientDetails(info)">Allot</a>&nbsp;&nbsp;<a href="" ng-click="getDataReject(info)" data-toggle="modal" data-target="#accepatReject">Reject </a>
+								</td>
+							</tr>
+														
+						</table>
+					</div>
+				</div>
+  			</div>
+		</div>
+		<modal visible="showModal"></modal> 
+		<div ng-include="'./views/common/accept-reject.html'"></div>
+<!-- *********** next to kin details start *************** -->		
+<div id="nextToKinDetailsModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Kin Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 fix-height-scroll300 padding-top10 padding-left-right-set4">
+						<div class="row">
+							<div class="col-md-12 col-lg-12 headerHeight">
+								<table class="table table-bordered">
+									<tr>
+									<th class="width1"></th>
+										<th class="width15">
+											<span class="">Name</span>
+										</th>
+										<th class="width15">
+											Mobile Number
+										</th>
+										<th class="date-column">
+											Action
+										</th>
+									</tr>
+									<tr ng-repeat = "kin in kinDetailsList">
+									<td>
+									<input type="radio" name="radioName" value="kin.kinDetailsId" ng-model="kinDetails" ng-click="selectItem(kin)" />
+								</td>
+										<td>
+											{{kin.kinName}}
+										</td>
+										<td>
+											{{kin.mobileNo}}
+										</td>
+										<td>
+											
+											<a href="" class="margin-left10" ng-click="updateKinDetailsStatus(kin)"><i class="fa fa-times" aria-hidden="true"></i></a>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						
+						<div class="row margin-top10">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-object-group" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" name="code" ng-model="kinDetails.prefixId">
+										<option>Select Prefix</option>
+										<option ng-repeat="info in prefixList" value="{{info.prefixId}}">{{info.prefixDesc}}</option>
+										
+									</select>
+									<label for="code">Select Prefix</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-user-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="requiredOn" ng-model="kinDetails.kinName" class="text-input floating-label">
+									<label for="code">Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-user-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" name="code" ng-model="kinDetails.relationId">
+										<option>Select Relationship With Patient</option>
+										<option ng-repeat="info in relationList" value="{{info.id}}">{{info.desc}}</option>
+									</select>
+									<label for="code">Relationship With Patient</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top10">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-mobile" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="requiredOn" ng-model="kinDetails.mobileNo" class="text-input floating-label">
+									<label for="code">Mobile No</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-mobile" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="requiredOn" ng-model="kinDetails.phoneNo" class="text-input floating-label">
+									<label for="code">Phone No</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-id-card-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" name="code" ng-model="kinDetails.identificationId">
+										<option>Select Identification</option>
+										<option ng-repeat="info in identificationList" value="{{info.identificationId}}">{{info.identificationName}}</option>
+									</select>
+									<label for="code">Identification</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top10">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-id-card-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="requiredOn" ng-model="kinDetails.identificationNo" class="text-input floating-label">
+									<label for="code">Identification No.</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class=""  >
+								<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" 
+									placeholder="DD/MM/YYYY" ng-model="datepicker"
+									model-view-value="true" is-open="datepicker.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker()"> <label for="code" class="">
+									Expiry Date</label>
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<input type="checkbox" ng-model="kinDetails.isGuarantor" ng-true-value="'Y'" ng-false-value="'N'">Guarantor
+						</div>
+					</div>
+			</div>
+			<div class="row margin-top10">
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-flag" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class=""   >
+							<!-- <input type="hidden" ng-model="area.areaId"> -->
+							
+								<select class="text-input floating-label" name="countryId" ng-model="kinDetails.countryId" ng-change="getStateByCountry(kinDetails.countryId)" >
+									<option>Select Country</option>
+									<option ng-repeat="info in countryList" value="{{info.countryId}}">{{info.countryName}}</option>
+								</select> <label for="code">Country</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-university" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class=""   >
+								<select class="text-input floating-label" name="stateId" ng-model="kinDetails.stateId" ng-change="getDistrictByState(kinDetails.stateId)" >
+									<option>Select State</option>
+									<option ng-repeat="info in stateList" value="{{info.stateId}}">{{info.stateName}}</option>
+								</select> <label for="code">State</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-university" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class=""   >
+								<select class="text-input floating-label" name="districtId" ng-model="kinDetails.districtId" ng-change="getCityByDistrict(kinDetails.districtId)" >
+									<option>Select District</option>
+									<option ng-repeat="info in districtList" value="{{info.districtId}}">{{info.districtName}}</option>
+								</select> <label for="code">District</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row margin-top10">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-building-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class=""   >
+									<select class="text-input floating-label" name="cityId" ng-model="kinDetails.cityId" ng-change="getAreaByCity(kinDetails.cityId)" >
+										<option>Select City</option>
+										<option ng-repeat="info in cityList" value="{{info.cityId}}">{{info.cityName}}</option>
+									</select> <label for="code">City</label>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-building-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class=""   >
+									<select class="text-input floating-label" name="areaId" ng-model="kinDetails.areaId" >
+										<option>Select Area</option>
+										<option ng-repeat="info in areaList" value="{{info.areaId}}">{{info.areaName}}</option>
+									</select> <label for="code">Area</label>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-university" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class=""   >
+									<input type="text" name="postCode" id=""
+										class="text-input floating-label" ng-model="kinDetails.postCode" required>
+										 <label for="code">Post Code</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top10">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="requiredOn"  ng-model="kinDetails.address" class="text-input floating-label">
+									<label for="code">Address</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer margin-top8">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Save"  ng-click="saveKinDetails()"class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- *********** next to kin details end *************** -->
+
+<div id="BedBooking" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					<span class="profile_pic margin-left10"> 
+			<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+		</span> 
+		<span class="margin-left10">{{patientName}}</span>
+		<span class="margin-left10"><b class="padding-right5 ">UHID: </b> {{uhidNumber}}</span>
+		<span class="margin-left10"><b class="padding-right5 ">Bed Number: </b> {{bedNumber}}</span>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 fix-height-scroll300 padding-top10 padding-left-right-set4">
+						
+						
+						<div class="row">
+					<div class="col-md-3 col-sm-3 col-xs-6 padding-top10 padding-left-right-set4">
+								<div class="col-lg-3 col-md-3 col-sm-3">
+									<div>
+										<input type="radio" name="turnAroundTime" ng-model="deathObject.durationFormat" ng-value="1"><label>Duration</label>
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-9">
+									<select class="text-input floating-label" ng-model="timeValueOfDuration">
+										<option></option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+										<option>11</option>
+										<option>12</option>
+										<option>13</option>
+										<option>14</option>
+										<option>15</option>
+										<option>16</option>
+										<option>17</option>
+										<option>18</option>
+										<option>19</option>
+										<option>20</option>
+										<option>21</option>
+										<option>22</option>
+										<option>23</option>
+										<option>24</option>
+									</select> <label for="code">Select Duration</label>
+								</div>
+							</div>
+							
+							<div class="col-md-3 col-sm-3 col-xs-6 padding-top10">
+								<div class="col-lg-2 col-md-2 col-sm-2">
+									<div>
+										<input type="radio" name="turnAroundTime" ng-model="deathObject.durationFormat" ng-value="2"><label>Day</label>
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-9">
+									<select class="text-input floating-label" ng-model="timeValueOfDay">
+										<option></option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+									</select> <label for="code">Select Day</label>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer margin-top8">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Save"  ng-click="allotMorgueBed()"class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>		
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	$(".selectedPageName").text("Mortuary Reservation");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="morgueReservation"]').parents("li").addClass("active");
+	});
+
+
+</script>

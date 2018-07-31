@@ -1,0 +1,270 @@
+<fieldset class="margin-top4">
+							<legend class="heading-div">Local Address</legend>
+								<div class="row">
+								
+										<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10" style="margin-left: -17px;">
+											<div class="row input-container">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+													<i class="fa fa-tasks" aria-hidden="true"></i>
+												</div>
+												<div class="col-lg-11 col-sm-11 col-md-11">
+													<div class="form-group"   show-errors>
+														<input type="text" name="address" id="" class="text-input floating-label" ng-model="patientObj.address" required> <label for="description" class="">Address</label>
+														<p class="help-block" ng-if="patientRegistrationform2.address.$error.required">Address is required</p>
+													</div>
+												</div>
+											</div>
+										</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="form-group"   show-errors>
+													<select class="text-input floating-label" name="countryId" ng-model="patientObj.countryId" ng-change="getStateByCountry(patientObj.countryId,'P')" required>
+														<option></option>
+														<option ng-repeat="info in countryList" value="{{info.countryId}}">{{info.countryName}}</option>
+													</select> <label for="code">Country</label>
+													<p class="help-block" ng-if="patientRegistrationform2.countryId.$error.required">Country is required</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 " >
+												<div class="form-group"   show-errors>
+													<select class="text-input floating-label" name="stateId" ng-model="patientObj.stateId" ng-change="getDistrictByState(patientObj.stateId,'P')" required>
+														<option></option>
+														<option ng-repeat="info in stateList" value="{{info.stateId}}">{{info.stateName}}</option>
+													</select> <label for="code">State</label>
+													<p class="help-block" ng-if="patientRegistrationform2.stateId.$error.required">State is required</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-university" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="form-group"   show-errors >
+												<select class="text-input floating-label" name="districtId" ng-model="patientObj.districtId" ng-change="getCityByDistrict(patientObj.districtId,'P')" required >
+													<option></option>
+													<option ng-repeat="info in districtList" value="{{info.districtId}}">{{info.districtName}}</option>
+												</select> <label for="code">District</label>
+												<p class="help-block" ng-if="patientRegistrationform2.districtId.$error.required">District is required</p>
+											</div>
+										</div>
+									</div>
+								</div>
+									<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="form-group"   show-errors>
+													<select class="text-input floating-label" name="cityId" ng-model="patientObj.cityId" ng-change="getAreaByCity(patientObj.cityId,'P')" required>
+														<option></option>
+														<option ng-repeat="info in cityList" value="{{info.cityId}}">{{info.cityName}}</option>
+													</select> <label for="code">City</label>
+													<p class="help-block" ng-if="patientRegistrationform2.cityId.$error.required">City is required</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="form-group"   show-errors>
+													<select class="text-input floating-label" name="areaId" ng-model="patientObj.areaId" required>
+														<option></option>
+														<option ng-repeat="info in areaList" value="{{info.areaId}}">{{info.areaName}}</option>
+													</select> <label for="code">Area</label>
+													<p class="help-block" ng-if="patientRegistrationform2.areaId.$error.required">Area is required</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text"  id="" class="text-input floating-label" ng-model="patientObj.zipCode"> <label for="description" class="">Zip Code</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-2 col-sm-2 col-md-2 ">
+												<div class="">
+													<input type="text"  id="" class="text-input floating-label" ng-model="patientObj.phoneCode"> <label for="description" class="">Code</label>
+												</div>
+											</div>
+											<div class="col-lg-9 col-sm-9 col-md-9 padding-left-right-set4">
+												<div class="">
+													<input type="text"  id="phoneNumber" class="text-input floating-label" ng-model="patientObj.phoneNumber" > <label for="description" class="">Contact Number</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								
+								</div>
+						</fieldset>
+						<fieldset class="margin-top4">
+							<legend class="heading-div">Permanent Address</legend>
+								<div class="row">
+								
+										<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10" style="margin-left: -17px;">
+											<div class="row input-container">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+													<i class="fa fa-tasks" aria-hidden="true"></i>
+												</div>
+												<div class="col-lg-11 col-sm-11 col-md-11">
+													<div class="form-group"   show-errors>
+														<input type="text" name="permanentAddress" id="" class="text-input floating-label" ng-model="patientObj.permanentAddress" required> <label for="description" class="">Address</label>
+														<p class="help-block" ng-if="patientRegistrationform2.permanentAddress.$error.required">Address is required</p>
+													</div>
+												</div>
+											</div>
+										</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="form-group"   show-errors>
+													<select class="text-input floating-label" name="permanentCountryId" ng-model="patientObj.permanentCountryId" ng-change="getStateByCountry(patientObj.permanentCountryId,'PA')" required>
+														<option></option>
+														<option ng-repeat="info in countryList" value="{{info.countryId}}">{{info.countryName}}</option>
+													</select> <label for="code">Country</label>
+													<p class="help-block" ng-if="patientRegistrationform2.permanentCountryId.$error.required">Country is required</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 " >
+												<div class="form-group"   show-errors>
+													<select class="text-input floating-label" name="permanentStateId" ng-model="patientObj.permanentStateId" ng-change="getDistrictByState(patientObj.permanentStateId,'PA')" required>
+														<option></option>
+														<option ng-repeat="info in permanentStateList" value="{{info.stateId}}">{{info.stateName}}</option>
+													</select> <label for="code">State</label>
+													<p class="help-block" ng-if="patientRegistrationform2.permanentStateId.$error.required">State is required</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									 <div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-university" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="form-group"   show-errors >
+												<select class="text-input floating-label" name="permanentDistrictId" ng-model="patientObj.permanentDistrictId" ng-change="getCityByDistrict(patientObj.permanentDistrictId,'PA')" required >
+													<option>Select District</option>
+													<option ng-repeat="info in permanentDistrictList" value="{{info.districtId}}">{{info.districtName}}</option>
+												</select> <label for="code">District</label>
+												<p class="help-block" ng-if="patientRegistrationform2.permanentDistrictId.$error.required">District is required</p>
+											</div>
+										</div>
+									</div>
+								</div> 
+									<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="form-group"   show-errors>
+													<select class="text-input floating-label" name="permanentCityId" ng-model="patientObj.permanentCityId" ng-change="getAreaByCity(patientObj.permanentCityId,'PA')" required>
+														<option></option>
+														<option ng-repeat="info in permanentCityList" value="{{info.cityId}}">{{info.cityName}}</option>
+													</select> <label for="code">City</label>
+													<p class="help-block" ng-if="patientRegistrationform2.permanentCityId.$error.required">City is required</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="form-group"   show-errors>
+													<select class="text-input floating-label" name="permanentAreaId" ng-model="patientObj.permanentAreaId" required>
+														<option></option>
+														<option ng-repeat="info in permanentAreaList" value="{{info.areaId}}">{{info.areaName}}</option>
+													</select> <label for="code">Area</label>
+													<p class="help-block" ng-if="patientRegistrationform2.permanentAreaId.$error.required">Area is required</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text"  id="" class="text-input floating-label" ng-model="patientObj.permanentZipCode"> <label for="description" class="">Zip Code</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-2 col-sm-2 col-md-2 ">
+												<div class="">
+													<input type="text"  id="" class="text-input floating-label" ng-model="patientObj.permanentPhoneCode"> <label for="description" class="">Code</label>
+												</div>
+											</div>
+											<div class="col-lg-9 col-sm-9 col-md-9 padding-left-right-set4">
+												<div class="">
+													<input type="text"  id="phoneNumber" class="text-input floating-label" ng-model="patientObj.permanentPhoneNumber" > <label for="description" class="">Contact Number</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+										<span><input type="checkbox" id="sameAsLocalAddId" ng-model="sameAsLocal" ng-true-value="'Y'" ng-false-value="'N'" ng-click="sameAsLocalCopy(sameAsLocal)"/></span>
+										<span>
+											<a><h5 style="display:inline-block" class="color-black margin-left5" for="sameAsLocalAddId">Same As Local Address</h5></a>
+										</span>
+									</div>
+								</div>
+						</fieldset>

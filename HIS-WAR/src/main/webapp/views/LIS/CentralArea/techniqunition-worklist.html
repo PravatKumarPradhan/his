@@ -1,0 +1,30 @@
+    
+        <!-- Page Content -->
+        <div id="page-content-wrapper" class="padding10">
+            <div class="container-fluid his-style">
+            	<div class="row">
+            		<div class="col-md-8"></div>
+					<div class="col-md-3">
+						<div>
+							<input type="text" class="text-search-box" placeholder="Search">
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#confirmLogout">
+						</div>
+					</div>
+            	</div>
+            </div>
+        </div>
+        <!--// Page Content -->
+<script type="text/javascript">
+
+$( document ).ready(function() {
+	$(".selectedPageName").text("Work List For Techniqunition");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+});
+</script>

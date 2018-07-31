@@ -1,0 +1,277 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Age Group Master</legend> -->
+			<div class="row margin-top10">
+				<form name="">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label" ng-model="vm.model.code">
+									<label for="code">Code</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label" ng-model="vm.model.description">
+									<label for="code">Description</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-percent" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label" disabled value="" ng-model="vm.model.taxPercentage">
+									<label for="code">Tax (%)</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set text-width-auto padding-top10">
+						<a href="" ng-click="vm.model.getTaxDetails()" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal"
+						 data-target="#addtaxcomponent">Add</a>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-set1">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout">
+						<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px">
+				<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top8">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr class="">
+							<th class="width5">Code
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">Description
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width5">Tax (%)
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width3">Status
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="text-center width1">Action</th>
+							<th class="width1"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in vm.model.taxMasterList">
+							<td>{{item.code}}</td>
+							<td>{{item.name}}</td>
+							<td>{{item.taxPercentage}}</td>
+							<td>
+								<label class="switch">
+									<input type="checkbox" class="switchInput" ng-model="item.status" ng-change="vm.model.ToggleStatus(item)">
+									<div class="slider round"></div>
+								</label>
+							</td>
+							<td class="text-center">
+								<a ng-click="vm.model.GetTaxMasterData(item.id)">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+								</a>
+							</td>
+							<td class="vertical-middle text-center">
+								<a ng-click="vm.model.ViewTax(item)">
+									<i class="fa fa-info-circle" aria-hidden="true" data-toggle="modal" data-target="#addedtaxcomponent"></i>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- TaxComponent Modal -->
+<div id="addtaxcomponent" class="modal fade ng-scope in common-small-popup" role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Tax Component
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4 padding-top4 padding-bottom10">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="">
+									<th class="width5">Description
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width3">Tax (%)
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width1 vertical-middle">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in vm.model.taxDetailList">
+									<td>
+										<select ng-model="item.component" class="w-100" ng-options="tax.component for tax in vm.model.taxList"></select>
+									</td>
+									<td>
+										<div>
+											<input type="text" ng-model="item.taxPercent" placeholder="%" class="text-box-for-ICU">
+										</div>
+									</td>
+									<td class="vertical-middle">
+										<input type="button" ng-click="vm.model.AddTax(item, $index)" value="+" class="btn btn-info add-dynamic-row">
+
+										<input type="button" ng-click="vm.model.LessTax(item, $index)" value="-" class="btn btn-info add-dynamic-row" ng-if="$index !== 0">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;padding:5px !important">
+				<button type="button" ng-click="vm.model.SaveTaxDetails();" data-dismiss="modal" class="btn btn-primary">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Added TaxComponent Modal -->
+<div id="addedtaxcomponent" class="modal fade ng-scope in common-small-popup" role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Tax Component
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4 padding-top4 padding-bottom10">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="">
+									<th class="width5">Description
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width3">Tax (%)
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in vm.model.taxDetails">
+									<!-- taxDetails -->
+									<td>{{item.name}}</td>
+									<td>{{item.taxPercentage}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="modal-footer" style="border:none;padding:5px !important">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="saveDetails();">Ok</button>
+			</div> -->
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$(".selectedPageName").text("Tax Master");
+		$(".sidebar-nav li").each(function () {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="taxMaster"]').parents("li").addClass("active");
+	});
+
+</script>

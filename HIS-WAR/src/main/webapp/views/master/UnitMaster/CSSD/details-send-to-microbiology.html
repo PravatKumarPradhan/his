@@ -1,0 +1,176 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Package Master</legend> -->
+			<div class="row padding-top8">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Machine :</b> </span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Sterilization Type :</b> </span>
+				</div>
+				
+			<!-- <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top10">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Transfer to Sterilize Zone" data-toggle="modal" data-target="#confirmLogout">
+					<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top10">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Search Kit" data-toggle="modal" data-target="#searchKit">
+						Search Kit</a>
+					</div>
+				</div> -->
+		</div>
+		</fieldset>
+		<!-- <div class="row margin-top8">
+			<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+				<div class="tab-btn-primary">
+					<a class="btn btn-primary btn-save-box-shadow" ng-href="#/addNewSterilizationProcess/batchLoad">Batch Load</a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+				<div class="tab-btn-primary">
+					<a class="btn btn-primary btn-save-box-shadow" ng-href="#/addNewSterilizationProcess/mechanicalIndicator">Mechanical Indicator</a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+				<div class="tab-btn-primary">
+					<a class="btn btn-primary btn-save-box-shadow" ng-href="#/addNewSterilizationProcess/chemicalIndicator">Chemical Indicator</a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+				<div class="tab-btn-primary">
+					<a class="btn btn-primary btn-save-box-shadow" ng-href="#/addNewSterilizationProcess/biologicalIndicator">Biological Indicator</a>
+				</div>
+			</div>
+		</div> -->
+								
+		<div class="custom-sub-tab padding-left-right-set4">
+			<ul class="tabs nav nav-tabs">
+				<li class="float_right active" ng-class="{ active : isSetSecondTabLevel(1) }" style="width: 150px;">
+					<a href="" ng-click="setSecondTabLevel(1)">Batch Load </a>
+				</li>
+				<li class="float_right" ng-class="{ active : isSetSecondTabLevel(2) }" style="width: 150px;">
+					<a href="" ng-click="setSecondTabLevel(2)">Indicator</a>
+				</li>
+			</ul>
+		</div>
+		<div class="row custom-sub-tab padding-left-right-set4">
+			<div ng-show="isSetSecondTabLevel(1)" class="second-level-tab-display-div" style="">
+			<div class="row padding-left-right-set1">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th class="width12">
+								Kit Code
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+							<th class="width12">
+								Kit Name
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+							<th class="width12">
+								Wrapper Name
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+							<th class="width12">
+								Formation Date
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+							<th class="width12">
+								Expiry Duration (Days)
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+							<th class="width3">
+								Status
+								<div class="float_right">
+									<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+									<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+								</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<fieldset class="margin-top4">
+			<legend class="heading-div">Biological Indicator</legend>
+		</fieldset>
+		<div class="row margin-top10">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+				<span class=""><b class="padding-right10 ">Control :</b> </span>
+			</div>
+		</div>
+		<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<span class=""><b class="padding-right10 ">Test :</b> </span>
+				</div>
+		</div>
+		</div>
+		<div ng-show="isSetSecondTabLevel(2)" class="second-level-tab-display-div" style="">
+						<fieldset class="">
+			<legend class="heading-div">Mechanical Indicator</legend>
+		</fieldset>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top8">
+					<span class=""><b class="padding-right10 ">Sterilization Temperature :</b> </span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top8">
+					<span class="margin-left10"><b class="padding-right10 ">Pressure :</b> </span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top8">
+					<span class="margin-left10"><b class="padding-right10 ">Expiry Date :</b> </span>
+				</div>
+		</div>
+			<fieldset class="margin-top5">
+			<legend class="heading-div">Chemical Indicator</legend>
+		</fieldset>
+			<div class="row padding-top8">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<span class=""><b class="padding-right10 ">Color :</b> </span>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+				
+				<div class="col-lg-1 col-md-1 padding-left-right-set4 pull-right">
+					<a href="#/sendtoMicrobiology">
+						<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+				
+			</div>			
+		</footer>
+	</div>
+</div>

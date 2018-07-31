@@ -1,0 +1,1124 @@
+<div id="page-content-wrapper" class=""> 
+	<div class="container-fluid padding-top10">
+		<div class="row padding-top10">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+				<div class="row input-container test-master-sample">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="form-group">
+							<select class="text-input floating-label" ng-model="companyContarctObj.paymentEntitlementId" >
+									<option value="">-</option>
+									<option ng-repeat="paymentEntitlement in paymentEntitlementList" value="{{paymentEntitlement.id}}" ng-if="paymentEntitlement.id != 1">{{paymentEntitlement.name}}</option>
+								</select>
+							<label for="code">Payment Entitlement</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+				<div class="row input-container test-master-sample">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="form-group">
+							<select class="text-input floating-label" ng-model="companyContarctObj.companyId" >
+									<option value="">-</option>
+									<option ng-repeat="companyMaster in companyMasterList" value="{{companyMaster.id}}" >{{companyMaster.name}}</option>
+								</select>
+							<label for="code">Company</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+				<div class="row input-container test-master-sample">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="form-group">
+							<select class="text-input floating-label" ng-model="companyContarctObj.associateCompanyId" >
+									<option value="">-</option>
+									<option ng-repeat="associateCompanyMaster in associateCompanyMasterList" value="{{associateCompanyMaster.id}}" >{{associateCompanyMaster.name}}</option>
+								</select>
+							<label for="code">Associate Company</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10"><b class="padding-right10 ">AR Code :</b><label>-</label> </span>
+			</div>
+		</div>
+		<div class="row padding-top10">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<span class="margin-left10"><b class="padding-right10 "> Validity :</b><label>-</label> </span>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+				<div class="row input-container test-master-sample">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="code" id="" ng-model="companyContarctObj.contractName" class="text-input floating-label"> <label for="code">Contract Name</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+					<div class="row input-container test-master-sample">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+									<label for="" class="LISDynamicLabel">From Date</label>
+									<span class="input-group"> 
+										<input name="fromDate"
+											id="date1" type="text" class="form-control"
+											uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+											placeholder="DD/MM/YYYY" tabindex="13" ng-model="fromDate"
+											model-view-value="true" is-open="popup.opened"
+											datepicker-options="dateOptions" show-button-bar="false" ng-click="open()" />
+									</span>
+								</div>
+					</div>
+				</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+					<div class="row input-container test-master-sample">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+									<label for="" class="LISDynamicLabel">To Date</label>
+									<span class="input-group"> 
+										<input name="toDate"
+										id="date2" type="text" class="form-control"
+										uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+										placeholder="DD/MM/YYYY" tabindex="13" ng-model="toDate"
+										model-view-value="true" is-open="popup1.opened"
+										datepicker-options="dateOptions" show-button-bar="false" ng-click="open1()"/>
+									</span>
+								</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+					<div class="row input-container test-master-sample">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<select class="text-input floating-label" ng-model="companyContarctObj.gradeId" >
+									<option value="">-</option>
+									<option ng-repeat="gradeList in gradeListByAssociateCompanyIdList" value="{{gradeList.id}}">{{gradeList.name}}</option>
+								</select>
+							<label for="code">Grade</label>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+					<div class="row input-container test-master-sample">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="code" id="" ng-model="companyContarctObj.coSharePercentage"class="text-input floating-label">
+							<label for="code">Co-Share (%)</label>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="row padding-top10">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+				<div class="row input-container test-master-sample">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="form-group">
+							<div class="">
+									<select class="text-input floating-label" ng-model="companyContarctObj.tariffId" >
+									<option value="">-</option>
+									<option ng-repeat="tariff in tariffList" value="{{tariff.id}}">{{tariff.name}}</option>
+								</select>
+							<label for="code">Tariff</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set text-width-auto padding-top5">
+				<div class="checkbox">
+					<label><input type="checkbox" ng-model="isTariffRatesApplicable" ng-click="checkAll();">Tariff Rates Applicable</label>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+				<div class="row input-container test-master-sample">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<select class="text-input floating-label" ng-model="companyContarctObj.visitTypeId" >
+									<option value="">-</option>
+									<option ng-repeat="visityType in visityTypeList" value="{{visityType.id}}">{{visityType.name}}</option>
+								</select>
+							 Visit Type</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+				<div class="row input-container test-master-sample">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="form-group">
+							<select class="text-input floating-label" ng-model="companyContarctObj.billingBedCategoryId">
+									<option value="">-</option>
+        							 <option ng-repeat="bedBillCategory in bedBillingCategoryList" value="{{bedBillCategory.billingBedCategoryId}}">{{bedBillCategory.billingBedDesc}}</option>
+							</select>
+							<label for="code">Billing Bed Category</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+		        <div class=" ">
+		          <a>
+		            <input type="button" title="Upload Document" value="Upload" ng-click="saveCompanyContract()" class="btn btn-primary btn-save-box-shadow text-width-auto">
+		          </a>
+		        </div>
+		      </div>
+			
+		</div>
+		<!-- ************************** tabs level one start ****************************** -->
+		<div class="row " ng-hide="isTariffRatesApplicable">
+		<div class="row custom-sub-tab">
+				<ul class="tabs nav nav-tabs">
+					<li ng-class="{ active : isSetFirstTabLevel(1) }" id="" class="padding-top-bottom width11">
+						<span  ng-click="setFirstTabLevel(1)">Group Exclusion</span>
+					</li>
+					<li ng-class="{ active : isSetFirstTabLevel(2) }" id="" class="padding-top-bottom width11">
+						<span  ng-click="setFirstTabLevel(2)">Pharmacy Exclusion</span>
+					</li>
+					<li ng-class="{ active : isSetFirstTabLevel(3) }" id="" class="padding-top-bottom width11">
+						<span  ng-click="setFirstTabLevel(3)">Bed Billing Category</span>
+					</li>
+					<li ng-class="{ active : isSetFirstTabLevel(4) }" id="" class="padding-top-bottom width11">
+						<span ng-click="setFirstTabLevel(4)">CAP Amount</span>
+					</li>
+					<li ng-class="{ active : isSetFirstTabLevel(5) }" id="" class="padding-top-bottom width11">
+						<span ng-click="setFirstTabLevel(5)">Group Wise Details</span>
+					</li>
+					<li ng-class="{ active : isSetFirstTabLevel(6) }" id="" class="padding-top-bottom width11">
+						<span ng-click="setFirstTabLevel(6)">Service Wise Details</span>
+					</li>
+					<li ng-class="{ active : isSetFirstTabLevel(7) }" id="" class="padding-top-bottom width11">
+						<span ng-click="setFirstTabLevel(7)">Procedure Details</span>
+					</li>
+					<li ng-class="{ active : isSetFirstTabLevel(8) }" id="" class="padding-top-bottom width11">
+						<span ng-click="setFirstTabLevel(8)">Equipment Details</span>
+					</li>
+				</ul>
+		</div>
+		
+		<div class="row">
+			<div ng-show="isSetFirstTabLevel(1)">
+				<div class="row his-style">
+					<fieldset class="normalRegistration sub-fieldset main-fieldset ng-scope">
+						<legend class="main-heading-div commonPatientSearch cursor-pointer">Department Wise</legend>
+						
+						</fieldset>
+						<!-- <div class="row">
+							<div class="col-md-2 col-sm-2 padding-left-right-set4 text-width-auto padding-top3">
+						        <div class="">
+						            <input type="button" value="Add Department" class="btn btn-primary btn-save-box-shadow text-width-auto" data-toggle="modal" data-target="#addDepartmentModal">
+						        </div>
+						     </div>
+						</div> -->
+						<div class="row padding-bottom10 padding-top1">
+			  							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+											<div class="row input-container test-master-sample">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+													<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+												</div>
+												<div class="col-lg-11 col-sm-11 col-md-11">
+													<div class="">
+									<input type="text" class="text-input floating-label"  ng-model="speciality.specialityName" placeholder="Search" uib-typeahead=" spec.specialityName for spec in specialityList | filter:$viewValue | limitTo:5"
+								           typeahead-editable="false" typeahead-on-select="selectSpeciality($item, $model, $label);" ng-keyup="speciality.specialityId = $event.keyCode == 8 ? '' : speciality.specialityId" name="" autocomplete="on" >
+														<label for="code">Group</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+											<div class="row input-container test-master-sample">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+													<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+												</div>
+												<div class="col-lg-11 col-sm-11 col-md-11">
+													<div class="">
+														<input type="text" class="text-input floating-label"  ng-model="subSpeciality.subSpecialityName" placeholder="Search" uib-typeahead=" subsp.subSpecialityMasterName for subsp in subSpecialityList | filter:$viewValue | limitTo:5"
+								           typeahead-editable="false" typeahead-on-select="selectSubSpeciality($item, $model, $label);" ng-keyup="subSpeciality.subSpecialityId = $event.keyCode == 8 ? '' : subSpeciality.subSpecialityId" name="" autocomplete="on" >
+														<label for="code">Sub Group </label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-sm-2 text-width-auto text-center">
+											<div class="common-save-button">
+												<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" ng-click="addGroupDetails()"> <!-- data-toggle="modal" data-target="#addDepartmentModal" -->
+											</div>
+										</div>
+			  						</div>
+						<div class="row padding-left-right-set4 padding-top5">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+							<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width10">
+											Group
+										</th>
+										<th class="width10">
+											Sub Group
+										</th>
+										<th class="width1 text-center">
+											Action
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="grpdtls in groupDetailsList|orderBy:column:reverse|filter:searchKeyword">
+										<td>{{grpdtls.groupDesc}}</td>
+										<td>{{grpdtls.subGroupDesc != '' ? grpdtls.subGroupDesc :'-'}}</td>
+										<td><a ng-click="removeGroupDetails($index,grpdtls)">
+												<i class="fa fa-times" aria-hidden="true"></i>
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="table table-bordered">
+					<tr ng-if="(groupDetailsList|filter:searchKeyword)=='' || (groupDetailsList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+						</div>
+					</div>
+				</div>
+				<div class="row his-style">
+					<fieldset class="normalRegistration sub-fieldset main-fieldset ng-scope">
+						<legend class="main-heading-div commonPatientSearch cursor-pointer">Service Wise</legend>
+						
+						</fieldset>
+						<div class="row">
+							<div class="col-md-2 col-sm-2 padding-left-right-set4 text-width-auto padding-top3">
+						        <div class="">
+						            <input type="button" value="Add Service" class="btn btn-primary btn-save-box-shadow text-width-auto" data-toggle="modal" data-target="#getServiceCompanyMasterModal">
+						        </div>
+						     </div>
+						</div>
+						<div class="row padding-left-right-set4 padding-top5">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+							<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width10">
+											Group
+										</th>
+										<th class="width10">
+											Sub Group
+										</th>
+										<th class="width10">
+											Service Code
+										</th>
+										<th class="width10">
+											Service Description
+										</th>
+										<th class="width1 text-center">
+											Action
+										</th>
+									</tr>
+								</thead>
+								 <tbody>
+									 	<tr ng-repeat="serv in selectedServiceList|orderBy:column:reverse|filter:searchKeyword">
+									 		<td>{{serv.groupDesc}}</td>
+									 		<td>{{serv.subGroup}}</td>
+									 		<td>{{serv.serviceCode}}</td>
+									 		<td>{{serv.serviceDescription}}</td>
+									 		<td>
+									 			<a>
+									 				<i class="fa fa-times" ng-click="removeSelectedService($index)" aria-hidden="true"></i>
+									 			</a>
+									 		</td>
+									 	</tr>
+									 </tbody>
+							</table>
+							<table class="table table-bordered">
+					<tr ng-if="(selectedServiceList|filter:searchKeyword)=='' || (selectedServiceList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div ng-show="isSetFirstTabLevel(2)">
+				<div class="row his-style">
+					<!-- <fieldset class="normalRegistration sub-fieldset main-fieldset ng-scope">
+						<legend class="main-heading-div commonPatientSearch cursor-pointer">Category Wise</legend>
+						
+						</fieldset> -->
+				<!-- <input type="button" value="Add Category" class="btn btn-primary btn-save-box-shadow text-width-auto" data-toggle="modal" data-target="#addCategoryModal"> -->
+					<div class="row padding-left-right-set4 padding-top5">
+							<fieldset>
+								<legend class="main-heading-div">Category Wise</legend>
+								<div class="row">
+									<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4 padding-top10">
+										<div class="row input-container test-master-sample">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+													<select class="text-input floating-label dirty" ng-model="categoryWise.assetCategoryId" ng-change="getProductCatByAssestCat(categoryWise.assetCategoryId)">
+														<option value="">-</option>
+														<option ng-repeat="assetCat in assetCategoryList" value="{{assetCat.id}}" >{{assetCat.category}}</option>
+													</select>
+													<label for="code">Asset Category</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4 padding-top10">
+										<div class="row input-container test-master-sample">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+													<select class="text-input floating-label" ng-model="categoryWise.productCategoryId">
+														<option value="">-</option>
+														<option ng-repeat="prodCat in productCategoryList" value="{{prodCat.id}}">{{prodCat.category}}</option>
+													</select>
+													<label for="code">Product Category</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 text-width-auto text-center">
+										<div class="common-save-button">
+											<input type="button" value="Add" ng-click="addpharamExcCategory(categoryWise)" class="btn btn-primary btn-save-box-shadow">
+										</div>
+									</div>
+								</div>
+								<div class="row margin-top10">
+									<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set1 ">
+							  				<div class="row common-sub-table">
+								  				<table class="table table-bordered">
+													<thead>
+														<tr class="">
+															
+															<th class="width8">
+																Product Category
+																<div class="float_right">
+																	<div>
+																		<i class="fa fa-caret-up" aria-hidden="true"></i>
+																	</div>
+																	<div class="margin-top-8">
+																		<i class="fa fa-caret-down" aria-hidden="true"></i>
+																	</div>
+																</div>
+															</th>
+															
+															<th class="status">
+																Action
+																<div class="float_right">
+																	<div>
+																		<i class="fa fa-caret-up" aria-hidden="true"></i>
+																	</div>
+																	<div class="margin-top-8">
+																		<i class="fa fa-caret-down" aria-hidden="true"></i>
+																	</div>
+																</div>
+															</th>
+													 	</tr>
+													 </thead>
+													 <tbody>
+													 	<tr ng-repeat="pharamExcwise in pharamExcCategoryWiseList|orderBy:column:reverse|filter:searchKeyword">
+													 		<td>{{pharamExcwise.category}}</td>
+													 		<td>
+													 			<a>
+													 				<i class="fa fa-times" ng-click="removepharamExcCategory($index)" aria-hidden="true"></i>
+													 				<!-- data-toggle="modal" data-target="#confirmCancel" -->
+													 			</a>
+													 		</td>
+													 	</tr>
+													 </tbody>
+												</table>
+												<table class="table table-bordered">
+													<tr ng-if="(pharamExcCategoryWiseList|filter:searchKeyword)=='' || (pharamExcCategoryWiseList|filter:searchKeyword)==null">
+														<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+													</tr>
+													</table>
+											</div>
+		  								</div>
+									</div>
+												
+							</fieldset>
+						</div>
+				</div>
+				<div class="row his-style">
+					<fieldset class="normalRegistration sub-fieldset main-fieldset ng-scope">
+						<legend class="main-heading-div commonPatientSearch cursor-pointer">Item Wise</legend>
+						
+						</fieldset>
+						<div class="row">
+							<div class="col-md-2 col-sm-2 padding-left-right-set4 text-width-auto padding-top3">
+						        <div class="">
+						            <input type="button" value="Add Item" class="btn btn-primary btn-save-box-shadow text-width-auto" data-toggle="modal" data-target="#pharExcItemListModal">
+						        </div>
+						     </div>
+						</div>
+						<div class="row padding-left-right-set4 padding-top5">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+							<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width10">
+											Product Category
+										</th>
+										<th class="width10">
+											Item Code
+										</th>
+										<th class="width10">
+											Item Name
+										</th>
+										<th class="width1">
+											Action
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="selectedItem in selectedItemList|orderBy:column:reverse|filter:searchKeyword">
+
+										<td>{{selectedItem.productCategory}}</td>
+										<td>{{selectedItem.itemCode}}</td>
+										<td>{{selectedItem.itemName}}</td>
+										<td><a> <i class="fa fa-times"
+												ng-click="removeSelectedItemsList($index)"
+												aria-hidden="true"></i>
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+																<table class="table table-bordered">
+					<tr ng-if="(selectedItemList|filter:searchKeyword)=='' || (selectedItemList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-show="isSetFirstTabLevel(3)" class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+			  				<div class="row">
+			  					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row input-container test-master-sample">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<select class="text-input floating-label dirty" ng-model="bedCategory.bedCategoryId">
+													<option value="">-</option>
+													<option ng-repeat="bedCat in bedCategoryList" value="{{bedCat.bedCategoryId}}">{{bedCat.bedCategoryDesc}}</option>
+												</select>
+												<label for="code">Bed Category </label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 text-width-auto text-center">
+									<div class="common-save-button">
+										<input type="button" value="Add" ng-click="addBedCategory()" class="btn btn-primary btn-save-box-shadow"> 
+										<!-- <input type="button" value="Get Bed Category" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#addBedCategoryModal"> -->
+									</div>
+								</div>
+			  				</div>
+			  				<div class="row common-table-height-250 margin-top4">
+			  					<div class="col-lg-12 col-sm-12 col-md-12">
+			  						<table class="table table-bordered">
+										<thead>
+											<tr class="">
+												<th class="width8">
+													Bed Category
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">
+													Applicable Days
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width6">
+													Total Amount
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="status">
+													Action
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+										 	</tr>
+										 </thead>
+										 <tbody>
+										 	<tr ng-repeat="bedCat in contractBedCategoryList|orderBy:column:reverse|filter:searchKeyword">
+										 		<td>{{bedCat.bedCategoryDesc}}</td>
+										 		<td>
+										 			<input type="text" ng-model="bedCat.applicableDays" ng-decimal="200" class="select-box"/>
+										 		</td>
+										 		<td>-</td>
+										 		<td>
+										 			<a ng-click="removeBedCategory($index)">
+										 				<i class="fa fa-times" aria-hidden="true"></i>
+										 			</a>
+										 		</td>
+										 	</tr>
+										 </tbody>
+									</table>
+																<table class="table table-bordered">
+					<tr ng-if="(contractBedCategoryList|filter:searchKeyword)=='' || (contractBedCategoryList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+				</table>
+			  					</div>
+			  				</div>
+			</div>
+			<div ng-show="isSetFirstTabLevel(4)">
+				<div class="row his-style">
+					<!-- <fieldset class="normalRegistration sub-fieldset main-fieldset ng-scope">
+						<legend class="main-heading-div commonPatientSearch cursor-pointer">Category Wise</legend>
+						
+						</fieldset> -->
+						<!-- <div class="row">
+							<div class="col-md-2 col-sm-2 padding-left-right-set4 text-width-auto padding-top3">
+						        <div class="">
+						            <input type="button" value="Add Department" class="btn btn-primary btn-save-box-shadow text-width-auto" data-toggle="modal" data-target="#addDepartmentModal">
+						        </div>
+						     </div>
+						</div> -->
+						<div class="row padding-bottom10 padding-top1">
+			  							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+											<div class="row input-container test-master-sample">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+													<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+												</div>
+												<div class="col-lg-11 col-sm-11 col-md-11">
+													<div class="">
+									<input type="text" class="text-input floating-label"  ng-model="speciality.specialityName" placeholder="Search" uib-typeahead=" spec.specialityName for spec in specialityList | filter:$viewValue | limitTo:5"
+								           typeahead-editable="false" typeahead-on-select="selectSpeciality($item, $model, $label);" ng-keyup="speciality.specialityId = $event.keyCode == 8 ? '' : speciality.specialityId" name="" autocomplete="on" >
+														<label for="code">Group</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+											<div class="row input-container test-master-sample">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+													<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+												</div>
+												<div class="col-lg-11 col-sm-11 col-md-11">
+													<div class="">
+														<input type="text" class="text-input floating-label"  ng-model="subSpeciality.subSpecialityName" placeholder="Search" uib-typeahead=" subsp.subSpecialityMasterName for subsp in subSpecialityList | filter:$viewValue | limitTo:5"
+								           typeahead-editable="false" typeahead-on-select="selectSubSpeciality($item, $model, $label);" ng-keyup="subSpeciality.subSpecialityId = $event.keyCode == 8 ? '' : subSpeciality.subSpecialityId" name="" autocomplete="on" >
+														<label for="code">Sub Group </label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-sm-2 text-width-auto text-center">
+											<div class="common-save-button">
+												<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" ng-click="addCAPAmountDetails()"> <!-- data-toggle="modal" data-target="#addDepartmentModal" -->
+											</div>
+										</div>
+			  						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set0">
+						  				<div class="row common-sub-table">
+							  				<table class="table table-bordered">
+												<thead>
+													<tr class="">
+														<th class="width18">
+															Group
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width18">
+															Sub Group
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">
+															CAP Amount 
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width3">
+															Action
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+												 	</tr>
+												 </thead>
+												 <tbody>
+												 	<tr ng-repeat="capAmountdtls in capAmountDetailsList|orderBy:column:reverse|filter:searchKeyword">
+												 		<td>{{capAmountdtls.groupDesc}}</td>
+												 		<td>{{capAmountdtls.subGroupDesc != '' ? capAmountdtls.subGroupDesc : '-'}}</td>
+												 		<td>
+												 		<div ng-if="capAmountdtls.subDepartmentId != ''">
+												 			<input type="text" ng-model="capAmountdtls.subDepartmentCapAmount" ng-change="calculateSummaryAmt()" ng-decimal="200" class="select-box"/>
+												 		</div>	
+												 		<div ng-if="capAmountdtls.subDepartmentId == ''">
+												 			<input type="text" ng-model="capAmountdtls.departmentCapAmount" ng-change="calculateSummaryAmt()" ng-decimal="200" class="select-box"/>
+												 		</div>
+												 		</td>
+												 		
+												 		<td>
+												 			<a ng-click="removeCAPAmountDetails($index,capAmountdtls)">
+												 				<i class="fa fa-times" aria-hidden="true"></i>
+												 			</a>
+												 		</td>
+												 	</tr>
+												 </tbody>
+											</table>
+											<table class="table table-bordered">
+												<tr ng-if="(capAmountDetailsList|filter:searchKeyword)=='' || (capAmountDetailsList|filter:searchKeyword)==null">
+												<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+												</tr>
+											</table>
+										</div>
+						  			</div>
+				</div>
+				<div class="row his-style">
+					<!-- <fieldset class="normalRegistration sub-fieldset main-fieldset ng-scope">
+						<legend class="main-heading-div commonPatientSearch cursor-pointer">Item Wise</legend>
+						
+						</fieldset> -->
+						<div class="row padding-left-right-set4 padding-top5">
+							<fieldset>
+								<legend class="main-heading-div">CAP Amount - Product Category Wise</legend>
+								<div class="row">
+									<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4 padding-top10">
+										<div class="row input-container test-master-sample">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+													<select class="text-input floating-label dirty" ng-model="categoryWise.assetCategoryId" ng-change="getProductCatByAssestCat(categoryWise.assetCategoryId)">
+														<option value="">-</option>
+														<option ng-repeat="assetCat in assetCategoryList" value="{{assetCat.id}}" >{{assetCat.category}}</option>
+													</select>
+													<label for="code">Asset Category</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4 padding-top10">
+										<div class="row input-container test-master-sample">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+													<select class="text-input floating-label" ng-model="categoryWise.productCategoryId">
+														<option value="">-</option>
+														<option ng-repeat="prodCat in productCategoryList" value="{{prodCat.id}}">{{prodCat.category}}</option>
+													</select>
+													<label for="code">Product Category</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 text-width-auto text-center">
+										<div class="common-save-button">
+											<input type="button" value="Add" ng-click="addCAPAmtProductCategoryWise(categoryWise)" class="btn btn-primary btn-save-box-shadow">
+										</div>
+									</div>
+								</div>
+								<div class="row margin-top10">
+									<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set1 ">
+							  				<div class="row common-table-height-250">
+								  				<table class="table table-bordered">
+													<thead>
+														<tr class="">
+															
+															<th class="width8">
+																Product Category
+																<div class="float_right">
+																	<div>
+																		<i class="fa fa-caret-up" aria-hidden="true"></i>
+																	</div>
+																	<div class="margin-top-8">
+																		<i class="fa fa-caret-down" aria-hidden="true"></i>
+																	</div>
+																</div>
+															</th>
+															<th class="width8">
+																Applicable Qty
+																<div class="float_right">
+																	<div>
+																		<i class="fa fa-caret-up" aria-hidden="true"></i>
+																	</div>
+																	<div class="margin-top-8">
+																		<i class="fa fa-caret-down" aria-hidden="true"></i>
+																	</div>
+																</div>
+															</th>
+															<th class="status">
+																Action
+																<div class="float_right">
+																	<div>
+																		<i class="fa fa-caret-up" aria-hidden="true"></i>
+																	</div>
+																	<div class="margin-top-8">
+																		<i class="fa fa-caret-down" aria-hidden="true"></i>
+																	</div>
+																</div>
+															</th>
+													 	</tr>
+													 </thead>
+													 <tbody>
+													 	<tr ng-repeat="cAPAmtProductwise in cAPAmtProductCategoryWiseList |orderBy:column:reverse|filter:searchKeyword"">
+													 		<td>{{cAPAmtProductwise.category}}</td>
+													 		<td>
+													 			<input type="text" ng-model="cAPAmtProductwise.qty" ng-decimal="200" class="select-box"/>
+													 		</td>
+													 		<td>
+													 			<a>
+													 				<i class="fa fa-times" ng-click="removeCAPAmtProductCategoryWise($index)" aria-hidden="true"></i>
+													 				<!-- data-toggle="modal" data-target="#confirmCancel" -->
+													 			</a>
+													 		</td>
+													 	</tr>
+													 </tbody>
+												</table>
+													<table class="table table-bordered">
+												<tr ng-if="(cAPAmtProductCategoryWiseList|filter:searchKeyword)=='' || (cAPAmtProductCategoryWiseList|filter:searchKeyword)==null">
+												<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+												</tr>
+											</table>
+											</div>
+		  								</div>
+									</div>
+												
+							</fieldset>
+						</div>
+						
+				</div>
+			</div>
+			<div ng-show="isSetFirstTabLevel(5)">
+				<div class="row his-style">
+					<!-- <fieldset class="normalRegistration sub-fieldset main-fieldset ng-scope">
+						<legend class="main-heading-div commonPatientSearch cursor-pointer">Category Wise</legend>
+						
+						</fieldset> -->
+						<!-- <div class="row">
+							<div class="col-md-2 col-sm-2 padding-left-right-set4 text-width-auto padding-top3">
+						        <div class="">
+						            <input type="button" value="Add Department" class="btn btn-primary btn-save-box-shadow text-width-auto" data-toggle="modal" data-target="#addDepartmentModal">
+						        </div>
+						     </div>
+						</div> -->
+						<div class="row padding-bottom10 padding-top1">
+			  							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+											<div class="row input-container test-master-sample">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+													<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+												</div>
+												<div class="col-lg-11 col-sm-11 col-md-11">
+													<div class="">
+									<input type="text" class="text-input floating-label"  ng-model="speciality.specialityName" placeholder="Search" uib-typeahead=" spec.specialityName for spec in specialityList | filter:$viewValue | limitTo:5"
+								           typeahead-editable="false" typeahead-on-select="selectSpeciality($item, $model, $label);" ng-keyup="speciality.specialityId = $event.keyCode == 8 ? '' : speciality.specialityId" name="" autocomplete="on" >
+														<label for="code">Group</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+											<div class="row input-container test-master-sample">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+													<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+												</div>
+												<div class="col-lg-11 col-sm-11 col-md-11">
+													<div class="">
+														<input type="text" class="text-input floating-label"  ng-model="subSpeciality.subSpecialityName" placeholder="Search" uib-typeahead=" subsp.subSpecialityMasterName for subsp in subSpecialityList | filter:$viewValue | limitTo:5"
+								           typeahead-editable="false" typeahead-on-select="selectSubSpeciality($item, $model, $label);" ng-keyup="subSpeciality.subSpecialityId = $event.keyCode == 8 ? '' : subSpeciality.subSpecialityId" name="" autocomplete="on" >
+														<label for="code">Sub Group </label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-sm-2 text-width-auto text-center">
+											<div class="common-save-button">
+												<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" ng-click="addGroupWiseDetails()"> <!-- data-toggle="modal" data-target="#addDepartmentModal" -->
+											</div>
+										</div>
+			  						</div>
+					<div class="row padding-left-right-set4 padding-top5">
+						<div class="col-lg-12 col-md-12 col-sm-12 padding-left0">
+							<table class="table table-bordered first-checkBox-padding">
+								<!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width8">Group</th>
+										<th class="width8">Sub Group</th>
+										<th class="width8">Markup Details</th>
+										<th class="width3">%</th>
+										<th class="width8">RoundOff</th>
+										<th class="width1 text-center">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+								
+								<tr ng-repeat="groupWisedtls in groupWiseDetailsList|orderBy:column:reverse|filter:searchKeyword">
+										<td>{{groupWisedtls.groupDesc}}</td>
+									     <td>{{groupWisedtls.subGroupDesc != '' ? groupWisedtls.subGroupDesc : '-'}}</td>
+										<td class=""><select class="select-box dirty" ng-model="groupWisedtls.varianceUpDown" ng-change="calculateVariancePrice()">
+												<option value="">Select</option>
+												<option value="1">Mark Up</option>
+												<option value="2">Mark Down</option>
+										</select></td>
+										<td><input type="text" ng-change="calculateVariancePrice()" ng-model="groupWisedtls.apportionedPercent" ng-decimal="200" class="w-100"></td>
+										<td><select class="select-box dirty" ng-model="groupWisedtls.roundOffAmount" ng-change="calculateVariancePrice()">
+											<option value="0" selected>Select</option>
+											<option value="1">1</option>
+											<option value="5">5</option>
+											<option value="10">10</option>
+										</select>
+										</td>
+										<td>
+									    <a ng-click="removeGroupWiseDetails($index,groupWisedtls)">
+										  <i class="fa fa-times" aria-hidden="true"></i>
+										</a>
+										</td>
+									</tr>
+									
+								</tbody>
+							</table>
+							
+									<table class="table table-bordered">
+					<tr ng-if="(groupWiseDetailsList|filter:searchKeyword)=='' || (groupWiseDetailsList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div ng-show="isSetFirstTabLevel(6)">
+				<div class="row his-style">
+					<!-- <fieldset class="normalRegistration sub-fieldset main-fieldset ng-scope">
+						<legend class="main-heading-div commonPatientSearch cursor-pointer">Category Wise</legend>
+						
+						</fieldset> -->
+						<div class="row padding-left-right-set4 padding-top5">
+							<div class="col-lg-12 col-md-12 col-sm-12 padding-left0">
+							<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width8">
+											Group											
+										</th>
+										<th class="width8">
+											Sub Group											
+										</th>
+										<th class="width8">
+											Service Code											
+										</th>
+										<th class="width8">
+											Service Description									
+										</th>
+										<th class="width8">
+											Rate											
+										</th>
+										<th class="width7">
+											Variance Price										
+										</th>
+										<th class="width1 text-center">
+											Action
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="notSelectedServicedtls in notSelectedServiceList|orderBy:column:reverse|filter:searchKeyword">
+										<td>{{notSelectedServicedtls.groupDesc}}</td>
+										<td>{{notSelectedServicedtls.subGroup}}</td>
+										<td>{{notSelectedServicedtls.serviceCode}}</td>
+										<td>{{notSelectedServicedtls.serviceDescription}}</td>
+										<td>{{notSelectedServicedtls.rate != null ? parseFloatNum(notSelectedServicedtls.rate) : 'Rate not available'}}</td>
+										<td><input type="text" ng-model="notSelectedServicedtls.finalPrice"ng-decimal="200"  class="w-100"></td>
+										<td class="text-center">
+										<a ng-click="removeNotSelectedService($index,groupWisedtls)">
+										  <i class="fa fa-times" aria-hidden="true"></i>
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+							<table class="table table-bordered">
+					<tr ng-if="(notSelectedServiceList|filter:searchKeyword)=='' || (notSelectedServiceList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+						</div>
+					</div>
+					</div>
+				</div>
+		</div>
+		<footer
+			class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+				<div class="col-lg-1 col-md-1 padding-left-right-set4 pull-right">
+					<a href="#/companyContractMaster"> <input type="button" value="Back"
+						class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+<!-- Get Services modal start -->
+<div id="getServiceCompanyMasterModal"
+	class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Get Services
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll" ng-include="'./views/master/UnitMaster/billingMaster/get-service-modal-EHC-package.html'" ></div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal"	ng-click="addServices()">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Get Services modal end -->
+
+<!-- Get Pharmacy exclusion item list -->
+<div id="pharExcItemListModal" class="modal fade ng-scope in common-large-popup" role="dialog" >
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Add Item List
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body" ng-include="'./views/master/UnitMaster/billingMaster/get-item-list-package-modal.html'" ></div>
+			
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add" ng-click="addItemListServices()" class="btn btn-primary btn-save-box-shadow"  data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end Get Pharmacy exclusion item list -->
+<script src="resources/assets/js/common/page-height.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		/* 
+		 var documentHeight = $(window).height();
+		 var sideBarHeight = documentHeight - 55;
+		 $("#page-content-wrapper").css("height", sideBarHeight + "px"); */
+
+		$(".selectedPageName").text("Company Contract");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="companyContract"]').parents("li").addClass("active");
+	});
+</script>

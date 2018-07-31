@@ -1,0 +1,137 @@
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" >
+            <div class="container-fluid his-style">
+					<div ng-include="'./views/common/common-patient-search-opd-without-counter.html'" style="margin-top:-5px !important"></div>
+			 		<div ng-include="'./views/common/patient-demography.html'"></div>
+				<!-- </div> -->
+            	<div class="row margin-top10 padding-left-right-10">
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right width4">
+						<div class=" ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout">
+								<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+						<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> 
+						<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="row padding-left-right-set4 padding-top10">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<tr class="">
+								<th class="width3">
+								<input type="checkbox">
+								Select All
+								
+								</th>
+								<th class="test-name-width">
+									Test Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="volumn-width">
+									Volume
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="sample-width">
+									Sample
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="type-container">
+									Type Of Container
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="priority-width">
+									Priority
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="status">
+									Aliquot Needed
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td class="width3"><input type="checkbox"></td>
+								<td>Blood Sugar Random</td>
+								<td>5 ml</td>
+								<td>Blood</td>
+								<td>EDTA vacutainer</td>
+								<td>Normal</td>
+								<td><input type="checkbox"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td class="urgent-text">Serum Creatinine</td>
+								<td class="urgent-text">5 ml</td>
+								<td class="urgent-text">Urine</td>
+								<td class="urgent-text">EDTA vacutainer</td>
+								<td class="urgent-text">Urgent</td>
+								<td><input type="checkbox"></td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>Urine Routine</td>
+								<td>5 ml</td>
+								<td>Urine</td>
+								<td>EDTA vacutainer</td>
+								<td>Normal</td>
+								<td><input type="checkbox"></td>
+							</tr> 
+						</table>
+					</div>
+				</div>
+				<!-- <div class="row">
+					<div class="col-md-12">
+						<div class="common-save-button">
+							<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#confirmLogout">
+						</div>
+					</div>
+				</div> -->
+  			</div>
+  			<footer class="col-lg-12 col-md-12 col-sm-12 padding-right10">
+			<div class="row his-style margin-top10 padding-right20">
+				<div class="col-lg-11 col-md-11 col-sm-10 padding-left-right-set4"></div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-rightset  padding-right20">
+					<a href="#/bedManagement">
+						<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</footer>
+		</div>
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+		
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		
+		$(".selectedPageName").text("Sample Collection");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="sampleCollection"]').parents("li").addClass("active");
+	});
+		
+	</script>

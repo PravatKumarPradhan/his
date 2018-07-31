@@ -1,0 +1,156 @@
+<div class="row">
+		<!-- <div class="col-lg-7  "></div> -->
+		
+		<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right width4">
+			<div class=" ">
+				<a href="" data-toggle="modal" data-target="#confirmLogout" class="btn btn-primary btn-save-box-shadow" title="Save"><i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a>	
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+				<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+		</div>
+</div>
+<div class="row  padding-left-right-set4">
+			<div class="col-md-12 col-lg-12 col-sm-12 margin-top4">
+				<table class="table table-bordered ">
+					<tr class="">
+						<th class="width10">
+							UHID
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width10">
+							Patient Details
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width5">
+							 Ward
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width5">
+							 Bed
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width10">
+							Bed Category 
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						
+						<th class="width1">
+							Note
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width10">
+							Action
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							PC-17-0101
+						</td>
+						<td>
+							Mina Singh
+						</td>
+						<td>
+							W-290
+						</td>
+						<td>
+							-
+						</td>
+						<td>
+							-
+						</td>
+						
+						
+						<td class="text-center">
+							<i class="fa fa-commenting" aria-hidden="true" data-toggle="modal" data-target="#notesForall"></i> 
+						</td>
+						<td>
+								<div class="row">
+									<input type="radio" name="radioBtnForTransferRqust" class="radioAccepted"><span>Accept</span>
+									<input type="radio" name="radioBtnForTransferRqust" class="radioRejected"><span>Reject</span>
+								</div>
+								<div class="row medication-text-box margin-top10">
+									<div class="col-md-12">
+										<input type="text" placeholder="Note" class="text-box-style">
+									</div>
+								</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							PC-17-0102
+						</td>
+						<td>
+							Saeed Kaif
+						</td>
+						<td>
+							W-290
+						</td>
+						<td>
+							-
+						</td>
+						<td>
+							-
+						</td>
+						
+						<td class="text-center">
+							<i class="fa fa-commenting" aria-hidden="true" data-toggle="modal" data-target="#notesForall"></i> 
+						</td>
+						<td>
+								<div class="row">
+									<input type="radio" name="radioBtnForTransferRqust" class="radioAccepted"><span>Accept</span>
+									<input type="radio" name="radioBtnForTransferRqust" class="radioRejected"><span>Reject</span>
+								</div>
+								<div class="row medication-text-box margin-top10">
+									<div class="col-md-12">
+										<input type="text" placeholder="Note" class="text-box-style">
+									</div>
+								</div>
+						</td>
+					</tr>
+					
+				</table>
+			</div>
+		</div>
+		
+		
+		
+<script>
+$(".medication-text-box").hide();
+$( ".radioRejected" ).change(function() {
+	if ($(this).is(":checked"))
+	{
+		$(this).closest(".row").siblings(".medication-text-box").show();
+	}
+});
+$( ".radioAccepted" ).change(function() {
+	if ($(this).is(":checked"))
+	{
+		$(this).closest(".row").siblings(".medication-text-box").hide();
+	}
+});
+
+</script>

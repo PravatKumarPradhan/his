@@ -1,0 +1,636 @@
+<!-- Page Content start-->
+<div id="page-content-wrapper" >
+	<div class="container-fluid his-style">
+		<div class="row margin-top8">
+			<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<input type="text" name="code" class="text-input floating-label dirty">
+							<label for="code">Store</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-7 col-md-7 col-sm-3"></div>
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top8"> 
+	           <input type="button" value="Get Request" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#getRequestModal">
+	        </div>
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top8"> 
+	           <input type="button" value="Download" class="btn btn-primary btn-save-box-shadow">
+	        </div>
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top8"> 
+	           <input type="button" value="Upload" class="btn btn-primary btn-save-box-shadow">
+	        </div>
+		</div>
+		<div class="row margin-top8">
+			<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-bullseye" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<input type="text" name="code" class="text-input floating-label dirty">
+							<label for="code">Request No</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<input type="text" name="code" class="text-input floating-label dirty">
+							<label for="code">Start Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+			          <div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+			             <i class="fa fa-clock-o" aria-hidden="true"></i>
+			          </div>
+		         	 <div class="col-lg-10 col-sm-10 col-md-10">
+				     	<div class="">
+			              <select class="text-input floating-label dirty">
+			                <option value=""></option>
+			              </select>
+			              <label for="code">Start Time</label>
+				     	</div>
+		          	</div>
+		        </div>
+			</div>
+			<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<input type="text" name="code" class="text-input floating-label dirty">
+							<label for="code">Stop Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+		          <div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+		             <i class="fa fa-clock-o" aria-hidden="true"></i>
+		          </div>
+		          <div class="col-lg-10 col-sm-10 col-md-10">
+			            <div class="">
+			              <select class="text-input floating-label dirty">
+			                <option value=""></option>
+			              </select>
+			              <label for="code">Stop Time</label>
+			            </div>
+		          	</div>
+		        </div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+				<div class="row custom-sub-tab"><!-- schedulerTabs -->
+					<!-- <ul class="tabs nav nav-tabs padding-left-right-set4">
+						<li ng-class="{ active : isSetFirstTabLevel(1) }" id="" class="padding-top-bottom text-width-auto padding-left-right-10">
+							<a href ng-click="setFirstTabLevel(1)">Current Available Batch</a>
+						</li>
+						<li ng-class="{ active : isSetFirstTabLevel(2) }" id="" class="padding-top-bottom width15">
+							<a href ng-click="setFirstTabLevel(2)">Old Batch</a>
+						</li>
+					</ul> -->
+					
+					<ul class="tabs nav nav-tabs padding-left-right-set4">
+						<li ng-class="{ active : isSetFirstTabLevel(1) }" class="active width30">
+							<a href="" ng-click="setFirstTabLevel(1)">Current Available Batch</a>
+						</li>
+						<li ng-class="{ active : isSetFirstTabLevel(2) }"class="ng-scope width30">
+							<a href="" ng-click="setFirstTabLevel(2)">Old Batch</a>
+						</li><!-- end ngIf: roleId == 2 -->
+					</ul>
+					
+				</div>
+			</div>
+			<div ng-show="isSetFirstTabLevel(2)" class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float-right margin-top-5"> 
+	           <input type="button" value="Get Batch" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#getOldBatchModal">
+	        </div>
+		</div>
+		<div class="row padding-left-right-set4">
+			<!-- ******* tab 1 - Current Available Batch - Content start *******  --> 
+				<div ng-show="isSetFirstTabLevel(1)" class="second-level-tab-display-div">
+					<div class="row common-table-height-250">
+		  				<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width8">
+									  Asset Category
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">
+									  Product Category
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+									  Item Code
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+									  Item Name
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5">
+									  UOM
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5">
+									  UOM Unit
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+									  Batch No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+									  Expiry Date
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5">
+									  MRP
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5">
+									  Qty
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">
+									  New Expiry Date
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+									  New MRP
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>
+										<input type="text" class="select-box"/>
+									</td>
+									<td>
+										<input type="text" class="select-box"/>
+									</td>
+									<td>
+										<input type="text" class="select-box"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+		    			<div class="row his-style margin-top10 padding-right20">
+					    	<div class="col-lg-10 col-md-10 col-sm-6"></div>
+					   		<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+						        <div class="">
+						          <input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+						        </div>
+					   		</div>
+					     	<div class="col-lg-1 col-md-1 col-sm-2  padding-left0px-right6px">
+					        	<a href="#/uploadStock">
+					            	<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					             </a>
+					     	</div>
+					    </div>
+		    		</footer>
+				</div>
+			<!-- ******* tab 1 - Current Available Batch Content end *******   -->
+			<!-- ******* tab 2 - Old Batch Content start *******   -->
+				<div ng-show="isSetFirstTabLevel(2)" class="second-level-tab-display-div">
+					<div class="row common-table-height-250">
+		  				<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width8">
+									  Asset Category
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">
+									  Product Category
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+									  Item Code
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+									  Item Name
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5">
+									  UOM
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5">
+									  UOM Unit
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+									  Batch No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+									  Expiry Date
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5">
+									  MRP
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5">
+									  Qty
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">
+									  New Expiry Date
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+									  New MRP
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>
+										<input type="text" class="select-box"/>
+									</td>
+									<td>
+										<input type="text" class="select-box"/>
+									</td>
+									<td>
+										<input type="text" class="select-box"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+		    			<div class="row his-style margin-top10 padding-right20">
+					    	<div class="col-lg-10 col-md-10 col-sm-6"></div>
+					   		<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+						        <div class="">
+						          <input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+						        </div>
+					   		</div>
+					     	<div class="col-lg-1 col-md-1 col-sm-2  padding-left0px-right6px">
+					        	<a href="">
+					            	<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					             </a>
+					     	</div>
+					    </div>
+		    		</footer>
+				</div>
+			<!-- ******* tab 2 - Old Batch Content end *******  -->
+		</div>
+	</div>
+</div>
+<!-- getRequestModal START -->
+<div id="getRequestModal" class="modal fade ng-scope common-medium-popup in " role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Get Request
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body his-style">
+				<div class="row padding-top4">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 float_right">
+						<input type="text" class="text-search-box ng-pristine ng-valid dirty ng-empty ng-touched" ng-model="search" placeholder="Search" style="margin-top: 0px;">
+						<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="row padding-top8 padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+						<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width1 text-center"><input type="checkbox"></th>
+									<th class="width8">Request No.</th>
+									<th class="width8">Request Date</th>
+									<th class="width8">Store</th>
+									<th class="width10">Start Date Time</th>
+									<th class="width10">Stop Date Time</th>
+									<th class="width8">Request By</th>
+									<th class="width4 text-center">Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox">
+									</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-lg-11 col-sm-11 col-md-11"></div>
+					<div class="col-lg-1 col-sm-1 col-md-1">
+						<div class="common-save-button">
+							<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow text-width-auto" data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- getRequestModal END -->
+<!-- getOldBatchModal START -->
+<div id="getOldBatchModal" class="modal fade ng-scope common-medium-popup in" role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Get Batch
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top8"> 
+			           <input type="button" value="Get Item" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#addNewItemWasteStore">
+			        </div>
+				</div>
+				<div class="row padding-top4 padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+						<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width1 text-center"><input type="checkbox"></th>
+									<th class="width8">Item Code</th>
+									<th class="width8">Item Name</th>
+									<th class="width8">UOM </th>
+									<th class="width8">UOM Unit</th>
+									<th class="width10">Batch No.</th>
+									<th class="width10">Expiry Date</th>
+									<th class="width8">COP</th>
+									<th class="width8">MRP</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox">
+									</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-lg-11 col-sm-11 col-md-11"></div>
+					<div class="col-lg-1 col-sm-1 col-md-1">
+						<div class="common-save-button">
+							<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow text-width-auto" data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- getOldBatchModal END -->
+<!-- Page Content start--> 
+<div ng-include="'./views/PharmacyInventory/Store/get-item-list.html'"></div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedPageName").text("Details Upload Stock");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="detailsUploadStock"]').parents("li").addClass("active");
+});
+</script>
+<script src="resources/assets/js/common/page-height.js"></script>
+ 

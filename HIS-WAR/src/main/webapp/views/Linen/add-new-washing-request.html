@@ -1,0 +1,1114 @@
+<!-- /********************************************************************************************************************************************
+
+/********************************************************************************************************************************************/ -->
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+  <div class="container-fluid his-style">
+  <fieldset  class="main-fieldset">
+    <!-- <legend class="heading-div">Add New Store Indent</legend> -->
+    <div class="row margin-top10">
+      <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+        <div class="row input-container">
+          <div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+            <i class="fa fa-tasks" aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-11 col-sm-11 col-md-10">
+            <div class="">
+              <select class="text-input floating-label"  >
+                <option></option>
+              </select>
+              <label for="code">From Store</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+        <div class="row input-container">
+          <div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+            <i class="fa fa-tasks" aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-11 col-sm-11 col-md-10">
+            <div class="">
+              <select class="text-input floating-label">
+                <option></option>
+              </select>
+              <label for="code">To Store</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-md-1 padding-left-right-set4 text-width-auto padding-top10">
+        <div class="checkbox">
+          <label class="common-lable-color-set">
+          <input type="checkbox" value="" data-target="#addNewItemWasteStore" data-toggle="modal">Get Item List</label>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-3 padding-left-right-set4 padding-top10 pull-right">
+        <div class="row input-container">
+          <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-11 col-sm-11 col-md-11">
+            <div class="">
+              <input type="text" name="code" id="" ng-model="searchStoreIndent" class="text-input floating-label">
+              <label for="code">Search Item</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  fixed asset table start -->
+    <div class="row" id="fixeAssetRowId">
+      <div class="col-lg-12 col-md-12 padding-top10">
+        <table class="table table-bordered">
+          <thead>
+            <tr class="table-th-bg">
+              <th colspan="13" class="font-weight700">Linen Details</th>
+            </tr>
+            <tr>
+              <th class="width8">Linen Code
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width8">Linen Name
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width10">Asset No
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width5">Dirt Linen Qty
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width7">Contaminated Linen Qty
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width7">Total Qty
+                <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </th>
+              <th class="width2 vertical-middle">Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr >
+              <td>LN1426</td>
+              <td>Nurse Dress</td>
+              <td class="vertical-middle"><a data-target="#assetNoPopup" data-toggle="modal">Asset No.</a></td>
+              <td>
+              	<input type="text" class="select-box" value="50"/>
+              </td>
+              <td>
+              	<input type="text" class="select-box" value="20"/>
+              </td>
+              <td>
+              	30              
+              	</td>
+              <td class="text-center media-middle">
+              	<a><i class="fa fa-times"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- fixed asset table end -->
+  </fieldset>
+  
+  <footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+    <div class="row his-style margin-top10 padding-right20">
+      <div class="col-md-1 text-right">
+        <label>Remark:</label>
+      </div>
+      <div class="col-md-9 padding-left-right8">
+        <textarea row="1" class="form-control"></textarea>
+      </div>
+      <div class="col-md-1 padding-left0px-right6px">
+        <div class=""><!-- common-save-button -->
+          <input type="button" value="Save" ng-click="vm.model.SaveNewStoreIndentRequest()" class="btn btn-primary btn-save-box-shadow">
+        </div>
+      </div>
+      <div class="col-lg-1 col-md-1 padding-left-right-set4">
+          <a href="#/washingRequest">
+            <input type="button" value="Back"  class="btn btn-primary btn-save-box-shadow">
+          </a>
+        </div>
+    </div>      
+  </footer>
+  </div>
+  </div>
+  <!--  add new item list modal start -->
+  <div id="addNewItemPurchaseRequest" class="modal fade ng-scope in common-large-popup" role="dialog">
+    <div class="modal-dialog"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title patient-details-row">
+            Add Item List
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+        </div>
+        <div class="modal-body height-table-with-scroll ">
+          <fieldset>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                <div class="row input-container">
+                  <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-lg-11 col-sm-11 col-md-11">
+                    <div class="">
+                      <select class="text-input floating-label">
+                        <option></option>
+                        <option>Type 1</option>
+                        <option>Type 2</option>
+                      </select> <label for="code">Asset Category</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                <div class="row input-container">
+                  <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-lg-11 col-sm-11 col-md-11">
+                    <div class="">
+                      <select class="text-input floating-label">
+                        <option></option>
+                        <option>Type 1</option>
+                        <option>Type 2</option>
+                      </select> <label for="code">Product Category</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+                <div class="row input-container">
+                  <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+                    <i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-lg-11 col-sm-11 col-md-11 ">
+                    <div class="">
+                      <input type="text" name="description" id=""class="text-input floating-label">
+                      <label for="description" class="LISDynamicLabel">Item Code</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                <div class="row input-container">
+                  <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+                    <i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-lg-11 col-sm-11 col-md-11 ">
+                    <div class="">
+                      <input type="text" name="description" id=""class="text-input floating-label">
+                      <label for="description" class="LISDynamicLabel">Item Name</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 his-style">
+                <input type="button" value="Search" class="btn btn-primary btn-save-box-shadow">
+              </div>
+            </div>
+            <div class="row common-popup-height-350">
+              <div class="col-lg-12 col-md-12 padding-top10 padding-left-right-set4">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="width1 text-center media-middle ">
+                        <input type="checkbox" />
+                      </th>
+                      <th class="width10">Asset Category
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width12">Product Category
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width8">Item Code
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width10">Item Name
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width8">PUOM
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width8">SUOM
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width8">UOM Unit
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width5">Qty  
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width6">COP  
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width8">PR No  
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width8">Expected DueDate 
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width10">Expected Warranty Period  
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width10">Expected Support Terms
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width10">Expected Payment Terms
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width8">Specification  
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="width8">Vendor 
+                        <div class="float_right">
+                          <div>
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                          <div class="margin-top-8">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">
+                        <input type="checkbox" />
+                      </td>
+                      <td>Asset Category 1</td>
+                      <td>Product Category 1</td>
+                      <td>1111</td>
+                      <td>Item 1</td>
+                      <td>
+                        <select class="ht26 width-100-set">
+                          <option></option>
+                          <option>1</option>
+                          <option>2</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select class="ht26 width-100-set">
+                          <option></option>
+                          <option>1</option>
+                          <option>2</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select class="ht26 width-100-set">
+                          <option></option>
+                          <option>1</option>
+                          <option>2</option>
+                        </select>
+                      </td>
+                      <td>
+                        <input type="text" class="ht26 width-100-set" placeholder="Qty"/>
+                      </td>
+                      <td>
+                        <input type="text" class="ht26 width-100-set" placeholder="COP"/>
+                      </td>
+                      <td></td>
+                      <td>
+                        <input type="text" class="ht26 width-100-set" placeholder=""/>
+                      </td>
+                      <td>
+                        <input type="text" class="ht26 width-100-set" placeholder=""/>
+                      </td>
+                      <td>
+                        <input type="text" class="ht26 width-100-set" placeholder=""/>
+                      </td>
+                      <td>
+                        <input type="text" class="ht26 width-100-set" placeholder=""/>
+                      </td>
+                      <td>
+                        <input type="text" class="ht26" placeholder="Enter Text"/>
+                      </td>
+                      <td>
+                        <a><label data-target="#vendeDetailsModal" data-toggle="modal">Add</label></a>
+                      </td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="modal-footer">
+          <div class="row his-style">
+            <div class="col-md-5"></div>
+            <div class="col-md-2 col-sm-2 padding-left-right15 text-right remark-label">
+              <label>Remark</label>
+            </div>
+            <div class="col-md-4 col-sm-4 padding-left-right15">
+              <textarea class="form-control" row="2"></textarea>
+            </div>
+            <div class="col-md-1 padding-left0px-right6px">
+              <div class="common-save-button">
+                <input type="button" value="Add" class="btn btn-primary btn-save-box-shadow">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  add new item list modal end -->
+  <!--  Get request modal start -->
+  <div id="getRequestWasteStore" class="modal fade ng-scope in common-large-popup" role="dialog">
+    <div class="modal-dialog"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title patient-details-row">
+            Get Request List
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+        </div>
+        <div class="modal-body height-table-with-scroll ">
+          <fieldset class="get-request-row">
+            <div class="row margin-top10">
+              <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                <div class="row input-container">
+                  <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-lg-11 col-sm-11 col-md-11">
+                    <div class="">
+                      <select class="text-input floating-label">
+                        <option></option>
+                        <option>Type 1</option>
+                        <option>Type 2</option>
+                      </select>
+                      <label for="code">From Store</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                <div class="row input-container">
+                  <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-lg-11 col-sm-11 col-md-11">
+                    <div class="">
+                      <select class="text-input floating-label">
+                        <option></option>
+                        <option>Type 1</option>
+                        <option>Type 2</option>
+                      </select> <label for="code">To Store</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+                <div class="row input-container">
+                  <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-lg-11 col-sm-11 col-md-11">
+                    <div class="">
+                      <input type="text" name="code" id="" class="text-input floating-label">
+                      <label for="code">Search</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-1 col-md-1 col-sm-1 padding-left8px-right-0px padding-top10 his-style">
+                <div class="common-save-button" style="padding-top:  0px;"> 
+                   <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+                     <i class="fa fa-search" aria-hidden="true"></i> 
+                   </a> 
+                </div> 
+              </div>
+            </div>
+            <div class="row padding-top10">
+              <div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr class="">   
+                      <th class="width1"></th>
+                      <th colspan="4" class="font-weight700">Item Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="table-th-bg cursor-pointer">
+                      <td class="width3 text-center">
+                        <input type="checkbox" />
+                      </td>
+                      <td>
+                        <div class="col-md-3 font-weight700">
+                          PR Date:
+                        </div>
+                        <div class="col-md-3  text-left">
+                          09/10/2017
+                        </div>
+                        <div class="col-md-3 font-weight700 text-right">
+                          PR No:
+                        </div>
+                        <div class="col-md-3  text-left">
+                          12345
+                        </div>
+                      </td>
+                      <td>
+                        <div class="col-md-2 font-weight700 text-left">
+                          Store No:
+                        </div>
+                          <div class="col-md-3 padding-left-right-10">
+                          SN-9837
+                        </div>
+                        <div class="col-md-3 font-weight700 text-right" title="Requested By">
+                          Requested By:
+                        </div>
+                        <div class="col-md-4  text-left">
+                          Varun Sharma
+                        </div>
+                      </td>
+                      <td colspan="">
+                        <div class="col-md-6 font-weight700 text-left padding-left0">
+                          Authorized By:
+                        </div>
+                        <div class="col-md-6 text-left">
+                          -
+                        </div>
+                      </td>
+                      <td>
+                        <div class="col-md-3 font-weight700 text-left">
+                          Date:
+                        </div>
+                        <div class="col-md-3  text-left padding-left-right-10">
+                          09/10/2017
+                        </div>
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <td colspan="5">
+                        <div class="selectedServicesList">
+                          <table class="table table-bordered">
+                            <tbody>
+                              <tr>
+                                <th class="width1"></th>
+                                <th class="width15">Item Code
+                                  <div class="float_right">
+                                    <div>
+                                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="margin-top-8">
+                                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    </div>
+                                  </div>
+                                </th>
+                                <th class="width15">Item Name
+                                  <div class="float_right">
+                                    <div>
+                                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="margin-top-8">
+                                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    </div>
+                                  </div>
+                                </th>
+                                <th class="width8"> Qty
+                                  <div class="float_right">
+                                    <div>
+                                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="margin-top-8">
+                                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    </div>
+                                  </div>
+                                </th>
+                                <th class="width8">Pending Qty
+                                  <div class="float_right">
+                                    <div>
+                                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="margin-top-8">
+                                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    </div>
+                                  </div>
+                                </th>
+                              </tr>
+                              <tr>
+                                <td class="width1 text-center">
+                                  <input type="checkbox" />
+                                </td>
+                                <td class="width15">PP-1234</td>
+                                <td class="width15">Item One</td>
+                                <td class="width8">150</td>
+                                <td class="width8">60</td>
+                              </tr>
+                              <tr>
+                                <td class="width1 text-center">
+                                  <input type="checkbox" />
+                                </td>
+                                <td class="width15">PP-1234</td>
+                                <td class="width15">Item One</td>
+                                <td class="width8">150</td>
+                                <td class="width8">60</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="table-th-bg cursor-pointer">
+                      <td class="width3 text-center">
+                        <input type="checkbox" />
+                      </td>
+                      <td>
+                        <div class="col-md-3 font-weight700">
+                          PR Date:
+                        </div>
+                        <div class="col-md-3  text-left">
+                          09/10/2017
+                        </div>
+                        <div class="col-md-3 font-weight700 text-right">
+                          PR No:
+                        </div>
+                        <div class="col-md-3  text-left">
+                          12345
+                        </div>
+                      </td>
+                      <td>
+                        <div class="col-md-2 font-weight700 text-left">
+                          Store No:
+                        </div>
+                          <div class="col-md-3 padding-left-right-10">
+                          SN-9837
+                        </div>
+                        <div class="col-md-3 font-weight700 text-right" title="Requested By">
+                          Requested By:
+                        </div>
+                        <div class="col-md-4  text-left">
+                          Varun Sharma
+                        </div>
+                      </td>
+                      <td colspan="">
+                        <div class="col-md-6 font-weight700 text-left padding-left0">
+                          Authorized By:
+                        </div>
+                        <div class="col-md-6 text-left">
+                          -
+                        </div>
+                      </td>
+                      <td>
+                        <div class="col-md-3 font-weight700 text-left">
+                          Date:
+                        </div>
+                        <div class="col-md-3  text-left padding-left-right-10">
+                          09/10/2017
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="5">
+                        <div class="selectedServicesList">
+                          <table class="table table-bordered">
+                            <tbody>
+                              <tr>
+                                <th class="width1"></th>
+                                <th class="width15">Item Code
+                                  <div class="float_right">
+                                    <div>
+                                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="margin-top-8">
+                                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    </div>
+                                  </div>
+                                </th>
+                                <th class="width15">Item Name
+                                  <div class="float_right">
+                                    <div>
+                                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="margin-top-8">
+                                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    </div>
+                                  </div>
+                                </th>
+                                <th class="width8"> Qty
+                                  <div class="float_right">
+                                    <div>
+                                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="margin-top-8">
+                                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    </div>
+                                  </div>
+                                </th>
+                                <th class="width8">Pending Qty
+                                  <div class="float_right">
+                                    <div>
+                                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="margin-top-8">
+                                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    </div>
+                                  </div>
+                                </th>
+                              </tr>
+                              <tr>
+                                <td class="width1 text-center">
+                                  <input type="checkbox" />
+                                </td>
+                                <td class="width15">PP-1234</td>
+                                <td class="width15">Item One</td>
+                                <td class="width8">150</td>
+                                <td class="width8">60</td>
+                              </tr>
+                              <tr>
+                                <td class="width1 text-center">
+                                  <input type="checkbox" />
+                                </td>
+                              <td class="width15">PP-1234</td>
+                                <td class="width15">Item One</td>
+                                <td class="width8">150</td>
+                                <td class="width8">60</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="modal-footer">
+          <div class="row his-style">
+            <div class="col-md-11"></div>
+            <div class="col-md-1 padding-left0px-right6px">
+              <div class="common-save-button">
+                <input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Get request modal start -->
+  <!-- vendor modal start -->
+  <div id="vendeDetailsModalOne" class="modal fade ng-scope in common-small-popup" role="dialog">
+    <div class="modal-dialog"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title patient-details-row">
+            Vendor Details
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+        </div>
+        <div class="modal-body height-table-with-scroll ">
+          <fieldset class="get-request-row">
+            <div class="row margin-top10">
+              <div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+                <div class="row input-container">
+                  <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-lg-11 col-sm-11 col-md-11">
+                    <div class="">
+                      <input type="text" class="text-input floating-label">
+                      <label for="code">Search</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="row margin-top10">
+              <div class="col-md-12 col-xs-12 padding-left-right-set4">
+                <div class="col-md-12">
+                  <table class="table table-bordered" id="addVendorTable">
+                    <thead>
+                      <tr>
+                        <th class="width1">
+                          <input type="checkbox"/>
+                        </th>
+                        <th class="width15">Vendor Name</th>
+                        <th class="width12">Address</th>
+                        <th class="width12">Contact Person</th>
+                        <th class="width10">Phone No</th>
+                        <th class="width10">Email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="checkbox"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="modal-footer">
+          <div class="row his-style">
+            <div class="col-md-10"></div>
+            <div class="col-md-2 padding-left0px-right6px">
+              <div class="common-save-button">
+                <input type="button" value="Save" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- vendor modal start -->
+  <!-- Expected terms Details modal start -->
+  <div id="vendorSelectionDetailsModal2" class="modal fade ng-scope in common-large-popup" role="dialog">
+    <div class="modal-dialog"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title patient-details-row">
+             Expected Terms
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="fix-height-scroll500 padding-top10">
+              
+              <div class="col-lg-12 col-md-12 col-xs-12">
+                <div class="row">
+                  <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+                    <div class="tab-btn-primary">
+                      <a class="btn btn-primary btn-save-box-shadow">Warranty Period</a>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+                    <div class="tab-btn-primary">
+                      <a class="btn btn-primary btn-save-box-shadow" >Expected Support Terms</a><!-- ng-href="#/quotationEDetails/supportTerms" -->
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+                    <div class="tab-btn-primary">
+                      <a class="btn btn-primary btn-save-box-shadow">Expected Payment Terms</a><!-- ng-href="#/quotationEDetails/paymentTerms" -->
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4">
+                    <div class="tab-btn-primary">
+                      <a class="btn btn-primary btn-save-box-shadow">Expected Technical Specification</a><!-- ng-href="#/quotationEDetails/technicalSpecification" -->
+                    </div>
+                  </div>
+                  <div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+                    <div class=" "><!-- width-div-for-patient-reg -->
+                      <a href="" class="btn btn-primary btn-save-box-shadow width56" title="Save">
+                        <i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i>
+                      </a>  
+                    </div>
+                  </div>
+                </div>
+                <div class="row dayWiseSlot" ui-view>
+                  <!-- *************Expected support terms start********************* -->
+                  <div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+                    <div class="row searched-patient-details-row margin-top8 bg-grey-for-list">
+                      <div class="col-md-12 col-sm-12 col-xs-12 ">
+                        <fieldset class=" div-fieldset ">
+                          <legend class="heading-div">
+                            <span>Expected Support Terms </span>
+                          </legend>
+                          <div class="row common-popup-height-350">
+                            1)Term 1
+                            2)Term 2
+                            3)Term 3
+                          </div>
+                        </fieldset>
+                      </div>
+                    </div>          
+                  </div>
+                  <!-- *************Expected payment terms end********************** -->
+                </div>
+              </div>  
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Expected terms Details modal end -->
+  <!-- ******************* Accessories Details Modal start ******************* -->
+  <div id="AccessoriesDetailsQEModal" class="modal fade ng-scope in common-small-popup" role="dialog">
+    <div class="modal-dialog"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title patient-details-row">
+             Accessories Details
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row margin-top10">
+            <div class="col-lg-11 col-md-11"></div>
+            <div class="col-lg-1 col-md-1 padding-left-right-set4">
+              <input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow width75">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll500 padding-top10 padding-left-right-set4">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="width25">Name
+                      <div class="float_right">
+                        <div>
+                          <i class="fa fa-caret-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="margin-top-8">
+                          <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="width80">Accessories Details
+                      <div class="float_right">
+                        <div>
+                          <i class="fa fa-caret-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="margin-top-8">
+                          <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="width8">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input type="text" class="select-box"/>
+                    </td>
+                    <td>
+                      <!-- <input type="text" class="select-box"/> -->
+                      <textarea rows="1" class="form-control" cols="20"></textarea>
+                    </td>
+                    <td>
+                      <span>
+                        <input type="button" name="" id="addr" value="+" onclick="addRowRangeTable2()" class="btn btn-info add-dynamic-row" style="padding: 2px 4px;">&nbsp;
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-include="'./views/common/asset-no-popup.html'"></div>
+  
+  <!-- ******************* Accessories Details Modal end ******************* -->
+  <div ng-include="'./views/PharmacyInventory/Store/get-item-list.html'" ></div>
+  
+  <script type="text/javascript">
+  $( document ).ready(function() {
+    $("#consumbleRowId").hide();
+    $(".selectedPageName").text("Add New Item Washing Request ");
+    $(".selectedServicesList").hide();
+    $( ".addNewItemRadioBtnClass" ).change(function() {
+      if ($(this).is(":checked"))
+      {
+        //$("#addNewItemPurchaseRequest").modal();
+        $("#addNewItemWasteStore").modal();
+      }
+    }); 
+  
+  // $('a[name="getItem"]').on('click', function(e){
+  //      if(e.target.click){
+  //        $('#addNewItemWasteStore').modal();
+  //      }
+  //   });
+    $( ".getRequestListBtnClass" ).change(function() {
+      if ($(this).is(":checked"))
+      {
+        $("#getRequestWasteStore").modal();
+      }
+    }); 
+    
+    /******* on type selection table hide-show function start*************/
+     $('#typeId').on('change', function() {
+          if ( this.value == '1')
+          {
+            $("#consumbleRowId").show();
+            $("#fixeAssetRowId").hide();
+            
+          }
+          else
+          {
+            $("#consumbleRowId").hide();
+            $("#fixeAssetRowId").show();
+          }
+        });
+     /******* on type selection table hide-show function end*************/
+  });
+  
+  $(".table-th-bg").click(function(){
+    /* alert(); */
+    $(this).next().find(".selectedServicesList").toggle();
+  });
+  </script>

@@ -1,0 +1,338 @@
+<!-- <div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<legend class="heading-div">Speciman Master</legend>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id=""
+									class="text-input floating-label"> <label for="code">Speciman Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-university" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label"> <label for="code">Speciman Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row margin-top10">
+			<div class="col-md-8"></div>
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" data-toggle="modal" data-target="#confirmLogout"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-10">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="width15">
+							Speciman Code
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width25">
+							Speciman Name
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width8">Status
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8 text-center">
+							Action
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td>
+							<label class="switch"> <input type="checkbox">
+								<div class="slider round"></div>
+							</label>
+						</td>
+						<td class="padding-edit-button-table text-center">
+							<a>
+								<i class="fa fa-pencil" aria-hidden="true" title="Edit"></i>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div> -->
+
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Details</legend> -->
+			<div class="row margin-top10">
+				<form name="commonform" novalidate>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<input type="hidden" ng-model="common.incremetedId"> <input
+										type="hidden" ng-model="commonType"> <input
+										type="text" name="commonCode" id=""
+										class="text-input floating-label" ng-model="common.code"   ng-class="{'dirty':updateBtnFlag == true}" ng-maxlength="10"
+										required> <label for="code" class="LISDynamicLabelOne">Code</label>
+									<p class="help-block"
+										ng-if="commonform.commonCode.$error.required">Code is
+										required</p>
+										<p class="help-block"
+										ng-if="commonform.commonCode.$error.maxlength">Maxmimum 10 character are allowed.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon width4">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<input type="text" name="commonDesc" id=""
+										ng-model="common.desc" class="text-input floating-label"   ng-class="{'dirty':updateBtnFlag == true}" ng-maxlength="256"
+										required> <label for="description"
+										class="LISDynamicLabel">{{LISDynamicLabel}}</label>
+									<p class="help-block"
+										ng-if="commonform.commonDesc.$error.required">Description
+										is required</p>
+										<p class="help-block"
+										ng-if="commonform.commonDesc.$error.maxlength">Maxmimum 256 character are allowed.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+
+		<!-- <div class="row">
+			<div class="col-md-8"></div>
+			<div class="col-md-4">
+				<div class="width-div-for-patient-reg ">
+					   <a href="" value="Save" ng-click="save()"
+						class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto"
+						title="Save" ng-if="saveBtnFlag" style="padding:4px 10px !important"><i class="fa fa-floppy-o"
+						style="font-size: 21px" aria-hidden="true" ></i></a> 
+						<a href=""
+						value="Update" ng-click="update()"
+						class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto"
+						title="Update" ng-if="updateBtnFlag"><i
+						class="fa fa-refresh" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+		</div> -->
+
+		<modal visible="showModal"></modal>
+			<!-- <div class="row padding-left-right-10 margin-top8">
+				<div class="col-lg-2 col-md-2">
+					 style="top: -11px;"
+					<div class="ssearch">
+						<span class="fa fa-search icon-size search-icon-for-search"></span> <input placeholder="Search" ng-model="searchKeyword" class="search-popUp-ddl">
+					</div>
+				</div>
+				<div class="col-lg-7  col-md-7"></div>
+				<div class="col-lg-2 col-md-2" style="text-align: right; padding-right: 0px;">
+					<div class="search">
+						<label class="show-entries">Show 
+						<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+							ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+							ng-change="setNoOfRecords();" class="search-popUp-ddl">
+								<option value="10">10</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+						</select> entries
+						</label>
+					</div>
+				</div>
+			
+			</div> -->
+			
+			<div class="row padding-top10">
+				<div class="col-md-6 col-sm-7 padding-left-right-set4">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-sm-6" style="padding-left: 0px;">
+								<div class="search">
+									<label class="show-entries">Show 
+									<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+										ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+										ng-change="setNoOfRecords();" class="search-popUp-ddl">
+											<option value="10">10</option>
+											<option value="25">25</option>
+											<option value="50">50</option>
+											<option value="100">100</option>
+									</select> entries
+									</label>
+								</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" ng-click="save()" ng-if="saveBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="update()" ng-if="updateBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      </div>
+			      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+			        <input type="text" class="text-search-box ng-pristine ng-untouched ng-valid ng-empty search-popUp-ddl" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+			        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			      </div>
+			</div>
+
+			<div class="row padding-left-right-set4 margin-top8">
+				<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr class="">
+							<th class="LISDynamicLabelOne">
+								<!-- <label class="LISDynamicLabelOne" >{{LISDynamicLabel}}</label> -->
+								Code
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("code")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("code")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+
+							</th>
+							<th class="common-lable-color-set"><label
+								class="LISDynamicLabel common-lable-color">{{LISDynamicLabel}}</label>
+
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("desc")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("desc")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div></th>
+							<th style="width: 15%">Gross Required</th>
+							<th style="width: 15%">Block Required</th>
+							<th style="width: 8%">Status</th>
+							<th class="text-center" style="width: 8%">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="info in commonList|orderBy:column:reverse|filter:searchKeyword">
+							<td>{{info.code}}</td>
+							<td>{{info.desc}}</td>
+							<td><label class="switch"> <input type="checkbox"
+									ng-model="info.specimanGross" ng-checked="info.specimanGross=='Y'"
+									ng-true-value="'Y'" ng-false-value="'N'"
+									ng-change="updateGrossRequired(info.id,info.specimanGross)">
+									<div class="slider round"></div>
+							</label></td>
+							<td><label class="switch"> <input type="checkbox"
+									ng-model="info.specimanBlock" ng-checked="info.specimanBlock=='Y'"
+									ng-true-value="'Y'" ng-false-value="'N'"
+									ng-change="updateBlockRequired(info.id,info.specimanBlock)">
+									<div class="slider round"></div>
+							</label></td>
+							<td><label class="switch"> <input type="checkbox"
+									ng-model="info.status" ng-checked="info.status=='A'"
+									ng-true-value="'A'" ng-false-value="'I'"
+									ng-change="updateStatus(info.id,info.status)">
+									<div class="slider round"></div>
+							</label></td>
+							<td class="text-center"><a><i class="fa fa-pencil"
+									aria-hidden="true" ng-click="showUpdateBtn(info.id)"></i></a></td>
+						</tr>
+					</tbody>
+				</table>
+					<table class="table table-bordered">
+					<tr ng-if="(commonList|filter:searchKeyword)=='' || (commonList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+				</div>
+
+			</div>
+			</div>
+		</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+});
+  
+  $(".selectedPageName").text("Speciman Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$=""]').parents("li").addClass("active");
+
+</script>

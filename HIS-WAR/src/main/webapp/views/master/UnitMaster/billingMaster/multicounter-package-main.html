@@ -1,0 +1,216 @@
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<div class="row margin-top8">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+									<select class="text-input floating-label" ng-model="searchPackageObj.packagetypeId">
+									<option ng-repeat="packType in packageTypeList" value="{{packType.id}}" ng-if="packType.id == 5">{{packType.name}}</option>
+								</select>
+								<label for="code">Package Type</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" ng-model="searchPackageObj.serviceCode" press-enter="getSearchServicesList(searchPackageObj)" name="code" id="" class="text-input floating-label">
+								<label class="LISDynamicLabel">Package Code</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+								<input type="text" ng-model="searchPackageObj.serviceDescription" press-enter="getSearchServicesList(searchPackageObj)" name="code" id="" class="text-input floating-label">
+								<label class="LISDynamicLabel">Package Name</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right text-width-auto padding-top10">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Search">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top10">
+					<div class=" ">
+						<a href="#/addNewMulticounterPackage">
+							<input type="button" value="Add New" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="row margin-top4">
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+					<!-- <div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+						</a>
+					</div> -->
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+					<input type="text" class="text-search-box" placeholder="Search"  ng-model="searchKeyword" style="margin-top:0px">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+			</div>
+		</fieldset>
+		
+		<div class="row margin-top10">
+			<div class="col-md-12 col-lg-12 col-sm-12"  id="nonBillableTableHt">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 height55-table-with-scroll padding-left-right-set4">
+						<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width8">
+										Package Type
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("packageType")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("packageType")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width8">
+										Package Code
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("packageCode")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("packageCode")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width10">
+										Package Name
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("packageName")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("packageName")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width8">
+										Visit Type
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("visitType")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("visitType")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width5">
+										Status
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("status")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("status")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width5">Action
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="package in searchPackageList|orderBy:column:reverse|filter:searchKeyword">
+									<td>{{package.packageType}}</td>			
+									<td>{{package.packageCode}}</td>
+									<td>{{package.packageName}}</td>
+									<td>{{package.visitType}}</td>
+									<td>{{package.status}}</td>
+									<td>
+										<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+											<a title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+										</div>
+										<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+											<!-- <a title="Print" ><i class="fa fa-print" aria-hidden="true" ></i></a> -->
+										</div>
+										<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+											<!-- <a title="Cancel">
+												<i class="fa fa-times-circle-o" aria-hidden="true" data-toggle="modal" data-target="#CanellationModal"></i>
+											</a> -->
+										</div>
+										<div class="col-lg-6 col-md-6 padding-left-right-set4 text-right">
+											<!-- <a class="cursor-pointer" href="">Details</a> -->
+										</div>
+									</td>	
+								</tr>
+							</tbody>
+						</table>
+						<table class="table table-bordered">
+					<tr ng-if="(searchPackageList|filter:searchKeyword)=='' || (searchPackageList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+					</div>
+			   </div>
+			</div>
+		</div>
+		
+		
+	</div>
+</div>
+
+<!-- Page Content -->        
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedServicesList").hide();
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+  
+  $(".selectedPageName").text("Multicounter Package");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="multicounterPackage"]').parents("li").addClass("active");
+});
+$(".table-th-bg").click(function(){
+	//alert("23======");
+	$(this).next().find(".selectedServicesList").toggle();
+});
+</script>

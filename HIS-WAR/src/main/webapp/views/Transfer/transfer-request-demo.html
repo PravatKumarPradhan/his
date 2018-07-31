@@ -1,0 +1,137 @@
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid his-style">
+				<div class="row">
+            		<div class="col-md-8">
+            			<!-- <div class="bed-transfer-ward-div">
+							<label><b>Ward No:</b> Ward-A</label>
+						</div> -->
+            		</div>
+					<div class="col-md-3">
+						<div>
+							<input type="text" class="text-search-box" placeholder="Search">
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="submitRequest()"><i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a>	
+					</div>
+					</div>
+				</div>
+				<modal visible="showModal"></modal>
+				
+				<div class="row padding-left-right-10">
+					<div class="col-md-12">
+						<table class="table table-bordered ">
+							<tr class="">
+							<th>
+								</th>
+								<th>UHID
+								</th>
+								<th class="width10">
+									Patient Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									From Bed
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width15">
+									Current Bed Category
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="nursing-order-width">
+									Required Bed Category
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="nursing-order-width">
+									Reason For Transfer
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="nursing-order-width">
+									Remark
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="nursing-order-width">
+									Status
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="nursing-order-width">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr ng-repeat="info in listOfAdmittedPatientList"><!-- ng-disabled="info.transferStatus!='p'" -->
+							<td><input type="radio" name="radioName" value="info.admissionId" ng-model="admittedPatient" ng-click="selectPatient(info)"  ng-disabled="{{info.disable}}" />
+								<td>{{info.uhidnumber}}</td>
+								<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.patientFullName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.patientFullName+' '+info.dob+'/'+info.genderCode}}</div>
+								</td>
+								<td>{{info.bedNumber}}</td>
+								<td>
+									{{info.bedCategoryDesc}}
+								</td>
+								<td>
+									<select class="select-box" ng-model="info.requiredBedCategory"  ng-disabled="info.disable">
+										<option value="">Select Bed Category</option>
+										<option ng-repeat="bedC in bedCategoryList" value="{{bedC.bedCategoryId+'_'+bedC.hierarchyId
+										}}">{{bedC.bedCategoryDesc}}</option>
+									</select>
+								</td>
+								<td><select class="select-box" ng-model="info.reasonId"  ng-disabled="info.disable">
+										<option value="">Select Reason</option>
+										<option ng-repeat="reason in reasonList" value="{{reason.reasonMasterId}}">{{reason.reasonDesc}}</option>
+									</select></td>
+								<td><input  ng-model="info.remark" class="text-box-style" type="text"  ng-disabled="info.disable"></td>
+								<td>{{info.transferStatus}}</td>
+								<td><button value="Transfer" ng-disabled="true">Transfer</button><button value="Abort" ng-disabled="true">Abort</button></td>
+							</tr>
+							
+						</table>
+					</div>
+				</div>
+  			</div>
+		</div>
+
+	<script type="text/javascript">
+	$(document).ready(function(){	
+		
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		
+		$(".selectedPageName").text("Transfer Request Demo");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="transferRequestDemo"]').parents("li").addClass("active");
+	});
+		
+	</script>

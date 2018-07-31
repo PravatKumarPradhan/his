@@ -1,0 +1,232 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Manufacturer Master</legend> -->
+			<div class="row margin-top10">
+				<form action="">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="hidden" ng-model="id" value="0" />
+									<input type="text" name="code" class="focus-input text-input floating-label form-control" ng-model="vm.model.code" ng-change="vm.model.ismanufacturerCodeValid = false"
+									 ng-class="{dirty: vm.model.code}" show-focus="vm.model.code">
+									<p ng-if="vm.model.ismanufacturerCodeValid" class="errorMsg">Manufacturer Code is required</p>
+									<label for="code" class="LISDynamicLabelOne">Code</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon width4">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="name" id="" class="text-input floating-label form-control" ng-model="vm.model.name" ng-change="vm.model.ismanufacturerValid = false"
+									 ng-class="{dirty: vm.model.name}">
+									<p ng-if="vm.model.ismanufacturerValid" class="errorMsg">Manufacturer is required</p>
+									<label for="name" class="">Manufacturer</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon width4">
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="address" id="" class="text-input floating-label form-control" ng-model="vm.model.address" ng-change="vm.model.isaddressValid = false"
+									 ng-class="{dirty: vm.model.address}">
+									<p ng-if="vm.model.isaddressValid" class="errorMsg">Manufacturer Address is required</p>
+									<label for="address" class="">Address</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-set1">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmSave">
+						<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" ng-model="search" style="margin-top: 0px">
+				<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top10">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tbody>
+						<tr class="">
+							<th class="LISDynamicLabelOne" title="Code">
+								Code
+								<div class="float_right" ng-click="sortType = 'code'; sortReverse = !sortReverse">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="common-lable-color-set" title="Manufacturer">
+								<label class="LISDynamicLabel common-lable-color">Manufacturer</label>
+								<div class="float_right" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width8" title="Status">
+								Status
+								<div class="float_right" ng-click="sortType = 'status'; sortReverse = !sortReverse">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="text-center width6" title="Action">
+								Action
+								<!-- <div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div> -->
+							</th>
+							<th class="width1"></th>
+						</tr>
+						<tr ng-repeat="manufacture in vm.model.manufactureDataList | filter : search |   orderBy:sortType:sortReverse">
+							<td>
+								{{manufacture.code}}
+							</td>
+							<td>
+								{{manufacture.name}}
+							</td>
+							<td>
+								<label class="switch switch-small">
+									<input type="checkbox" class="switchInput" ng-model="manufacture.status" ng-change="vm.model.ToggleStatus(manufacture)">
+									<div class="slider round slider-small"></div>
+								</label>
+							</td>
+
+							<!-- focusInput=true; -->
+							<td class="text-center">
+								<a ng-click="vm.model.PopulateManufacturer(manufacture.id);">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+								</a>
+							</td>
+							<td class="padding-edit-button-table">
+								<div class="">
+									<a>
+										<i class="fa fa-info-circle" ng-click="vm.model.detail_address = manufacture.address" aria-hidden="true" title="Details"
+										 data-toggle="modal" data-target="#addressModal"></i>
+									</a>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- </div> -->
+
+
+
+<!--  confirmSave modal start -->
+
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+		<div class="modal-content" style="border-radius: 0px !important;">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Are you sure you want to Save?</span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" ng-click="vm.model.SaveManufacturer()" data-dismiss="modal" class="btn btn-primary">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal end -->
+
+<!-- address details modal start -->
+<div id="addressModal" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 padding-bottom10 padding-top8" id="">
+						<!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table">
+							<tr class="">
+								<td class="width10">
+									<label>
+										<b>Address :</b>
+									</label>
+								</td>
+								<td class="width18">
+									<label>{{vm.model.detail_address}}</label>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- address details modal end -->
+
+<script type="text/javascript">
+	$(document).ready(function () {
+
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+	});
+	$(".selectedPageName").text("Manufacturer Master");
+	$(".sidebar-nav li").each(function () {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="manufacturerMaster"]').parents("li").addClass("active");
+</script>

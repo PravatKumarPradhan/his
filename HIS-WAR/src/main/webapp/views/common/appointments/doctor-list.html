@@ -1,0 +1,193 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<legend class="heading-div">Doctor List</legend>
+			<div class="row">
+			<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-medkit" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<select class="text-input floating-label">
+									<option value=""></option>
+									<option value="Store 1"></option>
+								</select>
+								<label for="code">Speciality</label>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label"> <label
+									for="code">Doctor Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-phone-square" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="description" id="" class="text-input floating-label"> <label for="description" class="">Mobile Number</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" class="text-input floating-label"> <label for="description" class="">Birth Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				<div class="col-lg-1 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-repeat" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="description" id="" class="text-input floating-label"> <label for="description" class="">Age</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="registrationNumber" id="" class="text-input floating-label">
+								<label for="description" class="LISDynamicLabel">Registration Number</label>
+								<label for="description" class="dynamicLabelForEmployee" style="display: none;">Employee Id</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+					<div class="common-save-button text-center">
+						<a href="" class="btn btn-primary btn-save-box-shadow text-width-auto" style="margin-top: 6px;">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+					
+			</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-10">
+			<div
+				class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"
+						data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o"
+						style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div
+				class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search"
+					style="margin-top: 0px"> <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-10 margin-top8">
+			<div class="col-md-12">
+				<table class="table  nowrap">
+					<tr class="">
+						<th class="width3 text-center">
+							Registration Number
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width3 text-center">
+							Doctor Photo
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width10 text-center">
+							Doctor Name
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width4 text-center">
+							Date of Birth
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width8 text-center">
+							Mobile No.
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<td class="text-center">PC-17-0007</td>
+						<td class="text-center">
+							<a href="">
+								<img src="resources/assets/images/tempImages/Dr2 copy.png" class="img-responsive data-table-img-size img-circle">
+							</a>
+						</td>
+						<td class="data-table-name data-table-text-align">Arun Kirdat</td>
+						<td class="text-center">16/02/1988</td>
+						<td class="text-center">9885263215</td>
+					</tr>
+					<tr>
+						<td class="text-center">PC-17-0008</td>
+						<td class="text-center">
+							<a href="">
+								<img src="resources/assets/images/tempImages/Dr2 copy.png" class="img-responsive data-table-img-size img-circle">
+							</a>
+						</td>
+						<td class="data-table-name data-table-text-align">Smruti Bhosale</td>
+						<td class="text-center">11/03/1992</td>
+						<td class="text-center">9545428766,8830082931</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+	});
+	$(".selectedPageName").text("Doctor List");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="doctorList"]').parents("li").addClass("active");
+</script>

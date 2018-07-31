@@ -1,0 +1,88 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<div class="custom-sub-tab padding-left-right-set4">
+			<ul class="tabs nav nav-tabs">
+				<li class="float_right active"
+					ng-class="{ active : isSetSecondTabLevel(1) }"
+					style="width: 150px;"><a href=""
+					ng-click="setSecondTabLevel(1)">Store </a></li>
+				<li class="float_right"
+					ng-class="{ active : isSetSecondTabLevel(2) }"
+					style="width: 150px;"><a href=""
+					ng-click="setSecondTabLevel(2)">Utilized</a></li>
+			</ul>
+		</div>
+		<div class="row custom-sub-tab padding-left-right-set4">
+			<div ng-show="isSetSecondTabLevel(1)"
+				class="second-level-tab-display-div" style="">
+				<div class="row">
+					<div class="col-md-12 fix-height-scroll450">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="">
+									<th class="width8">Store Name</th>
+									<th class="width8">
+											Kit Batch No.
+										</th>
+									<th class="width8">Qty</th>
+									<th class="width3 text-center vertical-middle">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td class="text-center"><a href="" title="Stop Issue">Stop Issue</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div ng-show="isSetSecondTabLevel(2)"
+				class="second-level-tab-display-div" style="">
+				<div class="row">
+					<div class="col-md-12 fix-height-scroll450">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width6"><span class="">UHID</span></th>
+									<th class="width12"><span class="">Patient's Name</span></th>
+									<th class="width10"><span class="">Procedure Name</span></th>
+									<th class="width10"><span class="">Admission Status</span></th>
+									<th class="width10"><span class="">Ward</span></th>
+									<th class="width8">Kit Batch No.</th>
+									<th class="width6"><span class="">Bed No.</span></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer
+			class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style padding-right20">
+				<div class="col-md-1 padding-left-right-set4 pull-right">
+					<div class="">
+						<a href="#/detailsApplication"> <input type="button"
+							value="Back" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>

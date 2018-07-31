@@ -1,0 +1,455 @@
+
+<!-- ADD SERVICE POPUP -->
+<div id="addServicePopup" class="common-large-popup modal fade ng-scope in his-style" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Add Service
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body row">
+					<div class="col-md-12">
+						<div class="row">
+							<!-- <div class="col-md-8 padding-left-right-set4">
+								<input type="radio" name="registrationType"><span class="margin-left5 font-weight600">Service</span>
+								<input type="radio" name="registrationType" class="margin-left5"><span class="margin-left5 font-weight600">Packages</span>
+								<input type="radio" name="registrationType" class="margin-left5"><span class="margin-left5 font-weight600">Order Set</span>
+							</div> -->
+							<div id="mediaType" class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4 uk-input-group customRadioBtn">													
+								<span>
+										<input id="serviceRadio" name="servicePackageOrderSet" type="radio" value="1" val="yes" checked="checked" class="service">
+										<label for="serviceRadio">Service</label>
+								</span>
+								<span>
+										<input id="packagesRadio" name="servicePackageOrderSet" type="radio" value="2" class="package">
+										<label for="packagesRadio">Packages</label>
+								</span>
+								<span>
+										<input id="orderSetRadio" name="servicePackageOrderSet" type="radio" value="3" class="orderSet">
+										<label for="orderSetRadio">Order Set</label>
+								</span>	
+							</div>
+							<div class="col-md-4 col-sm-4 padding-left-right-set4 margin-top10">
+								
+								<div class="col-md-1 col-sm-2 padding-left-right-set4 float_right">
+									<div class="width-div-for-patient-reg ">
+										<a href="" class="btn btn-primary btn-save-box-shadow"
+											title="Save" data-toggle="modal" ng-click="addTempServiesToServiceMasterList()"><!-- data-target="#confirmLogout" --><i
+											class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ServiceDiv START -->
+						<div class="serviceDiv">
+						<!-- Active Package Details  START -->
+						<fieldset class="normalRegistration sub-fieldset main-fieldset ng-scope">
+									<legend class="main-heading-div commonPatientSearch cursor-pointer">
+									Active Package Details
+									</legend>
+										<div class="row patienttSearchResult" style="">
+											
+											<fieldset class="normalRegistration sub-fieldset border-none padding-top10">
+											<!-- <legend class="main-heading-div border-bottom-none">List</legend> -->
+												<div class="row serachedPatientList">
+													<div class="col-md-12 col-lg-12 headerHeight padding-left-right-set4">
+														<table class="table table-bordered">
+															<thead>
+																<tr>
+																<th class="width1"></th>
+																<th class="width8 vertical-top">
+																	<span class="">Order No.</span>
+																</th>
+																<th class="width8 vertical-top">
+																	 <span class="">Order Date</span>
+																</th>
+																<th class="width8 vertical-top">
+																	Package Code
+																</th>
+																<th class="width10 vertical-top">
+																	Package Description
+																</th>
+																<th class="width8 vertical-top">
+																	Package Amount
+																</th>
+																<th class="width10 vertical-top">
+																	Consumed Amount
+																</th>
+																<th class="width8 vertical-top">
+																	Balanced Amount
+																</th>
+																<th class="width8 vertical-top">
+																	Validity From
+																</th>
+																<th class="width8 vertical-top">
+																	Validity To
+																</th>
+																<th class="width3 vertical-top">
+																	Action
+																</th>
+															</tr>
+															</thead>
+															<tbody>
+																<tr ng-repeat="activePack in activePackagesList">
+																	<td><input type="checkbox"></td>
+																	<td>{{activePack.orderNo}}</td>
+																	<td>{{activePack.orderDate}}</td>
+																	<td>{{activePack.packageCode}}</td>
+																	<td>{{activePack.packageName}}</td>
+																	<td>{{parseFloatNum(activePack.packagePrice)}}</td>
+																	<td>-</td>
+																	<td>-</td>
+																	<td>-</td>
+																	<td>-</td>
+																	<td class="text-center cursor-pointer" data-toggle="modal" data-target="#viewPackageServices" ng-click="currentActivePackageServices(activePack)"><a>View</a></td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+										</fieldset>
+								</div>
+							</fieldset>
+						<!-- Active Package Details END -->
+						<div class="row">
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<input type="text" name="description" id="searchServiceId" class="text-input floating-label" ng-model="search" uib-typeahead = "serviceMaster.serviceStandardName + '|' +serviceMaster.serviceStandardCode for serviceMaster in searchServices($viewValue)" typeahead-on-select="addServiceToTempServiceList($item, $model, $label)" > <!-- press-enter="addServiceToTempServiceList($item, $model, $label)" -->
+												<label for="description" class="LISDynamicLabel">Service Code</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<input type="text" name="description" id="searchServiceId" class="text-input floating-label" ng-model="search" uib-typeahead = "serviceMaster.serviceStandardName + '|' +serviceMaster.serviceStandardCode for serviceMaster in searchServices($viewValue)" typeahead-on-select="addServiceToTempServiceList($item, $model, $label)" > 
+												<label for="description" class="LISDynamicLabel">Service Name</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<select class="text-input floating-label" ng-model="serviceSpecialityId" ng-change="getSubSpecialityListById(serviceSpecialityId)">
+													<option></option>
+													<option ng-repeat="info in specialityMasterList" value="{{info.specialityId}}">{{info.specialityName}}</option>
+												</select> <label for="code">Specialty</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<select class="text-input floating-label" ng-model="serviceSubSpecialityId">
+													<option></option>
+													<option ng-repeat="info in subSpecialityMaterList" value="{{info.subSpecialityId}}">{{info.subSpecialityName}}</option>
+												</select> <label for="code">Sub Specialty</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+						</div>
+						<div class="row">
+								<div class="col-md-12 col-lg-12 fix-height-scroll230 padding-left-right-set4">
+									<table class="table table-bordered  margin-top8">
+										<thead>
+											<tr>
+												<th class="width15">
+													<span class="">Service Code</span>
+												</th>
+												<th class="width15">
+													 <span class="">Service Name</span>
+												</th>
+												<th class="width15">
+													 <span class="">Specialty</span>
+												</th>
+												<th class="width15">
+													Sub Specialty
+												</th>
+												<th class="width15">
+													 <span class="">Doctor</span>
+												</th>
+												<th class="width5">
+													Unit Price
+												</th>
+												<th class="width5">
+													Qty
+												</th>
+												<th class="width10">
+													Amount
+												</th>
+												<th class="width1">
+													
+												</th> 
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="service in servicesListPopup">
+												<td>
+													{{service.serviceStandardCode}}
+												</td>
+												<td>
+													{{service.serviceStandardName}}
+												</td>
+												<td>
+													{{service.specialityName}}
+												</td>
+												<td>
+													{{service.subSpecialityName}}
+												</td>
+												<td>
+													<select class="display-text-box" ng-model="service.doctorId">
+														<option ng-repeat="info in doctorsList" value="{{info.doctorId}}">{{info.doctorName}}</option>
+													</select>
+												</td>
+												<td>
+													<input type="text" class="display-text-box" ng-model="service.basePrice" ng-disable="service.isQuantityEditable == 'N'" ng-blur="getQuantityCalPopup(service,$index)">
+												</td>
+												<td>
+													<input type="text" class="display-text-box" ng-model="service.quantity" ng-disable="service.isRateEditable == 'N'" ng-blur="getBasePriceCalPopup(service,$index)">
+												</td>
+												<td>
+													{{service.totalAmt}}
+												</td>
+												<td>
+													<i class="fa fa-times" aria-hidden="true" ng-click="removeTempServicesByIndex($index)"></i>
+												</td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="8" class="text-right">
+													<span>Total Amount</span>
+													{{totalAmountSummaryPopup}}
+												</td>
+												<td></td>
+											</tr>
+										</tfoot>
+									</table>
+							 </div>
+						</div>
+						</div>
+						<!-- ServiceDiv END -->
+						
+						<!-- packageDiv START -->
+						<div class="packageDiv">
+							<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<select class="text-input floating-label" ng-model="packageSearchObj.packageTypeId">
+														<option ng-repeat="packType in packageTypeList" value="{{packType.id}}" >{{packType.name}}</option>
+													</select> <label for="code">Package Type</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text" name="description" placeholder="Search" uib-typeahead="pack.serviceStandardCode for pack in searchPackageList|filter:$viewValue | limitTo:10" ng-keyup="searchPackages(packageSearchObj)" typeahead-editable="false"  typeahead-on-select="selectPackageService($item, $model, $label)" ng-model="packageSearchObj.serviceCode" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Package Code</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text" name="description" id="" placeholder="Search" uib-typeahead="pack.serviceStandardName for pack in searchPackageList|filter:$viewValue | limitTo:10" ng-keyup="searchPackages(packageSearchObj)" typeahead-editable="false"  typeahead-on-select="selectPackageService($item, $model, $label)" ng-model="packageSearchObj.serviceName" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Package Description</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+							</div>
+							<div class="row">
+									<div class="col-md-12 col-lg-12 fix-height-scroll230 padding-left-right-set4">
+										<table class="table table-bordered  margin-top8">
+											<thead>
+												<tr >
+													<th class="width10">
+														<span class="">Package Type</span>
+													</th>
+													<th class="width10">
+														 <span class="">Package Code</span>
+													</th>
+													<th class="width10">
+														 <span class="">Package Description</span>
+													</th>
+													<th class="width10">
+														Unit Price
+													</th>
+													<th class="width10">
+														Qty
+													</th>
+													<th class="width10">
+														Amount
+													</th>
+													<th class="width5">
+														Action
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr ng-repeat="pack in selectedPackageList">
+													<td>{{pack.packageType}}</td>
+													<td>{{pack.serviceStandardCode}}</td>
+													<td>{{pack.serviceStandardName}}</td>
+													<td>{{parseFloatNum(pack.basePrice)}}</td>
+													<td>1</td>
+													<td>{{parseFloatNum(pack.basePrice)}}</td>
+													<td>
+											 			<a ng-click="removeSelectedPackage($index)">
+											 				<i class="fa fa-times"  aria-hidden="true"></i>
+											 			</a>
+											 		</td>
+												</tr>
+											</tbody>
+											<!-- <tfoot>
+												<tr>
+												<td colspan="5" class="text-right"><span>Total Amount</span></td>
+													<td  class="text-right">
+														<span>Total Amount</span>
+														<input type="text" style="width:98px" readonly ng-model="totalSearchPackAmount">
+													</td>
+												</tr>
+											</tfoot> -->
+										</table>
+								 </div>
+							</div>
+						</div>
+						<!-- packageDiv END -->
+						
+						<!-- orderSetDiv START -->
+						<div class="orderSetDiv">
+							<div class="row fix-height-scroll230">
+								
+							</div>
+						</div>
+						<!-- orderSetDiv END -->
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+<!-- viewPackageServices START -->
+<div id="viewPackageServices" class="common-medium-popup modal fade ng-scope his-style in" role="dialog" style="z-index:9999;background:rgba(0, 0, 0, 0.33);">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Add Service
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="row padding-left-right-10">
+						<div class="padding-top8 ">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th colspan="6">Services</th>
+									</tr>
+									<tr>
+										<th class="width1 text-center"><input type="checkbox" ng-model="selectAllCurrPackServ"></th>
+										<th class="width10"><span class="">Service Code</span>
+										</th>
+										<th class="width15"><span class="">Service Description</span></th>
+										<th class="width15"><span class="">Package Qty</span></th>
+										<th class="width15">Consumed Qty</th>
+										<th class="width15">Balance Qty</th>
+									</tr>
+								</thead>	
+								<tbody>	
+									<tr ng-repeat="serv in currentActivePackage.listPackageConsumptionServiceDetailDto" ng-if="serv.isServiceItem == 1">
+										<td class="width1 text-center"><input type="checkbox" ng-model="serv.isSelected" ng-checked="selectAllCurrPackServ"></td>
+										<td class="ng-binding">{{serv.serviceCode}}</td>
+										<td class="ng-binding">{{serv.serviceStandardName}}</td>
+										<td class="ng-binding">{{serv.packageQuantity}}</td>
+										<td>{{serv.packageQuantity - serv.balanceQuantity}}</td>
+										<td class="ng-binding">{{serv.balanceQuantity}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="row">
+						
+						<div class="col-lg-1 col-sm-2 col-md-1 padding-left-right-set1 text-width-auto pull-right">
+							<div class="">
+								<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" ng-click="addCurrentPackageServices()" data-dismiss="modal">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- viewPackageServices END -->
+<script>
+$(document).ready(function() {
+	$(".packageDiv").hide();
+	$( ".service" ).trigger( "click" );
+	
+	$(document).on('click','.service', function(){
+		
+		 $(".serviceDiv").show();
+		 $(".packageDiv").hide();
+		 $(".orderSetDiv").hide();
+		 
+	});
+	$(document).on('click','.package', function(){
+		
+		 $(".serviceDiv").hide();
+		 $(".packageDiv").show();
+		 $(".orderSetDiv").hide();
+		 
+	});
+	$(document).on('click','.orderSet', function(){
+		
+		 $(".serviceDiv").hide();
+		 $(".packageDiv").hide();
+		 $(".orderSetDiv").show();
+		 
+	});
+});
+</script>

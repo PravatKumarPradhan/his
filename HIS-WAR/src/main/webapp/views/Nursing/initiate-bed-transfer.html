@@ -1,0 +1,71 @@
+
+ <div id="page-content-wrapper" class="padding-left-right-set4">
+            <div class="container-fluid ">
+            	<fieldset>
+					<div class="row margin-top4 his-style">
+						<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set1">
+							<div class="tab-btn-primary">
+								<a class="btn btn-primary btn-save-box-shadow" ng-href="#/initiateBedTransfer/initiateRequestTransferBed">Initiate Request</a>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+							<div class="tab-btn-primary">
+								<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/initiateBedTransfer/physicalInitiateTransferBed">Physical Transfer</a>
+							</div>
+						</div>
+						<!-- <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"  ng-click="submitRequest()"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+							<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						
+						</div> --> 
+					</div>
+				
+            <div class="row">
+				<div class="" ui-view>
+			
+				</div>
+				<!-- <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top10">
+				<div class=" ">
+					<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+				</div>
+			</div> -->
+			</div>
+			</fieldset>
+			 </div>
+			 <footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+   </div> 
+
+ <div ng-include="'./views/common/accept-reject.html'"></div> 
+ <div ng-include="'./views/common/note-save.html'"></div> 
+
+<modal visible="showModal"></modal>
+
+
+	<script type="text/javascript">
+	$(document).ready(function(){	
+		
+		/* var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" ); */
+		
+		$(".selectedPageName").text("Initiate Bed Transfer");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="initiateBedTransfer"]').parents("li").addClass("active");
+	});
+		
+	</script>

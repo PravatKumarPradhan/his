@@ -1,0 +1,4088 @@
+
+
+	
+<style>
+
+.preloader {
+    background: url("resources/assets/images/logo/loader1.gif") no-repeat center center;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    cursor: wait;
+}
+
+.profile {
+ /*    background-color: #4CAF50; */
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-button {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-content {
+        display: none;
+    position: absolute;
+    right: 0;
+    background-color: #304771;
+    min-width: 110px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 999;
+    /* margin-top: 10px; */
+    padding-top: 10px;
+}
+
+.profile-content a {
+      color: white;
+    padding: 3px 10px;
+    text-decoration: none;
+    display: block;
+    /* margin-top: 10px; */
+}
+
+.profile-content a:hover {background-color: #97add6}
+
+.profile-button:hover .profile-content {
+    display: block;
+}
+.pagination_tag{
+	display: block !important;
+	margin-top:10px;
+}
+</style>
+   <nav class="navbar navbar-default no-margin logout_profile">
+    <!-- Brand and toggle get grouped for better mobile display -->
+                <span class="navbar-header fixed-brand">
+	                	<span >
+               			 	<!--clinivantage logo  -->
+               			 	 <img alt="" src="resources/assets/images/logo/Clinivantage Logo pc white.png"  class="img-responsive img-responsive-logo "> 
+               			 	
+               			 	<!-- Medcare logo if this is added than icons box need margin-top:10px -->
+               			 	<!-- <img alt="" src="resources/assets/assets/images/logo/medCareOriginalLogo.png " style="width:230px;padding:0px 0px 0px 20px;" class="img-responsive img-responsive-logo "> -->
+
+               			 	<!-- <img alt="" src="resources/assets/images/logo/sd-global-tech-white.png"  class="img-responsive img-responsive-logo "> -->
+
+               			</span>	
+               		<span>
+	                    <button type="button" class="navbar-toggle collapsed search-style-btn margin-left10" data-toggle="collapse"  id="menu-toggle">
+	                    	 <i class="fa fa-th-large" aria-hidden="true"></i>
+                    	</button>
+                   	</span>
+                  </span><!-- navbar-header-->
+ 
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <span>	
+	                            <ul class="nav navbar-nav">
+	                                <li class="active" >
+	                                <button class="navbar-toggle collapse in hidden-sm hidden-md" data-toggle="collapse" id="menu-toggle-2"> 
+	                                <i class="fa fa-th-large" aria-hidden="true"></i></button>
+	                                </li> 
+	                                 <li class="selectedPageName">
+	                                 <!-- Pro.Care -->
+	                                
+
+	                                 <img src="resources/assets/images/logo/HIS_LOGO.png" class="img-responsive img-responsive-logo HIS_logo">
+	                                 <!-- <img src="resources/assets/images/logo/medCareOriginalLogo.png" class="img-responsive img-responsive-logo HIS_logo"> -->
+
+	                                
+	                                  <!-- <img src="resources/assets/images/logo/medCareOriginalLogo.png" class="img-responsive img-responsive-logo HIS_logo"> -->
+
+	                                </li>
+	                            </ul>
+                          </span>
+                           <span class="icon-span logout_profile">
+	                       	<a href="#/bedManagement"><img alt="Home" src="resources/assets/images/icon/home.png" title="Home" class="cursor-pointer">  </a>  
+	                       	<img alt="Queue" src="resources/assets/images/icon/line.png" title="Queue" class="cursor-pointer">                         	  
+	                       	<img alt="Admission" src="resources/assets/images/icon/registration.png" title="Admission" class="cursor-pointer">                           	 
+	                       	<img alt="Schedule" src="resources/assets/images/icon/calendar.png" title="Schedule" class="cursor-pointer">
+	                       	<img alt="Search" src="resources/assets/images/icon/search.png" title="Search" data-toggle="modal" data-target="#searchModal" class="cursor-pointer">
+					  		<a ><!-- href="myProfile" -->
+					  		<img alt="My Profile" src="resources/assets/images/icon/man-user.png" title="My Profile" class="cursor-pointer">
+					  		</a>
+					  		<a href="#/logout"><!-- href="logout" -->
+					  			<img alt="Logout" src="resources/assets/images/icon/Logout.png" title="Logout" class="cursor-pointer" >
+					  		</a>                 	               	
+	                   </span>
+                </div><!-- bs-example-navbar-collapse-1 -->
+    </nav> 
+     
+    
+<!-- Data Table -->
+<!-- 
+<script src="${pageContext.request.contextPath}/resources/assets/common/datatable/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/common/datatable/dataTables.bootstrap.min.js"></script> -->
+
+<!-- Loader Image -->
+       <div class="preloader" id="preloader" style = "display:none">
+	  </div>
+	<!-- End Loader Image  -->
+
+ <div class="modal fade" id="searchModal" role="dialog">
+    <div class="pop-up-searchBox">
+    <!--   Modal content -->
+      <div class="modal-content" >
+        <div class="modal-header">
+        	Global Search
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         </div>
+        <div class="modal-body row" > 
+        	
+	        	<div class="row row-padding-search-img" >
+	        		
+		        	<div class="col-md-3 col-sm-3 col-xs-3 search-img-margin-left"  >
+		        		<select  class="search-popUp-ddl"  id="subSerach1">
+						  <option value="doctor" >Doctor</option>
+						  <option value="doctor"  >Doctor 1</option>
+						  <option value="doctor"  >Doctor 2</option>
+						  <option value="doctor">Doctor 3</option>
+						</select>
+		            </div>
+		        	<div class="col-md-3 col-sm-4 col-xs-4 search-img-margin-left">
+		        		<select class="search-popUp-ddl">
+						  <option value="patient">Patient</option>
+						  <option value="patient">Patient 1</option>
+						  <option value="patient">Patient 2</option>
+						  <option value="patient">Patient 3</option>
+						</select>
+		            </div>
+		            <div class="col-md-2 col-sm-3 col-xs-3 search-img-margin-left" >
+		        		<select  class="search-popUp-ddl">
+						  <option value="other">Other</option>
+						  <option value="other">Other</option>
+						  <option value="other">Other</option>
+						  <option value="other">Other</option>
+						</select>
+		            </div>
+           
+         
+		            <div class="col-md-3 col-sm-12 col-xs-12 search-img-margin-left" >
+		            	<input type="text" placeholder="Enter Text Here"  class="search-pop-up-text-box" >
+		            </div>
+          
+				</div>		
+			</div>
+			<div class="modal-footer row">
+				<div class="col-md-12 col-sm-12 col-xs-12">		
+					<div class="tab-content">
+						<div class="tab-pane fade active in" id="subSerach1">
+							<div class="row table-responsive">
+								<table class="table table-border">
+									<tbody>
+										<tr class="search-data-background-color">
+											<th>Doctor ID</th>
+											<th>Doctor Name</th>
+											<th>Visit Type</th>
+											<th>Contact No.</th>
+										</tr>
+										<tr class="popup-content" style="text-align:start">
+											<td>DC-1258</td>
+											<td>Jyoti Kadam</td>
+											<td>Walkin</td>
+											<td>9850454578</td>	
+										</tr>
+										<tr  class="popup-content" style="text-align:start">
+											<td>DC-1258</td>
+											<td>Sidhhesh S</td>
+											<td>Walkin</td>
+											<td>9850454578</td>	
+										</tr>
+										<tr class="popup-content" style="text-align:start">
+											<td>DC-1258</td>
+											<td>Rohan Patil</td>
+											<td>Walkin</td>
+											<td>9850454578</td>	
+										</tr>	
+										<tr class="popup-content" style="text-align:start">
+											<td>DC-1258</td>
+											<td>Nikhil Jadhav</td>
+											<td>Walkin</td>
+											<td>9850454578</td>	
+										</tr>						
+									</tbody>
+								</table>
+							</div>
+						</div> 
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div> 
+</div>
+<!--  end Modal -->
+
+<!-- ************************************************** COMMON HIS POPUP  ************************************************************-->
+
+
+
+
+<!-- OTP POPUP -->
+<div id="oneTimePassword" class="modal fade ng-scope in common-small-popup" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					OTP
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Enter Your OTP Here</span>
+					<input type="text" Placeholder="OTP">
+					<span><a href="">Resend OTP</a></span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="otpOk">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+	<!-- CONFIRM POPUP FOR ALL -->
+<div id="confirmLogout" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10"><span>Are you sure you want to Save?</span></div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="saveDetails();">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Common Allocation Confirm Popup -->
+<div id="confirmAllocation" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10"><span>Do you want to allocate Bed?</span></div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Yes</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">No</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+				<!-- ******************** Start Check Satus Modal  **************************** -->
+<div id="checkTabletstatus" class="modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog">
+			<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Nursing Order
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style padding-top10">
+					<div class="row padding-leftright10">
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label">
+										<label for="code">Administration Time</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-6 col-md-6 col-sm-6">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+										<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label" name="code">
+											<option></option>
+											<option>Reason-1</option>
+											<option>Reason-2</option>
+											<option>Reason-3</option>
+											<option>Reason-4</option>
+											</select>		
+											<label for="code">Select Reasons</label>
+										</div>
+									</div>
+								</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="modal-footer" style="border: none;">
+					<button type="button" data-dismiss="modal" class="btn btn-primary"
+						id="">Save</button>
+				</div>
+			</div>
+		</div>
+</div>
+ 				<!-- ******************** END  Check Satus Modal  **************************** -->
+ 
+ 
+ 
+ 
+ 
+ 	<!-- ******************** START MODEL FOR DEPOSITE MATRIX **************************** -->
+<!-- <div id="depositeMatrix" class="modal fade ng-scope in common-popup-header-content" role="dialog">
+		<div class="modal-dialog">
+			width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Deposit Matrix
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row height-table-with-scroll">
+						<table class="table table-striped table-bordered" id="">
+								<thead>
+									<tr>
+										
+										<th class="test-name-width">Bed Category</th>
+										<th class="test-name-width">Admission Deposit</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-left">
+											<div>
+												Super-Deluxe
+											</div>
+										</td>
+										<td class="text-left">
+											<div>
+												20,000
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="text-left">
+											<div>
+												Deluxe
+											</div>
+										</td>
+										<td class="text-left">
+											<div>
+												10,000
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+					</div>
+				</div>
+				 <div class="modal-footer" style="border: none;">
+				</div>
+			</div>
+		</div>
+</div> -->
+ 			<!-- ******************** END MODEL FOR DEPOSITE MATRIX **************************** -->
+ 			
+ 			
+<!-- ******************** START MODEL FOR INSURANCE**************************** -->
+<!-- <div id="insurance" class="common-large-popup modal fade ng-scope in common-popup-header-content" role="dialog">
+		<div class="modal-dialog">
+			width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Insurance
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style height-table-with-scroll">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row margin-top10">
+						<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-money" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="code" id="requiredOn" class="text-input floating-label dirty" value="Payment-1" readonly="readonly">
+										<label for="code">Payment Entitlement </label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-building" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code">
+											<option></option>
+											<option>Insurance company 1</option>
+											<option>Insurance company 2</option>
+										</select>
+										<label for="code">Select Insurance company </label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-handshake-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code">
+											<option></option>
+											<option>Third Party-1</option>
+											<option>Third Party-2</option>
+										</select>
+										<label for="code">Select Third Party Administrator</label>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+				
+				<div class="row margin-top10">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-address-card-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="code" id="requiredOn" class="text-input floating-label">
+										<label for="code">Policy Number</label>
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="code" id="requiredOn" class="text-input floating-label">
+										<label for="code">Validity Period</label>
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-money" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="code" id="requiredOn" class="text-input floating-label">
+										<label for="code">Amount Insured</label>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+				<div class="row margin-top10">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-percent" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="code" id="requiredOn" class="text-input floating-label">
+										<label for="code">Co-Payment Percentage</label>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+				<div class="row margin-top10 padding-left-right-set4">
+					<table class="table table-striped table-bordered" id="insuranceDocumentUpload">
+							<thead>
+								<tr>
+									
+									<th class="UHID-width"> Preauthorization Number</th>
+									<th class="UHID-width"> Date</th>
+									<th class="UHID-width">  Amount</th>
+									<th class="UHID-width"> Document Type</th>
+									<th class="UHID-width"> Document Upload</th>
+									<th class="status">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div>
+											<input type="text"  id="" class="text-box-for-ICU">
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="text"  id="" class="text-box-for-ICU">
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="text"  id="" class="text-box-for-ICU">
+										</div>
+									</td>
+									<td>
+										<div>
+											<select class="select-box">
+												<option>Document-1</option>
+												<option>Document-2</option>
+											</select>
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="file"  id="" class="text-box-for-ICU">
+										</div>
+									</td>
+									<td>
+										<div class="">
+											<input style="width: 36px;" type="button" name="" id="addr" value="+" onclick="addRowForMainTable()" class="btn btn-info">&nbsp;&nbsp;
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				</div>
+				</div>
+				 <div class="modal-footer his-style" style="border: none;">
+				 	<div class="row">
+						<div class="col-lg-1 col-sm-1 col-md-1 float_right"> 
+		 					<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow">
+		 				</div>
+				 	</div>
+				</div>
+			</div>
+		</div>
+</div> -->
+ 			<!-- ******************** END MODEL FOR INSURANCE **************************** -->	
+ 			
+ 			
+		
+	<!-- ******************** START MODEL FOR ASSIGN CONTRACT **************************** -->
+<!-- <div id="assignContract" class="common-large-popup modal fade ng-scope in common-popup-header-content" role="dialog">
+		<div class="modal-dialog">
+			width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Assign Contract
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row margin-top10">
+						<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="code" id="requiredOn" class="text-input floating-label dirty" value="Payment-1" readonly="readonly">
+										<label for="code">Payment Entitlement</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-microchip" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code">
+											<option></option>
+											<option>1</option>
+											<option>2</option>
+										</select>
+										<label for="code">Select Corporate</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-address-card-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code">
+											<option></option>
+											<option>1</option>
+											<option>2</option>
+										</select>
+										<label for="code">Select Contract</label>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+				<div class="row margin-top10 common-sub-table padding-left-right-set4">
+					<table class="table table-striped table-bordered">
+						<tr>
+							<td>File Name</td>
+							<td>View</td>
+						</tr>
+						<tr>
+							<td>File-name-1</td>
+							<td><a href="">View</a></td>
+						</tr>
+						<tr>
+							<td>File-name-2</td>
+							<td><a href="">View</a></td>
+						</tr>
+						<tr>
+							<td>File-name-3</td>
+							<td><a href="">View</a></td>
+						</tr>
+					</table>
+				</div>
+				
+				<div class="row margin-top10 common-sub-table padding-left-right-set4">
+					<table class="table table-striped table-bordered" id="assignedContractDocumentUpload">
+							<thead>
+								<tr>
+									<th class="UHID-width"> Document Type</th>
+									<th class="UHID-width"> Document Upload</th>
+									<th class="status">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div>
+											<select class="select-box">
+												<option>Document-1</option>
+												<option>Document-2</option>
+											</select>
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="file"  id="" class="text-box-for-ICU">
+										</div>
+									</td>
+									<td>
+										<div class="">
+											<input type="button" name="" style="width:36px" id="addr" value="+" onclick="addRowForMainTable1()" class="btn btn-info">&nbsp;&nbsp;
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				</div>
+				</div>
+				 <div class="modal-footer his-style" style="border: none;">
+				 	<div class="row">
+						<div class="col-lg-1 col-sm-1 col-md-1 float_right"> 
+		 					<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow">
+		 				</div>
+				 	</div>
+				</div>
+			</div>
+		</div>
+</div> -->
+ 			<!-- ******************** END MODEL FOR ASSIGN CONTRACT  **************************** -->	
+ 			
+ 			
+ 			
+ 			
+<!-- ******************** START MODEL FOR PDF VIEW **************************** -->
+<!-- <div id="commonPdfView" class="modal fade ng-scope in common-popup-header-content" role="dialog">
+		<div class="modal-dialog">
+			width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						View
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row margin-top10">
+						<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll450 margin-top10 margin-bottom10">
+							<img src="resources/assets/images/tempImages/pdf.jpg">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div> -->
+ 			<!-- ******************** END MODEL FOR PDF VIEW   **************************** -->	
+ 			
+ 			
+<!-- ******************** START MODEL FOR PACKAGE **************************** -->
+<!-- <div id="commonPackage" class="modal fade ng-scope in common-large-popup" role="dialog">
+		<div class="modal-dialog">
+			width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Package 
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row margin-top10">
+						<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code">
+											<option></option>
+											<option>Packge-1</option>
+											<option>Packge-2</option>
+										</select>
+										<label for="code">Select Packeg</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row margin-top10 common-popup-height-350 padding-left-right-set4">
+						<table class="table table-striped table-bordered ">
+							
+							<tr>
+								<th class="width25 ">
+									<span>Package Name</span> 
+								</th>
+								<th class="width25 ">
+									<span>Service Name</span>
+								</th>
+								<th class="width25 ">
+									<span>Quentity</span>
+								</th>
+							</tr>
+							<tr>
+								<td colspan="3" class="colspan-bg-color">Service Group-1</td>
+							</tr>
+							<tr>
+								<td>
+									<span>Package-1</span> 
+								</td>
+								<td>
+									<span>Service-1</span>
+								</td>
+								<td>
+									<span>10</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>Package-1</span> 
+								</td>
+								<td>
+									<span>Service-2</span>
+								</td>
+								<td>
+									<span>10</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>Package-1</span> 
+								</td>
+								<td>
+									<span>Service-3</span>
+								</td>
+								<td>
+									<span>10</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" class="colspan-bg-color">Service Group-2</td>
+							</tr>
+							<tr>
+								<td>
+									<span>Package-1</span> 
+								</td>
+								<td>
+									<span>Service grp-3</span>
+								</td>
+								<td>
+									<span>10</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>Package-1</span> 
+								</td>
+								<td>
+									<span>Service grp-4</span>
+								</td>
+								<td>
+									<span>10</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				 <div class="modal-footer his-style" style="border: none;">
+				 	<div class="row">
+						<div class="col-lg-1 col-sm-1 col-md-1 float_right"> 
+		 					<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow">
+		 				</div>
+				 	</div>
+				</div>
+			</div>
+		</div>
+</div> -->
+ 			<!-- ******************** END MODEL FOR PACKAGE  **************************** -->	
+ 			
+ 			
+	
+	<!-- ******************** START MODEL FOR COMMON FILE UPLOAD **************************** -->
+<!-- <div id="commonUploadDocuments" class="common-large-popup modal fade ng-scope in common-popup-header-content" role="dialog">
+		<div class="modal-dialog">
+			width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Upload Documents
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+				<div class="row margin-top10 common-sub-table padding-left-right-set4">
+					<table class="table table-striped table-bordered" id="documentUpload">
+							<thead>
+								<tr>
+									<th class="UHID-width"> Document Type</th>
+									<th class="UHID-width"> Document Upload</th>
+									<th class="status">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div>
+											<select class="select-box">
+												<option>Document-1</option>
+												<option>Document-2</option>
+											</select>
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="file"  id="" class="text-box-for-ICU">
+										</div>
+									</td>
+									<td>
+										<div class="">
+											<input type="button" style="width:36px" name="" id="addr" value="+" onclick="addRowForMainTable1()" class="btn btn-info">&nbsp;&nbsp;
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				</div>
+				<div class="row margin-top10 common-sub-table padding-left-right-set4">
+					<table class="table table-striped table-bordered">
+						<tr>
+							<th class="UHID-width"> Document Type</th>
+							<th class="UHID-width"> Document Upload</th>
+							<th class="status">Action</th>
+						</tr>
+						<tr>
+							<td>-</td>
+							<td>File-name-1</td>
+							<td><a href="">View</a></td>
+						</tr>
+						<tr>
+							<td>-</td>
+							<td>File-name-2</td>
+							<td><a href="">View</a></td>
+						</tr>
+						<tr>
+							<td>-</td>
+							<td>File-name-3</td>
+							<td><a href="">View</a></td>
+						</tr>
+					</table>
+				</div>
+				</div>
+				 <div class="modal-footer his-style" style="border: none;">
+				 	<div class="row">
+						<div class="col-lg-1 col-sm-1 col-md-1 float_right"> 
+		 					<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow">
+		 				</div>
+				 	</div>
+				</div>
+			</div>
+		</div>
+</div> -->
+ 			<!-- ******************** END MODEL FOR COMMON FILE UPLOAD **************************** -->	
+ 			
+ 			
+ 			
+
+	
+	
+	<!-- OTP POPUP -->
+<div id="oneTimePassword" class="modal fade ng-scope in common-small-popup" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					OTP
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<h5>Enter Your OTP Here</h5>
+					<input type="text" Placeholder="OTP">
+					<span><a href="">Resend OTP</a></span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="otpOk">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+	
+	
+ 			
+	
+<!-- Address Modal for All -->
+<div id="detailsAddModal" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Address Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10" id=""><!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table">
+							<tr class="">
+								<td class="width10">
+									<label><b>Address :</b></label>
+								</td>
+								<td  class="width20">
+									<label>Address 1</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label><b>Country :</b></label>
+								</td>
+								<td class="width10">
+									<label>India</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label><b>State :</b></label>
+								</td>
+								<td class="width18">
+									<label>Maharashtra</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label><b>City :</b></label>
+								</td>
+								<td class="width18">
+									<label>Kolhapur</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label><b>Area :</b></label>
+								</td>
+								<td class="width18">
+									<label>Tarabai Park</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="width10">
+									<label><b>ZIP Code :</b></label>
+								</td>
+								<td class="width18">
+									<label>416012</label>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Address Modal -->
+
+<!-- Additional Details -->
+<div id="AdditionalDetailsModal" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-10" id=""><!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Room</th>
+									<th>Amenities</th>
+								</tr>
+								<tr>
+										<td>-</td>
+										<td>-</td>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Additional Details -->
+<!-- Ward Details -->
+<div id="wardDetails" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-10" id=""><!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Wards</th>
+									<!-- <th>Amenities</th> -->
+								</tr>
+								<tr>
+										<td>-</td>
+										<!-- <td>-</td> -->
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Ward Details -->
+
+<!-- Speaciality Details -->
+<div id="specialityDetails" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Service Speciality Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-10" id=""><!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Speciality</th>
+									<!-- <th>Amenities</th> -->
+								</tr>
+								<tr>
+										<td>-</td>
+										<!-- <td>-</td> -->
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Speaciality Details -->
+
+<!-- SubStore Details -->
+<div id="substoreDetailsModal" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-10" id=""><!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Selected Items</th>
+									<!-- <th>Selected Items</th> -->
+								</tr>
+								<tr>
+										<!-- <td>-</td> -->
+										<td>-</td>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- SubStore Details -->
+<!-- document view details modal start -->
+<div id="documentUploadedDetailsModal" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					View Document 
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10" id="pharmacologyDetailsTableId"><!-- id for the table td fix height -->
+						<h4>View Document</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- document view details modal end -->
+
+<!-- OutSource Test Details -->
+<div id="outSourceTestDetails" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					OutSource Test Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-10" id=""><!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table">
+							<thead>
+								<tr>
+									<th>OutSource Tests</th>
+									<!-- <th>Amenities</th> -->
+								</tr>
+								<tr>
+										<td>-</td>
+										<!-- <td>-</td> -->
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- OutSource Test Details -->
+<!-- Disease List -->
+<div id="diseaseList" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Diseases List
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-10" id=""><!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Diseases</th>
+									<!-- <th>Amenities</th> -->
+								</tr>
+								<tr>
+										<td>-</td>
+										<!-- <td>-</td> -->
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Disease List -->
+<!--  Confirmation of cancel modal start -->
+<!-- <div id="confirmCancel" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10"><span>Are you sure you want to Cancel?</span></div>
+			</div>
+			<div class="modal-footer his-style" style="border:none;">
+				<div class="row">
+					<div class="col-md-6"></div>
+					<div class="col-md-3 padding-left-right-10">
+						<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Yes</button>
+					</div>
+					<div class="col-md-3 padding-left-right-10">
+						<button type="button" data-dismiss="modal" class="btn btn-primary">No</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+<!--  Confirmation of cancel modal end -->
+<!--  add new item list modal start -->
+
+<!--  add new item list modal end -->
+
+
+
+
+<!-- Meal Details Modal START -->
+<div id="mealDetails" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Meal Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+			<div class="row patient-details-row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<span class="profile_pic margin-left10"> 
+							<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+						</span> 
+						<span class="margin-left10">John Deo 26/M </span>
+						<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> Pune-769</span>
+						<span class="margin-left10"><b class="padding-right10 ">Priority :</b> Normal</span>
+						<span class="margin-left10">Dr. Suresh Pathak </span>
+					</div>
+				</div>
+				<div class="">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th class="width15">Dish</th>
+								<th class="text-center width15">Qty</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- <tr>
+								<td class="vertical-middle"></td>
+								<td class="text-center padding-zero">
+									<div>
+										<span>5</span> <span>Roti</span>
+									</div>
+									<div class="row addDish-bg text-center">
+										<span>360</span> <span>Cal</span>
+									</div>
+								</td>
+							</tr> -->
+							<td></td>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Meal Details Modal END -->
+
+
+
+
+<!-- PANIC VALUE POPUP -->
+<div id="panicValue" class="common-large-popup modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Panic Value
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="col-md-12" style="background-color: white">
+							<div class="row serachedPatientList">
+								<div class="col-md-12 col-lg-12  fix-height-scroll450">
+									<table class="table table-bordered  margin-top8">
+										<tr>
+											<th class="width15">
+												<span class="">Age Group </span>
+											</th>
+											<th class="width5">
+												 <span class="">Sex</span>
+											</th>
+											<th class="width10">
+												Min value
+											</th>
+											<th class="width10">
+												Max Value
+											</th>
+											<th class="width10">
+												Less Than
+											</th>
+											<th class="width10">
+												More Than
+											</th>
+											<th class="width20">
+												Remark
+											</th>
+										</tr>
+										<tr >
+											<td>
+												-
+											</td>
+											<td>
+												-
+											</td>
+											<td>
+												-
+											</td>
+											<td>
+												-
+											</td>
+											<td>
+												-
+											</td>
+											<td>
+												-
+											</td>
+											<td>
+												-
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+
+
+
+		
+	<!-- FOOT NOTE POPUP -->
+<div id="footNote" class="modal fade ng-scope in common-small-popup" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Foot Note
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					sfdgfhgyjhukjilj dgfhgyuilo fgyhujiop dfghgjhkjl dgfhhjkj dgfhgjhkjl gfhjhk fghhjk
+					dxfgfhgjhkjikl dfghujilj fhgjhkjlk
+				</div>
+			</div>
+		</div>
+	</div>
+</div>		
+		
+
+
+
+<!-- Batch modal -->
+<div id="getBatchModal" class="modal fade ng-scope in" role="dialog" style="z-index:9999;background:rgba(0, 0, 0, 0.33);">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Batch Help
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll">
+				<div class="col-md-12 col-lg-12 col-sm-8 padding-left-right-set0"
+					id="nonBillableTableHt">
+					<fieldset>
+						<!-- <legend class="heading-div">Table</legend> -->
+						<div class="row his-style padding-left-right-set4 padding-top4">
+							<div class="col-md-9 col-lg-9 col-sm-9"></div>	
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+								<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px">
+								 <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="row margin-top10">
+							<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+								<table class="table table-bordered first-checkBox-padding">
+									<!-- mainServiceTable -->
+									<thead class="">
+										<tr>
+											<th class="text-center"><input type="checkbox"></th>
+											<th>Batch No.</th>
+											<th>Balance Qty</th>
+											<th>Expiry</th>
+											<th>MRP</th>
+											<th>Purchase Rate</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="text-center"><input type="checkbox"></td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-10"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Select" class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Cancel" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Batch modal -->
+<!-- Doctor List MOdal START -->
+<div id="DoctorList" class="modal fade ng-scope in padding-left0" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Doctors
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll	">
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-user-md fa-color" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label">
+											<option value="">General Medicines</option>
+											<option value=""></option>
+									</select>
+									<label for="code"></label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-set padding-top10 text-center">
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div>
+							<img class="img-circle" src="resources/assets/images/tempImages/Dr2 copy.png" width="100" height="100">
+						</div>
+						<div> <span class="doctorName">Nisha Parag Gaikwad</span> </div>
+						<div> <span class="doctorSpeci">Dental surgery</span> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Doctor List MOdal END -->
+
+
+
+
+<!-- Contact Details Modal END -->
+<!-- Search Kit Modal Start -->
+<div id="searchKit" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content"> 
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					 Search Kit
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-top8">
+					<div class="col-lg-8 col-md-8 col-sm-10 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" id=""
+										class="text-input floating-label"> <label for="code">Search Kit</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-1 padding-left-right-set4 padding-top4">
+						<div class="common-save-button"> 
+							 <a href="" class="btn btn-primary btn-save-box-shadow text-width-auto pull-left"> 
+							 	<i class="fa fa-search" aria-hidden="true"></i> 
+							 </a> 
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-10 margin-top10">
+						<div class="col-md-12 common-table-height-250">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="">
+									<th class="width1"></th>
+										<th class="width15">
+											Kit Code
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width15">
+											Kit Name
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+									</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="vertical-align text-center"><input type="checkbox"></td>
+											<td>-</td>
+											<td>-</td>
+										</tr>
+									</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Select</button>
+					<span><button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button></span>
+				</div>
+		</div>
+	</div>
+</div>
+<!-- Search Kit Modal End -->
+<!-- instrumentInfo Modal Start -->
+<div id="instrumentInfo" class="modal fade ng-scope in common-medium-popup" role="dialog" style="z-index: 9999;background: rgba(0, 0, 0, 0.33)">
+	<div class="modal-dialog">
+		<div class="modal-content"> 
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					  Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4 padding-top4">
+						<div class="col-md-12 common-table-height-250">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="">
+										<th class="width15">
+											Instrument Code
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width15">
+											Instrument Name
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width5">
+											Qty
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+									</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+										</tr>
+									</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+				</div>
+		</div>
+	</div>
+</div>
+<!--  instrumentInfo Modal End -->
+<!-- KitInfo Modal Start -->
+<div id="KitInfo" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content"> 
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					  Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4 padding-top4">
+						<div class="col-md-12 common-table-height-250">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="">
+										<th class="width8">
+											Kit Code
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width8">
+											Kit Name
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width3">
+											Qty
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width1"></th>
+									</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td class="text-center"><a href="" data-toggle="modal" data-target="#instrumentInfo"><i class="fa fa-info-circle"></i></a></td>
+										</tr>
+									</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+				</div>
+		</div>
+	</div>
+</div>
+<!--  kitInfo Modal End -->
+<!-- AddKit Modal Start -->
+<div id="addKit" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content"> 
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					  Add Kit
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4 padding-top4">
+						<div class="row his-style">
+							<div class="padding-left-right-set4 col-lg-3 col-md-3 col-sm-3 padding-top10">
+								<span class=""><b class="padding-right10 ">Kit Name :</b> </span>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set0 float_right">
+								<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> 
+								<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+							</div>
+						</div>
+						<div class="col-md-12 common-table-height-250 padding-top10">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="">
+									<th class="width1 text-center"><input type="checkbox"></th>
+										<th class="width8">
+											Kit Code
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width8">
+											Kit Name
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width8">
+											Batch No.
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width8">
+											AutoClave No.
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width8">
+											AutoClave Date
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width8">
+											Expiry Date
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+									</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="width1 text-center"><input type="checkbox"></td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+										</tr>
+									</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+				</div>
+		</div>
+	</div>
+</div>
+<!--  AddKit Modal End -->
+<!-- KitApproval Modal Start -->
+<div id="kitApproval" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content"> 
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					  Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4 padding-top4">
+						<div class="col-md-12 common-table-height-250">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="">
+										<th class="width8">
+											Kit Code
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width8">
+											Kit Name
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width3">
+											Qty
+											<div class="float_right">
+												<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+												<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+											</div>
+										</th>
+										<th class="width3"></th>
+										<th class="width1"></th>
+									</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td class="vertical-middle">
+												<div class="row">
+														<label class="cursor-pointer"><input type="radio" name="optradio" class="radioAcceptedHold4" checked="checked">Accept</label> 
+														<label class="cursor-pointer"><input type="radio" name="optradio" class="radioRejected4" data-toggle="modal" data-target="#accepatReject">Reject</label>
+													</div>
+												</td>
+											<td class="text-center"><a href="" data-toggle="modal" data-target="#instrumentInfo"><i class="fa fa-info-circle"></i></a></td>
+										</tr>
+									</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+				</div>
+		</div>
+	</div>
+</div>
+<!--  kitApproval kitInfo Modal End -->
+
+<!-- CanellationModal Start -->
+	<div id="CanellationModal" class="modal fade ng-scope in common-small-popup" role="dialog" style="background: rgba(0, 0, 0, 0.33); z-index: 1300 !important;">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Canellation
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12 padding-left-right-set">
+							<div class="row input-container margin-top10">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+										<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label dirty ng-pristine ng-untouched ng-valid ng-empty" id="rejectReasonId" name="code" ng-model="rejectReasonId">
+											<option value="">Select Reason</option>
+											<!-- ngRepeat: info in reasonList -->
+											</select>		
+											<label for="code">Select Reasons</label>
+										</div>
+									</div>
+								</div>
+							<div class="row input-container margin-top10">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-sticky-note" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<textarea name="code" rows="4" id="noteReject" class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty" ng-model="noteReject"></textarea>
+												<label for="code">Note</label>
+											</div>
+										</div>
+									</div>
+									<!-- <input type="text" id="commonId" /> -->
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer" style="border:none;">
+					<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="saveAcceptReject()">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- CanellationModal END -->
+<!-- CloseModal Start -->
+	<div id="CloseModal" class="modal fade ng-scope in common-small-popup" role="dialog" style="background: rgba(0, 0, 0, 0.33); z-index: 1300 !important;">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Close
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12 padding-left-right-set">
+							<div class="row input-container margin-top10">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+										<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label dirty ng-pristine ng-untouched ng-valid ng-empty" id="rejectReasonId" name="code" ng-model="rejectReasonId">
+											<option value="">Select Reason</option>
+											<!-- ngRepeat: info in reasonList -->
+											</select>		
+											<label for="code">Select Reasons</label>
+										</div>
+									</div>
+								</div>
+							<div class="row input-container margin-top10">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-sticky-note" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<textarea name="code" rows="4" id="noteReject" class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty" ng-model="noteReject"></textarea>
+												<label for="code">Note</label>
+											</div>
+										</div>
+									</div>
+									<!-- <input type="text" id="commonId" /> -->
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer" style="border:none;">
+					<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="saveAcceptReject()">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- CloseModal END -->
+
+<!-- #nearExpiry Modal START -->
+
+<div id="nearExpiry" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Near Expiry Material List
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll his-style">
+				<fieldset class="get-request-row">
+					<div class="row margin-top10 padding-left-right-set">
+						<div
+							class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<input type="text" name="code" id=""
+											class="text-input floating-label"> <label for="code">From
+											Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<input type="text" name="code" id=""
+											class="text-input floating-label"> <label for="code">To
+											Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 padding-left-right-set4 padding-top10">
+							<div class="common-save-button"> 
+								 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+								 	<i class="fa fa-search" aria-hidden="true"></i> 
+								 </a> 
+							</div> 
+						</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 pull-right margin-top10">
+								<input type="text" class="text-search-box" placeholder="Search">
+								<i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+							</div>
+					</div>
+				</fieldset>
+				<div class="row padding-left-right-set4">
+					<div class="col-md-12 col-lg-12 col-sm-8 padding-left-right-set4" id="">
+						<fieldset>
+							<!-- <div class="row">
+								<div class="col-md-9"></div>
+								<div class="col-md-3 col-sm-3">
+									<div class="col-lg-11 col-md-9 col-sm-9 pull-right">
+										<input type="text" class="text-search-box"
+											placeholder="Search"> <i
+											class="fa fa-search common-search-text-icon"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+							</div> -->
+							<div class="row">
+								<div class="col-md-12 col-lg-12 col-sm-8 padding-left-right-set4">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th class="width1 text-center"><input type="checkbox"></th>
+												<th class="width8">Item Code
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">Item Name
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">UOM
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width8">UOM Unit
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width7">Batch Code
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width6">Exp. Date
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width6">Lot No.
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width6">Avaliable Qty
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width6">GRN No.
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+												<th class="width6">GRN Date
+													<div class="float_right">
+														<div>
+															<i class="fa fa-caret-up" aria-hidden="true"></i>
+														</div>
+														<div class="margin-top-8">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+														</div>
+													</div>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="width1 text-center"><input type="checkbox"></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</fieldset>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+			<div class="row his-style">
+				<div class="col-lg-11 col-sm-10 col-md-11"></div>
+				<div class="col-lg-1 col-sm-2 col-md-1 padding-left0px-right6px">
+					<div class="common-save-button">
+						<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+<!-- #nearExpiry Modal START -->
+
+<!-- #getItemList Modal START -->
+
+<div id="getItemList" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Get Item List
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll">
+				<fieldset class="get-request-row">
+					<div class="row margin-top10">
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-2 col-md-2 col-sm-2 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<select class="text-input floating-label">
+											<option value=""></option>
+										</select> <label for="code">Asset Category</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-2 col-md-2 col-sm-2 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<select class="text-input floating-label">
+											<option value=""></option>
+										</select> <label for="code">Product Category</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label"> <label for="code">Item Code</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label"> <label for="code">Item Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label"> <label for="code">Batch Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label"> <label for="code">Search</label>
+									</div>
+								</div>
+							</div>
+						</div> -->
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left8px-right-0px padding-top10 his-style">
+							<div class="common-save-button" style="padding-top:  0px;"> 
+								 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+								 	<i class="fa fa-search" aria-hidden="true"></i> 
+								 </a> 
+							</div> 
+						</div>
+					</div>
+					<div class="row padding-top10 padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 col-sm-12"> <!-- height500-table-with-scroll -->
+					<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+						<thead class="mainServiceTableCommon">
+							<tr>
+								<th class="width1 text-center vertical-middle"><input type="checkbox"></th>
+								<th class="width10">
+									Asset Category
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									Product Category
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">
+									Item Code
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">
+									Item Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">
+									UOM
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">
+									UOM Unit
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">
+									Batch Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">
+									Expiry Date
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									Available Qty
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="text-center vertical-middle"><input type="checkbox"></td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+				</div>
+				</fieldset>
+			</div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-lg-11 col-sm-11 col-md-11"></div>
+					<div class="col-lg-1 col-sm-1 col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- #getItemList Modal END -->
+<!--  Get Approve PO modal start -->
+<div id="approvedPOModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Approved PO
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll	">
+				<!-- <fieldset class="get-request-row"> -->
+					<div class="row margin-top10">
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-10 col-md-10 ">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label">
+										<label for="code">From Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-10 col-md-10 ">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label">
+										<label for="code">To Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-building-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label">
+											<option value=""></option>
+											<option value="Store 1">Store 1</option>
+											<option value="Store 2">Store 2</option>
+										</select>
+										<label for="code">Store</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-user" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label">
+											<option value=""></option>
+											<option value="Vendor 1">Vendor 1</option>
+											<option value="Vendor 2">Vendor 2</option>
+										</select>
+										<label for="code">Vendor</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label">
+										<label for="code">Search</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top4">
+							<div class="common-save-button"> 
+								 <a href="" class="btn btn-primary btn-save-box-shadow text-width-auto"> 
+								 	<i class="fa fa-search" aria-hidden="true"></i> 
+								 </a> 
+							</div>
+						</div>
+					</div>
+					<div class="row padding-top10 padding-left-right-set4">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="">
+										<th class="width1"></th>
+										<th colspan="5" class="font-weight700">Item Details</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr class="table-th-bg cursor-pointer">
+											<td class="width1 text-center">
+												<input type="checkbox">
+											</td>
+											<td class="width10">
+												<div class="col-md-3 font-weight700">
+													PO No.:
+												</div>
+												<div class="col-md-3  text-left">
+													-
+												</div>
+											</td>
+											<td class="width10">
+												<div class="col-md-4 font-weight700">
+													PO Date.:
+												</div>
+												<div class="col-md-3  text-left">
+													-
+												</div>
+											</td>
+											<td class="width10">
+												<div class="col-md-6 font-weight700 padding-left-right-set1">
+													Vendor Name:
+												</div>
+												<div class="col-md-3  text-left">
+													-
+												</div>
+											</td>
+											<td class="width10">
+												<div class="col-md-3 font-weight700">
+													Store :
+												</div>
+												<div class="col-md-3  text-left">
+													-
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="5">
+												<div class="selectedServicesList">
+													<table class="table table-bordered ">
+														<tbody>
+															<tr>
+																<th class="width1 text-center"></th>
+																<th class="width8">Item Code</th>
+																<th class="width8">Item Name</th>
+																<th class="width8">PO Qty</th>
+																<th class="width8">Pending PO Qty</th>
+																<th class="width8">Bonus Qty</th>
+																<th class="width8">Bonus PO Qty</th>
+																<th class="width8">COP</th>
+																<th class="width8">MRP</th>
+															</tr>
+															<tr>
+																<td class=" text-center">
+																	<input type="checkbox" />
+																</td>
+																<td class="">PP-1234</td>
+																<td class="">Item One</td>
+																<td class="">150</td>
+																<td class="">60</td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+												</tbody>
+											</table>
+										</div>
+								</div>
+				</div>
+				<div class="modal-footer">
+					<div class="row his-style">
+						<div class="col-md-11"></div>
+						<div class="col-md-1 padding-left0px-right6px">
+							<div class="common-save-button">
+								<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--  Get Approve PO modal start -->
+
+<!-- <div id="serviceCancellationModal" class="modal fade ng-scope in common-small-popup" role="dialog" style="background: rgba(0, 0, 0, 0.33); z-index: 1300 !important">
+	<div class="modal-dialog">
+		width: 25% !important;margin: 200px 0 0 510px !important;
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Service Cancellation
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12 padding-left-right-set">
+						<div class="row input-container margin-top10">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" id="" name="code">
+											<option value="">Select Reason</option>
+										</select>
+										<label for="code">Select Reason</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row input-container margin-top10">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<textarea name="code" rows="4" id=""
+										class="text-input floating-label"></textarea>
+									<label for="code">Note</label>
+								</div>
+							</div>
+						</div>
+						<input type="text" id="commonId" />
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Save</button>
+			</div>
+		</div>
+	</div>
+</div> -->
+<!-- serviceCancellationModal Modal END -->
+
+<!-- addViewDiscountDetails Modal START -->
+<!-- <div id="addViewDiscountDetails" class=" modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> 
+			<div class="modal-content">
+				<div class="modal-header padding-zero">
+					<div class="modal-title patient-details-row">
+						Discount Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+			<div class="modal-body">
+				<div class="row">
+					<div
+						class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-top10">
+						<span class=""><b class="padding-right10 ">Service
+								Name&nbsp;:</b> <label>-</label></span>
+					</div>
+				</div>
+				<div class="row">
+					<div
+						class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+						<span class=""><b class="padding-right10 ">Total
+								Amount&nbsp;:</b> <label>-</label></span>
+					</div>
+					<div
+						class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+						<span class="margin-left10"><b class="padding-right10 ">Total
+								Discount&nbsp;:</b> <label>-</label></span>
+					</div>
+				</div>
+				<div class="row margin-top8 padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width8">Discount %</th>
+									<th class="width8">Discount Amount</th>
+									<th class="width8">Discount Category</th>
+									<th class="width8">Discount Given By</th>
+									<th class="width2 text-center">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td class="text-center"><a><i class="fa fa-times"></i></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+					<div class="row padding-left-right-set4">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<table class=" table table-bordered">
+								<tbody>
+								<tr>
+									<th class="width12">
+										<div class="col-lg-6 col-md-6 col-sm-6 pull-left padding-left0">
+											<label>
+												<div class="row input-container">
+													<input type="checkbox" name="" id="discountCheckbox" class=""> <label for="discountCheckbox" class="checkbox-margin-left-right">Disc %</label>
+												</div>
+											</label>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+											<div class="form-group">
+												<input type="text" class="w-100 dirty">
+											</div>
+										</div>
+									</th>
+									<th class="width12 vertical-middle">
+										<div class="col-lg-6 col-md-6 col-sm-6 pull-left padding-left0">
+											<label>
+												<div class="row input-container">
+													<input type="checkbox" name="" id="discountAmtCheckbox" class=""> <label for="discountAmtCheckbox" class="checkbox-margin-left-right">Disc Amt</label>
+												</div>
+											</label>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+											<div class="form-group">
+												<input type="text" class="w-100 dirty">
+											</div>
+										</div>
+									</th>
+									<th class="width13">
+										<div class="col-lg-6 col-md-6 col-sm-6 pull-left padding-left-right-set1">
+											<label class="">Discount Category</label>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+											<select style="" class="w-100 dirty">
+												<option value=""></option>
+											</select>
+										</div>
+									</th>
+									<th class="width13">
+										<div class="col-lg-6 col-md-6 col-sm-6 pull-left padding-left-right-set1">
+											<label class="">Discount Given By</label>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+											<select style="" class="w-100 dirty">
+												<option value=""></option>
+											</select>
+										</div>
+									</th>
+									<th class="width1 text-center"><input type="button" value="Apply" class="btn btn-primary btn-save-box-shadow text-width-auto padding-left-right-set4" data-dismiss="modal"></th>
+								</tr>
+							</tbody>
+							</table>
+						</div>
+					</div>
+			</div>
+			<div class="modal-footer">
+					<div class="row his-style">
+						<div class="col-lg-9 col-sm-6 col-md-9"></div>
+						<div class="col-lg-1 col-sm-2 col-md-1 padding-left0px-right6px">
+							<div class="common-save-button">
+								<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+							</div>
+						</div>
+						<div class="col-lg-1 col-sm-2 col-md-1 padding-left0px-right6px">
+							<div class="common-save-button">
+								<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+							</div>
+						</div>
+						<div class="col-lg-1 col-sm-2 col-md-1 padding-left0px-right6px">
+							<div class="common-save-button">
+								<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+<!-- addViewDiscountDetails Modal END -->
+
+<!-- groupWiseDiscountModal START -->
+<!-- <div id="groupWiseDiscountModal" class=" modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> 
+			<div class="modal-content">
+				<div class="modal-header padding-zero">
+					<div class="modal-title patient-details-row">
+						Group Wise Discount
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+			<div class="modal-body">
+			<div ng-include="'./views/common/patient-demography-info.html'" class="ng-scope"></div>
+				<div class="row">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label dirty ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="encounterDetails.encounterId" convert-to-number=""><option value="? string:undefined ?"></option>
+										ngRepeat: encounters in encounterNumberList
+									</select>
+									<label for="code">Group</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label dirty ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="encounterDetails.encounterId" convert-to-number=""><option value="? string:undefined ?"></option>
+										ngRepeat: encounters in encounterNumberList
+									</select>
+									<label for="code">Sub Group</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 text-width-auto padding-top4 pull-right">
+			          <div class="common-save-button"> 
+			             <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+			              <i class="fa fa-search" aria-hidden="true"></i> 
+			             </a> 
+			          </div> 
+			        </div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 pull-right">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="Search" id="" class="text-input floating-label dirty" value=""> 
+									<label for="Search" class="">Search</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-set4 padding-top4 padding-bottom10">
+					<div class="table-container">
+					   <div class="table-container-header">
+					      <table class="table table-striped table-hover table-condensed table-bordered">
+					         <thead>
+					            <tr>
+							       <th class="width8" title="Order No.">
+							        Order No.
+							       </th>
+							       <th class="width8" title="Service Code">
+							        Service Code
+							       </th>
+							       <th class="width8" title="Service Name">
+							        Service Name
+							       </th>
+							       <th class="width8" title="Qty">
+							        Qty
+							       </th>
+							       <th class="width8" title="Unit Price">
+							       Unit Price
+							       </th>
+							       <th class="width8" title="Total Amount">
+							        Total Amount
+							       </th>
+							       <th class="width8" title="Concession">
+							        Concession
+							       </th>
+							       <th class="width8" title="Discount %">
+							        Disc %
+							       </th>
+							       <th class="width8" title="Discount Amount">
+							        Disc Amt
+							       </th>
+							       <th class="width8" title="GST">
+							        GST
+							       </th>
+							       <th class="width8" title="GST %">
+							        GST %
+							       </th>
+							       <th class="width8" title=" GST Amount">
+							        GST Amt
+							       </th>
+							       <th class="width8" title=" Net Payable">
+							        Net Payable
+							       </th>
+						      </tr>
+					         </thead>
+					      </table>
+					   </div>
+					   <div class="table-container-body" style="overflow: overlay;background: #ffffce;">
+					      <table class="table table-striped table-hover table-condensed table-bordered">
+					         <tbody>
+					            <tr>
+					         		<td class="width8">-</td>
+					         		<td class="width8">-</td>
+					         		<td class="width8">-</td>
+					         		<td class="width8">-</td>
+					         		<td class="width8">-</td>
+					         		<td class="width8">-</td>
+					         		<td class="width8">-</td>
+					         		<td class="width8">-</td>
+					         		<td class="width8">-</td>
+					         		<td class="width8">-</td>
+					         		<td class="width8">-</td>
+					         		<td class="width8">-</td>
+					         		<td class="width8">-</td>
+					         	</tr>
+					         </tbody>
+					      </table>
+					   </div>
+					</div>
+				</div>
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<table class=" table table-bordered">
+							<tbody>
+								<tr>
+									<th class="width12">
+										<div class="col-lg-6 col-md-6 col-sm-6 pull-left padding-left0">
+											<label>
+												<div class="row input-container">
+													<input type="checkbox" name="" id="discountCheckbox" class=""> <label for="discountCheckbox" class="checkbox-margin-left-right">Disc %</label>
+												</div>
+											</label>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+											<div class="form-group">
+												<input type="text" class="w-100 dirty">
+											</div>
+										</div>
+									</th>
+									<th class="width12 vertical-middle">
+										<div class="col-lg-6 col-md-6 col-sm-6 pull-left padding-left0">
+											<label>
+												<div class="row input-container">
+													<input type="checkbox" name="" id="discountAmtCheckbox" class=""> <label for="discountAmtCheckbox" class="checkbox-margin-left-right">Disc Amt</label>
+												</div>
+											</label>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+											<div class="form-group">
+												<input type="text" class="w-100 dirty">
+											</div>
+										</div>
+									</th>
+									<th class="width13">
+										<div class="col-lg-6 col-md-6 col-sm-6 pull-left padding-left-right-set1">
+											<label class="">Discount Category</label>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+											<select style="" class="w-100 dirty">
+												<option value=""></option>
+											</select>
+										</div>
+									</th>
+									<th class="width13">
+										<div class="col-lg-6 col-md-6 col-sm-6 pull-left padding-left-right-set1">
+											<label class="">Discount Given By</label>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+											<select style="" class="w-100 dirty">
+												<option value=""></option>
+											</select>
+										</div>
+									</th>
+									<th class="width1 text-center"><input type="button" value="Apply" class="btn btn-primary btn-save-box-shadow text-width-auto padding-left-right-set4" data-dismiss="modal"></th>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-lg-10 col-sm-8 col-md-10"></div>
+					<div class="col-lg-1 col-sm-2 col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+						</div>
+					</div>
+					<div class="col-lg-1 col-sm-2 col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Close" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<!-- groupWiseDiscountModal Modal END -->
+
+<!-- addDepartmentModal Modal START -->
+<div id="addDepartmentModal" class="modal fade ng-scope in"
+	role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Add Department
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<select class="text-input floating-label dirty">
+										<option value="">Select</option>
+									</select> <label for="code">Billing Group</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<select class="text-input floating-label dirty">
+										<option value=""></option>
+									</select> <label for="code">Department</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<select class="text-input floating-label dirty">
+										<option value=""></option>
+									</select> <label for="code">SubDepartment</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-1 col-md-1 col-sm-1 text-width-auto pull-right padding-left-right-10">
+						<div class="common-save-button" style="padding-top: 0px;">
+							<a href="" class="btn btn-primary btn-save-box-shadow"
+								style="width: auto;"> <i class="fa fa-search"
+								aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+					<div
+						class="col-lg-2 col-sm-2 col-md-2 padding-left-right-set4 pull-right">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" id=""
+										class="text-input floating-label dirty"> <label
+										for="code">Search</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-10 padding-top5">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+						<table class="table table-bordered">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width1 text-center"><input type="checkbox"></th>
+									<th class="width10">Billing Group</th>
+									<th class="width10">Department</th>
+									<th class="width10">Sub Department</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="width1 text-center"><input type="checkbox"></td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- addDepartmentModal Modal END -->
+
+<!-- addCategoryModal Modal START -->
+<div id="addCategoryModal" class="modal fade ng-scope in"
+	role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Add Category
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<select class="text-input floating-label dirty">
+										<option value="">Select</option>
+									</select> <label for="code">Asset Category</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<select class="text-input floating-label dirty">
+										<option value=""></option>
+									</select> <label for="code">Product Category</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-1 col-md-1 col-sm-1 text-width-auto pull-right padding-left-right-10">
+						<div class="common-save-button" style="padding-top: 0px;">
+							<a href="" class="btn btn-primary btn-save-box-shadow"
+								style="width: auto;"> <i class="fa fa-search"
+								aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+					<div
+						class="col-lg-2 col-sm-2 col-md-2 padding-left-right-set4 pull-right">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" id=""
+										class="text-input floating-label dirty"> <label
+										for="code">Search</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-10 padding-top5">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+						<table class="table table-bordered">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width1 text-center"><input type="checkbox"></th>
+									<th class="width10">Asset Category</th>
+									<th class="width10">Product Category</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="width1 text-center"><input type="checkbox"></td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- addCategoryModal Modal END -->	
+<!-- ************************************** GET Bed Category Modal START  ************************************** -->
+<div id="addBedCategoryModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Add Bed Category
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<select class="text-input floating-label dirty">
+										<option value="">Select</option>
+									</select> <label for="code"> Bed Category Code</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<input type="text" class="text-input floating-label dirty"/>
+									 <label for="code">Bed Category Description</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-1 col-md-1 col-sm-1 text-width-auto padding-left-right-10">
+						<div class="common-save-button" style="padding-top: 0px;">
+							<a class="btn btn-primary btn-save-box-shadow"style="width: auto;">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-10 padding-top5">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+						<table class="table table-bordered">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width1 text-center"><input type="checkbox"></th>
+									<th class="width10">Bed Category Code</th>
+									<th class="width10">Bed Category Desciption</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="width1 text-center"><input type="checkbox"></td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ************************************** GET Bed Category Modal END  ************************************** -->
+
+<!-- getGRNItemList Modal -->
+<div id="getGRNItemList" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Get GRN Item List
+					<button type="button" class="close" data-dismiss="modal">×</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll	">
+				<!-- <fieldset class="get-request-row"> -->
+					<div class="row margin-top10">
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-10 col-md-10 ">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label dirty">
+										<label for="code">From Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-10 col-md-10 ">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label dirty">
+										<label for="code">To Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-building-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label dirty">
+											<option value=""></option>
+											<option value="Store 1">Store 1</option>
+											<option value="Store 2">Store 2</option>
+										</select>
+										<label for="code">Store</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-user" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label dirty">
+											<option value=""></option>
+											<option value="Vendor 1">Vendor 1</option>
+											<option value="Vendor 2">Vendor 2</option>
+										</select>
+										<label for="code">Vendor</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label dirty">
+										<label for="code">Search</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top4">
+							<div class="common-save-button"> 
+								 <a href="" class="btn btn-primary btn-save-box-shadow text-width-auto"> 
+								 	<i class="fa fa-search" aria-hidden="true"></i> 
+								 </a> 
+							</div>
+						</div>
+					</div>
+					<div class="row padding-top10 padding-left-right-set4">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="">
+										<th class="width1"></th>
+										<th colspan="5" class="font-weight700">Item Details</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr class="table-th-bg cursor-pointer">
+											<td class="width1 text-center">
+												<input type="checkbox">
+											</td>
+											<td class="width10">
+												<div class="col-md-3 font-weight700">
+													GRN No.:
+												</div>
+												<div class="col-md-3  text-left">
+													-
+												</div>
+											</td>
+											<td class="width10">
+												<div class="col-md-4 font-weight700">
+													GRN Date:
+												</div>
+												<div class="col-md-3  text-left">
+													-
+												</div>
+											</td>
+											<td class="width10">
+												<div class="col-md-6 font-weight700 padding-left-right-set1">
+													Vendor Name:
+												</div>
+												<div class="col-md-3  text-left">
+													-
+												</div>
+											</td>
+											<td class="width10">
+												<div class="col-md-3 font-weight700">
+													Store :
+												</div>
+												<div class="col-md-3  text-left">
+													-
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="5">
+												<div class="selectedServicesList" style="">
+													<table class="table table-bordered ">
+														<tbody>
+															<tr>
+																<th class="width1 text-center"></th>
+																<th class="width8">Item Code</th>
+																<th class="width8">Item Name</th>
+																<th class="width8">GRN Qty</th>
+																<th class="width8">Pending GRN Qty</th>
+																<th class="width8">UOM</th>
+																<th class="width8">UOM Unit</th>
+																<th class="width8">Batch No.</th>
+																<th class="width8">Expiry</th>
+																<th class="width8">COP</th>
+															</tr>
+															<tr>
+																<td class=" text-center">
+																	<input type="checkbox">
+																</td>
+																<td class=""></td>
+																<td class=""></td>
+																<td class=""></td>
+																<td class=""></td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+																<td class="">-</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+												</tbody>
+											</table>
+										</div>
+								</div>
+				</div>
+				<div class="modal-footer">
+					<div class="row his-style">
+						<div class="col-md-11"></div>
+						<div class="col-md-1 padding-left0px-right6px">
+							<div class="common-save-button">
+								<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- GetService Modal START -->
+<div id="getServicesModal"
+	class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Get Services
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll	">
+				<fieldset>
+					<div class="row">
+						<div
+							class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-10">
+									<div class="">
+										<select class="text-input floating-label  ">
+											<option value=""></option>
+										</select> <label for="code">Group</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-10">
+									<div class="">
+										<select class="text-input floating-label  ">
+											<option value=""></option>
+										</select> <label for="code">Sub Group</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label"> 
+										<label for="code">Service Code</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label"> 
+										<label for="code">Service Description</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row common-popup-height-350">
+						<div
+							class="col-lg-12 col-md-12 padding-top10 padding-left-right-set4">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width1 text-center media-middle "><input
+											type="checkbox" ng-model="vm.model.selectAllRows"
+											ng-click="vm.model.SelectedAll()"
+											class="ng-pristine ng-untouched ng-valid ng-empty"></th>
+										<th class="width10">Group
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">Sub Group
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">Service Code
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">Service Description
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- ngRepeat: datum in vm.model.storeDataList | filter:search -->
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add"
+								class="btn btn-primary btn-save-box-shadow" data-dismiss="modal"
+								ng-click="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- GetService Modal END -->
+<!-- DocumentUpload Modal START -->
+<div id="documentUploadModal" class="modal fade ng-scope in" role="dialog">
+			<div class="modal-dialog">
+				<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+				<div class="modal-content">
+					<div class="modal-header padding-zero">
+						<div class="modal-title patient-details-row">
+							Document Upload
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="row">
+					<div class="row padding-left-right-set4">
+						<table class="table table-bordered">
+								<tbody><tr>
+									<th class="width15">
+										<div>Document Date</div>
+									</th>
+									<th class="width15">
+										<div>Select Type </div>
+									</th>
+									<th class="width15">
+										
+										<div>File</div>
+									</th>
+									<th class="width15">
+										<div>File Name</div>
+									</th>
+									
+									<th class="width8 text-center">
+										
+										<div>Action</div>
+									</th>
+								</tr>
+								<tr>
+									<td>
+										<div>13-10-2017</div>
+									</td>
+									<td>
+										<div>Police</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									
+									<td>
+										<div>xyz.jpg</div>
+									</td>
+									<td class="text-center">
+										<a><span class="margin-left10" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+										<a><span class="margin-left10" title="view"><i class="fa fa-eye" aria-hidden="true"></i></span></a>
+										<a><span class="margin-left10" title="Remove"><i class="fa fa-times" aria-hidden="true"></i></span></a>
+									</td>
+									
+								</tr>
+							</tbody></table>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="registrationNumber" id="" class="text-input floating-label dirty">
+									<label for="description" class="LISDynamicLabel">Document Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label dirty">
+										<option value=""></option>
+										<!-- ngRepeat: docType in documentTypeList --><option ng-repeat="docType in documentTypeList" value="docType.documentTypeId" class="ng-binding ng-scope">Website and Marketing Materials</option><!-- end ngRepeat: docType in documentTypeList --><option ng-repeat="docType in documentTypeList" value="docType.documentTypeId" class="ng-binding ng-scope">Signage</option><!-- end ngRepeat: docType in documentTypeList --><option ng-repeat="docType in documentTypeList" value="docType.documentTypeId" class="ng-binding ng-scope">Patient Intake and Information Forms</option><!-- end ngRepeat: docType in documentTypeList -->
+									</select> <label for="code">Select Type </label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+								<div class="">
+									<input type="file" name="description" id="" class="text-input floating-label"> 
+								</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" class="text-input floating-label dirty"> <label for="description" class="">Document Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right padding-top10"> 
+							<div class="width-div-for-patient-reg"> 
+								<a href="" data-toggle="modal" class="btn btn-primary btn-save-box-shadow text-width-auto" title="Save">+ </a> 
+							</div> 
+						</div>
+				</div>
+						</div>
+					</div>
+					<!-- <div class="modal-footer" style="border: none;">
+						<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="sendToDepartment();">Ok</button>
+						<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+					</div> -->
+				</div>
+			</div>
+		</div>
+<!-- DocumentUpload Modal END -->
+
+<!-- accessory details modal start -->
+<div id="accessoryDetailsModal" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					 Accessory Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-130 padding-top10" id=""><!--  class=common-table-height-250, id =pharmacologyDetailsTableId id for the table td fix height -->
+						<div class="row">
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+										<i class="fa fa-pencil-square" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" name="code" id="" class="text-input floating-label">
+											<label for="code">Accessory Name</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+										<i class="fa fa-circle" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" name="code" id="" class="text-input floating-label">
+											<label for="code">Part Number</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+										<i class="fa fa-circle" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" name="code" id="" class="text-input floating-label">
+											<label for="code">Serial Number</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 margin-top10 text-width-auto">
+								<input type="button" value="+" class="btn btn-primary btn-save-box-shadow text-width-auto">
+							</div>
+						</div>
+					</div>
+			</div>
+			<div class="modal-footer his-style" style="border: none;">
+			 	<div class="row">
+			 		<div class="col-lg-10 col-sm-10 col-md-10"> 
+			 		</div>
+					<div class="col-lg-2 col-sm-2 col-md-2 text-width-auto pull-right"> 
+	 					<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow" data-dismiss="modal"	>
+	 				</div>
+			 	</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- accessory details modal end -->
+ <script>
+ $(document).ready(function() { 
+	
+ });
+ /* $(".hide-show-text-accept").hide();
+ $(".hide-show-text-extend").hide();
+ $(".hide-show-reason-for-cancel-service").hide();
+	$( ".extend" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").next().find(".hide-show-text-accept").hide();
+			$(this).closest(".row").next().find(".hide-show-text-extend").show();
+		}
+	});
+	$( ".lost" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").next().find(".hide-show-text-extend").hide();
+			$(this).closest(".row").next().find(".hide-show-text-accept").hide();
+		}
+	});
+	$( ".accept" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").next().find(".hide-show-text-accept").show();
+		}
+	}); */
+	
+	$( ".cancel-service" ).click(function() {
+		$(".hide-show-reason-for-cancel-service").show();
+	});
+	
+	  $(document).on('click','.commonPatientSearch', function(){
+		//alert();
+		$(".patienttSearchResult").toggle();
+	});
+	
+ function addRowForMainTable() {
+		//alert();
+		var n = document.getElementById("insuranceDocumentUpload").rows.length;
+		var id = Number(n);
+		//alert(id);
+		var test =
+
+		'<tr>'
+				+'<td>'
+				+'<div>'
+				+'<input type="text"  id="" class="text-box-for-ICU">'
+				+'</div>'
+				+'</td>'
+			    +'<td>'
+				+'<div>'
+				+'<input type="text"  id="" class="text-box-for-ICU">'
+				+'</div>'
+			    +'</td>'
+			    +'<td>'
+				+'<div>'
+				+'<input type="text"  id="" class="text-box-for-ICU">'
+				+'</div>'
+			    +'</td>'
+			    +'<td>'
+				+'<div>'
+				+'<select class="select-box">'
+				+'<option>Document-1</option>'
+				+'<option>Document-2</option>'
+				+'</select>'
+				+'</div>'
+			    +'</td>'
+			    +'<td>'
+				+'<div>'
+				+'<input type="file"  id="" class="text-box-for-ICU">'
+				+'</div>'
+			    +'</td>'
+				+ '<td>'
+				+ '<input type="button" name="" id="addr" value="+" onclick="addRowForMainTable()" class="btn btn-info" style="width: 36px;" >&nbsp;&nbsp;'
+				+ '<input type="button" name="" id="delr" value="-" onclick="delRowForMainTable(this)" class="btn btn-info" >'
+				+ '</td>' + '</tr>';
+
+		$("#insuranceDocumentUpload").append(test);
+
+	}
+
+	function delRowForMainTable(r) {
+		var i = r.parentNode.parentNode.rowIndex;
+		document.getElementById("insuranceDocumentUpload").deleteRow(i);
+	}
+
+	
+	
+	
+	
+	function addRowForMainTable1() {
+		//alert();
+		var n = document.getElementById("assignedContractDocumentUpload").rows.length;
+		var id = Number(n);
+		//alert(id);
+		var test =
+
+		'<tr>'
+
+
+			    +'<td>'
+				+'<div>'
+				+'<select class="select-box">'
+				+'<option>Document-1</option>'
+				+'<option>Document-2</option>'
+				+'</select>'
+				+'</div>'
+			    +'</td>'
+			    +'<td>'
+				+'<div>'
+				+'<input type="file"  id="" class="text-box-for-ICU">'
+				+'</div>'
+			    +'</td>'
+				+ '<td>'
+				+ '<input type="button" name="" style="width:36px" id="addr" value="+" onclick="addRowForMainTable1()" class="btn btn-info" >&nbsp;&nbsp;'
+				+ '<input type="button" name="" id="delr" value="-" onclick="delRowForMainTable1(this)" class="btn btn-info" >'
+				+ '</td>' + '</tr>';
+
+		$("#assignedContractDocumentUpload").append(test);
+
+	}
+
+	function delRowForMainTable1(r) {
+		var i = r.parentNode.parentNode.rowIndex;
+		document.getElementById("assignedContractDocumentUpload").deleteRow(i);
+	}
+
+	
+
+	function addRowForMainTable1() {
+		//alert();
+		var n = document.getElementById("documentUpload").rows.length;
+		var id = Number(n);
+		//alert(id);
+		var test =
+
+		'<tr>'
+			    +'<td>'
+				+'<div>'
+				+'<select class="select-box">'
+				+'<option>Document-1</option>'
+				+'<option>Document-2</option>'
+				+'</select>'
+				+'</div>'
+			    +'</td>'
+			    +'<td>'
+				+'<div>'
+				+'<input type="file"  id="" class="text-box-for-ICU">'
+				+'</div>'
+			    +'</td>'
+				+ '<td>'
+				+ '<input type="button" style="width:36px" name="" id="addr" value="+" onclick="addRowForMainTable1()" class="btn btn-info" >&nbsp;&nbsp;'
+				+ '<input type="button" name="" id="delr" value="-" onclick="delRowForMainTable1(this)" class="btn btn-info" style="height: 29px;">'
+				+ '</td>' + '</tr>';
+
+		$("#documentUpload").append(test);
+
+	}
+
+	function delRowForMainTable1(r) {
+		var i = r.parentNode.parentNode.rowIndex;
+		document.getElementById("documentUpload").deleteRow(i);
+	}
+ 
+ </script>

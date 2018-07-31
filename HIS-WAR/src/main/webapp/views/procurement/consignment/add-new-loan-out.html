@@ -1,0 +1,319 @@
+
+
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		
+		<div class="row margin-top10">
+			 <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-building-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<select  class="text-input floating-label">
+								<option></option>
+								<option>Store 1</option>
+								<option>Store 2</option>
+							</select>
+							<label for="code">Store</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<select  class="text-input floating-label">
+								<option></option>
+								<option>Store 1</option>
+								<option>Store 2</option>
+							</select>
+							<label for="code">Vendor</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<select  class="text-input floating-label">
+								<option></option>
+								<option>Consumable</option>
+								<option>Asset</option>
+							</select>
+							<label for="code">Type</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10 text-center">
+				<div class="row input-container">
+					<!-- <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+					</div> -->
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div id="mediaType" class="row uk-input-group customRadioBtn mt0 width50">													
+							<span>
+								<input id="PatientOTCRadio" name="OTCReg" type="radio" value="1" checked="checked" class="otherRegistrationType" data-toggle="modal" data-target="#getItemList">
+								<label for="PatientOTCRadio">Get Item</label>
+							</span>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-bullseye" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" class="text-input floating-label"/> 
+							<label for="code">DC No</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" class="text-input floating-label"/> 
+							<label for="code">DC Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="row margin-top4">
+			<div class="col-md-12 col-lg-12 col-sm-8 padding-left-right-set4 height500-table-with-scroll"  id="nonBillableTableHt">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 height500-table-with-scroll">
+						<table class="table table-bordered first-checkBox-padding">
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width7">
+										Item Code
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">
+										Item Name
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width3">
+										UOM
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5">
+										UOM Unit
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										Batch No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										Expiry Date
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										Available Qty
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										Loan Out Qty
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5">
+										COP
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									
+									<th class="width6">
+										Total Amount
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width12">
+										Remarks
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width3">
+										Action
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>IT-161</td>
+									<td>Crosin</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>
+										<input type="text" class="select-box"/>
+									</td>
+									<td>-</td>
+									<td>-</td>
+									<td>
+										<textarea row="2"></textarea>
+									</td>
+									<td>
+										<i class="fa fa-times-circle-o" aria-hidden="true"></i>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+		    <div class="row his-style margin-top10 padding-right20">
+		      <div class="col-lg-12 col-md-12 col-sm-12">
+		      		<table class="table table-bordered first-checkBox-padding">
+						<tfoot>
+						    <tr>
+						    	<th></th>
+						    	<th></th>
+						    	<th></th>
+						    	<th></th>
+						    	<th></th>
+						    	<th></th>
+						    	<th></th>
+						    	<th></th>
+						    	<th></th>
+						    	<th class="text-right">Total Amount </th><!-- colspan="8" -->
+								<th>-</th>
+							</tr>
+						</tfoot>
+					</table>
+		      </div>
+			</div>
+			    <div class="row his-style margin-top10 padding-right20">
+			      <div class="col-lg-1 col-md-1 col-sm-2 text-right">
+			         	<label>Remark:</label>
+			      </div>
+			      <div class="col-lg-9 col-md-9 col-sm-6 padding-left-right8">
+			       		<textarea rows="1" class="form-control"></textarea>
+			      </div>
+			      <div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px">
+				        <div class="">
+				          <input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+				        </div>
+			      </div>
+			      <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+			          <a href="#/loanOut">
+			            <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+			          </a>
+			     </div>
+		    </div>      
+		  </footer>
+	</div>
+</div>
+<script src="resources/assets/js/common/page-height.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$(".selectedPageName").text("Add New Loan Out");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="loanOut"]').parents("li").addClass("active");
+	});
+</script>

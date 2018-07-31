@@ -1,0 +1,393 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<!-- <div ng-include="'./views/common-patient-details.html'"></div> -->
+		<fieldset>
+			<!-- <legend class="heading-div">Tariff Master Configuration</legend> -->
+			<div class="row padding-left-right-set4">
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-delicious" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id=""
+									class="text-input floating-label" ng-model="tariffMasterObj.tariffCode"> <label for="code">Tariff
+									Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-file-text" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id=""
+									class="text-input floating-label" ng-model="tariffMasterObj.tariffDesc"> <label for="code">Tariff
+									Description</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="tariffMasterObj.validFrom"
+									model-view-value="true" is-open="datepicker.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker()" required> <label for="code" class=""> <label for="code">Validity
+									From</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepickerTo"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="tariffMasterObj.validTo"
+									model-view-value="true" is-open="datepickerTo.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerTo()" required> <label for="code" class=""> <label for="code">Validity
+									To</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-2 padding-left-right-set1 float_right text-width-auto padding-top4">
+					<div class=" ">
+						<a data-toggle="modal" data-target="#tariffProperties"> <input type="button" value="Add Tariff Properties" class="btn btn-primary btn-save-box-shadow">
+							<!-- data-toggle="modal" data-target="#wasteStoreAddItemModal" -->
+						</a>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-set4">
+			<div
+				class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" ng-click="saveTariff();" ng-if="saveBtnFlag">
+					<i	class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="updateTariff()" ng-if="updateBtnFlag">
+		           <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div
+				class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+				<input type="text" class="text-search-box" placeholder="Search"
+					style="margin-top: 0px"> <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top10">
+			<div class="col-md-12 fix-height-scroll230">
+				<table class="table table-bordered">
+					<tbody>
+						<tr class="">
+							<th class="width7">Tariff Code
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width12">Tariff Desc
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width8">Validity From
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width8">Validity To
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<!-- <th class="width12">Applicable Payment Entitlement
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th> -->
+							<th class="width1"></th>
+							<th class="text-center width4">Status</th>
+							<th class="width5 text-center">Payment Entitlement Details
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+						</tr>
+						<tr ng-repeat="info in tariffMasterList">
+							<td>{{info.tariffCode}}</td>
+							<td>{{info.tariffDesc}}</td>
+							<td>{{info.validFrom}}</td>
+							<td>{{info.validTo}}</td>
+							<td class="padding-edit-button-table text-center"><a> <i
+									class="fa fa-pencil" aria-hidden="true" title="Edit" ng-click="showUpdateBtn(info.tariffId)"></i>
+							</a></td>
+							<td class="text-center">
+										<label class="switch"> <input type="checkbox" ng-model="info.status"  ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatus(info.tariffId,info.status)">
+												<div class="slider round"></div>
+										</label>
+									</td>
+							<td class="text-center"><a title="Payment Entitlement Details" data-toggle="modal" data-target="#paymentEntitlementDetails" ng-click="showMapperDetails(info.tariffId)"><i class="fa fa-info-circle"></i></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- paymentEntitlementDetails Modal START -->
+<div id="paymentEntitlementDetails" class="modal fade ng-scope common-large-popup in" role="dialog"> <!-- style="background: rgba(0, 0, 0, 0.33); z-index: 1300 !important;" -->
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-3 col-md-3 padding-left-right-set4 padding-top4 padding-bottom10 fix-height-scroll230">
+						<table class="table table-bordered table-ed">
+							<thead>
+								<tr class="table-th-bg">
+									<th class="width20">Payment Entitlement</th>
+									<th class="text-center width4">Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="info1 in paymentEntitleDetailsList">
+									<td class="long-text-overflow">{{info1.paymentEntitlementDesc}}</td>
+									<td class="text-center">
+										<label class="switch"><input type="checkbox" ng-model="info1.status"  ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatusMapper(info1.tariffPaymentEntitlementMapperId,info1.status)">
+												<div class="slider round"></div>
+										</label>
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+					<div class="col-lg-3 col-md-3 padding-left-right-set4 padding-top4 padding-bottom10 fix-height-scroll230">
+						<table class="table table-bordered table-ed">
+							<thead>
+								<tr class="table-th-bg">
+									<th class="width20">Visit Type</th>
+									<th class="text-center width4">Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="info1 in paymentEntitleDetailsList">
+									<td class="long-text-overflow">{{info1.paymentEntitlementDesc}}</td>
+									<td class="text-center">
+										<label class="switch"><input type="checkbox" ng-model="info1.status"  ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatusMapper(info1.tariffPaymentEntitlementMapperId,info1.status)">
+												<div class="slider round"></div>
+										</label>
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+					<div class="col-lg-3 col-md-3 padding-left-right-set4 padding-top4 padding-bottom10 fix-height-scroll230">
+						<table class="table table-bordered table-ed">
+							<thead>
+								<tr class="table-th-bg">
+									<th class="width20">Patient Type</th>
+									<th class="text-center width4">Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="info1 in paymentEntitleDetailsList">
+									<td class="long-text-overflow">{{info1.paymentEntitlementDesc}}</td>
+									<td class="text-center">
+										<label class="switch"><input type="checkbox" ng-model="info1.status"  ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatusMapper(info1.tariffPaymentEntitlementMapperId,info1.status)">
+												<div class="slider round"></div>
+										</label>
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+					<div class="col-lg-3 col-md-3 padding-left-right-set4 padding-top4 padding-bottom10 fix-height-scroll230">
+						<table class="table table-bordered table-ed">
+							<thead>
+								<tr class="table-th-bg">
+									<th class="width20">Billing Bed Category</th>
+									<th class="text-center width4">Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="info1 in paymentEntitleDetailsList">
+									<td class="long-text-overflow">{{info1.paymentEntitlementDesc}}</td>
+									<td class="text-center">
+										<label class="switch"><input type="checkbox" ng-model="info1.status"  ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatusMapper(info1.tariffPaymentEntitlementMapperId,info1.status)">
+												<div class="slider round"></div>
+										</label>
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- TariffProperties Modal START -->
+<div id="tariffProperties" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Tariff Properties
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<div ng-dropdown-multiselect="" options="paymentEntitlementModeldata" selected-model="paymentEntitlementModel" checkboxes="true" extra-settings="paymentEntitlementModelsettings" class="ng-isolate-scope"><div class="multiselect-parent btn-group dropdown-multiselect" ng-class="{open: open}"><div ng-transclude="toggleDropdown" ng-click="toggleDropdown()"><button ng-disabled="disabled" type="button" class="dropdown-toggle ng-binding btn btn-default" ng-class="settings.buttonClasses">Select&nbsp;<span class="caret"></span></button></div><!-- ngIf: open --></div></div>
+									<label for="description" class="LISDynamicLabel">Payment
+										Entitlement</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<div ng-dropdown-multiselect="" options="visitTypeData" selected-model="visitTypeModel" checkboxes="true" extra-settings="visitTypeModelsettings" class="ng-isolate-scope"><div class="multiselect-parent btn-group dropdown-multiselect" ng-class="{open: open}"><div ng-transclude="toggleDropdown" ng-click="toggleDropdown()"><button ng-disabled="disabled" type="button" class="dropdown-toggle ng-binding btn btn-default" ng-class="settings.buttonClasses">Select&nbsp;<span class="caret"></span></button></div><!-- ngIf: open --></div></div>
+									<label for="description" class="LISDynamicLabel">Visit
+										Type</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<div ng-dropdown-multiselect="" options="patientTypeData" selected-model="patientTypeModel" checkboxes="true" extra-settings="patientTypeModelsettings" class="ng-isolate-scope"><div class="multiselect-parent btn-group dropdown-multiselect" ng-class="{open: open}"><div ng-transclude="toggleDropdown" ng-click="toggleDropdown()"><button ng-disabled="disabled" type="button" class="dropdown-toggle ng-binding btn btn-default" ng-class="settings.buttonClasses">Select&nbsp;<span class="caret"></span></button></div><!-- ngIf: open --></div></div>
+									<label for="description" class="LISDynamicLabel">Patient
+										Type</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<div ng-dropdown-multiselect="" options="bedTypeCategoryData" selected-model="bedTypeCategoryModel" checkboxes="true" extra-settings="bedTypeCategorySettings" class="ng-isolate-scope"><div class="multiselect-parent btn-group dropdown-multiselect" ng-class="{open: open}"><div ng-transclude="toggleDropdown" ng-click="toggleDropdown()"><button ng-disabled="disabled" type="button" class="dropdown-toggle ng-binding btn btn-default" ng-class="settings.buttonClasses">Select&nbsp;<span class="caret"></span></button></div><!-- ngIf: open --></div></div>
+									 <label for="description" class="LISDynamicLabel">Billing Bed
+										 Category </label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right text-width-auto">
+						<div class=" ">
+							ngIf: saveBtnFlag<a href="" class="btn btn-primary btn-save-box-shadow ng-scope text-width-auto margin-top10" title="Save">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>end ngIf: saveBtnFlag
+							ngIf: updateBtnFlag
+						</div>
+					</div> -->
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- TariffProperties Modal END -->
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Tariff Master");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="tariffMaster"]').parents("li").addClass("active");
+	});
+</script>
+

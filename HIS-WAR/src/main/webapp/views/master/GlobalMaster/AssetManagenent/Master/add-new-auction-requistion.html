@@ -1,0 +1,544 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+<div class="container-fluid his-style">
+<fieldset class="main-fieldset">
+	<div class="row margin-top10">
+		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+			<div class="row input-container">
+				<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					<i class="fa fa-tasks" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-11 col-sm-11 col-md-11">
+					<div class="">
+						<select class="text-input floating-label">
+							<option></option>
+							<option>Store 1</option>
+							<option>Store 2</option>
+						</select>
+						<label for="code">Store</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 ">
+			<input type="button" value="Get Asset Item" class="btn btn-primary btn-save-box-shadow text-width-auto padding-left-right-10" 
+				   data-toggle="modal" data-target="#addNewItemWasteStore">
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+			<div class="row input-container">
+				<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-11 col-sm-11 col-md-11">
+					<div class="">
+						<input type="text" name="code" id="" class="text-input floating-label">
+						<label for="code">Search</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top10">
+			<div class="width35">
+				<a href="" class="btn btn-primary btn-save-box-shadow" title="Save">
+				<i class="fa fa-search" aria-hidden="true"></i></a>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+			<div class="width-div-for-patient-reg">
+				<a href="" class="btn btn-primary btn-save-box-shadow" title="Save">
+				<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+	<!--  fixed asset table start -->
+	<div class="row" id="fixeAssetRowId">
+		<div class="col-lg-12 col-md-12 height420-table-with-scroll padding-top10">
+			<table class="table table-bordered">
+				<thead>
+					<!-- <tr class="table-th-bg">
+						<th colspan="13" class="font-weight700">Fixed Asset Item Details</th>
+					</tr> -->
+					<tr>
+						<th class="width1 text-center"><input type="checkbox"></th>
+						<th class="width6">Asset Code
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">Asset Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width6">Modal No.
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width6">Serial No.
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width6">Vendor
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width7">Manufacture Date
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width6">Available Qty
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5">Auction Qty
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width12">Remark
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width1"></th>
+						<th class="width1"></th>
+						<th class="width1"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="text-center"><input type="checkbox"></td>
+						<td class="vertical-middle"></td>
+						<td class="vertical-middle"></td>
+						<td class="vertical-middle"></td>
+						<td class="vertical-middle"></td>
+						<td class="vertical-middle"></td>
+						<td class="vertical-middle"></td>
+						<td class="vertical-middle"></td>
+						<td class="vertical-middle">
+							<input type="text" class="select-box"/>
+						</td>
+						<td class="vertical-middle"><textarea row="1"></textarea></td>
+						<td class="text-center media-middle">
+							<a>
+								<i class="fa fa-plus-circle" aria-hidden="true" title="Add Asset" data-toggle="modal" data-target="#addAsset"></i>
+							</a>
+						</td>
+						<td class="text-center media-middle">
+							<a>
+								<i class="fa fa-info-circle" aria-hidden="true" title="View" data-toggle="modal" data-target="#viewAsset"></i>
+							</a>
+						</td>
+						<td class="text-center media-middle">
+							<a>
+								<i class="fa fa-trash" aria-hidden="true" title="Cancel"></i>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- fixed asset table end -->
+</fieldset>
+
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+				<div class="col-lg-1 col-md-1 text-right">
+					<label>Remark:</label>
+				</div>
+				<div class="col-lg-10 col-md-10 padding-left-right8">
+					<textarea row="1" class="form-control" ></textarea>
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4">
+					<a href="#/auctionRequistion">
+						<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>			
+		</footer>
+</div>
+</div>
+<!--  Add Asset modal start -->
+<div id="addAsset" class="modal fade ng-scope in padding-left0" role="dialog"> <!-- getRequestWasteStore -->
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Add Asset
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll	">
+					<div class="row padding-top10 padding-left-right-set4">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="">
+										<th colspan="4" class="font-weight700">Asset Details</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td colspan="5">
+											<div class="">
+											<table class="table table-bordered">
+												<tbody>
+													<tr>
+														<th class="width1"></th>
+														<th class="width8">Asset Code
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Asset Name
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Asset Id
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Serial No.
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Manufacturing Date
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+													</tr>
+													<tr class="add-accessories table-th-bg">
+														<td class="width1 text-center"><input type="checkbox" />
+														</td>
+														<td>A-1201</td>
+														<td>QWER</td>
+														<td>A2344432</td>
+														<td>014744421541</td>
+														<td>13/11/2017</td>
+													</tr>
+													<tr>
+														<td colspan="6" class="selectedServicesList padding-left38">
+														<div>
+														<table class="table table-bordered">
+																<tbody>
+																	<tr>
+																			<td class="text-center width1"><input type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																</tbody>
+															</table>
+															</div>
+														</td>
+													</tr>
+													<tr class="add-accessories">
+														<td class="width1 text-center"><input type="checkbox" />
+														</td>
+														<td>A-1202</td>
+														<td>QWER</td>
+														<td>A2344432</td>
+														<td>014744421541</td>
+														<td>13/11/2017</td>
+													</tr>
+													<tr>
+														<td colspan="6" class="selectedServicesList " style="">
+															<div>
+																<table class="table table-bordered"
+																	style="border: 3px solid #8080805e;">
+																	<tbody>
+																		<!-- <tr class="table-th-bg">
+																			<td colspan="6" class="font-weight700">Accessories Details</td>
+																		</tr> -->
+																		<tr>
+																			<td class="text-center width1"><input
+																				type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																		<tr>
+																			<td class="text-center width1"><input
+																				type="checkbox"></td>
+																			<td class="width8">A-1201</td>
+																			<td class="width8">ASDF</td>
+																			<td class="width8">A2321144</td>
+																			<td class="width8">08544221</td>
+																			<td class="width8">14/11/2017</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  Add Asset modal END-->
+<!--  View Asset modal start -->
+<div id="viewAsset" class="modal fade ng-scope in" role="dialog"> <!-- getRequestWasteStore -->
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					View Asset Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll	">
+					<div class="row padding-top10">
+						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td colspan="5">
+											<div class="">
+											<table class="table table-bordered">
+												<tbody>
+													<tr>
+														<th class="width8">Asset Code
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Asset Name
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Asset Id
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Serial No.
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+														<th class="width8">Manufacturing Date
+															<div class="float_right">
+																<div>
+																	<i class="fa fa-caret-up" aria-hidden="true"></i>
+																</div>
+																<div class="margin-top-8">
+																	<i class="fa fa-caret-down" aria-hidden="true"></i>
+																</div>
+															</div>
+														</th>
+													</tr>
+													<tr class="add-accessories table-th-bg">
+														<td>A-1201</td>
+														<td>QWER</td>
+														<td>A2344432</td>
+														<td>014744421541</td>
+														<td>13/11/2017</td>
+													</tr>
+													<tr>
+														<td colspan="6" class="selectedServicesList">
+														<div>
+														<table class="table table-bordered">
+																<!-- <thead>
+																	<tr class="">
+																		<th class="width8">Asset Code</th>
+																		<th class="width8">Asset Name</th>
+																		<th class="width8">Asset Id</th>
+																		<th class="width8">Serial No.</th>
+																		<th class="width8">Manufacturing Date</th>
+																	</tr>
+																</thead> -->
+																<tbody>
+																	<tr>
+																		<td class="width8">A-12011</td>
+																		<td class="width8">ASDF</td>
+																		<td class="width8">A44333</td>
+																		<td class="width8">0325741119</td>
+																		<td class="width8">4/11/2017</td>
+																	</tr>
+																</tbody>
+															</table>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  View Asset modal END-->
+<div ng-include="'./views/PharmacyInventory/Store/get-item-list.html'" ></div>
+<script src="resources/assets/js/common/page-height.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+
+	  $(".selectedPageName").text("Add Item Auction Requistion");
+	$("#consumbleRowId").hide();
+	$(".selectedServicesList").hide();
+	$( ".addNewItemRadioBtnClass" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			//$("#addNewItemPurchaseRequest").modal();
+			$("#addNewItemWasteStore").modal();
+		}
+	}); 
+	$( ".getRequestListBtnClass" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$("#getRequestWasteStore").modal();
+		}
+	}); 
+	
+	/******* on type selection table hide-show function start*************/
+	 $('#typeId').on('change', function() {
+	      if ( this.value == '1')
+	      {
+	        $("#consumbleRowId").show();
+	        $("#fixeAssetRowId").hide();
+	        
+	      }
+	      else
+	      {
+	        $("#consumbleRowId").hide();
+	        $("#fixeAssetRowId").show();
+	      }
+	    });
+	 /******* on type selection table hide-show function end*************/
+});
+
+$(".add-accessories").click(function(){
+	/* alert(); */
+	$(this).next().find(".selectedServicesList").toggle();
+});
+</script>

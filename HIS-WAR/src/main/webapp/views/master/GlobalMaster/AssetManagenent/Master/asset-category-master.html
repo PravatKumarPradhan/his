@@ -1,0 +1,191 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid his-style">
+    <fieldset>
+      <legend class="heading-div">Asset Category Master</legend>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <div class="row input-container">
+            <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+              <i class="fa fa-tasks" aria-hidden="true"></i>
+            </div>
+            <div class="col-lg-11 col-sm-11 col-md-11 ">
+              <div class="">
+                <input type="hidden" ng-model="vm.model.categoryId" value="0" />
+                <select class="text-input floating-label" ng-model="vm.model.assetType" name="assetType" ng-options=" assetType.type for assetType in vm.model.categoryDropdown"
+                  ng-class="{dirty: vm.model.id}" ng-change="vm.model.isValidType = false">
+                </select>
+                <label for="assetTypeId">Asset Type</label>
+              </div>
+              <p ng-if="vm.model.isValidType" class="errorMsg">Enter Asset Type</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <div class="row input-container">
+            <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+              <i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+            </div>
+            <div class="col-lg-11 col-sm-11 col-md-11">
+              <div class="">
+                <input name="categoryCode" type="text" class="text-input floating-label" ng-model="vm.model.categoryCode" ng-class="{dirty: vm.model.categoryCode}" ng-change="vm.model.isValidCode = false" maxlength="20">
+                <label for="categoryCode">Asset Category Code</label>
+              </div>
+              <p ng-if="vm.model.isValidCode" class="errorMsg">Enter Asset Category Code</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+          <div class="row input-container">
+            <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+              <i class="fa fa-outdent" aria-hidden="true"></i>
+            </div>
+            <div class="col-lg-11 col-sm-11 col-md-11">
+              <div class="">
+                <input name="categoryDescription" type="text" class="text-input floating-label" ng-model="vm.model.categoryDescription" ng-class="{dirty: vm.model.categoryDescription}"
+                  ng-change="vm.model.isValidCategory = false" maxlength="100">
+                <label for="categoryDescription">Asset Category Description</label>
+              </div>
+              <p ng-if="vm.model.isValidCategory" class="errorMsg">Enter Asset Category Code</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="row margin-top10">
+      <div class="col-md-7"></div>
+      <div class="col-md-5 col-sm-5 margin-bottom10">
+        <div class="col-lg-9 col-md-9 col-sm-9">
+          <input type="text" class="text-search-box" ng-model="search" placeholder="Search">
+          <i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+        </div>
+        <div class="col-md-2 col-sm-3  padding-leftright15 margin-top5">
+          <input type="button" value="Clear" class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.ClearFields()">
+        </div>
+        <div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+          <div class="width-div-for-patient-reg padding-top4">
+            <a href class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="vm.model.ShowConfirmPopup()">
+              <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row padding-left-right-10 ">
+      <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+          <tr class="table-th-bg">
+            <th class="width12">Asset Type
+              <div class="float_right" ng-click="predicate = 'assetType'; reverse = !reverse">
+                <div>
+                  <i class="fa fa-caret-up" aria-hidden="true"></i>
+                </div>
+                <div class="margin-top-8">
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </div>
+              </div>
+            </th>
+            <th class="width12">Asset Category Code
+              <div class="float_right" ng-click="predicate = 'categoryCode'; reverse = !reverse">
+                <div>
+                  <i class="fa fa-caret-up" aria-hidden="true"></i>
+                </div>
+                <div class="margin-top-8">
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </div>
+              </div>
+            </th>
+            <th class="width18">Asset Category Description
+              <div class="float_right" ng-click="predicate = 'categoryDescription'; reverse = !reverse">
+                <div>
+                  <i class="fa fa-caret-up" aria-hidden="true"></i>
+                </div>
+                <div class="margin-top-8">
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </div>
+              </div>
+            </th>
+            <th class="width3">Status
+              <!-- <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div> -->
+            </th>
+            <th class="width3">Action
+              <!--  <div class="float_right">
+                  <div>
+                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  </div>
+                  <div class="margin-top-8">
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  </div>
+                </div> -->
+            </th>
+          </tr>
+          <tr ng-repeat="assetCategory in vm.model.assetCategories | filter : search | orderBy:predicate:reverse">
+            <td>
+              {{ assetCategory.assetType }}
+            </td>
+            <td>
+              {{ assetCategory.code }}
+            </td>
+            <td>
+              {{ assetCategory.category }}
+            </td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" class="switchInput" ng-model="assetCategory.status" ng-change="vm.model.ToggleStatus(assetCategory)">
+                <div class="slider round"></div>
+              </label>
+            </td>
+            <td class="padding-edit-button-table">
+              <a ng-click="vm.model.GetAssetCategory(assetCategory.id)">
+                <i class="fa fa-pencil" aria-hidden="true" title="Edit"></i>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- confirmSave modal start -->
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+  <div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+    <div class="modal-content">
+      <div class="modal-header" style="padding: 0px!important;">
+        <div class="modal-title patient-details-row">
+          Confirm
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="margin-left10">
+          <span>Are you sure you want to Save?</span>
+        </div>
+      </div>
+      <div class="modal-footer" style="border:none;">
+        <button type="button" data-dismiss="modal" class="btn btn-primary" ng-click="vm.model.SaveAssetCategory()">Ok</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- confirmSave modal end -->
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    var documentHeight = $(window).height();
+    var sideBarHeight = documentHeight - 55;
+    $("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+    $(".selectedPageName").text("Asset Category Master");
+    $(".sidebar-nav li").each(function () {
+      $(this).find("a").parents("li").removeClass("active");
+    });
+    $('a[href$="assetCategoryMaster"]').parents("li").addClass("active");
+  });
+</script>

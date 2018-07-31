@@ -1,0 +1,526 @@
+<!-- /********************************************************************************************************************************************
+Procurement - quotation - Technical Approval main page
+Created by - Pranita Patil
+Created Date - 05-Oct-2017 
+/********************************************************************************************************************************************/ -->
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<div class="row margin-top10">
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10">
+            <b class="padding-right10">QR Number:</b>
+            <b>{{vm.model.qrNumber}}</b>
+          </span>
+         </div>
+				<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-top10">
+					<table ng-repeat="VItem in vm.model.itemInfo" class="table table-bordered">
+						<thead>
+							<tr>
+								<!-- <th rowspan="2" class="vertical-middle">Item Details</th>
+								<th rowspan="2" colspan="2" class="vertical-middle">Comparison Terms</th> -->
+							</tr>
+							<tr>
+                <th class="vertical-middle">Item Details</th>
+                <th rowspan="2" colspan="2" class="vertical-middle">Comparison Terms</th>
+                <!-- <th rowspan="2" colspan="{{vm.model.commonVendors.length + 1}}">QR Number: {{vm.model.qrNumber}}</th> -->
+                <!-- <th rowspan="2" colspan="5">{{vm.model.qrNumber}}</th> -->
+								<th ng-repeat="vendor in VItem.vendorDetails">
+                  <div>Vendor: {{vendor.vendorName}}</div>
+                  <div>Vendor QR No: {{vendor.vendorQRNumber}}</div>
+                </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td rowspan="5" class="vertical-middle">
+                  <div>Item: {{VItem.itemName}}</div>
+                  <div>Qty: {{VItem.quantity}}</div>
+                </td>
+								<td>Warranty Period</td>
+								<td class="text-center media-middle">
+									<i class="fa fa-info-circle" ng-click="vm.model.PopupAction('Open', 'warrantyPeriodModal'); vm.model.ViewTermsModal(VItem, 'warrantyPeriod')" aria-hidden="true" id="warrantyPeriodId"></i>
+								</td>
+								<td ng-repeat="vendor in VItem.vendorDetails" class="vertical-middle">
+									<div class="text-center">
+                     <!-- ng-if="item.vendorDetailsHash.hasOwnProperty(vendor.vendorId)" -->
+										<div class="service-indication" ng-class='{ "bg-green": vendor.warrantyFlag, "bg-red": !vendor.warrantyFlag }'></div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>Support Terms</td>
+								<td class="text-center media-middle">
+									<i class="fa fa-info-circle" ng-click="vm.model.PopupAction('Open', 'SupportTermsModal'); vm.model.ViewTermsModal(VItem, 'supportTerms')" aria-hidden="true" id="supportTermsId"></i>
+								</td>
+                <td ng-repeat="vendor in VItem.vendorDetails" class="vertical-middle">
+                  <div class="text-center">
+                     <!-- ng-if="item.vendorDetailsHash.hasOwnProperty(vendor.vendorId)" -->
+                    <div class="service-indication" ng-class='{ "bg-green": vendor.supportFlag, "bg-red": !vendor.supportFlag}'></div>
+                  </div>
+                </td>
+						  </tr>
+							<tr>
+								<td>Technical Specification</td>
+								<td class="text-center media-middle">
+									<i class="fa fa-info-circle" ng-click="vm.model.PopupAction('Open', 'TechnicalSpecificationModal'); vm.model.ViewTermsModal(VItem, 'techSpecs')" aria-hidden="true"></i>
+								</td>
+                <td ng-repeat="vendor in VItem.vendorDetails" class="vertical-middle">
+                  <div class="text-center">
+                    <!--  ng-if="item.vendorDetailsHash.hasOwnProperty(vendor.vendorId)" -->
+                    <div class="service-indication" ng-class='{ "bg-green": vendor.technicalSpecFlag, "bg-red": !vendor.technicalSpecFlag}'></div>
+                  </div>
+                </td>
+							</tr>
+              <tr>
+                <td>Payment Terms</td>
+                <td class="text-center media-middle">
+                  <i class="fa fa-info-circle" ng-click="vm.model.PopupAction('Open', 'PaymentTermsModal'); vm.model.ViewTermsModal(VItem, 'paymentTerms')" aria-hidden="true"></i>
+                </td>
+                <td ng-repeat="vendor in VItem.vendorDetails" class="vertical-middle">
+                  <div class="text-center">
+                     <!-- ng-if="item.vendorDetailsHash.hasOwnProperty(vendor.vendorId)" -->
+                    <div class="service-indication" ng-class='{ "bg-green": vendor.paymentFlag, "bg-red": !vendor.paymentFlag}'></div>
+                  </div>
+                </td>
+              </tr>
+							<tr>
+                <td colspan="2">Remarks</td>
+                <td ng-repeat="vendor in VItem.vendorDetails">
+                  <textarea row="2" ng-model="vendor.remark"></textarea>
+                  <!--  ng-if="item.vendorDetailsHash.hasOwnProperty(vendor.vendorId)" -->
+                </td>
+							</tr>
+							<tr>
+								<td colspan="3">Action</td>
+								<td ng-repeat="vendor in VItem.vendorDetails">
+                  <div class="row">
+                     <!-- ng-if="item.vendorDetailsHash.hasOwnProperty(vendor.vendorId)" -->
+										<label class="radio-inline">
+                      <input type="radio" ng-model="vendor.setVendorStatus" ng-value="1" name="{{vendor}}">Accept
+                    </label>
+										<label class="radio-inline">
+                      <input type="radio" ng-model="vendor.setVendorStatus" ng-value="2" name="{{vendor}}">Reject
+                    </label>
+										<label class="radio-inline">
+                      <input type="radio" ng-model="vendor.setVendorStatus" ng-value="3" name="{{vendor}}">On Hold
+                    </label>
+									</div>
+									<div class="row margin-top4">
+                    <!--  ng-if="item.vendorDetailsHash.hasOwnProperty(vendor.vendorId)" -->
+										<textarea row="2" ng-model="vendor.rejectNote" ng-if="vendor.setVendorStatus == 2"></textarea>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="padding-left-right-set4">
+					<footer class="col-lg-12 col-md-12 col-sm-12 padding-right20">
+						<div class="row padding-right20">
+							<div class="col-lg-8 col-md-7 col-sm-8"></div>
+							<div class="col-lg-2 col-md-3 col-sm-3 text-right">
+								<input type="button" ng-click="vm.model.SaveRecord('send')" value="Send For Vendor Negotittion" class="btn btn-primary btn-save-box-shadow" ng-class="{disabled: vm.model.disableButton}" />
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+								<input type="button" ng-click="vm.model.SaveRecord('save')" value="Save" class="btn btn-primary btn-save-box-shadow" />
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-1 padding-left0 padding-right20" >
+								<a href="" ng-click="vm.model.NavigateToBack()">
+									<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow" />
+								</a>
+							</div>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>
+<div id="warrantyPeriodModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+          Comparison Details
+          <button type="button" ng-click="vm.model.PopupAction('Close', 'warrantyPeriodModal')" class="close">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row padding-left-right-set4">
+          <div class="row">
+            <fieldset class="div-fieldset">
+              <legend class="heading-div">
+                <span id="demoTitle1">Expected Warranty Period</span>
+              </legend>
+              <div class="row ">
+                <div class="col-md-12">
+                  <textarea class="resize-set" rows="4" cols="50" readonly>{{vm.model.comparisonDetailsModal.warrantyPeriod}}</textarea>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="row">
+            <fieldset class="div-fieldset">
+              <legend class="heading-div">
+                <span id="demoTitle2">Vendor Warranty Period</span>
+              </legend>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-top10">
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr ng-repeat="item in vm.model.comparisonDetailsModal.vendorDetailsForWarranty">
+                        <th class="width10">
+                          <div class="col-md-12">{{item.vendorName}}</div>
+                          <div class="col-md-12">
+                            <div class="row">
+                              <label class="radio-inline">
+                                <input type="radio" ng-model="item.warrantyFlag" ng-value="true" name="{{item.vendorName}}" ng-click="item.warrantyRejectNote = null">Accept
+                              </label> 
+                              <label class="radio-inline">
+                                <input type="radio" ng-model="item.warrantyFlag" ng-value='false' name="{{item.vendorName}}">Reject
+                              </label>
+                            </div>
+                            <div class="row rejection-details-row2 margin-top4" ng-if="!item.warrantyFlag">
+                              <input type="text" ng-model="item.warrantyRejectNote" class="w-100">
+                            </div>
+                          </div>
+                        </th>
+                        <td class="width90">
+                          <div class="col-md-12">
+                            <textarea class="resize-set" rows="4" cols="50" readonly>{{item.warrantyPeriod}}</textarea>
+                          </div>
+                        </td>
+                      </tr>                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </fieldset>
+          </div>    
+        </div>    
+      </div>
+      <div class="modal-footer">
+        <div class="row his-style">
+          <div class="col-md-11 col-sm-10"></div>
+          <div class="col-md-1 col-sm-2 padding-left0px-right6px">
+            <div class="common-save-button">
+              <input type="button" value="Save" ng-click="vm.model.SaveTerms('warrantyPeriodModal')" class="btn btn-primary btn-save-box-shadow">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="SupportTermsModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+          Comparison Details
+          <button type="button" class="close" ng-click="vm.model.PopupAction('Close', 'SupportTermsModal')">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="row">
+          <fieldset class=" div-fieldset ">
+            <legend class="heading-div">
+              <span>Expected Support Terms</span>
+            </legend>
+            <div class="row">
+              <div class="col-md-12">
+                <textarea class="resize-set" rows="4" cols="50" readonly>{{vm.model.comparisonDetailsModal.supportTerms}}
+                </textarea>
+              </div>
+            </div>
+          </fieldset>
+          </div>
+          <div class="row fix-height-scroll500">
+            <fieldset class=" div-fieldset ">
+              <legend class="heading-div">
+                <span>Vendor Support Terms</span>
+              </legend>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-top10">
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr ng-repeat="item in vm.model.comparisonDetailsModal.vendorDetailsForSupport">
+                        <th class="width10">
+                          <div class="col-md-12">{{item.vendorName}}</div>
+                          <div class="col-md-12">
+                            <div class="row">
+                              <label class="radio-inline">
+                                <input type="radio" ng-model="item.supportFlag" ng-click="item.supportRejectNote = null" ng-value="true" name="{{item.vendorName}}">Accept
+                              </label> 
+                              <label class="radio-inline">
+                                <input type="radio" ng-model="item.supportFlag" ng-value='false' name="{{item.vendorName}}">Reject
+                              </label>
+                            </div>
+                            <div class="row rejection-details-row2 margin-top4" ng-if="!item.supportFlag">
+                              <input type="text" ng-model="item.supportRejectNote" class="w-100">
+                            </div>
+                          </div>
+                        </th>
+                        <td class="width90">
+                          <div class="col-md-12">
+                            <textarea class="resize-set" rows="4" cols="50" readonly>{{item.supportTerms}}</textarea>
+                          </div>
+                        </td>
+                      </tr>             
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </fieldset>
+          </div>        
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row his-style">
+          <div class="col-md-11 col-sm-10"></div>
+          <div class="col-md-1 col-sm-2 padding-left0px-right6px">
+            <div class="common-save-button">
+               <input type="button" value="Save" ng-click="vm.model.SaveTerms('supportTermsModal')" class="btn btn-primary btn-save-box-shadow">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="TechnicalSpecificationModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+          Comparison Details
+          <button type="button" class="close" ng-click="vm.model.PopupAction('Close', 'TechnicalSpecificationModal')">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="row">
+            <fieldset class=" div-fieldset ">
+              <legend class="heading-div">
+                <span>Expected Technical Specification</span>
+              </legend>
+              <div class="row ">
+                <div class="col-md-12">
+                  <textarea class="resize-set" rows="4" cols="50" readonly>{{vm.model.comparisonDetailsModal.technicalSpecifications}}
+                  </textarea>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="row">
+            <fieldset class="div-fieldset">
+              <legend class="heading-div">
+                <span>Vendor Technical Specification</span>
+              </legend>
+              <div class="row ">
+                <div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-top10">
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr ng-repeat="item in vm.model.comparisonDetailsModal.vendorDetailsForTechSpec">
+                        <th class="width10">
+                          <div class="col-md-12">{{item.vendorName}}</div>
+                          <div class="col-md-12">
+                            <div class="row">
+                             <label class="radio-inline">
+                                <input type="radio" ng-model="item.technicalSpecFlag" ng-click="item.technicalSpecRejectNote = null" ng-value="true" name="{{item.vendorName}}">Accept
+                              </label> 
+
+                              <label class="radio-inline">
+                                <input type="radio" ng-model="item.technicalSpecFlag" ng-value="false" name="{{item.vendorName}}">Reject
+                              </label>
+                            </div>
+                            <div class="row margin-top4" ng-if="!item.technicalSpecFlag">
+                              <input type="text" ng-model="item.technicalSpecRejectNote" class="w-100">
+                            </div>
+                          </div>
+                        </th>
+                        <td class="width90">
+                          <div class="col-md-12">
+                            <textarea class="resize-set" rows="4" cols="50" readonly>{{item.technicalSpecifications}}</textarea>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </fieldset>
+          </div>        
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row his-style">
+          <div class="col-md-11 col-sm-10"></div>
+          <div class="col-md-1 col-sm-2 padding-left0px-right6px">
+            <div class="common-save-button">
+              <input type="button" value="Save" ng-click="vm.model.SaveTerms('techSpecModal')" class="btn btn-primary btn-save-box-shadow">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="PaymentTermsModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+          Comparison Details
+          <button type="button" class="close" ng-click="vm.model.PopupAction('Close', 'PaymentTermsModal')">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="row">
+          <fieldset class="div-fieldset">
+            <legend class="heading-div">
+              <span>Expected Payment Terms</span>
+            </legend>
+            <div class="row ">
+              <div class="col-md-12">
+                <textarea class="resize-set" rows="4" cols="50" readonly>{{vm.model.comparisonDetailsModal.paymentTerms}}</textarea>
+              </div>
+            </div>
+          </fieldset>
+          </div>
+          <div class="row fix-height-scroll500">
+            <fieldset class=" div-fieldset ">
+              <legend class="heading-div">
+                <span>Vendor Payment Terms</span>
+              </legend>
+              <div class="row ">
+                <div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-top10">
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr ng-repeat="item in vm.model.comparisonDetailsModal.vendorDetailsForPayment">
+                        <th class="width10">
+                          <div class="col-md-12">{{item.vendorName}}</div>
+                          <div class="col-md-12">
+                            <div class="row">
+                              <label class="radio-inline">
+                                <input type="radio" ng-model="item.paymentFlag" ng-click="item.paymentRejectNote = null" ng-value="true" name="{{item.vendorName}}">Accept
+                              </label> 
+
+                              <label class="radio-inline">
+                                <input type="radio" ng-model="item.paymentFlag" ng-value='false' name="{{item.vendorName}}">Reject
+                              </label>
+                            </div>
+                            <div class="row margin-top4" ng-if="!item.paymentFlag">
+                              <input type="text" ng-model="item.paymentRejectNote" class="w-100">
+                            </div>
+                          </div>
+                        </th>
+                        <td class="width90">
+                          <div class="col-md-12">
+                            <textarea class="resize-set" rows="4" cols="50" readonly>{{item.paymentTerms}}</textarea>
+                          </div>
+                        </td>
+                      </tr> 
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </fieldset>
+          </div>        
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row his-style">
+          <div class="col-md-11 col-sm-10"></div>
+          <div class="col-md-1 col-sm-2 padding-left0px-right6px">
+            <div class="common-save-button">
+              <input type="button" value="Save" ng-click="vm.model.SaveTerms('paymentTermsModal')" class="btn btn-primary btn-save-box-shadow">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div ng-include="'views/procurement/quotation/comparison-terms-modal.html'"></div> -->
+<!-- <div ng-include="'views/procurement/quotation/comparison-terms-modal-acc.html'"></div> -->
+<!-- <div ng-include="'views/procurement/quotation/comparison-terms-modal-technical-specification.html'"></div> -->
+
+<script type="text/javascript"> 
+	$(document).ready(function() {
+		$(".selectedPageName").text("Technical Approval Details");
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	});	
+		$(".selectedPageName").text("Technical Approval Details");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="detailstechnicalApproval"]').parents("li").addClass("active");
+	
+	// $("#warrantyPeriodId").click(function(){
+	// 	$("#demoTitle1").text("Expected Warranty Period");
+	// 	$("#demoTitle2").text("Vendor Warranty Period");		
+	// });
+	
+	// $("#supportTermsId").click(function(){
+	// 	$("#demoTitle1").text("Support Terms");
+	// 	$("#demoTitle2").text("Vendor Support Terms");		
+	// });
+	
+	// $("#TechnicalSpecificationId").click(function(){
+	// 	$("#demoTitle1").text("Technical Specification");
+	// 	$("#demoTitle2").text("Vendor Technical Specification");		
+	// });
+	/* ************** radioRejected1 ********** */
+	
+	// $( ".radioRejected1" ).change(function() {
+	// 	if ($(this).is(":checked"))
+	// 	{
+	// 		$(this).closest(".row").siblings(".rejection-details-row1").show();
+	// 	}
+	// });
+	// $( ".radioAcceptedHold1" ).change(function() {
+	// 	if ($(this).is(":checked"))
+	// 	{
+	// 		$(this).closest(".row").siblings(".rejection-details-row1").hide();
+	// 	}
+	// });
+	
+	/* ************** radioRejected2 ********** */
+	
+	// $( ".radioRejected2" ).change(function() {
+	// 	if ($(this).is(":checked"))
+	// 	{
+	// 		$(this).closest(".row").siblings(".rejection-details-row2").show();
+	// 	}
+	// });
+	// $( ".radioAcceptedHold2" ).change(function() {
+	// 	if ($(this).is(":checked"))
+	// 	{
+	// 		$(this).closest(".row").siblings(".rejection-details-row2").hide();
+	// 	}
+	// });
+	
+	/* ************** radioRejected3 ********** */
+	
+	// $( ".radioRejected3" ).change(function() {
+	// 	if ($(this).is(":checked"))
+	// 	{
+	// 		$(this).closest(".row").siblings(".rejection-details-row3").show();
+	// 	}
+	// });
+	// $( ".radioAcceptedHold3" ).change(function() {
+	// 	if ($(this).is(":checked"))
+	// 	{
+	// 		$(this).closest(".row").siblings(".rejection-details-row3").hide();
+	// 	}
+	// });
+	</script>
+	
+	<script src="resources/assets/js/common/page-height.js"></script>

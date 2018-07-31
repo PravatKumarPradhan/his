@@ -1,0 +1,577 @@
+<div id="page-content-wrapper" style="height:100%; overflow-y:auto ">
+	<div class="container-fluid his-style">
+		<fieldset class="" style="margin-top:-5px !important">
+		
+			 	<div ng-include="'./views/common/patient-search-billing.html'"></div>
+			 	<div ng-include="'./views/common/patient-demography.html'"></div>
+			 	
+				 	<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" class="text-input floating-label dirty" name="" id="" uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999" press-enter="searchDeposit()"
+													placeholder="DD/MM/YYYY" ng-model="billSearch.fromDate" model-view-value="true" is-open="datepicker.opened" datepicker-options="dateOptions" 
+													show-button-bar="false"	ng-click="openDatePicker()" required>
+										<label for="description" class="LISDynamicLabel">From Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" class="text-input floating-label dirty" name="" id="" uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999" press-enter="searchDeposit()"
+													placeholder="DD/MM/YYYY" ng-model="billSearch.toDate" model-view-value="true" is-open="datepicker.opened" datepicker-options="dateOptions" 
+													show-button-bar="false"	ng-click="openDatePicker()" required>
+										<label for="description" class="LISDynamicLabel">To Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label" ng-model="billSearch.visitTypeId">
+											<option value="">-</option>
+											<option value="1">OP</option>
+											<option value="2">IP</option>
+											<option value="3">Day Care</option>
+											<option value="4">ER</option>
+										</select> <label for="code">Visit Type</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" press-enter="searchBills(billSearch)" ng-model="billSearch.billNo" class="text-input floating-label"> 
+										<label for="description" class="LISDynamicLabel">Bill No.</label>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+				
+				<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="description" id="" press-enter="searchBills(billSearch)" ng-model="billSearch.visitNo" class="text-input floating-label"> 
+										<label for="description" class="LISDynamicLabel">Visit No.</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label" ng-model="billSearch.billStatusId">
+											<option>-</option>
+											<option value="1">Pending</option>
+											<option value="2">OnHold</option>
+											<option value="3">Settled</option>
+										</select> <label for="code">Bill Status</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 margin-top10 margin-left5">
+							<input type="checkbox" ng-model="billSearch.isOtcReg" name="registrationType"><span class="margin-left5">OTC</span>
+						</div>
+						<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right4 padding-top10 width4">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" ng-click="searchBills(billSearch)" title="Search" >
+									<i class="fa fa-search" style="font-size: 18px" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+				</div>
+				<!-- <div class="row margin-top4 custom-width">
+					
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right width4">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow"
+									title="Save" data-toggle="modal" data-target="#"><i
+									class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+								<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+								<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+				</div> -->
+				<div class="row margin-top10">
+			
+			      <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 width4 float_right">
+			       <div class=" ">
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			       </div>
+			      </div>
+			      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+			        <input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+			        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			      </div>
+		      
+	   			 </div>
+				<div class="row margin-top4">
+					<div class="col-md-12 col-lg-12 table-responsive padding-left-right-set4 common-popup-height-400-overflow-x ">
+						<table class="table table-bordered ">
+						       <tr>
+						       <th class="width6">
+						        <span class="">Bill Date</span>
+						       </th>
+						       <th class="width8">
+						         <span class="">Bill No.</span>
+						       </th>
+						       <th class="width10">
+						        UHID
+						       </th>
+						       <th class="width15">
+						        Patient Name
+						       </th>
+						       <th class="width8">
+						        Visit Type
+						       </th>
+						       <th class="width6">
+						        Visit Date
+						       </th>
+						       <th class="width8">
+						        Visit No.
+						       </th>
+						       <th class="width8">
+						        Total Bill Amt
+						       </th>
+						       <th class="width8">
+						        Net Payable
+						       </th>
+						       <th class="width10">
+						        Amount Paid
+						       </th>
+						       <th class="width8">
+						        Balance Amt
+						       </th>
+						       <th class="width6">
+						        Status
+						       </th>
+						       <th class="width8">
+						        Created By
+						       </th>
+						       <th class="width8">
+						        Order By
+						       </th>
+						       <th class="width1">
+						        DR
+						       </th>
+						       <th class="width1">
+						        CR
+						       </th>
+						       <th class="width1">
+						        Action
+						       </th>
+						      </tr>
+						      <tr ng-repeat="bill in billList">
+						      	<td>{{bill.billDate}}</td>
+						       <td>{{bill.billNumber}}</td>
+						       <td>{{bill.uhidNumber}}</td>
+						       <td>{{bill.patientName}}</td>
+						       <td>{{getVisitTypeById(bill.visitTypeId)}}</td>
+						       <td>{{bill.visitDate}}</td>
+						       <td>{{bill.visitNo}}</td>
+						       <td>{{parseFloatNum(bill.totalBillAmount)}}</td>
+						       <td>{{parseFloatNum(bill.netAmount)}}</td>
+						       <td>{{parseFloatNum(bill.amountPaid)}}</td>
+						       <td>{{parseFloatNum(bill.outstanding)}}</td>
+						       <td>{{getBillStatusById(bill.billStatusId)}}</td>
+						       <td>-</td>
+						       <td>-</td>
+						       <td>
+						          <a href="#/debitNoteList">
+						          	<i class="fa fa-credit-card" aria-hidden="true"></i>
+						          </a>
+						       </td>
+						       <td>
+						          <a href="#/creditNoteList">
+						          	<i class="fa fa-credit-card" aria-hidden="true"></i>
+						          </a>
+						       </td>
+						       <td class="width1">
+						         <a href="#/billList/serviceDetails" ng-disabled="{{bill.billStatusId == 3 ? true : false}}" ng-click="billDetails(bill)" data-toggle="modal" data-target="#billListDetails">View</a>
+						       </td>
+						      </tr>
+						       <!-- <tr>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td class="width1">
+						        <a href="" data-toggle="modal" data-target="#billListDetails">View</a>
+						       </td>
+						      </tr> -->
+						      <!-- <tr>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						       -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td class="width1">
+						        <a href="" data-toggle="modal" data-target="#billListDetails">View</a>
+						       </td>
+						      </tr> -->
+						      <!-- <tr>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td class="width1">
+						        <a href="" data-toggle="modal" data-target="#billListDetails">View</a>
+						       </td>
+						      </tr> -->
+						      <!-- <tr>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						      <td class="width1">
+						        <a href="" data-toggle="modal" data-target="#billListDetails">View</a>
+						       </td>
+						      </tr> -->
+						      <!-- <tr>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td class="width1">
+						        <a href="" data-toggle="modal" data-target="#billListDetails">View</a>
+						       </td>
+						      </tr> -->
+						      <!-- <tr>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						       <td>
+						        -
+						       </td>
+						      <td class="width1">
+						        <a href="" data-toggle="modal" data-target="#billListDetails">View</a>
+						       </td>
+						      </tr> -->
+					</table>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>
+
+
+<div ng-include="'./views/master/UnitMaster/billingMaster/common/bill-list-details.html'" ></div>
+<div ng-include="'./views/common/collect-payment-modal.html'" ></div>
+
+
+
+<script>
+
+$(document).ready(function() {  
+	 $(".patienttSearchResult").hide();
+	 $(".selectedPageName").text("Bill List");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="billList"]').parents("li").addClass("active");
+});
+
+
+
+
+</script>
+
+
+
+
+

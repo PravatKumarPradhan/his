@@ -1,0 +1,175 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+            	
+       <div class="row">
+          	<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right margin-top8">
+					<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+            	
+		<div class="row padding-left-right-set4 margin-top10">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="UHID-width">
+							UHID
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="patient-doc-details-width">
+							Patient Details
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="patient-doc-details-width">
+							Doctor Details
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="UHID-width">
+							Location
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="status">
+							Admission Date
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="status">
+							Surgery Date
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="status">
+							ICU Required On
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="UHID-width">
+							WaitList Number
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<div>Pune-769</div><!-- <b>UHID:</b>  -->
+						</td>
+						<td>
+							<div>John Deo 26/M </div>
+							
+						</td>
+						<td>
+							<div>Dr. Ross Hunter</div>
+						</td>
+						<td>
+							<div>First Floor, BM74120</div>
+						</td>
+						<td>
+							<div>11/08/2017</div>
+						</td>
+						<td>
+							<div>13/08/2017</div>
+						</td>
+						<td>
+							<div>-</div>
+						</td>
+						<td>
+							<div>258963174</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div>Pune-770</div>
+						</td>
+						<td>
+							<div>soni Raut Deo 20/F </div>
+						</td>
+							<td>
+							<div>Dr. Ross Hunter</div>
+						</td>
+						<td>
+							<div>First Floor, BM74120</div>
+						</td>
+						<td>
+							<div>11/08/2017</div>
+						</td>
+						<td>
+							<div>13/08/2017</div>
+						</td>
+						<td>
+							<div>-</div>
+						</td>
+						<td>
+							<div>258963174</div>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<div>Pune-772</div>
+						</td>
+						<td>
+							<div>Fandry sonk Deo 24/M </div>
+						</td>
+							<td>
+							<div>Dr. Ross Hunter</div>
+						</td>
+						<td>
+							<div>First Floor, BM74120</div>
+						</td>
+						<td>
+							<div>11/08/2017</div>
+						</td>
+						<td>
+							<div>13/08/2017</div>
+						</td>
+						<td>
+							<div>-</div>
+						</td>
+						<td>
+							<div>258963174</div>
+						</td>
+					</tr>
+					
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+	<script type="text/javascript">
+
+	$( document ).ready(function() {
+		
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	 	
+		
+		$(".selectedPageName").text("ICU Bed Booking Status");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="icuBedBookingStatus"]').parents("li").addClass("active");
+		
+	});
+	</script>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+	
+	<mapping map-id="billing_XServiceMasterDto_to_XServiceMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.dto.ServiceMasterDto</class-a>
+		<class-b>com.param.global.model.ServiceMaster</class-b>
+	</mapping>
+	
+	<mapping map-id="global_UnitServiceMapperDto_to_UnitServiceMapper" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.dto.UnitServiceMapperDto</class-a>
+		<class-b>com.param.global.model.UnitServiceMapper</class-b>
+	</mapping>
+	
+	<mapping map-id="global_UnitServiceMasterDetailsDto_to_UnitServiceMasterDetails" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.dto.UnitServiceMasterDetailsDto</class-a>
+		<class-b>com.param.global.model.UnitServiceMasterDetails</class-b>
+	</mapping>
+	
+	<mapping map-id="OrderMasterDto_to_OrderMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.dto.OrderMasterDto</class-a>
+		<class-b>com.param.global.model.OrderMaster</class-b>
+	</mapping>
+	
+	<mapping map-id="OrderDetailsMasterDto_to_OrderDetailsMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.dto.OrderDetailsMasterDto</class-a>
+		<class-b>com.param.global.model.OrderDetailsMaster</class-b>
+	</mapping>
+	
+	<mapping map-id="ModalityMasterDto_to_ModalityMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.dto.ModalityMasterDto</class-a>
+		<class-b>com.param.global.model.ModalityMaster</class-b>
+	</mapping>
+	
+
+	<mapping map-id="OrderDetailsDiscountDto_to_OrderDetailsDiscount" date-format="dd-MM-yyyy HH:mm:ss">
+		<class-a>com.param.global.dto.OrderDetailsDiscountDto</class-a>
+		<class-b>com.param.global.model.OrderDetailsDiscount</class-b>
+	</mapping>
+	
+	<mapping map-id="stateMasterDto_to_stateMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.StateMaster
+		</class-a>
+		<class-b>com.param.global.dto.StateMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="countryMasterDto_to_countryMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.CountryMaster
+		</class-a>
+		<class-b>com.param.global.dto.CountryMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="CityMasterDto_to_CityMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.CityMaster</class-a>
+		<class-b>com.param.global.dto.CityMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="DistrictMasterDto_to_DistrictMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.DistrictMaster
+		</class-a>
+		<class-b>com.param.global.dto.DistrictMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="AreaMasterDto_to_AreaMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.AreaMaster
+		</class-a>
+		<class-b>com.param.global.dto.AreaMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="WeekendMasterDto_to_WeekendMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.WeekendMaster
+		</class-a>
+		<class-b>com.param.global.dto.WeekendMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="OPConsultationConfigurationMasterDto_to_OPConsultationConfigurationMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.OPConsultationConfigurationMaster
+		</class-a>
+		<class-b>com.param.global.dto.OPConsultationConfigurationMasterDto
+		</class-b>
+	</mapping>
+	
+	
+	<!-- * ADDED BY JYOTI 
+		 * DATE-19-04-2018
+	-->
+	<mapping map-id="masterOfSytemDto_to_systemMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.SystemMaster
+		</class-a>
+		<class-b>com.param.global.dto.MasterOfSytemDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="SurgeryGradeMasterDto_to_SurgeryGradeMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.SurgeryGradeMaster
+		</class-a>
+		<class-b>com.param.global.dto.SurgeryGradeMasterDto
+		</class-b>
+	</mapping>
+	<mapping map-id="SurgeryMasterDto_to_SurgeryMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.SurgeryMaster
+		</class-a>
+		<class-b>com.param.global.dto.SurgeryMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="TariffMasterDto_to_TariffMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.billing.global.transaction.model.TariffMaster
+		</class-a>
+		<class-b>com.param.global.dto.TariffMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="ReferalDetailsDto_to_ReferalDetails"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.ReferalDetails
+		</class-a>
+		<class-b>com.param.global.dto.ReferalDetailsDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="PatientSponsorDetailsDto_to_PatientSponsorDetails"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.PatientSponsorDetails
+		</class-a>
+		<class-b>com.param.global.dto.PatientSponsorDetailsDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="EmployeeMasterDto_to_EmployeeMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.EmployeeMaster
+		</class-a>
+		<class-b>com.param.global.dto.EmployeeRegistrationDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="EmployeeMasterDto_to_EmployeeDetails"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.EmployeeDetails
+		</class-a>
+		<class-b>com.param.global.dto.EmployeeRegistrationDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="DependentDetailsDto_to_DependentDetails"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.DependentDetails
+		</class-a>
+		<class-b>com.param.global.dto.DependentDetailsDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="DoctorMasterDto_to_DoctorMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.DoctorMaster
+		</class-a>
+		<class-b>com.param.global.dto.DoctorMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="DoctorMasterDto_to_DoctorDetails"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.DoctorDetails
+		</class-a>
+		<class-b>com.param.global.dto.DoctorMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="DoctorMasterDto_to_DoctorSpecialityMapper"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.DoctorSpecialityMapper
+		</class-a>
+		<class-b>com.param.global.dto.DoctorMasterDto
+		</class-b>
+	</mapping>
+	
+	
+</mappings>

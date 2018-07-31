@@ -1,0 +1,136 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<legend class="heading-div">SMS Configuration</legend>
+			<div class="row padding-left-right-set padding-top8">
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+							<i class="fa fa-comments" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-10">
+							<div class="">
+								<select class="text-input floating-label">
+									<option value=""></option>
+                  						<option value="2">Doctor Registration</option>
+                  					
+                  						<option value="3">Employee Registration</option>
+                  					
+                  						<option value="4">Appointment Confirmation</option>
+                  					
+                  						<option value="5">Appointment Reminder</option>
+                  					
+                  						<option value="6">Appointment Cancellation</option>
+                  					
+                  						<option value="7">Appointment Reschedule</option>
+                  					
+                  						<option value="8">Doctor Schedule</option>
+                  					
+                  						<option value="1">Patient Registration</option>
+								</select>
+								<label for="code">SMS Type</label>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="col-md-1 col-sm-1 padding-left-right-set4 text-center padding-top5">
+					<div class="common-save-button">
+						<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow" title="Save">
+					</div>
+				</div>
+			</div>
+			<div class="row margin-top10">
+				<form action="">
+					<div class="row padding-left-right-set" id="">
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+							<div class="">
+								<label class="common-lable-color-set"> Message</label>
+								<div class="">
+										<textarea class="form-control sms-textarea-box" rows="5" id="messageDesc" name="messageDesc" placeholder="Message" aria-required="true"
+											style="margin: 0px; height: 158px;"></textarea>
+									</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+							<div class="text-center margin-top90">
+								<button type="button" class="btn btn-primary text-width-auto btn-sm"><<</button>
+							</div>
+						</div>
+						<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+							<div class="">
+								<label class="common-lable-color-set">Expression</label>
+								<div class="masterborder">
+									<div class="checkbox">
+										<label class="common-lable-color-set"><input type="checkbox" value="">Patient Name</label>
+									</div>
+									<div class="checkbox">
+										<label class="common-lable-color-set"><input type="checkbox" value="">Doctor Name</label>
+									</div>
+									<div class="checkbox">
+										<label class="common-lable-color-set"><input type="checkbox" value="">Time Slot</label>
+									</div>
+									<div class="checkbox">
+										<label class="common-lable-color-set"><input type="checkbox" value="">MRN Number</label>
+									</div>
+									<div class="checkbox">
+										<label class="common-lable-color-set"><input type="checkbox" value="">Appointment Date</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4"></div>
+				</form>
+			</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-10">
+			<div
+				class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search"
+					style="margin-top: 0px"> <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-10 padding-top8">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="width15">
+							SMS Type
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th>
+							Message
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("SMS Configuration");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="smsConfig"]').parents("li").addClass("active");
+	});
+</script>

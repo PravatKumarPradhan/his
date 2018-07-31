@@ -1,0 +1,109 @@
+alter table inventory.t_material_inwards_replacement_detail
+RENAME to t_material_inwards_detail;
+
+alter table inventory.t_inwards_uom_mapper
+RENAME COLUMN  material_inwards_replacement_detail_id to material_inwards_detail_id;
+
+alter table procurement.t_quotation_request
+alter column request_for_technical_approval set default false;
+
+alter table inventory.t_material_inwards_detail
+add column credit_note_amount double precision;
+
+alter table inventory.t_material_inwards_detail
+add column credit_tax_amount double precision;
+
+alter table inventory.t_material_inwards_detail
+add column credit_net_amount double precision;
+
+alter table pharmacy.t_return_billable_consumption DROP COLUMN visit_id;
+
+alter table pharmacy.t_return_billable_consumption ADD COLUMN admission_id int;
+
+alter table pharmacy.t_return_billable_consumption ADD COLUMN encounter_id int;
+
+
+alter table pharmacy.t_return_billable_consumption ADD CONSTRAINT fkey_encounter FOREIGN KEY (encounter_id) 
+REFERENCES opd.t_encounter_master (encounter_id);
+
+alter table pharmacy.t_return_billable_consumption ADD CONSTRAINT fkey_admission FOREIGN KEY (admission_id) 
+REFERENCES adt.t_admission (admission_id);
+
+
+
+drop table pharmacy.t_return_billable_consumption_detail;
+
+CREATE TABLE pharmacy.t_return_billable_consumption_detail
+(
+	id serial NOT NULL,
+	organization_id int NOT NULL,
+	unit_id int NOT NULL,
+	returnable_billable_consumption_id int NOT NULL,
+	billable_consumption_detail_id int NOT NULL,
+	return_quantity integer,
+	is_active boolean DEFAULT true NOT NULL,
+    updated_by integer NOT NULL,
+    updated_date timestamp without time zone DEFAULT cast (now() as timestamp(0))  NOT NULL,
+    added_by integer  NOT NULL,
+    added_date timestamp without time zone DEFAULT cast (now() as timestamp(0))  NOT NULL,
+    is_deleted boolean DEFAULT false NOT NULL,
+	CONSTRAINT pkey_return_billable_consumption_detail PRIMARY KEY (id),
+	CONSTRAINT fkey_returnable_billable_consumption FOREIGN KEY (returnable_billable_consumption_id)
+	REFERENCES pharmacy.t_return_billable_consumption (id),
+	CONSTRAINT fkey_billable_consumption_detail FOREIGN KEY (billable_consumption_detail_id)
+	REFERENCES pharmacy.t_billable_consumption_detail (id),
+		CONSTRAINT fkey_added_by FOREIGN KEY (added_by)
+		REFERENCES public.m_user_master (user_id),
+		CONSTRAINT fkey_updated_by FOREIGN KEY (updated_by)
+		REFERENCES public.m_user_master (user_id),
+		CONSTRAINT fkey_organisation FOREIGN KEY (organization_id)
+		REFERENCES public.m_organization_master (organization_id),
+		CONSTRAINT fkey_unit FOREIGN KEY (unit_id)
+		REFERENCES public.m_unit_master (unit_id)
+);
+
+ALTER TABLE procurement.t_item_request_detail
+ ADD column asset_id integer;
+
+ALTER TABLE procurement.t_item_request_detail
+    ADD CONSTRAINT fkey_asset FOREIGN KEY (asset_id)
+    REFERENCES public.m_fixed_asset_master;
+	
+	alter table inventory.t_material_inwards_detail
+add column received_qty integer;
+
+
+alter table inventory.t_material_inwards drop column replacement_id;
+
+alter table procurement.t_vendor_negociation
+drop column qr_id;
+
+alter table procurement.t_vendor_negociation
+drop column qv_id;
+
+alter table procurement.t_vendor_negociation
+add column qf_id integer ;
+
+ALTER TABLE procurement.t_vendor_negociation
+    ADD CONSTRAINT fkey_qf FOREIGN KEY (qf_id)
+    REFERENCES procurement.t_quotation_fill (id);
+
+
+alter table procurement.t_vendor_negociation_detail
+drop column qr_detail_id;
+
+alter table procurement.t_vendor_negociation_detail
+drop column qv_detail_id;
+
+alter table procurement.t_vendor_negociation_detail
+add column qf_detail_id integer ;
+
+ALTER TABLE procurement.t_vendor_negociation_detail
+    ADD CONSTRAINT fkey_qf_detail FOREIGN KEY (qf_detail_id)
+    REFERENCES procurement.t_quotation_fill_detail (id);
+
+alter table procurement.t_vendor_negociation
+drop column qr_vendor_id;
+
+
+

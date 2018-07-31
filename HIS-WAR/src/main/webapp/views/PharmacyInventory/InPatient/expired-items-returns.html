@@ -1,0 +1,161 @@
+<!-- *****************************************************************************************************************************
+									Expired Items Returns 
+****************************************************************************************************************************** -->
+<!-- Page Content start-->
+<div id="page-content-wrapper"  class=" ">
+	<div class="container-fluid his-style">
+		<div class="row">
+       		<div class="col-md-8"></div>
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" data-toggle="modal" data-target="#confirmLogout"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-10">
+			<div class="col-md-12">
+				<table class="table table-bordered" id="returnToStoreTableId">
+					<tr class="">
+						<th class="width1 text-center padding-btntop10">
+							<input type="checkbox" />
+						</th>
+						<th class="width10">
+							Store
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width15">
+							Item Name
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width10">
+							Generic Name
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width8">
+							Batch No.
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th  class="width8">
+							Expiry Date
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width8">
+							COP
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width8">
+							Price
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width6">
+							Action
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>
+							-
+						</td>
+						<td>
+							<input type="text" class="select-box" />
+						</td>
+						<td >
+							<div>-</div>
+						</td>
+						<td>
+							<select class="select-box">
+								<option>Select</option>
+								<option>1</option>
+							</select>
+						</td>
+						<td>
+							<div>-</div>
+						</td>
+						<td>
+							<div>-</div>
+						</td>
+						<td>
+							<div>-</div>
+						</td>
+						<td>
+							<input type="button" name="" id="addr" value="+" onclick="addReturnToStoreTableBtn()" class="btn btn-info add-dynamic-row" style="padding: 3px 7px;">&nbsp;
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Page Content start-->
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedPageName").text("Expired Items Returns ");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="expiredItemsReturns"]').parents("li").addClass("active");
+});
+
+function addReturnToStoreTableBtn(){
+	var n = document.getElementById("returnToStoreTableId").rows.length;
+	var id = Number(n);
+	var test =
+		'<tr>'
+			+'<td><input type="checkbox"> </td>'
+			+'<td></td>'
+			+'<td><input type="text" class="select-box"> </td>'
+			+'<td></td>'
+			+'<td><select class="select-box"><option></option></select></td>'
+			+'<td></td>'
+			+'<td></td>'
+			+'<td></td>'
+			+ '<td>'
+			+ '<input type="button" name="" id="" value="+" onclick="addReturnToStoreTableBtn()" class="btn btn-info add-dynamic-row" style="padding: 3px 7px;">&nbsp;'
+			+ '<input type="button" name="" id="" value="-" onclick="delRowReturnToStoreTableBtn(this)" class="btn btn-info" style="padding:3px 8px;">'
+			+ '</td>' 
+			+ '</tr>';
+	$("#returnToStoreTableId").append(test);
+}
+function delRowReturnToStoreTableBtn(r) {
+	var i = r.parentNode.parentNode.rowIndex;
+	document.getElementById("returnToStoreTableId").deleteRow(i);
+}
+
+</script>

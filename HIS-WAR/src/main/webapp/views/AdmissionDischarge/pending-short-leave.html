@@ -1,0 +1,151 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+            	
+        <div class="row margin-top4">
+          	<div class="col-md-9"></div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+							<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+		</div>
+            	
+		<div class="row padding-left-right-set4 margin-top10">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="UHID-width">
+							UHID
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="patient-doc-details-width">
+							Patient Details
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="patient-doc-details-width">
+							Doctor Details
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="UHID-width">
+							Location
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="status">
+							Requested Date
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="status">
+							Short Leave From Date Time
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="status">
+							Short Leave To Date Time
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="UHID-width">
+							Reason
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width8">
+							Action
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+					</tr>
+					<tr ng-repeat="info in shortLeaveRequestList">
+						<td>
+							<div>{{info.uhidNumber}}</div><!-- <b>UHID:</b>  -->
+						</td>
+						<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.patientName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.patientName+' '+info.dob+'/'+info.genderCode}}</div>
+						</td>
+						<td>
+							<div>Dr.{{info.doctorName+', '+info.specialityName}}</div>
+						</td>
+						<td>
+							<div>{{info.floorName+' , '+info.bedNumber}}</div>
+						</td>
+						<td>
+							<div>{{info.createdDate}}</div>
+						</td>
+						<td>
+							<div>{{info.fromDate+' '+info.stringFromTime}}</div>
+						</td>
+						<td>
+							<div>{{info.toDate+' '+info.stringToTime}}</div>
+						</td>
+						<td>
+							<div>{{info.shortLeaveReasonName}}</div>
+						</td>
+						<td>
+							<div class="row">
+								<input type="radio" name="radioBtnForTransferRqust" class="radioAccepted" data-toggle="modal" data-target="#commonNote" ng-click="getAdmissionDataAccept(info)"><span>Accept</span>
+								<input type="radio" name="radioBtnForTransferRqust" class="radioRejected"  data-toggle="modal" data-target="#accepatReject" ng-click="getAdmissionDataAccept(info)"><span>Reject</span>
+							</div>
+						</td>
+					</tr>
+					
+				</table>
+			</div>
+		</div>
+	</div>
+	 <div ng-include="'./views/common/accept-reject.html'"></div>
+     <div ng-include="'./views/common/note-save.html'"></div>
+         
+	<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+</div>
+	<script type="text/javascript">
+
+	$( document ).ready(function() {
+		
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	 	
+		
+		$(".selectedPageName").text("Pending Short Leave");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="pendingShortLeave"]').parents("li").addClass("active");
+		
+		
+		
+	});
+	</script>

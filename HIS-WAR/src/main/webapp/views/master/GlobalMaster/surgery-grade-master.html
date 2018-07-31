@@ -1,0 +1,89 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset>
+		<form name="surgeryGradeform" novalidate >
+			<div class="row margin-top10 padding-left-right-set4">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group"   show-errors>
+								<input type="text" name="surgeryGradeCode" id="" ng-model="surgeryGradeObj.surgeryGradeCode" class="text-input floating-label dirty" required>
+								<label for="code">Code</label>
+								<p class="help-block" ng-if="surgeryGradeform.surgeryGradeCode.$error.required">Code is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group"   show-errors>
+								<input type="text" name="surgeryGrade" id="" ng-model="surgeryGradeObj.surgeryGrade"  class="text-input floating-label dirty" required="required">
+								<label for="code">Name</label>
+								<p class="help-block" ng-if="surgeryGradeform.surgeryGrade.$error.required">Description is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 padding-left-right-set4 pull-right">
+					 <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" ng-click="saveSurgeryGrade()" ng-hide="saveBtnFlag">
+		        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+		      
+		        <a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="updateSurgeryGrade()" ng-hide="updateBtnFlag">
+		        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			</form>
+		</fieldset>
+		<div class="row padding-left-right-set4 margin-top8">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tbody><tr class="">
+						<th class="width15">
+							Code
+						</th>
+						<th class="width15">
+							Name
+						</th>
+						<th class="width3">
+							Status
+						</th>
+						<th class="width3 text-center">Action
+						</th>
+					</tr>
+					<tr ng-repeat="info in surgeryGradeList">
+						<td>{{info.surgeryGradeCode}}</td>
+						<td>{{info.surgeryGrade}}</td>
+						<td>
+							<label class="switch"> 
+								 <input type="checkbox" ng-model="info.status"  ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatus(info.surgeryGradeId,info.status)">
+								<div class="slider round"></div>
+							</label>
+						</td>
+						<td class="text-center"><a><i class="fa fa-pencil" aria-hidden="true" ng-click="showUpdateBtn(info.surgeryGradeId)"></i></a></td>
+					</tr>
+					</tbody>
+						
+					</table>
+			</div>
+		</div>
+	</div>
+</div>
+<modal visible="showModal"></modal> 
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$(".selectedPageName").text("Surgery Grade Master");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="surgeryGradeMaster"]').parents("li").addClass("active");
+	});
+</script>

@@ -1,0 +1,236 @@
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid his-style">
+			<fieldset>
+			<!-- <legend class="heading-div">Incubation Period Master</legend> -->
+			<div class="row margin-top10">
+				<form name="incubationPeroidform" novalidate>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<textarea name="incubationPeriodCode" rows="1" id=""
+										class="text-input floating-label"
+										ng-model="common.incubationPeriodCode"
+										ng-class="{'dirty':updateBtnFlag == true}" ng-maxlength="10"
+										required></textarea>
+									<label for="code">Code</label>
+									<p class="help-block"
+										ng-if="incubationPeroidform.incubationPeriodCode.$error.required">Code
+										is required</p>
+									<p class="help-block"
+										ng-if="incubationPeroidform.incubationPeriodCode.$error.maxlength">{{codeMaxLengthReq}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-clock-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<select class="text-input floating-label ng-touched dirty"
+										ng-model="common.incubationTimeId" name="incubationId"
+										      required convert-to-number>
+										<option value="">Please Select Hours</option>
+										<option ng-repeat="incutime in incubationTimeList"
+											value="{{incutime.id}}">{{incutime.name}}</option>
+									</select>
+									<p class="help-block"
+										ng-if="incubationPeroidform.incubationId.$error.required">{{plzSelectHours}}</p>
+									<label for="code">Incubation Time</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<input type="text" name="incubationValue"
+										class="text-input floating-label"
+										ng-model="common.incubationValue" required />
+									<p class="help-block"
+										ng-if="incubationPeroidform.incubationValue.$error.required">{{plzSelectDay}}</p>
+									<label for="code">Incubation Value</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+			<div class="row padding-top10">
+				<div class="col-md-6 col-sm-7 padding-left-right-set4">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-sm-6" style="padding-left: 0px;">
+								<div class="search">
+								<label class="show-entries">Show 
+								<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+									ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+									ng-change="setNoOfRecords();" class="search-popUp-ddl">
+										<option value="10">10</option>
+										<option value="25">25</option>
+										<option value="50">50</option>
+										<option value="100">100</option>
+								</select> entries
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" ng-click="save()" ng-if="saveBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="update()" ng-if="updateBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      </div>
+			      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+			        <input type="text" class="text-search-box ng-pristine ng-untouched ng-valid ng-empty search-popUp-ddl" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+			        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			      </div>
+			</div>
+			
+				<div class="row padding-left-right-set4 margin-top8">
+				<div class="col-md-12">
+					<table class="table table-bordered">
+						<thead>
+							<tr class="">
+								<th class="LISDynamicLabelOne">
+									<!-- <label class="LISDynamicLabelOne" >{{LISDynamicLabel}}</label> -->
+									Code
+									<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("incubationPeriodCode")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("incubationPeriodCode")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+								</th>
+								  <th style="width: 8%">Incubation Time
+								  <div class="float_right">
+									<div>
+										<i ng-click='sortColumn("incubationPeriodTime")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("incubationPeriodTime")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div></th>
+								<th style="width: 8%">Status</th>
+								<th class="text-center" style="width: 8%">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="info in commonList|orderBy:column:reverse|filter:searchKeyword">
+								<td>{{info.incubationPeriodCode}}</td>
+								<td>{{info.incubationPeriodTime}}</td>
+								<td><label class="switch"> <input type="checkbox"
+										ng-model="info.status" ng-checked="info.status=='A'"
+										ng-true-value="'A'" ng-false-value="'I'"
+										ng-change="updateStatus(info.incubationPeriodId,info.status)">
+										<div class="slider round"></div>
+								</label></td>
+								<td class="text-center"><a><i class="fa fa-pencil"
+										aria-hidden="true" ng-click="showUpdateBtn(info.incubationPeriodId)"></i></a></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+				</div>
+
+			</div>
+					<!-- div class="row padding-left-right-10">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<tbody>
+							<thead > 
+								<tr class="">
+									<th>
+									Code
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th>
+									Hours
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th>
+									Day
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="text-center" style="width:8%">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								</tr>
+							</thead>
+								<tr>
+									<td>110201</td>
+									<td>48</td>
+									<td>12</td>
+									<td class="text-center"><a><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+								</tr>
+								<tr>
+									<td>110202</td>
+									<td>24</td>
+									<td>22</td>
+									<td class="text-center"><a><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+								</tr>
+							</tbody>
+						</table>
+						</div>
+					</div> -->
+				</div>
+			</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+$(".selectedPageName").text("Incubation Period Master");
+});
+</script>

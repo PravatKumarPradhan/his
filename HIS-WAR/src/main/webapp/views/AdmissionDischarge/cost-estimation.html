@@ -1,0 +1,259 @@
+<!-- Page Content -->
+ <div id="page-content-wrapper" >
+    <div class="container-fluid his-style">
+        <div class="row searched-patient-details-row">
+			<div class="col-md-11 col-sm-11 col-xs-11 ">
+				<span class="profile_pic margin-left10"> 
+					<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+				</span> 
+				<span class="margin-left10">John Deo 26/M </span>
+				<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> Pune-769</span>
+				<span class="margin-left10"><b class="padding-right10 ">DOA	:</b> 02/05/2017</span>
+				<span class="margin-left10"><b class="padding-right10 ">PDD	:</b> 02/05/2017 11:16am </span>
+				<span class="margin-left10"><b class="padding-right10 ">BED NO	:</b> BM129091</span>
+				<span class="margin-left10">Dr. Suresh Pathak</span>
+			</div>
+		</div>
+        <div class="row">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 margin-top8 width4 float_right">
+				<div class=" margin-right10">
+					<a href="" data-toggle="modal" data-target="#confirmLogout" class="btn btn-primary btn-save-box-shadow" title="Save">
+						<i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i>
+					</a>	
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-sm-2 float_right padding-left-right-set4 margin-top8 width4">
+				<div class=" margin-right10">
+					<a href="" class="btn btn-primary btn-save-box-shadow">
+						<i class="fa fa-print" aria-hidden="true"></i>
+					</a>	
+				</div>
+			</div>
+		</div>
+		<fieldset class="margin-top8">
+			<legend class="heading-div">Cost Estimation</legend>
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option></option>
+									<option>-</option>
+								</select>		
+								<label for="code">Select Patient Category</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+							<i class="fa fa-ticket" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option></option>
+								</select>		
+								<label for="code">Select Payment Entitlement</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+							<i class="fa fa-bed" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option></option>
+									<option>Super Deluxe </option>
+									<option>Deluxe</option>
+								</select>		
+								<label for="code">Select Bed Category</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+							<i class="fa fa-bed" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label billing-group-select" name="code" id="billing-group-select">
+									<option></option>
+									<option value="displayForBilling">Room Rent</option>
+									<option value="displayForBilling">ICU</option>
+									<option value="hideForBilling">Investigation</option>
+									<option value="hideForBilling">Medication</option>
+								</select>		
+								<label for="code">Select Billing Group</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row margin-top10 billing-group-hide-show">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-bed" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="code" id="requiredOn" class="text-input floating-label">
+								<label for="code">Bed Category</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-sun-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="code" id="requiredOn" class="text-input floating-label">
+								<label for="code">No. Of Days</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-money" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="code" id="requiredOn" class="text-input floating-label">
+								<label for="code">Per Day Rate</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-money" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="code" id="requiredOn" class="text-input floating-label">
+								<label for="code">Amount</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row margin-top10 billing-group-hide-show-amount">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+					
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+					<div class="row input-container">
+						
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+					
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-money" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="code" id="requiredOn" class="text-input floating-label">
+								<label for="code">Amount</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row margin-top10 billing-group-hide-show-amount">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+					
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+					<div class="row input-container">
+						
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+					
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-money" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" name="code" id="requiredOn" class="text-input floating-label">
+								<label for="code">Total</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</fieldset>
+	</div>
+	<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/pendingAdmissionDischarge" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+</div>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+	
+$('.billing-group-hide-show').hide();
+$('.billing-group-hide-show-amount').hide();
+	
+$('.clockpicker').clockpicker();
+$(function() {
+	$(".selectedPageName").text("Cost Estimation");
+	
+});
+
+$( ".billing-group-select" ).change(function() {
+	var e = document.getElementById("billing-group-select");
+	var selectedValue = e.options[e.selectedIndex].value;
+	 if(selectedValue == "displayForBilling")
+	{
+		 $('.billing-group-hide-show').show();
+		 $('.billing-group-hide-show-amount').hide();
+	}
+	 else
+	{
+		 $('.billing-group-hide-show').show();
+		 $('.billing-group-hide-show-amount').show();
+	}
+	 
+});
+
+	});
+</script>
+</body>
+</html>

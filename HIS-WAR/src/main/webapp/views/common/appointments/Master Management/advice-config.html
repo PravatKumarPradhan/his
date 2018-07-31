@@ -1,0 +1,67 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<legend class="heading-div">Advice Configuration</legend><!-- Store  -->
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+							<i class="fa fa-user-md fa-color" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-10">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+								</select> <label for="code">Doctor</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row padding-left-right-set padding-top5">
+					<div class="col-lg-2 col-md-2 col-sm-2">
+						<div class="checkbox">
+						<label class="common-lable-color-set"><input type="checkbox" value="">Select All</label>
+					</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set10 float_right text-width-auto">
+				       <div class=" ">
+				        <a href="" class="btn btn-primary btn-save-box-shadow" title="Save"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				       </div>
+			      </div>
+			</div>
+			<div class="row padding-left-right-set">
+				<div class="col-md-4 col-xs-4 col-sm-4">
+					<div class="checkbox">
+						<label class="common-lable-color-set"><input type="checkbox" value="">Brush up on hygiene</label>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-4 col-sm-4">
+					<div class="checkbox">
+						<label class="common-lable-color-set"><input type="checkbox" value="">Neurobics for your mind</label>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-4 col-sm-4">
+					<div class="checkbox">
+						<label class="common-lable-color-set"><input type="checkbox" value="">Berries for your belly</label>
+					</div>
+				</div>
+			</div>	
+		</fieldset>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Advice Configuration");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="adviceConfig"]').parents("li").addClass("active");
+	});
+</script>

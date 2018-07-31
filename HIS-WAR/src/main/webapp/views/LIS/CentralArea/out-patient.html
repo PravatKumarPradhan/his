@@ -1,0 +1,539 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<div class="row padding-left-right-set4 margin-top4">
+			<div class="col-lg-3 col-md-3 col-sm-6 ">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-calendar-plus-o ddp-padding-top" aria-hidden="true"></i>
+						</div> 
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+									<label for="" class="LISDynamicLabel">From Date</label>
+										<span class="input-group"> 
+													<input name="fromDate"
+														id="date1" type="text" class="form-control"
+														uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+														placeholder="DD/MM/YYYY" tabindex="13" ng-model="fromDate"
+														model-view-value="true" is-open="popup.opened"
+														datepicker-options="dateOptions" show-button-bar="false" ng-click="open()" />
+													<!-- 	<span class="input-group-btn" >
+															<button type="button" class="btn btn-default"
+																ng-click="open()" style="padding:5px !important;">
+																<i class="fa fa-calendar fa-1"></i>
+															</button>
+													   </span> -->
+										</span>
+									</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-calendar-minus-o ddp-padding-top" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<label for="" class="LISDynamicLabel">To Date</label>
+										<span class="input-group"> 
+													<input name="toDate"
+														id="date2" type="text" class="form-control"
+														uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+														placeholder="DD/MM/YYYY" tabindex="13" ng-model="toDate"
+														model-view-value="true" is-open="popup1.opened"
+														datepicker-options="dateOptions" show-button-bar="false" ng-click="open1()"/>
+														<!-- <span class="input-group-btn" >
+															<button type="button" class="btn btn-default"
+																ng-click="open1()" style="padding:5px !important;">
+																<i class="fa fa-calendar fa-1"></i>
+															</button>
+													   </span> -->
+												</span>
+									</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4  padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="form-group" >
+									 <input type="text"
+										 class="text-input floating-label" tabindex="3"
+										 ng-model="patientId"
+										 placeholder="Search"
+										 uib-typeahead=" patient.patientWithUhid for patient in getSendToCRList($viewValue)"
+										 typeahead-editable="false"
+										 typeahead-on-select="selectPatient($item, $model, $label);"
+										 name="patientName" autocomplete="off" />
+									<label for="description" class="LISDynamicLabel">Patient Name</label>
+								</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4  padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="code" id="" ng-model="uhid" class="text-input floating-label">
+								<label for="description" class="LISDynamicLabel">UHID</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-6 padding-left-right-set4">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-user ddp-padding-top" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<label for="" class="LISDynamicLabel">Visit Type</label>
+								 <div class="custom-drop-down-btn"
+									ng-dropdown-multiselect="" options="visityTypeList"
+									selected-model="selectedVisitType"
+									>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4  ">
+					<div class="row input-container ">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-dot-circle-o padding-top10" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<label for="" class="LISDynamicLabel">Department</label>
+								<div class="custom-drop-down-btn" ng-dropdown-multiselect="" options="departmentList" 
+								selected-model="selectedDepartMentList" extra-settings="dropDownSetting"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-6  padding-right12">
+				<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set0">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-dot-circle-o ddp-padding-top" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<label for="" class="LISDynamicLabel">Test</label>
+								<div class="custom-drop-down-btn" ng-dropdown-multiselect="" options="testList" 
+								selected-model="selectedtestList" extra-settings="dropDownSetting"></div>
+							</div>
+						</div>			
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set0 ">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+							<i class="fa fa-dot-circle-o ddp-padding-top" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<label for="" class="LISDynamicLabel">Sample No</label>
+								<input type="text" name="sampleno" id="" class="text-input floating-label" tabindex="3"
+								  ng-model="selectedSampleNo"
+								  placeholder="Search"
+								 uib-typeahead="sample.sampleNo for sample in getSampleNoList($viewValue)"
+								 typeahead-on-select="selectSampleNo($item, $model, $label);"
+								  autocomplete="off">
+							</div>
+						</div>			
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-3 text-right padding-right12 padding-top10">
+					<div class="common-save-button" style="padding-top:0px;"> 
+						 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+						 	<i class="fa fa-search" ng-click="searchOutPatientList();" aria-hidden="true"></i> 
+						 </a> 
+					</div> 
+				</div>
+			</div>
+		</div>
+		<div class="row margin-top4">
+			<div class="col-lg-8 col-md-8 col-sm-8 ">
+				<div class="row">
+					<div class="col-lg-2 col-md-2"
+						style="text-align: right; padding-right: 0px;">
+						<div class="search">
+							<label class="show-entries">Show <select
+								name="DataTables_Table_0_length"
+								aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search" ng-model="searchKeyword">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" data-toggle="modal" data-target="#outPatient"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div>
+			</div> -->
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#outPatient"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box"   placeholder="Search"  ng-model="searchKeyword" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+
+		<div class="row padding-left-right-set4 margin-top4">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr class="">
+							<th class="width1">
+								<input type="checkbox"/>
+							</th>
+							<th class="width6">Visit Type
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="patient-doc-details-width">Sample No
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("labSampleNo")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("labSampleNo")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="UHID-width">UHID
+								<div class="float_right">
+								 <div>
+										<i ng-click='sortColumn("uhid")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("uhid")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								  </div>
+								</div>
+							</th>
+							<th class="patient-doc-details-width">Patient Details
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="test-name-width">Test Name
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("testDesc")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("testDesc")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width7">Test Code
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width6">Profile Code
+								<div class="float_right">
+								 <div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down"  aria-hidden="true"></i>
+								  </div>
+								</div>
+							</th>
+							<th class="priority-width">Priority
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("priorityName")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("priorityName")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="patient-doc-details-width">Doctor Details
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("doctorDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("doctorDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width6">Sample
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="bar-code-width">Aliquot Needed
+								<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("isAlliquoteReq")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("isAlliquoteReq")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width6">Order Date 
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							
+							<th class="width6">Sample Date 
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							
+							<th class="width5">Action
+								<input type="checkbox" ng-model="selectedAll" ng-click="checkAll();"/>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="outpatilst in sampleListForOutpatient|orderBy:column:reverse|filter:searchKeyword track by $index">
+						<td><input type="checkbox"></td>
+							<td style="color: {{outpatilst.colorCode}}">{{outpatilst.visitType}}</td>
+							<td style="color: {{outpatilst.colorCode}}">
+								<div>{{outpatilst.labSampleNo}}</div>
+							</td>
+							<td style="color: {{outpatilst.colorCode}}">{{outpatilst.uhid}}</td>
+							<td style="color: {{outpatilst.colorCode}}">
+								<div>{{outpatilst.patientDetails}}</div>
+							</td>
+							<td style="color: {{outpatilst.colorCode}}"><div>{{outpatilst.testDesc}}</div></td>
+							<td style="color: {{outpatilst.colorCode}}">{{outpatilst.testCode}}</td>
+							<td style="color: {{outpatilst.colorCode}}">
+								<div>{{outpatilst.priorityName}}</div>
+							</td>
+							<td style="color: {{outpatilst.colorCode}}">{{outpatilst.panelCode}}</td>
+							
+							<td style="color: {{outpatilst.colorCode}}">
+								<div>{{outpatilst.doctorDetails}}</div>
+							</td>
+							<td style="color: {{outpatilst.colorCode}}">{{outpatilst.sampleType}}</td>
+							<td style="color: {{outpatilst.colorCode}}">
+								<div>{{outpatilst.isAlliquoteReq=='Y'?'Yes':'No'}}</div>
+							</td>
+							<td style="color: {{outpatilst.colorCode}}">{{outpatilst.orderDateTime| date : "dd/MM/y h:mm a"}}</td>
+							
+							<td style="color: {{outpatilst.colorCode}}">{{outpatilst.sampleSendtocrDatetime| date : "dd/MM/y h:mm a"}}</td>
+							<td>
+								<ng-toggle tri-toggle ng-model="outpatilst.isAcceptOrReject"  ng-true-val="'A'" ng-false-val="'R'"  ng-no-val="'N'"
+								ng-checked="outpatilst.isAcceptOrReject=='A'" 
+								ng-click="showRejecPopup(outpatilst.isAcceptOrReject,$index);"></ng-toggle>
+								</td> 
+							<!--  <td>
+								<div class="row">
+									<input type="radio" name="radioBtnForTransferRqust{{$index}}"
+										ng-value="'A'"><span>Accept</span>
+										 <input type="checkbox"
+										ng-click="showRejecPopup($index);"
+										name="radioBtnForTransferRqust{{$index}}" 
+										ng-model="outpatilst.isAcceptOrReject" ng-value="'R'"><span>Reject</span>
+								</div>
+							</td>  -->
+						</tr>
+					</tbody>
+				</table>
+				<table class="table table-bordered">
+					<tbody>
+						<tr ng-if="(sampleListForOutpatient|filter:searchKeyword)==''">
+							<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list" style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- CONFIRM POPUP FOR ALL -->
+<div id="outPatient" class="modal fade ng-scope in" role="dialog"
+	style="padding-left: 17px;">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<h5>Are you sure you want to Save?</h5>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary"
+					id="" ng-click="collectSampleForOutPatient();">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="accptRej" class="modal fade ng-scope in" role="dialog"
+	style="z-index: 1300 !important">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Rejection
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12 padding-left-right-set">
+						<div class="row input-container margin-top10">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" name="code"
+										ng-model="sampleListForOutpatient[rejIndex].sampleRejectReasonId">
+										<option selected value>Please Select Reason</option>
+										<option ng-repeat="rej in rejectionList"
+											value="{{rej.rejectionId}}">{{rej.rejectionName}}</option>
+									</select>
+									<!-- 	<label for="code">Select Reasons</label> -->
+								</div>
+							</div>
+						</div>
+						<div class="row input-container margin-top10">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<textarea name="code" rows="4" id=""
+										class="text-input floating-label"
+										ng-model="sampleListForOutpatient[rejIndex].sampleRejectReason"></textarea>
+									<label for="code">Note</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary"
+					id="" ng-click="saveRejectionDetails();">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$('.clockpicker').clockpicker();
+
+	$(document).ready(function() {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+		$(".selectedPageName").text("Sample Collection Out Patient");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+	});
+
+	$(document).on('change', '.radioRejected', function() {
+		/* //alert();
+		if ($(this).is(":checked"))
+		{
+			$("#accptRej").modal();
+		} */
+	});
+
+	/* $( ".radioRejected" ).change(function() {
+	 alert();
+	
+	 }); */
+</script>

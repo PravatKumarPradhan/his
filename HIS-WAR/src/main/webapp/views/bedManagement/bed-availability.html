@@ -1,0 +1,138 @@
+        <!-- Page Content -->
+        <div id="page-content-wrapper"  class="clockPopupOver">
+            <div class="container-fluid his-style">
+            	<div class="row padding-top10 padding-bottom10 padding-leftright15">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						 	 <div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+											<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepicker"
+									model-view-value="true" is-open="datepicker.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker()" required> <label for="code" class="">
+									Date</label>
+									</div>
+								</div>
+							</div> 
+					</div>
+					<!-- <div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4"></div> -->
+					<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+						<div class="common-save-button">
+							
+								<input type="button" value="Search"  class="btn btn-primary btn-save-box-shadow text-width-auto" ng-click="searchBedAvaliable()">
+							
+						</div>
+					</div> 
+				</div>
+				<!--  <div class="row padding-leftright15">
+					<div class="col-md-12">
+						<table class="table table-bordered table-striped">
+							<tr>
+								<td></td>
+								<td colspan="6" class="today-yest">Yesterday</td>
+								<td colspan="24" class="today-yest">Today</td>
+							</tr>
+							<tr class="table-th-bg">
+								<th class="bed-category-width">Bed Category</th>
+								<th class="date-column">09/01/2018 <span class="bed-available-span-pdd"></span></th>
+								<th class="date-column">10/01/2018 <span class="bed-available-span-pdd"></span></th>
+								<th class="date-column">11/01/2018<span class="bed-available-span-pdd"></span></th>
+								<th class="date-column">12/01/2018 <span class="bed-available-span-pdd"></span></th>
+								<th class="date-column">13/01/2018 <span class="bed-available-span-pdd"></span></th>
+								<th class="date-column">14/01/2018 <span class="bed-available-span-pdd"></span></th>
+								<th class="date-column">15/01/2018 <span class="bed-available-span-pdd"></span></th>
+							</tr>
+							<tr class="">
+								<td><span class="cursor-pointer"></span>Duplex</td>
+								<td><span>0</span></td>
+								<td class="table-space table-space-green" data-toggle="modal" data-target="#checkTabletstatus">02:07</td>
+								<td><span>W/L No. 45</span></td>
+								<td class=""><span>0</span></td>
+								<td><span>0</span></td>
+								<td>W/L No. 45</td>
+								<td>W/L No. 63</td>
+								<td>W/L No. 23</td>
+							</tr>
+							<tr class="">
+								<td><span class="cursor-pointer"></span>Super-Duplex</td>
+								<td><span>0</span></td>
+								<td class="table-space table-space-green" data-toggle="modal" data-target="#checkTabletstatus">02:07</td>
+								<td><span>0</span></td>
+								<td>W/L No. 24</td>
+								<td>W/L No. 25</td>
+								<td>W/L No. 26</td>
+								<td>W/L No. 27</td>
+								<td><span>0</span></td>
+							</tr>
+						</table>
+					</div>
+				</div>  -->
+				
+				<div class="row padding-leftright15">
+					<div class="col-md-12">
+						<table class="table table-bordered table-striped">
+							
+							<tr class="table-th-bg" >
+								<th class="bed-category-width">Bed Category </th>
+							
+								<th   ng-repeat="dateInfo in dateList" class="date-column">{{dateInfo | date:'dd/MM/yyyy'}} <span class="bed-available-span-pdd"></span>
+								</th>
+								
+							</tr>
+							<tr class="" ng-repeat="bedCategory in bedCategoryList">
+								<td ><span class="cursor-pointer"></span>{{bedCategory.bedCategoryDesc}}</td>
+								<td ng-repeat="finalDate in dateList">
+								<div ng-repeat="finalArrayData in finalBedAvailabiltyList">
+								<span ng-if="bedCategory.bedCategoryId == finalArrayData.bedCategoryId && finalArrayData.doa == finalDate">
+								<div ng-if="finalArrayData.waitListNumber != ''">
+								W/L No. {{finalArrayData.waitListNumber}}	
+								</div>
+								</span>
+								</div>
+								
+								</td>
+								
+							</tr>
+							
+						</table>
+					</div>
+				</div>
+				
+  			</div>
+  			<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/pendingAdmissionDischarge" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+		</div>
+		
+<!-- <ul class="list">
+    <li ng-repeat="item  in dateList"> {{ item }}</li>
+</ul> -->
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+
+		$(".selectedPageName").text("Bed Availability Status");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="bedAvailability"]').parents("li").addClass("active");
+
+	});
+</script>

@@ -1,0 +1,29 @@
+
+
+<!-- COMMON NOTE POPUP -->
+<div id="commonNote" class="modal fade ng-scope in common-small-popup" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Note
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row serachedPatientList">
+					<div class="col-md-12 col-lg-12 padding-left-right-set4 fix-height-scroll230">
+						<div>
+							Note <textarea rows="3" cols="6" id="noteTransfer" ng-model="noteTransfer"></textarea>
+						</div>
+						<div class=" float_right">
+							<a href="" ng-click="saveAcceptance()" class="btn btn-primary btn-save-box-shadow" title="Save">
+							Save
+							</a>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

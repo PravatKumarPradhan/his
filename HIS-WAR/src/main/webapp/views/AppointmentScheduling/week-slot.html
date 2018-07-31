@@ -1,0 +1,470 @@
+<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 margin-top8">
+	<table class="table table-bordered">
+		<tr >
+			<th class="text-center" colspan="8">
+				<div class="width30">
+					<span class="float_left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+					<span>{{doctorName}}</span>
+					<span class="float_right"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></span>
+				</div>
+			</th>
+		</tr>
+		<tr >
+			<th class="text-center" colspan="8">
+				<div class="width30">
+					<span class="float_left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></span>
+					<span><!-- 08th Jan 18 - 14th Jan 18 -->{{ fromDateForWeek | date :  " MMMM d, y"}}-{{toDateForWeek | date :  " MMMM d, y"}}</span>
+					<span class="float_right"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></span>
+				</div>
+			</th>
+		</tr>
+		<tr>
+			<th class="width6" ng-repeat="weekDate in slotListMonth[wkId - 1]" style="padding:0px !important;">
+				<div class="padding-left-right-set4">{{ weekDate.split('_')[1] | date :  "  d MMM yy" }}</div>
+				<div class="padding-left-right-set4">{{ weekDate.split('_')[1] | date :  " EEEE" }}</div> 
+				<table class="table table-bordered">
+					<thead ng-init="dt=weekDate.split('_')[1]">
+						<tr ng-repeat="wkSlots in slotsListWeek|filter:{'appointmentDate2':dt}">
+							<!-- <td  class="bg-green cursor-pointer" style="padding:8px !important">
+								<div class="font-size-12 text-center">{{wkSlots.fromTimeString}}</div>
+							</td> -->
+							<td ng-if="wkSlots.isBlockedUnblocked == '2' && wkSlots.slotPatientDetailsListsSize == '1'"  class="bg-red1 cursor-pointer day-slot-div"   style="padding:0px !important;" data-toggle="modal"  ng-click="getOverBookSlotCheckPopup(wkSlots)">
+								<div class="font-size-12 text-center">{{wkSlots.fromTimeString}}</div>
+								<div class="font-size-10 text-center div-word-break cursor-pointer" >
+								<i class="fa fa-info-circle" data-toggle="modal" data-target="#patientDetailsForAppointments" style="margin-right: 4px;color: #212121;" ng-click="getBookSlotDetails(wkSlots)"></i>{{wkSlots.uhidNumber}}</div>
+							</td>
+							<td ng-if="wkSlots.isBlockedUnblocked == '2' && wkSlots.slotPatientDetailsListsSize >= '2'"  class="bg-orange cursor-pointer day-slot-div"   style="padding:0px !important;" >
+								<div class="font-size-12 text-center">{{wkSlots.fromTimeString}}</div>
+								<div class="font-size-10 text-center div-word-break cursor-pointer" >
+								<i class="fa fa-info-circle" data-toggle="modal" data-target="#patientDetailsForAppointments" style="margin-right: 4px;color: #212121;" ng-click="getBookSlotDetails(wkSlots)"></i>{{wkSlots.uhidNumber}}</div>
+							</td>
+							<td ng-if="wkSlots.isBlockedUnblocked == '2' && wkSlots.slotPatientDetailsListsSize == '0'"  class="bg-green cursor-pointer day-slot-div"   style="padding:0px !important;" data-toggle="modal" data-target="{{wkSlots.slotPatientDetailsListsSize == '0' ?'#patientSearchForRegistration':''}}" ng-click="getSlotDetailsPopup(wkSlots)" >
+								<div class="font-size-12 text-center">{{wkSlots.fromTimeString}}</div>
+							</td>
+							<td  ng-if="wkSlots.isBlockedUnblocked == '1' && wkSlots.slotPatientDetailsListsSize == '1'" class="bg-grey cursor-pointer day-slot-div"  style="padding:0px !important;" >
+								<div class="font-size-12 text-center">{{wkSlots.fromTimeString}}</div>
+								<div class="font-size-10 text-center div-word-break cursor-pointer" >
+								<i class="fa fa-info-circle" data-toggle="modal" data-target="#patientDetailsForAppointments" style="margin-right: 4px;color: #212121;" ng-click="getBookSlotDetails(wkSlots)"></i>{{wkSlots.uhidNumber}}</div>
+							</td>
+							<td  ng-if="wkSlots.isBlockedUnblocked == '1' && wkSlots.slotPatientDetailsListsSize == '0'" class="bg-grey cursor-pointer day-slot-div"  style="padding:0px !important;" data-toggle="modal" data-target="{{wkSlots.slotPatientDetailsListsSize == '0' ?'#patientSearchForRegistration':''}}" ng-click="getSlotDetailsPopup(wkSlots)">
+								<div class="font-size-12 text-center">{{wkSlots.fromTimeString}}</div>
+							</td>
+						</tr>
+					</thead>
+				</table>
+			</th>
+			<!-- <th class="width12">
+				<div>09 Jan 18</div>
+				<div>Tuesday</div>
+			</th>
+			<th class="width12">
+				<div>10 Jan 18</div>
+				<div>Wednesday</div>
+			</th>
+			<th class="width12">
+				<div>11 Jan 18</div>
+				<div>Thursday</div>
+			</th>
+			<th class="width12">
+				<div>12 Jan 18</div>
+				<div>Friday</div>
+			</th>
+			<th class="width12">
+				<div>13 Jan 18</div>
+				<div>Saturday</div>
+			</th>
+			<th class="width12">
+				<div>14 Jan 18</div>
+				<div>Sunday</div>
+			</th> -->
+		</tr>
+		<tr>
+		
+		</tr>
+		<!-- <tbody ng-repeat="weekDate1 in slotListMonth[wkId - 1]">
+		<tr>
+			<td>
+				{{ weekDate1.split('_')[1] | date :  "  d MMM yy" }}
+			</td>
+		</tr>
+		<tr >
+			<td ng-repeat="wkSlots in slotsListWeek|filter:{'appointmentDate':'01/03/2018'}">
+				{{ wkSlots.fromTimeString }}
+			</td>
+		</tr>
+		</tbody> -->
+		<!-- <tr>
+			
+			<td class="bg-green cursor-pointer" data-toggle="modal" data-target="#patientSearchForRegistration">
+				<div class="font-size-12 text-center">09:00</div>
+			</td>
+			<td class="bg-red1" >
+				<div class="font-size-12 text-center cursor-pointer" data-toggle="modal" data-target="#patientSearchForRegistration">09:00</div>
+				<div class="font-size-10 text-center div-word-break">
+					<i class="fa fa-info-circle" data-toggle="modal" data-target="#patientDetailsForAppointments" style="margin-right: 4px;color: #212121;"></i>
+					PC-17-0045
+				</div>
+				<div class="font-size-10 text-center div-word-break cursor-pointer">UH147850003697412</div>
+			</td>
+			<td class="bg-green cursor-pointer" data-toggle="modal" data-target="#patientSearchForRegistration">
+				<div class="font-size-12 text-center">09:00</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">09:00</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">09:00</div>
+			</td>
+			<td class="bg-grey">
+				<div></div>
+			</td>
+			<td class="bg-grey">
+				<div></div>
+			</td>
+		</tr> -->
+		<!-- <tr>
+			
+			<td class="bg-green">
+				<div class="font-size-12 text-center">09:30</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">09:30</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">09:30</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">09:30</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">09:30</div>
+			</td>
+			<td class="bg-grey">
+				<div></div>
+			</td>
+			<td class="bg-grey">
+				<div></div>
+			</td>
+		</tr> -->
+		<!-- <tr>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">10:00</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">10:00</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">10:00</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">10:00</div>
+			</td>
+			<td class="bg-red1">
+				<div class="font-size-12 text-center">10:00</div>
+				<div class="font-size-10 text-center div-word-break cursor-pointer">PC-17-0044</div>
+			</td>
+			<td class="bg-grey">
+				<div></div>
+			</td>
+			<td class="bg-grey">
+				<div></div>
+			</td>
+		</tr>
+		<tr>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">10:30</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">10:30</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">10:30</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">10:30</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">10:30</div>
+			</td>
+			<td class="bg-grey">
+				<div></div>
+			</td>
+			<td class="bg-grey">
+				<div></div>
+			</td>
+		</tr>
+		<tr>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">11:00</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">11:00</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">11:00</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">11:00</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">11:00</div>
+			</td>
+			<td class="bg-grey">
+				<div></div>
+			</td>
+			<td class="bg-grey">
+				<div></div>
+			</td>
+		</tr>
+		<tr>
+			<td class="bg-red1">
+				<div class="font-size-12 text-center">11:30</div>
+				<div class="font-size-10 text-center div-word-break cursor-pointer">PC-17-0256</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">11:30</div>
+			</td>
+			<td class="bg-red1">
+				<div class="font-size-12 text-center">11:30</div>
+				<div class="font-size-10 text-center div-word-break cursor-pointer">PC-17-0222</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">11:30</div>
+			</td>
+			<td class="bg-green">
+				<div class="font-size-12 text-center">11:30</div>
+			</td>
+			<td class="bg-grey">
+				<div></div>
+			</td>
+			<td class="bg-grey">
+				<div></div>
+			</td>
+		</tr> -->
+	</table>
+</div>
+
+
+<!-- PATIENT DETAILS POPUP -->
+<!-- <div id="patientDetailsForAppointments" class="modal common-small-popup fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Patient Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="col-md-12 ">
+						<div class="common-small-popup-body">
+							<div><b>Patient Name</b> <span style=" margin-left: 20px;">: Johan Hosy, <span>29 Y Male</span></span></div>
+							<div><b>Mobile Number</b> <span style="margin-left: 7px;">: 8234567896</span></div>
+							<div><b>Email Id</b><span style="margin-left: 64px;">: johanHosy@gmail.com</span></div>
+							<div><b>Address</b><span style="margin-left: 64px;">: P-65, South Extension, Part-2, New Delhi 110049 </span></div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+</div> -->
+
+
+
+<!-- PATIENT SEARCH POPUP -->
+<!-- <div id="patientSearchForRegistration" class="common-large-popup modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Doctor Modality Scheduling 
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="row searched-patient-details-row">
+						<div class="col-lg-12 col-md-12">
+							<span class="margin-left10 ng-binding"><span class="padding-right5 font-weight600">Doctor Deatils :</span> </span>
+							<span class="margin-left10 ng-binding"><span class="padding-right5 font-weight600"></span>Dr. Mark Potter, Cardiology </span>
+							
+							<span class="margin-left10 ng-binding"><span class="padding-right5 font-weight600">
+								Appointment Details : Date : 05/02/2018 From Time : 10:00Am, To Time : 12:30Pm </span> 
+							</span>
+						</div>
+					</div>
+					<div class="col-md-12">
+					
+						<div ng-include="'./views/common/common-patient-search-opd-without-counter.html'"></div>
+					
+					</div>
+					
+					<div id="mediaType" class="row padding-left-right-set4 uk-input-group customRadioBtn text-center">													
+						<span>
+								<input id="newRadio" name="complaints" type="radio" value="1">
+								<label for="newRadio">New</label>
+						</span>
+						<span>
+								<input id="registeredRadio" name="complaints" type="radio" value="2">
+								<label for="registeredRadio">Registered</label>
+						</span>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label ">
+											<option></option>
+											<option>-</option>
+										</select>
+										<label for="code">Prefix</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label " > 
+										<label for="description" class="LISDynamicLabel" >First Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label " > 
+										<label for="description" class="LISDynamicLabel" >Middle Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label " > 
+										<label for="description" class="LISDynamicLabel" >Last Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label ">
+											<option></option>
+											<option>-</option>
+										</select>
+										<label for="code">Gender</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label "> 
+										<label for="description" class="LISDynamicLabel" >DOB</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label "> 
+										<label for="description" class="LISDynamicLabel" >Age(DD/MM/YYYY)</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label "> 
+										<label for="description" class="LISDynamicLabel" >Mobile No.</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label"> 
+										<label for="description" class="LISDynamicLabel" >Email Id</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label "> 
+										<label for="description" class="LISDynamicLabel" >Remark</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="modal-footer ">
+					<div class="col-lg-1 col-md-1 padding-left-right-set4 float_right margin-top10">
+						<button type="button" class="btn btn-primary btn-save-box-shadow">Save</button>
+					</div>
+      			</div>
+			</div>
+		</div>
+</div> -->
+
+
+
+

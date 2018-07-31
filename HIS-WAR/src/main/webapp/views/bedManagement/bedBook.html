@@ -1,0 +1,213 @@
+
+<style>
+#ui-datepicker-div
+{
+z-index:9999 !important;
+}
+</style>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" class="">
+			<div class="container-fluid his-style">
+				<div ng-include="'./views/common/common-patient-details.html'"></div>
+				<div class="row padding-top10"> 
+						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 padding-leftright15">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-bed" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label" name="code">
+											<option></option>
+											<option>Bed Category</option>
+				            				<option>First Bed Category</option>
+				            				<option>Second Bed Category</option>
+				            				<option>Third Bed Category</option>
+										</select> <label for="code">Select Bed Category</label>
+									</div>
+								</div>
+							</div>
+            			</div>
+	            		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 padding-leftright15">
+	            			<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-bed" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label" name="code">
+											<option></option>
+											<option>Bed Status</option>
+	            							<option>Pending</option>
+										</select> <label for="code">Select Bed Status</label>
+									</div>
+								</div>
+							</div>
+	            		</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-leftright15">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+							<input type="text" class="text-input floating-label dirty"
+								name="datepicker" id="datepicker"
+								uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+								placeholder="DD/MM/YYYY" ng-model="datepicker"
+								model-view-value="true" is-open="datepicker.opened"
+								datepicker-options="dateOptions" show-button-bar="false"
+								ng-click="openDatePicker()"> <label for="code">
+								Bed Booking Date</label>
+						</div>
+								</div>
+							</div>
+						</div>
+				</div>
+				<div class="row padding-top10"><!-- fix-height-scroll500 -->
+					<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h5>BM1023456711480</h5></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn">Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h5>BM1023456711481</h5></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn">Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h5>BM1023456711482</h5></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn">Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h5>BM1023456711483</h5></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn">Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h5>BM1023456711484</h5></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn">Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h5>BM1023456711485</h5></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn">Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+				</div>
+				
+				
+				<div class="row padding-top10">
+					<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h5>BM1023456725480</h5></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn">Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h5>BM1023456725481</h5></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn">Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h5>BM1023456725482</h5></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn">Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h5>BM1023456725483</h5></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn">Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h5>BM1023456725484</h5></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn">Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+			    		<div class="col-md-2 col-sm-2 col-xs-2 padding-leftright15">
+			    			<div class="card text-center">
+			    				<div>
+			    					<strong style="color: #04bcd4;"><h5>BM1023456725485</h5></strong>
+			    				</div>
+			    				<div>
+			    					<button type="button" class="btn book-btn">Book Now</button>
+			    				</div>
+							</div>
+			    		</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	/* $("#bedBookingDate").datepicker({
+			changeMonth : true,
+		changeYear : true,
+		}); */
+		
+		$(".selectedPageName").text("Bed Booking");
+		
+		/*  $("#bedBookingDate").datepicker({ 
+			 dateFormat: 'mm/dd/yy'
+		    });  */
+		
+	});
+	</script>
+

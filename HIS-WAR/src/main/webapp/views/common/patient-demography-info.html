@@ -1,0 +1,232 @@
+<div class="row searched-patient-details-row">
+		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+			<span class="profile_pic"> 
+				<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:35px"  data-toggle="modal" data-target="#patientDetailsModal">
+			</span>
+			<span class="margin-left10"> </span>
+			<span class="margin-left10"><span class="padding-right5 font-weight600">UHID	:</span> {{patientDetails.uhIdNumber}}</span>
+			<span class="margin-left10"><span class="padding-right5 font-weight600"></span> {{patientDetails.patientName}}</span>
+			<span class=""><span class=" font-weight600">/</span> {{patientDetails.genderCode}}</span>
+			<span class=""><span class=" font-weight600">/</span> {{patientDetails.age}}</span>
+			<span class="margin-left10"><span class="padding-right5 font-weight600">DOB	:</span> {{patientDetails.birthDate}}</span>
+			<span class="margin-left10 bed-mang-box-icon">
+				<img src="resources/assets/images/icon/bed/Allergies.png" title="Allergies" alt="Allergy" style="width:20px" class="popper" data-toggle="popover" data-trigger="hover">
+				<div class="popper-content hide">
+					<div>1.Eczema</div>
+					<div>2.Anaphylaxis</div>
+					<div>3.Diagnosis</div>
+				</div>
+			</span>
+			<span class="margin-left10 bed-mang-box-icon">
+				<img src="resources/assets/images/icon/bed/other investigation order.png" title="Comorbidity" alt="Allergy" style="width:20px" class="popper" data-toggle="popover" data-trigger="hover">
+				<div class="popper-content hide">
+					<div>1.Arthritis</div>
+					<div>2.High Blood Pressure</div>
+					<div>3.Sleep Apnea</div>
+				</div>
+			</span>
+			<span class="margin-left10 bed-mang-box-icon">
+				<img src="resources/assets/images/icon/bed/High Risk Patient.png" title="High Risk" alt="Allergy" style="width:20px" class="popper" data-toggle="popover" data-trigger="hover">
+				<div class="popper-content hide">
+					<div>1.Anti-infectives</div>
+					<div>2.Narcotics and Other Sedatives</div>
+					<div>3.Chemotherapeutic Agents</div>
+				</div>
+			</span>
+			
+		</div>
+		<!-- Static Data -->
+		<!-- <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+			<span class="profile_pic"> 
+				<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:35px"  data-toggle="modal" data-target="#patientDetailsModal">
+			</span>
+			<span class="margin-left10"> </span>
+			<span ng-if="patientLable.patientName != ''"  class="margin-left10"><span  class="padding-right5 font-weight600">UHID	:</span> {{patientLable.uhIdNumber}} </span>
+			<span ng-if="patientLable.patientName != ''"  class="margin-left10"><span  class="padding-right5 font-weight600"></span> {{patientLable.patientName+' / '+patientLable.age+'/'+patientLable.genderCode}}</span>
+			<span class=""><span class=" font-weight600">/</span> M</span>
+			<span class=""><span class=" font-weight600">/</span> 24</span>
+			<span class="margin-left10"><span  ng-if="patientLable.patientName != ''" class="padding-right5 font-weight600">DOB	:</span>{{patientLable.birthDate}}</span>
+		</div> -->
+	</div>
+	
+<!-- details modal start -->
+<div id="patientDetailsModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Patient Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 height400-table-with-scroll">
+						<div class="row">
+							<div class="col-lg-8 col-md-8 padding-left-right-set0">
+								<fieldset>
+									<legend class="heading-div">Personal Details</legend>
+									<table class="table table-bordered first-checkBox-padding margin-top4">
+										<tbody>
+											<tr>
+												<th class="width25">
+													<label><b>Prefix</b></label>
+												</th>
+												<th>Mr</th>
+											</tr>
+											<tr>
+												<th class="width25">
+													<label><b> Name</b></label>
+												</th>
+												<th>Andew David Smith</th>
+											</tr>
+											<tr>
+												<th class="width25">
+													<label><b>Birth Date</b></label>
+												</th>
+												<th>29/12/1993</th>
+											</tr>
+											<tr>
+												<th class="width25">
+													<label><b>Age</b></label>
+												</th>
+												<th>24</th>
+											</tr>
+											<tr>
+												<th class="width25">
+													<label><b>Sex</b></label>
+												</th>
+												<th>Male</th>
+											</tr>
+											<tr>
+												<th class="width25">
+													<label><b>Mobile No</b></label>
+												</th>
+												<th>(0842) 7534721</th>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset>
+							</div>
+							<div class="col-lg-4 col-md-4 padding-left-right-set0">
+								<fieldset>
+									<legend class="heading-div">Contact Details</legend>
+										<table class="margin-top4 table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+										<tbody>
+											<tr>
+												<th class="width30">
+													<label><b>Address</b></label>
+												</th>
+												<th class="width60">Colmore Row</th>
+											</tr>
+											<tr>
+												<th class="width30">
+													<label><b> Country</b></label>
+												</th>
+												<th class="width60">England</th>
+											</tr>
+											<tr>
+												<th class="width30">
+													<label><b>State</b></label>
+												</th>
+												<th class="width60">-</th>
+											</tr>
+											<tr>
+												<th class="width30">
+													<label><b>City</b></label>
+												</th>
+												<th class="width60">Birmingham</th>
+											</tr>
+											<tr>
+												<th class="width30">
+													<label><b>Area</b></label>
+												</th>
+												<th class="width60">-</th>
+											</tr>
+											<tr>
+												<th class="width30">
+													<label><b>Zip Code</b></label>
+												</th>
+												<th class="width60">35005</th>
+											</tr>
+											<tr>
+												<th class="width30">
+													<label><b>Contact No</b></label>
+												</th>
+												<th class="width60">(0842) 7534721</th>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset>
+							</div>
+						</div>
+						<fieldset class="margin-top4">
+							<legend class="heading-div">Kin Details</legend>
+						<div class="row">
+							<div class="col-lg-12 col-md-12 margin-top4 padding-left-right-set0">
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<th class="width15">
+												<span class="">Name</span>
+											</th>
+											<th class="width5">
+												Sex
+											</th>
+											<th class="width15">
+												Mobile Number
+											</th>
+											<th class="date-column">
+												Birth Date
+											</th>
+										</tr>
+										<tr>
+											<td>
+												Michael David Williams
+											</td>
+											<td>
+												Male
+											</td>
+											<td>
+												(0842) 7532912
+											</td>
+											<td>
+												18/08/1994
+											</td>
+										</tr>
+										<tr>
+											<td>
+												Andew David Williams
+											</td>
+											<td>
+												Male
+											</td>
+											<td>
+												(0842) 759346
+											</td>
+											<td>
+												04/10/1994
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						</fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+<script>
+$('.popper').popover({
+    placement: 'bottom',
+    container: 'body',
+    html: true,
+    content: function () {
+        return $(this).next('.popper-content').html();
+    }
+});
+</script>

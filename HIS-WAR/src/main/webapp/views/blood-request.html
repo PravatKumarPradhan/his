@@ -1,0 +1,364 @@
+
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper" >
+			<div class="container-fluid his-style">
+				<div class="row searched-patient-details-row">
+						<div class="col-md-11 col-sm-11 col-xs-11 ">
+							<span class="profile_pic margin-left10"> 
+								<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px" data-toggle="modal" data-target="#patientDetailsModal">
+							</span> 
+							<span class="margin-left10">John Deo 26/M </span>
+							<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> Pune-769</span>
+							<span class="margin-left10"><b class="padding-right10 "><!-- WARD NO : --></b> <!-- W1112 --></span>
+							<span class="margin-left10"><b class="padding-right10 "><!-- BED NO : --></b> <!-- BM129091 --></span>
+							<span class="margin-left10">Dr. Suresh Pathak</span>
+						</div>
+					</div>
+            	
+            	<fieldset>
+							<div class="row margin-top10">
+								<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 ">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-tint" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<select class="text-input floating-label" name="code">
+													<option></option>
+													<option>Plasma</option>
+													<option>Red blood cells</option>
+													<option>White blood cells</option>
+													<option>Platelets</option>
+												</select> <label for="code">Select Blood Component</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 ">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-universal-access" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<input type="text" name="code" id="requiredOn" class="text-input floating-label">
+												<label for="code">Unit</label>
+											</div>
+										</div>
+									</div>
+								</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepicker"
+									model-view-value="true" is-open="datepicker.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker()"> 
+									<label for="code"> Required on</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+									<div class="row">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-bell-o " aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="input-container">
+													<label for="code" class="padding-top-size">Urgency</label>
+													<div class="row turn-around-time">
+														<div class="col-lg-12 col-md-12 col-sm-12">
+															<div class="">
+																<span><input type="radio" name="urgencyRadio">Regular</span>
+																<span> <input type="radio" name="urgencyRadio">Stat</span>
+																<span> <input type="radio" name="urgencyRadio">Emergency</span>
+															</div>
+														</div>
+														</div>
+													</div>
+												</div>
+											</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+										<div class="row">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-handshake-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="input-container">
+													<label for="code" class="padding-top-size">Are Donors Available</label>
+													<div class="row turn-around-time">
+														<div class="col-lg-12 col-md-12 col-sm-12">
+															<div class="margin-top8">
+																<span> <input type="radio" name="donorsAvailable">Yes</span>
+																<span><input type="radio" name="donorsAvailable">No </span>
+															</div>
+														</div>
+														</div>
+													</div>
+												</div>
+											</div>
+									</div>
+									<div class="col-lg-4 col-md-4 padding-left-right-set4">
+										<div class="margin-top10">
+											<span><input type="checkbox"  class=" checkRequiredForSurgery requiredForSurgery margin-left10" name=""></span>
+											<label>Required For Surgery</label>
+											<div class="text-box-for-required-surgery radio-btn-div-style">
+												<ul>
+													<li>Eye-Surgery</li>
+													<li>Nose-Surgery</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								
+							</div>
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-sticky-note" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<textarea name="code" rows="1" id=""
+													class="text-input floating-label"></textarea>
+												<label for="code">Note</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4 text-right">
+									<div class="common-save-button"> 
+										 <a data-toggle="modal" data-target="#confirmLogout" class="btn btn-primary btn-save-box-shadow" style="width: auto;" > 
+										 	<i class="fa fa-floppy-o" aria-hidden="true"></i> 
+										 </a> 
+									</div>
+								</div>
+							</div>
+				</fieldset>
+  			</div>
+  			<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+		</div>
+<!-- details modal start -->
+<div id="patientDetailsModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Patient Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 height400-table-with-scroll">
+						<div class="row">
+							<div class="col-lg-8 col-md-8 padding-left-right-set0">
+								<fieldset>
+									<legend class="heading-div">Personal Details</legend>
+									<table class="table table-bordered first-checkBox-padding margin-top4">
+										<tbody>
+											<tr>
+												<th class="width25">
+													<label><b>Prefix</b></label>
+												</th>
+												<th>Mr</th>
+											</tr>
+											<tr>
+												<th class="width25">
+													<label><b> Name</b></label>
+												</th>
+												<th>Andew David Smith</th>
+											</tr>
+											<tr>
+												<th class="width25">
+													<label><b>Birth Date</b></label>
+												</th>
+												<th>29/12/1993</th>
+											</tr>
+											<tr>
+												<th class="width25">
+													<label><b>Age</b></label>
+												</th>
+												<th>24</th>
+											</tr>
+											<tr>
+												<th class="width25">
+													<label><b>Sex</b></label>
+												</th>
+												<th>Male</th>
+											</tr>
+											<tr>
+												<th class="width25">
+													<label><b>Mobile No</b></label>
+												</th>
+												<th>(0842) 7534721</th>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset>
+							</div>
+							<div class="col-lg-4 col-md-4 padding-left-right-set0">
+								<fieldset>
+									<legend class="heading-div">Contact Details</legend>
+										<table class="margin-top4 table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+										<tbody>
+											<tr>
+												<th class="width30">
+													<label><b>Address</b></label>
+												</th>
+												<th class="width60">Colmore Row</th>
+											</tr>
+											<tr>
+												<th class="width30">
+													<label><b> Country</b></label>
+												</th>
+												<th class="width60">England</th>
+											</tr>
+											<tr>
+												<th class="width30">
+													<label><b>State</b></label>
+												</th>
+												<th class="width60">-</th>
+											</tr>
+											<tr>
+												<th class="width30">
+													<label><b>City</b></label>
+												</th>
+												<th class="width60">Birmingham</th>
+											</tr>
+											<tr>
+												<th class="width30">
+													<label><b>Area</b></label>
+												</th>
+												<th class="width60">-</th>
+											</tr>
+											<tr>
+												<th class="width30">
+													<label><b>Zip Code</b></label>
+												</th>
+												<th class="width60">35005</th>
+											</tr>
+											<tr>
+												<th class="width30">
+													<label><b>Contact No</b></label>
+												</th>
+												<th class="width60">(0842) 7534721</th>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset>
+							</div>
+						</div>
+						<fieldset class="margin-top4">
+							<legend class="heading-div">Kin Details</legend>
+						<div class="row">
+							<div class="col-lg-12 col-md-12 margin-top4 padding-left-right-set0">
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<th class="width15">
+												<span class="">Name</span>
+											</th>
+											<th class="width5">
+												Sex
+											</th>
+											<th class="width15">
+												Mobile Number
+											</th>
+											<th class="date-column">
+												Birth Date
+											</th>
+										</tr>
+										<tr>
+											<td>
+												Michael David Williams
+											</td>
+											<td>
+												Male
+											</td>
+											<td>
+												(0842) 7532912
+											</td>
+											<td>
+												18/08/1994
+											</td>
+										</tr>
+										<tr>
+											<td>
+												Andew David Williams
+											</td>
+											<td>
+												Male
+											</td>
+											<td>
+												(0842) 759346
+											</td>
+											<td>
+												04/10/1994
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						</fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+	<script type="text/javascript">
+
+$( document ).ready(function() {
+	
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+	$('.clockpicker').clockpicker();
+
+	$(".selectedPageName").text("Blood Request");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="bloodRequest"]').parents("li").addClass("active");
+	
+	$(".text-box-for-required-surgery").hide();
+	$( ".checkRequiredForSurgery" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(".text-box-for-required-surgery").show();
+		}
+		else
+			{
+			$(".text-box-for-required-surgery").hide();
+			}
+	});
+	
+});
+</script>

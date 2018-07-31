@@ -1,0 +1,204 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+/*********   Clinivantage logo body start *************/
+body
+{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-image: url("resources/assets/images/logo/small size login.jpg");     
+ 	 background-repeat: no-repeat;" 
+    background-size: 1380px 679px;
+} 
+/*********   Clinivantage logo body end *************/
+
+.main-heading
+{
+       text-align: center;
+    /* padding: 34px; */
+    font-size: 32px;
+    color: #5ab7c8;
+    font-family: Eras Demi ITC;
+    margin-top: 91px;
+    margin-bottom: 13px;
+}
+.sub-heading {
+	text-align: center;
+    color: gray;
+    padding: 54px;
+    text-align:center;color:gray;
+}
+.sub-heading span
+{
+
+}
+.margin-top
+{
+  /* margin-top: 10px */
+}
+
+.width-100
+{
+width:100%
+}
+.padding-top
+{
+padding-top: 35px;
+position: fixed;
+}
+
+.margin
+{
+       margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.box-contain
+{
+    background-color: #e6e7e9;
+    /* color: white; */
+    box-shadow: 0px 1px 10px;
+    padding: 3px;
+}
+
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .fa {
+      position: absolute;
+    padding: 6px;
+    pointer-events: none;
+    /* padding-right: 10px; */
+    margin: 3px;
+    color: grey;
+}
+
+/* align icon */
+.left-addon .fa  { left:  0px;}
+.right-addon .fa 
+{ 
+ 	right: 0px;
+    border-left: 1px solid #a9a6a6;
+}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.error {
+    font-size: 13px !important;
+    color: red;
+}
+.ddp-unit-set{
+	height: 30px;
+    border-radius: 4px;
+}
+
+.logintopmargin{margin-top: 103px;}
+</style>
+
+</head>
+<body>
+
+	
+		<div class="container-fluid">
+			
+	<!-- 	    <webcam channel="channel" 
+        on-streaming="onSuccess()" 
+        on-error="onError(err)" 
+        on-stream="onStream(stream)"></webcam>
+ <button ng-click="makeSnapshot()">take picture</button>
+    <canvas id="snapshot" width="300" height="300"></canvas> -->
+			<!-- Error msg if login failed -->
+				
+				<!-- End Error msg if login failed -->
+			<div id="logintopmargin" class="row">
+				<div class="col-md-7 col-sm-8 col-xs-8">
+				</div>				
+				<form id="loginform" ng-submit="loginform.$valid && login()" role="form" name="loginform" >
+				<div class="col-md-4 col-sm-10 col-xs-10 ">
+					<div>
+				<div>
+				</div>
+					</div>
+					
+					<div class="main-heading" style="color: #3d5c92;">Hospital Information System</div>
+					<div class="box-contain">
+					<div id="one">
+						<div class="margin">
+							<label for="inputdefault">User Name</label>
+							<div class="inner-addon right-addon" >
+							 	<i class="fa fa-user" aria-hidden="true"></i>
+	      						<input class="form-control" id="userName" name="userName"  type="text" ng-maxlength="50"  placeholder="User Name" ng-model="userName" required >
+	      						<span ng-show="submitted && loginform.userName.$error.required" class="alert-danger">User name is required.</span><span ng-show="submitted && loginform.userName.$error.maxlength" class="alert-danger">User name is too long.</span> 
+							</div>
+						</div>
+				    </div>
+				    
+					<div id="pass_div">
+						<div class="margin">
+							<label for="inputdefault">Password</label>
+							<div class="inner-addon right-addon">
+								<i class="fa fa-lock" aria-hidden="true"></i>
+	      						<input type="password" name="password" placeholder="Password" id="password" ng-minlength="3" ng-maxlength="20" class="form-control" ng-model="password" required />                 
+               <span ng-show="submitted && loginform.password.$error.required" class="alert-danger">Password is Required.</span><span ng-show="submitted && loginform.password.$error.minlength" class="alert-danger">Password is too short.</span><span ng-show="submitted && loginform.password.$error.maxlength" class="alert-danger">Password is too long.</span>
+	      					</div>
+	      					
+						</div>
+						
+						<div class="margin">
+								<label for="inputdefault">Organization</label>
+								<div class="inner-addon right-addon" >
+		      						 <select name = "organizationId" id="organizationId" class="select-box" ng-model="organizationId" required >
+                                   			<option value="">Select Organization</option>
+                                   			<option value="1">Ruby</option>
+                                   			<!-- <option ng-repeat="info in organizationList" value="{{info.organizationId}}">{{info.organizationName}}</option>  ng-change="getUnit(organizationId);" -->
+	                                 </select>
+	                                 <span ng-show="submitted && loginform.organizationId.$error.required" class="alert-danger">Organization is Required.</span>
+								</div>
+							</div>
+						
+						<div class="margin">
+								<label for="inputdefault">Unit</label>
+								<div class="inner-addon right-addon" >
+		      						 <select name = "unitId" id="unitId" ng-model="unitId" class="select-box"  required >
+                            					<option value="">Choose</option>
+                            					<option value="1">Pune</option>
+                            					<!-- <option ng-repeat="info in unitList" value="{{info.unitId}}">{{info.unitName}}</option> -->
+	                                 </select>
+	                                 <span ng-show="submitted && loginform.unitId.$error.required" class="alert-danger">Unit is Required.</span>
+								</div>
+							</div>
+						<div class="uk-input-group checkbox_align margin">
+							 <span class="form-animate-checkbox "><input type="checkbox" id="Remember_me" class="checkbox"> 
+			    			 <label for="Remember_me">Remember me</label></span>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-4 col-xs-4 col-sm-4">
+								</div>
+								<div class="col-md-8 col-xs- col-sm-8" style="text-align: center;">
+								
+									 <input type="button" class="btn btn-primary btn-md" id="back_button"  value="Back"/>
+									<input type="submit"  ng-click="submitted=true" class="btn btn-primary btn-md" value="Login"/>
+									
+									<div style="margin-top: 8px;font-size: 12px;"> 
+									<div style="padding-right: 50px;"><a href ="#">Forgot password</a><span> | </span><a href ="#">Sign up</a></div>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				</form>
+			</div>
+			<div class="col-md-1 col-sm-1 col-xs-1">
+				</div>
+		</div>
+		</body>
+</html>

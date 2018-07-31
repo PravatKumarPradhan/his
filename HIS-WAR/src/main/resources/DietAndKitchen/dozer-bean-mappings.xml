@@ -1,0 +1,45 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+	<configuration> <date-format>dd-MM-yyyy HH:mm:ss</date-format> </configuration>
+
+	LIS TRANSACTION
+	
+	<mapping map-id="NutritionalMasterDto_to_NutritionalMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.global.master.dto.NutritionalMasterDto</class-a>
+		<class-b>com.param.global.master.model.NutritionalMaster</class-b>
+	</mapping>
+	
+	<mapping map-id="KeyIngredientsMasterDto_to_KeyIngredientsMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.global.master.dto.KeyIngredientsMasterDto</class-a>
+		<class-b>com.param.global.master.model.KeyIngredientsMaster</class-b>
+	</mapping>
+	
+	<mapping map-id="KeyIngredientsNutritionMapperDto_to_KeyIngredientsNutritionMapper" date-format="dd-MM-yyyy">
+		<class-a>com.param.global.master.dto.KeyIngredientsNutritionMapperDto</class-a>
+		<class-b>com.param.global.master.model.KeyIngredientsNutritionMapper</class-b>
+	</mapping>
+	
+	<mapping map-id="UnitOfMeasurmentMasterDto_to_UnitOfMeasurmentMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.global.master.dto.UnitOfMeasurmentMasterDto</class-a>
+		<class-b>com.param.global.master.model.UnitOfMeasurmentMaster</class-b>
+	</mapping>
+	
+	<mapping map-id="DietTypeMasterDto_to_DietTypeMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.global.master.dto.DietTypeMasterDto</class-a>
+		<class-b>com.param.global.master.model.DietTypeMaster</class-b>
+	</mapping>
+	
+	<mapping map-id="DishMasterDto_to_DishMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.global.master.dto.DishMasterDto</class-a>
+		<class-b>com.param.global.master.model.DishMaster</class-b>
+	</mapping>
+	
+	<mapping map-id="DishMasterMapperDto_to_DishMasterMapper" date-format="dd-MM-yyyy">
+		<class-a>com.param.global.master.dto.DishMasterMapperDto</class-a>
+		<class-b>com.param.global.master.model.DishMasterMapper</class-b>
+	</mapping>
+	
+	
+</mappings>
+ -->

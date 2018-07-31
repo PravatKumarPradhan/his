@@ -1,0 +1,265 @@
+
+		<fieldset class="margin-top4">
+			<legend class="heading-div">Personal Details</legend>
+			
+			<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="form-group"   show-errors>
+									<select class="text-input floating-label dirty" name="prefixId" ng-model="patientObj.prefixId" required>
+										<option>Select Prefix</option>
+										<option ng-repeat="info in prefixList" value="{{info.prefixId}}">{{info.prefixDesc}}</option>
+									</select> <label for="code">Prefix</label>
+									<p class="help-block" ng-if="patientRegistrationform.prefixId.$error.required">Prefix is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div  class="form-group"   show-errors> 
+									<input type="text" 	name="firstName" ng-model="patientObj.firstName" class="text-input floating-label dirty" required> 
+									<label for="description" class="">First Name</label>
+									<p class="help-block" ng-if="patientRegistrationform.firstName.$error.required">First Name is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" class="text-input floating-label dirty"  ng-model="patientObj.middleName" value="David"> <label for="description" class="">Middle Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group"   show-errors>
+									<input type="text" name="lastName" class="text-input floating-label dirty"  ng-model="patientObj.lastName" value="Smith" required> <label for="description" class="">Last Name</label>
+									<p class="help-block" ng-if="patientRegistrationform.lastName.$error.required">Last Name is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group"   show-errors>
+									<input type="text"  name="dob" class="text-input floating-label dirty" ng-model="patientObj.dob" value="29/12/1993" required> <label for="description" class="">Birth Date</label>
+									<p class="help-block" ng-if="patientRegistrationform.dob.$error.required">Date Of Birth is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="age" class="text-input floating-label dirty" value="24"> <label for="description" class="">Age</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="form-group"   show-errors>
+									<select class="text-input floating-label dirty" name="genderId" ng-model="patientObj.genderId" required>
+										<option></option>
+										<option ng-repeat="sex in genderList" value="{{sex.id}}">{{sex.desc}}</option>
+									</select> <label for="code">Sex</label>
+									<p class="help-block" ng-if="patientRegistrationform.genderId.$error.required">Sex is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-3 col-sm-3 col-md-3 ">
+								<div class="form-group"   show-errors>
+									<input type="text"  name="countryCallingCode" id=""  ng-model="patientObj.countryCallingCode" class="text-input floating-label dirty" required> <label for="description" class="">Code</label>
+									<p class="help-block" ng-if="patientRegistrationform.countryCallingCode.$error.required">Calling Code is required</p>
+								</div>
+							</div>
+							<div class="col-lg-8 col-sm-8 col-md-8 padding-left-right-set4">
+								<div class="form-group"   show-errors> 
+									<input type="text" name="mobileNo" id="" class="text-input floating-label dirty" ng-model="patientObj.mobileNo"   required> <label for="description" class="">Mobile No</label>
+								<p class="help-block" ng-if="patientRegistrationform.mobileNo.$error.required">Number is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10 otpSendButton">
+						<a href="" data-toggle="modal" data-target="#oneTimePassword" title="Send"><img src="resources/assets/images/icon/smartphone.png" style="width:37px"></a>
+					</div> -->
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 remainingPersonalDetials">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" class="text-input floating-label dirty" ng-model="patientObj.email"  value="andew1993@gmail.com"> <label for="description" class="">Email Id</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 remainingPersonalDetials">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group"   show-errors>
+									<select class="text-input floating-label dirty" name="nationalityId" ng-model="patientObj.nationalityId" required >
+										<option ></option>
+										<option ng-repeat="nationality in nationalityList" value="{{nationality.nationalityId}}">{{nationality.nationalityName}}</option>
+									</select> <label for="code">Nationality</label>
+									<p class="help-block" ng-if="patientRegistrationform.nationalityId.$error.required">Nationality is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2 col-lg-2 margin-top10 padding-left-right-set4">
+						<span class="margin-left5"><input type="checkbox" ng-model="patientObj.isVip" ng-true-value="'Y'" ng-false-value="'N'" >VIP</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 remainingPersonalDetials">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div  class="form-group"   show-errors>
+									<select class="text-input floating-label dirty" name="identificationId"   ng-model="patientObj.identificationId" required >
+										<option>Select Identification</option>
+										<option ng-repeat="info in identificationList" value="{{info.identificationId}}">{{info.identificationName}}</option>
+									</select>
+									</select> <label for="code">Identification doc</label>
+									<p class="help-block" ng-if="patientRegistrationform.identificationId.$error.required">Identification Document Type is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 remainingPersonalDetials">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group"   show-errors>
+									<input type="text" name="identificationNo" id=""  ng-model="patientObj.identificationNo"  class="text-input floating-label dirty" value="A20-3C-4B" required> <label for="description" class="">Identification number</label>
+								<p class="help-block" ng-if="patientRegistrationform.identificationNo.$error.required">Identification Number is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 remainingPersonalDetials">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group"   show-errors>
+									<select class="text-input floating-label dirty" name="raceId" ng-model="patientObj.raceId" required >
+										<option > </option>
+										<option ng-repeat="info in raceList" value="{{info.raceId}}">{{info.raceName}}</option>
+									</select> <label for="code">Race</label>
+									<p class="help-block" ng-if="patientRegistrationform.raceId.$error.required">Race is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 remainingPersonalDetials">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="form-group"   show-errors>
+									<select class="text-input floating-label dirty"  name="maritalStatusId" ng-model="patientObj.maritalStatusId" required >
+										<option ></option>
+										<option ng-repeat="info in maritalStatusList" value="{{info.id}}">{{info.desc}}</option>
+									</select> <label for="code">Marital Status</label>
+									<p class="help-block" ng-if="patientRegistrationform.maritalStatusId.$error.required">Marital Status is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row remainingPersonalDetials">
+					<div class="col-md-5 col-lg-5">
+						<div class="col-lg-3 col-md-3 col-sm-3 margin-top10 margin-left5 padding-left-right-set4">
+							<label for="code">Upload Photo</label>
+							<div class="image-display-block">
+								<img src="https://media-exp2.licdn.com/media-proxy/ext?w=800&h=800&hash=Cmfe7vyVpDWLrcij8cq%2FonJHmkI%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6nlh8Tw1It6a2FowGz60oISIfYC2G8G2f1spyfNT-tdoDSe7ensgUbeikHhlI_IfnwEXO5H9LHVvW4OqcY_PawbZmNUz0sYxYjiWgZ7oEiGFx3kdKpF-qtMWsc8e1-TwyJC73iVV8vLQll8fq4GKH6GWxUi3WUbO71GJlCE-dQppRRy39_rO_BDZ442aV40Dp42VWO0IrqMAEuw7nmKXiZV0YcLkDGa9BTuIWF0TenkVqGjU7mi6yHJLGFEPUY3yWnwcTgeiHXkSxElzMH3CgRnM1mA3v9pvEL0xK0MuQsSwvZhLnkGlGb3Zcb_XQJgtbVLzuuX01ksiBtaJL7ihUSWayfmA" style="width: 100%;height: 100%;">
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 margin-left5 padding-left-right-set4" style=" margin-top: 29px;">
+							<input type="file">
+						</div>
+					</div>
+					<div class="col-md-5 col-lg-5 padding-left-right-set4">
+						<div class="col-md-12 col-lg-12  margin-top10 ">
+							<label for="code">Capture Thumb Impression</label>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 margin-left5 padding-left-right-set4">
+							<div class="image-display-block">
+								
+							</div>
+						</div>
+					</div>
+					
+					<!-- <div class="col-md-1 col-lg-1">
+						<input  type="button" value="Submit" class="btn btn-primary btn-save-box-shadow " style="margin-top: 87px;">
+					</div> -->
+				</div>
+		</fieldset>
+		
+<script type="text/javascript">
+$(document).ready(function() {
+	//$(".remainingPersonalDetials").hide();
+});	
+/* $(document).on('click','#otpOk', function(){
+	$(".otpSendButton").hide();
+	$(".remainingPersonalDetials").show();
+}); */
+
+
+</script>
+		

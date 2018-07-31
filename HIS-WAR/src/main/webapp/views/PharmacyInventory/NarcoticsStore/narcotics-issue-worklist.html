@@ -1,0 +1,326 @@
+<!-- *****************************************************************************************************************************
+													Narcotics Issue Worklist 
+****************************************************************************************************************************** -->
+<!-- Page Content -->
+<div id="page-content-wrapper" class="clockPopupOver">
+	<div class="container-fluid his-style">
+	<fieldset>
+		<legend class="main-heading-div commonPatientSearch cursor-pointer">
+		<div class="row">
+			<div class="col-lg-10 col-md-9 col-sm-6"></div>	
+			<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set1 pull-right">
+				<span class="heading-name-font">IP Pharmacy </span>
+				<span class="heading-name-font pull-right" title="Change Store" data-toggle="modal" data-target="#pharmacyPopupBeforLeftexpand">
+					<i class="fa fa-stack-exchange" aria-hidden="true"></i>
+				</span>
+			</div>	
+		</div>
+		</legend>
+		<div class="row padding-left-right-10 padding-left0 margin-top10">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-top10">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set0">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<input type="text" class="text-input floating-label dirty" name="fromDate" id="fromDate" uib-datepicker-popup="dd/MM/yyyy"
+									placeholder="DD/MM/YYYY" ng-model="vm.model.fromDate" model-view-value="true" is-open="vm.model.fromDateOpened" datepicker-options="vm.model.fromDateOptions"
+									show-button-bar="false" ng-click="vm.model.OpenFromDate()">
+									<label for="fromDate" class="">Form Date</label>
+								</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set0">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" class="text-input floating-label dirty" name="toDate" id="toDate" uib-datepicker-popup="dd/MM/yyyy" placeholder="DD/MM/YYYY"
+								ng-model="vm.model.toDate" model-view-value="true" is-open="vm.model.toDateOpened" datepicker-options="vm.model.toDateOptions"
+								show-button-bar="false" ng-click="vm.model.OpenToDate()">
+								<label for="toDate" class="">To Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<select class="dirty text-input floating-label" ng-model="vm.model.visitType" name="visitType" ng-class="{dirty: vm.model.visitType}"
+								data-ng-options="visitTypeData.type for visitTypeData in vm.model.visitTypeList">
+							</select>
+							<label for="visitType">Visit Type</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="patientName" id="patientName" class="text-input floating-label" ng-model="vm.model.patientName" ng-change="vm.model.isPatientNameValid = false"
+								uib-typeahead="patientNames.patientName as patientNames.details for patientNames in vm.model.SearchpatientNames($viewValue)"
+								typeahead-on-select="vm.model.AddPatientDetails($item); vm.model.search = '';">
+								
+							<label for="patientName">Patient Name</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-bullseye" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<input type="text" name="uhid" ng-model="vm.model.uhid" ng-class="{dirty:vm.model.uhid}" id="" class="text-input floating-label"
+							uib-typeahead="patientNames.uhid as patientNames.details for patientNames in vm.model.SearchUhid($viewValue)"
+							typeahead-on-select="vm.model.AddPatientDetails($item); vm.model.search = '';"> 
+							<label for="code">UHID</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-user-md fa-color" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="doctorName" id="doctorName" class="text-input floating-label" ng-model="vm.model.doctorName" uib-typeahead="doctorNames.doctorName as doctorNames.details for doctorNames in vm.model.SearchdoctorNames($viewValue)">
+
+							<label for="doctorName">Doctor Name</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-8 col-sm-8 col-md-8">
+						<div class="">
+							<select class="dirty text-input floating-label" ng-model="vm.model.ward" name="ward" ng-class="{dirty: vm.model.ward}" ng-options="ward.wardName for ward in vm.model.wardList">
+							</select>
+							<label for="status">Ward</label>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-10">
+						<div class="common-save-button">
+							<a href="" ng-click="vm.model.GetNarcoticsIssueWorklist()" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> <i
+								class="fa fa-search" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-10 padding-left0 margin-top10 ">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4" style="margin-left:-7px !important ;">
+				<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set0">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<select class="dirty text-input floating-label" ng-model="vm.model.status" name="status"
+									ng-class="{dirty: vm.model.status}" 
+									ng-options="statusData.status for statusData in vm.model.statusList">
+								</select> 
+								<label for="status">Status</label>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" ng-model="search" style="margin-top: 0px">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div> 
+		<div class="row margin-top10">
+			<div class="col-md-12 col-lg-12 table-responsive padding-left-right-set4">
+				<div class="table-container padding-left-right-set4 padding-top5">
+					<div class="table-container-header">
+						<table class="table table-striped table-hover table-condensed table-bordered">
+							<thead>
+								<tr class="">
+									<th class="width6" title="Visit Type">
+										Visit Type
+										<div class="float_right" ng-click="sortType = 'visitType'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width8 vertical-middle" title="Visit DateTime">
+										Visit DateTime	
+										<div class="float_right" ng-click="sortType = 'visitDate'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width9" title="Prescription Time">
+										Prescription Time	
+										<div class="float_right" ng-click="sortType = 'prescriptionDate'; sortReverse = !sortReverse">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th class="width8 vertical-middle" title="UHID">UHID
+										<div class="float_right" ng-click="sortType = 'uhid'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width10 vertical-middle" title="Patient Details">Patient Details
+										<div class="float_right" ng-click="sortType = 'patientDetail'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width10 vertical-middle" title="Doctor Details">Doctor Details
+										<div class="float_right" ng-click="sortType = 'doctorDetail'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8 vertical-middle" title="Ward Name">Ward Name
+										<div class="float_right" ng-click="sortType = 'wardName'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width5 vertical-middle" title="Bed No.">Bed No.
+										<div class="float_right" ng-click="sortType = 'bedNo'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width7 vertical-middle" title="Priority">Priority
+										<div class="float_right" ng-click="sortType = 'priority'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<!-- <th class="width7 vertical-middle" title="Picker">Picker
+										<div class="float_right" ng-click="sortType = ''; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th> -->
+									<th class="width7 vertical-middle" title="Status">Status
+										<div class="float_right" ng-click="sortType = ''; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8 text-center vertical-middle" title="Action">Action
+										<div class="float_right" ng-click="sortType = ''; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table-container-body" style="height:400px; overflow-y: overlay; background: #ffffce;">
+						<table class="table table-striped table-hover table-condensed table-bordered">
+							<tbody>
+								<tr ng-if="vm.model.narcoticsIssueWorklist == null || !vm.model.narcoticsIssueWorklist.length">
+									<td col-span="14">
+										<p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p>
+									</td>
+								</tr>
+								<tr ng-repeat="narcoticsItem in vm.model.narcoticsIssueWorklist | filter : search |   orderBy:sortType:sortReverse">	
+									<td title="{{narcoticsItem.visitType}}"  class="width6">{{narcoticsItem.visitType}}</td>
+									<td title="{{narcoticsItem.visitDate | date:'dd/MM/yyyy h:mm':'UTC'}}"  class="width8">{{narcoticsItem.visitDate | date:'dd/MM/yyyy h:mm':'UTC'}}</td>
+									<td title="{{narcoticsItem.prescriptionDate | date:'dd/MM/yyyy h:mm':'UTC'}}"  class="width9">{{narcoticsItem.prescriptionDate | date:'dd/MM/yyyy h:mm':'UTC'}}</td>
+									<td title="{{narcoticsItem.uhid}}"  class="width8">{{narcoticsItem.uhid}}</td>
+									<td title="{{narcoticsItem.patientDetail}}"  class="width10">{{narcoticsItem.patientDetail}}</td>
+									<td title="{{narcoticsItem.doctorDetail}}"  class="width10">{{narcoticsItem.doctorDetail}}</td>
+									<td title="{{narcoticsItem.wardName}}"  class="width8">{{narcoticsItem.wardName}}</td>
+									<td title="{{narcoticsItem.bedNo}}"  class="width5">{{narcoticsItem.bedNo}}</td>
+									<td title="{{narcoticsItem.priority}}"  class="width7">{{narcoticsItem.priority}}</td>
+									<td title="{{narcoticsItem.status}}"  class="width7">{{narcoticsItem.status}}</td>
+									<td title="Details"  class="width8 text-center vertical-middle">
+										<span><a title="Print">
+											<i class="fa fa-print" aria-hidden="true"></i>
+										</a></span>
+										<span class="padding-left10 cursor-pointer"><a href ng-click="vm.model.NavigateToDetail(narcoticsItem)">Details</a></span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>		
+			</div>
+		</div>
+		</fieldset>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedPageName").text("Issue Worklist");/* Dispenser */
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="narcoticsIssueWorklist"]').parents("li").addClass("active");
+});
+</script>
+ 

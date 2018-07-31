@@ -1,0 +1,491 @@
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid his-style">
+            	<div class="row margin-top10">
+            		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-building" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label dirty" name="code" ng-model="search.floorId" ng-change="getWardByFloorId()">
+										<option>Select Floor</option>
+										<option ng-repeat="info in activeFloorList" value="{{info.floorId}}">{{info.floorName}}</option>
+										</select>		
+										<label for="code">Select Floor</label>
+									</div>
+								</div>
+							</div>
+						</div>
+            		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-hospital-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="search.wardId">
+											<option>Select Ward</option>
+											<option ng-repeat="info in wardList" value="{{info.wardId}}">{{info.wardName}}</option>
+										</select>		
+										<label for="code">Select Ward</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+								<div class="width-div-for-patient-reg ">
+									<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="getAdmittedPatientByFloorWardId()" >
+									<i class="fa fa-search" style="font-size: 21px" aria-hidden="true"></i></a>
+								</div>
+						</div>
+					<!-- <div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px text-width-auto">
+						 <div class="row input-container padding-left-right-set4 text-width-auto">
+							<div class="col-lg-2 col-sm-2 col-md-1"> 
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-11">
+								<div class="">
+									<input type="button" value="Search" ng-click="getAdmittedPatientByFloorWardId()" class="btn btn-primary btn-save-box-shadow" >
+									
+								</div>
+							</div>
+						</div>
+            		</div> -->
+            	</div>
+           
+            	<div class="row margin-top8 padding-left-right-set4  multipal-button-div padding-top-bottom-set5">
+            		<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4 ">
+						<div class="">
+							<i class="fa fa-file-image-o" aria-hidden="true"></i>
+							<a href="" data-toggle="modal" data-target="{{consentFormPopUpFlag == true ? '#consentPdfView':''}}" ng-click="commonFuntion('9')">Consent Form</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4 ">
+						<div class="">
+							<i class="fa fa-ravelry" aria-hidden="true"></i>
+							<a href="" data-toggle="modal" data-target="#wristBand">Wrist Band</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4 ">
+						<div class="">
+							<i class="fa fa-barcode" aria-hidden="true"></i>
+							<a href="" data-toggle="modal" data-target="{{barCodePopUpFlag == true ? '#barCodeAdmitted':''}}" ng-click="generateBarCode()">Bar Code</a>
+							
+						</div>
+					</div>
+					
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="">
+							<i class="fa fa-envelope-square" aria-hidden="true"></i>
+							<a href="" data-toggle="modal"  data-target="{{commonPackagePopUpFlag == true ? '#commonPackage':''}}" ng-click="PopUpOpen()">Pacakge</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="">
+							<i class="fa fa-money" aria-hidden="true"></i>
+							<a href="" data-toggle="modal" data-target="{{insurancePopUpFlag == true ? '#insurance':''}}" ng-click="PopUpOpen()">Insurance</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="">
+							<i class="fa fa-folder" aria-hidden="true"></i>
+							<a href="" data-toggle="modal" data-toggle="modal"  data-target="{{assignContractPopUpFlag == true ? '#assignContract':''}}" ng-click="PopUpOpen()">Corporate</a>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top4 padding-left-right-set4  multipal-button-div padding-top-bottom-set5">
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="">
+							<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+							<!-- <a href="" data-toggle="modal"  data-target="{{viewBillPopUpFlag == true ? '#commonPdfView':''}}" ng-click="PopUpOpen()">View Bill</a> -->
+							 <a href="" data-toggle="modal"  data-target="#/IPDCharges/serviceDetailsForIPDCharge">View Bill</a> 
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="">
+							<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+							<a href="" data-toggle="modal" data-target="{{depositeMatrixPopUpFlag == true ? '#depositeMatrix':''}}" ng-click="PopUpOpen()">Deposit Matrix</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="">
+							<i class="fa fa-object-group" aria-hidden="true"></i>
+							<a href="" data-toggle="modal" data-target="">Collect Deposit</a>
+						</div>
+					</div>
+					
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="">
+							<i class="fa fa-address-card" aria-hidden="true"></i>
+							<a href="" data-toggle="modal"  data-target="{{visitorPassPopUpFlag == true ? '#issueVisitorPass':''}}" ng-click="PopUpOpen()">Visitor Pass</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="">
+							<i class="fa fa-address-book-o" aria-hidden="true"></i>
+							<a href="" data-toggle="modal" data-target="{{commonUploadDocPopUpFlag == true ? '#commonUploadDocuments':''}}" ng-click="PopUpOpen()" >Document</a>
+						</div>
+					</div>
+            	</div>
+				<div class="row padding-left-right-set4 margin-top8">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<tr class="">
+								<th class="width1"></th>
+								<th class="width12">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Doctor Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Location
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									DOA
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									PDD
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Payment Entitlement
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="status">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr ng-repeat="info in listOfAdmittedPatientList">
+								<td><input type="radio" name="radioName" value="info.admissionId" ng-model="admittedPatient" ng-click="selectPatient(info)" />
+								<td>{{info.uhidnumber}}</td>
+								<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.patientFullName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.patientFullName+' '+info.dob+'/'+info.genderCode}}</div>
+								</td>
+								<td>
+									<div>Dr. {{info.doctorFullName+', '+info.specialityName}}</div>
+								</td>
+								<td><div>{{info.bedNumber}}</div></td>
+								<td><div>{{info.datepicker}}</div></td>
+								<td><div>{{info.datepickerPdd}}</div></td>
+								<td><div>{{info.paymentEntitlementDesc}}</div></td>
+								<td>
+									<div>
+										<a href="" ng-click="kinDetails(info)" data-toggle="modal" data-target="#kinDetails">Kin Details
+									<!-- <input type="button" value="kin Details"   class="btn btn-primary btn-save-box-shadow" > -->
+										</a>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+  			</div>
+		</div>
+	<div ng-include="'./views/common/all-common-popups.html'"></div>
+	<!-- ******************** START MODEL FOR KIN DETAILS **************************** -->
+	<div id="kinDetails" class="modal fade ng-scope in common-popup-header-content common-large-popup" role="dialog">
+		<div class="modal-dialog">
+			<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Kin Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+				<div class="row margin-top10 common-popup-height-350 padding-left-right-set4">
+					<table class="table table-striped table-bordered" id="documentUpload">
+							<thead>
+								<tr>
+									<th class="UHID-width">Kin Name</th>
+									<th class="status">Relation with patient</th>
+									<th class="status">Mobile No</th>
+									<th class="status">Phone No</th>
+									<th class="status">Identifaction</th>
+									<th class="status">Identifaction No.</th>
+									<th class="UHID-width">Address</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="info in kinList">
+									<td>
+										{{info.prefixCode+'. '+info.kinName}}
+									</td>
+									<td>
+										{{info.relationDesc}}
+									</td>
+									<td>
+										{{info.mobileNo}}
+									</td>
+									<td>
+										{{info.phoneNo}}
+									</td>
+									<td>
+										{{info.identificationName}}
+									</td>
+									<td>
+										{{info.identificationNo}}
+									</td>
+									<td>
+										{{info.address}}
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+				</div>
+				</div>
+				<!--  <div class="modal-footer his-style" style="border: none;">
+				 	<div class="row">
+				 		<div class="col-lg-10 col-sm-10 col-md-10"> 
+				 		</div>
+						<div class="col-lg-2 col-sm-2 col-md-2"> 
+		 					<input type="button" value="Close" data-dismiss="modal" class="btn btn-primary btn-save-box-shadow">
+		 				</div>
+				 	</div>
+				</div> -->
+			</div>
+		</div>
+</div>
+ 			<!-- ******************** END MODEL FOR KIN DETAILS **************************** -->	
+			<!-- ******************** START MODEL FOR ISSUE VISITOR PASS **************************** -->
+<div id="issueVisitorPass" class="modal fade ng-scope in common-popup-header-content common-large-popup" role="dialog">
+		<div class="modal-dialog">
+			<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Issue Visitor Pass
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row margin-top10">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label" ng-model="visitorPassTypeId">
+											<option>Select Visitor Pass Type</option>
+											<option ng-repeat="info in visitorPassTypeList" value="{{info.visitorPassTypeId}}">{{info.visitorPassTypeDesc}}</option>
+										</select>
+										<label for="code">Visitor Pass Type</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-certificate" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" id=""
+										class="text-input floating-label" ng-model="passNumber"> <label for="code">Pass No.</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-5 col-sm-5 col-md-5"></div>
+					<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="savePassIssue()"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+
+				</div>
+				</div>
+					<div class="row margin-top10 common-sub-table padding-left-right-10">
+					<table class="table table-bordered">
+						<thead>
+						<tr>
+							<th class="UHID-width">Visitor Pass Type</th>
+							<th class="UHID-width">Pass Number</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="info in passIssuedList">
+							<td>{{info.visitorPassTypeDesc}}</td>
+							<td>{{info.passNumber}}</td>
+						</tr>
+						
+						</tbody>
+					</table>
+				</div>
+				</div>
+				 <div class="modal-footer his-style" style="border: none;">
+				 	<div class="row">
+				 		<div class="col-lg-10 col-sm-10 col-md-10"> 
+				 		</div>
+						
+				 	</div>
+				</div>
+			</div>
+		</div>
+</div>
+ 			<!-- ******************** END MODEL FOR ISSUE VISITOR PASS **************************** -->		
+ <div id="consentPdfView" class="modal fade ng-scope in common-popup-header-content common-large-popup" role="dialog">
+		<div class="modal-dialog">
+			width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						View
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row margin-top10">
+						<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll450 margin-top10 margin-bottom10" >
+							<!-- <img src="resources/assets/images/tempImages/dama.jpg"> -->
+							 <textarea  name="editor" type="text" id="editor"  rows="10" cols="50" ng-model="templateObj.templetText" ck-editor>
+                             </textarea>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+						<div class=" ">
+							<a ng-click="saveTemplate()" class="btn btn-primary btn-save-box-shadow" title="Save">Save</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div> 
+	
+	<div id="barCodeAdmitted" class="modal fade ng-scope in " role="dialog">
+	<div class="modal-dialog" style="width: 250px !important; margin: 80px auto !important;"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Barcode	Preview
+					<i style="font-size:16px;align:right" class="fa" ng-click="printBarCode()">&#xf02f;</i>			
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+		<!-- 	<div class="modal-body" id="admittedBarCode">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-top8 text-center">
+					<span class="margin-left10"><b class="padding-right10 ">Hospital Name
+							 :</b>{{barcode.hospital}} </span>
+				</div>
+			</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12" style="text-align: center;padding-top: 10px;padding-bottom: 10px;overflow: auto;">
+						<barcode type="{{barcode.type}}" string="{{barcode.code}}" options="options" render="img"></barcode>
+					</div>
+				</div>
+				<div class="row ">
+					<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 text-center">
+						<div class="row font-weight600">
+							<span class="margin-left10"><span class="padding-right5 font-weight600"></span> {{barcode.patientFullName}}</span>
+
+						</div>
+						<div class="row">
+							<span class="margin-left10"><span class="padding-right5 font-weight600">Ward &nbsp;:</span> {{barcode.wardName}}</span>
+									<span class="margin-left10"><span class="padding-right5 font-weight600">Bed No.&nbsp;:</span>{{barcode.bedNumber}}</span>
+						</div>
+				</div>
+			</div>
+			</div> -->
+			<div class="modal-body" align="center">
+				<div id="admittedBarCode" style="background: #ffffff; padding: 10px;">
+						<table style="width: 170px !important; font: 14px monospace !important;">
+							<tbody>
+								<tr style="font: 17px monospace !important; font-weight: bold !important;">
+									<td colspan="2" style="text-align: center;">
+										<span>{{barcode.hospital}}</span>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" style="text-align: center;">
+										<barcode type="{{barcode.type}}" string="{{barcode.code}}" options="options" render="img"></barcode>
+									</td>
+								</tr>
+								<tr style="font: 15px monospace !important; font-weight: bold !important;">
+									<td colspan="2" style="text-align: center;">
+										<span class="ng-binding">{{barcode.patientFullName}}</span>
+									</td>
+								</tr>
+								<tr style="font: 15px monospace !important; font-weight: bold !important;">
+									<td style="text-align: left; padding-right: 10px;">
+										<span class="ng-binding">{{barcode.wardName}}</span>
+									</td>
+									<td style="text-align: right; padding-left: 10px;">
+										<span class="ng-binding">{{barcode.bedNumber}}</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			<!-- <div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="otpOk">Ok</button>
+			</div> -->
+		</div>
+	</div>
+</div>
+
+	<script type="text/javascript">
+
+$( document ).ready(function() {
+
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+	$(".selectedPageName").text("Admitted Patient List");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="admittedPatientList"]').parents("li").addClass("active");
+	
+	
+});
+
+</script>

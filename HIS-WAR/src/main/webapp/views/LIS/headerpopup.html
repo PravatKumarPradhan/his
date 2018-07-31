@@ -1,0 +1,39 @@
+
+<!-- HEADER VALUE POPUP -->
+<div id="headerParameter"
+	class="modal fade ng-scope in common-small-popup" role="dialog"
+	style="padding-left: 17px;">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Header-Parameter
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row serachedPatientList">
+					<div class="col-md-12 col-lg-12  fix-height-scroll230">
+						<table class="table table-bordered  margin-top8">
+							<tr>
+								<th><span class="">SR No.</span></th>
+								<th><span class="">Header</span></th>
+								<th><span class="">Parameter</span></th>
+								<th><span class="">Print Order</span></th>
+							</tr>
+							<tr
+								ng-repeat="testParamMppr in multiParamTestList[testIndex].listTestParamMppr track by $index">
+								<td>{{$index+1}}</td>
+								<td>{{testParamMppr.headerDesc}}</td>
+								<td>{{testParamMppr.parameterDesc}}</td>
+								<td>{{testParamMppr.paraSequence}}</td>
+							</tr>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

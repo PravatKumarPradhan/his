@@ -1,0 +1,332 @@
+<style>
+     .k-treeview .k-in {
+         padding: 5px;
+     }
+ </style>
+<!-- Page Content start -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<div class="col-md-12 mortuary-bed-management">
+		<fieldset class="main-fieldset">
+    		<!-- <legend class="heading-div">Floor</legend> -->
+    		
+    		
+    		<div class="row patient-row margin-top10 margin-bottom10 map-of-bed">
+	    		<div class="col-md-2 col-sm-4 col-xs-4"  ng-repeat="info in mortuaryBedList">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								   <div ng-if="info.mortuaryRequestId > '0'">
+								    <div><b></b>{{info.patientName+' '+info.age+'/ '+info.genderCode}}</div>
+								    <div><b class="padding-right5 color-blue">UHID: </b>{{info.uhidNumber}}</div>
+								    <div><b class="padding-right5 color-blue">Toe Band ID: </b>{{info.toeBandId}}</div>
+								    <div><b class="padding-right5 color-blue">Arrival Date: </b>{{info.updatedDate}}</div>
+								    <div><b class="padding-right5 color-blue">Expected Relese: </b><div ng-if="info.durationFormat == 1">{{info.durationValue+' Hours'}}</div><div ng-if="info.durationFormat == 2">{{info.durationValue+' Day'}}</div></div>
+								    </div>
+								    <div class="text-center margin-top8" ng-if="info.mortuaryRequestId > '0'">
+							  			<img src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar" >
+							  		</div>
+							  		<div class="text-center margin-top8" ng-if="info.mortuaryRequestId == null">
+							  			<img src="resources/assets/images/icon/bed/Empty bed.png" alt="Avatar" >
+							  		</div>
+								     <div ng-if="info.mortuaryRequestId > '0'">
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name:</b>{{info.kinName}}</div>
+								    <div><b class="padding-right10 color-blue">Contact:</b>{{info.mobileNo}}</div>
+								    </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+			    </div>
+    		<!-- ****** row one start ****** -->
+	    	<!-- <div class="row patient-row margin-top10 margin-bottom10 map-of-bed">
+	    		<div class="col-md-2 col-sm-4 col-xs-4" style="padding-left:0px !important;">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+	    		<div class="col-md-2 col-sm-4 col-xs-4">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+			    <div class="col-md-2 col-sm-4 col-xs-4">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+			    <div class="col-md-2 col-sm-4 col-xs-4">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+			    <div class="col-md-2 col-sm-4 col-xs-4">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+			    <div class="col-md-2 col-sm-4 col-xs-4">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+			    <div class="col-md-2 col-sm-4 col-xs-4">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Male bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+   			</div>
+   			***** row one end *****
+   			***** row two start *****
+   			<div class="row patient-row margin-top10 margin-bottom10 map-of-bed">
+	    		<div class="col-md-2 col-sm-4 col-xs-4" style="padding-left:0px !important;">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Empty bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+	    		<div class="col-md-2 col-sm-4 col-xs-4">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Empty bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+			    <div class="col-md-2 col-sm-4 col-xs-4">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Empty bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+			    <div class="col-md-2 col-sm-4 col-xs-4">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Empty bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+			    <div class="col-md-2 col-sm-4 col-xs-4">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Empty bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+			    <div class="col-md-2 col-sm-4 col-xs-4">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Empty bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+			    <div class="col-md-2 col-sm-4 col-xs-4">
+	    			<div class="card">
+	    				<div class="row">
+	    					<div class="col-md-12 col-sm-12 col-xs-12">
+	    						 <div class="patient-details">
+								    <div><b></b>John Doe 26/M</div>
+								    <div><b class="padding-right5 color-blue">UHID</b>Pune-101</div>
+								    
+								    <div class="text-center margin-top8">
+							  			<img src="resources/assets/images/icon/bed/Empty bed.png" alt="Avatar" >
+							  		</div>
+								    
+								    <div class="margin-top8"><b class="padding-right10 color-blue">Kin Name</b>Williams Doe</div>
+								    <div><b class="padding-right10 color-blue">Contact</b>9872345678 </div>
+						 		</div>
+	    					</div>
+	    				</div>
+					</div>
+			    </div>
+   			</div> -->
+   			<!-- ***** row two end ******  -->
+	    </fieldset>
+	    </div>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+});	
+	$(".selectedPageName").text("Mortuary Bed Management");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="mortuaryBedManagement"]').parents("li").addClass("active");
+</script>

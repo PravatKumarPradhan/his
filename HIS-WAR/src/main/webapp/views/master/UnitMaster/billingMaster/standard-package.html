@@ -1,0 +1,30 @@
+<style>
+#page-content-wrapper{
+	overflow-y :inherit !important;
+}
+</style>
+<!-- Page Content -->
+<div id="page-content-wrapper">
+    <div class="container-fluid his-style">
+    	<fieldset>
+			<legend class="heading-div">Standard Package</legend>
+			<div class="row margin-top10">
+				<div ng-include="'./views/common-billing-package.html'"></div>
+			</div>
+		</fieldset>
+   	</div>
+</div>
+<!-- Page Content -->       
+<script type="text/javascript">
+$(documnet).ready(funtion(){
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+ 	
+	$(".selectedPageName").text("Standard Package");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="standardPackage"]').parents("li").addClass("active");
+});
+</script>

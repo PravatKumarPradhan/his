@@ -1,0 +1,98 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<div class="row margin-top4">
+				<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+							<i class="fa fa-color" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-10">
+							<div class="">
+								<select class="text-input floating-label  ">
+									<option value=""></option>
+								</select>
+								<label for="code">AR Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+							<i class="fa fa-user-md fa-color" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-10">
+							<div class="">
+								<select class="text-input floating-label  ">
+									<option value=""></option>
+								</select>
+								<label for="code">AR Description</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-8 col-md-8 col-sm-8"></div>
+				<div class="col-lg-4 col-md-4 col-sm-4">
+					<div class="col-lg-10 col-md-9 col-sm-9">
+						<input type="text" class="text-search-box" placeholder="Search">
+						<i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-leftright15 float_right">
+						<div class="width-div-for-patient-reg padding-top4">
+							<a href="" class="btn btn-primary btn-save-box-shadow"
+								title="Save" data-toggle="modal" data-target="#confirmLogout"><i
+								class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row margin-top8 padding-left-right-set4 height-table-with-scroll">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<table class="table table-bordered first-checkBox-padding">
+					<!-- mainServiceTable -->
+					<thead class="mainServiceTableCommon">
+						<tr>
+							<th class="width8">AR Code</th>
+							<th class="width15">AR Description</th>
+							<th class="width6">Status</th>
+							<th class="width5">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>-</td>
+							<td>-</td>
+							<td>
+								<label class="switch">
+									<input type="checkbox">
+									<div class="slider round"></div>
+								</label>
+							</td>
+							<td class="padding-edit-button-table text-center">
+								<a>
+									<i class="fa fa-pencil" aria-hidden="true" title="Edit"></i>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="resources/assets/js/common/page-height.js"></script>
+<script>
+$(document).ready(function() {
+	 
+	 $(".selectedPageName").text("AR Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="ARmaster"]').parents("li").addClass("active");
+});
+</script>

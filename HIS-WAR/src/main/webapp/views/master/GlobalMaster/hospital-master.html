@@ -1,0 +1,449 @@
+
+<!-- Page Content -->
+<div id="page-content-wrapper" >
+	<div class="container-fluid his-style">
+		<!-- <div ng-include="'./views/common/common-patient-details.html'"></div> -->
+		<fieldset>
+			<!-- <legend class="heading-div">Hospital Master</legend> -->
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container padding-top10">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="">
+								<select class="text-input floating-label dirty" name="code" ng-model="unit.organizationId">
+									<option ng-repeat="organization in organizationMasterList" ng-value="{{organization.organizationId}}" value="{{organization.organizationId}}">{{organization.organizationName}}</option>
+								</select> <label for="code">Organization</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="code" id="" ng-model="unit.unitCode"
+									class="text-input floating-label"> <label for="code">Hospital
+									Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-hospital-o " aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="code" id="" ng-model="unit.unitName"
+									class="text-input floating-label"> <label for="code">Hospital
+									Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+								<textarea row="1" type="text" name="code" id="" ng-model="unit.unitAddress"
+									class="text-input floating-label" style="width: 94%;height: 31px;"></textarea> <label for="code">Address</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container padding-top10">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-flag" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="">
+								<select class="text-input floating-label" name="code" ng-model="unit.unitCountryId" ng-change="getStateMasterList(unit.unitCountryId)"> 
+									<option ng-repeat="country in countryList" ng-value="{{country.countryId}}" value="{{country.countryId}}">{{country.countryName}}</option>
+								</select> <label for="code">Choose Country</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container padding-top10">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-university" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="">
+								<select class="text-input floating-label" name="code" ng-model="unit.unitStateId" ng-change="getCityMasterList(unit.unitStateId)">
+									<option ng-repeat="state in stateList"  ng-value="{{state.stateId}}" value="{{state.stateId}}">{{state.stateName}}</option>
+								</select> <label for="code">Choose State</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-6 col-md-6 col-sm-6 padding-leftright15 padding-top10">
+					<div
+						class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-3 col-md-3 polymer-icon">
+								<i class="fa fa-building-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-9 col-md-9">
+								<div class="">
+									<select class="text-input floating-label" name="code" ng-model="unit.unitCityId">
+										<option ng-repeat="city in cityList" ng-value="{{city.cityId}}" value="{{city.cityId}}">{{city.cityName}}</option>
+									</select> <label for="code">Choose City</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-arrows" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-10 col-md-10 ">
+								<div class="">
+								<input type="text" name="code" id="" class="text-input floating-label dirty" ng-model="unit.postCode" >
+								<label for="code">PinCode</label>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container padding-top10">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-mobile " aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="code" id="" ng-model="unit.unitContact"
+									class="text-input floating-label"> <label for="code">Contact
+									No.</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container padding-top10">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-fax" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="code" id=""
+									class="text-input floating-label"> <label for="code">Fax
+									No.</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container padding-top10 padding-leftright15">
+						<div class="col-lg-1 col-sm-3 col-md-3 polymer-icon">
+							<i class="fa fa-envelope-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-9 col-md-9">
+							<div class="">
+								<input type="text" name="code" id="" ng-model="unit.unitEmailId"
+									class="text-input floating-label"> <label for="code">Email Id</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="col-lg-8 col-md-8 col-sm-8 padding-top10">
+						<input type="file" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<img ng-src="{{imageSrc}}" style="width: 78px;height: 52px;"/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-6 padding-left-right-set4">
+						<label>License Details</label>
+						<div class="radio-btn-div-style table-responsive refarnce-range">
+							<table class="table table-bordered" id="delta">
+								<tbody><tr class="">
+									<th class="width25">License Type</th>
+									<th class="width25">License No.</th>
+									<th class="width25">Expiry Date</th>
+									<th class="width12"></th>
+								</tr>
+								<!--  -->
+								<tr class="ng-scope" ng-repeat="licenceDetailsMaster in listLicenceDetailsMaster ">
+									<td>
+										<select class="border-dropdown"  ng-model = "licenceDetailsMaster.licenceTypeId">
+											<option  ng-value="{{licenceType.licenceTypeId}}" value="{{licenceType.licenceTypeId}}" ng-repeat="licenceType in licenceTypeList">{{licenceType.licenceType}}</option>
+									</select>
+									</td>
+									<td><textarea rows="auto" cols="auto" style="height: 26px" ng-model = "licenceDetailsMaster.licenceNumber"></textarea></td>
+									<td>
+									<input type="text" class="text-input floating-label dirty" name="" id="" uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+													placeholder="DD/MM/YYYY" ng-model="licenceDetailsMaster.expiryDate" model-view-value="true" is-open="datepicker.opened" datepicker-options="dateOptions" 
+													show-button-bar="false"	ng-click="openDatePicker()" required>
+										<!-- <textarea rows="auto" cols="auto" style="height: 26px" ng-model = "licenceDetailsMaster.expiryDate"></textarea> -->
+										</td>			
+									<td>
+										<input type="button" name="" id="refranceRangeAgeGroup" value="+" class="btn btn-info add-dynamic-row" style="padding:2px 6px !important;" ng-click="addLicenceDetails()"> 
+										<input ng-if="$index!=0" type="button" name="" id="delrow" value="-" ng-click="removeLicenceDetails($index)" class="btn btn-info" style="padding:2px 7px !important;">
+									</td>
+								</tr><!-- end ngRepeat: helpValueMst in listHelpValueMaster track by $index -->
+							</tbody></table>
+						</div>
+					</div>
+			</div>
+			<!-- <div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left10 padding-top10">
+					<label class="checkbox-inline"> <input type="checkbox"
+						value="">Status
+					</label>
+				</div>
+			</div> -->
+
+		</fieldset>
+		<div class="row margin-top10">
+			<!-- <div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" data-toggle="modal" data-target="#confirmLogout"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div>
+			</div> -->
+			<div class="col-md-8 col-sm-8">
+			<div>
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-sm-6" style="padding-left: 10px;">
+							<div class="search">
+								<label class="show-entries">Show 
+								<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+									ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+									ng-change="setNoOfRecords();" class="search-popUp-ddl">
+										<option value="10">10</option>   	
+										<option value="25">25</option>
+										<option value="50">50</option>
+										<option value="100">100</option>
+								</select> entries
+								</label>
+							</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		
+		      <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+		        <div class=" ">
+		        <a href="" class="btn btn-primary btn-save-box-shadow"
+		         title="Save" data-toggle="modal"  ng-click="saveUnit()" ng-show="saveBtnFlag"><i
+		         class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+		         
+		         <a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="updateUnit()" ng-show="updateBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+		       </div>
+		      </div>
+		      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+		        <input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+		        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+		      </div>
+		      
+	    </div>
+		<div class="row padding-left-right-set4 margin-top4">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<tr class="">
+							<th>
+									Organization
+								</th>
+							<th>
+									Hospital Code
+								</th>
+								<th>
+									Hospital Name
+								</th>
+								<th>
+									Address
+								</th>
+								<th>
+									Country
+								</th>
+								<th>
+									State
+								</th>
+								<th>
+									City
+								</th>
+								<th>
+									Pincode
+								</th>
+								<th>
+									Contact No.
+								</th>
+								<th>
+									Fax No.
+								</th>
+								<th>
+									Email Id
+								</th>
+								<th>
+									License Details
+								</th>
+								<th>
+									Status
+								</th>
+								<th>
+									Action
+								</th>
+								</tr>
+								<tr ng-repeat="units in unitMasterList">
+									<td>{{units.organizationName}}</td>
+									<td>{{units.unitCode}}</td>
+									<td>{{units.unitName}}</td>
+									<td>{{units.unitAddress}}</td>
+									<td>{{units.countryName}}</td>
+									<td>{{units.stateName}}</td>
+									<td>{{units.cityName}}</td>
+									<td>{{units.postCode}}</td>
+									<td>{{units.unitContact}}</td>
+									<td>-</td>
+									<td>{{units.unitEmailId}}</td>
+									<td class="text-center"><a data-toggle="modal" data-target="#licenseDetailsModal"><i class="fa fa-info-circle" ng-click="licenceDetails(units.unitId)"></i></a></td>
+									<td>
+										<label class="switch"> <input type="checkbox" ng-model="units.status" ng-true-value="'A'" 
+											  ng-false-value="'I'" ng-change="updateStatus(units.unitId,units.status)" 
+											  ng-checked="units.status =='A'">
+												<div class="slider round"></div>
+										</label>
+									</td>
+									<td class="padding-edit-button-table text-center"><a> <i ng-click="editUnit(units.unitId)"
+											class="fa fa-pencil" aria-hidden="true" title="Edit"></i>
+									</a>
+									</td>
+								</tr>
+								<!-- <tr>
+									<td>Pune</td>
+									<td>102201</td>
+									<td>Sancheti</td>
+									<td>Shivaji Nagar</td>
+									<td>United Kingdom</td>
+									<td>Abingdon</td>
+									<td>Queensland</td>
+									<td>411005</td>
+									<td>02096665965</td>
+									<td></td>
+									<td></td>
+									<td class="text-center"><a data-toggle="modal" data-target="#licenseDetailsModal"><i class="fa fa-info-circle"></i></a></td>
+									<td>
+										<label class="switch"> <input type="checkbox">
+												<div class="slider round"></div>
+										</label>
+									</td>
+									<td class="padding-edit-button-table text-center"><a> <i
+											class="fa fa-pencil" aria-hidden="true" title="Edit"></i>
+									</a>
+									</td>
+								</tr> -->
+							</table> 
+						</div>
+						<div class="row margin-bottom45 sss">
+										<ul ng-if="pager.pages.length" class="pagination table-list"
+											style="font-size: 14px;">
+												<li ng-class="{disabled:pager.currentPage === 1}"><a
+													ng-click="setPage(1,'true')">First</a></li>
+												<li ng-class="{disabled:pager.currentPage === 1}"><a
+													ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+												<li ng-repeat="page in pager.pages"
+													ng-class="{active:pager.currentPage === page}"><a
+													ng-click="setPage(page,'true')">{{page}}</a></li>
+												<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+													<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+												</li>
+												<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+													<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+												</li>
+											</ul>
+							</div>
+					</div>
+	</div>
+</div>
+
+	<!-- licenseDetailsModal POPUP -->
+<div id="licenseDetailsModal" class="modal fade ng-scope in common-small-popup" role="dialog" >
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					License Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row serachedPatientList padding-left-right-set4">
+					<div class="col-md-12 col-lg-12  fix-height-scroll230">
+						<table class="table table-bordered  margin-top4">
+							<thead>
+								<tr>
+								<th>
+									<span class="">License Type </span>
+								</th>
+								<th>
+									<span class="">License No. </span>
+								</th>
+								<th>
+									<span class="">Expiry Date </span>
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="licenceDetails in listLicenceDetails">
+								<td>{{licenceDetails.licenceType}}</td>
+								<td>{{licenceDetails.licenceNumber}}</td>
+								<td>{{licenceDetails.expiryDate}}</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		$(".selectedPageName").text("Hospital Master");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="hospitalMaster"]').parents("li").addClass("active");
+	});
+</script>

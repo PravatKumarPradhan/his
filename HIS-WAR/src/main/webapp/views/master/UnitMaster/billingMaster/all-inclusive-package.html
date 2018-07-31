@@ -1,0 +1,242 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<div ng-include="'./views/common-billing-package.html'"></div>
+		<fieldset>
+			<legend class="heading-div">Services</legend>
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-md-1 col-sm-2 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-md-11 col-sm-10">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+									<option>Lab Service</option>
+									<option>Radiology Service</option>
+								</select> <label for="code">Service Category</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-md-1 col-sm-2 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-md-11 col-sm-10">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+									<option>Exclusive 1</option>
+									<option>Exclusive 2</option>
+								</select> <label for="code">Select Exclusion</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-10">
+			<div class="col-md-6 col-sm-3"></div>
+			<div class="col-md-6 col-sm-9">
+				<div class="row">
+					<div class="col-md-3 col-sm-3"></div>
+					<div class="col-md-3 col-sm-3 padding-left0px-right6px">
+						<div class="common-save-button">
+							<!-- <input type="button" value="Display Exclusion" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#displayExclusionlistModal"> -->
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-2 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Edit" class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-2 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Save As" class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-2 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Submit" class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
+		<div class="row padding-left-right-set0">
+			<div class="col-md-12 col-lg-12 col-sm-12 padding-left-right-set0">
+				<fieldset>
+					<legend class="heading-div">Exclusions</legend>
+					<table class="table table-bordered table-striped ">
+						<thead class="mainServiceTableCommon">
+							<tr>
+								<th class="width10">
+									Service Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									From Date
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									To Date
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									Price
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody class="mainServiceTableCommon">
+							<!--*********** Lab service row start ***********-->
+							<tr class="table-th-bg cursor-pointer">
+								<td colspan="4">
+									<div class="col-md-4 col-sm-6 font-weight700">Lab Service</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="5">
+									<div class="selectedServicesList">
+										<table class="table table-bordered table-striped">
+											<tbody>
+												<tr>
+													<td class="width10">Lab services-1</td>
+													<td class="width8">150</td>
+													<td class="width8">1/01/2017</td>
+													<td class="width8">1/12/2017</td>
+												</tr>
+												<tr>
+													<td class="width10">Lab services-2</td>
+													<td class="width8">150</td>
+													<td class="width8">1/01/2017</td>
+													<td class="width8">1/12/2017</td>
+												</tr>
+												<tr>
+													<td class="width10">Lab services-3</td>
+													<td class="width8">150</td>
+													<td class="width8">1/01/2017</td>
+													<td class="width8">1/12/2017</td>
+	 											</tr>			
+											</tbody>
+										</table>
+									</div>
+								</td>
+							</tr>
+							<!--*********** Lab service row end ***********-->
+							<!--*********** Radiology service row start ***********-->
+							<tr class="table-th-bg cursor-pointer">
+								<td colspan="4">
+									<div class="col-md-8 col-sm-6 font-weight700">Radiology Service</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="5">
+									<div class="selectedServicesList">
+										<table class="table table-bordered table-striped">
+											<tbody>
+												<tr>
+													<td  class="width10">Radiology services-1</td>
+													<td class="width8">150</td>
+													<td class="width8">1/01/2017</td>
+													<td class="width8">1/12/2017</td>
+												</tr>
+												<tr>
+													<td  class="width10">Radiology services-2</td>
+													<td class="width8">150</td>
+													<td class="width8">1/01/2017</td>
+													<td class="width8">1/12/2017</td>
+												</tr>
+												<tr>
+													<td  class="width10">Radiology services-3</td>
+													<td class="width8">150</td>
+													<td class="width8">1/01/2017</td>
+													<td class="width8">1/12/2017</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</td>
+							</tr>
+							<!--*********** Radiology service row end ***********-->
+							
+						</tbody>
+						<tfoot class="mainServiceTableCommon">
+							<tr class="">
+								<td  colspan="3">
+									<div class="col-md-2 col-sm-3 font-weight700 width15">
+										Package Price
+									</div>
+									<div class="col-md-3 col-sm-3">
+										<input type="text" class="ht26 form-control" >
+									</div>
+									<div class="col-md-2 col-sm-3 font-weight700 padding-left-right15">
+										Package Validity
+									</div>
+									<div class="col-md-2 col-sm-3 ">
+										<span><input type="text" class="ht26 form-control" ></span>
+									</div>
+									<div class="col-md-2 col-sm-3 padding-left-right15">
+										<span class="font-weight700">(days)</span>
+									</div>
+								</td>
+								<td></td>
+							</tr>
+						</tfoot>
+					</table>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedServicesList").hide();
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+  
+  $(".selectedPageName").text("All Inclusive Package");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="allExclusivePackage"]').parents("li").addClass("active");
+});
+$(".table-th-bg").click(function(){
+	//alert();
+	$(this).next().find(".selectedServicesList").toggle();
+});
+</script>

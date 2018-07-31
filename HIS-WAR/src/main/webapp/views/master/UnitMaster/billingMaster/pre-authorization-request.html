@@ -1,0 +1,221 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<div class="padding-top8 padding-left-right-set4 ng-scope" ng-include="'./views/common/patient-demography-info.html'"></div>
+		<fieldset>
+			<div class="row margin-top10">
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Payment Entitlement
+							 :</b> Insurance </span>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					
+					<div class="col-lg-4 col-md-5 col-sm-6 padding-left-right-set1">
+						<b class=" ">Insurance Name :</b>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+						<span class=" ">UNITED INDIA INSURANCE UNITED LTD</span>
+					</div>
+					
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">TPA Name :</b> Medi Assist India TPA Pvt. Ltd </span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Contract :</b> TPA Contract </span>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<span class=""><b class="padding-right10 ">Insurance No
+							 :</b> PM00123THB </span>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Policy No
+							:</b> PY12BN </span>
+				</div>
+			</div>
+			<div class="row">
+				
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Start Date :</b> 01/01/2018 </span>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<span class=""><b class="padding-right10 ">End Date :</b> 12/01/2018  </span>
+				</div>
+			</div>
+			<div class="row margin-top4 padding-left-right-set4">
+				<a href="#/addNewPreAuthorizationRequest" class="btn btn-primary btn-save-box-shadow text-width-auto pull-right padding-left-right-set4" title="Add New">Add New Request</a>
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-set4 margin-top4">
+			<div id="table-scroll" class="table-scroll">
+			  <div class="table-wrap">
+			    <table class="main-table">
+					<thead>
+						<tr class="">
+						<th class="width8 th-bg">
+							Request No.
+						</th>
+						<th class="width8 th-bg">
+							Request Type
+						</th>
+						<th class="width8 th-bg">
+							Request Date
+						</th>
+						<th class="width8 th-bg">
+							Request Send By
+						</th>
+						<th class="width8 th-bg">
+							Request Send Through
+						</th>
+						<th class="width8 th-bg">
+							Request Amount
+						</th>
+						<th class="width8 th-bg">
+							Authorization No.
+						</th>
+						<th class="width8 th-bg">
+							Authorization Date
+						</th>
+						<th class="width8 th-bg">
+							Authorized Amount
+						</th>
+						<th class="width8 th-bg">
+							Received Through
+						</th>
+						<th class="width8 th-bg">
+							Received By
+						</th>
+						<th class="width5 th-bg">
+							Status
+						</th>
+						<th class=" width5 text-center th-bg">Action
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td class="td-bg">PAR00234</td>
+						<td class="td-bg">Preauthorization Request</td>
+						<td class="td-bg">05/01/2018</td>
+						<td class="td-bg">Robert R</td>
+						<td class="td-bg">Mail</td>
+						<td class="td-bg">50000</td>
+						<td class="td-bg">AT001234</td>
+						<td class="td-bg">05/02/2018</td>
+						<td class="td-bg">45000</td>
+						<td class="td-bg">Mail</td>
+						<td class="td-bg">Robert R</td>
+						<td class="td-bg">Completed</td>
+						<td class="padding-edit-button-table text-center vertical-middle td-bg">
+							<a class="cursor-pointer" title="" data-toggle="modal" data-target="#reqdetailsModal">
+								Details
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="1" class="th-bg"></td>
+						<td class="th-bg">Summary</td>
+						<td class="th-bg"></td>
+						<td class="th-bg"></td>
+						<td class="th-bg"></td>
+						<td class="th-bg"></td>
+						<td class="th-bg"></td>
+						<td class="th-bg"></td>
+						<td class="th-bg"></td>
+						<td class="th-bg"></td>
+						<td class="th-bg"></td>
+						<td class="th-bg"></td>
+						<td class="th-bg"></td>
+					</tr>
+				</tbody>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div id="reqdetailsModal" class="common-large-popup modal fade ng-scope in his-style" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+							Details
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+					<div class="modal-body">
+					<div class="row padding-left-right-set4 padding-top8">
+						<div class="col-lg-12 col-md-12 fix-height-scroll230">
+							<table class="table table-bordered">
+								<tbody><tr class="">
+									<th class="width10">
+										Request Type
+									</th>
+									<th class="width10">
+										Request Date
+									</th>
+									<th class="width10">
+										Request Send By
+									</th>
+									<th class="width10">
+										Request Send Through
+									</th>
+									<th class="width10">
+										Request Amount
+									</th>
+									<th class="width10">
+										Authorization No.
+									</th>
+									<th class="width10">
+										Authorization Date
+									</th>
+									<th class="width10">
+										Authorization Amount
+									</th>
+									<th class="width10">
+										Received Through
+									</th>
+									<th class="width10">
+										Received By
+									</th>
+								</tr>
+								<tr>
+									<td>Preauthorization Request</td>
+									<td>5/1/2018</td>
+									<td>Robert R</td>
+									<td>Mail</td>
+									<td>50000</td>
+									<td><input type="text" class="w-100" value="AT001234"></td>
+									<td><input type="text" class="w-100" value="05/02/2018"></td>
+									<td><input type="text" class="w-100" value="45000"></td>
+									<td>Mail</td>
+									<td>Robert R</td>
+								</tr>
+							</tbody></table>
+						</div>
+					</div>
+					</div>
+					<div class="modal-footer">
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right">
+							<div class=" ">
+								<a class="btn btn-primary btn-save-box-shadow" title="Save" data-dismiss="modal">Save</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$(".selectedPageName").text("Pre Authorization Request");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="preAuthorizationRequest"]').parents("li").addClass("active");
+	});
+</script>

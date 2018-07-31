@@ -1,0 +1,748 @@
+<!-- /********************************************************************************************************************************************
+Add New Drug Recall main page
+Created by : Pranita Patil
+Created Date : 15-May-2018 
+/********************************************************************************************************************************************/ -->
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<div class="row margin-top10">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<select  class="text-input floating-label">
+									<option></option>
+									<option>Item</option>
+									<option>Batch</option>
+								</select>
+								<label for="code">Against</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10  ">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div id="mediaType" class="row uk-input-group customRadioBtn mt0">													
+								<span>
+									<input id="PatientOTCRadio" name="OTCReg" type="radio" value="1" checked="checked" class="otherRegistrationType" data-toggle="modal" data-target="#getItemListDrugRecall">
+									<label for="PatientOTCRadio">Get Item</label>
+								</span>
+								<span>
+									<input id="dependentOTCRadio" name="OTCReg" type="radio" value="2" class="dependentRedRadio" data-toggle="modal" data-target="#getBatchListDrugRecall">
+									<label for="dependentOTCRadio">Get Batch</label>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="common-save-button text-left">
+						<input type="button" value="Details" class="btn btn-primary btn-save-box-shadow text-width-auto" data-toggle="modal" data-target="#detailsDrugRecallModal">
+					</div>
+				</div>
+				
+			</div>
+        </fieldset>	
+        <div class="row margin-top4">
+			<div class="col-md-12 col-lg-12 col-sm-8 padding-left-right-set4 height500-table-with-scroll"  id="nonBillableTableHt">
+				<fieldset>
+					 <!-- ************ Item Selection Table start ************ --> 
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 height500-table-with-scroll">
+							<table class="table table-bordered first-checkBox-padding">
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width8">
+											Item Code
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">
+											Item Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Reason
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width6">
+											Action
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>IT-161</td>
+										<td>Crosin</td>
+										<td>-</td>
+										<td>
+											<i class="fa fa-times-circle-o" aria-hidden="true"></i>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- ************ Item Selection Table end ************ --> 
+					
+					<!-- ************ Batch Selection Table start ************ --> 
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 height500-table-with-scroll" style="display:none">
+							<table class="table table-bordered first-checkBox-padding">
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width8">
+											Item Code
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">
+											Item Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Batch No
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Expiry Date
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Reason
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width6">
+											Action
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>IT-161</td>
+										<td>Crosin</td>
+										<td>BT-121</td>
+										<td>14/05/2018</td>
+										<td>-</td>
+										<td>
+											<i class="fa fa-times-circle-o" aria-hidden="true"></i>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- ************ Batch Selection Table end ************ --> 
+				</fieldset>
+			</div>
+		</div>
+		
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+				<div class="col-lg-10 col-md-8 col-sm-8 padding-left-right8"></div>
+				<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+					<a href="">
+						<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+				<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+					<a href="#/drugRecall">
+						<input type="button" value="Back"  class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</footer>
+		
+    </div>
+</div>
+
+<!-- #getItemListDrugRecall Modal START -->
+<div id="getItemListDrugRecall" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Get Item List
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll">
+				<fieldset class="get-request-row">
+					<div class="row margin-top10">
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-2 col-md-2 col-sm-2 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<select class="text-input floating-label">
+											<option value=""></option>
+										</select> <label for="code">Asset Category</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-2 col-md-2 col-sm-2 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<select class="text-input floating-label">
+											<option value=""></option>
+										</select> <label for="code">Product Category</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label"> <label for="code">Item Code</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label"> <label for="code">Item Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-10 col-md-10">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label"> <label for="code">Batch Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label"> <label for="code">Search</label>
+									</div>
+								</div>
+							</div>
+						</div> -->
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left8px-right-0px padding-top10 his-style">
+							<div class="common-save-button" style="padding-top:  0px;"> 
+								 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+								 	<i class="fa fa-search" aria-hidden="true"></i> 
+								 </a> 
+							</div> 
+						</div>
+					</div>
+					<div class="row padding-top10 padding-left-right-set4" ><!-- style="display:none;" -->
+						<div class="col-lg-12 col-md-12 col-sm-12"> 
+							<table class="table table-bordered first-checkBox-padding">
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width1 text-center vertical-middle"><input type="checkbox"></th>
+										<th class="width10">
+											Asset Category
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">
+											Product Category
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Item Code
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Item Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											UOM
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											UOM Unit
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Batch Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Expiry Date
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">
+											Available Qty
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-center vertical-middle"><input type="checkbox"></td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-lg-11 col-sm-11 col-md-11"></div>
+					<div class="col-lg-1 col-sm-1 col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- #getItemListDrugRecall Modal END -->
+<!-- #getBatchListDrugRecall Modal START -->
+<div id="getBatchListDrugRecall" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Get Batch List
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll">
+				<fieldset class="get-request-row">
+					<div class="row padding-top10 padding-left-right-set4">
+						<div class="col-lg-12 col-md-12 col-sm-12"> 
+							<table class="table table-bordered first-checkBox-padding">
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<!-- <th class="width1 text-center vertical-middle"><input type="checkbox"></th> -->
+										<th class="width10">
+											Batch No
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">
+											 Expiry Date
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Available Stock
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<!-- <td class="text-center vertical-middle"><input type="checkbox"></td> -->
+										<td>BT-171</td>
+										<td>30/07/2019</td>
+										<td>40</td>
+									</tr>
+								</tbody>
+						</table>
+					</div>
+				</div>
+				</fieldset>
+			</div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-lg-11 col-sm-11 col-md-11"></div>
+					<div class="col-lg-1 col-sm-1 col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow" data-dismiss="modal">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- #getBatchListDrugRecall Modal END -->
+
+<!-- ***************** #detailsModal modal start *****************  -->
+<div id="detailsDrugRecallModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body padding10">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 padding-left-right-set4 common-table-height-250 margin-top4" id="">
+						<div class="row schedulerTabs">
+							<ul class="tabs nav nav-tabs">
+								<li ng-class="{ active : isSetFirstTabLevel(1) }" id="" class="padding-top-bottom width15">
+									<a href ng-click="setFirstTabLevel(1)">Store Details</a>
+								</li>
+								<li ng-class="{ active : isSetFirstTabLevel(2) }" id="" class="padding-top-bottom width15">
+									<a href ng-click="setFirstTabLevel(2)">Patient Details</a>
+								</li>
+							</ul>
+						</div>
+						<div class="row">
+							<!-- **************  store Details TAB start ************** ************** ************** ************** -->
+							<div ng-show="isSetFirstTabLevel(1)">
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr class="table-th-bg">
+													<th class="width8">
+														Store
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="width8">
+														Item Code
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="width10">
+														Item Name
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="width8">
+														Batch No
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="width8">
+														Expiry Date
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="width8">
+														Available Stock
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>StoreOne</td>
+													<td>IT-111</td>
+													<td>-</td>
+													<td>-</td>
+													<td>-</td>
+													<td>-</td>
+												</tr>
+											</tbody>
+										</table>
+										
+									</div>
+								</div>
+							</div>
+							<!-- **************  store Details TAB end ************** ************** ************** ************** -->
+							<!-- **************  patient Details TAB start ************** ************** ************** ************** -->
+							<div ng-show="isSetFirstTabLevel(2)">
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr class="table-th-bg">
+													<th class="width8">
+														Visit Type
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="width8">
+														UHID
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="width15">
+														Patient Details
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="width8">
+														Visit No
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="width8">
+														Batch No
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="width8">
+														Expiry Date
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+													<th class="width8">
+														Ward
+														<div class="float_right">
+															<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+															<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+														</div>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>IPD</td>
+													<td>-</td>
+													<td>-</td>
+													<td>-</td>
+													<td>-</td>
+													<td>-</td>
+													<td>-</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- **************  patient Details TAB end ************** ************** ************** ************** -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ***************** #detailsModal modal end *****************  -->
+
+<script type="text/javascript">
+$( document ).ready(function() {
+	$("#storeWiseSelectionTableRowId").hide();
+	$(".selectedPageName").text("Add New Drug Recall");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+});
+/*************************** add button function start*********************************/
+$(".table-th-bg").click(function(){
+	/* alert(); */
+	$(this).next().find(".selectedServicesList").toggle();
+});
+
+
+</script>

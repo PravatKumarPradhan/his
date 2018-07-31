@@ -1,0 +1,343 @@
+<!-- *****************************************************************************************************************************
+												
+****************************************************************************************************************************** -->
+	   <!-- Page Content -->
+    	<div id="page-content-wrapper" class="">
+       		<div class="container-fluid his-style">
+       			<!-- <div class="row padding-left-right-10">
+            		<div class="col-md-9"></div>
+					<div class="col-md-3">
+						<div>
+							<input type="text" class="text-search-box" placeholder="Search">
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+            	</div> -->
+            	<div class="row margin-top10 padding-left-right-set4">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+						<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+					</div>
+				</div>
+            	<!-- table start-->
+          		<div class="row padding-left-right-set4 padding-top10">
+					<div class="col-md-12 fix-height-scroll500">
+						<table class="table table-bordered ">
+							<tr class="">
+								<th class="UHID-width">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width15">
+									Patient Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width15">
+									Doctor Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th  class="bed-no-width">
+									Ward No
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="bed-no-width">
+									Bed No
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Discharge Date
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Discharge Status
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="status text-center">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td>TC890</td>
+								<td >
+									<div>John Deo 26/M </div>
+								</td>
+								<td>
+									<div>Dr. Andy Qnyty, Homotology</div>
+								</td>
+								<td>
+									<div>Ward No.-1</div>
+								</td>
+								<td>
+									<div>BM678905</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td class="text-center">
+									<a href="" data-toggle="modal" data-target="#detailsModal" title="Details">Details</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<!-- table end-->
+       		</div>
+       		
+       		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/erPatientList" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+       		
+        </div>
+
+<!-- details modal start -->
+<div id="detailsModal" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row" id="">
+					ER Discharge Medication Hand Over Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row patient-details-row">
+					<div class="col-md-11 col-sm-11 col-xs-11 ">
+						<span class="profile_pic margin-left10"> 
+							<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+						</span> 
+						<span class="margin-left10">John Deo 26/M </span>
+						<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> Pune-769</span>
+						<span class="margin-left10"><b class="padding-right10 ">Ward NO	:</b> W124303 </span>
+						<span class="margin-left10"><b class="padding-right10 ">BED NO	:</b> BM129091</span>
+						<span class="margin-left10">Dr. Suresh Pathak</span>
+					</div>
+				</div>
+				<div class="row" id="detailsTableRow">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10">
+					
+						<table class="table table-bordered ">
+							<tr class="">
+								<th class="">
+									Medication Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width15">
+									Generic Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									Frequency
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									Start Date 
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									Stop Date
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width9">
+									Qty Prescribed
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									Qty in Hand
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Qty Received
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									Batch No.
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width6">
+									Expiry Date
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width9">
+									Difference
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<input type="text" class="width75"/>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="row" id="kinDetailsRow" >
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10">
+						<table class="table table-bordered ">
+							<tr class="">
+								<th class="">
+									Name of Next of Kin
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="">
+									Contact Details of Next of kin
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th  class="table-column-width216">
+									Relationship
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+								<tr>
+									<td>-</td>
+									<td>-</td>
+									<td>
+										<select class="select-box">
+											<option>Select Relationship</option>
+											<option></option>
+										</select>
+									</td>
+								</tr>
+							</table>
+					</div>
+					<div class="modal-footer" style="border:none;">
+						<div class="col-md-12"  style="padding-top:10px;">
+							<button type="button" class="btn btn-primary text-width-auto" data-dismiss="modal">Submit</button>
+							<button type="button" class="btn btn-primary text-width-auto" data-dismiss="modal">Print</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;" id="hideRow">
+				<button type="button" class="btn btn-primary text-width-auto" id="handOverMedicationBtn">Hand Over Medications</button>
+				<button type="button" class="btn btn-primary text-width-auto">Print Prescription</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+<script type="text/javascript">
+$( document ).ready(function() {
+	 $("#kinDetailsRow").hide();
+	$(".selectedPageName").text("ER Discharge Medication Hand Over");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	
+	 $("#handOverMedicationBtn").click(function(){
+	        $("#kinDetailsRow").show();
+	        $("#detailsTableRow").hide();
+	        $("#hideRow").hide();
+	   });
+});
+</script>

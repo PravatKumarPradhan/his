@@ -1,0 +1,286 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<!-- <div class="row margin-top10 padding-left-right-10">
+			<div
+				class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"
+						data-toggle="modal" ng-click="saveIcuTransferRequest()"><i class="fa fa-floppy-o"
+						style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div
+				class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				 <input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required/>
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div> -->
+		<div class="row margin-top10 padding-left-right-1 padding-bottom10">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveIcuTransferRequest()"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required style="margin-top: 0px"/>
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<!-- <div ng-include="'./views/common/common-patient-details.html'"></div> -->
+		<!-- <div class="padding-left-right-10">
+			<div class="row searched-patient-details-row margin-top10">
+				<div class="col-md-11 col-sm-11 col-xs-11 ">
+					<span class="profile_pic margin-left10"> 
+						<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+					</span>
+					<input type="hidden" ng-model="admissionRequest.patientId" />
+					<input type="hidden" ng-model="admissionRequest.tPatientId" />
+					<input type="hidden" ng-model="admissionRequest.prefixId" />
+					<input type="hidden" ng-model="admissionRequest.id" />
+					<input type="hidden" ng-model="admissionRequest.patientCategoryId" />
+					<input type="hidden" ng-model="admissionRequest.visitTypeId" />
+					<span class="margin-left10">John Deo 26/M {{patientFullName}}</span>
+					<span class="margin-left10"><b class="padding-right5 " ng-if="UHIDNumber">UHID	:</b> Pune-769{{UHIDNumber}}</span>
+					<span class="margin-left10"><b class="padding-right10 ">DOA	:</b> 02/05/2017</span>
+					<span class="margin-left10"><b class="padding-right10 ">PDD	:</b> 02/05/2017 11:16am </span>
+					<span class="margin-left10"><b class="padding-right10 ">BED NO	:</b> BM129091</span>
+					<span class="margin-left10">Dr. Suresh Pathak</span>
+				</div>
+			</div>
+		</div> -->
+		<div ng-include="'./views/common/patient-demography.html'" class="padding-left-right-set4"></div>
+          	<fieldset>
+				<!-- <legend class="heading-div">Transfer To ICU</legend> -->
+          	
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-building" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" name="code" ng-model="icuTypeId" ng-change="getDoctorByOpenClose()">
+										<option>Select ICU Type</option>
+										<option ng-repeat="info in icuTypeList" value="{{info}}">{{info.icutypeCode}}</option>
+									</select> <label for="code">Choose ICU Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+		
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-user-md fa-color" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" name="code" ng-model="icuDoctorId">
+										<option>Select Doctor</option>
+										<option ng-repeat="info in doctorListForIcu" value="{{info.doctorId}}">{{info.firstName}}</option>
+									</select> <label for="code">Choose Treating Doc</label>
+								</div>
+							</div>
+						</div>
+					</div>
+		
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa  fa-sticky-note-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+								<select class="text-input floating-label" name="code" ng-model="reasonId">
+										<option>Select Reason</option>
+										<option ng-repeat="info in reasonList" value="{{info.reasonMasterId}}">{{info.reasonDesc}}</option>
+									</select> <label for="code">Choose Transfer Reason</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<textarea name="code" rows="1" id="" ng-model="note" class="text-input floating-label"></textarea>
+									<label for="code">Note</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-set4">
+			<div class="col-md-12 col-sm-12 height380-table-with-scroll">
+				<table class="table table-bordered">
+					<tr class=" ">
+						
+						<th class="width10">
+						Patient Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5">
+						UHID
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">
+						ICU Type Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">
+						Doctor Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width10">
+						Reason 
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+							<th class="width10">
+						Note 
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5">
+						Status
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+					</tr>
+					<tr ng-repeat="info in transferICUList">
+						
+						<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.patientName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.patientName+' '+info.dob+'/'+info.genderCode}}</div>
+								</td>
+						<td>{{info.uhidnumber}}</td>
+						<td>{{info.icuType}}</td>
+						<td>{{info.doctorName}}</td>
+						<td>{{info.reasonDesc}}</td>
+						<td><i class="fa fa-commenting" aria-hidden="true" data-toggle="modal" data-target="#notesForall" ng-click="displayNote(info.note)"></i></td>
+						
+						<td><div ng-if="info.transferStatusId == 10 ">Sent For Final Acceptance</div>
+						<div ng-if="info.transferStatusId == 3 ">Sent To Doctor</div>
+						<div ng-if="info.transferStatusId == 11">Accepted</div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- <div class="row">
+        	<div class="col-md-8"></div>
+			<div class="col-md-3"></div>
+			<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" data-toggle="modal"  ng-click="saveIcuTransferRequest()"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+					
+				</div>
+		</div> -->
+	</div>
+	<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+</div>
+<modal visible="showModal"></modal> 
+	<div id="notesForall" class="modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Note
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body common-sub-table">
+					<div class="row margin-top10" >
+						<div class="col-md-12 padding-left-right-set">
+							<!-- <input type="text" placeholder="Note" class="text-box-style"  ng-model="noteDoctor"> -->
+							<textarea placeholder="Note" ng-model="noteDoctor" rows="5" readonly="true"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+<script type="text/javascript">
+	$( document ).ready(function() {
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		
+		$('.clockpicker').clockpicker();
+		$(".selectedPageName").text("Transfer To ICU");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="transferToICU"]').parents("li").addClass("active");
+	});
+</script>

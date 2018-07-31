@@ -1,0 +1,177 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		
+		<!-- *********** Row one start ******* -->
+		<div class="row patient-details-row">
+			<div class="col-md-11 col-sm-11 col-xs-11 ">
+				<span class="profile_pic margin-left10"> <img alt=""
+					src="resources/assets/images/tempImages/m.jpg" class="img-circle"
+					style="width: 30px">
+				</span> <span class="margin-left10">{{sampleDtls.patientDetails}} </span> <span
+					class="margin-left10"><b class="padding-right5 ">UHID 
+						:</b> {{sampleDtls.uhid}}</span> <span class="margin-left10"><b
+					class="padding-right10 ">Priority : </b> {{sampleDtls.priorityName}}</span> <span
+					class="margin-left10">{{sampleDtls.doctorDetails}} </span>
+			</div>
+		</div>
+		<!-- *********** Row one end ******* -->
+		<div class="row margin-top10 common-table-height-130">
+			<div class="col-lg-3 col-sm-4 col-md-4">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th">
+								Media
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="sampleMediaadd in listTMicroSampleMediaDto">
+							<td>
+								<input  type="text" class="select-box" ng-model="sampleMediaadd.desc" disabled="disabled"/>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row margin-top10">
+			<div class="col-lg-3 col-md-3 padding-left-right-set">
+				<div class="row input-container margin-top10">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-clock-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="form-group">
+							<div  class="form-group"  >
+													<select class="text-input floating-label" name="incubationPeriodId" ng-model="incubationPeriodId" required>
+														<option selected value>Select Incubation Period </option>
+										                <option ng-repeat="incuperiod in incubationPeriodList"
+											                       value="{{incuperiod.id}}">{{incuperiod.name}}</option>
+													</select> 
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 padding-left-right-set">
+				<div class="row input-container margin-top10">
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<span class="input-group"> 
+													<input name="date"
+														id="date1" type="text" class="form-control"
+														uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+														placeholder="DD/MM/YYYY" tabindex="13" ng-model="incubationStartDate"
+														model-view-value="true" is-open="popup.opened"
+														datepicker-options="dateOptions" show-button-bar="false" />
+														<span class="input-group-btn" >
+															<button type="button" class="btn btn-default"
+																ng-click="open()" style="padding:5px 10px !important;">
+																<i class="fa fa-calendar fa-1"></i>
+															</button>
+													</span>
+					   </span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 padding-left-right-set">
+				<div class="row input-container margin-top10">
+					<div class="col-lg-12 col-sm-12 col-md-12">
+						<div  class="form-group"  >
+												<div class="input-group clockpicker"  ng-init="initTime();">
+														<input type="text " class="form-control " name="incubationStartTime" ng-model="incubationStartTime"  required>
+														<span class="input-group-btn" >
+															<button type="button" class="btn btn-default" style="padding:5px 10px !important;">
+																<i class="fa fa-clock-o fa-1"></i>
+															</button>
+														</span>
+												</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-1 col-lg-1 margin-top10 text-width-auto">
+				<div class="" style="margin-top: -2px;">
+					<input type="button" name="" id="" value="Start" class="btn btn-info" ng-click="startIncubation();">&nbsp;&nbsp;
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 table-container padding-top8">
+			<div class="table-container">
+				<div class="table-container-header">
+					<table
+						class="table table-striped table-hover table-condensed table-bordered">
+						<thead>
+							<tr>
+								<th class="width8">Incubation Period</th>
+								<th class="width8">Incubation Start Time</th>
+								<th class="width8">Incubation Due Time</th>
+								<th class="width8">Incubation Stop Time</th>
+								<th class="width8">Remark</th>
+								<th class="width4 text-center">Action</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="table-container-body">
+					<table
+						class="table table-striped table-hover table-condensed table-bordered">
+						<tbody>
+							<tr ng-repeat="tMicroIncubationMaster in tMicroIncubationMasterDto.listTMicroIncubationDetailsMaster track by $index">
+								<td class="width8"><select class="text-input floating-label" name="incubationPeriodId" ng-model="tMicroIncubationMaster.incubationPeriodId" required convert-to-number>
+														<option selected value>Select Incubation Period </option>
+										                <option ng-repeat="incuperiod in incubationPeriodList"
+											                       value="{{incuperiod.id}}">{{incuperiod.name}}</option>
+													</select> </td>
+								<td class="width8">{{tMicroIncubationMaster.incubationStartTime| date : "dd/MM/y h:mm a"}}</td>
+								<td class="width8">{{tMicroIncubationMaster.incubationDueTime| date : "dd/MM/y h:mm a"}}</td>
+								<td class="width8">{{(tMicroIncubationMaster.incubationStopTime)==null?"-":tMicroIncubationMaster.incubationStopTime| date : "dd/MM/y h:mm a"}}</td>
+								<td class="width8"><input type="text" class="w-100" ng-model="tMicroIncubationMaster.remark"></td>
+								<td class="width4 text-center">
+									<a ng-click="stopIncubation($index);"><i title="Stop" class="fa fa-ban" aria-hidden="true"></i></a>&nbsp;&nbsp;
+									<a ng-click="restartIncubation($index);"><i title="Refresh" class="fa fa-refresh" aria-hidden="true"></i></a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+				<div class="col-md-2 col-sm-2 padding-left-right-set4 text-left switch-label">
+					<label class="">Growth Found</label> <label class="switch"> 
+					<input type="checkbox" ng-model="tMicroIncubationMasterDto.isGrowthFound" ng-checked="tMicroIncubationMasterDto.isGrowthFound=='Y'"
+									ng-true-value="'Y'" ng-false-value="'N'" >
+						<div class="slider round" ></div>
+					</label>
+				</div>
+				<div class="col-md-2 col-sm-2 padding-left-right-set4 text-left switch-label">
+					<label class="switch-label">Complete</label> <label class="switch"> 
+					<input type="checkbox" ng-model="tMicroIncubationMasterDto.isCompleted" ng-checked="tMicroIncubationMasterDto.isCompleted=='Y'"
+									ng-true-value="'Y'" ng-false-value="'N'" >
+						<div class="slider round"></div>
+					</label>
+				</div>
+				<div class="col-md-1 padding-left-right-set4 pull-right">
+					<div class="">
+						<a href="#/IncubationMaster">
+							<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+				<div class="col-md-1 padding-left-right-set4 pull-right">
+					<div class="">
+						<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow" ng-click="saveTranaction();">
+					</div>
+				</div>
+
+			</div>
+		</footer>
+	</div>
+</div>
+
+	<script type="text/javascript">
+		$('.clockpicker').clockpicker();
+	</script>

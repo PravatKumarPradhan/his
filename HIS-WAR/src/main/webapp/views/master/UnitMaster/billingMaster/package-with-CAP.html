@@ -1,0 +1,362 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<!-- <div ng-include="'./views/common-billing-package.html'"></div> -->
+		<fieldset>
+			<legend class="heading-div">Package</legend>
+			<div class="row margin-top8">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10" ><!-- ng-controller="samplecontroller" -->
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+
+								 <select class="text-input floating-label" ng-model="packageObj.packageTypeId">
+        						 <option ng-repeat="packType in packageTypeList" value="{{packType.id}}" ng-if="packType.id == 3">{{packType.name}}</option>
+       							 </select>
+								<label class="LISDynamicLabel">Package Type</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" class="text-input floating-label" tabindex="3"
+						           ng-model="packageService" placeholder="Search" uib-typeahead=" serv.name for serv in getPackageServiceList($viewValue)"
+						           typeahead-editable="false" typeahead-on-select="selectPackageService($item, $model, $label);"
+						           name="" autocomplete="off" />
+								<label for="code">Package Service</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				 	<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" ng-model="packageObj.tariffId" ng-change="getPaymentEntitlementList(packageObj.tariffId);getPatientTypeList(packageObj.tariffId);">
+        							 <option value="">-</option>
+        							 <option ng-repeat="tariff in tariffList" value="{{tariff.id}}">{{tariff.name}}</option>
+        							</select>
+									<label class="LISDynamicLabel">Tariff</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-tasks" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									 <select class="text-input floating-label" ng-model="packageObj.paymentEntitlementTypeId">
+         							 <option value="">-</option>
+        							 <option ng-repeat="payEnt in paymentEntitlementList" value="{{payEnt.id}}">{{payEnt.name}}</option>
+        							 </select>
+									<label for="code">Payment Entitlement</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label dirty" ng-model="packageObj.sexId">
+							         	 <option value="">-</option>
+							          <option value="1">Male</option>
+							          <option value="2">Female</option>
+							          <option value="3">Other</option>
+							         </select>
+								<label class="LISDynamicLabel">Sex</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				 
+			</div>
+			<div class="row margin-top8">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								 <select class="text-input floating-label" ng-model="packageObj.patientTypeId">
+							         <option value="">-</option>
+							         <option ng-repeat="patTy in patientTypeList" value="{{patTy.id}}">{{patTy.name}}</option>
+							        </select>
+								<label for="code">Patient Type</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label" ng-model="packageObj.visitTypeId">
+									<option value="">-</option>
+									<option value="1">OP</option>
+									<option value="2">IP</option>
+									<option value="3">Day Care</option>
+									<option value="4">ER</option>
+								</select> <label for="code">Visit Type</label>
+								<label class="LISDynamicLabel">Visit Type</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+							<select class="text-input floating-label" ng-model="packageObj.billingBedCategoryId">
+        							 <option value="">-</option>
+        							 <option ng-repeat="bedBillCategory in bedBillingCategoryList" value="{{bedBillCategory.billingBedCategoryId}}">{{bedBillCategory.billingBedDesc}}</option>
+        							</select>
+								<label class="LISDynamicLabel">Bed Billing Category</label>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <div class="col-lg-2 col-md-2 col-sm-2 float-right padding-left-right-set4">
+					<div class="common-save-button">
+						<input type="button" value="Import From Package" class="btn btn-primary btn-save-box-shadow" data-target="#importFromPackageModal" data-toggle="modal">
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 float-right padding-left-right-set4">
+					<div class="common-save-button">
+						<a href="#/packageWithCAP">
+							<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+						</a>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<!-- <legend class="heading-div">Service</legend> -->
+			<div class="row">
+				<div ng-include="'./views/master/UnitMaster/billingMaster/ip-package.html'" ></div>
+			</div>
+		</fieldset>
+	</div>
+</div>
+<!-- ************************************** GET Bed Category Modal START  ************************************** -->
+<div id="addBedCategoryModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Add Bed Category
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<select class="text-input floating-label dirty">
+										<option value="">Select</option>
+									</select> <label for="code"> Bed Category Code</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<input type="text" class="text-input floating-label dirty"/>
+									 <label for="code">Bed Category Description</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-1 col-md-1 col-sm-1 text-width-auto padding-left-right-10">
+						<div class="common-save-button" style="padding-top: 0px;">
+							<a class="btn btn-primary btn-save-box-shadow"style="width: auto;">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-10 padding-top5">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+						<table class="table table-bordered">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width1 text-center"><input type="checkbox"></th>
+									<th class="width10">Bed Category Code</th>
+									<th class="width10">Bed Category Desciption</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="width1 text-center"><input type="checkbox"></td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ************************************** GET Bed Category Modal END  ************************************** -->
+<!-- ************************************** Import From Package Modal START  ************************************** -->
+<div id="importFromPackageModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Import From Package
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<select class="text-input floating-label dirty">
+										<option value="">Select</option>
+									</select> <label for="code">Package Type</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<input type="text" class="text-input floating-label dirty"/>
+									 <label for="code">Package Code</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group">
+									<input type="text" class="text-input floating-label dirty"/>
+									 <label for="code">Package Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-1 col-md-1 col-sm-1 text-width-auto padding-left-right-10">
+						<div class="common-save-button" style="padding-top: 0px;">
+							<a class="btn btn-primary btn-save-box-shadow"style="width: auto;">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-10 padding-top5">
+					<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll230">
+						<table class="table table-bordered">
+							<!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width1 text-center"><input type="checkbox"></th>
+									<th class="width8">Package Type</th>
+									<th class="width10">Package Code</th>
+									<th class="width15">Package Name</th>
+									<th class="width8">Visit Type</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="width1 text-center"><input type="checkbox"></td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- **************************************  Import From Package Modal END  ************************************** -->
+<!-- <div ng-include="'./views/PharmacyInventory/Store/get-item-list.html'" ></div> -->
+
+<!-- Page Content -->        
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedServicesList").hide();
+	
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+  
+  $(".selectedPageName").text("Add New Package With CAP");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="addNewPackageWithCAP"]').parents("li").addClass("active");
+});
+$(".table-th-bg").click(function(){
+	//alert("23======");
+	$(this).next().find(".selectedServicesList").toggle();
+});
+
+
+</script>

@@ -1,0 +1,267 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" >
+	<div class="container-fluid his-style">
+    	<div class="row bed-management margin-top10">
+         	<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-building" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="bedsearch.floorId" ng-change="getBedById('floor')">
+										<option>Select Floor</option>
+										<option ng-repeat="info in activeFloorList" value="{{info.floorId}}">{{info.floorName}}</option>
+										</select>		
+										<label for="code"> Floor</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-hospital-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="bedsearch.wardId" ng-change="getBedById('ward')">
+										<option>Select Ward</option>
+										<option ng-repeat="info in wardList" value="{{info.wardId}}">{{info.wardName}}</option>
+										</select>		
+										<label for="code">Choose Ward</label>
+									</div>
+								</div>
+							</div>
+						</div>
+            		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-hospital-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="bedsearch.nursingStationId" >
+										<option>Select Nursing Station</option>
+										<option ng-repeat="info in nursingStationList" value="{{info.nursingStationId}}">{{info.nursingStationDesc}}</option>
+										</select>		
+										<label for="code">Choose Nursing Station</label>
+									</div>
+								</div>
+							</div>
+						</div>
+            		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-bed" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="bedsearch.bedCategoryId" >
+										<option>Select Bed Category</option>
+										<option ng-repeat="info in bedCategoryList" value="{{info.bedCategoryId}}">{{info.bedCategoryDesc}}</option>
+										</select>		
+										<label for="code">Choose Bed Category</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					 
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+									<i class="fa fa-bed" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="bedsearch.housekeepingStatusId" >
+										<option>Select Bed Status</option>
+										<option value="1">Pending</option>
+										<option value="2">Assigned</option>
+										<option value="3">Cleaned</option>
+										<option value="5">Rejected</option>
+										</select>		
+										<label for="code">Choose Bed Status</label>
+									</div>
+									
+								</div>
+							</div>
+						</div> 
+			<div class="col-lg-1 col-md-1 col-sm-1 pull-left">
+          		<div class="width40 ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Search" ng-click="bedSearchByMultipleCriteria()">
+					<i class="fa fa-search" style="font-size: 15px" aria-hidden="true"></i></a>
+				</div>
+           	</div>
+        </div>
+        <!-- <div class="row padding-left-right-set4 padding-top10">
+        	<div class="col-lg-10 col-md-10 col-sm-9"></div>
+        	<div class="col-lg-1 col-md-1 col-sm-2">
+        		<input type="button" value="Marked As Clean" ng-click="updateMarkedAsClean()" class="btn btn-primary btn-save-box-shadow text-width-auto">
+        	</div>
+        	<div class="col-lg-1 col-md-1 col-sm-1 pull-right">
+        		<div class="width-div-for-patient-reg ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="updateHouseKeepingRequest()">
+						<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+        </div> -->
+        <div class="row margin-top4">
+					
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+						<div class=" ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="updateHouseKeepingRequest()"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+						</div>
+					</div>
+					
+					<div class="col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+							<div class=" ">
+								<a href="#/addnewauctionRequistion">
+									<input type="button" value="Marked As Clean" class="btn btn-primary btn-save-box-shadow" ng-click="updateMarkedAsClean()"><!-- data-toggle="modal" data-target="#wasteStoreAddItemModal" -->
+								</a>
+							</div>
+						</div>
+						
+				</div>
+        <modal visible="showModal"></modal> 
+		<div class="row padding-left-right-set4 padding-top4">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class="">
+					<th></th>
+						<th>
+							Floor
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th>
+							Nursing Station
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="bed-category-width">
+							Bed Category
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th>
+							Bed No.
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width6">
+							Priority
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th>
+							Person Assigned
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th>
+							Reason
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th>
+							Note
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width6">
+							Status
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+					</tr>
+					<tr ng-repeat="info in housekeepingBedList | orderBy:'priorityId':false ">
+					<td>	<input type="radio" name="radioName" value="info.housekeepingId" ng-disabled="{{info.housekeepingStatusId == '2' || '3' ? true : false}}" ng-model="bedHousekeeping" ng-click="selectItem(info)" /></td>
+						<td  class="{{info.priorityId == 1 ? 'urgent-text':''}}">
+							<div>{{info.floorName}}</div>
+						</td>
+						<td class="{{info.priorityId == 1 ? 'urgent-text':''}}">
+							<div>{{info.nursingStationDesc}}</div>
+						</td>
+						<td class="{{info.priorityId == 1 ? 'urgent-text':''}}">
+							<div>{{info.bedCategoryDesc}}</div>
+						</td>
+						<td class="{{info.priorityId == 1 ? 'urgent-text':''}}">
+							<div>{{info.bedNumber}}</div>
+						</td>
+						<td class="{{info.priorityId == 1 ? 'urgent-text':''}}">
+							<div >{{info.priorityDesc}}</div>
+						</td>
+						<td class="{{info.priorityId == 1 ? 'urgent-text':''}}">
+						
+							
+							<div ng-if="info.housekeepingStatusId == '5' || info.housekeepingStatusId == '1' "><select class="select-box" ng-model="info.assignedPersonId">
+								<option>Select User</option>
+								<option ng-repeat="info1 in usersList" value="{{info1.userId}}">{{info1.userName}}</option>
+							</select></div>
+							<div ng-if="info.housekeepingStatusId == '2' || info.housekeepingStatusId == '3'">{{info.userName}}</div>
+						</td>
+						<td class="{{info.priorityId == 1 ? 'urgent-text':''}}">
+							<div >{{info.reasonDesc}}</div>
+						</td>
+						<td class="text-center"><i class="fa fa-commenting font-size20" aria-hidden="true" data-toggle="modal" data-target="#notesForall" ng-click="displayNote(info.note)"></i></td>
+						<td class="{{info.priorityId == 1 ? 'urgent-text':''}}"><div>{{info.housekeepingStatusDesc}}</div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="notesForall" class="modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Note
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body common-sub-table">
+					<div class="row margin-top10" >
+						<div class="col-md-12 padding-left-right-set">
+							<!-- <input type="text" placeholder="Note" class="text-box-style"  ng-model="noteDoctor"> -->
+							<textarea placeholder="Note" ng-model="noteDoctor" rows="5"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		
+		$('.clockpicker').clockpicker();
+		$(".selectedPageName").text("House Keeping Worklist");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="houseKeeping"]').parents("li").addClass("active");
+	});
+</script>

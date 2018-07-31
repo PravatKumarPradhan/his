@@ -1,0 +1,180 @@
+
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper" >
+			<div class="container-fluid his-style">
+			 <div class="padding-top4 padding-left-right-set4" ng-include="'./views/common/common-patient-search-opd-without-counter.html'" style="margin-top:-5px"></div>
+ <div class="padding-top8 padding-left-right-set4" ng-include="'./views/common/patient-demography-info.html'"></div>
+            		<!-- <div class="row margin-top10 padding-left-right-10">
+			<div
+				class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"
+						data-toggle="modal" ng-click="saveIcuTransferRequest()"><i class="fa fa-floppy-o"
+						style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div
+				class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				 <input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required style="margin-top: 0px"/>
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div> -->
+		<div class="row margin-top10 padding-left-right-set4">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"  ng-click="saveShortLeaveRequest()"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+		</div>
+			<!-- 	<div class=" margin-top10">
+					<div class="row searched-patient-details-row">
+							<div class="col-md-11 col-sm-11 col-xs-11 ">
+								<span class="profile_pic margin-left10"> 
+									<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+								</span> 
+								<span class="margin-left10">John Deo 26/M </span>
+								<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> Pune-769</span>
+								<span class="margin-left10"><b class="padding-right10 ">Ward NO	:</b> W236544 </span>
+								<span class="margin-left10"><b class="padding-right10 ">BED NO	:</b> BM129091</span>
+								<span class="margin-left10">Dr. Suresh Pathak</span>
+							</div>
+						</div>
+					</div> -->
+            	<fieldset class="margin-top10">
+						<legend class="heading-div">Request Short Leave</legend>
+							<div class="row margin-top10">
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-calendar" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+													name="datepicker" id="datepicker"
+													uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+													placeholder="DD/MM/YYYY" ng-model="datepicker"
+													model-view-value="true" is-open="datepicker.opened"
+													datepicker-options="dateOptions" show-button-bar="false"
+													ng-click="openDatePicker()"> 
+													<label for="code">From Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-universal-access" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="clockpicker">
+												<input type="text" name="code" id="requiredOn" ng-model="shortRequest.fromTime" class="text-input floating-label">
+												<label for="code">From Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-calendar" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+													name="datepickerTo" id="datepickerTo"
+													uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+													placeholder="DD/MM/YYYY" ng-model="datepickerTo"
+													model-view-value="true" is-open="datepickerTo.opened"
+													datepicker-options="dateOptions" show-button-bar="false"
+													ng-click="openDatePickerTo()"> 
+													<label for="code"> To Date</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-universal-access" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="clockpicker">
+												<input type="text" name="code" id="requiredOn" ng-model="shortRequest.toTime" class="text-input floating-label">
+												<label for="code">To Time</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row margin-top10">
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-universal-access" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<select class="text-input floating-label" name="code" ng-model="shortRequest.reasonId">
+													<option>Select Short Leave Reason</option>
+													<option ng-repeat="info in reasonList" value="{{info.shortLeaveReasonId}}">{{info.shortLeaveReasonName}}</option>
+												</select> <label for="code">Select Reason For Short Leave</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-sticky-note" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<input type="text" name="code" ng-model="shortRequest.note" id="requiredOn" class="text-input floating-label">
+												<label for="code">Note</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+				</fieldset>
+  			</div>
+  			
+  			<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+  			
+		</div>
+<modal visible="showModal"></modal> 
+	<script type="text/javascript">
+
+$( document ).ready(function() {
+	
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+ 	$('.clockpicker').clockpicker();
+
+	$(".selectedPageName").text("Request Short Leave");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="shortLeaveDischarge"]').parents("li").addClass("active");
+	
+	
+});
+</script>

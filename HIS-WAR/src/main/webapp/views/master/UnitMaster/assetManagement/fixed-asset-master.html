@@ -1,0 +1,350 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<form name="fixedAssetTypeForm" novalidate>
+			<fieldset>
+				<!-- <legend class="heading-div">Package Master</legend> -->
+
+				<div class="row padding-top8 padding-left-right-set4">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="hidden" ng-model="vm.mode.genericId" value="0" />
+									<select class="text-input floating-label" ng-class="{dirty: vm.model.id}" name="assetType" ng-change="vm.model.PopulateAssetCategoryDropdown(vm.model.assetType); vm.model.isAssetTypeIdValid = false"
+									 ng-model="vm.model.assetType" ng-options="assetType.type for assetType in vm.model.assetTypeList">
+									</select>
+									<label for="code">Asset Type</label>
+									<p ng-if="vm.model.isAssetTypeIdValid" class="errorMsg">Enter Fixed Asset Type</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label" ng-class="{dirty: vm.model.id}" name="assetCategory" ng-model="vm.model.assetCategory"
+									 ng-options="assetCategory.category for assetCategory in vm.model.assetCategoryList" ng-change="vm.model.PopulateProductCategoryDropdown(vm.model.assetCategory); vm.model.isValidCode = false">
+										<!-- ng-change="vm.model.isAssetCategoryIdValid = false"  -->
+									</select>
+									<label for="code">Asset Category</label>
+									<p ng-if="vm.model.isValidCode" class="errorMsg">Enter Asset Category Code</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label" ng-model="vm.model.productCategory" name="code" ng-options=" productCategory.category for productCategory in vm.model.productCategoryList"
+									 ng-class="{dirty: vm.model.id}" ng-change="vm.model.isValidProductCat = false">
+									</select>
+									<label for="code">Product Category</label>
+								</div>
+								<p ng-if="vm.model.isValidProductCat" class="errorMsg">Enter Product Category</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<select class="text-input floating-label">
+								<option value=""></option>
+							</select>
+							<label for="code">Type</label>
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<div class="row padding-left-right-set4">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" ng-model="vm.model.itemCode" class="text-input floating-label"> <label for="code">Item Code</label>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label" ng-model="vm.model.type" name="code" ng-options=" type.type for type in vm.model.fixedAssetTypeList"
+									 ng-class="{dirty: vm.model.id}" ng-change="vm.model.isValidFixedAssetType = false">
+									</select>
+									<label for="code">Fixed Asset Type</label>
+								</div>
+								<p ng-if="vm.model.isValidFixedAssetType" class="errorMsg">Enter Type</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" ng-model="vm.model.itemCode" class="text-input floating-label" ng-change="vm.model.isValidItemCode = false">
+									<label for="code">Item Code</label>
+								</div>
+								<p ng-if="vm.model.isValidItemCode" class="errorMsg">Enter Item Code</p>
+>>>>>>> Stashed changes
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" ng-model="vm.model.productCode" ng-change="vm.model.isValidProductCode = false"
+									 class="text-input floating-label">
+									<label for="code">Product Code</label>
+								</div>
+								<p ng-if="vm.model.isValidProductCode" class="errorMsg">Enter Product Code</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" ng-model="vm.model.assetName" class="text-input floating-label" ng-change="vm.model.isValidAssetName = false">
+									<label for="code">Asset Name</label>
+								</div>
+								<p ng-if="vm.model.isValidAssetName" class="errorMsg">Enter Product Code</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="manufacturer" ng-model="vm.model.manufacturer" class="text-input floating-label" uib-typeahead="manufacturerNames.detail for manufacturerNames in vm.model.SearchManufacturer($viewValue)"
+									 typeahead-on-select="vm.model.AddManufacturer($item); vm.model.manufacturerSearch = '';" ng-change="vm.model.isManufacturerValid[$index] = false; vm.model.isValidManufacturer = false"
+									 ng-class="{borderRed: vm.model.isManufacturerValid[$index]}">
+									<label for="code">Manufacturer</label>
+								</div>
+								<p ng-if="vm.model.isValidManufacturer" class="errorMsg">Enter Manufacturer</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+			<div class="row margin-top10 padding-left-right-set1">
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmSave" type="submit">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+					<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+			</div>
+		</form>
+		<div class="row padding-left-right-set4 margin-top10">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tbody>
+						<tr class="">
+							<th class="width10">
+								Fixed Asset Type
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">
+								Asset Category
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">
+								Product Category
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">
+								Type
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">
+								Item Code
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">
+								Product Code
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">
+								Asset Name
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">
+								Manufacturer
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width3">
+								Status
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width3 text-center vertical-middle">
+								Action
+							</th>
+						</tr>
+						<tr ng-repeat="item in vm.model.fixedAssetList">
+							<td>{{item.fixedAssetType}}</td>
+							<td>{{item.assetCategory}}</td>
+							<td>{{item.productCategory}}</td>
+							<td>{{item.assetType}}</td>
+							<td>{{item.itemCode}}</td>
+							<td>{{item.productCode}}</td>
+							<td>{{item.name}}</td>
+							<td>{{item.manufactureType}}</td>
+							<td>
+								<label class="switch">
+									<input type="checkbox" class="switchInput" ng-model="item.status" ng-change="vm.model.ToggleStatus(item)">
+									<div class="slider round"></div>
+								</label>
+							</td>
+							<td class="padding-edit-button-table text-center">
+								<a ng-click="vm.model.GetFixedAssetMasterData(item.id)">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal start -->
+
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+		<div class="modal-content" style="border-radius: 0px !important;">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Are you sure you want to Save?</span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" ng-click="vm.model.SaveFixedAsset()">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal end -->
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Fixed Asset Master");
+		$(".sidebar-nav li").each(function () {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="fixedAssetMaster"]').parents("li").addClass("active");
+	});
+</script>

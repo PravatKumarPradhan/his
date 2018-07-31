@@ -1,0 +1,309 @@
+<!-- *****************************************************************************************************************************
+													
+****************************************************************************************************************************** -->
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<div class="row padding-left-right-10 padding-left0 margin-top4">
+			<div class="col-lg-3 col-md-4 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" class="text-input floating-label dirty" name="fromDate" id="fromDate" uib-datepicker-popup="dd/MM/yyyy"
+								 placeholder="DD/MM/YYYY" ng-model="vm.model.fromDate" model-view-value="true" is-open="vm.model.fromDateOpened" datepicker-options="vm.model.fromDateOptions"
+								 show-button-bar="false" ng-click="vm.model.OpenFromDate()">
+								<label for="code">From Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" class="text-input floating-label dirty" name="toDate" id="toDate" uib-datepicker-popup="dd/MM/yyyy" placeholder="DD/MM/YYYY"
+								 ng-model="vm.model.toDate" model-view-value="true" is-open="vm.model.toDateOpened" datepicker-options="vm.model.toDateOptions"
+								 show-button-bar="false" ng-click="vm.model.OpenToDate()">
+								<label for="code">To Date</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-2 polymer-icon">
+						<i class="fa fa-building-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-10">
+						<div class="">
+							<select name="store" id="store" class="text-input floating-label dirty" ng-model="vm.model.store" data-ng-options="store.store for store in vm.model.stores">
+							</select>
+							<label for="code"> Store</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-tasks" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<input type="text" name="code" ng-model="search.consumptionNo" class="text-input floating-label dirty">
+							<label for="code">Consumption No.</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-bullseye" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<select name="status" id="status" class="text-input floating-label dirty" ng-model="vm.model.status" data-ng-options="status.status for status in vm.model.statuses">
+							</select>
+							<label for="code">Status</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-10 text-width-auto">
+				<div class="common-save-button">
+					<a href="" class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.ConsumableAcceptanceSearch()" style="width: auto;">
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row margin-top10  padding-left-right-1">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout1">
+						<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" ng-model="search" placeholder="Search" style="margin-top: 0px">
+				<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<!-- table start-->
+		<div class="row padding-left-right-set4 margin-top4">
+			<div class="container-fluid his-style">
+				<div class="table-container padding-left-right-set4 padding-top5">
+					<div class="table-container-header">
+						<table class="table table-striped table-hover table-condensed table-bordered">
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width1">
+										<input type="checkbox" ng-click="vm.model.SelectAllRequests()" ng-model="vm.model.selectAllRows" ng-disabled="vm.model.consumableData == false"
+										/>
+									</th>
+									<th class="width6">
+										Consumption No.
+										<div class="float_right"  ng-click="sortType = 'consumptionNo'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width7">
+										Consumption Date
+										<div class="float_right"  ng-click="sortType = 'consumptionDate'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">
+										Store
+										<div class="float_right"  ng-click="sortType = 'store'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">
+										Remarks
+										<div class="float_right"  ng-click="sortType = 'remark'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width8">
+										Requested By
+										<div class="float_right"  ng-click="sortType = 'requestedBy'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width4">
+										Status
+										<div class="float_right"  ng-click="sortType = 'status'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										Approval Status
+										<div class="float_right"  ng-click="sortType = 'approvalStatus'; sortReverse = !sortReverse">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										Action
+									</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table-container-body" style="height:400px; overflow-y: scroll;">
+						<table class="table table-striped table-hover table-condensed table-bordered">
+							<tbody>
+								<tr ng-repeat="consumable in vm.model.consumableData | orderBy:sortType:sortReverse | filter:search">
+									<td class="width1">
+										<input type="checkbox" ng-model="consumable.isSelected" ng-click="vm.model.SelectConsumableRequest(consumable)" ng-disabled="vm.model.isDisable(consumable)"
+										/>
+									</td>
+									<td class="width6">{{consumable.consumptionNo}}</td>
+									<td class="width7">{{consumable.consumptionDate | date:'dd/MM/yyyy'}}</td>
+									<td class="width8">{{consumable.storeName}}</td>
+									<td class="width8">{{consumable.remark}}</td>
+									<td class="width8">{{consumable.requestedBy}}</td>
+									<td class="width4">{{consumable.status}}</td>
+									<td class="width6">{{consumable.approvalStatus}}</td>
+									<td style="    width: 5.78% !important;" class=" cursor-pointer">
+										<div class="col-md-4">
+											<a title="Print">
+												<i class="fa fa-print" aria-hidden="true"></i>
+											</a>
+										</div>
+										<div class="col-md-4">
+											<a ng-click="vm.model.ConsumableDetails(consumable)">Details</a>
+										</div>
+									</td>
+								</tr>
+								<tr ng-if="!vm.model.consumableData || vm.model.consumableData == false">
+									<td colspan="9" class="text-center">
+										<p>No Record Found</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- table end-->
+	</div>
+</div>
+
+<div id="confirmLogout1" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+		<!-- style="width: 25% !important;margin: 200px 0 0 510px !important;" -->
+		<div class="modal-content">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Are you sure you want to Save?</span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="vm.model.ApproveConsumableAcceptance();">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$(".selectedPageName").text("Consumable Acceptance");
+		$(".sidebar-nav li").each(function () {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		/*************************** rejection radio button function*********************************/
+		$(".rejection-details-row").hide();
+		$(".radioRejected").change(function () {
+			if ($(this).is(":checked")) {
+				$(this).closest(".row").siblings(".rejection-details-row").show();
+			}
+		});
+		$(".radioAccepted").change(function () {
+			if ($(this).is(":checked")) {
+				$(this).closest(".row").siblings(".rejection-details-row").hide();
+			}
+		});
+	});
+	/*************************** add button function start*********************************/
+	function addRow() {
+		//alert();
+		var n = document.getElementById("rejectContent").rows.length;
+		var id = Number(n);
+		//alert(id);
+		var test =
+
+			'<tr>'
+			+ '<td class="width12"><input type="text" placeholder="Qty" class="qty-textbox-fixed text-center"/></td>'
+			+ '<td class="width65 padding-top4"><select class="margin-left-right-set5 width94 select-box">'
+			+ '<option>Select Reason</option>'
+			+ '<option>Reason 1</option>'
+			+ '<option>Reason 2</option>'
+			+ '</select>'
+			+ '</td>'
+			+ '<td class="">'
+			+ '<input type="button" name="" id="addr" value="+" onclick="addRow()" class="btn btn-info add-dynamic-row margin-left-right-set5" style="padding: 2px 4px;">'
+			+ '<input type="button" name="" id="addr" value="-" onclick="delRow(this)" class="btn btn-info add-dynamic-row margin-left3" style="padding: 2px 6px;">'
+			+ '</td>'
+			+ '</tr>';
+
+		$("#rejectContent").append(test);
+	}
+	function delRow(r) {
+		var o = r.parentNode.parentNode.rowIndex;
+		document.getElementById("rejectContent").deleteRow(o);
+	}
+/*************************** add button function end*********************************/
+</script>

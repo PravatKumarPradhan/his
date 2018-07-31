@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+	<!-- <configuration> <date-format>dd-MM-yyyy HH:mm:ss</date-format> </configuration> -->
+
+	<!-- LIS GLOBAL -->
+
+	<mapping map-id="SampleMasterDtoTOSampleMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.SampleMaster</class-a>
+		<class-b>com.param.lis.global.dto.SampleMasterDto</class-b>
+	</mapping>
+
+	<mapping map-id="GlobalCommonDtoTOSampleMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.SampleMaster</class-a>
+		<class-b>com.param.lis.global.dto.GlobalCommonDto</class-b>
+	</mapping>
+
+	<mapping map-id="ContainerMasterDtoTOContainerMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.ContainerMaster</class-a>
+		<class-b>com.param.lis.global.dto.ContainerMasterDto</class-b>
+	</mapping>
+	<mapping map-id="TechniqueMasterDtoTOTechniqueMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.TechniqueMaster</class-a>
+		<class-b>com.param.lis.global.dto.TechniqueMasterDto</class-b>
+	</mapping>
+
+	<mapping map-id="PrerequisitesMasterDtoTOPrerequisitesMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.PrerequisitesMaster</class-a>
+		<class-b>com.param.lis.global.dto.PrerequisitesMasterDto</class-b>
+	</mapping>
+
+	<mapping map-id="MediaMasterDtoTOMediaMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.MediaMaster</class-a>
+		<class-b>com.param.lis.global.dto.MediaMasterDto</class-b>
+	</mapping>
+
+
+	<mapping map-id="UnitMasterDtoTOUnitMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.LabUnitMaster</class-a>
+		<class-b>com.param.lis.global.dto.UnitMasterDto</class-b>
+	</mapping>
+	<mapping map-id="ReagentMasterDtoTOReagentMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.ReagentMaster</class-a>
+		<class-b>com.param.lis.global.dto.ReagentMasterDto</class-b>
+	</mapping>
+	<mapping map-id="ReportTypeMasterDtoTOReportTypeMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.ReportTypeMaster</class-a>
+		<class-b>com.param.lis.global.dto.ReportTypeMasterDto</class-b>
+	</mapping>
+	<mapping map-id="BacteriaMasterDtoTOBacteriaMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.BacteriaMaster</class-a>
+		<class-b>com.param.lis.global.dto.BacteriaMasterDto</class-b>
+	</mapping>
+
+	<mapping map-id="AntibioticClassMasterDtoTOAntibioticClassMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.AntibioticClassMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.AntibioticClassMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="AntibioticMasterDtoTOAntibioticMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.AntibioticMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.AntibioticMasterDto
+		</class-b>
+	</mapping>
+	<mapping map-id="ColonyMasterDtoTOColonyMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.ColonyMaster</class-a>
+		<class-b>com.param.lis.global.dto.ColonyMasterDto</class-b>
+	</mapping>
+
+	<mapping map-id="SlideProcedureMasterDtoTOSlideProcedureMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.SlideProcedureMaster</class-a>
+		<class-b>com.param.lis.global.dto.SlideProcedureMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="WtfilmStudyMasterDtoTOWtfilmStudyMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.WtfilmStudyMaster</class-a>
+		<class-b>com.param.lis.global.dto.WtfilmStudyMasterDto</class-b>
+	</mapping>
+
+	<mapping map-id="SpecimanMasterDtoTOSpecimanMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.SpecimanMaster</class-a>
+		<class-b>com.param.lis.global.dto.SpecimanMasterDto</class-b>
+	</mapping>
+	<mapping map-id="IncubationTestMasterDtoTOIncubationTestMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.IncubationTestMaster</class-a>
+		<class-b>com.param.lis.global.dto.IncubationTestMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="BlockMasterDtoTOBlockMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.BlockMaster</class-a>
+		<class-b>com.param.lis.global.dto.BlockMasterDto</class-b>
+	</mapping>
+
+	<mapping map-id="AntibioticGroupMasterDtoTOAntibioticGroupMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.AntibioticGroupMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.AntibioticGroupMasterDto
+		</class-b>
+	</mapping>
+	<mapping map-id="SensitivityTestResultMasterDtoTOSensitivityTestResultMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.SensitivityMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.SensitivityMasterDto
+		</class-b>
+	</mapping>
+	<mapping map-id="AgeGroupMasterDtoTOAgeGroupMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.AgeGroupMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.AgeGroupMasterDto
+		</class-b>
+	</mapping>
+	<mapping map-id="BactClassificationMasterDtoTOBactClassificationMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.BactClassificationMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.BactClassificationMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="AntibioticAdditionMasterDtoTOAntibioticAdditionMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.AntibioticAdditionMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.AntibioticAdditionMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="ParamRefrengMasterDtoToParamRefrengMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.ParamRefrengMaster</class-a>
+		<class-b>com.param.lis.unit.dto.ParamRefrengMasterDto</class-b>
+	</mapping>
+
+	<mapping
+		map-id="SampleTypeMediaMappingMasterDtoTOSampleTypeMediaMappingMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.SampleTypeMediaMappingMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.SampleTypeMediaMappingMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="MediaColonyMapperMasterDtoTOMediaColonyMapperMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.MediaColonyMapperMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.MediaColonyMapperMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping
+		map-id="AntibioticGroupAdditionMasterDtoTOAntibioticGroupAdditionMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.AntibioticGroupAdditionMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.AntibioticGroupAdditionMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="IncubationPeriodMasterDtoTOIncubationPeriodMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.IncubationPeriodMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.IncubationPeriodMasterDto
+		</class-b>
+	</mapping>
+	
+
+	<!-- LIS UNIT MASTER -->
+	<mapping map-id="DepartmentMasterDtoTODepartmentMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.DepartmentMaster 
+		</class-a>
+		<class-b>com.param.lis.unit.dto.DepartmentMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="SpecialtyTemplateMapperDtoTOSpecialtyTemplateMapper"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.SpecialtyTemplateMapper 
+		</class-a>
+		<class-b>com.param.lis.unit.dto.SpecialtyTemplateMapperDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="HeaderMasterDtoTOHeaderMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.HeaderMaster
+		</class-a>
+		<class-b>com.param.lis.unit.dto.HeaderMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="PhlebotomyMasterDtoTOPhlebotomyMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.PhlebotomyMaster
+		</class-a>
+		<class-b>com.param.lis.unit.dto.PhlebotomyMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="StorageLocationMasterDtoTOStorageLocationMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.StorageLocationMaster
+		</class-a>
+		<class-b>com.param.lis.unit.dto.StorageLocationMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="ParameterMasterDtoTOParameterMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.ParameterMaster
+		</class-a>
+		<class-b>com.param.lis.unit.dto.ParameterMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="OrganismGroupMasterDtoTOOrganismGroupMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.OrganismGroupMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.OrganisumGroupMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="OrganismMasterDtoTOOrganismMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.OrganismMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.OrganismMasterDto
+		</class-b>
+	</mapping>
+	<mapping map-id="StainigMasterDtoTOStainigMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.StainigMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.StainigMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="OrganismGroupOrganismMapperMasterDtoTOOrganismGroupOrganismMapperMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.OrganismGroupOrganismMapperMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.OrganismGroupOrganismMapperMasterDto
+		</class-b>
+	</mapping>
+
+
+	<mapping map-id="AntibioticOrganismMpprMasterDtoTOAntibioticOrganismMpprMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.AntibioticOrganismMpprMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.AntibioticOrganismMpprMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="TextualRangeMasterDtoTOTextualRangeMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.TextualRangeMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.TextualRangeMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="RefRangeTypeMasterDtoTORefRangeTypeMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.global.RefRangeTypeMaster
+		</class-a>
+		<class-b>com.param.lis.global.dto.RefRangeTypeMasterDto
+		</class-b>
+	</mapping>
+	
+	
+	
+
+	<!-- LIS UNIT -->
+	<mapping map-id="TestMasterDtoTOTestMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.TestMaster</class-a>
+		<class-b>com.param.lis.unit.dto.TestMasterDto</class-b>
+	</mapping>
+
+	<mapping map-id="TestParamMpprDtoToTestParamMppr" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.TestParamMppr</class-a>
+		<class-b>com.param.lis.unit.dto.TestParamMpprDto</class-b>
+	</mapping>
+	
+	
+	<mapping map-id="ParamTextualRanageMasterDtoToParamTextualRanageMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.ParamTextualRanageMaster</class-a>
+		<class-b>com.param.lis.unit.dto.ParamTextualRanageMasterDto</class-b>
+	</mapping>
+	
+		<mapping map-id="ParamMultiTextualRangeMasterDtoToParamMultiTextualRangeMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.ParamMultiTextualRangeMaster</class-a>
+		<class-b>com.param.lis.unit.dto.ParamMultiTextualRangeMasterDto</class-b>
+	</mapping>
+
+	<mapping map-id="ParamRefrengMasterDtoTOParamRefrengMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.ParamRefrengMaster
+		</class-a>
+		<class-b>com.param.lis.unit.dto.ParamRefrengMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="MicrobiologyTestMasterTOMicrobiologyTestMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.MicrobiologyTestMaster 
+		</class-a>
+		<class-b>com.param.lis.unit.dto.MicrobiologyTestMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="FormulaDetailsDtoTOFormulaDetails" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.FormulaDetails
+		</class-a>
+		<class-b>com.param.lis.unit.dto.FormulaDetailsDto
+		</class-b>
+	</mapping>
+	
+		<mapping map-id="FormulaMasterDtoTOFormulaMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.FormulaMaster
+		</class-a>
+		<class-b>com.param.lis.unit.dto.FormulaMasterDto
+		</class-b>
+	</mapping>
+	
+	
+
+	<!-- LIS TRANSACTION -->
+	<mapping map-id="LabSampleMasterDtoTOLabSampleMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.transaction.LabSampleMaster</class-a>
+		<class-b>com.param.lis.transaction.dto.LabSampleMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="LabSampleDetailsMasterDtoTOLabSampleDetailsMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.transaction.LabSampleDetailsMaster
+		</class-a>
+		<class-b>com.param.lis.transaction.dto.LabSampleDetailsMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="LabResultDetailsViewDtoTOLabResultDetailsMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.transaction.LabResultDetailsMaster
+		</class-a>
+		<class-b>com.param.lis.transaction.dto.LabResultDetailsViewDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="LabResultMasterDtoToLabResultMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.transaction.LabResultMaster
+		</class-a>
+		<class-b>com.param.lis.transaction.dto.LabResultMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="LabSampleMasterDtoToLabSampleMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.transaction.LabSampleMaster
+		</class-a>
+		<class-b>com.param.lis.transaction.dto.LabSampleMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="LabTemplateMasterToLabTemplateMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.LabTemplateMaster</class-a>
+		<class-b>com.param.lis.unit.dto.LabTemplateMasterDto</class-b>
+	</mapping>
+	<mapping map-id="RackMasterDtoTORackMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.RackMaster</class-a>
+		<class-b>com.param.lis.unit.dto.RackMasterDto</class-b>
+	</mapping>
+	<mapping map-id="RackShelfMasterDtoTORackShelfMaster" date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.unit.RackShelfMaster</class-a>
+		<class-b>com.param.lis.unit.dto.RackShelfMasterDto</class-b>
+	</mapping>
+	
+	
+
+	<!-- LIS PATIENT ARRIVAL -->
+	<mapping map-id="PatientArrivalMapperMasterDtoTOLabPatientArrivalMapperMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.transaction.LabPatientArrivalMapperMaster
+		</class-a>
+		<class-b>com.param.lis.transaction.dto.PatientArrivalMapperMasterDto
+		</class-b>
+	</mapping>
+	
+	
+
+
+	<!-- LIS MICROBIOLOGY -->
+
+	<mapping map-id="MicrobioResultEntryMasterDtoToMicrobioResultEntryMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.MicrobioResultEntryMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.MicrobioResultEntryMasterDto
+		</class-b>
+		<field-exclude>
+			<a>incubationStartTime</a>
+			<b>incubationStartTime</b>
+		</field-exclude>
+	</mapping>
+
+	<mapping map-id="MicrobioResultDetailsMasterDtoToMicrobioResultDetailsMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.MicrobioResultDetailsMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.MicrobioResultDetailsMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="MicroscopicExaminationMasterDtoToMicroscopicExaminationMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.MicroscopicExaminationMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.MicroscopicExaminationMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping
+		map-id="MicroscopicExaminationDetailsMasterDtoToMicroscopicExaminationDetailsMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.MicroscopicExaminationDetailsMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.MicroscopicExaminationDetailsMasterDto
+		</class-b>
+	</mapping>
+
+  	<mapping
+		map-id="MicroscopicExaminationSubDetailsMasterDtoToMicroscopicExaminationSubDetailsMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.MicroscopicExaminationSubDetailsMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.MicroscopicExaminationDetailsMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="SensitivityTestResultMasterDtoToSensitivityTestResultMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.SensitivityTestResultMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.SensitivityTestResultMasterDto
+		</class-b>
+	</mapping>
+
+
+	<mapping
+		map-id="SensitivityTestResultDetailsMasterDtoToSensitivityTestResultDetailsMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.SensitivityTestResultDetailsMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.SensitivityTestResultDetailsMasterDto
+		</class-b>
+	</mapping>
+	<mapping
+		map-id="SensitivityTestResultSubDetailsMasterDtoToSensitivityTestResultSubDetailsMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.SensitivityTestResultSubDetailsMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.SensitivityTestResultSubDetailsMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="TBiochemicalTestDetailsMasterDtoToTBiochemicalTestDetailsMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.TBiochemicalTestDetailsMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.TBiochemicalTestDetailsMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="TBiochemicalTestMasterDtoToTBiochemicalTestMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.TBiochemicalTestMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.TBiochemicalTestMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="TMacroscopicExaminationMasterDtoToTMacroscopicExaminationMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.TMacroscopicExaminationMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.TMacroscopicExaminationMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="TMicroIncubationDetailsMasterDtoToTMicroIncubationDetailsMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.TMicroIncubationDetailsMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.TMicroIncubationDetailsMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="TMicroIncubationMasterDtoToTMicroIncubationMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.TMicroIncubationMaster
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.TMicroIncubationMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="TMicroSampleMediaDtoToTMicroSampleMedia"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.micro.TMicroSampleMedia
+		</class-a>
+		<class-b>com.param.lis.microbiology.transaction.dto.TMicroSampleMediaDto
+		</class-b>
+	</mapping>
+	
+	
+	<!-- LIS Hematology -->
+	
+	
+	
+	<!-- Histopathology -->
+	<mapping
+		map-id="TBlockMasterDtoToTBlockMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.histo.TBlockMaster
+		</class-a>
+		<class-b>com.param.lis.histopathology.transaction.dto.TBlockMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping
+		map-id="TGrossMasterDtoToTGrossMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.histo.TGrossMaster
+		</class-a>
+		<class-b>com.param.lis.histopathology.transaction.dto.TGrossMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping
+		map-id="TMicroExaDetailsDtoToTMicroExaDetails"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.histo.TMicroExaDetails
+		</class-a>
+		<class-b>com.param.lis.histopathology.transaction.dto.TMicroExaDetailsDto
+		</class-b>
+	</mapping>
+	
+	<mapping
+		map-id="TRestainingReqSubDetailsMasterDtoToTRestainingReqSubDetailsMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.histo.TRestainingReqSubDetailsMaster
+		</class-a>
+		<class-b>com.param.lis.histopathology.transaction.dto.TRestainingReqSubDetailsMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping
+		map-id="TRestainingRequestDetailsMasterDtoToTRestainingRequestDetailsMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.histo.TRestainingRequestDetailsMaster
+		</class-a>
+		<class-b>com.param.lis.histopathology.transaction.dto.TRestainingRequestDetailsMasterDto
+		</class-b>
+	</mapping>
+	<mapping
+		map-id="TRestainingRequestMasterDtoToTRestainingRequestMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.histo.TRestainingRequestMaster
+		</class-a>
+		<class-b>com.param.lis.histopathology.transaction.dto.TRestainingRequestMasterDto
+		</class-b>
+	</mapping>
+	<mapping
+		map-id="TSlideMasterDtoToTSlideMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.histo.TSlideMaster
+		</class-a>
+		<class-b>com.param.lis.histopathology.transaction.dto.TSlideMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping
+		map-id="TSpecimanMasterDtoToTSpecimanMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.histo.TSpecimanMaster
+		</class-a>
+		<class-b>com.param.lis.histopathology.transaction.dto.TSpecimanMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping
+		map-id="TSubSpecimanMasterDtoToTSubSpecimanMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.histo.TSubSpecimanMaster
+		</class-a>
+		<class-b>com.param.lis.histopathology.transaction.dto.TSubSpecimanMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping
+		map-id="TTemplateResultDtoToTTemplateResult"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.histo.TTemplateResult
+		</class-a>
+		<class-b>com.param.lis.histopathology.transaction.dto.TTemplateResultDto
+		</class-b>
+	</mapping>
+	<mapping
+		map-id="OutSourceMasterDtoToOutSourceMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.histo.OutSourceMaster
+		</class-a>
+		<class-b>com.param.lis.histopathology.transaction.dto.OutSourceMasterDto
+		</class-b>
+	</mapping>
+	
+	
+	<mapping
+		map-id="OutSourceDetailMasterDtoToOutSourceDetailMaster"
+		date-format="dd-MM-yyyy">
+		<class-a>com.param.entity.lis.histo.OutSourceDetailMaster
+		</class-a>
+		<class-b>com.param.lis.histopathology.transaction.dto.OutSourceDetailMasterDto
+		</class-b>
+	</mapping>
+	
+<mapping map-id="TSlideStorageMasterDtoToTSlideStorageMaster"
+	date-format="dd-MM-yyyy">
+	<class-a>com.param.entity.lis.histo.TSlideStorageMaster
+	</class-a>
+	<class-b>com.param.lis.histopathology.transaction.dto.TSlideStorageMasterDto
+	</class-b>
+</mapping>
+	
+	<mapping map-id="TFrozenSectionReqMasterDtoToTFrozenSectionReqMaster"
+	date-format="dd-MM-yyyy">
+	<class-a>com.param.entity.lis.histo.TFrozenSectionReqMaster
+	</class-a>
+	<class-b>com.param.lis.histopathology.transaction.dto.TFrozenSectionReqMasterDto
+	</class-b>
+</mapping>
+
+<mapping map-id="TPanelMasterDtoToTPanelMaster"
+	date-format="dd-MM-yyyy">
+	<class-a>com.param.entity.lis.unit.TPanelMaster
+	</class-a>
+	<class-b>com.param.lis.unit.dto.TPanelMasterDto
+	</class-b>
+</mapping>
+	
+</mappings>

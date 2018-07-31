@@ -1,0 +1,3214 @@
+<style>
+.sidebar-wrapper {
+	cursor: wait;
+	pointer-events: none;
+}
+/* #li-span-margin{
+	margin-left: 20px !important;
+} */
+</style>
+<!-- Sidebar -->
+<div id="sidebar-wrapper" class="clini-sidebar">
+	<ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+
+		<!-- OPD Main Menu Start-->
+		<li><a class="cursor-pointer"> <i class="fa fa-blind"
+				aria-hidden="true"></i> <span>OPD</span>
+		</a> <!-- OPD Sub Menu One Start-->
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Patient
+							Management</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a class="cursor-pointer"
+							href="#/patientRegistration"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Patient
+									Registration</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/appointmentScheduling/year"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Appointment Scheduling</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/encounter/encounterDetails"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Encounter</span>
+						</a></li>
+						<li>
+							<a class="cursor-pointer" href="#/encounterQueueManagement">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Encounter Queue Management</span>
+							</a>
+						</li>
+						<li><a class="cursor-pointer" href="#/appointments/home">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Appointments</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/appointmentList">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Appointment
+									List</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/patientList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Patient
+									List</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/OPDCoverSheet"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>OPD
+									Coversheet</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Billing</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;"><!-- href="#/opdBilling" -->
+						<li><a class="cursor-pointer" href="#/newOPDBilling" > <!-- ng-click="gotoOpBilling()" -->
+						 <i class="fa fa-pencil" aria-hidden="true"></i> <span>OPD
+									Bill</span>
+						</a></li>
+						
+						<!-- Unit module - Deposit Moved 20/03/2018  -->
+						<li>
+							<a href="#/deposit">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">Deposit</span>
+							</a>
+						</li>
+						
+						<li><a class="cursor-pointer" href="#/billList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Bill
+									List</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/debitNote"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Debit
+									Note</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/debitNoteList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Debit
+									Note List</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/creditNote"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Credit
+									Note</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/creditNoteList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Credit
+									Note List</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/refund"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Refund
+									</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/refundAgainstDeposit"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Refund Against Deposit
+									</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/refundList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Refund List
+									</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/refundAgainstCR"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Refund Against CR
+									</span>
+						</a></li>
+					</ul></li>
+					<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Doctor Share</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;"><!-- href="#/opdBilling" -->
+						<li>
+							<a href="#/doctorShareProcess">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">Doctor Share Process</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/doctorSharePaymentVoucher">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">Doctor Share Payment Voucher</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/referralDoctorShareProcess">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">Referral Doctor Share Process</span>
+							</a>
+						</li>
+						</ul>
+					</li>
+			</ul> <!-- OPD Sub Menu One End--></li>
+		<!-- OPD Main Menu End-->
+		<!-- IPD Main Menu Start-->
+		<li><a class="cursor-pointer"> <i class="fa fa-user-secret"
+				aria-hidden="true"></i> <span>IPD</span>
+		</a> <!-- IPD Sub Menu One Start-->
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Admission</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a class="cursor-pointer"
+							ng-click="getAdmissionNote('ADN')"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Admission Request</span>
+						</a></li>
+						<li><a href="#/pendingAdmissionDischarge"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Pending
+									Admission</span>
+						</a></li>
+						<li><a href="#/bedReservationList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Bed
+									Reservation List</span>
+						</a></li>
+						<li><a href="#/bedAvailability"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Bed Availability</span>
+						</a></li>
+						<li><a href="#/bedAllocation"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Bed Allocation</span>
+						</a></li>
+						<li><a href="#/admittedPatientList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Admitted
+									patient List</span>
+						</a></li>
+						<li><a href="#/passIssued"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Issued Pass</span>
+						</a></li>
+					</ul></li>
+
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Transfers</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/transferRequestAcceptance"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Acceptance
+									Transfer Request</span>
+						</a></li>
+					</ul></li>
+
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Billing</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a class="cursor-pointer" href="#/billEstimation"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Bill
+									Estimation</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/IPDCharges"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>IPD
+									Charges</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/IPDBilling"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>IPD
+									Billing</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/intermediateBill">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Intermediate
+									Billing</span>
+						</a></li>
+						<li><a href="#/updatePayeeInformation"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Update
+									Payee Information</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/preAuthorizationRequest">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Pre Authorization 
+									Request</span>
+						</a></li>
+					</ul></li>
+
+			</ul> <!-- IPD Sub Menu One End--></li>
+		<!-- IPD Main Menu End-->
+
+		<!-- NURSING Main Menu Start-->
+		<li><a class="cursor-pointer"> <i class="fa fa-heartbeat"
+				aria-hidden="true"></i> <span>Nursing</span>
+		</a> <!-- OPD Sub Menu One Start-->
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Workstation</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/patientAcceptance/newAdmissionList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Patient
+									Acceptance</span>
+						</a></li>
+						<li><a href="#/allergies"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Allergies</span>
+						</a></li>
+						<li><a href="#/bedManagement"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Map Of Bed</span>
+						</a></li>
+						<li><a href="#/drugAdministrator"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Drug
+									Administration</span>
+						</a></li>
+						<li><a href="#/sampleCollection"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Sample Collection</span>
+						</a></li>
+						<li><a href="#/nursingOrderView"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Nursing Orders</span>
+						</a></li>
+						<li><a href="#/icuBedBookingStatus"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>ICU
+									Booking</span>
+						</a></li>
+						<li><a href="#/pendingInvestigations"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Pending
+									Investigations</span>
+
+						</a></li>
+						<li><a href="#/homecareMedicationEntry"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Homecare
+									Medication Entry</span>
+						</a></li>
+
+						<li><a href="#/patientIssueReturn"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Patient Sales Return</span>
+						</a></li>
+					</ul></li>
+
+
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Pharmacy</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/patientIssueAcceptance"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Issue
+									Acceptance</span>
+						</a></li>
+						<li>
+							<a href="#/patientIndent">
+								<i class="fa fa-pencil" aria-hidden="true"></i> 
+								<span>Patient Indent</span>
+							</a>
+						</li>
+						<li><a href="#/billableConsumption"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Billable
+									Consumption</span>
+						</a></li>
+						<li><a href="#/returnBillableConsumption"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Return Billable
+									Consumption</span>
+						</a></li>
+					</ul></li>
+
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Inventory</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/nonBillableConsumption"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Non-Billable
+									Consumption</span>
+						</a></li>
+						<!-- <li>
+							<a href="#/consumableIndenting"> 
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Indent Consumable</span>
+							</a>
+						</li> -->
+						<li>
+							<a href="#/consumableAcceptance"> <i
+								class="fa fa-pencil" aria-hidden="true"></i>
+								 <span>Accept Consumable</span>
+							</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Transfer</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a
+							href="#/initiateBedTransfer/initiateRequestTransferBed"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Initiate
+									Bed Transfer</span>
+						</a></li>
+						<li><a href="#/transferRequest/initiateRequestTransferBed">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Transfer
+									Request</span>
+						</a></li>
+						<!-- <li>
+							<a href="">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Pending Surgeries</span>
+							</a>
+						</li> -->
+						<li><a href="#/transferToOT/OTTransferRequest"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>OT
+									Transfer</span>
+						</a></li>
+						<li><a
+							href="#/transferForInvestigation/investigationTransferRequest">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Investigation
+									Transfer</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Discharge</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/patientForDischarge"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Marked
+									For Discharge</span>
+						</a></li>
+						<li><a href="#/dischargeMedicationReconciliation"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>
+									Medication Reconciliation</span>
+						</a></li>
+						<li><a href="#/dischargeMedicationHandover"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Medication
+									Hand Over</span>
+						</a></li>
+						<li><a href="#/readyForBilling"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Ready For Billing</span>
+						</a></li>
+						<li><a href="#/finalDischarge"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Final Discharge</span>
+						</a></li>
+
+
+						<li><a href="#/abscondingPatient"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Absconding
+									patient</span>
+						</a></li>
+						<li><a href="#/shortLeaveDischarge"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Request
+									Short Leave</span>
+						</a></li>
+						<li><a href="#/shortLeaveStatus"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Short Leave Status</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Homecare
+							Medication</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/homecareMedicationEntry"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>
+									Medication Entry</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Narcotics
+							Store</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/returnOfEmptyAmpoules"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Return
+									Empty Ampoules</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>House
+							Keeping</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/cleanedBedAccept"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Accept Cleaned Bed</span>
+						</a></li>
+					</ul></li>
+
+
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Crash Cart</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/crashCartRequest"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Crash
+									Cart Request</span>
+						</a></li>
+						<li><a href="#/crashCartRequestApproval"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Crash Cart Request Approval</span>
+						</a></li>
+					</ul></li>
+					
+
+					<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>CSSD</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/KitIndent"><i
+					class="fa fa-pencil" aria-hidden="true"></i><span>
+					Kit Indent</span></a></li>
+				<li><a href="#/KitIndentApproval"><i
+					class="fa fa-pencil" aria-hidden="true"></i><span>
+					Kit Indent Approval</span></a></li>
+				<li><a href="#/KitIndentAcceptance"><i
+					class="fa fa-pencil" aria-hidden="true"></i><span>
+					Kit Issue Acceptance</span></a></li>
+				<li><a href="#/KitReturn"><i
+					class="fa fa-pencil" aria-hidden="true"></i><span>
+					Kit Return</span></a></li>
+					</ul></li>
+
+					
+					<li>
+						<a class="cursor-pointer">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Linen-Laundry</span>
+						</a>
+						<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" style="list-style-type: none;">
+							<li>
+								<a class="cursor-pointer" href="#/linenIndent">
+									<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+									<span>Linen Indent</span>
+								</a>
+							</li>
+							<li>
+								<a class="cursor-pointer" href="#/linenIndentApproval">
+									<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+									<span>Linen Indent Approval</span>
+								</a>
+							</li>
+							<li>
+								<a class="cursor-pointer" href="#/linenIssueacceptance">
+									<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+									<span>Linen Issue Acceptance</span>
+								</a>
+							</li>
+							<li>
+								<a class="cursor-pointer" href="#/washingRequest">
+									<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+									<span>Washing Request</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+
+
+			</ul></li>
+		<!-- NURSING Main Menu End-->
+
+		<!-- Pharmacy Main Menu Start-->
+		<li class="pharmacyPopup"><a class="cursor-pointer"> <i
+				class="fa fa-medkit" aria-hidden="true"></i> <span>Pharmacy</span>
+		</a>
+
+			<ul
+				class="pharmacyPopupList nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none; display: none">
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>IP
+							Pharmacy</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/pharmacologyValidaionWorklist"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Pharmacology
+									Validation </span>
+						</a></li>
+						<li><a href="#/assigningPickerDispenser"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Assign
+									Picker</span>
+						</a></li>
+						<li><a href="#/pendingIssues"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Pending Issues</span>
+						</a></li>
+						<li><a href="#/pendingHandoverWorkList"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Pending
+									Handover WorkList</span> <!-- <span class="alignmet-span-for-sidebar"></span> -->
+						</a></li>
+						<li><a href="#/patientIssueRejection"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Patient
+									Issue Rejection</span>
+						</a></li>
+						<li><a href="#/pendingRejectedRejections"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Rejected
+									Rejection</span>
+						</a></li>
+						<li><a href="#/patientReturnAcceptance"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Return
+									Acceptance</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>OP
+							Pharmacy</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/outPatientSalesWorklist"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Sales
+									Worklist</span>
+						</a></li>
+						<li><a href="#/billSalesReturn"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Sales Return</span>
+						</a></li>
+						<li><a href="#/pharmacyBillList"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Bill List</span>
+						</a></li>
+						<li><a href="#/walkInSales"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Walk in Sales</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Narcotics
+							Store</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/narcoticsIssueWorklist"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span> Issue
+									Worklist</span>
+						</a></li>
+						<li><a href="#/deliveryWokrlist"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span> Delivery Worklist</span>
+						</a></li>
+						<li><a href="#/acceptanceOfEmptyAmpoules"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Empty
+									Ampoules </span>
+						</a></li>
+					</ul></li>
+					<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>IN Patient Pharmacy</span>
+						</a>
+							<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+								style="list-style-type: none;">
+								<li><a href="#/patientConsumableIssue"> <i
+										class="fa fa-pencil" aria-hidden="true"></i> <span>Patient Consumbale Issue </span>
+								</a></li>
+							</ul></li>
+
+			</ul></li>
+		<!-- Pharmacy Main Menu End-->
+		<!-- Inventory main menu start -->
+		<li><a class="cursor-pointer"> <i class="fa fa-barcode"
+				aria-hidden="true"></i> <span>Inventory</span>
+		</a>
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span
+						style="margin-left: 22px;">Nursing</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<!-- <li>
+							<a href="">
+								<i class="fa fa-server" aria-hidden="true"></i>
+								<span style="margin-left: 22px;">Nursing Order</span>
+							</a>
+						</li> -->
+						<!-- <li>
+	                			<a href="transferToICU"><i class="fa fa-server" aria-hidden="true"></i><span style="margin-left:22px;">Transfer To ICU</span></a>
+	             		</li> -->
+
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Store</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/storeIndenting"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Store Indent</span>
+						</a></li>
+						<li><a href="#/storeIndentApproval"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Store
+									Indent Approval</span>
+						</a></li>
+						<!-- <li><a href="#/topUpIndent"> <i
+								class="fa fa-pencil-square-o" aria-hidden="ture"></i> <span
+								style="margin-left: 22px;">Top Up Indent</span>
+						</a></li> -->
+						<li><a href="#/pendingStoreIndents"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Pending
+									Store Indents</span>
+						</a></li>
+						<li><a href="#/materialIssue/pendingIssue"> <i class="fa fa-pencil"
+								aria-hidden="ture"></i> <span>Material Issue</span>
+						</a></li>
+						<li><a href="#/materialIssueAcceptance"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Material
+									Issue Acceptance</span>
+						</a></li>
+						<li><a href="#/materialReturn"> <i class="fa fa-pencil"
+								aria-hidden="ture"></i> <span>Material Return</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/materialReturnAcceptance"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Material Return Acceptance</span>
+								<!-- <span class="alignmet-span-for-sidebar"></span> -->
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/rejectedMaterialAcceptance"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Rejected Material
+									Acceptance </span> <!-- <span class="alignmet-span-for-sidebar"></span> -->
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/materialPicker"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Material Picker
+								</span> <!-- <span class="alignmet-span-for-sidebar"></span> -->
+						</a></li>
+						<!-- <li><a href="#/expiredItemsReturns"> <i
+								class="fa fa-pencil-square-o" aria-hidden="ture"></i> <span
+								style="margin-left: 22px;">Expired Items Return</span>
+						</a></li>
+						<li><a href="#/expiredReturnAcceptance"><i
+								class="fa fa-pencil-square-o" aria-hidden="ture"></i> <span
+								style="margin-left: 22px;">Expired Return </span>
+								<span class="alignmet-span-for-sidebar">Acceptance</span>
+						</a></li> -->
+						<li><a href="#/wasteStore"> <i class="fa fa-pencil"
+								aria-hidden="ture"></i> <span style="margin-left: 22px;">Waste
+									Store</span>
+						</a></li>
+						<li><a href="#/returnaleGatepassApproval"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Returnable
+									Gatepass Approval</span> 
+									<!-- <span class="alignmet-span-for-sidebar">Pending List</span> -->
+						</a></li>
+						<!-- <li><a href="#/pendingHandoverWorkList"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Pending
+									Handover WorkList</span> <span class="alignmet-span-for-sidebar"></span>
+						</a></li> -->
+						<li><a href="#/storeStockDashboard"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Store
+									Stock Dashboard</span> <span class="alignmet-span-for-sidebar"></span>
+						</a></li>
+						<li><a href="#/pendingForShelfAllocation"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Pending
+									For Shelf Allocation</span> <!-- <span class="alignmet-span-for-sidebar"></span> -->
+						</a></li>
+						<li><a href="#/batchExpDateChange"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Batch
+									Exp Date Change</span> <span class="alignmet-span-for-sidebar"></span>
+						</a></li>
+						<li><a href="#/batchExpDateChangeApproval"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span
+								style="margin-left: 22px;">Batch Exp Date Change</span> <span
+								class="alignmet-span-for-sidebar">Approval</span>
+						</a></li>
+						<li><a href="#/drugRecall"> <i class="fa fa-pencil"
+								aria-hidden="ture"></i> <span>Drug Recall</span>
+						</a></li>
+						<li><a href="#/recallDrugs"> <i class="fa fa-pencil"
+								aria-hidden="ture"></i> <span>Recall Drugs</span>
+						</a></li>
+						<li><a href="#/materialInwards"> <i class="fa fa-pencil"
+								aria-hidden="ture"></i> <span>Material Inwards</span>
+						</a></li>
+						<li><a href="#/materialInwardsApproval"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Material
+									Inwards Approval</span> <!-- <span class="alignmet-span-for-sidebar"></span> -->
+						</a></li>
+						<li><a href="#/assetsSupportStatus"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Assest
+									Support Status</span>
+						</a></li>
+						<li><a href="#/returnableGatepass"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Returnable Gatepass</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Stock
+							Adjustments</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/stopTransaction"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span style="margin-left: 22px;">Stop
+									Transaction</span>
+						</a></li>
+						<li><a href="#/uploadStock"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span style="margin-left: 22px;">Upload
+									Stock</span>
+						</a></li>
+						<li>
+							<a href="#/uploadStockApproval">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span style="margin-left: 22px;">Upload Stock Approval</span>
+							</a>
+						</li>
+						<li><a href="#/rejectedUploaded"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span style="margin-left: 22px;">Rejected
+									Upload</span>
+						</a></li>
+						<li><a href="#/computeStock"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span style="margin-left: 22px;">Compute
+									Stock</span>
+						</a></li>
+						<li><a href="#/confirmStock"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span style="margin-left: 22px;">Confirm
+									Stock</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Stock</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/openingBalance"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Opening balance</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+					class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Scrap</span>
+				</a>
+				<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" 
+				style="list-style-type: none;">
+						<li><a href="#/scrapRequest"> <i class="fa fa-pencil"
+								aria-hidden="ture"></i> <span>Scrap Request</span>
+						</a></li>
+						<li><a href="#/approvalScrapRequest"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Scrap
+									Request Approval</span>
+						</a></li>
+						<li><a href="#/requestForAssetDisposalWorklist"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Request
+									For Assest</span> <span class="alignmet-span-for-sidebar">Disposal
+									Worklist</span>
+						</a></li>
+						<li><a href="#/wasteAssetDisposalWorklist"> <i
+								class="fa fa-pencil" aria-hidden="ture"></i> <span>Waste
+									Assest Disposal</span> <span class="alignmet-span-for-sidebar">
+									Worklist</span>
+						</a></li>
+						<li><a href="#/witnessApproval"> <i class="fa fa-pencil"
+								aria-hidden="ture"></i> <span>Witness Approval</span>
+						</a></li>
+				</ul></li>
+			</ul></li>
+		<!-- Inventory main menu end -->
+		<!-- Procurement Main Menu End-->
+		<li><a class="cursor-pointer"> <i class="fa fa-circle-o"
+				aria-hidden="true"></i> <span>Procurement</span>
+		</a>
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"	style="list-style-type: none;">
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Purchase</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/itemRequest"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Item Request</span>
+						</a></li>
+						<li><a href="#/itemApproval"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Item Approval</span>
+						</a></li>
+						<li><a href="#/itemCreationPendingList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Item
+									Creation Pending List</span>
+						</a></li>
+						<li><a href="#/physicalInventory"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Physical
+									Inventory</span>
+						</a></li>
+						<li><a href="#/GRNAgainstPO"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>GRN Against PO</span>
+						</a></li>
+						<li><a href="#/purchaseRequest"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Purchase Request</span>
+						</a></li>
+						<li><a href="#/purchaseRequestApproval"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Purchase
+									Request Approval</span>
+						</a></li>
+						<li><a href="#/localPurchhaseRequest"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Local
+									Purchase Request</span>
+						</a></li>
+						<li><a href="#/localPurchhaseRequestApproval"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Local
+									Purchase Request Approval</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Quotation</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/quotationEnquiry"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Quotation Enquiry</span>
+						</a></li>
+						<li><a href="#/quotationEnquiryApproval"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Quotation
+									Enquiry Approval</span>
+						</a></li>
+						<li><a href="#/quotationFillIn"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Quotation Fill In</span>
+						</a></li>
+						<li><a href="#/technicalApproval"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Technical
+									Approval</span>
+						</a></li>
+						<li><a href="#/vendorNegotitation"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Vendor
+									Negotitation</span>
+						</a></li>
+						<li><a href="#/vendorSelection"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Vendor Selection</span>
+						</a></li>
+						<li><a href="#/POCreation"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>PO Creation</span>
+						</a></li>
+						<li><a href="#/POApproval"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>PO Approval</span>
+						</a></li>
+						<li><a href="#/GRN"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>GRN</span>
+						</a></li>
+						<li><a href="#/GRNApproval"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>GRN Approval</span>
+						</a></li>
+						<li><a href="#/barcodePrinting"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Barcode Printing</span>
+						</a></li>
+						<li><a href="#/physicalInspec"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Physical Inspection</span>
+						</a></li>
+						<li><a href="#/enquirySentToVendor"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Enquiry Sent to Vendor</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span
+						style="margin-left: 22px;">Work Order</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/workorderRequest"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Workorder Request</span>
+						</a></li>
+						<li><a href="#/workorderApprovalWorklist"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Approval
+									Worklist</span>
+						</a></li>
+						<li><a href="#/workorderQuotationRequest"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Quotation
+									Request</span>
+						</a></li>
+						<li><a href="#/workorderQuotationEntry"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Quotation
+									Entry</span>
+						</a></li>
+						<li><a href="#/workorderQuotationSelect"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Quotation
+									Selection</span>
+						</a></li>
+						<li><a href="#/workorderCreation"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Workorder
+									Creation</span>
+						</a></li>
+					</ul></li>
+					
+					 <!-- added on 17/May/2018 start -->
+					 <li>
+					 	<a class="cursor-pointer">
+					 		<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					 		<span style="margin-left: 22px;">Consignment </span>
+						</a>
+						<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" style="list-style-type: none;">
+							<li>
+								<a href="#/consignmentInward">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Consignment Inward</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/consignmentOutward">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Consignment Outward</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					 <!-- added on 17/May/2018 end -->
+					 <!-- added on 18/May/2018 start -->
+					 <li>
+					 	<a class="cursor-pointer">
+					 		<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					 		<span style="margin-left: 22px;">Loan In Out </span>
+						</a>
+						<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" style="list-style-type: none;">
+							<li>
+								<a href="#/loanIn">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Loan In </span>
+								</a>
+							</li>
+							<li>
+								<a href="#/loanOut">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Loan Out</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/loanInOut">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Loan In Out</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/loanOutReceive">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Loan Out Receive</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					 <!-- added on 18/May/2018 end -->
+					 
+			</ul></li>
+		<!-- Procurement Main Menu End-->
+		<!-- Asset management main menu start -->
+		<li><a class="cursor-pointer"> <i class="fa fa-life-ring"
+				aria-hidden="true"></i> <span>Asset Management</span>
+	</a>
+		<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2" style="list-style-type: none;">
+			<li>
+				<a href="#/auctionRequistion">
+					<i class="fa  fa-pencil" aria-hidden="true"></i> 
+					<span>Auction Requisition</span>
+				</a>
+			</li>
+			<li>
+				<a href="#/auctionRequest">
+					<i class="fa fa-pencil" aria-hidden="true"></i>
+					<span>Auction Request</span>
+				</a>
+			</li>
+			<li>
+				<a href="#/itemsForAuction">
+					<i class="fa  fa-pencil" aria-hidden="true"></i>
+					<span>Items For Auction</span>
+				</a>
+			</li>
+			<li>
+				<a href="#/auctionVendorApproval">
+					<i class="fa  fa-pencil" aria-hidden="true"></i>
+					<span>Auction Vendor Approval</span>
+				</a>
+			</li>
+			<li>
+				<a href="#/nonReturnableGatePass">
+					<i class="fa  fa-pencil" aria-hidden="true"></i>
+					<span>Non Returnable GatePass</span>
+				</a>
+			</li>
+			<li>
+				<a href="#/assetPMSScheduler">
+					<i class="fa  fa-pencil" aria-hidden="true"></i>
+					<span>Asset PMS Scheduler</span>
+				</a>
+			</li>
+			<li>
+				<a class="cursor-pointer">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					<span>Fixed Asset Opening Balace</span>
+				</a>
+				<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" style="list-style-type: none;">
+					<li>
+						<a href="#/addfixedAssetMaster">
+							<i class="fa  fa-pencil" aria-hidden="true"></i>
+							<span>Add Fixed Asset Master</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a class="cursor-pointer">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					<span>Preventive Maintenance</span>
+				</a>
+				<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" style="list-style-type: none;">
+					<li>
+						<a href="#/assetPMSScheduler">
+							<i class="fa  fa-pencil" aria-hidden="true"></i>
+							<span>Asset PMS Scheduler</span>
+						</a>
+					</li>
+					<li>
+						<a href="#/PMRequest">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+							<span>PM Request</span>
+						</a>
+					</li>
+					<li>
+						<a href="#/PMSchedule">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+							<span>PM Schedule</span>
+						</a>
+					</li>
+					<li>
+						<a href="#/scheduleWorklist">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+							<span>Schedule Worklist</span>
+						</a>
+					</li>
+				</ul></li>
+			<li>
+				<a class="cursor-pointer">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					<span>Corrective Maintenance</span>
+				</a>
+				<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" style="list-style-type: none;">
+					<li>
+						<a href="#/correctiveMaintenance">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+							<span>Corrective Maintenance</span>
+						</a>
+					</li>
+					<li>
+						<a href="#/correctiveMaintenanceWorklist"> <i
+							class="fa fa-pencil" aria-hidden="true"></i>
+							<span>Corrective Maintenance Worklist</span>
+						</a>
+					</li>
+					<li>
+						<a href="#/correctiveMaintenanceScheduleWorklist"> <i
+							class="fa fa-pencil" aria-hidden="true"></i>
+							<span>Corrective Maintenance</span>
+							<span style="margin-left:45px;"> Schedule Worklist</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+</li>
+			<!-- CSSD -->
+			<li><a class="cursor-pointer"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span>CSSD</span></a>
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+				
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>
+							Pre-Sterilization Process</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/preSterilizationCleaning"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Cleaning</span>
+						</a></li>
+						<li><a href="#/preSterilizationInspection"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Pending for Inspection</span>
+						</a></li>
+						<li><a href="#/preSterilizationDisInfection"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Pending for Dis-Infection</span>
+						</a></li>
+						<li><a href="#/preSterilizationKitFormation"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Pending for Kit Formation</span>
+						</a></li>
+						</ul></li>
+						
+						<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>
+							Sterilization Process</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+							<li><a href="#/sterilizationLoadBatch"> <i class="fa fa-pencil"
+									aria-hidden="true"></i> <span>Load Batch</span>
+							</a></li>
+							<li><a href="#/sterilizationPendingIndicators"> <i class="fa fa-pencil"
+									aria-hidden="true"></i> <span>Pending for Indicators</span>
+							</a></li>
+						</ul></li>
+				
+				<!-- <li><a href="#/preSterilizationProcess"><i
+					class="fa fa-pencil" aria-hidden="true"></i><span>
+					Pre-Sterilization Process</span></a></li> -->
+				<!-- <li><a href="#/sterilizationProcess"><i
+					class="fa fa-pencil" aria-hidden="true"></i><span>
+					Sterilization Process</span></a></li> -->
+					<li><a href="#/sendtoMicrobiology"><i
+					class="fa fa-pencil" aria-hidden="true"></i><span>
+					Send to Microbiology</span></a></li>
+				<li><a href="#/kitIssue"><i
+					class="fa fa-pencil" aria-hidden="true"></i><span>
+					Kit Issue</span></a></li>
+				<li><a href="#/application"><i
+					class="fa fa-pencil" aria-hidden="true"></i><span>
+					Application</span></a></li>
+			</ul></li>
+			<!-- CSSD -->
+		<!-- Asset management Main menu end -->
+		<!-- CLINICAL WORKSTATIONS Main Menu Start-->
+		<li><a class="cursor-pointer"> <i class="fa fa-hospital-o"
+				aria-hidden="true" style="font-size: 18px;"></i> <span>Clinical
+					Workstation</span>
+		</a>
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+
+
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>History</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/allergies"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Allergies</span>
+						</a></li>
+						<li><a href="#/immuniztionHistory"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Immunization
+									History</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Order</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/nursingOrder"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Nursing Order</span>
+						</a></li>
+						<li><a href="#/interconsultation"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Consult
+									Order</span>
+						</a></li>
+						<li><a href="#/pendingConsultOrderRequest"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Pending
+									Consult Order</span>
+						</a></li>
+						<li><a href="#/bloodRequest"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Blood Request</span>
+						</a></li>
+						<li><a href="#/homecareMedicationApproval"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Homecare
+									Medication Approval</span>
+						</a></li>
+						<li><a href="#/administrationApproval"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Cashcart
+									Medications Approvel</span>
+						</a></li>
+						<li><a href="#/secondOpinionRequest"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Second
+									Opinion Request</span>
+						</a></li>
+						<!-- <li>
+							<a href="#/immuniztionHistory">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Immunization History</span>
+							</a>
+						</li> -->
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Transfer</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/transferRequestAcceptance"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Transfer
+									Request Acceptance </span>
+							<!-- Pending Request changed 9-jan-18 -->
+						</a></li>
+						<li><a href="#/intiateTransferCare"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Initiate
+									Transfer Of Care</span>
+						</a></li>
+						<li><a href="#/acceptanceOfTransferOfCare"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Accept
+									Transfer Of Care</span>
+						</a></li>
+						<li><a href="#/pendingTransferRequest"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Pending
+									Transfer</span>
+						</a></li>
+						<li><a href="#/transferToICU"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Transfer To ICU</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Discharge</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/dueForDischarge"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Due For Discharge</span>
+						</a></li>
+						<li><a href="#/cancelForDischarge"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Cancel
+									Discharge</span>
+						</a></li>
+						<li><a href="#/pendingShortLeave"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Pending
+									Short Leave</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>New
+							Born</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/newBornRegistration"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Registration</span>
+						</a></li>
+						<li><a href="#/newBornList"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>List</span>
+						</a></li>
+						<li><a href="#/cradleBedAllocation"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Bed
+									Allocation</span>
+						</a></li>
+					</ul></li>
+			</ul></li>
+		<!-- CLINICAL WORKSTATIONS Main Menu End-->
+
+
+		<!-- LIS Main Menu Start-->
+		<li><a class="cursor-pointer"> <i class="fa fa-flask"
+				aria-hidden="true"></i> <span>LIS</span>
+		</a>
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Phlebotomy</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/phlebotomyWorkList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Worklist</span>
+						</a></li>
+						<li><a href="#/sendToCR"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Send TO CR</span>
+						</a></li>
+						<li><a href="#/patientArrival"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Patient Arrival</span>
+						</a></li>
+						<li><a href="#/patientArrivalForRepeatSampleCollection">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Repeat
+									Sample </span>
+						</a></li>
+						<li><a href="#/sampleRecollection"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Sample
+									Recollection</span>
+						</a></li>
+					</ul></li>
+
+
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Centeral
+							Reciving</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/centrifugationWorkList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Centrifugation
+									List</span>
+						</a></li>
+						<li><a href="#/outPatient"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>OP Samples</span>
+						</a></li>
+						<li><a href="#/inPatient"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>IP Samples</span>
+						</a></li>
+					</ul></li>
+
+
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Biochemistry</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/pendingListForAcceptance"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Pending
+									Acceptance</span>
+						</a></li>
+						<li><a href="#/worklistForDepartment"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Worklist</span>
+						</a></li>
+						<li><a href="#/worklistForReportEntry"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Report
+									Entry</span>
+						</a></li>
+						<li><a href="#/worklistForValidation"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Validation</span>
+						</a></li>
+						<li><a href="#/worklistForReportRelease"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Report
+									Release</span>
+						</a></li>
+					</ul></li>
+
+
+
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Histopathology</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/specimenReceipt"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Specimen Receipt</span>
+						</a></li>
+						<!-- <li><a href="#/macroscopicExamination"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Macroscopy
+									Worklist</span>
+						</a></li> -->
+						<li>
+							<a href="#/microscopeExamination">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Macroscopic Examination</span>
+							</a>
+						</li>
+						<li><a href="#/blockCreation"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Block Creation</span>
+						</a></li>
+						<li><a href="#/slideCreation"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Slide Creation</span>
+						</a></li>
+
+						<li><a href="#/microscopicExaminiationWorkList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Microscopic
+									Examination</span>
+						</a></li>
+						<li>
+							<a href="#/restainingRequestWorklist">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Restain Request Worklist</span>
+							</a>
+						</li>
+						<li><a href="#/addendumReport"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Addendum Report</span>
+						</a></li>
+						<!-- <li><a href="#/acceptanceForStorage"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Storage</span>
+						</a></li> -->
+						<li><a href="#/storage"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Storage</span>
+						</a></li>
+						<li><a href="#/secondOpinionRequest"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Second
+									Opinion Request</span>
+						</a></li>
+						<li><a href="#/pendingSlideForSecondOpinion"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Slide
+									For Second Opinion</span>
+						</a></li>
+						<li>
+							<a href="#/frozenSectionRequestList">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Frozen Section Request List</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Microbiology</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/sampleAcceptance"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Sample Acceptance</span>
+						</a></li>
+						<li><a href="#/sampleProcessingWorkList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>WorkList</span>
+						</a></li>
+						<li><a href="#/observationDuringIncubation"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Incubation</span>
+						</a></li>
+						<li><a href="#/IncubationMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Incubation Master</span>
+						</a></li>
+						<li><a href="#/macroscopicExaminationMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Macroscopic Examination</span>
+						</a></li>
+						<li><a href="#/sensitivityTestingProcess"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Sensitivity
+									Testing</span>
+						</a></li>
+						
+						<li>
+							<a href="#/biochemicalTesting">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Biochemical Testing</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/microscopicExamination">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Microscopic Examination</span>
+							</a>
+						</li>
+						
+					</ul>
+				</li>
+
+				<li><a href="#/worklistForPrinting" class="cursor-pointer">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Report
+							Handover</span>
+				</a></li>
+				<li>
+					<a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i>
+						<span>Out Source</span>
+					</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" style="list-style-type: none;">
+						<li>
+							<a href="#/outSourcedPendinglistAssignment">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Out Source Pending List</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/pendinglistForSampleDispatch">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Pending List For Sample Dispatch</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/pendinglistForReportUpload">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Pending List For Pending Upload</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#/workloadDashboard" class="cursor-pointer">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+						<span>Workload Dashboard</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<!-- LIS Main Menu End-->
+
+		<!-- EMERGENCY ROOM Main Menu Start-->
+		<li><a class="cursor-pointer"> <i
+				class="fa fa-free-code-camp" aria-hidden="true"
+				style="font-size: 13px"></i> <span>Emergency Room</span>
+		</a>
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+				<li><a href="#/unknownPatientReg/personalForUnknown"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>ER-Encounter</span>
+				</a></li>
+				<li><a href="#/bedTypeAllocation"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Triagework
+							List</span>
+				</a></li>
+				<li><a href="#/erPatientList"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>ER
+							Patient List</span>
+				</a></li>
+				<li><a href="#/mapOfBedForER"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Map
+							Of Bed</span>
+				</a></li>
+				<li><a href="#/ERdueForDischarge"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Due
+							For Discharge</span>
+				</a></li>
+				<li><a href="#/ERreadyForBilling"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Ready
+							For Billing</span>
+				</a></li>
+				<li><a href="#/ERfinalDischarge"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Final
+							Discharge</span>
+				</a></li>
+				<li><a class="cursor-pointer" ng-click="getAdmissionNote('ER')">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Admission
+							Note</span>
+				</a></li>
+			</ul></li>
+		<!-- EMERGENCY ROOM Main Menu End-->
+
+		<!-- DIET & KITCHEN Main Menu Start-->
+		<li><a class="cursor-pointer"> <i class="fa fa-cutlery"
+				aria-hidden="true"></i> <span>Diet & Kitchen</span>
+		</a>
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+				<li><a class="cursor-pointer" href="#/dietPatientRequest">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Diet
+							Planning</span>
+				</a></li>
+				<li><a class="cursor-pointer" href="#/dietOrder"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Diet
+							Order</span>
+				</a></li>
+				<li><a class="cursor-pointer" href="#/dietIssue"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Diet
+							Issue</span>
+				</a></li>
+				<li><a class="cursor-pointer" href="#/dietAcceptance"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Diet
+							Acceptance</span>
+				</a></li>
+				<li><a class="cursor-pointer" href="#/rejectedDietList"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Rejected
+							Diet List</span>
+				</a></li>
+			</ul></li>
+		<!-- DIET & KITCHEN Main Menu End-->
+
+
+			<li>
+				<a class="cursor-pointer">
+					<i class="fa fa-exchange" aria-hidden="true"></i>
+					<span>Linen-Laundry</span>
+				</a>
+				<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2" style="list-style-type: none;">
+					<!-- <li>
+						<a class="cursor-pointer" href="#/linenIndent">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Linen Indent</span>
+						</a>
+					</li>
+					<li>
+						<a class="cursor-pointer" href="#/linenIndentApproval">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Linen Indent Approval</span>
+						</a>
+					</li> -->
+					<li>
+						<a class="cursor-pointer" href="#/linenIssue">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Linen Issue</span>
+						</a>
+					</li>
+					<!-- <li>
+						<a class="cursor-pointer" href="#/linenIssueacceptance">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Linen Issue Acceptance</span>
+						</a>
+					</li> -->
+					<li>
+						<a class="cursor-pointer" href="#/linenReturn">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Linen Return</span>
+						</a>
+					</li>
+					<li>
+						<a class="cursor-pointer" href="#/linenReturnAcceptance">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Linen Return Acceptance</span>
+						</a>
+					</li>
+					
+					<li>
+						<a class="cursor-pointer" href="#/rejectedLinenAcceptance">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Rejected Linen Acceptance</span>
+						</a>
+					</li>
+					
+					<li>
+						<a class="cursor-pointer" href="#/sendToCondemnation">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Send To Condemnation</span>
+						</a>
+					</li>
+					
+					<li>
+						<a class="cursor-pointer" href="#/acceptanceOfCondemnation">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Acceptance of Condemnation </span>
+						</a>
+					</li>
+					
+					<li>
+						<a class="cursor-pointer" href="#/convertOfCondemnationStock">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Convert of Condemnation Stock</span>
+						</a>
+					</li>
+					
+					<li>
+						<a class="cursor-pointer" href="#/issueToStaff">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Issue To Staff</span>
+						</a>
+					</li>
+					
+					<li>
+						<a class="cursor-pointer" href="#/staffExchangeLinen">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Staff Exchange Linen</span>
+						</a>
+					</li>
+					
+					
+					<!-- added on 21-april linen module start -->
+					<li>
+						<a class="cursor-pointer" href="#/staffExchangelinenIssue">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Staff Exchange Linen Issue</span>
+						</a>
+					</li>
+					
+					<li>
+						<a class="cursor-pointer" href="#/washingRequest">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Washing Request</span>
+						</a>
+					</li>
+					<li>
+						<a class="cursor-pointer" href="#/acceptanceWashingRequest">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Acceptance Washing Request</span>
+						</a>
+					</li>
+					
+					<li>
+						<a class="cursor-pointer" href="#/issueDirtyLinen">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Issue Dirty Linen</span>
+						</a>
+					</li>
+					
+					<li>
+						<a class="cursor-pointer" href="#/acceptanceOfDirtyLinen">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Acceptance Of Dirty Linen</span>
+						</a>
+					</li>
+					
+					<li>
+						<a class="cursor-pointer" href="#/issueWashedLinen">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>Issue Washed Linen</span>
+						</a>
+					</li>
+					<!-- added on 21-april linen module end -->
+					
+				</ul>
+			</li>
+		
+
+
+		<!-- HOUSE KEEPING Main Menu Start-->
+		<li><a class="cursor-pointer"> <i class="fa fa-home"
+				aria-hidden="true"></i> <span>House Keeping</span>
+		</a>
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+				<li><a href="#/houseKeeping"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Worklist</span>
+				</a></li>
+				<li><a href="#/bedUnderMaintenance"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Under
+							Maintenance</span>
+				</a></li>
+			</ul></li>
+		<!-- HOUSE KEEPING Main Menu End-->
+
+		<!-- MORTUARY Main Menu Start-->
+		<li><a class="cursor-pointer"> <i class="fa fa-bath"
+				aria-hidden="true"></i> <span>Mortuary</span>
+		</a>
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+				<li><a href="#/deathRegistration"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Death
+							Registration</span>
+				</a></li>
+				<li><a href="#/morguePendinglist"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Pending
+							List</span>
+				</a></li>
+				<li><a href="#/morgueAvailability"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Mortuary
+							Availability</span>
+				</a></li>
+				<li><a href="#/morgueReservation"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Mortuary
+							Reservation</span>
+				</a></li>
+				<li><a href="#/morgueReleased"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Release
+							Mortuary</span>
+				</a></li>
+				<li><a href="#/mortuaryBedManagement"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Mortuary
+							Bed Management</span>
+				</a></li>
+			</ul></li>
+		<!-- MORTUARY KEEPING Main Menu End-->
+
+
+		<!-- GLOBAL MASTER MAIN MENU START -->
+
+		<li><a class="cursor-pointer"> <i class="fa fa-globe"
+				aria-hidden="true"></i> <span>Global Master</span>
+		</a>
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Organization
+							Structure</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/hospitalMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Hospital
+									Master</span>
+						</a></li>
+						<li><a href="#/specialityMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Department Master</span>
+						</a></li>
+						<li><a href="#/subSpecialityMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Sub
+									Department Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/icutypeMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>ICU
+									Type Master</span>
+						</a></li>
+						<li><a href="#/holidayCalenderMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Holiday
+									Calendar Master</span>
+						</a></li>
+						<li><a href="#/serviceMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Service Master</span>
+						</a></li>
+						<li><a href="#/organizationMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Organization
+									Master</span>
+						</a></li>
+						<li><a href="#/documentTypeMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Document
+									Type Master</span>
+						</a></li>
+						<li><a href="#/licenseTypeMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>License Type Master
+									</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Patient
+							Registration</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/nationalityMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Nationality
+									Master</span>
+						</a></li>
+						<li><a href="#/raceMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Race Master</span>
+						</a></li>
+						<li><a href="#/countryMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Country Master</span>
+						</a></li>
+						<li><a href="#/stateMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>State Master</span>
+						</a></li>
+						<li><a href="#/districtMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>District Master</span>
+						</a></li>
+						<li><a href="#/cityMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>City Master</span> </a></li>
+						<li><a href="#/areaMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Area Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/identificationMaster">
+								<!-- ng-click="getMasterPage('identificationmaster')" --> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Identification
+									Card</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/commonMaster/sexmaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Sex
+									Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/relationmaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Relation Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/maritalstatus"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Marital Status Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/commonMaster/religion">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Religion
+									Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/occupation"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Occupation Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/patientsource"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Patient Source Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/referraltype"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Referral Type Master</span>
+						</a></li>
+						<li><a href="#/referralMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Referral Master</span>
+						</a></li>
+						<li><a href="#/encounterTypeMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Encounter
+									Type Master</span>
+						</a></li>
+						<li><a href="#/prefixMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Prefix Master</span>
+						</a></li>
+						<li><a href="#/consentTypeMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Consent
+									Type Master</span>
+						</a></li>
+						<li><a href="#/consentMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Consent Master</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>ADT</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<!-- all ADT scren added here -->
+						<!-- <li><a class="cursor-pointer" href="#/bedCategoryMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Bed
+									Category Master</span>
+						</a></li> -->
+						<li><a class="cursor-pointer" href="#/bedTypeMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Bed
+									Type Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/admissionTypeMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Admission
+									Type</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/occupancyUnitMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Occupancy
+									Unit Type</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/dischargeTypeMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Reason
+									For Discharge Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/shortLeaveReasonMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Short
+									Leave Reason</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Nursing</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<!-- all ADT scren added here -->
+						<li><a class="cursor-pointer" href="#/shiftMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Shift
+									Master</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>LIS</span>
+				</a>
+						<li><a class="cursor-pointer"
+							href="#/rotaCreation">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+							 <span>Rota Creation Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/daywiseRotaCreation">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+							 <span>Day wise Rota Creation</span>
+						</a></li>
+						
+				<li><a class="cursor-pointer"> 
+					    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
+					    <span>LIS</span>
+					</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/commonMaster/sampleMaster"
+							class="cursor-pointer"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Sample Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/containerMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Container
+									Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/techinqueMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Techinque
+									Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/prerequisitesMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Prerequisites
+									Master</span>
+						</a></li>
+						<li><a href="#/ageGroupMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Age Group Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/unitMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Unit Master</span>
+						</a></li>
+						<li>
+							<a class="cursor-pointer" href="#/textualReferenceRangeMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Textual Reference Range</span>
+							</a>
+						</li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/reagentMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Reagent Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/reportTypeMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Report
+									Type Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/bacteriaShapMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Bacteria
+									Shape</span>
+						</a></li>
+						<li><a href="#/incubationPeriodMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Incubation
+									Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/wtifilmStudyMasterMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Wet
+									Film Study Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/mediaMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Media Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/incubationTestMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Incubation
+									Test Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/sampleTypeMediaMappingMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Sample
+									Type Media </span> <span class="alignmet-span-for-sidebar">Mapping
+									Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/commonMaster/colonyMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Colony Master</span>
+						</a></li>
+						<li><a href="#/commonMaster/bacteriaClassificationMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Bacteria
+									Classification</span>
+						</a></li>
+						<li><a href="#/commonMaster/antibioticsMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Antibiotic</span>
+						</a></li>
+						<li><a href="#/commonMaster/antibioticMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Antibiotics
+									Class</span>
+						</a></li>
+						<li><a href="#/commonMaster/antibioticsGroupMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Antibiotics
+									Group</span>
+						</a></li>
+						<li><a href="#/additionofAntibiotic"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Addition
+									of Antibiotics </span> <span class="alignmet-span-for-sidebar">Against
+									Antibiotic Class</span>
+						</a></li>
+						<li><a href="#/antibioticAdditionGroupMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Addition
+									of Antibiotics </span> <span class="alignmet-span-for-sidebar">Group
+									Master</span>
+						</a></li>
+						<li><a href="#/colonyTestWithMediaMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Colony
+									Test With</span>
+								<div class="alignmet-span-for-sidebar">Media Master</div>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/commonMaster/organismMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> 
+								<span>Organism Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/commonMaster/organismGroupMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span
+								>Organism Group Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/commonMaster/stainigMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span
+								>Stainig Master </span>
+						</a></li>
+						<li><a href="#/commonMaster/sensitivityTypeResultMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Sensitivity
+									Test Result</span>
+						</a></li>
+						<!-- <li><a class="cursor-pointer"
+							href="#/specimanMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Speciman Master</span>
+						</a></li> -->
+						<li><a href="#/commonMaster/blockMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Block
+									Master</span>
+						</a></li>
+						<li><a href="#/commonMaster/slideProcedureMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Slide
+									Procedure Master</span>
+						</a></li>
+						<li><a href="#/specimanMapping"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Speciman Mapping
+									With Block </span><span class="alignmet-span-for-sidebar">& Slide Procedure</span>
+						</a></li>
+						<li><a href="#/organismMapping"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Organism Group Mapping </span> <span class="alignmet-span-for-sidebar"> With Organism
+									</span>
+						</a></li>
+						<li><a href="#/mappingofMicroorganism"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Mapping
+									of Micro-organism</span>
+						</a></li>
+						<li>
+							<a href="#/specimanMAster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> 
+								<span>Speciman Master</span>
+							</a>
+						</li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Billing</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a class="cursor-pointer"
+							href="#/patientCategory"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Patient
+									Category</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							ng-click="getMasterPage('visit Type Master')"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Visit
+									Type Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							ng-click="getMasterPage('Payment Mode Master')"><i
+								class="fa fa-pencil" aria-hidden="trContainerue"></i><span
+								style="margin-left: 26px;">Mode Of Payment</span></a></li>
+						<li><a class="cursor-pointer"
+							ng-click="getMasterPage('Payment Master')"> <i
+								class="fa fa-pencil" aria-hidden="trContainerue"></i> <span>
+									Payment Entitlement</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							ng-click="getMasterPage('Consultant Master')"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span>Consultant
+									Type</span></a></li>
+						<li><a href="#/currencyMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Currency Master</span></a></li>
+						<li><a href="#/currencydenomination"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span>Currency
+									Denomination</span></a></li>
+						
+						<li><a class="cursor-pointer" href="#/doctorCategory"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Doctor
+									Category</span> <a class="cursor-pointer" href="#/employeeCategory">
+									<i class="fa fa-pencil" aria-hidden="true"></i> <span>Employee
+										Category</span>
+							</a></li>
+						<li><a class="cursor-pointer" href="#/bankBranch"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Bank
+									Branch</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/bankMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Bank
+									Master</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Pharmacy</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a class="cursor-pointer"
+							href="#/pharmacyproductCategoryMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Product
+									Category</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/pharmacyformulationTypeMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Formulation
+									Type</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							ng-click="getMasterPage('schedule master')"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Schedule
+									Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/manufacturerMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Manufacturer
+									Master</span>
+						</a></li>
+
+						<li><a class="cursor-pointer" href="#/supplyDaysMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Supply
+									Days Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/genericMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Generic
+									Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/itemMasterGlobal">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Item
+									Master</span>
+						</a></li>
+						<li><a href="#/packageMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Package Master</span>
+						</a></li>
+						<li><a href="#/unitofMeasurement"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Unit
+									Of Measurement</span>
+						</a></li>
+						<li><a href="#/pharmacyunitMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Unit
+									Master </span>
+						</a></li>
+						<li><a href="#/pharmacyStrengthUnitMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Strength Unit
+									Master </span>
+						</a></li>
+						<li><a href="#/dispensingMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Dispensing Master
+							</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/storageunitMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Storage
+									Unit Master</span>
+						</a></li>
+						<!-- <li><a class="cursor-pointer" href="#/procurementunitMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span
+								>Procurement Unit</span>
+						</a></li> -->
+						<li><a class="cursor-pointer" href="#/kitMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Kit
+									Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/combinationMedicationMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Combination
+									Medication</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/taxComponentMaster">
+								<i class="fa fa-share-square-o" aria-hidden="true"></i> <span
+								style="margin-left: 22px;">Tax Component Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/taxMaster"> <i
+								class="fa fa-share-square-o" aria-hidden="true"></i> <span
+								style="margin-left: 22px;">Tax Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/otherCharges"> <i
+								class="fa fa-share-square-o" aria-hidden="true"></i> <span
+								style="margin-left: 22px;">Other Charges Master</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Clinical</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a class="cursor-pointer" href="#/routeAdministration">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Route
+									of Administration</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/frequencyMaster"> <!-- ng-click="getMasterPage('frequency master')" -->
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Frequency
+									Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/formulationTypeROAMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Formulation Type &
+									ROA Master</span>
+						</a></li>
+						<li><a href="#/nursingOrderMaster"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span
+								style="margin-left: 26px;">Nursing Order Master</span></a></li>
+						<li><a href="#/bloodComponent"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span style="margin-left: 26px;">Blood
+									Component</span></a></li>
+						<li><a href="#/vaccinationMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span style="margin-left: 26px;">Vaccination
+									Master</span></a></li>
+						<li><a href="#/immunizationSchedule"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span
+								style="margin-left: 26px;">Immunization Schedule</span></a></li>
+						<li><a href="#/systemMaster"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span
+								style="margin-left: 26px;">System Master</span></a></li>
+						<li><a href="#/systemObservationMaster"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span
+								style="margin-left: 26px;">System Observation Master</span></a></li>
+						<li><a href="#/surgeryGradeMaster"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span
+								style="margin-left: 26px;">Surgery Grade Master</span></a></li>
+						<li><a href="#/surgeryMaster"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span
+								style="margin-left: 26px;">Surgery Master</span></a></li>
+						<!-- 	<li><a href="#/immuniztionHistory"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span
+								>Immunization History</span></a></li> -->
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Common</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a class="cursor-pointer"
+							 href="#/commonMaster/priorityMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Priority Master</span></a></li>
+						<li><a class="cursor-pointer"
+							ng-click="getMasterPage('Discount Reason Master')"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span>Discount
+									Master</span></a></li>
+						<li><a href="#/rejectionMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Rejection Master</span></a></li>
+						<li><a href="#/reasonTypeMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Reason Type Master</span></a></li>
+						<li><a href="#/reasonMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Reason Master</span></a></li>
+						<li><a href="#/qualificationMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Qualification Master</span></a></li>
+						<li><a href="#/degreeMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Degree Master</span></a></li>
+						<li><a href="#/employeeCategoryMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Employee Category Master</span></a></li>
+						<li><a href="#/doctorCategoryMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Doctor Category Master</span></a></li>
+						<li><a href="#/designationMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Designation Master</span></a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>OPD</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a class="cursor-pointer" href="#/clinicMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Clinic
+									Master</span>
+						</a></li>
+					</ul></li>
+
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Baby
+							Registration</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/deliveryTypeMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Delivery
+									Type Master</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Diet
+							and Kitchen</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/nutritionalMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Nutritional
+									Master</span></a></li>
+						<li><a href="#/keyIngredientsMaster"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span>Key
+									Ingredients Master</span></a></li>
+						<li><a href="#/dietTypeMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Diet Type Master</span></a></li>
+						<li><a href="#/dishMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Dish Master</span></a></li>
+						<li><a href="#/mealMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Meal Master</span></a></li>
+						<li><a href="#/daywiseDietTemplate"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span>Day
+									Wise Diet Template</span></a></li>
+
+					</ul></li>
+					
+					<li>
+						<a class="cursor-pointer">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<span>OTIMS</span>
+						</a>
+						<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" style="list-style-type: none;">
+							<li>
+								<a href="#/cancellationMaster">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Cancellation Master</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/operation_Theatre">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Operation Theatrer</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/procedureType">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Procedure Type</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/operationTheatreType">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Operation Theatre Type</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/operationTable">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Operation Table</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/operationTableType">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Operation Table Type</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/anaesthesiaType">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Anaesthesia Type</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/checklistItem">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Checklist Item</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/checklistMaster">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Checklist Master</span>
+								</a>
+							</li>
+							<!-- <li>
+								<a href="#/staffRole">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Staff Role</span>
+								</a>
+							</li> -->
+							<li>
+								<a href="#/consentMaster">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Consent Master</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/consentType">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Consent Type</span>
+								</a>
+							</li>
+							<!-- <li>
+								<a href="#/inventoryItem">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Inventory Item</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/inventoryItemType">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Inventory Item Type</span>
+								</a>
+							</li>
+							<li>
+								<a ng-click="getMasterPage('Equipment Master')" class="cursor-pointer" >
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Equipment Master</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/equipmentType">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Equipment Type</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/serviceMaster">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Service Master</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/serviceType">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Service Type</span>
+								</a>
+							</li> -->
+							<li>
+								<a href="#/noteMaster"><!-- #/noteMaster -->
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Anaesthesia Note</span>
+								</a>
+							</li>
+							<!-- <li>
+								<a href="">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Surgery Note</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Discharge Note</span>
+								</a>
+							</li> -->
+							<li>
+								<a href="#/facultyMaster">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Faculty</span>
+								</a>
+							</li>
+							<!-- <li>
+								<a href="#/OTIMSUser">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Otims User</span>
+								</a>
+							</li> 
+							<li>
+								<a href="#/uomMaster">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Unit Of Measurements</span>
+								</a>
+							</li> 
+							<li>
+								<a href="#/countryMaster">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Country Master</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/cityMaster">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Town Master</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/insuranceCompany">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Insurance Company</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/typeOfStay">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Type Of Stay</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/generalPractitioner">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>General Practitioner</span>
+								</a>
+							</li>
+							<li>
+								<a href="#/procedureConfigurations">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+									<span>Procedure Configurations</span>
+								</a>
+							</li> -->
+						</ul>
+					</li>
+			</ul>
+		</li>
+			
+		<!-- GLOBAL MASTER MAIN MENU END -->
+
+		<!-- UNIT MASTER MAIN MENU START -->
+
+		<li><a class="cursor-pointer"> <i class="fa fa-object-group"
+				aria-hidden="true"></i> <span>Unit Master</span>
+		</a>
+			<ul class="nav-pills nav-stacked sub-menu-side-bar-level-2"
+				style="list-style-type: none;">
+				<li><a class="cursor-pointer"><i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i><span
+						style="margin-left: 22px">Organization Structure</span></a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/departmentMasterUnit"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span>Department
+									Master</span></a></li>
+						<li><a href="#/subDepartmentMasterUnit"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span>Sub
+									Department Master</span></a></li>
+						<li><a href="#/ICUtypeMasterUnit"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>ICU
+									Type Master</span>
+						</a></li>
+						<li><a href="#/holidayCalendarMasterUnit"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Holiday
+									Calendar Master</span>
+						</a></li>
+						<li><a href="#/floorMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Floor Master</span>
+						</a></li>
+						<li><a href="#/floorMapMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Floor Map Master</span>
+						</a></li>
+						<li><a href="#/amenityMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Amenity Master</span>
+						</a></li>
+						<li><a href="#/wingMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Wing Master</span>
+						</a></li>
+					</ul></li>
+				<li><a class="cursor-pointer"><i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i><span>ADT</span></a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/bedCategoryMasterUnit"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Billing Bed
+									Category Master</span>
+						</a></li>
+						<li><a href="#/bedCategoryMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>
+								Bed Category Master</span>
+						</a></li>
+						<!-- <li><a href="#/bedClassMasterUnit"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Bed
+									Class Master</span>
+						</a></li> -->
+						<li><a href="#/billingBedCategoryMasterUnit"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Billing
+									Bed Category</span>
+						</a></li>
+						<!-- <li><a href="#/bedClassMappingMasterUnit"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Bed
+									Class Mapping Master</span>
+						</a></li> -->
+						<li><a href="#/wardMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Ward Master</span>
+						</a></li>
+						<li><a href="#/bedMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Bed Master</span>
+						</a></li>
+						<li><a href="#/nursingStationMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Nursing
+									Station Master</span>
+						</a></li>
+						<li><a href="#/nursingStationWardMapping"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Nursing
+									Ward Mapping</span>
+						</a></li>
+						<li><a href="#/mealPreferenceMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Meal
+									Preference Master</span>
+						</a></li>
+						<li><a href="#/roomMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Room Master</span>
+						</a></li>
+					</ul></li>
+					<li><a class="cursor-pointer"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span>CSSD</span></a>
+				<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+					style="list-style-type: none;">
+					<li><a href="#/sterilizationTypeMaster"><i
+						class="fa fa-pencil" aria-hidden="true"></i><span>
+						Sterilization Type Master</span></a></li>
+					<li><a href="#/autoclaveMaster"><i
+					class="fa fa-pencil" aria-hidden="true"></i><span>
+					Autoclave Master</span></a></li>
+					<li><a href="#/wrapperExpiryMaster"><i
+					class="fa fa-pencil" aria-hidden="true"></i><span>
+					 Wrapper expiry master</span></a></li>
+					 <li><a href="#/kitCreation"><i
+					class="fa fa-pencil" aria-hidden="true"></i><span>
+					 Kit Creation</span></a></li>
+				</ul></li>
+				<li><a class="cursor-pointer"><i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i><span>LIS</span></a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/commonMaster/phlebotomyMaster"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span>Phlebotomy</span></a></li>
+						<li><a href="#/testMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Test Master</span></a></li>
+						<li>
+							<a href="#/histopathologyTest">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Histopathology Test</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/specimanType">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Speciman Type</span>
+							</a>
+						</li>
+						<li><a href="#/commonMaster/headerMaster"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span>Header
+									Master</span></a></li>
+						<li><a href="#/parameterMaster"><i class="fa fa-pencil"
+								aria-hidden="true"></i><span>Parameter Master</span></a></li>
+						<li><a href="#/multiparameterTestMaster"><i
+								class="fa fa-pencil" aria-hidden="true"></i><span>Multiparameter
+									Test</span> <span class="alignmet-span-for-sidebar">Master</span> </a></li>
+
+						<!-- <li><a href="#/outsourceTestMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span
+								>Out Source Test Master</span>
+
+						</a></li> -->
+						<li><a href="#/commonMaster/departmentMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Department
+									Master</span>
+						</a></li>
+						<li><a href="#/templateMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Template Master</span>
+						</a></li>
+						<li><a href="#/parameterFormulaMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Parameter
+									Formula</span>
+
+						</a></li>
+						<li><a href="#/profilepanelTestMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Profile/Panel
+									Test</span>
+
+						</a></li>
+						<!-- <li><a href="#/commonMaster/storageLocationMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Storage
+									Location Master</span>
+						</a></li> -->
+						
+						<li>
+							<a href="#/storageLocationMasterForSlideBlocks">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Storage Location Master</span>
+							</a>
+						</li>
+						
+						<li>
+							<a href="#/">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Biochemical Test Master</span>
+							</a>
+						</li>
+						
+					</ul></li>
+				<li><a class="cursor-pointer"><i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i><span>Billing</span></a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/insuranceMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Insurance Master</span>
+						</a></li>
+						<li><a href="#/TPAmaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>TPA Master</span>
+						</a></li>
+						<!-- <li><a href="#/corporateMasterUnit"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Corporate
+									Master</span>
+						</a></li> -->
+						<li><a class="cursor-pointer" href="#/corporateMasterGlobal">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Corporate
+									Master</span>
+						</a></li>
+						<li><a href="#/billingGroupMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Billing
+									Group Master</span>
+						</a></li>
+						<!-- <li><a href="#/packageDefEitherOr"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span >Package Definition - </span>
+								<span class="">Either Or Package</span>
+						</a></li>
+						<li><a href="#/allInclusivePackage"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">All
+									Inclusive Package</span>
+						</a></li> -->
+						<li><a href="#/packageList"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span class="">Package List</span>
+						</a></li>
+						<li><a href="#/variableSquencePricing/sequencePricing"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Variable
+									Pricing</span>
+						</a></li>
+						<li><a href="#/accountPayableMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Account
+									Payable Master</span>
+
+						</a></li>
+						<li><a href="#/accountPayable"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span class="">Account Payable</span>
+						</a></li>
+						<li><a href="#/accountPayableComparsion"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Account
+									Payable Comparsion</span>
+						</a></li>
+
+						<li><a href="#/accountPayableStatus"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Account
+									Payable Status</span>
+						</a></li>
+
+
+						<li><a href="#/unitServiceMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Unit
+									Service Master</span>
+						</a></li>
+						<li><a href="#/unitServiceMapping"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Unit
+									Service Mapping</span>
+						</a></li>
+						<li><a href="#/unitServiceBasePrice"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Unit
+									Service Base Price</span>
+						</a></li>
+						<li><a href="#/schedulePriceUnitService"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Schedule
+									Price Unit Service</span>
+						</a></li>
+						<li><a href="#/orderSet"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span class="">Order Set</span>
+						</a></li>
+						<li><a href="#/orderSetList"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span class="">Order Set List</span>
+						</a></li>
+						<li><a href="#/admissionRejectionList"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Admission
+									Rejection List</span>
+						</a></li>
+						<li><a href="#/refundCRList/cashForRefund"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Refund
+									CR List</span>
+						</a></li>
+						<!-- <li><a href="#/deposit"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span class="">Deposit</span>
+						</a></li> -->
+						<li><a href="#/findBillList"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span class="">Find Bill List</span>
+						</a></li>
+						<li><a href="#/chargeConversion"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span class="">Charge Conversion</span>
+						</a></li>
+						<li><a href="#/entitlementCoversion"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Charge
+									Conversion</span>
+						</a></li>
+						<li><a href="#/autoChargeReview"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span class="">Auto Charge Review</span>
+						</a></li>
+						<li><a href="#/writeOff"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span class="">Write Off</span>
+						</a></li>
+						<li><a href="#/writeOffDetails"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span class="">Write Off Details</span>
+						</a></li>
+						<li><a href="#/cashOpeningBalance"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Cash
+									Opening Balance</span>
+						</a></li>
+						<li><a href="#/intrimCashHandover"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Intrim
+									Cash Handover</span>
+						</a></li>
+						<li><a href="#/roundOffConfiguration"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Round
+									Off Configuration</span>
+						</a></li>
+						<li><a href="#/cashCounterClosing"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Cash
+									Opening Closing</span>
+						</a></li>
+						<li><a href="#/reminderForNOK"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span class="">Remainder For NOK
+							</span>
+						</a></li>
+						<li><a href="#/companyInvoiceCreation"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Company Invoice Creation</span>
+						</a></li>
+						<li><a href="#/companyRemainder"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Company Remainder</span>
+						</a></li>
+						<li><a href="#/companyQueryResponseMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Company Query & Response</span>
+						</a></li>
+						<li><a href="#/companySettlement"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Company Settlement</span>
+						</a></li>
+						<li><a href="#/settledInvoices"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span class="">Settled Invoices</span>
+						</a></li>
+						<li><a href="#/paymentCollection"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Payment
+									Collection</span>
+						</a></li>
+						<li><a href="#/companyContractMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span class="">Company
+									Contract</span>
+						</a></li>
+						<li>
+							<a href="#/tariffMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">Tariff Master</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/serviceTariffMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">Service Tariff Master</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/OPConsulationConfigurationMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">OP Consulation Configuration</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/doctorConsulationMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">Doctor Consulation</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/globalDoctorShare">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">Global Doctor Share</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/doctorWiseShare">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class=""> Doctorwise Share</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/doctorReferralShareMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">Doctor Referral Share</span>
+							</a>
+						</li>
+						
+						<li>
+							<a href="#/ARmaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">AR Master</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/APmaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">AP Master</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/GLcode">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span class="">GL Code</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+					
+				<li>
+					<a class="cursor-pointer">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+						<span>Pacakge Configuration</span>
+					</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" style="list-style-type: none;">
+						<li>
+							<a href="#/EHCpackage">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>EHC Package</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/packageWithCAP"> 
+								<i class="fa fa-pencil"	aria-hidden="true"></i>
+								<span>Package With CAP</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/allExclusivePackage"> 
+								<i class="fa fa-pencil"	aria-hidden="true"></i>
+								<span>All Exclusive Package</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/eitherOrPackage"> 
+								<i class="fa fa-pencil"	aria-hidden="true"></i>
+								<span>Either Or Package</span>
+							</a>
+						</li>
+						<li>
+							<a href="#/multicounterPackage"> 
+								<i class="fa fa-pencil"	aria-hidden="true"></i>
+								<span>Multicounter Package</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+						
+						
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i><span>Pharmacy</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a class="cursor-pointer" href="#/vendormaster"> <!-- ng-click="getMasterPage('vendor master')" -->
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Vendor
+									Master</span>
+						</a></li>
+						<!-- <li><a class="cursor-pointer"
+							ng-click="getMasterPage('rack master')"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span
+								>Rack Master</span>
+						</a></li> -->
+						<li><a class="cursor-pointer" href="#/rackMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Rack
+									Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/mainstoremaster"> <!-- ng-click="getMasterPage('store master')" -->
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Main
+									Store Master</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/substoremaster"> <!-- ng-click="getMasterPage('store master')" -->
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Store
+									Item Mapping Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/productRestriction/productCategoryMapping"> <!-- ng-click="getMasterPage('store master')" -->
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Product
+									Restriction</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							href="#/pharmacologicalClassificationMaster"> <!-- ng-click="getMasterPage('store master')" -->
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Pharmacological
+									Classification</span>
+						</a></li>
+						<li><a class="cursor-pointer" href="#/storewiseGenericMapper">
+								<i class="fa fa-pencil" aria-hidden="true"></i> <span>Storewise
+									Generic Mapper</span>
+						</a></li>
+						<li>
+							<a class="cursor-pointer" href="#/consumableBarcodeConfig">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Consumable Barcode </span>
+								<span style="margin-left:43px;">Configuration</span>
+							</a>
+						</li>
+						<li>
+							<a class="cursor-pointer" href="#/indentTemplateMaster">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>Indent Template Master</span>
+							</a>
+						</li>
+						<li>
+							<a class="cursor-pointer" href="#/ETOItemConfiguration">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+								<span>ETO Item Configuration</span>
+							</a>
+						</li>
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i><span>Clinical</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Asset
+							Management</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/assetTypeMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Asset Type Master</span>
+						</a></li>
+						<li><a href="#/assetCategoryMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Asset
+									Category Master</span>
+						</a></li>
+						<li><a href="#/productCategoryMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Product
+									Category Master</span>
+						</a></li>
+						<!-- <li><a href="#/fixedAssetType"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Fixed Asset Type</span>
+						</a></li> -->
+						<li><a href="#/fixedAssetMaster"> <i class="fa fa-pencil"
+								aria-hidden="true"></i> <span>Fixed Asset Master</span>
+						</a></li>
+						<li><a class="cursor-pointer"
+							ng-click="getMasterPage('Equipment Master')"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Equipment
+									Master</span>
+						</a></li>
+						
+						<li>
+							<a class="cursor-pointer" href="#/generalInsuranceMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i>
+								<span>General Insurace Master</span>
+							</a>
+						</li>
+						
+					</ul></li>
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Common</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+					</ul></li>
+
+				<li><a class="cursor-pointer"> <i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Mortuary</span>
+				</a>
+					<ul class="nav-pills nav-stacked sub-menu-side-bar-level-3"
+						style="list-style-type: none;">
+						<li><a href="#/mortuaryBedMaster"> <i
+								class="fa fa-pencil" aria-hidden="true"></i> <span>Mortuary
+									Bed Master</span>
+						</a></li>
+					</ul></li>
+					
+					<li><a href="#/staffRegistration" class="cursor-pointer"> 
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Staff Registration</span>
+						</a>
+					</li>
+					<li><a href="#/doctorRegistration" class="cursor-pointer"> 
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Doctor Registration</span>
+					</a>
+					</li>
+					
+					<li>
+				      <a class="cursor-pointer"> 
+				       <i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Scheduling</span>
+				      </a>
+				      <ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" style="list-style-type: none;">
+				       <li>
+				        <a class="cursor-pointer" href="#/appointmentSchedulingUnitMaster">
+				         <i class="fa fa-pencil" aria-hidden="true"></i>
+				         <span>Appointment Scheduling</span>
+				        </a>
+				       </li>
+				       <li>
+				        <a class="cursor-pointer" href="#/modalityTypeMaster">
+				         <i class="fa fa-pencil" aria-hidden="true"></i>
+				         <span>Modality Type Master</span>
+				        </a>
+				       </li>
+				       <li>
+				        <a class="cursor-pointer" href="#/modalityMaster">
+				         <i class="fa fa-pencil" aria-hidden="true"></i>
+				         <span>Modality Master</span>
+				        </a>
+				       </li>
+				      </ul>
+				     </li>
+				     <li>
+					      <a class="cursor-pointer"> 
+					      		<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					      		<span>Schedule Block Unblock</span>
+					      </a>
+					      <ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" style="list-style-type: none;">
+						       	<li>
+							        <a href="#/scheduleWise" class="cursor-pointer">
+								         <i class="fa fa-pencil" aria-hidden="true"></i>
+								         <span> Specialty Wise</span>
+							        </a>
+							     </li>
+							     <li>
+							        <a href="#/doctorWise" class="cursor-pointer">
+								         <i class="fa fa-pencil" aria-hidden="true"></i>
+								         <span> Doctor Wise</span>
+							        </a>
+							     </li>
+					      </ul>
+				     </li>
+				     <li>
+					      <a class="cursor-pointer"> 	
+					      		<i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Configuration</span>
+					      </a>
+					    <ul class="nav-pills nav-stacked sub-menu-side-bar-level-3" style="list-style-type: none;">
+					       <li>
+					        <a class="cursor-pointer" href="#/applicationConfiguration">
+					         <i class="fa fa-pencil" aria-hidden="true"></i>
+					         <span>Application Configuration</span>
+					        </a>
+					       </li>
+					    </ul>
+				   </li>
+			</ul>
+		</li>
+			
+		</ul>
+
+</div>
+<!-- /#sidebar-wrapper -->
+
+
+<!-- OTP POPUP -->
+<div id="pharmacyPopupBeforLeftexpand" class="modal fade ng-scope in common-small-popup" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Pharamcy
+					<!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10 row padding-top10">
+					<div class="col-md-3 col-lg-3 col-sm-3">
+						<span>Pharamcy Type</span> 
+					</div>
+					<div class="col-md-6 col-lg-6 col-sm-6">
+						<select class="" style="width:100%">
+							<option></option>
+						</select>
+					</div>
+					
+				</div>
+				<div class="margin-left10 row margin-top10">
+					<div class="col-md-3 col-lg-3 col-sm-3">
+						<span>Store</span> 
+					</div>
+					<div class="col-md-6 col-lg-6 col-sm-6">
+						<select class="" style="width:100%">
+							<option></option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary"
+					id="otpOk">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$('#menu ul').hide();
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#sidebar-wrapper").css("height", sideBarHeight + "px");
+	});
+	
+	// $(".pharmacyPopup").click(function() {
+	// 	 $("#pharmacyPopupBeforLeftexpand").modal({
+	//             backdrop: 'static',
+	//             keyboard: false
+	//         });
+	// });
+
+	/* 
+	$('#pharmacyPopupBeforLeftexpand').on('shown', function () {
+		alert();
+		  $('body').on('click', function(e) {
+			  alert("in body");
+		    e.stopPropagation();
+		  });
+		}) */
+</script>

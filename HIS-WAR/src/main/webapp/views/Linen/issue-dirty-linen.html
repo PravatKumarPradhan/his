@@ -1,0 +1,445 @@
+<div id="page-content-wrapper" class="ng-scope">
+  <div class="container-fluid his-style">
+    <fieldset class="main-fieldset">
+      <!-- <legend class="heading-div">Store Indent</legend> -->
+      <div class="row margin-top10 padding-left-right-set4">
+        <div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+          <div class="row input-container">
+            <div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+              <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+            </div>
+            <div class="col-lg-10 col-sm-10 col-md-10">
+              <div class="">
+                <!-- <input type="text" name="code" id="" class="text-input floating-label" ng-model="vm.model.fromDate" ng-class="{dirty: vm.model.fromDate}"> -->
+                <input type="text" class="text-input floating-label dirty ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-date" name="fromDate" id="fromDate" uib-datepicker-popup="dd-MM-yyyy" placeholder="DD-MM-YYYY" ng-model="vm.model.fromDate" model-view-value="true" is-open="vm.model.fromDateOpened" datepicker-options="vm.model.dateOptions" show-button-bar="false" ng-click="vm.model.OpenFromDate()"><div uib-datepicker-popup-wrap="" ng-model="date" ng-change="dateSelection(date)" template-url="uib/template/datepickerPopup/popup.html" class="ng-not-empty ng-valid">
+  <!-- ngIf: isOpen -->
+</div>
+                <label for="code">From Date</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+          <div class="row input-container">
+            <div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+              <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+            </div>
+            <div class="col-lg-10 col-sm-10 col-md-10">
+              <div class="">
+                <!-- <input type="text" name="code" id="" class="text-input floating-label" ng-model="vm.model.toDate" ng-class="{dirty: vm.model.toDate}"> -->
+                <input type="text" class="text-input floating-label dirty ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-date" name="toDate" id="toDate" uib-datepicker-popup="dd-MM-yyyy" placeholder="DD-MM-YYYY" ng-model="vm.model.toDate" model-view-value="true" is-open="vm.model.toDateOpened" datepicker-options="vm.model.dateOptions" show-button-bar="false" ng-click="vm.model.OpenToDate()"><div uib-datepicker-popup-wrap="" ng-model="date" ng-change="dateSelection(date)" template-url="uib/template/datepickerPopup/popup.html" class="ng-not-empty ng-valid">
+  <!-- ngIf: isOpen -->
+</div>
+                <label for="description" class="LISDynamicLabel">To Date</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+	      <div class="row input-container">
+	        <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+	          <i class="fa fa-tasks" aria-hidden="true"></i>
+	        </div>
+	        <div class="col-lg-11 col-sm-11 col-md-11">
+		          <div class="">
+		            <select class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.model.fromStore" ng-options="datum as datum.storeName for datum in vm.model.storeList"><option value="?" selected="selected"></option></select>
+		            <label for="code">From Store</label>
+		          </div>
+	        </div>
+	        </div>
+    	</div>
+    <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+      <div class="row input-container">
+        <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+          <i class="fa fa-tasks" aria-hidden="true"></i>
+        </div>
+        <div class="col-lg-11 col-sm-11 col-md-11">
+          <div class="">
+            <select class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.model.toStore" ng-options="datum as datum.storeName for datum in vm.model.storeList"><option value="?" selected="selected"></option></select>
+            <label for="code">To Store</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+        <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+          <div class="row input-container">
+            <div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+              <i class="fa fa-bullseye" aria-hidden="true"></i>
+            </div>
+            <div class="col-lg-11 col-sm-11 col-md-11">
+              <div class="">
+                <input type="text" name="code" id="" class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.model.indentNumber" ng-class="{dirty: vm.model.storeIndentType}">
+                <label for="code">Indent No.</label>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-lg-2 col-md-2 col-sm-1 padding-left-right-set4 padding-top10">
+          <div class="row input-container">
+            <div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+              <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+            </div>
+            <div class="col-lg-10 col-sm-10 col-md-10">
+              <div class="">
+                <select class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.model.status"><option value="? undefined:undefined ?"></option>
+                  <!-- ngRepeat: datum in vm.model.statusData -->
+                </select>
+                <label for="description" class="LISDynamicLabel">Status</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+          <div class="row input-container">
+            <div class="col-lg-2 col-sm-2 col-md-2 polymer-icon ">
+              <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+            </div>
+            <div class="col-lg-8 col-sm-8 col-md-8 padding-left-right-set4">
+              <div class="">
+                <select class="text-input floating-label ng-pristine ng-untouched ng-valid ng-empty" ng-model="vm.model.storeIndentType" ng-class="{dirty: vm.model.storeIndentType}">
+                  <option value=""></option>
+                  <option value="Manual">Manual</option>
+                  <option value="Auto">Auto</option>
+                </select>
+                <label for="description" class="LISDynamicLabel">Type</label>
+              </div>
+            </div>
+            <div class="col-lg-2 col-sm-2 col-md-2 ">
+              <div class="common-save-button" style="padding-top:  0px;"> 
+                 <a href="" ng-click="vm.model.StoreIndentData()" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+                  <i class="fa fa-search" aria-hidden="true"></i> 
+                 </a> 
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+        </fieldset> 
+      
+    <div class="row margin-top4">
+      <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+        <div class=" ">
+          <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout">
+          <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+        </div>
+      </div>
+       <div class="col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+        <div class=" ">
+          <a href="#/addNewDirtyLinenIssue">
+            <input type="button" value="Add New" class="btn btn-primary btn-save-box-shadow">
+          </a>
+        </div>
+      </div>
+    </div>
+        <div class="row ">
+      <div class="padding-left-right-set4 margin-top4" id="nonBillableTableHt">
+        <fieldset class="">
+          <!-- <legend class="heading-div">Table</legend> -->
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 height500-table-with-scroll">
+          <table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+            <thead class="mainServiceTableCommon">
+              <!-- <tr>
+                <th class="width1 text-center">
+                  <input type="checkbox"/>
+                </th>
+                <th class="width7">
+                  Indent No.
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width8">
+                  Indent Date
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width8">
+                  From Store
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width8">
+                  To Store
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width6">
+                  Priority
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width6">
+                  Type
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width8">
+                  Is Consignment
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width7">
+                  Requested By
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width7">
+                  Requested On
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width8">
+                  Remark
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width4">
+                  Status
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width8">
+                   Action
+                  <div class="float_right">
+                    <div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+                    <div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                  </div>
+                </th>
+              </tr> -->
+              <tr>
+                <th class="width1 text-center">
+                  <input type="checkbox"  class="ng-pristine ng-untouched ng-valid ng-empty">
+                </th>
+                <th class="width6">
+                  Requested No.
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width7">
+                  Requested Date
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width8">
+                  From Store
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width8">
+                  To Store
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width7">
+                  Priority
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width5">
+                  Type
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width7">
+                  Requested By
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width8">
+                  Remark
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width3">
+                  Status
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+                <th class="width7 text-center">
+                   Action
+                  <div class="float_right">
+                    <div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+                    <div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+             	<tr>
+             		<td> <input type="checkbox"></td>
+             		<td>RQ-1002</td>
+             		<td>20/04/2018</td>
+             		<td>Nurse Store</td>
+             		<td>Linen Main Store</td>
+             		<td>Low</td>
+             		<td>Staff Linen</td>
+             		<td>Methin G</td>
+             		<td>-</td>
+             		<td>Pending</td>
+             		<td>
+						<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+							<a title="Print"><i class="fa fa-print" aria-hidden="true"></i></a>
+						</div>
+						<div class="col-lg-2 col-md-4 padding-left-right-set4 ">
+							<a title="Cancel"><i class="fa fa-times-circle-o" aria-hidden="true" data-toggle="modal" data-target="#CanellationModalForStoreIndent" ng-click="vm.model.CancelIndent($index)"></i></a>
+						</div>
+						<div class="col-lg-6 col-md-6 padding-left-right-set4 text-right">
+							<a href="#/dirtyLinenIssueDetails">Details</a>
+						</div>
+					</td>
+             	</tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+        </fieldset>
+      </div>
+    </div>
+    </div>
+</div>
+
+	<script type="text/javascript">
+$( document ).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+	$('.clockpicker').clockpicker();
+	$(".medication-text-box").hide();
+	$( ".radioRejected" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$("#accepatReject").modal();
+		}
+	});
+	$(".selectedPageName").text("Issue Dirty Linen");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="linenIndent"]').parents("li").addClass("active");
+	
+});
+
+</script>

@@ -1,0 +1,107 @@
+   <!-- <div class="row">
+            		<div class="col-md-8"></div>
+					<div class="col-md-3">
+						<div>
+							  <input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required/>
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-md-1 ">
+						<div class="" style="padding-top:3px !important" >
+							<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveOTRequest()">
+							<a href="" value="Save" class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Save" ng-click="saveOTRequest()">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>  -->
+				
+				<div class="row margin-top10 padding-left-right-1">
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+						<div class=" ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveOTRequest()"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+						<input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required style="margin-top: 0px"/>
+                       <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+					</div>
+				</div>
+				
+							<modal visible="showModal"></modal> 
+				<div class="row margin-top4 padding-left-right-set4 common-popup-height-410">
+					<div class="col-md-12">
+						<table class="table table-bordered ">
+							<tr class="">
+							<th class="width1"></th>
+								<th class="width15">
+									Surgery Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Surgery Time
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Transfer Time
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width12">
+									Destination 
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width12">
+									Bed To Be Retained
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr ng-repeat="info in patientSurgeryList">
+							<td>
+								<input type="radio" name="radioName" value="info.patientSurgeryOrderId" ng-model="patientSurgeryOrder" ng-click="selectItem(info)" />
+								</td>
+								<td>{{info.surgeryName}}</td>
+								<td>
+									<div class="input-group clockpicker">
+										<input type="text" class="form-control" ng-model="info.surgeryTime"   ng-init="initClockPicker()">
+										<span class="input-group-addon">
+											<span class="fa fa-clock-o"></span>
+										</span>
+									</div>
+								</td>
+								<td>
+									<div class="input-group clockpicker">
+										<input type="text" class="form-control" ng-model="info.transferTime"   ng-init="initClockPicker()">
+										<span class="input-group-addon">
+											<span class="fa fa-clock-o"></span>
+										</span>
+									</div>
+								</td>
+								<td>Floor-5 ward-B Bed No: BM2589630</td>
+								<td><input type="checkbox" ng-model="info.isRetained" ng-true-value="'Y'" ng-false-value="'N'"></td>
+							</tr>
+						
+						</table>
+					</div>
+				</div>
+<script type="text/javascript">
+	$(".btn-hide").show();
+</script>

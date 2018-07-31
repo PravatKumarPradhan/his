@@ -1,0 +1,192 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset class="">
+			<div class="row padding-top5 padding-left-right-set4">
+				<fieldset class="normalRegistration">
+					<!-- <legend class="heading-div">Examination</legend> -->
+					<div class="row custom-sub-tab">
+						<!-- <ul class="tabs nav nav-tabs">
+							<li ng-class="{ active : isSetThirdTabLevel(1) }" class="active" style="width: 160px;">
+								<a href="" ng-click="setThirdTabLevel(1)">General</a>
+							</li>
+							<li ng-class="{ active : isSetThirdTabLevel(2) }" style="width: 160px;" class="">
+								<a href="" ng-click="setThirdTabLevel(2)">Billing</a>
+							</li>
+							<li ng-class="{ active : isSetThirdTabLevel(3) }" style="width: 160px;" class="">
+								<a href="" ng-click="setThirdTabLevel(3)">Inventory</a>
+							</li>
+						</ul> -->
+						<ul class="tabs nav nav-tabs">
+							<li id="" ng-class="{ active : SetFirstTabLevel(1) }" class="padding-top-bottom width11" class="active" style="width: 160px;">
+								<a href ng-click="vm.model.SetFirstTabLevel = 1">General</a>
+							</li>
+							<li id="" ng-class="{ active : SetFirstTabLevel(2) }" class="padding-top-bottom width11"  style="width: 160px;" class="">
+								<a href ng-click="vm.model.SetFirstTabLevel = 2">Billing</a>
+							</li>
+							<li id="" ng-class="{ active : SetFirstTabLevel(3) }" class="padding-top-bottom width11"  style="width: 160px;" class="">
+								<a href ng-click="vm.model.SetFirstTabLevel = 3">Inventory</a>
+							</li>
+						</ul>
+					</div>
+					<div class="row">
+						<!-- <div ng-show="isSetThirdTabLevel(1)" class="second-level-tab-display-div" style="">
+							<div class="row margin-top8"></div>
+						</div>
+						<div ng-show="isSetThirdTabLevel(2)" class="second-level-tab-display-div ng-hide" style=""></div>
+						<div ng-show="isSetThirdTabLevel(3)" class="second-level-tab-display-div ng-hide">
+							<div class="row">
+								<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+									<div class="row input-container">
+										<div class="col-md-8 col-sm-8 padding-left-right-set4 padding-top4">
+											<label>Item Name</label>
+										</div>
+										<div class="col-md-4 col-sm-4 padding-left-right-set4 text-width-auto">
+											<label class="switch">
+												<input type="checkbox">
+												<div class="slider round"></div>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<select class="text-input floating-label">
+													<option value=""></option>
+												</select>
+												<label for="code">Default Tax Type</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+									<div class="row input-container">
+										<div class="col-md-8 col-sm-9 padding-left-right-set4 padding-top4">
+											<label>Issue Material Picker Required</label>
+										</div>
+										<div class="col-md-2 col-sm-2 text-width-auto">
+											<label class="switch">
+												<input type="checkbox">
+												<div class="slider round"></div>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="row margin-top10 padding-left-right-set1">
+									<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+										<div class=" ">
+											<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmSave" type="submit">
+												<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> -->
+						<div ng-show="vm.model.SetFirstTabLevel == 1"></div>
+						<div ng-show="vm.model.SetFirstTabLevel == 2"></div>
+						<div ng-show="vm.model.SetFirstTabLevel == 3">
+							<div class="row">
+								<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+									<div class="row input-container">
+										<div class="col-md-8 col-sm-8 padding-left-right-set4 padding-top4">
+											<label>Item Name</label>
+										</div>
+										<div class="col-md-4 col-sm-4 padding-left-right-set4 text-width-auto">
+											<label class="switch">
+												<input type="checkbox" class="switchInput" ng-change="vm.model.isItemNameFlag(vm.model.isItemName)" ng-model="vm.model.isItemName">
+												<div class="slider round slider"></div>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<select class="text-input floating-label" ng-model="vm.model.tax" name="code" ng-options=" tax.name for tax in vm.model.taxList"
+												 ng-class="{dirty: vm.model.id}">
+												</select>
+												<label for="code">Default Tax Type</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+									<div class="row input-container">
+										<div class="col-md-8 col-sm-9 padding-left-right-set4 padding-top4">
+											<label>Issue Material Picker Required</label>
+										</div>
+										<div class="col-md-2 col-sm-2 text-width-auto">
+											<label class="switch">
+												<input type="checkbox" class="switchInput" ng-change="vm.model.isIssueFlag(vm.model.isIssue)" ng-model="vm.model.isIssue">
+												<div class="slider round slider"></div>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="row margin-top10 padding-left-right-set1">
+									<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+										<div class=" ">
+											<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmSave" type="submit">
+												<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</fieldset>
+	</div>
+</div>
+<!--  confirmSave modal start -->
+
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+		<div class="modal-content" style="border-radius: 0px !important;">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Are you sure you want to Save?</span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" ng-click="vm.model.SaveAppConfig()">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="resources/assets/js/common/page-height.js"></script>
+
+<!--  confirmSave modal end -->
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Application Configuration");
+		$(".sidebar-nav li").each(function () {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="applicationConfiguration"]').parents("li").addClass("active");
+	});
+</script>

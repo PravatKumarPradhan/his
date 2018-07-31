@@ -1,0 +1,266 @@
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid his-style">
+				<div class="row searched-patient-details-row">
+						<div class="col-md-11 col-sm-11 col-xs-11 " ng-if="patientFullName != ''">
+							<span class="profile_pic margin-left10"> 
+								<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+							</span> 
+							<span class="margin-left10">{{patientFullName}} </span>
+							<span class="margin-left10"><b class="padding-right5 ">UHID	:</b>{{uhidNum}}</span>
+							<span class="margin-left10"><b class="padding-right10 "><!-- WARD NO : --></b> <!-- W1112 --></span>
+							<span class="margin-left10"><b class="padding-right10 "><!-- BED NO : --></b> <!-- BM129091 --></span>
+							<span class="margin-left10">Dr. {{doctorFullName }}</span>
+						</div>
+					</div>
+					  <div class="row margin-top8 padding-left-right-set4">
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveTransferOfCareRequest()"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+							 <input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+		                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+		                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required/ style="margin-top: 0px">
+		                       <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					  <!-- <div class="row">
+            		<div class="col-md-8"></div>
+					<div class="col-md-3">
+						<div>
+							  <input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required/>
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-md-1 ">
+						<div class="" style="padding-top:3px !important" >
+							<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveOTRequest()">
+							<a href="" value="Save" class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Save" ng-click="saveTransferOfCareRequest()">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div> -->
+				<fieldset>
+					<form action="">
+		            	<div class="row">
+		            		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-circle" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label" ng-model="specialityId" name="code" ng-change="getDoctorBySpeciality(specialityId)">
+												<option>Select Specialty</option>
+												<option ng-repeat="info in specialityList" value="{{info.specialityId}}">{{info.specialityName}}</option>
+											</select> <label for="code">Choose Doctor Specialty</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3  padding-left-right-set4 margin-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-user-md fa-color" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<input type="hidden" ng-model="treatingDoctorId" />
+									<input type="hidden" ng-model="admissionId" />
+										<div class="">
+											<select class="text-input floating-label" ng-model="requestDoctorId" name="code">
+												<option>Select Doctor Name</option>
+									            <option ng-repeat="info in doctorList" value="{{info.doctorId}}">{{info.firstName+' '+info.lastName}}</option>
+											</select> <label for="code">Choose Doctor Name</label>
+										</div>
+									</div>
+								</div>
+							</div>
+		
+							<div class="col-lg-3 col-md-3 col-sm-3  padding-left-right-set4 margin-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa  fa-sticky-note-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label" name="code" ng-model="reasonId">
+												<option>Select Reason</option>
+									<option ng-repeat="info in reasonList" value="{{info.reasonMasterId}}"> {{info.reasonDesc}}</option>
+											</select> <label for="code">Choose Reason For Transfer</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3  padding-left-right15 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-sticky-note" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<textarea name="code" rows="1" id=""
+													class="text-input floating-label" ng-model="note"></textarea>
+												<label for="code">Note</label>
+											</div>
+										</div>
+									</div>
+							</div>
+						</div>
+				</form>
+			</fieldset>
+			
+		</div>
+		<modal visible="showModal"></modal> 
+		<div class="row padding-left-right-set4 margin-top10">
+					<div class="col-md-12">
+						<table class="table table-bordered ">
+							<tr class="">
+							<th >
+									Patient Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th >
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th >
+									Bed Number
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th >
+									Specialty Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th style="width:12%">
+									Doctor Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th style="width:10%">
+									Reason
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th>
+									Note
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th>
+									Doctor Remark
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th>
+									Reject Reason
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th>
+									Status
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr ng-repeat="info in transferOfCareRequestList">
+							
+						<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.patientName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.patientName+' '+info.dob+'/'+info.genderCode}}</div>
+						</td>
+								<td>
+							<div>{{info.uhidnumber}}</div><!-- <b>UHID:</b>  -->
+						</td>
+							<td>{{info.bedNumber}}</td>
+								<td>{{info.specialityName}}</td>
+								<td>
+									Dr. {{info.doctorName}}
+								</td>
+								<td>
+									{{info.reasonDesc}}
+								</td>
+								<td><i class="fa fa-commenting" aria-hidden="true" data-toggle="modal" data-target="#notesForall" ng-click="displayNote(info.note)"></i></td>
+								<td><i class="fa fa-commenting" aria-hidden="true" data-toggle="modal" data-target="#notesForall" ng-click="displayNote(info.remark)"></i></td>
+								<td>{{info.rejectReasonDesc}}</td>
+								<td>{{info.transferStatusDesc}}</td>
+							</tr>
+						
+						</table>
+					</div>
+				</div>
+				<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+	</div>
+		<div id="notesForall" class="modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Note
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body common-sub-table">
+					<div class="row margin-top10" >
+						<div class="col-md-12 padding-left-right-set">
+							<!-- <input type="text" placeholder="Note" class="text-box-style"  ng-model="noteDoctor"> -->
+							<textarea placeholder="Note" ng-model="noteDoctor" rows="5" readonly="true"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+		
+$('.clockpicker').clockpicker();
+
+$(".selectedPageName").text("Initiate Transfer Of Care");
+$(".sidebar-nav li").each(function() {
+	$(this).find("a").parents("li").removeClass("active");
+});
+$('a[href$="initiateTransferCare"]').parents("li").addClass("active");
+	});
+</script>

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html;">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HIS</title>
+<head>
+
+	<link rel="stylesheet" href="resources/assets/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="resources/assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" /> -->
+	<link rel="stylesheet" type="text/css" href="resources/assets/css/param.common.master.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="resources/assets/css/formeo.min.css"/> -->
+	<link href="resources/assets/css/angular-growl.min.css" rel="stylesheet" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="resources/assets/css/jquery-clockpicker.min.css"/> 
+	
+	<!-- for tables -->
+	<link rel="stylesheet" href="resources/assets/css/datatables.bootstrap.css">
+	
+	<link rel="stylesheet" href="resources/assets/css/Kendo/kendo.common-material.min.css" />
+	<link rel="stylesheet" href="resources/assets/css/Kendo/kendo.material.min.css" />
+	<link rel="stylesheet" href="resources/assets/css/Kendo/kendo.material.mobile.min.css" />
+	<link rel="stylesheet" href="resources/assets/css/fullcalendar.css" />
+	<link rel="stylesheet" href="resources/assets/css/custom.toggle.css	" />
+		<link rel="stylesheet" href="resources/assets/css/angular-chart.css	" />
+	
+	
+	<!-- Fixed Table Column Scroll Css -->
+	<link rel="stylesheet" type="text/css" href="resources/assets/css/fixed-column-scroll.css"/>
+	<link rel="stylesheet" type="text/css" href="resources/assets/css/fixed-thead-tfoot.css"/>
+	
+	
+
+
+
+
+	<!-- Vivek Added For Angualr Range sLIDER css -->
+	<!--  <link rel="stylesheet" href="https://rawgit.com/rzajac/angularjs-slider/master/dist/rzslider.css" /> -->
+	<!-- eND Vivek Added For Angualr Range sLIDER css -->
+	
+<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.js"></script> -->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>| -->
+<!-- <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script> -->
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script> -->
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-mask/1.8.4/mask.min.js"></script> -->
+
+
+<!-- <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.1026/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.1026/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.1026/styles/kendo.material.mobile.min.css" /> -->
+	<style>
+.zzz{
+	border:1px solid red !important;
+}
+
+/* vallidation css start */
+/* Styles go here */
+.form-group .help-block {
+  display: none;
+}
+ 
+.form-group.has-error .help-block {
+  display: block;
+}
+/* vallidation css end */
+</style>
+</head>
+<!-- <body ng-app="myApp">
+
+<div ui-view></div>
+</body> -->
+<body ng-app="myApp">
+<div growl></div>
+<div ng-include="'./views/common/top-bar.html'" ng-if="loginpage"></div>
+    <div id="wrapper" class="toggled-2">
+   		<div ng-include="'./views/common/new-side-bar.html'" ng-if="loginpage"></div>
+   		<!-- <div ng-include="'./views/common/side-bar.html'" ng-if="loginpage"></div> -->
+		<div ui-view id="uiView">
+			
+		</div>
+	</div>
+</body>
+
+
+    <script src="resources/assets/js/jquery.min.js"></script>
+    <!-- TEMPLATE CODE ADDED BY GANESH -->
+     <script src="resources/assets/js/jquery-ui.min.js"></script>
+    <script src="resources/assets/js/formeo.min.js"></script>
+	<script src="resources/assets/js/sidebar-master.js"></script>
+	<script src="resources/assets/js/bootstrap.min.js"></script>
+	<script src="resources/assets/js/jquery-clockpicker.min.js"></script>
+	<script src="resources/assets/ckeditor/ckeditor.js"></script>
+	
+
+	<!-- Angular Lib -->
+	<script src="resources/assets/js/angular/angular.min.js"></script>
+	<script src="resources/assets/js/angular/angular-route.js"></script>
+	<script src="resources/assets/js/angular/angular-ui-router.min.js"></script>
+	<script src="resources/assets/js/angular/angular-animate.js"></script>
+	<script src="resources/assets/js/angular/angular-ui-router.js"></script>
+	<script src="resources/assets/js/angular/angular-cookies.js"></script> 	
+	<script src="resources/assets/js/angular/ngStorage.js"></script>
+	<script src="resources/assets/js/angular/ui-bootstrap-fontawesome-0.3.0.min.js"></script> 
+	<script src="resources/assets/js/angular/ui-bootstrap-tpls-2.3.1.js"></script> 
+    <script src="resources/assets/js/angular/angular-sanitize.js"></script>
+	<script src="resources/assets/js/angular/angular-messages.js"></script>
+	<script src="resources/assets/js/angular/angular-filter.js"></script>
+	<script src="resources/assets/js/common/angular-growl.min.js"></script>
+	<script src="resources/assets/js/common/voucher_codes.js"></script>
+	<script src="resources/assets/js/common/angular-barcode.js"></script>
+	<script src="resources/assets/js/common/checklist-model.js"></script>
+	
+	<!-- Vivek Added For Angualr Range sLIDER -->
+<!-- 	<script src="https://rawgit.com/rzajac/angularjs-slider/master/dist/rzslider.js"></script> -->
+	<!--eND  Vivek Added For Angualr Range sLIDER -->
+	<!-- For Datatables -->
+	<script src="resources/assets/angular-datatables.min.js"></script>
+    <script src="resources/assets/jquery.dataTables.min.js"></script>
+    <!-- End For Datatables -->
+    
+
+	
+	
+	<!-- jQuery lib -->
+	
+	<script src="resources/assets/js/angular/moment.min.js"></script>
+    <script src="resources/assets/js/angular/mask.min.js"></script> 
+	<script src="resources/assets/js/angular/ui-bootstrap-tpls-1.3.3.js"></script>
+   <script src="resources/assets/js/angular/ui-bootstrap-fontawesome-0.3.0.min.js"></script>
+   
+
+   
+     <!-- vivek added -->
+   
+   <script src="resources/assets/js/common/multiSelectDirective.js"></script>
+     <script src="resources/assets/js/common/checkbox-multiple.js"></script>
+   
+   
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-dropdown-multiselect/1.11.8/angularjs-dropdown-multiselect.min.js"></script> -->
+   
+    <script src="resources/assets/js/common/angularjs-dropdown-multiselect.min.js"></script> 
+   <!--  <script src="resources/assets/js/common/angularjs-multi-selectdrop-down-2.0.10.min.js"></script>  -->
+  <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.7.0/lodash.min.js"></script> -->
+   <script src="resources/assets/js/common/lodash.min.js"></script>
+	<script src="resources/assets/js/common/angular-dropdown-multiselect-day.js"></script>
+	
+	 
+   <!-- vivek End -->
+   
+   <!-- Vivek Added For Chart -->
+<!-- 	<script src="https://rawgit.com/rzajac/angularjs-slider/master/dist/rzslider.js"></script> -->
+<script src="resources/assets/js/chart/Chart.js"></script> 
+<script src="resources/assets/js/chart/angular-chart.js"></script> 
+
+	<!--eND  Vivek Added For Chart -->
+  <!-- FULLCALENDER  -->  
+	 <script src="resources/assets/js/fullcalendar.js"></script>
+	
+	<script src="resources/assets/js/config/app.js"></script>	
+	<script src="resources/assets/js/config/url.config.js"></script>
+	<script src="resources/assets/js/config/adt.url.config.js"></script>
+	
+    <!-- APPLICATION SERVICE  -->
+	<script src="resources/assets/js/service/GenericService.js"></script>
+	<script src="resources/assets/js/service/fileUploadDirective.js"></script>
+  <script src="resources/assets/js/service/productService.js"></script>
+  <script src="resources/assets/js/service/storeIndentService.js"></script>
+  <script src="resources/assets/js/service/PurchaseRequestService.js"></script>
+  <script src="resources/assets/js/service/currencyService.js"></script>
+  <script src="resources/assets/js/service/statusService.js"></script>
+  <script src="resources/assets/js/service/rejectReasonService.js"></script>
+  <script src="resources/assets/js/service/cancelReasonService.js"></script>
+  <script src="resources/assets/js/service/statusService.js"></script> 
+  <script src="resources/assets/js/service/salesWorklistService.js"></script> 
+  <script src="resources/assets/js/service/cancelReasonService.js"></script>
+  <script src="resources/assets/js/service/rejectReasonService.js"></script>
+  <script src="resources/assets/js/service/openingBalanceService.js"></script>
+  <script src="resources/assets/js/service/materialPickerService.js"></script> 
+  <script src="resources/assets/js/service/ItemRequestService.js"></script>
+  <script src="resources/assets/js/service/statusService.js"></script>
+  <script src="resources/assets/js/service/salesWorklistService.js"></script>
+  <script src="resources/assets/js/service/pharmacologyValidationService.js"></script> 
+  <script src="resources/assets/js/service/assigningPickerDispenserService.js"></script>
+  <script src="resources/assets/js/service/detailService.js"></script> 
+  <script src="resources/assets/js/service/commonDetailService.js"></script>
+  <script src="resources/assets/js/service/ItemCreationService.js"></script>
+	
+	<!-- APPLICATION CONSTANTS -->
+	<script src="resources/assets/js/constants/constants.js"></script>
+
+	<!-- APPLICATION DIRECTIVE -->
+	<script src="resources/assets/js/directive/numbers.directive.js"></script>
+	<script src="resources/assets/js/directive/barcodeScanner.directive.js"></script>
+  <script src="resources/assets/js/directive/decimalNumbers.directive.js"></script>
+  
+
+	
+	<!-- APPLICATION FILTERS -->
+	<script src="resources/assets/js/filter/summation.filter.js"></script>
+	
+	
+		<!-- PARAMETER FORUMULA CODE ADDED BY GANESH START -->
+	<link rel="stylesheet" href="resources/assets/formula/katex.min.css" /> 
+	<script type="text/javascript" src="resources/assets/formula/katex.min.js"></script>
+	 <script src="//tfoxy.github.io/b/katex/dist/contrib/auto-render.min.js"></script>
+  <script src="//tfoxy.github.io/b/angular-katex/angular-katex.min.js"></script>
+    <script type="text/javascript" src="resources/assets/formula/math.js"></script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="resources/assets/formula/parameter.js"></script>
+	<!-- PARAMETER FORUMULA CODE ADDED BY GANESH END -->
+	
+	  <!-- FORMULA DIRECTIVE -->
+  	<script src="resources/assets/js/directive/mathjax.directive.js"></script>
+	
+	<!-- <script src="resources/assets/js/directive/webcam.min.js"></script>,'webcam' -->
+	
+	
+
+    <!-- APPLICATION CONTROLLER  -->
+    <script src="resources/assets/js/controller/common-controller.js"></script>
+    <script src="resources/assets/js/controller/adt/common/adt.consent.js"></script>
+	<script src="resources/assets/js/controller/login/loginController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/bedManagement/bedManagementController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/icuTypeController.js"></script>
+	<script src="resources/assets/js/controller/master/organizationController.js"></script>	
+	<script src="resources/assets/js/controller/master/specialityMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/subSpecialityMasterController.js"></script>	
+	<script src="resources/assets/js/controller/adt/global/holidayCalenderMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/serviceMasterController.js"></script>	
+	<script src="resources/assets/js/controller/master/nationalityMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/raceMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/countryMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/stateMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/cityMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/areaMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/identificationMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/sexMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/relationMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/maritalstatusMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/religionMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/occupationMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/patientSourceMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/referralTypeMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/commonMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/referralMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/deliveryTypeMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/encounterTypeMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/prefixMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/consentTypeMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/consentMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/bedCategoryMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/bedTypeMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/admissionTypeMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/occupancyUnitMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/dischargeTypeMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/shortLeaveReasonMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/global/hierarchyMasterController.js"></script>
+	<script src="resources/assets/js/controller/master/documentTypeMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/Admission/admissionRequestController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/Admission/pendingAdmissionDischargeController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/bedManagement/bedBookController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/bedManagement/bedReservationListController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/bedManagement/bedAvailabilityController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/bedManagement/bedAllocationController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/Admission/admittedPatientListController.js"></script>
+	<script src="resources/assets/js/controller/master/unit/insuranceMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/Admission/passIssuedController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/emergancy/unknownPatientRegController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/emergancy/bedTypeAllocationERController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/emergancy/erPatientListController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/emergancy/mapOfBedERController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/discharge/patientForDischargeController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/discharge/readyForBillingController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/discharge/finalDischargeController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/discharge/dueForDischargeController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/discharge/cancelForDischargeController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/discharge/shortLeaveDischargeController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/discharge/shortLeaveStatusController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/discharge/pendingShortLeaveController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/initiateBedTransferController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/transferRequestController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/pendingTransferRequestController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/transferRequestAcceptanceController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/patientAcceptanceController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/transferToICUController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/scheduleStatusController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/OTRequestController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/intiateTransferCareController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/acceptanceOfTransferOfCareController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/pendingInterConsultRequestController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/emergancy/discharge/ERDueForDischargeController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/emergancy/discharge/ERReadyForBillingController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/emergancy/discharge/ERfinalDischargeController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/emergancy/discharge/erDischargeMedicationHandoverController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/transferForInvestigationController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/transfer/transferToOTController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/housekeeping/houseKeepingController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/housekeeping/cleanedBedAcceptController.js"></script>
+	<script src="resources/assets/js/controller/master/unit/mortuaryBedMasterController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/mortuary/deathRegistrationController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/mortuary/morguePendinglistController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/mortuary/morgueReservationController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/mortuary/morgueAvailabilityController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/mortuary/morgueReleasedController.js"></script>
+	<script src="resources/assets/js/controller/adt/transaction/mortuary/mortuaryBedManagementController.js"></script>
+	
+	
+	<script src="resources/assets/js/controller/master/districtMasterController.js"></script>
+	<script src="resources/assets/js/controller/login/logoutController.js"></script>
+	<script src="resources/assets/js/common/validationDirective.js"></script>
+	<script src="resources/assets/js/common/commonPopUpDirectives.js"></script>
+	<script src="resources/assets/js/common/select-convert2NumberDirective.js"></script>
+	<script src="resources/assets/js/common/press-enter-directive.js"></script>
+<!--  ============================================================================================================-->	
+
+<!-- LIS COMMON -->
+<script src="resources/assets/js/controller/lis/common/pagerService.js"></script>
+<script src="resources/assets/js/angular/underscore.js"></script>
+<script src="resources/assets/js/common/promiseFactory.js"></script>
+
+<!-- LIS TRANSACTION COMMON -->
+<script src="resources/assets/js/controller/lis/common/transactionCommon.js"></script>
+<script src="resources/assets/js/config/lis.url.config.js"></script>
+
+<!-- LIS CONTROLLER -->
+<script src="resources/assets/js/controller/lis/global/sampleController.js"></script>
+<script src="resources/assets/js/controller/lis/global/containerController.js"></script>
+<script src="resources/assets/js/controller/lis/global/techinqueController.js"></script>
+<script src="resources/assets/js/controller/lis/global/prerequisitesController.js"></script>
+<script src="resources/assets/js/controller/lis/global/unitController.js"></script>
+<script src="resources/assets/js/controller/lis/global/reagentController.js"></script>
+<script src="resources/assets/js/controller/lis/global/reportTypeController.js"></script>
+<script src="resources/assets/js/controller/lis/global/bacteriaShapController.js"></script>
+<script src="resources/assets/js/controller/lis/global/wtifilmStudyMasterController.js"></script>
+<script src="resources/assets/js/controller/lis/global/mediaController.js"></script>
+<script src="resources/assets/js/controller/lis/global/colonyController.js"></script>
+<script src="resources/assets/js/controller/lis/global/antibioticsController.js"></script>
+<script src="resources/assets/js/controller/lis/global/specimanController.js"></script>
+
+<script src="resources/assets/js/controller/lis/global/incubationTestController.js"></script>
+<script src="resources/assets/js/controller/lis/global/antibioticsGroupController.js"></script>
+<script src="resources/assets/js/controller/lis/global/sampleTypeMediaMapperAdditionController.js"></script>
+<script src="resources/assets/js/controller/lis/global/sensitivityTypeResultController.js"></script>
+<script src="resources/assets/js/controller/lis/global/slideProcedureMasterController.js"></script>
+<script src="resources/assets/js/controller/lis/global/incubationPeriodController.js"></script>
+<script src="resources/assets/js/controller/lis/global/blockController.js"></script>
+<script src="resources/assets/js/controller/lis/global/antibioticController.js"></script>
+<script src="resources/assets/js/controller/lis/global/bacteriaClassficationController.js"></script>
+<script src="resources/assets/js/controller/lis/global/ageGroupController.js"></script>
+<script src="resources/assets/js/controller/lis/global/antibioticAdditionController.js"></script>
+
+<script src="resources/assets/js/controller/lis/global/organismGroupMasterController.js"></script>
+<script src="resources/assets/js/controller/lis/global/organismMasterController.js"></script>
+<script src="resources/assets/js/controller/lis/global/stainigMasterController.js"></script>
+<script src="resources/assets/js/controller/lis/global/mediaColnoyAdditionController.js"></script>
+<script src="resources/assets/js/controller/lis/global/antibioticOrganismMpprController.js"></script>
+<script src="resources/assets/js/controller/lis/global/organismGroupOrganismMapperController.js"></script>
+<script src="resources/assets/js/controller/lis/global/antibioticGroupAddAntibioticMapperController.js"></script>
+
+<!-- LIS UNIT MASTER -->
+<script src="resources/assets/js/controller/lis/unit/departmentController.js"></script>
+<script src="resources/assets/js/controller/lis/unit/phlebotomyController.js"></script>
+<script src="resources/assets/js/controller/lis/unit/storageLocationController.js"></script>
+<script src="resources/assets/js/controller/lis/unit/singleParamTestController.js"></script>
+<script src="resources/assets/js/controller/lis/unit/multiParamTestController.js"></script>
+<script src="resources/assets/js/controller/lis/unit/parameterMasterController.js"></script>
+<script src="resources/assets/js/controller/lis/unit/headerController.js"></script>
+<script src="resources/assets/js/controller/lis/unit/histopathologyTestController.js"></script>
+<script src="resources/assets/js/controller/lis/unit/labTemplateMasterController.js"></script>
+<script src="resources/assets/js/controller/lis/unit/storageLocationMstForSlideBlocksController.js"></script>
+<script src="resources/assets/js/controller/lis/unit/profilepanelTestMasterController.js"></script>
+<script src="resources/assets/js/controller/lis/unit/parameterFormulaController.js"></script>
+
+<!-- LIS PHLABOTOMY -->
+<script src="resources/assets/js/controller/lis/transaction/phlabotomy/phlebotomyWorkListController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/phlabotomy/sendToCr.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/phlabotomy/sampleRecollection.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/phlabotomy/patientArrivalController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/phlabotomy/patientArrivalForRepeatSampleCollectionController.js"></script>
+
+<!-- LIS CENTRAL RECEAVING -->
+<script src="resources/assets/js/controller/lis/transaction/centrlReceiving/inPatientSampleCollect.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/centrlReceiving/outPatientSampleCollect.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/centrlReceiving/centrifugationWorkList.js"></script>
+
+<!-- LIS BIOCHEMISTRY -->
+<script src="resources/assets/js/controller/lis/transaction/biochemstry/SampleAcceptancePendingController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/biochemstry/biochemWorklistController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/biochemstry/worklistForReportEntryController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/biochemstry/worklistForValidationController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/biochemstry/worklistForReportReleaseController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/biochemstry/worklistForPrintingController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/biochemstry/deatilsReportEntryWorklist.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/biochemstry/detailsResultValidationController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/biochemstry/detailsReportReleaseController.js"></script>
+
+
+<!-- LIS MICROBIOLOGY -->
+<script src="resources/assets/js/controller/lis/transaction/microbiology/microbiologyAcceptancePendingController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/microbiology/microbiologyWorklistController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/microbiology/incubationObjservationController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/microbiology/sensitivityTestingController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/microbiology/incubationDetailsController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/microbiology/macroScopicExaminationController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/microbiology/biochemicalResultWorklistController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/microbiology/biochemicalResultDetailsController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/microbiology/microscopicExaminationController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/microbiology/detailsMicroscopicExaminationController.js"></script>
+
+
+<!-- LIS HISTOPATHOLOGY -->
+<script src="resources/assets/js/controller/lis/transaction/histopathology/specimenReceiptController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/histoMicroScopicWorklistController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/histMacroScopicWorklistController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/blockCreationController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/slideCreationController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/microscopicExaminiationWorkListController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/histoReportCreationController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/histoRestainRequestController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/restainRequestWorklistController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/restainRequestWorklistDetailsController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/detailsMicroscopicExaminiationWorkListController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/tStorageController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/frozenSectionRequestListController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/histopathology/workloadDashboardController.js"></script>
+
+<!-- OUT SOURCE LAB -->
+
+<script src="resources/assets/js/controller/lis/transaction/outSourceLab/outSourcePendingListController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/outSourceLab/pendinglistForReportUploadController.js"></script>
+<script src="resources/assets/js/controller/lis/transaction/outSourceLab/pendinglistForSampleDispatchController.js"></script>
+
+<!--  ============================================================================================================-->		
+
+
+<!-- BILLING -->
+<script src="resources/assets/js/controller/billing/global/billingFactory.js"></script>
+<script src="resources/assets/js/config/billing.url.config.js"></script>
+<script src="resources/assets/js/controller/billing/global/VariableSequencePricingController.js"></script>
+<script src="resources/assets/js/controller/billing/global/VariablePricingController.js"></script>
+<script src="resources/assets/js/controller/billing/global/GlobalServiceMasterController.js"></script>
+<script src="resources/assets/js/controller/billing/global/BillingGroupMasterController.js"></script>
+<script src="resources/assets/js/controller/billing/unit/deposit.js"></script>
+<script src="resources/assets/js/controller/billing/global/billListController.js"></script>
+<script src="resources/assets/js/controller/billing/transaction/OpdBillingController.js"></script>
+<script src="resources/assets/js/controller/billing/transaction/newOPDBillingController.js"></script>
+
+<!-- BILLING TRANSACTION -->
+
+
+<!-- BILLING UNIT -->
+<script src="resources/assets/js/controller/billing/unit/UnitServiceMappingController.js"></script>
+<script src="resources/assets/js/controller/billing/unit/UnitServiceMasterController.js"></script>
+<script src="resources/assets/js/common/kendo.min.js"></script>
+<script src="resources/assets/js/controller/billing/unit/doctorConsulationMasterController.js"></script>
+<script src="resources/assets/js/controller/billing/unit/serviceTariffMasterController.js"></script>
+
+<script src="resources/assets/js/controller/billing/unit/tariffMasterController.js"></script>
+<script src="resources/assets/js/controller/billing/unit/addNewDoctorWiseShareController.js"></script>
+<script src="resources/assets/js/controller/billing/unit/addNewGlobalDoctorShareController.js"></script>
+<!-- OPD START-->
+<script src="resources/assets/js/config/opd.url.config.js"></script>
+<script src="resources/assets/js/config/global.url.config.js"></script>
+<script src="resources/assets/js/controller/opd/transection/EncounterController.js"></script>
+<script src="resources/assets/js/controller/opd/transection/patientRegistrationController.js"></script>
+<script src="resources/assets/js/controller/opd/transection/patientListController.js"></script>
+<script src="resources/assets/js/controller/opd/unit/appointmentSchedulingUnitMasterController.js"></script>
+<script src="resources/assets/js/controller/opd/unit/SlotBlockUnblockControllerDoctorWise.js"></script>
+<script src="resources/assets/js/controller/opd/unit/modalityTypeMasterController.js"></script>
+<script src="resources/assets/js/controller/opd/unit/modalityMasterController.js"></script>
+<script src="resources/assets/js/controller/opd/unit/OPConsultationConfigurationMasterController.js"></script>
+<script src="resources/assets/js/controller/opd/transection/appointmentSchedulingController.js"></script>
+<script src="resources/assets/js/controller/opd/transection/appointmentListController.js"></script>
+<script src="resources/assets/js/controller/opd/transection/OPDCoverSheetController.js"></script>
+<script src="resources/assets/js/controller/opd/global/systemMasterController.js"></script>
+<script src="resources/assets/js/controller/opd/global/systemObservationMasterController.js"></script>
+<script src="resources/assets/js/controller/opd/global/surgeryGradeMasterController.js"></script>
+
+<script src="resources/assets/js/controller/opd/global/surgeryMasterController.js"></script>
+
+<script src="resources/assets/js/controller/opd/transection/encounterQueueManagementController.js"></script>
+<script src="resources/assets/js/controller/opd/unit/SlotBlockUnblockControllerScheduleWise.js"></script>
+<!-- <script src="resources/assets/js/controller/master/unit/staffMasterController.js"></script> -->
+<!-- OPD END-->
+
+<!-- Masters-->
+<script src="resources/assets/js/controller/master/unit/fixedAssetMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/itemMasterController.js"></script>
+<script src="resources/assets/js/controller/master/unit/fixedAssetTypeController.js"></script>
+<script src="resources/assets/js/controller/master/unit/rackMasterController.js"></script>
+<script src="resources/assets/js/controller/master/unit/productRestrictionController.js"></script>
+<script src="resources/assets/js/controller/master/unit/productCategroyMappingController.js"></script>
+<script src="resources/assets/js/controller/master/unit/itemRestrictionController.js"></script>
+<script src="resources/assets/js/controller/master/hospitalMasterController.js"></script>
+<script src="resources/assets/js/controller/master/priorityController.js"></script>
+<script src="resources/assets/js/controller/master/unit/clinicMasterController.js"></script>
+
+<script src="resources/assets/js/controller/master/AssetManagenent/assetTypeMasterController.js"></script>
+<script src="resources/assets/js/controller/master/AssetManagenent/assetCategoryMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/productCategoryController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/genericMasterController.js"></script>
+<!-- <script src="resources/assets/js/controller/master/pharmacy/reasonMasterController.js"></script> -->
+<script src="resources/assets/js/controller/master/pharmacy/formulationTypeMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/vendorMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/routeOfAdministrationController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/manufacturerMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/frequencyMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/otherChargesMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/unitMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/taxMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/taxComponentMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/storageUnitMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/supplyDaysMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/pharmalogicalClassificationMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/mainStoreMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/strengthUnitMasterController.js"></script>
+<script src="resources/assets/js/controller/master/pharmacy/subStoreMaster.js"></script>
+<script src="resources/assets/js/controller/master/unit/applicationConfigurationController.js"></script>
+<script src="resources/assets/js/controller/master/unit/consumableBarcodeConfigController.js"></script>
+<script src="resources/assets/js/controller/master/unit/storeWiseGenericMapperController.js"></script>
+
+
+<!-- Inventory-->
+<script src="resources/assets/js/controller/Inventory/openingBalanaceController.js"></script>
+<script src="resources/assets/js/controller/Inventory/addNewOpeningBalanceController.js"></script>
+<script src="resources/assets/js/controller/Inventory/addNewStoreIndenting.js"></script>
+<script src="resources/assets/js/controller/Inventory/storeIndentingController.js"></script>
+<script src="resources/assets/js/controller/Inventory/storeIndentingDetailsController.js"></script>
+<script src="resources/assets/js/controller/Inventory/storeIndentApprovalController.js"></script>
+<script src="resources/assets/js/controller/Inventory/storeIndentApprovaDetailsController.js"></script>
+<script src="resources/assets/js/controller/Inventory/pendingStoreIndentController.js"></script>
+<script src="resources/assets/js/controller/Inventory/detailsPendingStoreIndentController.js"></script>
+<script src="resources/assets/js/controller/Inventory/materialPickerController.js"></script>
+<script src="resources/assets/js/controller/Inventory/materialPickerDetailsController.js"></script>
+<script src="resources/assets/js/controller/Inventory/openingBalanceDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/materialIssueController.js"></script>
+<script src="resources/assets/js/controller/Inventory/materialIssueListController.js"></script>
+<script src="resources/assets/js/controller/Inventory/materialPendingListController.js"></script>
+<script src="resources/assets/js/controller/Inventory/materialPendingListDetailsController.js"></script>
+<script src="resources/assets/js/controller/Inventory/issueListDirectIssueController.js"></script>
+<script src="resources/assets/js/controller/Inventory/materialIssueAcceptanceController.js"></script>
+<script src="resources/assets/js/controller/Inventory/materialIssueAcceptanceDetailController.js"></script>
+<script src="resources/assets/js/controller/Inventory/issueListDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/rejectedMaterialAcceptanceController.js"></script>
+<script src="resources/assets/js/controller/Inventory/returnMaterialAcceptanceController.js"></script>
+<script src="resources/assets/js/controller/Inventory/rejectedMaterialAcceptanceDetailsController.js"></script>
+<script src="resources/assets/js/controller/Inventory/returnMaterialAcceptanceDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/storeStockDashboardController.js"></script>  
+<script src="resources/assets/js/controller/Inventory/materialReturnController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/materialReturnDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/addNewMaterialReturnController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/batchExpDateChangeController.js"></script>  
+<script src="resources/assets/js/controller/Inventory/batchChangeDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/addNewBatchExpDateChangeController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/batchChangeApprovalController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/batchChangeApprovalDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/nonBillableConsumptionController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/nonBIllableConsumptionDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/addNewNonBillableConsumptionController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/consumableAcceptanceController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/consumableAcceptanceDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/pendingForShelfAllocationController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/returnableGatepassController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/addNewReturnableGatepassController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/returnableGatepassDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/returnableGatepassApprovalController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/returnableGatepassAppprovalDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/scrapRequestController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/addNewScrapRequestController.js"></script>
+<script src="resources/assets/js/controller/Inventory/scrapRequestApprovalController.js"></script>
+<script src="resources/assets/js/controller/Inventory/scrapRequestApprovalDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/scrapRequestDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/requestForAssetDisposalWorklistController.js"></script>  
+<script src="resources/assets/js/controller/Inventory/requestForAssetDisposalDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/wasteAssetDisposalWorklistController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/wasteAssetDisposalWorklistDetailsController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/witnessApprovalController.js"></script> 
+<script src="resources/assets/js/controller/Inventory/witnessApprovalDetailsController.js"></script> 
+
+<!-- Nursing-->
+<!--Workstation-->
+<script src="resources/assets/js/controller/nursing/workstation/patientIssueReturnController.js"></script>
+<script src="resources/assets/js/controller/nursing/workstation/detailsPatientIssueReturnMedicationController.js"></script>
+<script src="resources/assets/js/controller/nursing/workstation/detailsPatientIssueReturnComsumableController.js"></script>
+<script src="resources/assets/js/controller/nursing/workstation/addNewMedicationPatientIssueReturnController.js"></script>
+<script src="resources/assets/js/controller/nursing/workstation/addNewComsumablePatientIssueReturnController.js"></script>
+<script src="resources/assets/js/controller/nursing/workstation/returnOfEmptyAmpoulesController.js"></script>
+<script src="resources/assets/js/controller/nursing/workstation/detailsReturnOfEmptyAmpoulesController.js"></script>
+
+<!--Pharmacy-->
+<script src="resources/assets/js/controller/nursing/pharmacy/patientIssueAcceptanceController.js"></script>
+<script src="resources/assets/js/controller/nursing/pharmacy/detailsPatientIssueAcceptanceController.js"></script>
+<script src="resources/assets/js/controller/nursing/pharmacy/detailsConsumablePatientIssueAcceptanceController.js"></script>
+<script src="resources/assets/js/controller/nursing/pharmacy/patientIndentController.js"></script>
+<script src="resources/assets/js/controller/nursing/pharmacy/consumableIndentController.js"></script>
+<script src="resources/assets/js/controller/nursing/pharmacy/deatilsPatientIndentController.js"></script>
+<script src="resources/assets/js/controller/nursing/pharmacy/billableConsumptionController.js"></script>
+<script src="resources/assets/js/controller/nursing/pharmacy/addNewbillableConsumptionController.js"></script>
+<script src="resources/assets/js/controller/nursing/pharmacy/returnBillableConsumptionController.js"></script>
+<script src="resources/assets/js/controller/nursing/pharmacy/addNewReturnBillableConsumptionController.js"></script>
+
+<!-- Pharmacy-->
+<!--Narcotics-->
+<script src="resources/assets/js/controller/pharmacy/narcotics/narcoticsIssueWorklistController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/narcotics/detailsNarcoticsIssueWorklistController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/narcotics/deliveryWokrlistController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/narcotics/detailsDeliveryWokrlistController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/narcotics/acceptanceOfEmptyAmpoulesController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/narcotics/detailsAcceptanceOfEmptyAmpoulesController.js"></script>
+
+<!--IP & OP-->
+<script src="resources/assets/js/controller/pharmacy/walkInSalesController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/pharmacyBillListController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/outPatientSalesWorklistController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/outPatientSalesWorklistDetailsController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/billSalesReturnController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/addNewBillSalesReturnController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/pharmacologyValidationWorklistController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/pharmacologyValidationWorklistDetailsController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/assigningPickerDispenserController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/assigningPickerDispenserDetailsController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/pendingIssuesController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/pendingIssuesDetailsController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/pendingHandoverWorklistController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/pendingHandoverWorklistDetailsController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/patientIssueRejectionController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/detailsPatientIssueRejectionMedicationController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/detailsPatientIssueRejectionConsumableController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/pendingRejectedRejectionsController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/detailsPendingRejectedRejectionMedicationController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/detailsPendingRejectedRejectionConsumableController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/patientConsumableIssueController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/detailsPatientPendingIndentController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/detailsPatientIssueListController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/patientReturnAcceptanceController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/detailsPatientReturnAcceptanceMedicationController.js"></script>
+<script src="resources/assets/js/controller/pharmacy/detailsPatientReturnAcceptanceConsumableController.js"></script>
+
+<!-- Procurement -->
+<script src="resources/assets/js/controller/procurement/purchase/purchaseRequestController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/purchaseRequestApprovalController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/addNewPurchaseRequestController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/detailsPurchaseRequestController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/detailsPRApprovalController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/barcodePrintingController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/localPurchaseRequestController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/detailsLocalPRCotroller.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/addNewLocalPRController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/localPRApporvalController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/detailsLocalPRApprovalController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/poCreationController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/addNewPOController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/itemRequestController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/itemApprovalController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/itemApprovalDetailsController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/addNewItemRequestController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/itemRequestDetailsController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/itemCreationController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/itemCreationDetailsController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/detailsPOController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/poApprovalController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/detailsPOApprovalController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/grnController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/addNewGRNController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/detailsGRNController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/grnApprovalController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/detailsGRNApprovalController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/physicalInspectionController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/detailsPhysicalInspectionController.js"></script>
+<script src="resources/assets/js/controller/procurement/purchase/grnAgainstPOController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/quotationEnquiryController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/addNewQuotationController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/detailsQuotationController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/enquirySentToVendorController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/addNewEnquirySentController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/detailsEnquirySentController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/quotationFillInController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/addNewQuotationFillInController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/detailsQFillInController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/technicalApprovalController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/detailsTechnicalApprovalController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/viewTechnicalApprovalController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/vendorNegotiationController.js"></script>
+<script src="resources/assets/js/controller/procurement/quotation/detailsVendorNegotiationController.js"></script>
+
+<!-- Diet And Kitchen -->
+<script src="resources/assets/js/config/diet.url.config.js"></script>
+<script src="resources/assets/js/controller/dietAndKitchen/global/nutritionalMasterController.js"></script>
+<script src="resources/assets/js/controller/dietAndKitchen/global/dietTypeMasterController.js"></script>
+<script src="resources/assets/js/controller/dietAndKitchen/global/keyIngredientsMasterController.js"></script>
+<!-- Diet And Kitchen End -->
+<!-- ORGANISATION -->
+<script src="resources/assets/js/controller/master/global/licenseTypeMasterController.js"></script>
+<script src="resources/assets/js/controller/master/serviceMasterController.js"></script>
+<script src="resources/assets/js/controller/master/global/billing/doctorCategoryController.js"></script>
+<script src="resources/assets/js/controller/master/global/billing/employeeCategoryController.js"></script>
+<script src="resources/assets/js/controller/master/global/billing/currencyMasterController.js"></script>
+<script src="resources/assets/js/controller/master/global/billing/patientCategoryController.js"></script>
+<script src="resources/assets/js/controller/master/global/billing/bankBranchController.js"></script>
+<script src="resources/assets/js/controller/master/global/billing/currencyDenominationController.js"></script>
+<!-- <Global-common> -->
+<script src="resources/assets/js/controller/master/global/common/rejectionMasterController.js"></script>
+<script src="resources/assets/js/controller/master/global/common/reasonTypeMasterController.js"></script>
+<script src="resources/assets/js/controller/master/global/common/qualificationMasterController.js"></script>
+<script src="resources/assets/js/controller/master/global/common/degreeMasterController.js"></script>
+<script src="resources/assets/js/controller/master/global/common/designationMasterController.js"></script>
+<script src="resources/assets/js/controller/master/global/common/reasonMasterController.js"></script>
+<!-- Staff/DOCTOR Reg -->
+
+<script src="resources/assets/js/controller/master/unit/staffRegistrationController.js"></script>
+<script src="resources/assets/js/controller/master/unit/doctorRegistrationController.js"></script>
+
+
+<!-- ImageUpload -->
+<script src="resources/assets/js/common/imageUploadDirective.js"></script>
+<script src="resources/assets/js/common/imageUploadFactory.js"></script>
+
+<!-- Services -->
+<script src="resources/assets/js/controller/services/global/serviceFactory.js"></script>
+<script src="resources/assets/js/controller/services/unit/addNewEHCpackageController.js"></script>
+<script src="resources/assets/js/controller/services/unit/ehcPackageController.js"></script>
+<script src="resources/assets/js/controller/services/unit/addNewPackageWithCAPController.js"></script>
+<script src="resources/assets/js/controller/services/unit/addEitherOrPackageController.js"></script>
+<script src="resources/assets/js/controller/services/unit/eitherOrPackageController.js"></script>
+<script src="resources/assets/js/controller/services/unit/addMultiencounterPackage.js"></script>
+<script src="resources/assets/js/controller/services/unit/packageWithCAPController.js"></script>
+<script src="resources/assets/js/controller/services/unit/allExclusivePackageController.js"></script>
+<script src="resources/assets/js/controller/services/unit/multicounterPackageController.js"></script>
+<script src="resources/assets/js/controller/services/global/itemFactory.js"></script>
+<script src="resources/assets/js/controller/services/unit/addNewCompanyContractController.js"></script>
+
+<script src="resources/assets/js/controller/services/unit/addAllInclusivePackageController.js"></script>
+<script src="resources/assets/js/controller/billing/unit/departmentMasterUnitController.js"></script>
+<script src="resources/assets/js/controller/billing/unit/subDepartmentMasterUnitController.js"></script>
+<!-- UNIT level -->
+
+<script src="resources/assets/js/controller/master/unit/staffRegistrationController.js"></script>
+<script src="resources/assets/js/controller/master/unit/floorMasterController.js"></script>
+
+<!-- OTIMS Template -->
+<script src="resources/assets/js/common/noteTemplate.js"></script>
+
+<!-- Validation -->
+<script src="resources/assets/js/common/constantsMSGS.js"></script>
+<script src="resources/assets/js/common/common-validation-directives.js"></script>
+
+
+ <script type="text/javascript">
+ 
+$(document).ready(function(){
+	
+     var hasClass = function(el, cl){return el.className.match(new RegExp('(\\s|^)'+ cl +'(\\s|$)'))}
+     var addClass = function(el, cl){if (!hasClass(el,cl)) el.className += " "+cl;}
+     //var removeClass = function(el, cl){if (hasClass(el,cl)){el.className=el.className.replace(new RegExp('(\\s|^)'+cl+'(\\s|$)'),' ');}}
+	     /*  $(document).on('change','.text-input', function(){
+	    	  if(this.value != ''){
+		          addClass(this, 'dirty')
+		        }else{
+		          removeClass(this, 'dirty')
+		        }
+	      }); */
+	    
+	});
+	
+
+
+$( "input" ).removeClass( "dirty" ).addClass( "dirty" );
+
+
+</script>
+
+<script>
+/* common patient search Popover */
+
+$('.popper').popover({
+    placement: 'bottom',
+    container: 'body',
+    html: true,
+    content: function () {
+        return $(this).next('.popper-content').html();
+    }
+});
+</script> 
+	
+ 
+</html>

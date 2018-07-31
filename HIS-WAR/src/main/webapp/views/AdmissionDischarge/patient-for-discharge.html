@@ -1,0 +1,607 @@
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid his-style">
+            	<div class="row padding-left-right-set4 padding-top5">
+            		<div class="col-md-9"></div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+							<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+            	</div>
+            	<!-- <div class="row padding-top10  padding-left-right-10 custom-width-patient-discharge">
+            		<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px btn-width10">
+						<div class="common-save-button">
+							<input type="button" value="Pending Services"  class="btn btn-primary btn-save-box-shadow" data-toggle="modal"  data-target="{{pendingServicePopupFlag == true ? '#pendingServiceList':''}}" ng-click="pendingServies()" >
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Billing" id="billing"  class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#commonPdfView">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px btn-width12">
+						<div class="common-save-button">
+							<input type="button" value="Discharge Medication" id="dischargeMedication" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px btn-width11">
+						<div class="common-save-button">
+							<input type="button" value="Discharge Summary" id="dischargeSummary" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px btn-width12">
+						<div class="common-save-button">
+							<input type="button" value="Medication Hand Over"  class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Visitors Pass"  class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#passDetails">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px discharge-slip-btn">
+						<div class="common-save-button">
+							<input type="button" value="Discharge Slip" id="dischargeSlip" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#commonPdfView">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px">
+						<div class="common-save-button" >
+					<a href="#/finalDischarge" 
+						class="btn btn-primary btn-save-box-shadow" id="vacateBed">Vacate Bed</a>
+						<input type="button"   id="vacateBed" ng-click="finalDischarge()" value="Vacate Bed" class="btn btn-primary btn-save-box-shadow" >
+				</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px btn-width11">
+						<div class="common-save-button">
+							<input type="button" value="Death Certificate" id="deathId" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#">
+						</div>
+					</div>
+					
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px btn-width10">
+						<div class="common-save-button">
+							<input type="button" value="DAMA Consent"  id="damaContent" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#issueVisitorPass">
+						</div>
+					</div>
+				</div> -->
+				
+				<div class="row margin-top10 padding-left-right-set4  multipal-button-div padding-top-bottom-set5">
+            		<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4 ">
+						<div class="">
+							<i class="fa fa-file-image-o" aria-hidden="true"></i>
+							<a data-toggle="modal" data-target="{{pendingServicePopupFlag == true ? '#pendingServiceList':''}}" ng-click="pendingServies()">Pending Services</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4 ">
+						<div class="disabled" id="billing">
+							<i class="fa fa-ravelry"  aria-hidden="true"></i>
+							<a ng-click="redirectBilling()">Billing</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4 ">
+						<div class="disabled" id="dischargeMedication">
+							<i class="fa fa-barcode" aria-hidden="true"></i>
+							<a  ng-click="redirectMedication()">Discharge Medication</a>
+						</div>
+					</div>
+					
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="disabled" id="dischargeSummary" >
+							<i class="fa fa-envelope-square" aria-hidden="true"></i>
+							<a data-toggle="modal" data-toggle="modal" data-target="{{dischargePdfViewPopupFlag == true ? '#dischargePdfView':''}}" ng-click="commonFuntion('7')">Discharge Summary</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="">
+							<i class="fa fa-money" aria-hidden="true"></i>
+							<a ng-click="redirectMedicationhandOver()">Medication Hand Over</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="">
+							<i class="fa fa-folder" aria-hidden="true"></i>
+							<a  data-toggle="modal" data-target="#passDetails" ng-click="passDetails()">Visitors Pass</a>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top4 padding-left-right-set4  multipal-button-div padding-top-bottom-set5">
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="disabled" id="dischargeSlip">
+							<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+							<a   data-toggle="modal" data-target="{{dischargeSlipPdfViewPopupFlag == true ? '#dischargeSlipPdfView':''}}" ng-click="commonFuntion('6')">Discharge Slip</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="disabled" id="vacateBed">
+							<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+							<a   data-toggle="modal" data-target="#depositeMatrix">Vacate Bed</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="disabled" id="deathId" >
+							<i class="fa fa-object-group" aria-hidden="true"></i>
+							<a  data-toggle="modal" data-target="{{deathPdfViewPopupFlag == true ? '#deathPdfView':''}}" ng-click="commonFuntion('3')">Death Certificate</a>
+						</div>
+					</div>
+					
+					
+					<div class="col-lg-2 col-md-2 col-sm-2  padding-left-right-set4">
+						<div class="disabled" id="damaContent"  >
+							<i class="fa fa-address-book-o" aria-hidden="true"></i>
+							<a  data-toggle="modal"  data-target="{{damaPdfViewPopupFlag == true ? '#damaPdfView':''}}" ng-click="commonFuntion('1')" >DAMA Consent</a>
+						</div>
+					</div>
+            	</div>
+				
+				
+				<!-- <div class="row padding-top10  padding-left-right-10 custom-width-patient-discharge">
+            		<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px width15">
+						<div class="common-save-button">
+							<input type="button" value="Pending Services" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="" ng-click="pendingServies()">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px width15">
+						<div class="common-save-button">
+							<input type="button" value="Billing" id="billing" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#commonPdfView" disabled="">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px width18">
+						<div class="common-save-button">
+							<input type="button" value="Discharge Medication" id="dischargeMedication" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#" disabled="">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px width18">
+						<div class="common-save-button">
+							<input type="button" value="Discharge Summary" id="dischargeSummary" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#" disabled="">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px width18">
+						<div class="common-save-button">
+							<input type="button" value="Medication Hand Over" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px width15">
+						<div class="common-save-button">
+							<input type="button" value="Visitors Pass" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#passDetails">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px width15">
+						<div class="common-save-button">
+							<input type="button" value="Discharge Slip" id="dischargeSlip" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#commonPdfView" disabled="">
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px width15">
+						<div class="common-save-button">
+						<input type="button" id="vacateBed" ng-click="finalDischarge()" value="Vacate Bed" class="btn btn-primary btn-save-box-shadow" disabled="">
+				</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px width18">
+						<div class="common-save-button">
+							<input type="button" value="Death Certificate" id="deathId" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#" disabled="">
+						</div>
+					</div>
+					
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left0px-right6px width18">
+						<div class="common-save-button">
+							<input type="button" value="DAMA Consent" id="damaContent" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#issueVisitorPass" disabled="">
+						</div>
+					</div>
+				</div> -->
+            	
+				<div class="row padding-left-right-set4 margin-top8">
+					<div class="col-md-12">
+						<table class="table table-bordered ">
+							<tr class="">
+								<th class="width3">
+								</th>
+								<th class="UHID-width">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Doctor Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Discharge Date
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Location
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width18">
+									Reason For Discharge
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Discharge Status
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr ng-repeat="info in listOfAdmittedPatientList" ng-if="info.futureDischargeDate === filterDate" >
+								<td>
+									<input type="radio" name="radioName" value="info.dischargeId" ng-model="dischargePatient" ng-click="selectPatient(info)" />
+								</td>
+								<td>{{info.uhidnumber}}</td>
+								<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.pFirstName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.pFirstName+' '+info.dob+'/'+info.genderCode}}</div>
+								</td>
+								<td>
+									<div>Dr. {{info.dFirstName+', '+info.specialityName}}</div>
+								</td>
+								<td><div>{{info.futureDischargeDate}}</div></td>
+								<td><div>{{info.bedNumber}}</div></td>
+								<td><div> {{info.dischargeTypeName}}</div></td>
+								<td><div>{{info.dischargeDesc}}</div></td>
+							</tr>
+							
+						</table>
+					</div>
+				</div>
+  			</div>
+  			<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+		</div>
+		
+			
+ 			
+<!-- ******************** START MODEL FOR PENDING SERVICE LIST **************************** -->
+<div id="pendingServiceList" class="modal fade ng-scope in common-popup-header-content" role="dialog">
+		<div class="modal-dialog">
+			<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Pending Service List
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div class="row padding-left-right-set4">
+	            		<div class="col-md-8"></div>
+						<div class="col-md-4">
+							<div>
+								<input type="text" class="text-search-box" placeholder="Search">
+								<i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+							</div>
+						</div>
+						
+            		</div>
+            		<div class="row padding-left-right-set4 margin-top10">
+					<div class="col-md-12 fix-height-scroll450">
+						<table class="table table-bordered table-striped">
+							<tr class="table-th-bg">
+								<th class="width12">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Doctor Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Location
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								
+								<th class="patient-doc-details-width">
+									Date
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Service
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Sub Department
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="status">
+									Status
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="status">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr ng-repeat="info in pendingServicesList">
+								<td>{{info.uhidnumber}}</td>
+									<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.pFirstName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.pFirstName+' '+info.dob+'/'+info.genderCode}}</div>
+								</td>
+								<td>
+									<div> Dr. {{info.dFirstName+', '+info.specialityName}}</div>
+								</td>
+								<td><div>{{info.bedNumber}}</div></td>
+								
+								<td><div>{{info.createdDate}}</div></td>
+								<td><div>{{info.serviceName}}</div></td>
+								<td><div>{{info.subSpecialityName}}</div></td>
+								<td><div>{{info.orderDesc}}</div></td>
+								<td>
+									<div><a href=""><button type="button" class="btn btn-primary cancel-service" ng-click="cancelPendingService(cancelReasonId,info.admissionId,info.patientSevicesOrderId)">Cancel Service</button></a></div>
+									<div class="row hide-show-reason-for-cancel-service margin-top8">
+										<div class="col-md-12">
+											<select ng-model="cancelReasonId">
+											<option value="">Select Reason</option>
+												<option ng-repeat="res in reasonList" value="{{res.reasonMasterId}}">{{res.reasonDesc}}</option>
+											</select>
+										</div>
+									</div>
+								</td>
+							</tr>
+							
+							
+						</table>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+</div>
+ 			<!-- ******************** END MODEL FOR PENDING SERVICE LIST **************************** -->	
+ 			<!-- ******************** START MODEL FOR ISSUE VISITOR PASS **************************** -->
+<div id="passDetails" class="modal fade ng-scope in common-popup-header-content" role="dialog">
+		<div class="modal-dialog">
+			<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Pass Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+				<div ng-include="'./views/common/common-patient-details.html'"></div>
+				<div class="row margin-top10 height-table-with-scroll">
+						<table class="table table-striped table-bordered">
+							<tr>
+								<th class="width15">Pass No.</th>
+								<th class="UHID-width">Expiry Date</th>
+							</tr>
+							<tr ng-repeat="info in passIssuedList">
+								<td>{{info.passNumber}}</td>
+								<td>{{info.expiryDate}}</td>
+							</tr>
+							
+						</table>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+</div>
+ 			<!-- ******************** END MODEL FOR ISSUE VISITOR PASS **************************** -->	
+ <div id="commonPdfView" class="modal fade ng-scope in common-popup-header-content" role="dialog">
+		<div class="modal-dialog">
+			width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						View
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row margin-top10">
+						<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll450 margin-top10 margin-bottom10">
+							<img src="resources/assets/images/tempImages/pdf.jpg">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div> 
+
+<div id="dischargePdfView" class="modal fade ng-scope in common-popup-header-content common-large-popup" role="dialog">
+		<div class="modal-dialog">
+			width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						View
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row margin-top10">
+						<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll450 margin-top10 margin-bottom10">
+							<!-- <img src="resources/assets/images/tempImages/dischargesummary.jpg"> -->
+							 <textarea  name="editor" type="text" id="editor"  rows="10" cols="50" ng-model="templateObj.templetText" ck-editor>
+                             </textarea>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+						<div class=" ">
+							<a ng-click="saveTemplate()" class="btn btn-primary btn-save-box-shadow" title="Save">Save</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div> 
+<div id="dischargeSlipPdfView" class="modal fade ng-scope in common-popup-header-content common-large-popup" role="dialog">
+		<div class="modal-dialog">
+			width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						View
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row margin-top10">
+						<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll450 margin-top10 margin-bottom10">
+							<!-- <img src="resources/assets/images/tempImages/dischargeSlip.jpg"> -->
+							 <textarea  name="editor" type="text" id="editor"  rows="10" cols="50" ng-model="templateObj.templetText" ck-editor>
+                             </textarea>
+						</div>
+					</div>
+				</div>
+				
+				<div class="modal-footer">
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+						<div class=" ">
+							<a ng-click="saveTemplate()" class="btn btn-primary btn-save-box-shadow" title="Save">Save</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+	
+	<!-- <modal visible="showModal"></modal> --> 
+	<div id="deathPdfView" class="modal fade ng-scope in common-popup-header-content common-large-popup" role="dialog">
+		<div class="modal-dialog">
+			width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						View
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row margin-top10">
+						<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll450 margin-top10 margin-bottom10">
+							<!-- <img src="resources/assets/images/tempImages/death.jpg"> -->
+							 <textarea  name="editor" type="text" id="editor"  rows="10" cols="50" ng-model="templateObj.templetText" ck-editor>
+                             </textarea>
+						</div>
+					</div>
+				</div>
+				
+				<div class="modal-footer">
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+						<div class=" ">
+							<a ng-click="saveTemplate()" class="btn btn-primary btn-save-box-shadow" title="Save">Save</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+ <div id="damaPdfView" class="modal fade ng-scope in common-popup-header-content common-large-popup" role="dialog">
+		<div class="modal-dialog">
+			width: 25% !important;margin: 200px 0 0 510px !important;
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						View
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row margin-top10">
+						<div class="col-lg-12 col-md-12 col-sm-12 fix-height-scroll450 margin-top10 margin-bottom10" >
+							<!-- <img src="resources/assets/images/tempImages/dama.jpg"> -->
+							 <textarea  name="editor" type="text" id="editor"  rows="10" cols="50" ng-model="templateObj.templetText" ck-editor>
+                             </textarea>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+						<div class=" ">
+							<a ng-click="saveTemplate()" class="btn btn-primary btn-save-box-shadow" title="Save">Save</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+	
+	<script type="text/javascript">
+
+$( document ).ready(function() {
+
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+	$(".selectedPageName").text("Marked For Discharge");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="admittedPatientList"]').parents("li").addClass("active");
+	
+	
+});
+
+</script>

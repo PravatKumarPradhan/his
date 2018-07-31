@@ -1,0 +1,179 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+  <div class="container-fluid his-style">
+    <fieldset class="main-fieldset">
+      <div class="row margin-top10">
+
+
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10">
+            <b class="padding-right10 ">OPB Date:
+            </b>
+            <label>{{vm.model.opbDetail.opbDate | date:'dd/MM/yyyy'}}</label>
+          </span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10">
+            <b class="padding-right10 ">OPB No. :</b>
+            <label>{{vm.model.opbDetail.opbNo}}</label>
+          </span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10">
+            <b class="padding-right10 ">Store :</b>
+            <label>{{vm.model.opbDetail.store}}</label>
+          </span>
+        </div>
+        <div class="row" id="fixeAssetRowId">
+          <div class="col-lg-12 col-md-12 padding-top10 fix-height-scroll500 ">
+            <!-- fix-height-scroll500 -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="width1 text-center">
+                    <input type="checkbox" ng-model="vm.model.selectAllRows" ng-click="vm.model.SelectAllRequests()" ng-disabled="vm.model.opStoreIndentData == false"
+                    />
+                  </th>
+
+                  <th class="width5">Item Code</th>
+                  <th class="width8">Item Name</th>
+                  <th class="width8">UOM</th>
+                  <th class="width5">UOM Unit</th>
+                  <th class="width6">Batch No.</th>
+                  <th class="width7">Expiry Date</th>
+                  <th class="width7">Qty</th>
+                  <th class="width7">COP</th>
+                  <!-- Selling Price -->
+                  <th class="width7">MRP</th>
+                  <th class="width8">Amount At COP</th>
+                  <th class="width8">Markup %</th>
+                  <th class="width8">Tax</th>
+                  <th class="width7">Tax %</th>
+                  <th class="width8">Tax Amt</th>
+                  <th class="width10">Remark</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="datum in vm.model.opbDetail.items  | filter : searchStoreIndent" class="{{'tr' + datum.itemId}}">
+                  <td class="text-center">
+                    <input type="checkbox" ng-click="vm.model.SelectOpeningBalance(datum)" ng-model="datum.isSelected" ng-disabled="vm.model.isDisable(datum)"
+                    />
+                  </td>
+                  <td>{{datum.itemCode}}</td>
+                  <td>{{datum.itemName}}</td>
+                  <td> {{datum.uomType}} </td>
+                  <td class=" vertical-middle">
+                    <span class="">{{datum.uomUnit}}</span>
+                    <span class="pull-right text-right">
+                      <a data-target="#selectUOM_modal" data-toggle="modal" ng-click="vm.model.uomInfoOnClick(datum.uom, $index)">
+                        <i class="fa fa-info-circle"></i>
+                      </a>
+                    </span>
+                  </td>
+                  <td> {{datum.batchNo}} </td>
+                  <td> {{datum.expiryDate | date:'MMM-yyyy'}}</td>
+                  <td> {{datum.quantity}} </td>
+                  <td> {{datum.cop}} </td>
+                  <td> {{datum.mrp}} </td>
+                  <td> {{datum.copAmount}} </td>
+                  <td> {{datum.markup}}</td>
+                  <td> {{datum.taxName}}</td>
+                  <td> {{datum.taxPercent}}</td>
+                  <td> {{datum.taxAmount}} </td>
+                  <td>
+                    {{datum.remark}}
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- fixed asset table end -->
+      </div>
+    </fieldset>
+    <footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+      <div class="row padding-top5 padding-right10">
+        <div class="col-lg-10 col-md-10 col-sm-10"></div>
+        <div class="col-lg-1 col-md-1 col-sm-1 padding-left0px-right6px">
+          <a>
+            <input type="button" ng-click="vm.model.SaveApproval()"   value="Save" class="btn btn-primary btn-save-box-shadow">
+          </a>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1 padding-left10">
+          <a href="#/openingBalance">
+            <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+          </a>
+        </div>
+      </div>
+    </footer>
+    <!-- <div class="row padding-top5">
+                    <div class="col-lg-11 col-sm-11"></div>
+                    <div class="col-lg-1 col-md-1 padding-left-right-set4">
+                        <a href="#/storeIndenting">
+                            <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow" />
+                        </a>
+                    </div>
+                </div> -->
+
+  </div>
+</div>
+
+
+
+<!-- ****************** select UOM Modal start**************1234567890********** -->
+<div id="selectUOM_modal" class="modal fade ng-scope in common-small-popup" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+         UOM Details  
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 common-table-height-250 padding-top10 padding-left-right-set4" id="">
+            <!-- pharmacologyDetailsTableId id for the table td fix height -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="width3">
+                    UOM 
+                  </th>
+                  <th class="width6">
+                    UOM Unit 
+                  </th>
+                  <th class="width6">
+                    Conversion Factor 
+                  </th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="datum in vm.model.selectedUOMList">
+
+                  <td>{{datum.uomType}}</td>
+                  <td>
+                    {{datum.uomUnit}}
+                  </td>
+                  <td>
+                    {{datum.conversion}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ***************select UOM modal end *************************** -->
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $(".selectedPageName").text("Details Opening Balance");
+  })
+</script>

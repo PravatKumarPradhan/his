@@ -1,0 +1,159 @@
+<!-- *****************************************************************************************************************************
+												Compute Stock
+****************************************************************************************************************************** -->
+<!-- Page Content start-->
+<div id="page-content-wrapper" >
+	<div class="container-fluid his-style">
+		<div class="row">
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-2 col-md-1 polymer-icon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-10">
+						<div class="">
+							<input type="text" name="description" id="" class="text-input floating-label dirty"> 
+							<label for="description" class="LISDynamicLabel">From Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-2 col-md-1 polymer-icon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-10">
+						<div class="">
+							<input type="text" name="description" id="" class="text-input floating-label dirty"> 
+							<label for="description" class="LISDynamicLabel">To Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-building-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<select class="text-input floating-label dirty">
+								<option value=""></option>
+								<option value="-">-</option>
+							</select> <label for="code">Store</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<select class="text-input floating-label dirty">
+								<option value=""></option>
+								<option value="-">-</option>
+							</select> <label for="code">Status</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-sm-2 col-md-2 text-width-auto padding-top10 padding-left-right-set4">
+              <div class="common-save-button" style="padding-top:  0px;">
+                <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+		</div>
+		<div class="row">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+       		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box dirty" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		
+		<div class="row padding-left-right-set4 fix-height-scroll550 margin-top5">
+			<div class="col-md-12">
+				<table class="table table-bordered" id="uploadStockTableId">
+					<tr class="">
+						<th class="width1 text-center"><input type="checkbox"></th>
+						<th class="width8">Request No.</th>
+						<th class="width8">Request Date</th>
+						<th class="width8">Store</th>
+						<th class="width8">Start Date Time</th>
+						<th class="width8">Stop Date Time</th>
+						<th class="width8">Uploaded By</th>
+						<th class="width8">Request No.</th>
+						<th class="width6 text-center">Status</th>
+						<th class="width8 text-center">Action</th>
+					</tr>
+					<tr>
+						<td class=" text-center">
+							<input type="checkbox"/>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="text-center">
+							<span><a title="Edit"><i class="fa fa-pencil"></i></a></span>&nbsp;
+							<span><a title="Cancel"><i class="fa fa-times"></i></a></span>&nbsp;
+							<span><a title="Print"><i class="fa fa-print"></i></a></span>&nbsp;
+							<span><a href="#/detailsComputeStock" title="Details" class="cursor-pointer">Details</a></span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<div class="row padding-left-right-set">
+       		<div class="col-md-9"></div>
+			<div class="col-md-2 padding-left-right-set">
+				<div class="text-right">
+					<input type="button" value="Cancel Upload"  class="btn btn-primary btn-save-box-shadow text-width-auto">
+				</div>
+			</div>
+			<div class="col-md-1 padding-left0px-right6px">
+				<div class="">
+					<input type="button" value="Modify Upload"  class="btn btn-primary btn-save-box-shadow text-width-auto">
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!-- Page Content start-->
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$( ".radioRejected" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$("#accepatReject").modal();
+		}
+	});
+	
+	$(".selectedPageName").text("Compute Stock");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="computeStock"]').parents("li").addClass("active");
+	
+});
+
+</script>
+
+<script src="resources/assets/js/common/page-height.js"></script>

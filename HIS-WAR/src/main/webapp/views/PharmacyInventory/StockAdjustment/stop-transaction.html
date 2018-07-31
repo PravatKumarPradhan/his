@@ -1,0 +1,256 @@
+<!-- *****************************************************************************************************************************
+												stop transaction
+****************************************************************************************************************************** -->
+<!-- Page Content start-->
+<div id="page-content-wrapper" >
+	<div class="container-fluid his-style">
+		<div class="row">
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label dirty" placeholder="DD-MM-YYYY">
+							<label for="code">From Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label dirty" placeholder="DD-MM-YYYY">
+							<label for="code">To Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+						<i class="fa fa-building" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<select class="text-input floating-label dirty" name="code">
+								<option value=""></option>
+								<option value="Select">Select</option>
+								<option value="Store 1">Store 1</option>
+								<option value="Store 2">Store 2</option>
+							</select>		
+							<label for="code">Store</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-sm-2 col-md-2 text-width-auto padding-top10">
+              <div class="common-save-button" style="padding-top:  0px;">
+                <a href=""class="btn btn-primary btn-save-box-shadow" style="width: auto;">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+		</div>
+		<div class="row margin-top4">
+	      <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+	        <div class=" ">
+	          <a href="" class="btn btn-primary btn-save-box-shadow" title="Save">
+	            <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+	          </a>
+	        </div>
+	      </div>
+	      <div class="col-md-2 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+	        <div class="" data-toggle="modal" data-target="#addNewTransaction">
+	          <a>
+	            <input type="button" value="Add New" class="btn btn-primary btn-save-box-shadow">
+	          </a>
+	        </div>
+	      </div>
+	      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set1 float_right margin-top2">
+				<input type="text" class="text-search-box dirty" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+	    </div>
+				
+		<div class="row padding-left-right-set4 padding-top8">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+          <table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+            <thead class="mainServiceTableCommon">
+              
+              <tr>
+                <th class="width1">
+                  <input type="checkbox">
+                </th>
+                <th class="width8 vertical-top">
+                  Request No.
+                </th>
+                <th class="width8 vertical-top">
+                  Request Date
+                </th>
+                <th class="width8 vertical-top">
+                   Store
+                </th>
+                <th class="width8 vertical-top">
+                  Start Date Time
+                </th>
+                <th class="width8 vertical-top">
+                  Stop Date Time
+                </th>
+                <th class="width8 vertical-top">
+                  Request By
+                </th>
+                <th class="width8 vertical-top">
+                 Status
+               </th>
+               <th class="width8 vertical-top text-center">
+                 
+               </th>
+                <th class="width8 text-center">
+                   Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+            	<tr>
+            		<td>-</td>
+            		<td>-</td>
+            		<td>-</td>
+            		<td>-</td>
+            		<td>-</td>
+            		<td>-</td>
+            		<td>-</td>
+            		<td>-</td>
+            		<td class="text-center"><a href="#/addNewStopTransaction">Stop Transaction</a></td>
+            		<td class="text-center cursor-pointer">
+						<span><a title="Print">
+							<i class="fa fa-print" aria-hidden="true"></i>
+						</a></span>
+						<span><a title="Edit">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</a></span>
+						<span><a title="Cancel">
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</a></span>
+						<span><a href="#/addNewStopTransaction">Details</a></span>
+					</td>
+            	</tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+	</div>
+</div>
+<!-- Page Content start-->
+
+<div id="addNewTransaction" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Add New
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-building" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<select class="text-input floating-label dirty" name="code">
+								<option value=""></option>
+								<option value="Select">Select</option>
+								<option value="Store 1">Store 1</option>
+								<option value="Store 2">Store 2</option>
+							</select> <label for="code">Store</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label dirty" placeholder="DD-MM-YYYY">
+							<label for="code">Start Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-clock-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<input type="time" name="code" id="" class="text-input floating-label dirty" placeholder="DD-MM-YYYY">
+							<label for="code">Start Time</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label dirty" placeholder="DD-MM-YYYY">
+							<label for="code">Stop Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-clock-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<input type="time" name="code" id="" class="text-input floating-label dirty" placeholder="DD-MM-YYYY">
+							<label for="code">Stop Time</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-2 padding-left-right-10 float_right text-width-auto padding-top10">
+				<div class="">
+					<a> <input type="button" value="Sent Alert" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Save</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedPageName").text("Stop Transaction");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="stopTransaction"]').parents("li").addClass("active");
+	
+});
+
+</script>

@@ -1,0 +1,397 @@
+
+		<!-- <fieldset>
+			<legend class="heading-div">Sequence</legend> -->
+	<fieldset class="normalRegistration sub-fieldset " ng-controller="variablePricingSequenceController">
+			<legend class="sub-legend" >Sequence</legend>
+					<div class="row">
+						
+					</div>
+					<!-- <div class="row margin-top4">
+						<div class="col-lg-2 col-md-3 col-sm-3 margin-left5 ">
+							<input type="radio" name="registrationType"  class="otherRegistrationType ipForSequenceOfVariable" ng-model="variablePricingSeqDTO.visitType" value=1 ng-change="onVisitTypeRadioChange(1)" convert-to-number><span class="margin-left5">IP</span>
+						</div>
+						<div class="col-lg-2 col-md-3 col-sm-3">
+							<input type="radio" name="registrationType" class="otherRegistrationType paymentEntitInsurance opForSequenceOfVariable" ng-model="variablePricingSeqDTO.visitType" value=2 ng-change="onVisitTypeRadioChange(2)" convert-to-number><span class="margin-left5">OP</span>
+						</div>
+						<div class="col-lg-2 col-md-3 col-sm-3">
+							<input type="radio" name="registrationType" class="otherRegistrationType paymentEntitInsurance ERForSequenceOfVariable" ng-model="variablePricingSeqDTO.visitType" value=3 ng-change="onVisitTypeRadioChange(3)" convert-to-number><span class="margin-left5" >ER</span>
+						</div>
+						<div class="col-lg-2 col-md-3 col-sm-3">
+							<input type="radio" name="registrationType" class="otherRegistrationType paymentEntitInsurance dayCareForSequenceOfVariable" ng-model="variablePricingSeqDTO.visitType" value=4 ng-change="onVisitTypeRadioChange(4)" convert-to-number><span class="margin-left5">Daycare</span>
+						</div>
+					</div> -->
+					
+					<div class="row input-container margin-top4 padding-left-right-set4 ">
+						<div class="col-lg-11 col-md-11 col-sm-10 padding-left-right-set4 customRadioBtn">
+							<input type="radio" name="registrationType" id="IP_sequence-Of-variable" class="otherRegistrationType ipForSequenceOfVariable" ng-model="variablePricingSeqDTO.visitType" value=1 ng-change="onVisitTypeRadioChange(1)" convert-to-number>
+								<label for="IP_sequence-Of-variable" class=" cursor-pointer">IP</label>
+								
+							<input type="radio" name="registrationType" id="OP_sequence-Of-variable" class="otherRegistrationType paymentEntitInsurance opForSequenceOfVariable" ng-model="variablePricingSeqDTO.visitType" value=2 ng-change="onVisitTypeRadioChange(2)" convert-to-number>
+								<label for="OP_sequence-Of-variable" class=" cursor-pointer">OP</label>
+								
+							<input type="radio" name="registrationType" id="ER_sequence-Of-variable"  class="otherRegistrationType paymentEntitInsurance ERForSequenceOfVariable" ng-model="variablePricingSeqDTO.visitType" value=3 ng-change="onVisitTypeRadioChange(3)" convert-to-number>
+								<label for="ER_sequence-Of-variable" class=" cursor-pointer">ER</label>
+								
+							<input type="radio" name="registrationType" id="Daycare_sequence-Of-variable" class="otherRegistrationType paymentEntitInsurance dayCareForSequenceOfVariable" ng-model="variablePricingSeqDTO.visitType" value=4 ng-change="onVisitTypeRadioChange(4)" convert-to-number>
+								<label for="Daycare_sequence-Of-variable" class=" cursor-pointer">Daycare</label>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 ">
+							<div class="width-div-for-patient-reg ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveVariablePricingSeqForLoggedInUnit()"><i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a>	
+							</div>
+						</div>
+					</div>
+					
+					<div class="row margin-top8 ipForSequenceOfVariableDiv">
+						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+							<table class="table table-bordered">
+								<tr class="">
+									<th class="width10 ">Type
+									</th>	
+									<th class="width10 text-center">Sequence
+									</th>	
+								</tr>
+								<tr>
+									<td>Patient Type</td>
+									<td class="text-center">
+										<div>
+											<select ng-model="variablePricingSeqDTO.patientTypeSeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+												<option value=4>4</option>
+											</select>
+											
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Billing Bed Category</td>
+									<td class="text-center">
+											<div>
+											<select ng-model="variablePricingSeqDTO.billingBedCategorySeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+												<option value=4>4</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Stat Charge</td>
+									<td class="text-center">
+											<div>
+											<select ng-model="variablePricingSeqDTO.statChargeSeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+												<option value=4>4</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Payment Entitlement</td>
+									<td class="text-center">
+											<div>
+											<select ng-model="variablePricingSeqDTO.paymentEntitlementSeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+												<option value=4>4</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+							<fieldset class="normalRegistration sub-fieldset ">
+								<legend class="sub-legend">IP sequence List</legend>
+								<table class="table table-bordered">
+									<tr class="">
+										<th class="width10 ">Type
+										</th>	
+										<th class="width10 text-center">Sequence
+										</th>	
+									</tr>
+									<tr  ng-repeat="item in listData | orderObjectBy:orderByAttribute">
+										<td> {{item.name}}</td>
+										<td class="text-center">
+											{{item.position}}
+										</td>
+									</tr>
+									
+								</table>
+							</fieldset>
+						</div>
+					</div>
+					
+					<div class="row margin-top8 opForSequenceOfVariableDiv">
+						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 ">
+							<table class="table table-bordered">
+								<tr class="">
+									<th class="width10 ">Type
+										
+									</th>	
+									<th class="width10 text-center">Sequence
+										
+									</th>	
+								</tr>
+								<tr>
+									<td>Patient Type</td>
+									<td class="text-center">
+										<div>
+											<select ng-model="variablePricingSeqDTO.patientTypeSeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+								
+								<tr>
+									<td>Payment Entitlement</td>
+									<td class="text-center">
+										<div>
+											<select ng-model="variablePricingSeqDTO.paymentEntitlementSeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+							<fieldset class="normalRegistration sub-fieldset ">
+								<legend class="sub-legend">OP sequence List</legend>
+									<table class="table table-bordered">
+										<tr class="">
+											<th class="width10 ">Type
+											</th>	
+											<th class="width10 text-center">Sequence
+											</th>	
+										</tr>
+										<tr  ng-repeat="item in listData | orderObjectBy:orderByAttribute " ng-if ="item.name=='Patient Type' || item.name=='Payment Entitlement'">
+											<td> {{item.name}}</td>
+											<td class="text-center">
+												{{item.position}}
+											</td>
+										</tr>
+									</table>
+							</fieldset>
+						</div>
+					</div>
+					<div class="row margin-top8 ERForSequenceOfVariableDiv">
+						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+							<table class="table table-bordered">
+								<tr class="">
+									<th class="width10 ">Type
+									</th>	
+									<th class="width10 text-center">Sequence
+									</th>	
+								</tr>
+								<tr>
+									<td>Patient Type</td>
+									<td class="text-center">
+										<div>
+											<select ng-model="variablePricingSeqDTO.patientTypeSeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+												<option value=4>4</option>
+											</select>
+											
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Billing Bed Category</td>
+									<td class="text-center">
+											<div>
+											<select ng-model="variablePricingSeqDTO.billingBedCategorySeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+												<option value=4>4</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Stat Charge</td>
+									<td class="text-center">
+											<div>
+											<select ng-model="variablePricingSeqDTO.statChargeSeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+												<option value=4>4</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Payment Entitlement</td>
+									<td class="text-center">
+											<div>
+											<select ng-model="variablePricingSeqDTO.paymentEntitlementSeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+												<option value=4>4</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+							<fieldset class="normalRegistration sub-fieldset ">
+								<legend class="sub-legend">ER sequence List</legend>
+								<table class="table table-bordered">
+									<tr class="">
+										<th class="width10 ">Type
+										</th>	
+										<th class="width10 text-center">Sequence
+										</th>	
+									</tr>
+									<tr  ng-repeat="item in listData | orderObjectBy:orderByAttribute">
+										<td> {{item.name}}</td>
+										<td class="text-center">
+											{{item.position}}
+										</td>
+									</tr>
+								</table>
+							</fieldset>
+						</div>
+					</div>
+					
+					
+					
+					<div class="row margin-top8 dayCareForSequenceOfVariableDiv">
+						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+							<table class="table table-bordered">
+								<tr class="">
+									<th class="width10 ">Type
+									</th>	
+									<th class="width10 text-center">Sequence
+									</th>	
+								</tr>
+								<tr>
+									<td>Patient Type</td>
+									<td class="text-center">
+										<div>
+											<select ng-model="variablePricingSeqDTO.patientTypeSeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+											</select>
+											
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Billing Bed Category</td>
+									<td class="text-center">
+											<div>
+											<select ng-model="variablePricingSeqDTO.billingBedCategorySeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+							
+								<tr>
+									<td>Payment Entitlement</td>
+									<td class="text-center">
+											<div>
+											<select ng-model="variablePricingSeqDTO.paymentEntitlementSeqNo" convert-to-number>
+												<option value="">0</option>
+												<option value=1>1</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+							<fieldset class="normalRegistration sub-fieldset ">
+								<legend class="sub-legend">Dar-care sequence List</legend>
+								<table class="table table-bordered">
+									<tr class="">
+										<th class="width10 ">Type
+										</th>	
+										<th class="width10 text-center">Sequence
+										</th>	
+									</tr>
+									<tr  ng-repeat="item in listData | orderObjectBy:orderByAttribute" ng-if ="item.name!='Stat Charge'">
+										<td> {{item.name}}</td>
+										<td class="text-center">
+											{{item.position}}
+										</td>
+									</tr>
+								</table>
+							</fieldset>
+						</div>
+					</div>
+			</fieldset>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".opForSequenceOfVariableDiv").hide();
+	$(".ERForSequenceOfVariableDiv").hide();
+	$(".dayCareForSequenceOfVariableDiv").hide();
+	
+		$(".ipForSequenceOfVariable").click(function()
+		{
+			$(".ipForSequenceOfVariableDiv").show();
+			$(".opForSequenceOfVariableDiv").hide();
+			$(".ERForSequenceOfVariableDiv").hide();
+			$(".dayCareForSequenceOfVariableDiv").hide();
+		});
+		$(".opForSequenceOfVariable").click(function()
+		{
+				$(".opForSequenceOfVariableDiv").show();
+				$(".ipForSequenceOfVariableDiv").hide();
+				$(".ERForSequenceOfVariableDiv").hide();
+				$(".dayCareForSequenceOfVariableDiv").hide();
+		});
+		
+		$(".ERForSequenceOfVariable").click(function()
+		{
+			$(".ERForSequenceOfVariableDiv").show();
+			$(".opForSequenceOfVariableDiv").hide();
+			$(".ipForSequenceOfVariableDiv").hide();
+			$(".dayCareForSequenceOfVariableDiv").hide();
+		});
+		
+		$(".dayCareForSequenceOfVariable").click(function()
+		{
+			$(".dayCareForSequenceOfVariableDiv").show();
+			$(".opForSequenceOfVariableDiv").hide();
+			$(".ipForSequenceOfVariableDiv").hide();
+			$(".ERForSequenceOfVariableDiv").hide();
+		});
+		
+		
+});
+</script>

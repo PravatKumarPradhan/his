@@ -1,0 +1,88 @@
+ <div id="page-content-wrapper" >
+	<div class="container-fluid his-style margin-top10">
+		<fieldset class="" style="margin-top:-5px !important">
+				<legend class="sub-legend border-bottom-none commonPatientSearch cursor-pointer">
+					Round Off Configuration
+				</legend>
+				<div class="row">
+				    <div class="col-md-4"></div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set0">
+						<fieldset class="normalRegistration sub-fieldset">
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text" name="description" id="" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Min Amount</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+													<input type="text" name="description" id="" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Max Amount</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11">
+												<div class="">
+												<input type="text" name="description" id="" class="text-input floating-label"> 
+													<label for="description" class="LISDynamicLabel">Median Amount</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row margin-top4">
+										<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 float_right ">
+											<div class=" ">
+												<a href="" class="btn btn-primary btn-save-box-shadow"
+													title="Save" data-toggle="modal" data-target="#collectPayment"><i
+													class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+											</div>
+										</div>
+								</div>
+						
+						</fieldset>
+					</div>
+					 <div class="col-md-4"></div>
+				</div>
+		</fieldset>
+</div>
+
+</div>
+
+
+
+<script src="resources/assets/js/common/page-height.js"></script>
+
+<script>
+
+$(document).ready(function() {
+	 
+	 $(".selectedPageName").text("Round Off Configuration");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="roundOffConfiguration"]').parents("li").addClass("active");
+});
+
+
+
+</script>

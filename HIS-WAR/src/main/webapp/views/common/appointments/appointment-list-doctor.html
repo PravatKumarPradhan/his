@@ -1,0 +1,129 @@
+<div class="row his-style">
+	<!-- ****************  row one start **************** -->
+	<div class="row">
+		<div ng-include="'./views/common/common-patient-search-opd.html'"></div>
+	</div>
+	<!-- ****************  row one end **************** -->
+	<!-- ****************  row two start **************** -->
+	<div class="row">
+		<!-- ******** DATE COLUMN START ******* -->
+		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+			<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+				<div class="row input-container test-master-sample">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label"> <label
+								for="code">From Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+				<div class="row input-container test-master-sample">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label"> <label
+								for="code">To Date</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ********  DATE COLUMN END ******* -->
+				<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group">
+								<!-- <input type="text" name="description" id="" class="text-input floating-label">
+								<label for="description" class=""></label> -->
+								
+								<select class="text-input floating-label">
+									<option></option>
+								</select> 
+								<label for="code">Specialty</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-user-md" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group">
+								<!-- <input type="text" name="description" id="" class="text-input floating-label">
+								<label for="description" class="">Doctor</label> -->
+								
+								<select class="text-input floating-label">
+									<option></option>
+								</select> 
+								<label for="code">Doctor</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" class="text-input floating-label">
+									<label for="description" class="">Status</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto padding-top8">
+					<div>
+						<a class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set0 float_right width20 padding-top10">
+					<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px">
+						<i class="fa fa-search common-search-text-icon padding-top10" aria-hidden="true"></i>
+				</div> 
+					
+			</div>
+	<!-- ****************  row two start **************** -->
+	<!-- ****************  row three start **************** -->
+	<div class="row">
+		<!-- *********************** tabs row start *********************** -->
+		<div class="row margin-top4">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="tab-btn-primary">
+						<a class="btn btn-primary btn-save-box-shadow"  ng-href="#/doctor/appointmnetListdoctor">Appointment List</a>
+						<!-- ng-href="#/patientRegistration/personal" -->
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="tab-btn-primary">
+						<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/appointmentList/doctorResheduleWorklist">Reschedule Worklist</a>
+						<!-- ng-href="#/patientRegistration/contact" -->
+					</div>
+				</div>
+		</div>
+		<div class="row">
+			<div class="" ui-view>
+		
+			</div>
+		</div>
+		<!-- ************************ tabs row end ************************ -->
+	</div>
+	<!-- ****************  row three end **************** -->
+	
+</div>
+

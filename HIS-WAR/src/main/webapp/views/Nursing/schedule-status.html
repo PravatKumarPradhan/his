@@ -1,0 +1,226 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<legend class="heading-div">Schedule Status</legend>
+			<div class="row margin-top10">
+				<form action="">
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label" ng-model="patientSearchObj.patientName" press-enter="searchInvestigationList(patientSearchObj)"> <label for="code">Patient Name</label>
+						</div>
+					</div>
+				</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-bullseye" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label" ng-model="patientSearchObj.uhIdNumber" press-enter="searchInvestigationList(patientSearchObj)"> <label for="code">UHID</label>
+						</div>
+					</div>
+				</div> 
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-check-circle" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label" ng-model="patientSearchObj.wardName" press-enter="searchInvestigationList(patientSearchObj)"> <label for="code">Ward Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-bed" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<input type="text" name="code" id="" class="text-input floating-label" ng-model="patientSearchObj.bedNumber" press-enter="searchInvestigationList(patientSearchObj)"> <label for="code">Bed No.</label>
+						</div>
+					</div>
+				</div>
+					</div>
+					<div class="col-md-2 padding-left0px-right6px text-width-auto">
+						 <div class="common-save-button">
+							<input type="button" value="Search" ng-click="searchInvestigationList()" class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-10">
+			<!-- <div
+				class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"
+						data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o"
+						style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div> -->
+			<div
+				class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search"
+					style="margin-top: 0px"> <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-10 margin-top8">
+			<div class="col-md-12 col-sm-12 height10-table-with-scroll">
+				<table class="table table-bordered">
+					<tr class=" ">
+						<th class="width1"></th>
+						<th class="width10">
+						Patient Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5">
+						UHID
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">
+						Ward Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">
+						Bed No.
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width10">
+						Investigation Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5">
+						Status
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">
+						Schedule Date 
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">
+						Schedule Time 
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+					</tr>
+					<tr ng-repeat="info in patientServiceOrderList">
+						<td class="text-center vertical-middle">
+						<input type="radio" name="radioName" value="info.patientServiceOrderId" ng-model="scheduleStatus" ng-click="selectItem(info)" />
+						</td>
+						<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.pFirstName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.pFirstName+' '+info.dob+'/'+info.genderCode}}</div>
+								</td>
+						<td>{{info.uhidnumber}}</td>
+						<td>{{info.wardName}}</td>
+						<td>{{info.bedNumber}}</td>
+						<td>{{info.serviceStandardName}}</td>
+						<td><div ng-if="info.scheduleDate != null">Scheduled</div><div ng-if="info.scheduleDate == null">Ready For Scheduling</div></td>
+						<td>{{info.scheduleDate}}</td>
+						<td>{{info.fromTime2}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="row padding-left-right-10 margin-top8">
+          	<div class="col-md-7 col-sm-7"></div>
+			
+			<div class="col-md-1 col-sm-1 padding-left0px-right6px pull-right text-width-auto">
+				<div class="common-save-button">
+					<input type="button" ng-click="rescheduleInvestigation()" value="Reschedule" class="btn btn-primary btn-save-box-shadow">
+				</div>
+			</div>
+			
+			<div class="col-md-2 col-sm-2 padding-left0px-right6px text-width-auto pull-right">
+				<div class="common-save-button">
+					<input type="button" ng-click="cancelScheduledInvestigation()"  value="Cancel Schedule" class="btn btn-primary btn-save-box-shadow">
+				</div>
+			</div><div class="col-md-1 col-sm-2 padding-left0px-right6px text-width-auto pull-right">
+				<div class="common-save-button">
+					<a ng-click = "redirectSchedulePage()" value="Schedule" class="btn btn-primary btn-save-box-shadow">Schedule</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<modal visible="showModal"></modal>
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+});	
+	$(".selectedPageName").text("Schedule Status");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="scheduleStatus"]').parents("li").addClass("active");
+</script>

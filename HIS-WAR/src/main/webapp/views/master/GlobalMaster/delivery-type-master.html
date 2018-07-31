@@ -1,0 +1,148 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Delivery Type Master</legend> -->
+			<div class="row margin-top10">
+				<form name="deliverytypeform" novalidate>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group"   show-errors>
+								<input type="hidden" ng-model="deliverytype.deliveryTypeId">
+									<input type="text" name="deliveryCode" id=""
+										class="text-input floating-label" ng-model="deliverytype.deliveryCode" required> <label for="code"
+										class="LISDynamicLabelOne" >Delivery Type Code</label>
+										<p class="help-block" ng-if="deliverytypeform.deliveryCode.$error.required">Code is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group"   show-errors>
+									<input type="text" name="deliveryName" id=""
+										class="text-input floating-label" ng-model="deliverytype.deliveryName" required> <label for="code"
+										class="LISDynamicLabelOne">Delivery Type Description</label>
+										<p class="help-block" ng-if="deliverytypeform.deliveryCode.$error.required">Description is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+		<!-- <div class="row padding-left-right-10">
+			<div class="col-md-8"></div>
+			<div class="col-md-3">
+				
+			</div>
+			<div class="col-md-1 padding-left0px-right6px text-center">
+				<div class="common-save-button">
+				
+					<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow search-button-style" ng-hide="saveBtnFlag" ng-click="saveDeliveryType()" >
+					<input type="button" value="Update"  class="btn btn-primary btn-save-box-shadow search-button-style" ng-hide="updateBtnFlag" ng-click="updateDeliveryType()" >
+				</div>
+				
+				
+				<div class="width-div-for-patient-reg ">
+						<a href="" value="Save" ng-click="saveDeliveryType()"  
+						class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Save" ng-hide="saveBtnFlag"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+							
+						<a href="" value="Update" ng-click="updateDeliveryType()" 
+						class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Update" ng-hide="updateBtnFlag"><i
+							class="fa fa-refresh" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+				
+			</div>
+		</div> -->
+		<div class="row padding-top10">
+				<div class="col-md-6 col-sm-7 padding-left-right-set4">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-sm-6" style="padding-left: 0px;">
+								<div class="search">
+									<label class="show-entries">Show 
+									<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage" ng-change="setNoOfRecords();" class="search-popUp-ddl ng-pristine ng-untouched ng-valid ng-not-empty">
+											<option value="10">10</option>
+											<option value="25">25</option>
+											<option value="50">50</option>
+											<option value="100">100</option>
+									</select> entries
+									</label>
+								</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+			        <!-- ngIf: saveBtnFlag --><a href="" class="btn btn-primary btn-save-box-shadow ng-scope" title="Save" data-toggle="modal" ng-click="saveDeliveryType()" ng-if="saveBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a><!-- end ngIf: saveBtnFlag -->
+			      
+			        <!-- ngIf: updateBtnFlag -->
+			      </div>
+			      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+			        <input type="text" class="text-search-box ng-pristine ng-untouched ng-valid ng-empty search-popUp-ddl" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+			        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			      </div>
+			</div>
+				<modal visible="showModal"></modal> 
+		<div class="row padding-left-right-set4 padding-top8">
+			<div class="col-md-12">
+				<table class="table table-bordered "> <!-- datatable="ng" dt-options="vm.dtOptions" -->
+				<thead>
+					<tr class=" ">
+						<th class="width20">
+							Delivery Type Code
+							
+						</th>
+						<th>
+							Delivery Type Description
+							
+						</th>
+						<th class="width8">
+						Status
+							
+						</th>
+						<th class="text-center width8">
+						Action
+							
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat="info in deliveryTypeList">
+						<td>{{info.deliveryTypeCode}}</td>
+						<td>{{info.deliveryTypeName}}</td>
+							<td>
+							<label class="switch"> 
+							<input type="checkbox" ng-model="info.status" ng-checked="checkVal(info.status)"  ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatus(info.deliveryTypeId,info.status)">
+							<div class="slider round"></div>
+							</label>
+						</td>
+						<td class="text-center"><a><i class="fa fa-pencil" aria-hidden="true" ng-click="showUpdateBtn(info.deliveryTypeId)"></i></a></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+});	
+	$(".selectedPageName").text("Delivery Type Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="deliveryTypeMaster"]').parents("li").addClass("active");
+</script>

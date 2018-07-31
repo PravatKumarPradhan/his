@@ -1,0 +1,578 @@
+<!-- ************************  ************************ ************************ 
+LIS module common information modal
+Added on : 23-Jan-2018 
+ ************************ ************************ ************************ ************************  -->
+
+<!-- ************************ details modal start  ************************  -->
+<div id="informationDetailsModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 height-table-with-scroll">
+						<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width3">
+										Sr No
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("index")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("index")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width12">
+										Media
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("antiboiticClassCode")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("antiboiticClassCode")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width20">
+										Description
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("antibioticName")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("antibioticName")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="antibioticsList in antibioticsListByAntibioticsClassId|orderBy:column:reverse">
+								 <td>{{$index + 1}}</td>
+								<td>{{ antibioticsList.antiboiticClassCode}}</td>
+							    <td>{{ antibioticsList.antibioticName}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+<!-- ************************ details modal start  ************************  -->
+<div id="informationDetailsModalOrgnism" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 height-table-with-scroll">
+						<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width3">
+										Sr No
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("index")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("index")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width12">
+										Organism code
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("organismCode")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("organismCode")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width20">
+										Organism Description
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("organismDesc")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("organismDesc")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+					    	<tbody>
+								<tr ng-repeat="organismGroupOrganismMapperList in antibioticsListByAntibioticsClassId |orderBy:column:reverse">
+								 <td>{{$index + 1}}</td>
+								<td>{{ organismGroupOrganismMapperList.organismCode}}</td>
+							    <td>{{ organismGroupOrganismMapperList.organismDesc}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+<!-- ************************ details modal start  ************************  -->
+<div id="informationDetailsModalSpeciman" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 height-table-with-scroll">
+						<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width3">
+										Sr No
+										<div class="float_right">
+											<div>
+										<i class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width12">
+										Block
+										<div class="float_right">
+											<div>
+										<i class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width20">
+										Block Description
+										<div class="float_right">
+											<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+								 <td>1</td>
+								<td>111</td>
+							    <td>Name</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+<!-- ************************ details modal start  ************************  -->
+<div id="informationDetailsModalColony" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 height-table-with-scroll">
+						<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width3">
+										Sr No
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("index")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("index")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width12">
+										Media
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("mediaCode")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("mediaCode")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width20">
+										Description
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("mediaDesc")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("mediaDesc")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="colonysListByMediaIdList in colonysListByMediaId|orderBy:column:reverse">
+								 <td>{{$index + 1}}</td>
+								<td>{{ colonysListByMediaIdList.mediaCode}}</td>
+							    <td>{{ colonysListByMediaIdList.mediaDesc}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+<!-- ************************ details modal start  ************************  -->
+<div id="antibiotic-addition-group-informationDetailsModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Antibiotic Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 height-table-with-scroll">
+						<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width3">
+										Sr No
+									<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("antiboiticClassCode")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("antiboiticClassCode")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width12">
+										Antibiotic
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("antibioticGorupCode")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("antibioticGorupCode")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width20">
+										Description
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("antibioticName")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("antibioticName")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+						<tbody>
+								<tr ng-repeat="antibioticsList in antibioticsListByAntibioticsClassId |orderBy:column:reverse">
+								 <td>{{$index + 1}}</td>
+								<td>{{ antibioticsList.antibioticGorupCode}}</td>
+							    <td>{{ antibioticsList.antibioticName}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+<!-- ************************ details modal start  ************************  -->
+<div id="sample-type-media-mapping-modal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 height-table-with-scroll">
+						<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width3">
+										Sr No
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("index")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("index")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width12">
+										Media
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("sampleCode")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("sampleCode")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width20">
+										Description
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("mediaDescription")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("mediaDescription")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="mediaList in colonysListByMediaId|orderBy:column:reverse">
+								 <td>{{$index + 1}}</td>
+								<td>{{ mediaList.sampleCode}}</td>
+							    <td>{{ mediaList.mediaDescription}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+<!-- *********************** details modal start  ***********************  -->
+<div id="mappingOfMicroinformationDetailsModal" class="modal fade ng-scope in common-medium-popup" role="dialog">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+    <div class="modal-title patient-details-row">
+     Details
+     <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+   </div>
+   <div class="modal-body">
+    <div class="row padding-left-right-set4">
+     <div class="col-lg-12 col-md-12 height-table-with-scroll">
+      <table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+       <thead class="mainServiceTableCommon">
+        <tr>
+         <th class="width3">
+          Sr No
+          <div class="float_right">
+           <div>
+          <i class="fa fa-caret-up"
+           aria-hidden="true"></i>
+         </div>
+         <div class="margin-top-8">
+          <i class="fa fa-caret-down"
+           aria-hidden="true"></i>
+         </div>
+          </div>
+         </th>
+         <th class="width12">
+          Antibiotic
+          <div class="float_right">
+           <div>
+          <i class="fa fa-caret-up"
+           aria-hidden="true"></i>
+         </div>
+         <div class="margin-top-8">
+          <i class="fa fa-caret-down"
+           aria-hidden="true"></i>
+         </div>
+          </div>
+         </th>
+         <th class="width20">
+          Antibiotic Description
+          <div class="float_right">
+           <div>
+          <i class="fa fa-caret-up"
+           aria-hidden="true"></i>
+         </div>
+         <div class="margin-top-8">
+          <i class="fa fa-caret-down"
+           aria-hidden="true"></i>
+         </div>
+          </div>
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr ng-repeat="antibioticsList in antibioticsListByorganismId|orderBy:column:reverse">
+         <td>{{$index + 1}}</td>
+        <td>{{ antibioticsList.organismCode}}</td>
+           <td>{{ antibioticsList.organismDesc}}</td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<!-- details modal end -->
+<!-- ************************ sample type media mapping page details modal start  ************************  -->
+<div id="informationDetailsSampleMedia" class="modal fade ng-scope in common-medium-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4">
+					<div class="col-lg-12 col-md-12 height-table-with-scroll">
+						<table class="table table-bordered first-checkBox-padding"><!-- mainServiceTable -->
+							<thead class="mainServiceTableCommon">
+								<tr>
+									<th class="width3">
+										Sr No
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("index")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("index")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width12">
+										Code
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("mediaCode")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("mediaCode")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+									<th class="width20">
+										Description
+										<div class="float_right">
+											<div>
+										<i ng-click='sortColumn("mediaDesc")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("mediaDesc")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="colonysListByMediaIdList in colonysListByMediaId|orderBy:column:reverse">
+								 <td>{{$index + 1}}</td>
+								<td>{{ colonysListByMediaIdList.sampleCode}}</td>
+							    <td>{{ colonysListByMediaIdList.mediaDescription}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- sample type media mapping  details modal end -->

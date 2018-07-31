@@ -1,0 +1,1067 @@
+
+
+<style>
+#addAddress {
+	margin-top: -36px;
+}
+[uib-typeahead-popup].dropdown-menu{
+	width:100% !important;
+}
+</style>
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid ">
+		<div id="btn-submit-padding">
+			<input ng-if="saveBtnFlag" type="button" id="" value="Save"
+				ng-click="saveSingleParamTest();"
+				class="btn btn-primary btn-save-box-shadow pull-right" /> <input
+				ng-if="updateBtnFlag" type="button" id="" value="Update"
+				ng-click="updateSingleParamTest();"
+				class="btn btn-primary btn-save-box-shadow pull-right" />
+		</div>
+		<!-- <div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" data-toggle="modal" data-target="#confirmLogout"><i
+							class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div> -->
+		<fieldset>
+			<legend class="heading-div">Test Master</legend>
+			<form name="singleParamTestForm" novalidate>
+				<div class="row margin-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-flask" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<input type="text"
+										class="text-input floating-label text-search-box ng-touched dirty" tabindex="3"
+										ng-model="singleParamTestMaster.testDesc" placeholder="Search"
+										uib-typeahead="service.name for service in getServiceList($viewValue)"
+										typeahead-editable="false"
+										typeahead-on-select="selectServiceId($item, $model, $label);"
+										name="testDesc" autocomplete="off"
+										ng-required="isServiceExist" /> <label for="code">Test
+										Name</label>
+									<p class="help-block"
+										ng-if="singleParamTestForm.testDesc.$error.required">{{testNameReq}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-file-text" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<input type="text" name="testCode" id=""
+										class="text-input floating-label "
+										ng-class="{'dirty':updateBtnFlag == true}"
+										ng-model="singleParamTestMaster.testCode" required> <label
+										for="code">Test Code</label>
+									<p class="help-block"
+										ng-if="singleParamTestForm.testCode.$error.required">{{testCodeReq}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-file-text-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<input type="text" name="testAlies" id=""
+										class="text-input floating-label"
+										ng-class="{'dirty':updateBtnFlag == true}"
+										ng-model="singleParamTestMaster.testAlies" required> <label
+										for="code">Alias Name</label>
+									<p class="help-block"
+										ng-if="singleParamTestForm.testAlies.$error.required">{{testAliesReq}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-building-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<select class="text-input floating-label ng-touched dirty"
+										ng-model="singleParamTestMaster.deptId" name="deptId" required convert-to-number>
+										<option selected value>Please Select Department</option>
+										<option ng-repeat="dept in departmentList" value="{{dept.id}}">{{dept.name}}</option>
+									</select> <label for="code">Select Department</label>
+									<p class="help-block"
+										ng-if="singleParamTestForm.deptId.$error.required">{{deptReq}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-eercast" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<select class="text-input floating-label ng-touched dirty"
+										ng-model="singleParamTestMaster.sampleId" name="sampleId"
+										required convert-to-number>
+										<option selected value>Please Select Sample Type</option>
+										<option ng-repeat="sample in sampleList" value="{{sample.id}}">{{sample.name}}</option>
+									</select> <label for="code">Select Sample Type</label>
+									<p class="help-block"
+										ng-if="singleParamTestForm.sampleId.$error.required">{{sampleReq}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-thermometer-full" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<input type="text" name="noOfSampleReq" id=""
+										class="text-input floating-label"
+										ng-class="{'dirty':updateBtnFlag == true}"
+										ng-model="singleParamTestMaster.noOfSampleReq" required> <label
+										for="code">No. Of Sample Required</label>
+									<p class="help-block"
+										ng-if="singleParamTestForm.noOfSampleReq.$error.required">{{noOfSampleReq}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-flask" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-11 col-md-10 ">
+									<div class="form-group" show-errors>
+										<input type="text" name="sampleVolume" id=""
+											class="text-input floating-label"
+											ng-class="{'dirty':updateBtnFlag == true}"
+											ng-model="singleParamTestMaster.sampleVolume" required> <label
+											for="code">Sample Volume</label>
+										<p class="help-block"
+											ng-if="singleParamTestForm.sampleVolume.$error.required">{{sampleVolumeReq}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+							<div class="row input-container test-master-sample">
+								<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+									<i class="fa fa-th" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-10 col-sm-11 col-md-10 ">
+									<div class="form-group" show-errors>
+										<select class="text-input floating-label ng-touched dirty"
+											name="unitId"
+											ng-model="singleParamTestMaster.listParameterMasterDto[0].unitId"
+											required convert-to-number>
+											<option selected value>Please Select Unit</option>
+											<option ng-repeat="unit in unitList" value="{{unit.id}}">{{unit.name}}</option>
+										</select><label for="code">Select Unit</label>
+										<p class="help-block"
+											ng-if="singleParamTestForm.unitId.$error.required">{{sampleUnitReq}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-archive" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<select class="text-input floating-label ng-touched dirty"
+										ng-model="singleParamTestMaster.containerId"
+										name="containerId" required convert-to-number>
+										<option selected value>Please Select Container</option>
+										<option ng-repeat="container in containerList"
+											value="{{container.id}}">{{container.name}}</option>
+									</select> <label for="code">Container Type</label>
+									<p class="help-block"
+										ng-if="singleParamTestForm.containerId.$error.required">{{containerReq}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top10">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-file-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<select class="text-input floating-label ng-touched dirty"
+										ng-model="singleParamTestMaster.reportTypeId"
+										name="reportTypeId" required convert-to-number>
+										<option selected value>Please Select Report type</option>
+										<option ng-repeat="reporttype in reportList"
+											value="{{reporttype.id}}">{{reporttype.name}}</option>
+									</select> <label for="code">Select Report Type</label>
+									<p class="help-block"
+										ng-if="singleParamTestForm.reportTypeId.$error.required">{{reportTypeReq}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-asterisk" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<select class="text-input floating-label ng-touched dirty"
+										ng-model="singleParamTestMaster.techniqueId"
+										name="techniqueId" required convert-to-number>
+										<option selected value>Please Select Technique</option>
+										<option ng-repeat="technique in techniqueList"
+											value="{{technique.id}}">{{technique.name}}</option>
+									</select> <label for="code">Select Technique</label>
+									<p class="help-block"
+										ng-if="singleParamTestForm.techniqueId.$error.required">{{techniqueReq}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 ">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-id-card-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<input type="text" name="identificationNo" id=""
+										class="text-input floating-label"
+										ng-class="{'dirty':updateBtnFlag == true}"
+										ng-model="singleParamTestMaster.identificationNo" required>
+									<label for="code">Identification No.</label>
+									<p class="help-block"
+										ng-if="singleParamTestForm.identificationNo.$error.required">{{identificationNoReq}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<select class="text-input floating-label ng-touched dirty"
+										ng-model="singleParamTestMaster.prerequisitsId"
+										name="prerequisitsId" required convert-to-number ng-disabled="updateBtnFlag">
+										<option selected value>Please Select Prerequisites</option>
+										<option ng-repeat="prerequisites in prerequisitesList"
+											value="{{prerequisites.id}}">{{prerequisites.name}}</option>
+									</select><label for="description">Select Prerequisites</label>
+									<p class="help-block"
+										ng-if="singleParamTestForm.prerequisitsId.$error.required">{{identificationNoReq}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-sm-3 padding-left-right-set4 test-master-slider">
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<label>Provisional Release</label>
+							<div>
+								<label class="switch"> <input type="checkbox"
+									ng-model="singleParamTestMaster.proRelease" ng-true-value="'Y'"
+									ng-false-value="'N'" ng-checked="singleParamTestMaster.proRelease=='Y'">
+									<div class="slider round"></div>
+								</label>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3">
+							<label>Status</label>
+							<div>
+								<label class="switch"> <input type="checkbox"
+									ng-model="singleParamTestMaster.testStatus" ng-true-value="'A'"
+									ng-false-value="'I'" ng-checked="singleParamTestMaster.testStatus=='Y'">
+									<div class="slider round"></div>
+								</label>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3">
+							<label>Outsource</label>
+							<div>
+								<label class="switch"> <input type="checkbox"
+									ng-model="singleParamTestMaster.isOutsourced"
+									ng-true-value="'Y'" ng-false-value="'N'" ng-checked="singleParamTestMaster.isOutsourced=='Y'">
+									<div class="slider round"></div>
+								</label>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<label>Centrifugation</label>
+							<div>
+								<label class="switch"> <input type="checkbox"
+									ng-model="singleParamTestMaster.isCentrifugationRequried" ng-true-value="'Y'"
+									ng-false-value="'N'" ng-checked="singleParamTestMaster.isCentrifugationRequried=='Y'">
+									<div class="slider round"></div>
+								</label>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<label>Is Formula</label>
+							<div>
+								<label class="switch"> <input type="checkbox"
+									ng-model="singleParamTestMaster.listParameterMasterDto[0].isFormula" ng-true-value="'Y'"
+									ng-false-value="'N'" ng-checked="singleParamTestMaster.listParameterMasterDto[0].isFormula=='Y'">
+									<div class="slider round"></div>
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+									<textarea rows="1" id="" class="text-input floating-label"
+										ng-class="{'dirty':updateBtnFlag == true}" name="footNote"
+										ng-model="singleParamTestMaster.footNote" required></textarea>
+									<label for="description">Foot Note</label>
+									<p class="help-block"
+										ng-if="singleParamTestForm.footNote.$error.required">{{footNoteReq}}</p>
+								</div>
+							</div>
+						</div>
+						<div class="row input-container padding-top10">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label dirty"  ng-model="singleParamTestMaster.listParameterMasterDto[0].refrangeTypeId" name="refrangeTypeId"  ng-change="showRefRange(singleParamTestMaster.listParameterMasterDto[0].refrangeTypeId);" required convert-to-number>
+												<option selected value>Please Select Reference Range Type</option>
+												<option ng-repeat="refRangeType in refRangeTypeList" value="{{refRangeType.id}}">{{refRangeType.name}}</option>
+											</select>
+									<label class="LISDynamicLabel">Reference Range Type</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-6 padding-left-right-set4">
+						<div class="row">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon width5">
+								<i class="fa fa-clock-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="input-container">
+									<label for="code" class="padding-top-size">Turn Around
+										Time</label>
+									<div class="row turn-around-time">
+										<div class="col-lg-2 col-md-2 col-sm-2">
+											<div class="margin-top8">
+												<input type="checkbox" name="turnAroundTime"><label>Urgent</label>
+											</div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-3">
+										<div class="form-group" show-errors>
+											<select class="text-input floating-label ng-touched dirty"
+												ng-model="singleParamTestMaster.urgentTatId"
+												name="urgentTatId" required>
+												<option selected value>Please Select TAT</option>
+												<option ng-repeat="time in timeList" value="{{time.id}}">{{time.name}}</option>
+											</select> <label for="code">Select</label>
+											<p class="help-block"
+												ng-if="singleParamTestForm.urgentTatId.$error.required">{{urgentTatReq}}</p>
+											</div>	
+										</div>
+										<div class="col-lg-2 col-md-2 col-sm-2">
+											<div class="row input-container">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+													<!-- <i class="fa fa-id-card-o" aria-hidden="true"></i> -->
+												</div>
+												<div class="col-lg-11 col-sm-11 col-md-11 ">
+													<div class="form-group" show-errors>
+														<input type="text" name="urgentTatTime" id=""
+															class="text-input floating-label"
+															ng-class="{'dirty':updateBtnFlag == true}"
+															ng-model="singleParamTestMaster.urgentTatTime" required> <label
+															for="code" required>Enter</label>
+														<p class="help-block"
+															ng-if="singleParamTestForm.urgentTatTime.$error.required">{{urgentTatTimeReq}}</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-sm-2">
+											<div class="margin-top8">
+												<input type="checkbox" name="turnAroundTime"><label>Normal</label>
+											</div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-3">
+										<div class="form-group" show-errors>
+											<select class="text-input floating-label ng-touched dirty"
+												ng-model="singleParamTestMaster.normlTatId"
+												name="normlTatId" required>
+												<option selected value>Please Select TAT</option>
+												<option ng-repeat="time in timeList" value="{{time.id}}">{{time.name}}</option>
+											</select> <label for="code">Select</label>
+											<p class="help-block"
+												ng-if="singleParamTestForm.normlTatId.$error.required">{{normlTimeReq}}</p>
+												</div>
+										</div>
+										<div class="col-lg-2 col-md-2 col-sm-2">
+											<div class="row input-container">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+													<!-- <i class="fa fa-id-card-o" aria-hidden="true"></i> -->
+												</div>
+												<div class="col-lg-11 col-sm-11 col-md-11 ">
+													<div class="form-group" show-errors>
+														<input type="text" name="normlTatTime" id=""
+															class="text-input floating-label"
+															ng-class="{'dirty':updateBtnFlag == true}"
+															ng-model="singleParamTestMaster.normlTatTime" required> <label
+															for="code" required>Enter</label>
+														<p class="help-block"
+															ng-if="singleParamTestForm.normlTatTime.$error.required">{{normlTatTimeReq}}</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row margin-top10 padding-left-right-set4">
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+						<label>Delta</label>
+						<div class="radio-btn-div-style table-responsive refarnce-range">
+							<table class="table table-bordered" id="delta">
+								<tr class="">
+									<th  ng-if="singleParamTestMaster.listParameterMasterDto[0].refrangeTypeId==1"><input type="radio" name="deltaNumeric" ng-click="checkDelta(1);"  value="1">No.</th>
+									<th ><input type="radio" name="deltaNumeric" ng-click="checkDelta(2);"  value="2">Text</th>
+								</tr>
+								<tr>
+									<td ng-if="singleParamTestMaster.listParameterMasterDto[0].refrangeTypeId==1">
+									<div class="form-group" show-errors>
+									<input type="text" placeholder="%" name="deltaPer" ng-required="deltaNo"  
+										class="table-input-text-width"
+										ng-model="singleParamTestMaster.listParameterMasterDto[0].deltaPer">
+										<p class="help-block"
+										      ng-if="singleParamTestForm.deltaPer.$error.required">{{deltaPer}}</p>
+										</div></td>
+									<td>
+									<div class="form-group" show-errors>
+									<select class="border-dropdown"
+										ng-model="singleParamTestMaster.listParameterMasterDto[0].deltaDaysId"  name="deltaDays" ng-required="deltaText">
+											<option selected value>Please Select Days</option>
+											<option ng-repeat="noOfDays in getnoOfDayList"
+												value="{{noOfDays.id}}">{{noOfDays.name}}</option>
+									</select>
+									<p class="help-block"
+										   ng-if="singleParamTestForm.deltaDays.$error.required">{{dayReq}}</p>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4">
+						<label>Panic Value</label>
+							
+							<!-- ******************************* Table for Numeric -refernce value start ******************************* -->
+							<div class="row radio-btn-div-style" ng-if="singleParamTestMaster.listParameterMasterDto[0].refrangeTypeId==1">
+								<div
+									class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 refarnce-range table-responsive height-280-scroll">
+									<table class="table  table-bordered" id="RangeTable1">
+										<tr class="">
+											<th class="width10">Age Group</th>
+											<th class="width10">Sex</th>
+											<th class="width8">Min Val</th>
+											<th class="width8">Max Val</th>
+											<th class="width5">Less</th>
+											<th class="width5">More</th>
+											<th class="width20">Remark</th>
+											<th class="width5">Action</th>
+										</tr>
+										<tr
+											ng-repeat="paramRefrengMaster in listParamRefrengMaster track by $index">
+											<td>
+											<div class="form-group"  show-errors>
+											<select class="border-dropdown"
+												ng-model="paramRefrengMaster.ageGroupId"  name="ageGroupId" required convert-to-number>
+													<option selected value>Please Select Age Group</option>
+													<option ng-repeat="ageGrp in ageGroupList"
+														value="{{ageGrp.id}}">{{ageGrp.name}}</option>
+											</select>
+											<p class="help-block"
+											ng-if="singleParamTestForm.ageGroupId.$error.required">{{plzSelectAgeGroup}}</p>
+										</div></td>
+											<td>
+											<div class="form-group"  show-errors>
+											<select class="border-dropdown"
+												ng-model="paramRefrengMaster.genderId"  name="genderId" required convert-to-number>
+													<option selected value>Please Select Gender</option>
+													<option ng-repeat="gender in genderList"
+														value="{{gender.id}}">{{gender.name}}</option>
+											</select>
+											<p class="help-block"
+											ng-if="singleParamTestForm.genderId.$error.required">{{plzSelectSex}}</p>
+										</div></td>
+											<td>
+											<div class="form-group"  show-errors>
+											<input type="text" class="w-100"
+												ng-model="paramRefrengMaster.minValue"  name="minValue" required>
+												<p class="help-block"
+											ng-if="singleParamTestForm.minValue.$error.required">{{minValReq}}</p>
+										</div></td>
+											<td>
+											<div class="form-group"  show-errors>
+											<input type="text" class="w-100"
+												ng-model="paramRefrengMaster.maxValue"  name="maxValue" required>
+												<p class="help-block"
+											ng-if="singleParamTestForm.maxValue.$error.required">{{minValReq}}</p>
+										</div></td>
+											<td>
+											<div class="form-group"  show-errors>
+											<input type="text" class="w-100"
+												ng-model="paramRefrengMaster.lessThan"  name="lessThan" required >
+												<p class="help-block"
+											ng-if="singleParamTestForm.lessThan.$error.required">{{lessValReq}}</p>
+										</div></td>
+											<td>
+											<div class="form-group"  show-errors>
+											<input type="text" class="w-100"
+												ng-model="paramRefrengMaster.moreThan"  name="moreThan" required>
+												<p class="help-block"
+											ng-if="singleParamTestForm.moreThan.$error.required">{{moreValReq}}</p>
+										</div></td>
+											<!-- 	<td><input type="text" class="w-100"></td> -->
+											<td><textarea rows="auto" cols="4" style="height: 26px"
+													ng-model="paramRefrengMaster.remark"></textarea></td>
+											<th><input type="button" name=""
+												id="refranceRangeAgeGroup" value="+"
+												ng-click="addParamRefrengMaster();"
+												class="btn btn-info add-dynamic-row" style="padding: 0 2px !important;">&nbsp;
+												<input ng-if="$index!=0" type="button" name="" id="delrow"
+												value="-" ng-click="removeParamRefrengMaster($index);"
+												class="btn btn-info" style="padding: 0 4px !important;"></th>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<!-- ******************************* Table for Numeric -reference value end ******************************* -->
+							
+							<!-- ******************************* Table for Textual -reference value start ******************************* -->
+							<div class="row radio-btn-div-style" id ="texttualReferenceRangeTableId" ng-if="singleParamTestMaster.listParameterMasterDto[0].refrangeTypeId==2">
+								<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 refarnce-range table-responsive height-280-scroll">
+									<table class="table  table-bordered" id="RangeTable1">
+										<tr class="">
+											<th class="width10">Age Group</th>
+											<th class="width10">Sex</th>
+											<th class="width8">Values</th>
+											<th class="width20">Remark</th>
+											<th class="width5">Action</th>
+										</tr>
+										<tr ng-repeat="textualReange in listParamTextualRangeMaster track by $index" ng-form="textualRangeForm">
+											<td>
+												<div class="form-group"  show-errors>
+												<select class="border-dropdown"
+													ng-model="textualReange.ageGroupId" name="ageGroupId" convert-to-number required>
+														<option selected value>Please Select Age Group</option>
+														<option ng-repeat="ageGrp in ageGroupList"
+															value="{{ageGrp.id}}">{{ageGrp.name}}</option>
+												</select>
+												<p class="help-block"
+													ng-if="textualRangeForm.ageGroupId.$error.required">{{plzSelectUnit}}</p>
+												</div>
+											</td>
+											<td>
+												<div class="form-group"  show-errors>
+												<select class="border-dropdown"
+													ng-model="textualReange.genderId" name="genderId"  convert-to-number required>
+														<option selected value>Please Select Gender</option>
+														<option ng-repeat="gender in genderList"
+															value="{{gender.id}}">{{gender.name}}</option>
+												</select>
+												<p class="help-block"
+													ng-if="textualRangeForm.genderId.$error.required">{{plzSelectSex}}</p>
+												</div>
+											</td>
+											<td>
+												<div class="form-group"  show-errors>
+												<select class="border-dropdown"
+													ng-model="textualReange.textualRangeId" name="textualRangeId"  convert-to-number required>
+														<option selected value>Please Select Textual Ranges</option>
+														<option ng-repeat="textualObj in textualRangeList"
+															value="{{textualObj.id}}">{{textualObj.name}}</option>
+												</select>
+												<p class="help-block"
+													ng-if="textualRangeForm.textualRangeId.$error.required">{{plzSelectSex}}</p>
+												</div>
+											</td>
+											<td>
+												<textarea rows="2"  ng-model="textualReange.remark"></textarea>
+											</td>
+											<th><input  type="button" name=""
+													id="refranceRangeAgeGroup" value="+"
+													ng-click="addParamRefrengMaster();"
+													class="btn btn-info add-dynamic-row" style="padding: 0 2px !important;">&nbsp;
+													<input ng-if="$index!=0" type="button" name="" id="delrow" value="-" ng-click="removeParamRefrengMaster($index);" class="btn btn-info" style="padding: 0 4px;">
+												</th>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<!-- ******************************* Table for Textual - reference value end ******************************* -->
+							<!-- ******************************* Table for Multiliner -reference value start ******************************* -->
+							<div class="row radio-btn-div-style" id ="MultilinerReferenceRangeTableId" ng-if="singleParamTestMaster.listParameterMasterDto[0].refrangeTypeId==3">
+								<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 refarnce-range table-responsive height-280-scroll">
+									<table class="table  table-bordered" id="RangeTable1">
+										<tr class="">
+											<th class="width10">Age Group</th>
+											<th class="width10">Sex</th>
+											<th class="width8">Values</th>
+											<th class="width20">Remark</th>
+											<th class="width5">Action</th>
+										</tr>
+										<tr ng-repeat="multiTextualReange in listParamMultiTextualRangeMaster track by $index" ng-form="multiTextualReangeForm">
+											<td>
+												<div class="form-group"  show-errors>
+												<select class="border-dropdown"
+													ng-model="multiTextualReange.ageGroupId" name="ageGroupId" convert-to-number required>
+														<option selected value>Please Select Age Group</option>
+														<option ng-repeat="ageGrp in ageGroupList"
+															value="{{ageGrp.id}}">{{ageGrp.name}}</option>
+												</select>
+												<p class="help-block"
+													ng-if="multiTextualReangeForm.ageGroupId.$error.required">{{plzSelectUnit}}</p>
+												</div>
+											</td>
+											<td>
+												<div class="form-group"  show-errors>
+												<select class="border-dropdown"
+													ng-model="multiTextualReange.genderId" name="genderId"  convert-to-number required>
+														<option selected value>Please Select Gender</option>
+														<option ng-repeat="gender in genderList"
+															value="{{gender.id}}">{{gender.name}}</option>
+												</select>
+												<p class="help-block"
+													ng-if="multiTextualReangeForm.genderId.$error.required">{{plzSelectSex}}</p>
+												</div>
+											</td>
+											<td>
+												<textarea rows="2" ng-model="multiTextualReange.multitextaulRange"></textarea>
+											</td>
+											<td>
+												<textarea rows="2" ng-model="multiTextualReange.remark"></textarea>
+											</td>
+											<th><input  type="button" name=""
+													id="refranceRangeAgeGroup" value="+"
+													ng-click="addParamRefrengMaster();"
+													class="btn btn-info add-dynamic-row" style="padding: 0 2px !important;">&nbsp;
+													<input ng-if="$index!=0" type="button" name="" id="delrow" value="-" ng-click="removeParamRefrengMaster($index);" class="btn btn-info" style="padding: 0 4px;">
+											</th>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<!-- ******************************* Table for Multiliner - reference value end ******************************* -->
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4" ng-if="singleParamTestMaster.listParameterMasterDto[0].refrangeTypeId==2||singleParamTestMaster.listParameterMasterDto[0].refrangeTypeId==3">
+						<label>Help Value</label>
+						<div class="radio-btn-div-style table-responsive refarnce-range">
+							<table class="table table-bordered" id="delta">
+								<tr class="">
+									<th class="width25">Value</th>
+									<th class="width10"></th>
+								</tr>
+								<tr ng-repeat="helpValueMst in listHelpValueMaster track by $index">
+									<td><textarea rows="auto" cols="auto" style="height: 26px"
+											ng-model="helpValueMst.helpValue"></textarea></td>
+									<td><input type="button" name=""
+										id="refranceRangeAgeGroup" value="+"
+										class="btn btn-info add-dynamic-row" style="padding: 0 2px !important;"
+										ng-click="addHelpValue();"> <input ng-if="$index!=0"
+										type="button" name="" id="delrow" value="-"
+										ng-click="removeHelpvalue($index);" class="btn btn-info"
+										style="padding: 0 4px !important;"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</form>
+		</fieldset>
+		<!-- </div> -->
+		<div class="div-form-for-ICU">
+			<div class="row his-style">
+				
+			<div
+				class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" ng-model="searchKeyword"
+					style="margin-top: 0px"> <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+			</div>
+			<div class="row margin-top8">
+				<div class="test-master-table-div">
+					<table class="table  table-bordered">
+						<tr class="">
+							<th rowspan="2" class="table-column-width216">Test Name
+								<div class="float_right">
+									<div>
+									  <i ng-click='sortColumn("testDesc")' class="fa fa-caret-up" aria-hidden="true"></i>
+								    </div>
+								    <div class="margin-top-8">
+									  <i ng-click='sortColumn("testDesc")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								   </div>
+								</div>
+							</th>
+							<th rowspan="2" class="table-column-width98">Test Code
+								<div class="float_right">
+									<div>
+									  <i ng-click='sortColumn("testCode")' class="fa fa-caret-up" aria-hidden="true"></i>
+								    </div>
+								    <div class="margin-top-8">
+									  <i ng-click='sortColumn("testCode")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								   </div>
+								</div>
+							</th>
+							<th rowspan="2" class="table-column-width150">Alias Name
+								<div class="float_right">
+									<div>
+									  <i ng-click='sortColumn("testAlies")' class="fa fa-caret-up" aria-hidden="true"></i>
+								    </div>
+								    <div class="margin-top-8">
+									  <i ng-click='sortColumn("testAlies")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								   </div>
+								</div>
+							</th>
+							<th rowspan="2" class="table-column-width106">Department
+								<div class="float_right">
+									<div>
+									  <i ng-click='sortColumn("deptName")' class="fa fa-caret-up" aria-hidden="true"></i>
+								    </div>
+								    <div class="margin-top-8">
+									  <i ng-click='sortColumn("deptName")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								   </div>
+								</div>
+							</th>
+							<th rowspan="2" class="table-column-width106">Sample Type
+								<div class="float_right">
+									<div>
+									  <i ng-click='sortColumn("sampleName")' class="fa fa-caret-up" aria-hidden="true"></i>
+								    </div>
+								    <div class="margin-top-8">
+									  <i ng-click='sortColumn("sampleName")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								   </div>
+								</div>
+							</th>
+							<th rowspan="2" class="table-column-width5">No. of Sample
+								<div class="float_right">
+									<div>
+									  <i ng-click='sortColumn("noOfSampleReq")' class="fa fa-caret-up" aria-hidden="true"></i>
+								    </div>
+								    <div class="margin-top-8">
+									  <i ng-click='sortColumn("noOfSampleReq")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								   </div>
+								</div>
+							</th>
+							<th rowspan="2" class="table-column-width5">Sample Volume
+								<div class="float_right">
+									<div>
+									  <i ng-click='sortColumn("sampleVolume")' class="fa fa-caret-up" aria-hidden="true"></i>
+								    </div>
+								    <div class="margin-top-8">
+									  <i ng-click='sortColumn("sampleVolume")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								   </div>
+								</div>
+							</th>
+							<th rowspan="2" class="">Technique
+								<div class="float_right">
+									<div>
+									  <i ng-click='sortColumn("techniqueName")' class="fa fa-caret-up" aria-hidden="true"></i>
+								    </div>
+								    <div class="margin-top-8">
+									  <i ng-click='sortColumn("techniqueName")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								   </div>
+								</div>
+							</th>
+							<th colspan="2" class="table-column-width5">Turn Around Time
+								<div class="float_right">
+									<div>
+									  <i ng-click='sortColumn("urgentTatTime")' class="fa fa-caret-up" aria-hidden="true"></i>
+								    </div>
+								    <div class="margin-top-8">
+									  <i ng-click='sortColumn("urgentTatTime")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								   </div>
+								</div>
+							</th>
+							<th class="table-column-width5" rowspan="2">Provisional
+								Release
+								<div class="float_right">
+									<div>
+									  <i ng-click='sortColumn("proRelease")' class="fa fa-caret-up" aria-hidden="true"></i>
+								    </div>
+								    <div class="margin-top-8">
+									  <i ng-click='sortColumn("proRelease")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								   </div>
+								</div>
+							</th>
+							<th class="table-column-width216" rowspan="2">Prerequisites
+								   <div class="float_right">
+									 <div>
+									   <i ng-click='sortColumn("prerequisitName")' class="fa fa-caret-up" aria-hidden="true"></i>
+								     </div>
+								     <div class="margin-top-8">
+									  <i ng-click='sortColumn("prerequisitName")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								     </div>
+								   </div>
+							</th>
+							<th class="table-column-width150" rowspan="2">
+								Identification No.
+								  <div class="float_right">
+									 <div>
+									   <i ng-click='sortColumn("identificationNo")' class="fa fa-caret-up" aria-hidden="true"></i>
+								     </div>
+								     <div class="margin-top-8">
+									  <i ng-click='sortColumn("identificationNo")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								     </div>
+								  </div>
+							</th>
+							<th class="table-column-width150" rowspan="2">Reference
+								Range
+								<div class="float_right">
+									 <div>
+									   <i ng-click='sortColumn("identificationNo")' class="fa fa-caret-up" aria-hidden="true"></i>
+								     </div>
+								     <div class="margin-top-8">
+									  <i ng-click='sortColumn("identificationNo")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								     </div>
+								  </div>
+							</th>
+							<th class="" colspan="3">Delta
+								<div class="float_right">
+									 <div>
+									   <i ng-click='sortColumn("deltaPer")' class="fa fa-caret-up" aria-hidden="true"></i>
+								     </div>
+								     <div class="margin-top-8">
+									  <i ng-click='sortColumn("deltaPer")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								     </div>
+								  </div>
+							</th>
+							<th class="table-column-width5" rowspan="2">Outsource
+								<div class="float_right">
+									<div>
+									   <i ng-click='sortColumn("isOutsourced")' class="fa fa-caret-up" aria-hidden="true"></i>
+								     </div>
+								     <div class="margin-top-8">
+									  <i ng-click='sortColumn("isOutsourced")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								     </div>
+								</div>
+							</th>
+							<th class="table-column-width5" rowspan="2">Status
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="table-column-width5" rowspan="2">Panic Value
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="table-column-width5" rowspan="2">Help Value
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="table-column-width5" rowspan="2">Foot Note
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="table-column-width5" rowspan="2">Action
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+
+						</tr>
+
+						<tr class="">
+							<th class="width5">Urgent</th>
+							<th class="width5">Normal</th>
+							<th class="width1">%</th>
+							<th class="width3">No. of days</th>
+							<th class="width5">Numeric</th>
+						</tr>
+
+
+						<tr ng-repeat="singleparamtst in singleParamTestList|orderBy:column:reverse|filter:searchKeyword track by $index">
+							<td>
+								<div>{{singleparamtst.testDesc}}</div>
+							</td>
+							<td>
+								<div>{{singleparamtst.testCode}}</div>
+
+							</td>
+							<td>
+								<div>{{singleparamtst.testAlies}}</div>
+							</td>
+							<td>
+								<div>{{singleparamtst.deptName}}</div>
+							</td>
+							<td>
+								<div>{{singleparamtst.sampleName}}</div>
+							</td>
+							<td>
+								<div>{{singleparamtst.noOfSampleReq}}</div>
+							</td>
+							<td>
+								<div>{{singleparamtst.sampleVolume}}
+									{{singleparamtst.listParameterMasterDto[0].unitName}}</div>
+							</td>
+							<td>
+								<div>{{singleparamtst.techniqueName}}</div>
+							</td>
+							<td>
+								<div>{{singleparamtst.urgentTatTime}}&nbsp;{{singleparamtst.urgentTime}}</div>
+							</td>
+							<td>
+								<div>{{singleparamtst.normlTatTime}}&nbsp;
+									{{singleparamtst.normlTime}}</div>
+							</td>
+							<td>
+								<div>{{singleparamtst.proRelease=='Y'?'Yes':'No'}}</div>
+							</td>
+							<td>{{singleparamtst.prerequisitName}}</td>
+							<td>{{singleparamtst.identificationNo}}</td>
+							<td>{{singleparamtst.identificationNo}}</td>
+							<td>{{singleparamtst.listParameterMasterDto[0].deltaPer}}</td>
+							<td>{{singleparamtst.listParameterMasterDto[0].deltaDays}}</td>
+							<td>{{singleparamtst.listParameterMasterDto[0].deltaPer}}</td>
+							<td>{{singleparamtst.isOutsourced=='Y'?'Yes':'No'}}</td>
+							<td><label class="switch"> <input type="checkbox"
+									ng-model="singleparamtst.testStatus"
+									ng-checked="singleparamtst.testStatus=='A'" ng-true-value="'A'"
+									ng-false-value="'I'"
+									ng-change="activeInactiveSingleParamTest(singleparamtst.orgId,singleparamtst.orgUnitId,singleparamtst.testId,singleparamtst.listParameterMasterDto[0].parameterId,singleparamtst.testStatus);">
+									<div class="slider round"></div>
+							</label></td>
+							<td><i class="fa fa-exclamation-triangle" aria-hidden="true"
+								ng-click="showPanicValue(singleparamtst.listParameterMasterDto[0].parameterId,singleparamtst.listParameterMasterDto[0].refrangeTypeId);"></i></td>
+							<td><i class="fa fa-info" aria-hidden="true"
+								ng-click="showHelpValue(singleparamtst.listParameterMasterDto[0].parameterId);"></i></td>
+							<td><i class="fa fa-commenting" aria-hidden="true"
+								ng-click="showFootNote($index);"></i></td>
+							<td><a href=""><i class="fa fa-pencil"
+									aria-hidden="true"
+									ng-click="getSingleParamTestById(singleparamtst.orgId,singleparamtst.orgUnitId,singleparamtst.testId);"></i>
+									<span></span></a></td>
+						</tr>
+					</table>
+					<div class="row margin-bottom45 sss">
+						<ul ng-if="pager.pages.length" class="pagination table-list"
+							style="font-size: 14px;">
+							<li ng-class="{disabled:pager.currentPage === 1}"><a
+								ng-click="setPage(1,'true')">First</a></li>
+							<li ng-class="{disabled:pager.currentPage === 1}"><a
+								ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+							<li ng-repeat="page in pager.pages"
+								ng-class="{active:pager.currentPage === page}"><a
+								ng-click="setPage(page,'true')">{{page}}</a></li>
+							<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+								<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+							</li>
+							<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+								<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div ng-include="'./views/LIS/foot_note_popup.html'"></div>
+<div ng-include="'./views/LIS/helpvaluepopup.html'"></div>
+<div ng-include="'./views/LIS/refreng_popup.html'"></div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Test Master");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="testMaster"]').parents("li").addClass("active");
+
+		/* $('.test-master-table-div').mousewheel(function(e, delta) {
+		 this.scrollLeft -= (delta * 40);
+		 e.preventDefault();
+		 }); */
+		//
+		$(document).on("click", ".add-dynamic-row", function() {
+
+			$(".maxheight94").animate({
+				scrollTop : 1000000000
+			}, 3000);
+		});
+
+	});
+</script>
+
+</body>
+</html>

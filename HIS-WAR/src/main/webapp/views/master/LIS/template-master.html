@@ -1,0 +1,406 @@
+<!-- Page Content -->
+<style>
+.form-actions {
+	display:none !important;
+}
+div.customdrop-down div.dropdown-multiselect  button.dropdown-toggle, div.customdrop-down div.multiselect-parent ul.dropdown-menu-form{
+	width:100% !important;
+	text-align: left !important;
+    padding-left: 5px !important;
+}
+</style>
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Template Master</legend> -->
+			
+				<form name="labTemplateMasterform" novalidate>
+				<div class="row margin-top10">
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								   <div class="form-group"  show-errors>
+									<input type="text" name="templateCode" id=""
+										class="text-input floating-label" ng-model="labTemplateMasterDto.templateCode" required > <label for="code"
+										class="LISDynamicLabelOne" >Template Code</label>
+										<p class="help-block" ng-if="labTemplateMasterform.templateCode.$error.required">{{plzTemplateCode}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								 <div class="form-group"  show-errors>
+									<input type="text" name="templateDesc" id=""
+										class="text-input floating-label" ng-model="labTemplateMasterDto.templateDesc" required> <label for="code"
+										class="LISDynamicLabelOne">Template Description</label>
+										<p class="help-block" ng-if="labTemplateMasterform.templateDesc.$error.required">{{plzTemplateDesc}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-th-list" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							 <div class="form-group"  show-errors>
+								<select class="text-input floating-label" 
+								ng-model="labTemplateMasterDto.pathologistId"  name="pathologistId" required convert-to-number>
+									<option>1</option>
+									<option>2</option>
+								</select> <label for="code">Pathologist</label>
+								<p class="help-block" ng-if="labTemplateMasterform.pathologistId.$error.required">{{plzTemplatepatho}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-venus-mars" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							   <div class="form-group"  show-errors>
+										<select class="text-input floating-label"
+											ng-model="labTemplateMasterDto.genderId"  name="genderId" required convert-to-number>
+												<option selected value=""></option>
+												<option ng-repeat="gender in genderList"
+													value="{{gender.id}}">{{gender.name}}</option>
+										</select>  <label for="code">  Gender</label>
+										<p class="help-block" ng-if="labTemplateMasterform.genderId.$error.required">{{plzSelectSex}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top8">	</div>
+				</div>
+				<div class="row margin-top10">
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+								<i class="fa fa-stethoscope	" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-10 col-md-10 ">
+								<div class="form-group"   show-errors>
+									<select class="text-input floating-label" name="specialityId" ng-model="specialityId" ng-change="getDoctorBySpeciality(specialityId)" required>
+										<option>Select Specialty</option>
+										<option ng-repeat="info in specialityList" value="{{info.specialityId}}">{{info.specialityName}}</option>
+									</select>		
+									<label for="code">Doctor Specialty</label>
+									<p class="help-block" ng-if="labTemplateMasterform.specialityId.$error.required">Speciality is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+								<i class="fa fa-user-md fa-color" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-10 col-md-10 ">
+							
+							<div  class="customdrop-down"
+									ng-dropdown-multiselect="" options="doctorList"
+									selected-model="selectedDoctorList"
+									extra-settings="dropDownSetting">
+								</div>
+							
+							
+							<!-- <div class="form-group"   show-errors>
+									<select class="text-input floating-label" name="doctorId" ng-model="doctorId" required>
+										<option>Select Doctor Name</option>
+										<option ng-repeat="info in doctorList" value="{{info.doctorId}}">{{info.firstName+' '+info.lastName}}</option>
+									</select>		
+									<label for="code">Doctor Name</label>
+									<p class="help-block" ng-if="labTemplateMasterform.doctorId.$error.required">Doctor is required</p>
+								</div> -->
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+								<i class="fa fa fa-dot-circle-o " aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="form-group"   >
+									<select class="text-input floating-label"
+											ng-model="templateTypeId"  name="templateTypeId" required convert-to-number>
+												<option selected value=""></option>
+												<option ng-repeat="templateType in getTemplateTypeList"
+													value="{{templateType.id}}">{{templateType.name}}</option>
+										</select>  <label for="code">  Concent Name</label>
+										<p class="help-block" ng-if="labTemplateMasterform.templateTypeId.$error.required">Please select concent</p>
+								</div>
+							</div> 
+						</div>
+					</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10"></div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top8">
+					<input type="button" value="format Template" class="btn btn-primary btn-save-box-shadow" ng-click="save();" ng-if="saveBtnFlag"/>
+					<input type="button" value="format Template" class="btn btn-primary btn-save-box-shadow" ng-click="updateTemplate(); " ng-if="updateBtnFlag"/>
+				</div>
+				
+				 <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top8">
+					<input type="button" value="Cancel" class="btn btn-primary btn-save-box-shadow" ng-click="cleareTemplateData(); " />
+				</div>
+			</div>
+				</form>	
+		</fieldset>
+		
+		<div class="row margin-top4">
+			 <div id="formeo-editor"></div>
+		     <div id="myHtml" class="render-form" style="display:none"></div>
+		</div>
+		<div class="col-lg-12 col-md-12">
+                              <textarea  name="editor" type="text" id="editor"  rows="10" cols="50" ng-model="value" ck-editor>
+                             </textarea>
+				        </div>
+				        
+				        
+		
+		<div class="row padding-left-right-10 margin-top4">
+			<div class="col-md-8 col-sm-8">
+				<div class="row">
+					<div class="col-lg-3 col-md-3 col-sm-3 pading-left-rght-set0s">
+						<div class="search">
+							<label class="show-entries">Show <select
+								name="DataTables_Table_0_length"
+								aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4 margin-top4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" ng-model="searchKeyword" placeholder="Search">
+					<i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+				</div>
+				<!-- <div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow"
+							title="Save" data-toggle="modal" data-target="#confirmLogout"><i
+							class="fa fa-floppy-o " style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div> -->
+			</div>
+		</div>
+		
+		<div class="row padding-left-right-10 margin-top10">
+			<div class="col-md-12 col-sm-12 ">
+				<table class="table table-bordered">
+					<tr class=" ">
+						<th>
+							Template Code
+							<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("templateCode")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("templateCode")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+						</th>
+						<th>
+							Template Description
+							<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("templateDesc")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("templateDesc")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+						</th>
+						<!-- <th>
+							Pathologist 
+							<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("pathologistId")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("pathologistId")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+						</th> -->
+						<th class="width10">
+							Gender 
+							<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("genderName")' class="fa fa-caret-up"
+											aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("genderName")' class="fa fa-caret-down"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+						</th>
+						<th class="">
+						Template View
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width8">
+						Status
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="text-center width8">
+						Action
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+					</tr>
+					<tr ng-repeat="templatelist in commonList|orderBy:column:reverse|filter:searchKeyword track by $index">
+
+						<td>{{templatelist.templateCode}}</td>
+						<td>{{templatelist.templateDesc}}</td>
+					<!-- 	<td>{{templatelist.pathologistId}}</td> -->
+						<td>{{templatelist.genderName}}</td>
+						<td>
+								<span>
+							 		{{templatelist.templatePath}}
+							 	</span>
+							    <span class="pull-right padding-edit-button-table">
+							    	<a><i class="fa fa-external-link" aria-hidden="true" title="View" data-toggle="modal" ng-click="showViewTemplate(templatelist);" data-target="#documentUploadedDetailsModal_template"></i></a>
+							    </span>	
+							</td>
+						<td><label class="switch"> <input type="checkbox"
+									ng-model="templatelist.status" ng-checked="templatelist.status=='A'"
+									ng-true-value="'A'" ng-false-value="'I'"
+									ng-change="updateStatus(templatelist.labTemplateId,templatelist.status)">
+									<div class="slider round"></div>
+							</label></td>
+						<td class="padding-edit-button-table text-center" ng-click="showUpdateBtn(templatelist.labTemplateId);" ><a><i class="fa fa-pencil"
+								aria-hidden="true"></i></a></td>
+					</tr>
+				</table>
+				<table class="table table-bordered">
+					<tr ng-if="(commonList|filter:searchKeyword)=='' || (commonList|filter:searchKeyword)==null ">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+				
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+	</div>
+</div>
+</div>
+</div>
+<div id="templatePopup" class="modal fade ng-scope in" role="dialog" style="padding-left: 17px;">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10"><span>Do you want to format template?</span></div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="saveEditedTemplate();" ng-if="saveBtnFlag">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary text-width-auto" ng-click="saveWithoutEditingTemplate();" ng-if="saveBtnFlag">Save Modified Template</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="" ng-click="updateEditedTemplate();" ng-if="updateBtnFlag">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary text-width-auto" ng-click="updateWithoutEditingTemplate();" ng-if="updateBtnFlag">Update Modified Template</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- document view details modal start -->
+<div id="documentUploadedDetailsModal_template" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					View Document 
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10" id="pharmacologyDetailsTableId"><!-- id for the table td fix height -->
+							<div class="col-lg-12 col-md-12" disabled>
+                              <textarea  name="editor" type="text" id="editor" ng-model="htmlData" rows="10" cols="50" ck-editor >
+                             </textarea>
+				        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- document view details modal end -->
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+});	
+	$(".selectedPageName").text("Template Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="templateMaster"]').parents("li").addClass("active");
+</script>
+<script src="resources/assets/js/common/page-height.js"></script>s

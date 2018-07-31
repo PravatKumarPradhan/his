@@ -1,0 +1,116 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Store Indent Approval Details</legend> -->
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Store :</b> {{vm.model.patientIssueReturnConsumableDetaillist.store}} </span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Visit Type :</b> {{vm.model.patientIssueReturnConsumableDetaillist.visitType}}  </span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">
+							Patient Name :</b> {{vm.model.patientIssueReturnConsumableDetaillist.patientDetail}} </span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">
+							UHID :</b> {{vm.model.patientIssueReturnConsumableDetaillist.uhid}}  </span>
+				</div>
+			</div>
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Ward :</b> {{vm.model.patientIssueReturnConsumableDetaillist.wardName}}  </span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Bed No. :</b> {{vm.model.patientIssueReturnConsumableDetaillist.bedNo}}  </span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">
+							Visit No. :</b> {{vm.model.patientIssueReturnConsumableDetaillist.visitNo}} </span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">
+							Return No. :</b> {{vm.model.patientIssueReturnConsumableDetaillist.returnNo}}  </span>
+				</div>
+			</div>
+			<!--  fixed asset table start -->
+			<div class="table-container padding-left-right-set4 padding-top5">
+				<div class="table-container-header">
+					<table class="table table-striped table-hover table-condensed table-bordered">
+						<thead>
+							<tr>
+								<th class="width10 vertical-middle" title="Medication Name">Medication Name</th>
+								<th class="width8 vertical-middle" title="Generic Name">Generic Name</th>
+								<th class="width7 vertical-middle" title="Batch No.">Batch No.</th>
+								<th class="width7 vertical-middle" title="Expiry Date">Expiry Date</th>
+								<th class="width4 vertical-middle" title="UOM">UOM</th>
+								<th class="width7 vertical-middle" title="UOM Unit">UOM Unit</th>
+								<th class="width6 vertical-middle" title="Issued Qty">Issued Qty</th>
+								<th class="width7 vertical-middle" title="Qty Returned">Qty Returned</th>
+								<th class="width9 vertical-middle" title="Reason for Return">Reason for Return</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="table-container-body" style="height:425px; overflow-y: scroll; background: #ffffce;">
+					<table class="table table-striped table-hover table-condensed table-bordered">
+						<tbody>
+							<tr ng-if="vm.model.patientIssueReturnConsumableDetailList.items == null || !vm.model.patientIssueReturnConsumableDetailList.items.length">
+								<td col-span="14">
+									<p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p>
+								</td>
+							</tr>
+							<tr ng-repeat="returnIssueDetail in vm.model.patientIssueReturnConsumableDetailList.items | filter : search |   orderBy:sortType:sortReverse">
+								<td class="width10 vertical-middle" title="">{{returnIssueDetail.itemName}}</td>
+								<td class="width8 vertical-middle" title="">{{returnIssueDetail.genericName}}</td>
+								<td class="width7 vertical-middle" title="">{{returnIssueDetail.batchNo}}</td>
+								<td class="width7 vertical-middle" title="">{{returnIssueDetail.expiry | date:'MMM-yyyy' : 'UTC'}}</td>
+								<td class="width4 vertical-middle" title="">{{returnIssueDetail.uom}}</td>
+								<td class="width7 vertical-middle" title="">{{returnIssueDetail.uomUnit}}</td>
+								<td class="width6 vertical-middle" title="">{{returnIssueDetail.issuedQuantity}}</td>
+								<td class="width7 vertical-middle" title="">{{returnIssueDetail.returnedQuantity}}</td>
+								<td class="vertical-middle" title="" style="width:8.75% !important">{{returnIssueDetail.reasonForReturn}}</td>
+								<!-- <td class="vertical-middle">
+									<div class="row approved-qty-remark">
+										<input type="text" class="w-100">
+									</div>
+								</td>
+								<td class=" vertical-middle">
+									<div class="checkbox">
+										<label><input type="checkbox" value=""
+											data-toggle="modal" data-target="#accepatReject">Reject</label>
+									</div>
+								</td> -->
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- fixed asset table end -->
+		</fieldset>
+		<footer
+			class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row padding-top5 padding-right10">
+				<div class="col-lg-10 col-md-10 col-sm-10"></div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left0px-right6px">
+					<a> <input type="button" value="Save"
+						class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left10">
+					<a href="#/patientIssueReturn"> <input type="button"
+						value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>

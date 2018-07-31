@@ -1,0 +1,613 @@
+<style>
+/* .th-border-none{
+    border-top: 1px solid transparent !important;
+    border-left: 1px solid transparent !important;
+} */
+.editDishicon{
+	    position: unset;
+    top: 0px;
+    right: 0;
+    left: 0;
+    /* width: 0; */
+    height: 0;
+}
+
+</style>
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset class="padding-left-right-set4">
+			<!-- <legend class="heading-div">Diet Planning</legend> -->
+				<div ng-include="'./views/common/patient-demography-info.html'" class="ng-scope padding-left-right-set1 padding-top4"></div>
+			<div class="row">
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id=""
+									class="text-input floating-label"> <label for="code">Patient</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-cutlery" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option value=""></option>
+									<option value="">Vegetarian</option>
+									<option value="">Non-Vegetarian</option>
+									<option value="">Vegan</option>
+								</select>
+								<label for="code">Diet Preference</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-th" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option value=""></option>
+								</select> <label for="code">Diet Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set padding-top10">
+					<div class="row input-container border-set-type">
+							<input type="radio" name="FixedAssestRadioB" id="FixedAssestRadioB" class=""> 
+						<label for="FixedAssestRadioB" class="checkbox-margin-left-right cursor-pointer">Vegetarian</label> 
+						
+							<input type="radio" name="FixedAssestRadioB" id="FixedAssestRadioB2" class=""> 
+						<label for="FixedAssestRadioB2" class="checkbox-margin-left-right cursor-pointer">Non-Vegetarian</label>
+						
+							<input type="radio" name="FixedAssestRadioB" id="FixedAssestRadioB3" class=""> 
+						<label for="FixedAssestRadioB3" class="checkbox-margin-left-right cursor-pointer">Vegan</label>
+					</div>
+				</div> -->
+				
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepicker"
+									model-view-value="true" is-open="datepicker.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker()"> <label for="code" class="">
+									Date</label> <!-- Date should be selected from-to Date  -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="col-md-1 padding-left0px-right6px">
+					<div class="common-save-button">
+						<a href="" class="btn btn-primary btn-save-box-shadow btn-padding">Edit</a>
+					</div>
+				</div> -->
+				<div class="col-md-1 padding-left0px-right6px padding-top5">
+					<div class="common-save-button">
+						<a href="" class="btn btn-primary btn-save-box-shadow btn-padding">View</a>
+					</div>
+				</div>
+				<!-- <div class="col-md-1 padding-left0px-right6px">
+					<div class="common-save-button">
+						<a href="" data-toggle="modal" data-target="#DietTemplate" class="btn btn-primary btn-save-box-shadow btn-padding">View</a>
+					</div>
+			</div> -->
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-set4 padding-top10">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<table class="table table-bordered" id="AddDish">
+					<tr>
+						<th class="th-border-none width7"></th>
+						<th scope="col" class="text-uppercase text-center width15">Monday</th>
+						<th scope="col" class="text-uppercase text-center width15">Tuesday</th>
+						<th scope="col" class="text-uppercase text-center width15">Wednesday</th>
+						<th scope="col" class="text-uppercase text-center width15">Thursday</th>
+						<th scope="col" class="text-uppercase text-center width15">Friday</th>
+						<th scope="col" class="text-uppercase text-center width15">Saturday</th>
+						<th scope="col" class="text-uppercase text-center width15">Sunday</th>
+					</tr>
+					<tr>
+						<th class="th-border-none width7"></th>
+						<th scope="col" class="text-uppercase text-center width15">08/01/2018</th>
+						<th scope="col" class="text-uppercase text-center width15">09/01/2018</th>
+						<th scope="col" class="text-uppercase text-center width15">10/01/2018</th>
+						<th scope="col" class="text-uppercase text-center width15">11/01/2018</th>
+						<th scope="col" class="text-uppercase text-center width15">12/01/2018</th>
+						<th scope="col" class="text-uppercase text-center width15">13/01/2018</th>
+						<th scope="col" class="text-uppercase text-center width15">14/01/2018</th>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center width12">BreakFast</th>
+						<td class="text-center padding-zero">
+						
+						</td>
+				
+						<td class="text-center">
+							<span class="margin-top2">
+								<i class="fa fa-eye" style="font-size:20px" aria-hidden="true" title="View" data-toggle="modal" data-target="#breakfastTemplate"></i>
+							</span>
+							<span class="margin-top2 margin-let5">
+								<i style="font-size:18px;margin-left: 13px;" class="fa fa-pencil-square-o" aria-hidden="true" title="Edit" data-toggle="modal" data-target="#editDietTemplate"></i>
+							</span>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					
+					<tr>
+						<th scope="row" class="text-uppercase text-center ">Lunch</th>
+						<td></td>
+						<td class="text-center">
+						
+								<span class="margin-top2">
+								<i class="fa fa-eye" style="font-size:20px" aria-hidden="true" title="View" data-toggle="modal" data-target="#lunchTemplate"></i>
+								</span>
+							
+								<span class="margin-top2 margin-let5">
+									<i style="font-size:18px;margin-left: 13px;" class="fa fa-pencil-square-o" aria-hidden="true" title="Edit" data-toggle="modal" data-target="#editDietTemplate"></i>
+								</span>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center ">Snacks</th>
+						<td></td>
+						<td class="text-center">
+						
+								<span class="margin-top2">
+								<i class="fa fa-eye" style="font-size:20px" aria-hidden="true" title="View" data-toggle="modal" data-target="#snacksTemplate"></i>
+								</span>
+							
+								<span class="margin-top2 margin-let5">
+									<i style="font-size:18px;margin-left: 13px;" class="fa fa-pencil-square-o" aria-hidden="true" title="Edit" data-toggle="modal" data-target="#editDietTemplate"></i>
+								</span>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center ">Dinner</th>
+						<td></td>
+						<td class="text-center">
+						
+								<span class="margin-top2">
+								<i class="fa fa-eye" style="font-size:20px" aria-hidden="true" title="View" data-toggle="modal" data-target="#dinnerTemplate"></i>
+								</span>
+							
+								<span class="margin-top2 margin-let5">
+									<i style="font-size:18px;margin-left: 13px;" class="fa fa-pencil-square-o" aria-hidden="true" title="Edit" data-toggle="modal" data-target="#editDietTemplate"></i>
+								</span>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center ">Good Night Drink</th>
+						<td></td>
+						<td class="text-center">
+						
+								<span class="margin-top2">
+								<i class="fa fa-eye" style="font-size:20px" aria-hidden="true" title="View" data-toggle="modal" data-target="#goodNightDrinkTemplate"></i>
+								</span>
+							
+								<span class="margin-top2 margin-let5">
+									<i style="font-size:18px;margin-left: 13px;" class="fa fa-pencil-square-o" aria-hidden="true" title="Edit" data-toggle="modal" data-target="#editDietTemplate"></i>
+								</span>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tfoot>
+						<tr class="table-th-bg text-center">
+							<th class="text-uppercase text-center">Total Nutrition</th>
+							<td></td>
+							<td>2500 Calories</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Edit Diet Template Start -->
+<div id="editDietTemplate" class="common-small-popup modal fade ng-scope common-popup-header-content in " role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Edit Diet Template
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body his-style">
+				<div class="row">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-clipboard" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<select class="text-input floating-label dirty" name="code">
+									<option value=""></option>
+									<option value="">MONDAY</option>
+									<option selected value="">TUESDAY</option>
+									<option value="">WEDNESDAY</option>
+									<option value="">THURSDAY</option>
+									<option value="">FRIDAY</option>
+									<option value="">SATURDAY</option>
+									<option value="">SUNDAY</option>
+									<option value=""></option>
+								</select> 
+								<label for="code">Copy From</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10" id="">
+						<table class="table">
+							<thead>
+								<tr>
+									<th class="width25">Dish</th>
+									<th class="width15">Qty</th>
+									<th class="width5">Action</th>
+								</tr>
+							</thead>
+							<tbody id="AddDishQty">
+								<tr>
+									<td class=""><select class="border-dropdown"><option value="">Select Dish</option></select></td>
+									<td class=""><input type="text" placeholder="Qty" class="w-100"></td>
+									<td class=""><input type="button" name="" id="" value="+" onclick="addDishRow()" class="btn btn-info add-dynamic-row addbtn"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+							</div>
+		</div>
+	</div>
+</div>
+<!-- Edit Diet Template End -->
+
+
+<!-- VIEW DIET Start -->
+<div id="breakfastTemplate" class="modal fade ng-scope common-popup-header-content in common-small-popup" role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					View Breakfast Diet Template
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body his-style">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10" id="">
+						<table class="table">
+							<thead>
+								<tr>
+									<th class="width25">Dish</th>
+									<th class="width15">Qty</th>
+									<th class="width5">Action</th>
+								</tr>
+							</thead>
+							<tbody id="AddDishQty">
+								<tr>
+									<td class=""><input type="text" value="Tea" class="w-100"></td>
+									<td class=""><input type="text" value="1 Cup" class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- VIEW DIET End -->
+
+
+
+
+<!-- VIEW DIET Start -->
+<div id="lunchTemplate" class="modal fade ng-scope common-popup-header-content in common-small-popup" role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					View Lunch Diet Template
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body his-style">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10" id="">
+						<table class="table">
+							<thead>
+								<tr>
+									<th class="width25">Dish</th>
+									<th class="width15">Qty</th>
+									<th class="width5">Action</th>
+								</tr>
+							</thead>
+							<tbody id="AddDishQty">
+								<tr>
+									<td class=""><input type="text" value="Roti" class="w-100"></td>
+									<td class=""><input type="text" value="2" class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+								<tr>
+									<td class=""><input type="text" value="Chikan Curry" class="w-100"></td>
+									<td class=""><input type="text" value="1 Bowl" class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+								<tr>
+									<td class=""><input type="text" value="Rice" class="w-100"></td>
+									<td class=""><input type="text" value="1 Bowl" class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+								<tr>
+									<td class=""><input type="text" value="Apple" class="w-100"></td>
+									<td class=""><input type="text" value="1" class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+								<tr>
+									<td class=""><input type="text" value="Dal" class="w-100"></td>
+									<td class=""><input type="text" value="1 Bowl" class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- VIEW DIET End -->
+
+
+
+
+<!-- VIEW DIET Start -->
+<div id="snacksTemplate" class="modal fade ng-scope common-popup-header-content in common-small-popup" role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					View Snacks Diet Template
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body his-style">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10" id="">
+						<table class="table">
+							<thead>
+								<tr>
+									<th class="width25">Dish</th>
+									<th class="width15">Qty</th>
+									<th class="width5">Action</th>
+								</tr>
+							</thead>
+							<tbody id="AddDishQty">
+								<tr>
+									<td class=""><input type="text" value="Tea" class="w-100"></td>
+									<td class=""><input type="text" value="1" class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+								<tr>
+									<td class=""><input type="text" value="Cookies" class="w-100"></td>
+									<td class=""><input type="text" value="5 " class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- VIEW DIET End -->
+
+
+<!-- VIEW DIET Start -->
+<div id="dinnerTemplate" class="modal fade ng-scope common-popup-header-content in common-small-popup" role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					View Dinner Diet Template
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body his-style">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10" id="">
+						<table class="table">
+							<thead>
+								<tr>
+									<th class="width25">Dish</th>
+									<th class="width15">Qty</th>
+									<th class="width5">Action</th>
+								</tr>
+							</thead>
+							<tbody id="AddDishQty">
+								<tr>
+									<td class=""><input type="text" value="Chapati" class="w-100"></td>
+									<td class=""><input type="text" value="1" class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+								<tr>
+									<td class=""><input type="text" value="Potato Curry" class="w-100"></td>
+									<td class=""><input type="text" value="1 Bowl" class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+								<tr>
+									<td class=""><input type="text" value="Rice" class="w-100"></td>
+									<td class=""><input type="text" value="Half Bowl" class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+								<tr>
+									<td class=""><input type="text" value="Dal" class="w-100"></td>
+									<td class=""><input type="text" value="Half Bowl" class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- VIEW DIET End -->
+
+<!-- VIEW DIET Start -->
+<div id="goodNightDrinkTemplate" class="modal fade ng-scope common-popup-header-content in common-small-popup" role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					View Drink Diet Template
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body his-style">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10" id="">
+						<table class="table">
+							<thead>
+								<tr>
+									<th class="width25">Dish</th>
+									<th class="width15">Qty</th>
+									<th class="width5">Action</th>
+								</tr>
+							</thead>
+							<tbody id="AddDishQty">
+								<tr>
+									<td class=""><input type="text" value="Milk" class="w-100"></td>
+									<td class=""><input type="text" value="1 Glass" class="w-100"></td>
+									<td class=""><i class="fa fa-pencil" aria-hidden="true"></i></td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- VIEW DIET End -->
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Diet Planning");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="dietPatientRequest"]').parents("li").addClass("active");
+	});
+	function addDishRow() {
+		  //alert();
+		  var n = document.getElementById("AddDishQty").rows.length;
+		  var id = Number(n);
+		  //alert(id);
+		  var test =
+
+		  '<tr>'
+		    +'<td class=""><select class="border-dropdown"><option value="">Select Dish</option></select></td>'
+		    +'<td class=""><input type="text" class="w-100" placeholder="Qty"></td>'
+		    +'<td class="">'
+		    + '<input type="button" name="" id="addr" value="+" onclick="addDishRow()" class="btn btn-info add-dynamic-row addbtn" style="padding: 0 2px;">&nbsp;'
+		    + '<input type="button" name="" id="delrow" value="-" onclick="delRow(this)" class="btn btn-info addbtn" style="padding: 0 4px;">'
+		    + '</td>'
+		    + '</tr>';
+
+		  $("#AddDishQty").append(test);
+
+		 }
+
+		 function delRow(r) {
+		  var i = r.parentNode.parentNode.rowIndex;
+		  document.getElementById("AddDishQty").deleteRow(i);
+		 }
+</script>

@@ -1,0 +1,241 @@
+<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid his-style">
+					<fieldset>
+						<!-- <legend class="heading-div">ICU Type Master</legend> -->
+							<div class="row margin-top10">
+								<form name="icuTypeform" novalidate>
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="form-group"   show-errors>
+													<input type="hidden" ng-model="icuTypeObj.icuTypeId" >
+													<input type="text"  class="text-input floating-label" id="icuCode" name="icuCode"  type="text" ng-maxlength="50"  ng-model="icuTypeObj.icuCode" required>
+													<label for="code" class="">ICU Code</label>
+													<p class="help-block" ng-if="icuTypeform.icuCode.$error.required">Code is required</p>
+												</div>
+												
+											</div>
+										</div>
+									</div> 
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-sticky-note" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 form-group" >
+												<div class="form-group"   show-errors>
+													<input type="text" class="text-input floating-label" id="icuType" name="icuType"  type="text"  ng-model="icuTypeObj.icuType" required >
+													<label for= "description" class="">ICU Type</label>
+													<p class="help-block" ng-if="icuTypeform.icuType.$error.required">IcuType is required</p>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									<!-- <div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+										<div class="checkbox">
+											<label class="common-lable-color-set">
+											
+											<input type="radio" name="rdoResult" ng-value="'open'"  ng-model="icuTypeObj.isOpen">Open ICU</label>
+										</div>
+									</div>
+									<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+										<div class="checkbox">
+											<label class="common-lable-color-set">
+											
+											<input type="radio" name="rdoResult" ng-value="'close'" ng-model="icuTypeObj.isOpen">Closed ICU</label>
+										</div>
+									</div> -->
+									<div id="mediaType" class="col-lg-2 col-md-2 col-sm-2 uk-input-group customRadioBtn text-center">													
+													<span>
+															<input id="open" name="rdoResult" type="radio" value="1" val="yes" checked="checked" ng-value="'open'"  ng-model="icuTypeObj.isOpen">
+															<label for="open">Open ICU</label>
+													</span>
+													<span>
+															<input id="close" name="rdoResult" type="radio" value="2" ng-value="'close'" ng-model="icuTypeObj.isOpen">
+															<label for="close">Closed ICU</label>
+													</span>
+												</div>
+								</form>
+							</div>
+					</fieldset>
+					<!-- <div class="row">
+	            		<div class="col-md-8"></div>
+						<div class="col-md-4 col-sm-4">
+							<div class="width-div-for-patient-reg ">
+									<a href="" value="Save"   
+									class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Save" ng-hide="saveBtnFlag"><i
+										class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+										
+									<a href="" value="Update" ng-click="updateIcuType()"  
+									class="btn btn-primary btn-save-box-shadow search-button-style text-width-auto" title="Update" ng-hide="updateBtnFlag"><i
+										class="fa fa-refresh" style="font-size: 21px" aria-hidden="true"></i></a>
+									
+								</div>
+						</div>
+					</div> -->
+					<!-- <div class="row margin-top10 padding-left-right-10">
+						<div
+							class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveIcuType()" ng-hide="saveBtnFlag"><i
+									class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+									
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="updateIcuType()" ng-hide="updateBtnFlag"><i
+									class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+							</div>
+						</div>
+						<div
+							class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+							<input type="text" class="text-search-box" placeholder="Search"
+								style="margin-top: 0px"> <i
+								class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div> -->
+		<modal visible="showModal"></modal>
+					
+			<!-- <div class="row padding-left-right-10 margin-top8">
+				<div class="col-lg-2 col-md-2">
+					 style="top: -11px;"
+					<div class="ssearch">
+						<span class="fa fa-search icon-size search-icon-for-search"></span> <input placeholder="Search" ng-model="searchKeyword" class="search-popUp-ddl">
+					</div>
+				</div>
+				<div class="col-lg-7  col-md-7"></div>
+				<div class="col-lg-2 col-md-2" style="text-align: right; padding-right: 0px;">
+					<div class="search">
+						<label class="show-entries">Show 
+						<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+							ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+							ng-change="setNoOfRecords();" class="search-popUp-ddl">
+								<option value="10">10</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+						</select> entries
+						</label>
+					</div>
+				</div>
+			</div> -->
+			
+		<div class="row padding-top10">
+			<div class="col-md-6 col-sm-7 padding-left-right-set4">
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-sm-6" style="padding-left: 0px;">
+						<div class="search">
+							<label class="show-entries">Show 
+							<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+		        <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" ng-click="saveIcuType()" ng-hide="saveBtnFlag">
+		        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+		      
+		        <a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="updateIcuType()" ng-hide="updateBtnFlag">
+		        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+		      </div>
+		      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+		        <input type="text" class="text-search-box ng-pristine ng-untouched ng-valid ng-empty" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+		        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+		      </div>
+		</div>
+			
+				<div class="row padding-left-right-set4 margin-top4">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<thead>
+							<tr class="">
+								<th class="">
+								<!-- <label class="LISDynamicLabelOne" >{{LISDynamicLabel}}</label> -->
+									ICU Code
+									
+								</th>
+								<th class="common-lable-color-set">
+									<label class="LISDynamicLabel common-lable-color" > ICU Type</label>
+									
+								</th>
+								<th class="common-lable-color-set width8">
+									<label class="LISDynamicLabel common-lable-color" >Open ICU</label>
+									
+								</th>
+								<th class="common-lable-color-set width8">
+									<label class="LISDynamicLabel common-lable-color" >Closed ICU</label>
+								
+								</th>
+								<th style="width:8%">
+									Status
+									
+								</th>
+								<th class="text-center" style="width:8%">
+									Action
+									
+								</th>
+								
+								</tr>	
+								</thead>							
+								<tbody>
+								<tr ng-repeat="info in icuTypeList|filter:searchKeyword">
+								
+									<td>{{info.icutypeCode}}</td>
+									<td>{{info.icutype}}</td>
+									<td>{{info.isOpenICU}}</td>
+									<td>{{info.isCloseICU}}</td>
+									<td><label class="switch"> <input type="checkbox" ng-model="info.status" ng-true-value="'A'"  ng-false-value="'I'"  ng-change="updateStatus(info.icutypeMasterId,info.status)">
+								<div class="slider round"></div>
+						</label></td>
+									<td class="text-center"><a><i class="fa fa-pencil" aria-hidden="true" ng-click="showUpdateBtn(info.icutypeMasterId)"></i></a></td>
+								</tr>
+							</tbody>
+							</table> 
+							
+							<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	<!-- </div> -->
+	<script>
+	$(document).ready(function() {
+	
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	});
+	
+	$(".selectedPageName").text("ICU Type Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="icutypeMaster"]').parents("li").addClass("active");
+ 	</script>

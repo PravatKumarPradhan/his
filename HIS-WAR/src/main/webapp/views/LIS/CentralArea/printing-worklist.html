@@ -1,0 +1,220 @@
+<style>
+ #printReport .modal-dialog
+ {
+	 width: 560px !important;
+     margin: 80px auto !important;
+ }
+#printReport .modal-content{
+	border-radius: 0px;
+}
+#printReport .modal-header{
+	padding: 0px !important;
+}
+</style>    
+        <!-- Page Content -->
+        <div id="page-content-wrapper" class="">
+            <div class="container-fluid his-style">
+            	<div class="row">
+            		<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right15">
+            			<div class="search" style="margin-top:5px">
+							<label class="show-entries">Show <select
+								name="DataTables_Table_0_length"
+								aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries
+							</label>
+						</div>
+            		</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right width4 margin-top8">
+						<div class=" ">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#printReport">
+								<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right margin-top8">
+						<input type="text" class="text-search-box" placeholder="Search" ng-model="searchKeyword" style="margin-top: 0px"> 
+						<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+					</div>
+            	</div>
+            	<div class="row padding-left-right-10 margin-top10">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<tr class="">
+								<th class="width1">
+									<input type="checkbox" ng-model="selectedAll" ng-click="checkAll();">
+								</th>
+								<th class="department-width">
+									Department 
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>								
+								<th class="status">
+									Visit Type 
+										<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("visitType")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("visitType")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+								</th>
+								<th class="UHID-width">
+									UHID
+										<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("uhid")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("uhid")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Details
+									<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+								</th>
+								<th class="priority-width">
+									Priority
+										<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("priorityName")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("priorityName")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+								</th>
+								<th class="test-name-width">
+									Test Name
+										<div class="float_right">
+								<div>
+									<i ng-click='sortColumn("testdesc")' class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i ng-click='sortColumn("testdesc")' class="fa fa-caret-down"  aria-hidden="true"></i>
+								</div>
+							</div>
+								</th>
+								<th class="status">
+									Status
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							  <tr ng-repeat="reportHandOverList in resultReportHandOver|orderBy:column:reverse|filter:searchKeyword track by $index">
+								<td>
+									<input type="checkbox" ng-model="reportHandOverList.printReport">
+								</td>
+								<td style="color: {{reportHandOverList.colorCode}}">{{reportHandOverList.deptName}}</td>
+								<td style="color: {{reportHandOverList.colorCode}}">{{reportHandOverList.visitType}}</td>
+							    <td style="color: {{reportHandOverList.colorCode}}">{{reportHandOverList.uhid}}</td>
+							    <td style="color: {{reportHandOverList.colorCode}}">
+									<div>{{reportHandOverList.patientDetails}}({{reportHandOverList.patientAgeInYears}}/{{reportHandOverList.patientGender}})</div>
+								</td>
+								<!-- <td style="color: {{reportHandOverList.colorCode}}">
+									<div>{{reportHandOverList.doctorDetails}}</div>
+								</td> -->
+								<td style="color: {{reportHandOverList.colorCode}}">
+								     <div>{{reportHandOverList.priorityName}}</div>
+								</td>
+								<td style="color: {{reportHandOverList.colorCode}}">
+								<div>{{reportHandOverList.testDesc}}</div>
+								</td>
+								<td>
+									<label class="switch">
+									<input type="checkbox">
+										<div class="slider round"></div>
+									</label>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<table class="table table-bordered">
+					<tr ng-if="(resultReportHandOver|filter:searchKeyword)=='' || (resultReportHandOver|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+				</div>
+            </div>
+        </div>
+        
+
+<!-- CONFIRM POPUP FOR ALL -->
+<div id="printReport" class="modal fade ng-scope in" role="dialog"
+	style="padding-left: 17px;">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<h5>Are you sure you want to Save?</h5>
+				</div>
+			</div>
+			<div class="modal-footer" style="border: none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary"
+					id="" ng-click="printReports();">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>   
+<form id="printBulkReportsForm"  method="post" >
+  <input id="reportPrint" type="hidden" name="nameOfReport">
+</form>
+     
+        <!--// Page Content -->
+<script type="text/javascript">
+
+$( document ).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+	$(".selectedPageName").text("Printing Work List");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+});
+</script>

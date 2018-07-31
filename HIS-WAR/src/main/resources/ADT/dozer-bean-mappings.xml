@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+
+	<mapping map-id="user" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.UserMaster</class-a>
+		<class-b>com.param.adt.master.global.dto.UserMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="HolidayMasterDto_to_HolidayMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.HolidayCalenderMaster
+		</class-a>
+		<class-b>com.param.global.dto.HolidayCalenderMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="PatientSourceMasterDto_to_PatientSourceMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.PatientSourceMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.PatientSourceMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="roleMasterDto_to_roleMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.RoleMaster</class-a>
+		<class-b>com.param.adt.master.global.dto.RoleMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="userRoleMapperDto_to_userRoleMapper"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.UserRoleMapper
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.UserRoleMapperDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="NationalityMasterDto_to_NationalityMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.NationalityMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.NationalityMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="RaceMasterDto_to_RaceMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.RaceMaster</class-a>
+		<class-b>com.param.adt.master.global.dto.RaceMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="ReligionMasterDto_to_ReligionMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.ReligionMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.ReligionMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="occupationDto_to_occupationMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.OccupationMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.OccupationMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="genderMasterDto_to_genderMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.GenderMaster
+		</class-a>
+		<class-b>com.param.global.dto.GenderMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="IdentificationMasterDto_to_IdentificationMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.IdentificationMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.IdentificationMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="PrefixMasterDto_to_PrefixMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.PrefixMaster
+		</class-a>
+		<class-b>com.param.global.dto.PrefixMasterDto
+		</class-b>
+	</mapping>
+
+
+	<mapping map-id="RelationMasterDto_to_RelationMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.RelationMaster
+		</class-a>
+		<class-b>com.param.global.dto.RelationMasterDto
+		</class-b>
+	</mapping>
+
+
+	<mapping map-id="maritalStatusDto_to_maritalStatusMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.MaritalStatusMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.MaritalStatusDto
+		</class-b>
+	</mapping>
+
+
+	<mapping map-id="OrganizationUnitUserMapperDto_to_OrganizationUnitUserMapper"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.OrganizationUnitUserMapper
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.OrganizationUnitUserMapperDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="groupMasterDto_to_groupMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.SpecialityMaster
+		</class-a>
+		<class-b>com.param.global.dto.SpecialityMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="SubSpecialityMasterDto_to_SubSpecialityMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.SubSpecialityMaster
+		</class-a>
+		<class-b>com.param.global.dto.SubSpecialityMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="ICUTypeMasterDto_to_ICUTypeMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.ICUTypeMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.ICUTypeMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="PatietnCategoryDto_to_PatientCategoryMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.PatientCategoryMaster
+		</class-a>
+		<class-b>com.param.global.dto.PatientCategoryMasterDto
+		</class-b>
+	</mapping>
+
+	<!-- <mapping map-id="addressTypeMasterDto_to_addressTypeMaster" date-format="dd-M-yyyy"> 
+		<class-a>com.param.adt.master.global.model.AddressTypeMaster</class-a> <class-b>com.param.adt.master.global.dto.AddressTypeMasterDto</class-b> 
+		</mapping -->
+
+	<mapping map-id="OrganizationMasterDto_to_OrganizationMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.OrganizationMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.OrganizationMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="unitMasterDto_to_unitMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.UnitMaster</class-a>
+		<class-b>com.param.global.org.dto.UnitMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="HierarchyMasterDto_to_HierarchyMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.HierarchyMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.HierarchyMasterDto
+		</class-b>
+	</mapping>
+
+	<!-- <mapping map-id="OrganizationUnitMapperDto_to_OrganizationUnitMapper" 
+		date-format="dd-M-yyyy"> <class-a>com.param.adt.master.global.model.OrganizationUnitMapper</class-a> 
+		<class-b>com.param.adt.master.global.dto.OrganizationUnitMapperDto</class-b> 
+		</mapping> -->
+
+
+
+
+<!-- 	<mapping map-id="LicenceTypeMasterDto_to_LicenceTypeMaster" -->
+<!-- 		date-format="dd-M-yyyy HH:mm:ss"> -->
+<!-- 		<class-a>com.param.adt.master.global.model.LicenceTypeMaster -->
+<!-- 		</class-a> -->
+<!-- 		<class-b>com.param.adt.master.global.dto.LicenceTypeMasterDto -->
+<!-- 		</class-b> -->
+<!-- 	</mapping> -->
+
+
+	<mapping map-id="SpecialityMasterDto_to_SpecialityMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.SpecialityMaster
+		</class-a>
+		<class-b>com.param.global.dto.SpecialityMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="ICUTypeMasterDto_to_ICUTypeMasterMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.ICUTypeMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.ICUTypeMasterDto
+		</class-b>
+	</mapping>
+
+
+	<mapping map-id="ReferralTypeMasterDto_to_ReferralTypeMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.ReferralTypeMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.ReferralTypeMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="ReferralMasterDto_to_ReferralMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.ReferralMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.ReferralMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="DeliveryTypeMasterDto_to_DeliveryTypeMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.DeliveryTypeMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.DeliveryTypeMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="EncounterMasterDto_to_EncounterMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.EncounterTypeMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.EncounterTypeMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="ConsentTypeMasterDto_to_ConsentTypeMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.ConsentTypeMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.ConsentTypeMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="ConsentMasterDto_to_ConsentMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.ConsentMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.ConsentMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="DocumentTypeMasterDto_to_DocumentTypeMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.DocumentTypeMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.DocumentTypeMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="OccupancyUnitMasterDto_to_OccupancyUnitMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.OccupancyUnitMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.OccupancyUnitMasterDto
+		</class-b>
+	</mapping>
+
+
+	<mapping map-id="BedTypeMasterDto_to_BedTypeMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.BedTypeMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.BedTypeMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="BedCategoryMasterDto_to_BedCategoryMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.BedCategoryMaster
+		</class-a>
+		<class-b>com.param.global.dto.BedCategoryMasterDto
+		</class-b>
+	</mapping>
+
+
+
+	<mapping map-id="AdmissionDto_to_AdmissionPatientMapper"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.admission.model.AdmissionPatientMapper
+		</class-a>
+		<class-b>com.param.global.dto.AdmissionDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="AdmissionTypeMasterDto_to_AdmissionTypeMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.AdmissionTypeMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.AdmissionTypeMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="DischargeTypeMasterDto_to_DischargeTypeMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.DischargeTypeMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.DischargeTypeMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="ShortLeaveReasonMasterDto_to_ShortLeaveReasonMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.ShortLeaveReasonMaster
+		</class-a>
+		<class-b>com.param.adt.master.global.dto.ShortLeaveReasonMasterDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="AdmissionNoteDto_to_AdmissionNote"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.admission.model.AdmissionNote
+		</class-a>
+		<class-b>com.param.adt.admission.dto.AdmissionNoteDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="AdmissionNoteDto_to_BedCategoryWaitingList"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.BedCategoryWaitingList
+		</class-a>
+		<class-b>com.param.adt.admission.dto.AdmissionNoteDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="AdmissionDto_to_BedCategoryWaitingList" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.BedCategoryWaitingList
+		</class-a>
+		<class-b>com.param.global.dto.AdmissionDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="AdmissionPatientMapperDto_to_AdmissionPatientMapper"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.admission.model.AdmissionPatientMapper
+		</class-a>
+		<class-b>com.param.adt.admission.dto.AdmissionPatientMapperDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="AdmissionDto_to_AdmissionDetails" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.admission.model.AdmissionDetails
+		</class-a>
+		<class-b>com.param.global.dto.AdmissionDto
+		</class-b>
+	</mapping>
+	<mapping map-id="AdmissionNoteDto_to_AdmissionPatientMaper"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.admission.model.AdmissionPatientMapper
+		</class-a>
+		<class-b>com.param.adt.admission.dto.AdmissionNoteDto
+		</class-b>
+	</mapping>
+	<mapping map-id="AdmissionDto_to_Admission" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.admission.model.Admission
+		</class-a>
+		<class-b>com.param.global.dto.AdmissionDto
+		</class-b>
+	</mapping>
+	<mapping map-id="AdmissionDto_to_BedLogStatus" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.BedLogStatus
+		</class-a>
+		<class-b>com.param.global.dto.AdmissionDto
+		</class-b>
+	</mapping>
+	<mapping map-id="KinDetailsDto_to_KinDetails" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.KinDetails
+		</class-a>
+		<class-b>com.param.global.dto.KinDetailsDto
+		</class-b>
+	</mapping>
+	<mapping map-id="AdmissionPatientDocumentsDto_to_AdmissionPatientDocuments"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.admission.model.AdmissionPatientDocuments
+		</class-a>
+		<class-b>com.param.adt.admission.dto.AdmissionPatientDocumentsDto
+		</class-b>
+	</mapping>
+	<mapping map-id="AdmissionDto_to_UnknownPatientRegistration"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.UnknownPatientRegistration
+		</class-a>
+		<class-b>com.param.global.dto.AdmissionDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="AdmissionDto_to_MedicoLeagal"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.admission.model.MedicoLeagal
+		</class-a>
+		<class-b>com.param.global.dto.AdmissionDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="UnreservedPatientDto_to_AdmissionPatientMapper"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.admission.model.AdmissionPatientMapper
+		</class-a>
+		<class-b>com.param.adt.admission.dto.UnreservedPatientDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="VisitorDto_to_VisitorAgainstPatient"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.admission.model.VisitorAgainstPatient
+		</class-a>
+		<class-b>com.param.adt.admission.dto.VisitorDto
+		</class-b>
+	</mapping>
+	<mapping map-id="VisitorDto_to_VisitorPatientMapper"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.admission.model.VisitorPatientMapper
+		</class-a>
+		<class-b>com.param.adt.admission.dto.VisitorDto
+		</class-b>
+	</mapping>
+
+
+	<mapping map-id="UnitSpecialtyMapperDto_to_UnitSpecialtyMapper"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.unit.model.UnitSpecialityMapper
+		</class-a>
+		<class-b>com.param.adt.master.unit.dto.UnitSpecialtyMapperDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="UnitSubSpecialtyMapperDto_to_UnitSubSpecialtyMapper"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.unit.model.UnitSubSpecialityMapper
+		</class-a>
+		<class-b>com.param.adt.master.unit.dto.UnitSubSpecialityMapperDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="UnitICUTypeMapperDto_to_UnitICUTypeMapper"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.unit.model.UnitICUTypeMapper
+		</class-a>
+		<class-b>com.param.adt.master.unit.dto.UnitICUTypeMapperDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="UnitHolidayCalenderMapperDto_to_UnitHolidayCalenderMapper"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.UnitHolidayCalenderMapper
+		</class-a>
+		<class-b>com.param.global.dto.UnitHolidayCalenderMapperDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="FloorMasterDto_to_FloorMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.unit.model.FloorMaster
+		</class-a>
+		<class-b>com.param.global.unit.dto.FloorMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="TransferDto_to_Transfer" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.transfer.model.Transfer
+		</class-a>
+		<class-b>com.param.adt.transfer.dto.TransferDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="TransferDto_to_TransferRequest" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.transfer.model.TransferRequest
+		</class-a>
+		<class-b>com.param.adt.transfer.dto.TransferDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="DischargeDto_to_Discharge" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.discharge.model.Discharge
+		</class-a>
+		<class-b>com.param.adt.discharge.dto.DischargeDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="DischargeDto_to_BedLogStatus" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.global.model.BedLogStatus
+		</class-a>
+		<class-b>com.param.adt.discharge.dto.DischargeDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="TransferModalityRequestDto_to_TransferModalityRequest" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.transfer.model.TransferModalityRequest
+		</class-a>
+		<class-b>com.param.adt.transfer.dto.TransferModalityRequestDto
+		</class-b>
+	</mapping>
+
+	<mapping map-id="TransferDto_to_TransferOfCareRequest" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.transfer.model.TransferOfCareRequest
+		</class-a>
+		<class-b>com.param.adt.transfer.dto.TransferDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="DischargeDto_to_ShortLeave" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.discharge.model.ShortLeave
+		</class-a>
+		<class-b>com.param.adt.discharge.dto.DischargeDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="MortuaryBedMasterDto_to_MortuaryBedMaster" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.unit.model.MortuaryBedMaster
+		</class-a>
+		<class-b>com.param.adt.master.unit.dto.MortuaryBedMasterDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="MortuaryDto_to_DeathRegistration" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.global.model.DeathRegistration
+		</class-a>
+		<class-b>com.param.global.dto.MortuaryDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="MortuaryDto_to_MortuaryRequest" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.mortuary.model.MortuaryRequest
+		</class-a>
+		<class-b>com.param.global.dto.MortuaryDto
+		</class-b>
+	</mapping>
+	
+	<mapping map-id="MortuaryBedMasterDto_to_MortuaryBedLogStatus" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.unit.model.MortuaryBedLogStatus
+		</class-a>
+		<class-b>com.param.global.dto.MortuaryDto
+		</class-b>
+	</mapping>
+	<mapping map-id="PatientTempletDto_to_PatientTemplet" date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.templet.model.PatientTemplet</class-a>
+		<class-b>com.param.adt.templet.dto.PatientTempletDto</class-b>
+	</mapping>
+	<mapping map-id="UnitWardMasterDto_to_UnitWardMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.unit.model.WardMaster
+		</class-a>
+		<class-b>com.param.adt.master.unit.dto.WardMasterDto
+		</class-b>
+	</mapping>
+	<mapping map-id="RoomMasterDto_to_RoomMaster"
+		date-format="dd-M-yyyy HH:mm:ss">
+		<class-a>com.param.adt.master.unit.model.RoomMaster
+		</class-a>
+		<class-b>com.param.adt.master.unit.dto.RoomMasterDto
+		</class-b>
+	</mapping>
+	
+</mappings>

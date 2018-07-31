@@ -1,0 +1,325 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Profile/Panel Test Master</legend> -->
+			<div class="row margin-top10">
+				 <form name="profilePanelform" novalidate>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-list" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="form-group" show-errors>
+								<!-- <select class="text-input floating-label" name="code">
+									<option></option>
+								</select> <label for="code">Service/Panel Test</label>Service/Panel Test/Panel Test -->
+								<select  class="text-input floating-label ng-touched dirty" ng-model="tPanelMaster.serviceId" name="serviceId" required>
+										<option value="" ng-selected="true">Please Select Service/Panel Test</option>
+											<option ng-repeat="unitServiceMapper in unitServiceMapperList" ng-selected="false" value="{{unitServiceMapper.id}}">{{unitServiceMapper.name}}</option>
+								</select>
+								<p class="help-block"
+										ng-if="profilePanelform.serviceId.$error.required">Please Select Service/Panel Test</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-arrow-up" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group" show-errors>
+								<input type="text"  ng-model="tPanelMaster.panelAlies" name="panelAlies" class="text-input floating-label" required/>
+								<label for="code">Alias Code</label>
+								<p class="help-block"
+										ng-if="profilePanelform.panelAlies.$error.required">Alies Code  is
+										required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-clone" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group" show-errors>
+								<input type="text" ng-model="tPanelMaster.panelCode" name="panelCode" class="text-input floating-label" required/>
+								 <label for="code">Alias Name</label>
+								 <p class="help-block"
+										ng-if="profilePanelform.panelCode.$error.required">Alies Name  is
+										required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				</form>
+			</div>
+			<div class="row margin-top4">
+				<div class="row">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-medkit" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<!-- <select class="text-input floating-label" name="code">
+										<option></option>
+									</select> <label for="code">Header</label> -->
+										<select  class="text-input floating-label ng-touched dirty" ng-model="headerId" ng-change="selectHeader(headerId);" name="headerId" required>
+										<option value="" ng-selected="true">Please Select Header</option>
+										<option ng-repeat="getheader in headerList" ng-selected="false" value="{{getheader.id}}">{{getheader.name}}</option>
+								</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4"></div>
+					<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set4">
+							<div class="row "><!--class =" col-md-5set" for only one button column -->
+								<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+									<label class="common-lable-color-set"> Test </label>
+									<div class="border-set-gainsboro">
+										<div class="row">
+   											<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+												<input type="text" class="text-search-box dirty" ng-model="infoTestMstSearchKeyword" placeholder="Search" style=" margin-top:  2px;">
+												<i class="fa fa-search common-search-text-icon padding-left5 padding-top4" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-12 col-md-12 col-sm-12">
+	    										<div class="masterborderScroll_profilepage"> 
+													<table class="table table-bordered">
+														<tbody>
+															<tr ng-repeat="infoTestMst in testMasterList|filter:infoTestMstSearchKeyword">
+										                        <td class="width1 text-center">
+										                        	<input type="checkbox" ng-model="antibio[infoTestMst.id]" ng-click="addTempAntibiotic(infoTestMst.id,infoTestMst.label)" value="{{infoTestMst.id}}">
+										                        </td>
+										                        <td>{{infoTestMst.label}}</td>
+															</tr>
+														</tbody>
+													</table>
+													<table class="table table-bordered">
+														<tr ng-if="(testMasterList|filter:infoTestMstSearchKeyword)=='' || (testMasterList|filter:infoTestMstSearchKeyword)==null">
+															<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+														</tr>
+													</table>
+	    										</div>
+	    									</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+									<!-- <div class="text-center margintop120 padding-top10">
+										<button type="button"  value="" class="btn btn-primary width65 btn-sm height33  "> 
+											<i class="fa fa-angle-double-left"></i>
+										</button>
+										<div class="margin-top10">
+											<button type="button" value="" class="btn btn-primary width65 btn-sm height33  ">
+												<i class="fa fa-angle-double-right"></i>
+											</button>
+										</div>
+									</div> -->
+									<div class="text-center margintop120">
+										<button type="button" class="btn btn-primary text-width-auto btn-sm" ng-click="selectAntibiotic()"> << >> </button>
+										
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4">
+									<label class="common-lable-color-set">Test Details</label>
+									<div class="border-set-gainsboro">
+										<div class="row masterborderScroll_profilepageBlock">
+											<table class="table table-bordered">
+												<tbody ng-repeat="headerObj in headerObjList track by $index" ng-init="headerIndex = $index" > 
+													<tr class=" ">
+														<th colspan="2">
+															<span class="pull-left">
+																 {{headerObj.label}}    | Print Order
+															</span>
+															<span class="pull-right">
+																<i class="fa fa-close" aria-hidden="true"  ng-click="deleteSelectedHeader($index)"></i>
+															</span>
+														</th>
+													</tr>
+													<tr  ng-repeat="testObj in headerObj.testObjList track by $index" ng-init="printOrder = $index">
+								                        <td class="width1 text-center">
+								                        <!-- 	<input type="checkbox" ng-model="testObj.testId"> -->
+								                        	<input type="checkbox" ng-model="sel" ng-click="selectValue(headerIndex,testObj.testId);" name="ra"  />
+								                        </td>
+								                        <td>
+								                        	<span class="pull-left">
+																{{testObj.label}}                 |           {{printOrder+1}} 
+															</span>
+								                        	<span class="pull-right">
+																<i class="fa fa-close" aria-hidden="true" ng-click="deleteSelectedHeaderTest(headerIndex,$index)"></i>
+															</span>
+								                        </td>
+
+													</tr>
+													
+												</tbody>
+											</table>
+   											
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+									<div class="text-center margintop120 padding-top10">
+										<button type="button" ng-show="!$first" ng-click="moveUp()"   value="" class="btn btn-primary width65 btn-sm height33">
+											<i class="fa fa-angle-double-up"></i>
+										 </button>
+										<div class="margin-top10">
+											<button type="button" ng-show="!$last" ng-click="moveDown()" value="" class="btn btn-primary width65 btn-sm height33">
+												<i class="fa fa-angle-double-down"></i>
+											 </button>
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4"></div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row">
+			<div class="col-md-8 col-sm-8">
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" ng-model="searchKeyword" placeholder="Search">
+					<i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-leftright15 float_right" style="margin-top: 5px;">
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" ng-click="save()" ng-if="saveBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="update()" ng-if="updateBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      </div>
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top4">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr class=" ">
+							<th> Service/Panel Test
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th>Alias Code	
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th>Alias Name
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width8">Status
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="text-center width8">Action
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="info in commonList|orderBy:column:reverse|filter:searchKeyword">
+							<td>{{info.panelAlies}}</td>
+							<td>{{info.panelAlies}}</td>
+							<td>{{info.panelCode}}</td>
+							<td>
+								<label class="switch"> <input type="checkbox"
+									ng-model="info.status"
+									ng-checked="info.status=='A'" ng-true-value="'A'"
+									ng-false-value="'I'"
+									ng-change="updateStatus(info.panelId,info.status)">
+									<div class="slider round"></div>
+								</label>
+							</td>
+							<td class="padding-edit-button-table text-center">
+								<a>
+									<i class="fa fa-pencil" aria-hidden="true"  ng-click="showUpdateBtn(info.panelId)"></i>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+					<table class="table table-bordered">
+					<tr ng-if="(commonList|filter:searchKeyword)=='' || (commonList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+});	
+	$(".selectedPageName").text("Profile/Panel Test Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="profilepanelTestMaster"]').parents("li").addClass("active");
+</script>

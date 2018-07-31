@@ -1,0 +1,934 @@
+<!-- Page Content -->
+ <div id="page-content-wrapper" class="">
+    <div class="container-fluid his-style">
+    <fieldset>
+    	<legend class="main-heading-div commonPatientSearch cursor-pointer">
+		<div class="row">
+			<div class="col-lg-10 col-md-9 col-sm-6"></div>	
+			<div class="col-lg-2 col-md-2 col-sm-4 padding-left-right-set1 pull-right">
+				<span class="heading-name-font">IP Pharmacy </span>
+				<span class="heading-name-font pull-right" title="Change Store" data-toggle="modal" data-target="#pharmacyPopupBeforLeftexpand">
+					<i class="fa fa-stack-exchange" aria-hidden="true"></i>
+				</span>
+			</div>	
+		</div>
+		</legend>
+    		<div class="row padding-left-right-10 padding-left0 margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-top10">
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set0">
+						<div class="row input-container">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<input type="text" class="text-input floating-label dirty" name="fromDate" id="fromDate" uib-datepicker-popup="dd/MM/yyyy"
+									placeholder="DD/MM/YYYY" ng-model="vm.model.fromDate" model-view-value="true" is-open="vm.model.fromDateOpened" datepicker-options="vm.model.fromDateOptions"
+									show-button-bar="false" ng-click="vm.model.OpenFromDate()">
+									<label for="fromDate" class="">From Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set0">
+						<div class="row input-container">
+							<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+								<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-10 col-md-10">
+								<div class="">
+									<input type="text" class="text-input floating-label dirty" name="toDate" id="toDate" uib-datepicker-popup="dd/MM/yyyy" placeholder="DD/MM/YYYY"
+									ng-model="vm.model.toDate" model-view-value="true" is-open="vm.model.toDateOpened" datepicker-options="vm.model.toDateOptions"
+									show-button-bar="false" ng-click="vm.model.OpenToDate()">
+									<label for="toDate" class="">To Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<select class="dirty text-input floating-label" ng-model="vm.model.visitType" name="visitType"
+									ng-class="{dirty: vm.model.visitType}" 
+									data-ng-options="visitTypeData.type for visitTypeData in vm.model.visitTypeDataList">
+								</select>
+								<label for="visitType">Visit Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="patientName" id="patientName" class="text-input floating-label" ng-model="vm.model.patientName"
+									uib-typeahead="patientNames.patientName as patientNames.details for patientNames in vm.model.SearchpatientNames($viewValue)"
+									typeahead-on-select="vm.model.AddUHID($item); vm.model.search = '';">
+									
+								<label for="patientName">Patient Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-bullseye" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="uhid" ng-model="vm.model.uhid" ng-class="{dirty:vm.model.uhid}" id="" class="text-input floating-label"> <label
+									for="code">UHID</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-user-md fa-color" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<!-- <input type="text" name="doctorName" ng-model="vm.model.doctorName" class="text-input floating-label"> -->
+								<input type="text" name="doctorName" id="doctorName" class="text-input floating-label" ng-model="vm.model.doctorName"
+									uib-typeahead="doctorNames.doctorName as doctorNames.details for doctorNames in vm.model.SearchdoctorNames($viewValue)">
+	
+								<label for="doctorName">Doctor Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-8 col-sm-8 col-md-8">
+							<div class="">
+								<input type="text" ng-model="wordName" name="code" id="" class="text-input floating-label"> <label
+									for="code">Ward</label>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-10">
+							<div class="common-save-button">
+								<a href="" class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.GetPendingIssues()" style="width: auto;"> <i
+									class="fa fa-search" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+ 			<div class="row margin-top10 padding-left-right-set4">
+ 			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 " style="margin-left:-15px !important ;">
+				<div class="row input-container">
+					<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+						<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-10 col-sm-10 col-md-10">
+						<div class="">
+							<select class="dirty text-input floating-label" ng-model="vm.model.status" name="status"
+								ng-class="{dirty: vm.model.status}" 
+								ng-options="statusData.status for statusData in vm.model.statusDataList">
+							</select> 
+							<label for="status">Status</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" ng-model="search"
+					style="margin-top: 0px"> <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+         	<!-- table start-->
+			 <div class="table-container padding-left-right-set4 padding-top5">
+				<div class="table-container-header">
+					<table class="table table-striped table-hover table-condensed table-bordered">
+						<thead>
+							<tr class="">
+								<th class="width5" title="Visit Type">
+									Visit Type
+									<div class="float_right" ng-click="sortType = 'visitType'; sortReverse = !sortReverse">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8 vertical-middle" title="Visit DateTime	">
+									Visit DateTime	
+									<div class="float_right" ng-click="sortType = 'visitDate'; sortReverse = !sortReverse">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width9" title="Prescription DateTime">
+									Prescription DateTime	
+									<div class="float_right" ng-click="sortType = 'prescriptionDate'; sortReverse = !sortReverse">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width4 vertical-middle" title="UHID" style="/* vertical-align: middle; */">UHID
+									<div class="float_right" ng-click="sortType = 'uhid'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10 vertical-middle" title="Patient Details">Patient Details
+									<div class="float_right" ng-click="sortType = 'patientDetail'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10 vertical-middle" title="Doctor Details">Doctor Details
+									<div class="float_right" ng-click="sortType = 'doctorDetail'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width7 vertical-middle" title="Ward Name">Ward Name
+									<div class="float_right" ng-click="sortType = 'wardName'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5 vertical-middle" title="Bed No.">Bed No.
+									<div class="float_right" ng-click="sortType = 'bedNo'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width7 vertical-middle" title="Priority">Priority
+									<div class="float_right" ng-click="sortType = 'priority'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width6 vertical-middle" title="Status">Status
+									<div class="float_right" ng-click="sortType = ''; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8 text-center vertical-middle" title="Action">Action
+									<div class="float_right" ng-click="sortType = ''; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="table-container-body" style="height:268px; overflow-y: scroll; background: #ffffce;">
+					<table class="table table-striped table-hover table-condensed table-bordered">
+						<tbody>
+							<tr ng-repeat="item in vm.model.pendingIssueslist | filter : search |   orderBy:sortType:sortReverse">
+								<td class="width5" title="{{item.visitType}}">{{item.visitType}}</td>
+								<td class="width8" title="{{item.visitDate | date:'dd-MM-yyyy h:mm'}}">{{item.visitDate | date:'dd-MM-yyyy h:mm'}}</td>
+								<td class="width9" title="{{item.prescriptionDate | date:'dd-MM-yyyy h:mm'}}">{{item.prescriptionDate | date:'dd-MM-yyyy h:mm'}}</td>
+								<td class="width4" title="{{item.uhid}}">{{item.uhid}}</td>
+								<td class="width10" title="{{item.patientDetail}}">{{item.patientDetail}}</td>
+								<td class="width10" title="{{item.doctorDetail}}">{{item.doctorDetail}}</td>
+								<td class="width7" title="{{item.wardName}}">{{item.wardName}}</td>
+								<td class="width5" title="{{item.bedNo}}">{{item.bedNo}}</td>
+								<td class="width7" title="{{item.priority}}">{{item.priority}}</td>
+								<td class="width6" title="{{item.status}}">{{item.status}}</td>
+								<td style="width:8.3% !important" class="text-center cursor-pointer">
+									<span><a title="Print">
+										<i class="fa fa-print" aria-hidden="true"></i>
+									</a></span>
+									<span><a  ng-click="vm.model.NavigateToDetail(item)">Details</a></span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		<!-- table end-->
+		
+		<!-- ******************************** subDetailsTable start********************************  -->
+
+		<!-- ******************************** subDetailsTable end ********************************  -->
+		</fieldset>
+     </div>
+</div>
+<!-- details modal start -->
+<div id="largeDetailsModal" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Pending Issues Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+			
+				 <div class='' ng-include="'./views/common/patient-demography-info.html'"></div>
+				
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10 padding-left-right-set4">
+						<table class="table table-bordered table-striped">
+							<tr class="table-th-bg">
+								<th class="width15">
+									Medication Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width12">
+									Generic Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									Manufacturer
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									Product Category
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width5">
+									Item Id
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width5">
+									Flag
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width5">
+								 	Qty Ordered
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width5">
+								  	Batch No.
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width5">
+									Expiry Date
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width5">
+								  	Qty Issued
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width5">
+									Price
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+									Amount
+									<!-- <span class="">
+										<button type="button" class="btn btn-primary btn-sm text-width-auto" id="discountButtonId" title="Discount" style="padding:2px 4px;">
+											<i class="fa fa-percent font-size12" aria-hidden="true"></i>
+										</button>
+									</span> -->
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="hideClass status">
+									Discount
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="hideClass width9">
+									Total Amount
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td>
+									<div>Aspro-clear</div>
+								</td>
+								<td>
+									<div>Aspirin</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>Narcotic</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td class="hideClass">
+									<div>-</div>
+								</td>
+								<td class="hideClass">
+									<div>-</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>Thyrax</div>
+								</td>
+								<td>
+									<div>Levothyroxine Sodium</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>Narcotic</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td class="hideClass">
+									<div>-</div>
+								</td>
+								<td class="hideClass">
+									<div>-</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>Ranzolont</div>
+								</td>
+								<td>
+									<div>Simvastatin</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>Narcotic</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td class="hideClass">
+									<div>-</div>
+								</td>
+								<td class="hideClass">
+									<div>-</div>
+								</td>
+							</tr>
+							<tfoot>
+								<tr class="table-th-bg">
+									<td colspan="9" class="text-right spanClass">
+										<span>
+											<label>Discount :</label>
+											<input type="radio" name="discountRadioBtn" class="radioPercentage" checked><span>Percentage</span>
+											<input type="radio" name="discountRadioBtn" class="radioAmount"><span>Amount</span>
+										</span>
+										<span>
+											<input type="text" class="status"  placeholder=""/>
+										</span>
+									</td>
+									<td colspan="2" class="text-right">
+										<label>Total</label><!-- Grand Total -->
+									</td>
+									<td >
+										<input type="text"  class="width80" placeholder="Grand Total"/>
+									</td>
+									<td class="hideClass">
+										<!-- <input type="text"  class="width75" placeholder="%"/> -->
+										-
+									</td>
+									<td class="hideClass">
+										<input type="text"  class="width80" placeholder=" Grand Total"/>
+									</td>
+								</tr>
+								<tr class="table-th-bg">
+									<td colspan="9" class="text-right spanClass">
+										<span>
+											<!-- <input type="text" class="status"  placeholder=""/> -->
+										</span>
+									</td>
+									<td colspan="2" class="text-right">
+										<label>Grand Total</label><!-- Grand Total(Discount) -->
+									</td>
+									<td>
+										<input type="text"  class="width80" placeholder="Grand Total" readonly/>
+									</td>
+									<td class="hideClass"></td>
+									<td class="hideClass">
+										<input type="text"  class="width80" placeholder="Grand Total" readonly/>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary text-width-auto" id="">Print Distpatch Note</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+
+
+<div id="largeDetailsModalIPD" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Pending Issues Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+			
+				<div ng-include="'./views/common/patient-demography.html'"></div>
+				
+				<div class="row padding-top10">
+					<div class="pull-right padding-left-right-set4">
+						<a><i class="fa fa-life-ring" title="Smart Issue"></i></a>
+					</div>
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-left-right-set4 table-x-scroll">
+						<table class="table table-bordered table-striped">
+							<tr class="table-th-bg">
+								<th class="width1">
+									Item Code
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width4">
+									Medication Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width4">
+									Manufacturer
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width1">
+									Flag
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width2">
+									UOM
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width2">
+									UOM Unit
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width1">
+								 	Qty Ordered
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width1">
+								  	Batch No.
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width2">
+									Expiry Date
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width1">
+								  	Qty Issued
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width1">
+									Rate
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="hideClass width2">
+									Total Amount
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="hideClass width2">
+									Discount %
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="hideClass width2">
+									Discount Amt
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width2">
+									Net Amount
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width1 text-center">
+									Action
+									
+								</th>
+								
+							</tr>
+							<tr>
+								<td>
+									<div>Calpol</div>
+								</td>
+								<td>
+									<div>Paracetamol</div>
+								</td>
+								<td>
+									<div>Glaxo SmithKline Pharmaceuticals Ltd</div>
+								</td>
+								<td>
+									<div>Pharmaceuticals</div>
+								</td>
+								<td>
+										<select class="select-box">
+											<option value=""></option>
+											<option value="PUOM">PUOM</option>
+										</select>
+									</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td data-toggle="modal" data-target="#getBatchModal">
+									<div ></div>
+								</td>
+								<td>
+									<div></div>
+								</td>
+								<td>
+									<div></div>
+								</td>
+								<td>
+									<div>2</div>
+								</td>
+								<td>
+									<div>180</div>
+								</td>
+								<td>
+									<div>360</div>
+								</td>
+								
+								<td class="hideClass">
+									<div>-</div>
+								</td>
+								<td class="hideClass">
+									<div>-</div>
+								</td>
+								<td class="vertical-middle text-center">
+									<input type="button" name="" id="" value="+" ng-click="" class="btn btn-info add-dynamic-row" style="padding: 0 2px !important;">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>Aprinox</div>
+								</td>
+								<td>
+									<div>Bendroflumethiazide</div>
+								</td>
+								<td>
+									<div>Boehringer Ingelheim Pharmaceuticals, Inc.</div>
+								</td>
+								<td>
+									<div>Pharmaceuticals</div>
+								</td>
+								<td>
+										<select class="select-box">
+											<option value=""></option>
+											<option value="PUOM">PUOM</option>
+										</select>
+									</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div></div>
+								</td>
+								<td>
+									<div></div>
+								</td>
+								<td>
+									<div></div>
+								</td>
+								<td>
+									<div>2</div>
+								</td>
+								<td>
+									<div>150</div>
+								</td>
+								<td>
+									<div>300</div>
+								</td>
+								<td class="hideClass">
+									<div>-</div>
+								</td>
+								<td class="hideClass">
+									<div>-</div>
+								</td>
+								<td class="vertical-middle text-center">
+									<input type="button" name="" id="" value="+" ng-click="" class="btn btn-info add-dynamic-row" style="padding: 0 2px !important;">
+								</td>
+							</tr>
+						
+							<tfoot>
+								<tr class="table-th-bg">
+									<td colspan="14" class="text-right spanClass">
+										<span>
+											<label>Discount :</label>
+											<label class="radio-inline"><input type="radio" name="discountRadioBtn" class="radioPercentage" checked="">Percentage</label>
+											<label class="radio-inline"><input type="radio" name="discountRadioBtn" class="radioAmount">Amount</label>
+										</span>
+										<span>
+											<input type="text" class="status" placeholder="">
+										</span>
+										<span>
+											<select class="" name="">
+													<option value="">Discount Category</option>
+											</select>
+										</span>
+										<span>
+											<button type="submit" name="" id="" value="Apply" class="btn btn-primary text-width-auto" style="padding: 0 2px !important;margin-top: -3px;">Apply</button>
+										</span>
+										<!-- <span>
+											<label>Discount :</label>
+											<input type="radio" name="discountRadioBtn" class="radioPercentage" checked><span>Percentage</span>
+											<input type="radio" name="discountRadioBtn" class="radioAmount"><span>Amount</span>
+										</span>
+										<span>
+											<input type="text" class="status"  placeholder=""/>
+										</span> -->
+									</td>
+								</tr>
+								<tr class="table-th-bg">
+									<td colspan="12" class="text-right">
+										<span>
+											<label>Total Amount :</label>
+											<input type="text" class="width7" placeholder="">
+										</span>
+										<span>
+											<label>Discount Amount :</label>
+											<input type="text" class="width7" placeholder="">
+										</span>
+									</td>
+									<td colspan="2" class="text-right">
+										<span>
+											<label>Net Amount :</label>
+											<input type="text" class="width35" placeholder="">
+										</span>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+					<select class="vertical-middle" name="">
+							<option value="">Drug Label</option>
+							<option value="">Patient Demographics</option>
+							<option value="">Prescription</option>
+							
+					</select>
+				<button type="button" class="btn btn-primary" id="">Print</button><!-- label : Print Distpatch Note -->
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+
+
+
+<script src="resources/assets/js/common/page-height.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".selectedPageName").text("Pending Issues");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	  $(".hideClass").show();
+	// $(".hideClass1").hide();
+	/*************** discount and total amt column hide-show function *******************/
+	 /* $("#discountButtonId").click(function(){
+	        $(".hideClass").fadeToggle("slow");
+	   }); */ 
+});
+/*************************** discount radio button function ********************************8*/
+
+</script>

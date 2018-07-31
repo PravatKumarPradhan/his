@@ -1,0 +1,82 @@
+  <!-- <div class="row">
+            		<div class="col-md-8"></div>
+					<div class="col-md-3">
+						<div>
+							  <input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required/>
+							<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+						</div>
+					</div>
+				</div> -->
+				<div class="row padding-left-right-set4 padding-top10 height-table-with-scroll">
+						<div class="col-md-12">
+							<table class="table table-bordered ">
+								<tr class="">
+								<th>
+										Modality Name
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th>
+										Investigation Name
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th style="width:10%">
+										Time
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th style="width:10%">
+										Transfer Time
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th>
+										Destination
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th>
+										Note
+										<div class="float_right">
+											<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+											<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+										</div>
+									</th>
+									<th>
+									Transfer Status
+									</th>
+								</tr>
+								<tr ng-repeat="info in patientModalityTransferList">
+								<td>{{info.modalityDesc}}</td>
+								<td>{{info.serviceStandardName}}</td>
+									<td>
+										{{info.modalityTimeString}}
+								
+									</td>
+									<td>
+										{{info.transferTimeString}}
+									</td>
+									<td>Ward-A Bed No. BM123456</td>
+									<td>{{info.note}}</td>
+									<td>{{info.transferStatusDesc}}</td>
+								</tr>
+							
+							</table>
+						</div>
+					</div>
+<script type="text/javascript">
+	$(".btn-hide").hide();
+</script>

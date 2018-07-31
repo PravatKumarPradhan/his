@@ -1,0 +1,141 @@
+
+<!-- PANIC VALUE POPUP -->
+<div id="panicValueSingle" class="common-large-popup modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Panic Value
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body bg-color-set">
+					<!-- *********** Numeric refernce value row start****************** -->
+					<div class="col-md-12 bg-color-set" >
+							<div class="row serachedPatientList" ng-if="refrangeTypeId==1">
+								<div class="col-md-12 col-lg-12  fix-height-scroll450">
+									<table class="table table-bordered  margin-top8">
+										<tr>
+											<th class="width15">
+												<span class="">Age Group </span>
+											</th>
+											<th class="width5">
+												 <span class="">Sex</span>
+											</th>
+											<th class="width10">
+												Min value
+											</th>
+											<th class="width10">
+												Max Value
+											</th>
+											<th class="width10">
+												Less Than
+											</th>
+											<th class="width10">
+												More Than
+											</th>
+											<th class="width20">
+												Remark
+											</th>
+										</tr>
+										<tr ng-repeat="paramRefrengMaster in paramRefRengeList" >
+											<td>
+												{{paramRefrengMaster.ageGroupName}}
+											</td>
+											<td>
+												{{paramRefrengMaster.genderName}}
+											</td>
+											<td>
+											{{paramRefrengMaster.minValue}}
+											</td>
+											<td>
+												{{paramRefrengMaster.maxValue}}
+											</td>
+											<td>
+												{{paramRefrengMaster.lessThan}}
+											</td>
+											<td>
+												{{paramRefrengMaster.moreThan}}
+											</td>
+											<td>
+												{{paramRefrengMaster.remark}}
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+					</div>
+					<!-- *********** Numeric reference value row start****************** -->
+					
+					<!-- *********** textual reference value row start****************** -->
+					<div class="col-lg-12 col-md-12 col-sm-12 bg-color-set" ng-if="refrangeTypeId==2">
+						<div class="row serachedPatientList">
+							<div class="col-md-12 col-lg-12  fix-height-scroll450">
+								<table class="table table-bordered  margin-top8">
+									<thead>
+										<tr>
+											<th class="width15">
+												<span class="">Age Group </span>
+											</th>
+											<th class="width5">
+												 <span class="">Sex</span>
+											</th>
+											<th class="width10">
+												Values
+											</th>
+											<th class="width20">
+												Remark
+											</th>
+										</tr>
+										<tr ng-repeat="textualParameter in textualParameterList">
+											<td>{{textualParameter.ageGroupName}}</td>
+											<td>{{textualParameter.genderName}}</td>
+											<td>{{textualParameter.textualRangeName}}</td>
+											<td>{{textualParameter.remark}}</td>
+										</tr>
+									</thead>
+									<tbody></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!-- *********** textual reference value row start****************** -->
+					
+					
+					<!-- *********** multiliner reference value row start****************** -->
+					<div class="col-lg-12 col-md-12 col-sm-12 bg-color-set" ng-if="refrangeTypeId==3">
+						<div class="row serachedPatientList">
+							<div class="col-md-12 col-lg-12  fix-height-scroll450">
+								<table class="table table-bordered  margin-top8">
+									<thead>
+										<tr>
+											<th class="width15">
+												<span class="">Age Group </span>
+											</th>
+											<th class="width5">
+												 <span class="">Sex</span>
+											</th>
+											<th class="width10">
+												Values
+											</th>
+											<th class="width20">
+												Remark
+											</th>
+										</tr>
+										<tr ng-repeat="multiTextualObj in multiTextualList" >
+											<td>{{multiTextualObj.ageGroupName}}</td>
+											<td>{{multiTextualObj.genderName}}</td>
+											<td>{{multiTextualObj.multitextaulRange}}</td>
+											<td>{{multiTextualObj.remark}}</td>
+										</tr>
+									</thead>
+									<tbody></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!-- *********** multiliner reference value row start****************** -->
+				</div>
+			</div>
+		</div>
+</div>

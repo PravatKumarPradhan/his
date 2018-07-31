@@ -1,0 +1,201 @@
+<!-- *****************************************************************************************************************************
+													
+****************************************************************************************************************************** -->
+	   <!-- Page Content -->
+    	<div id="page-content-wrapper" class="">
+       		<div class="container-fluid his-style">
+       			<div class="row margin-top10 padding-left-right-1">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+            	<!-- table start-->
+          		<div class="row padding-left-right-set4 padding-top5">
+					<div class="col-md-12">
+						<table class="table table-bordered ">
+							<tr class="">
+								<th class="UHID-width">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Doctor Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th  class="width8">
+									Status
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="status text-center">
+								  	Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td>PC-17-30569</td>
+								<td >
+									<div>Robert Brown 26/M </div>
+								</td>
+								<td>
+									<div>Dr. Mark Potter Cardiology</div>
+								</td>
+								<td>
+									<div>Ordered</div>
+								</td>
+								<td class="text-center">
+									<a href="" data-toggle="modal" data-target="#detailsModal">Details</a>
+								</td>
+							</tr>
+							<tr>
+								<td>PC-17-305203</td>
+								<td >
+									<div>Michael Ghir 30/M </div>
+								</td>
+								<td>
+									<div>Dr. Mark Potter Cardiology</div>
+								</td>
+								<td>
+									<div>Delivered</div>
+								</td>
+								<td class="text-center">
+									<a href="" data-toggle="modal" data-target="#detailsModal">Details</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<!-- table end-->
+       		</div>
+       		
+       		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right15">
+				<div class="row padding-left-right15">
+					<div class="col-lg-11 col-md-11 col-sm-10"></div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set float_right text-width-auto">
+							<div class=" ">
+								<a href="#/bedManagement" class="btn btn-primary btn-save-box-shadow" title="Back">Back</a>
+							</div>
+						</div>
+					</div>
+			</footer>
+       		
+        </div>
+
+<!-- details modal start -->
+<div id="detailsModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Medication Reconciliation
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div ng-include="'./views/common/patient-demography.html'" class="ng-scope"></div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top5 padding-left-right-set4">
+						<table class="table table-bordered ">
+							<tr class="">
+								<th class="width20">
+									Medication Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width20">
+									Generic Name
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+								 	Ordered Qty
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+								 	Available Qty
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width8">
+								 	Qty To Ordered
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								
+							</tr>
+							<tr>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								<td>
+									<div>-</div>
+								</td>
+								
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<div class="col-lg-12 col-md-12 pull-right">
+					<button type="button" data-dismiss="modal" class="btn btn-primary " id="">Save</button>
+					<!-- <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- details modal end -->
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".selectedPageName").text("Discharge Medication Reconciliation");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+});
+</script>

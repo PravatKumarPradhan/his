@@ -1,0 +1,680 @@
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" >
+            <div class="container-fluid his-style">
+            	
+            	<!-- <div class="padding-left-right-set4">
+	            	<div class="row searched-patient-details-row">
+						<div class="col-md-11 col-sm-11 col-xs-11 ">
+							<span class="profile_pic margin-left10"> 
+								<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+							</span> 
+							<span class="margin-left10">John Deo 26/M </span>
+							<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> Pune-769</span>
+							<span class="margin-left10"><b class="padding-right10 ">DOA	:</b> 02/05/2017</span>
+							<span class="margin-left10"><b class="padding-right10 ">PDD	:</b> 02/05/2017</span>
+							<span class="margin-left10"><b class="padding-right10 ">BED NO	:</b> BM129091</span>
+							<span class="margin-left10">Dr. Suresh Pathak</span>
+						</div>
+					</div>
+				</div> -->
+				<fieldset class="padding-left-right-set4">
+						<legend class="heading-div">Personal Details</legend>
+						<div class="row padding-top10">
+            		
+		            		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+										<i class="fa fa-user" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" name="code" id="" ng-model="deathObject.firstName" class="text-input floating-label">
+											<label for="code">First Name</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+										<i class="fa fa-user" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" name="code" id="" ng-model="deathObject.lastName" class="text-input floating-label">
+											<label for="code">Last Name</label>
+										</div>
+									</div>
+								</div>
+							</div>
+		            		
+		            		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+										<i class="fa fa-venus-mars" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<select class="text-input floating-label" name="code" ng-model="deathObject.genderId">
+												<option ng-repeat="info in genderList" ng-value="{{info.id}}">{{info.desc}}</option>
+												
+											</select>		
+											<label for="code">Choose Gender</label>
+										</div>
+									</div>
+								</div>
+							</div>
+		            		<div class="col-md-1">
+		            		
+		            		</div>
+            		
+		            		<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+								<div class="width-div-for-patient-reg ">
+									<a href="" class="btn btn-primary btn-save-box-shadow"
+										title="Save" ng-click="saveDeathRegistration()"><i
+										class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+								</div>
+							</div> 
+				
+				<!-- <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div> -->
+				<!-- <div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Search">
+						<i class="fa fa-search" style="/* font-size: 17px; */" aria-hidden="true"></i></a>
+					</div>
+				</div> -->
+				<modal visible="showModal"></modal> 	
+				
+            	</div>
+				<div class="row">
+					<!-- <div class="col-md-3"></div> -->
+					<div class="col-md-12 col-sm-12 col-xs-12">
+							
+							<div class="row">
+								<div
+								class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<textarea name="code" rows="1" id="" ng-model="deathObject.markOnDecease"
+												class="text-input floating-label"></textarea>
+											<label for="code">Marks on Decease</label>
+										</div>
+									</div>
+								</div>
+							</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row">
+										<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+											<div class="row input-container">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+													<i class="fa fa-calendar" aria-hidden="true"></i>
+												</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+													name="datepicker" id="datepicker"
+													uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+													placeholder="DD/MM/YYYY" ng-model="datepicker"
+													model-view-value="true" is-open="datepicker.opened"
+													datepicker-options="dateOptions" show-button-bar="false"
+													ng-click="openDatePicker()"> <label for="code">
+													Date of Death</label>
+											</div>
+										</div>
+									</div>
+										</div>
+									</div>
+								</div>
+							<div class="col-md-3 col-sm-3 col-xs-6 padding-top10 padding-left-right-set4">
+								<div class="col-lg-3 col-md-3 col-sm-3">
+									<div>
+										<input type="radio" name="turnAroundTime" ng-model="deathObject.durationFormat" ng-value="1"><label>Duration</label>
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-9">
+									<select class="text-input floating-label" ng-model="timeValueOfDuration">
+										<option></option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+										<option>11</option>
+										<option>12</option>
+										<option>13</option>
+										<option>14</option>
+										<option>15</option>
+										<option>16</option>
+										<option>17</option>
+										<option>18</option>
+										<option>19</option>
+										<option>20</option>
+										<option>21</option>
+										<option>22</option>
+										<option>23</option>
+										<option>24</option>
+									</select> <label for="code">Select Duration</label>
+								</div>
+							</div>
+							
+							<div class="col-md-3 col-sm-3 col-xs-6 padding-top10">
+								<div class="col-lg-2 col-md-2 col-sm-2">
+									<div>
+										<input type="radio" name="turnAroundTime" ng-model="deathObject.durationFormat" ng-value="2"><label>Day</label>
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9 col-sm-9">
+									<select class="text-input floating-label" ng-model="timeValueOfDay">
+										<option></option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+									</select> <label for="code">Select Day</label>
+								</div>
+							</div>
+							
+
+						</div>
+						
+						<div class="row">
+								
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+									<div class="row">
+										<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+											<div class="row input-container">
+												<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+													<i class="fa fa-calendar" aria-hidden="true"></i>
+												</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<input type="text" class="text-input floating-label dirty"
+													name="datepicker" id="datepicker"
+													uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+													placeholder="DD/MM/YYYY" ng-model="datepickerExpected"
+													model-view-value="true" is-open="datepickerExpected.opened"
+													datepicker-options="dateOptions" show-button-bar="false"
+													ng-click="openDatePickerExpected()"> <label for="code">
+													Expected Arrival Date</label>
+											</div>
+										</div>
+									</div>
+										</div>
+									</div>
+								</div>
+							<div class="col-md-3 col-sm-3 col-xs-6 padding-top10 padding-left-right-set4">
+								<div class="col-lg-9 col-md-9 col-sm-9 input-group clockpicker">
+									<input type="text" class="form-control" ng-model="deathObject.expectedArrivalTime"   ng-init="initClockPicker()">
+										<span class="input-group-addon">
+											<span class="fa fa-clock-o"></span>
+										</span> <label for="code">Expected Arrival Time</label>
+								</div>
+							</div>
+						
+							
+
+						</div>
+							
+							<div class="row padding-top10">
+							
+								<div class="col-md-9 col-sm-9 col-xs-12 padding-left-right-set0 death-reg-document-uploaded-table" >
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+												<i class="fa  fa-file-text-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<select class="text-input floating-label" name="code">
+														<option></option>
+														<option>1</option>
+														<option>2</option>
+														<option>3</option>
+													</select> <label for="code">Select Document Type</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set">
+										 <div>
+											<label>Document Upload</label>
+											<input type="file" class="" >
+										</div>
+									</div>
+								
+									<div class="col-lg-1 col-md-1 col-sm-2 padding-leftright15 ">
+										<div class="width-div-for-patient-reg ">
+											<a href="" class="btn btn-primary btn-save-box-shadow" title="Add">
+												<i class="fa fa-plus" style="font-size: 21px" aria-hidden="true"></i>
+											</a>
+										</div>
+									</div> 
+								</div>
+							
+								<div class="col-md-3 col-sm-3 col-xs-6 padding-left-right-set4">
+									<div class="col-lg-1 col-md-1 col-sm-1">
+										<div>
+											<input type="checkbox"  ng-true-value="'Y'" ng-false-value="'N'">
+										</div>
+									</div>
+									<div class="col-lg-9 col-md- 9col-sm-4">
+										<label>Medico Legal Case</label>
+									</div>
+								</div>
+							</div>
+							<div class="row margin-top10 death-registration-col">
+								<div class="col-md-6">
+									<div class="margin-top10 death-reg-document-uploaded-table">
+										<table class="table table-bordered ">
+											<tr class="">
+												<th>Documents Type</th>
+												<th>File Name</th>
+												<th style="width:10%">Action</th>
+											</tr>
+											<tr>
+												<td>Type-1</td>
+												<td>File dvdhj hdvd hdvd dbd link 1</td>
+												<td><a href="">view</a></td>
+											</tr>
+											<tr>
+												<td>Type-2</td>
+												<td>File dvdhj hdvd hdvd dbd link 2</td>
+												<td><a href="">view</a></td>
+											</tr>
+											<tr>
+												<td>Type-3</td>
+												<td>File dvdhj hdvd hdvd dbd link 3</td>
+												<td><a href="">view</a></td>
+											</tr>
+											<tr>
+												<td>Type-4</td>
+												<td>File dvdhj hdvd hdvd dbd link 4</td>
+												<td><a href="">view</a></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="col-md-5"></div>
+							</div>
+							
+					</div>
+				</div>
+				</fieldset>
+			
+				<fieldset class=" padding-bottom10 margin-top10 padding-left-right-set4">
+						<legend class="heading-div">Kin Details</legend>
+							<div class="row">
+								<div class="row margin-top10">
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-object-group" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<select class="text-input floating-label" name="code" ng-model="kinObject.prefixId">
+														<option>Select Prefix</option>
+														<option ng-repeat="info in prefixList" value="{{info.prefixId}}">{{info.prefixDesc}}</option>
+														
+													</select>
+													<label for="code">Select Prefix</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-user-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text" name="code" id="requiredOn" ng-model="kinObject.kinName" class="text-input floating-label">
+													<label for="code">Name</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-user-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<select class="text-input floating-label" name="code" ng-model="kinObject.relationId">
+														<option>Select Relationship With Patient</option>
+														<option ng-repeat="info in relationList" value="{{info.id}}">{{info.desc}}</option>
+														
+													</select>
+													<label for="code">Relationship With Patient</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row margin-top10">
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-mobile" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text" name="code" id="requiredOn" ng-model="kinObject.mobileNo" class="text-input floating-label">
+													<label for="code">Mobile No</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-mobile" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text" name="code" id="requiredOn" ng-model="kinObject.phoneNo" class="text-input floating-label">
+													<label for="code">Phone No</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-id-card-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<select class="text-input floating-label" name="code" ng-model="kinObject.identificationId">
+														<option>Select Identification</option>
+														<option ng-repeat="info in identificationList" value="{{info.identificationId}}">{{info.identificationName}}</option>
+													
+													</select>
+													<label for="code">Identification</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row margin-top10">
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-id-card-o" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+												<div class="">
+													<input type="text" name="code" id="requiredOn" ng-model="kinObject.identificationNo" class="text-input floating-label">
+													<label for="code">Identification No.</label>
+												</div>
+											</div>
+										</div>
+									</div>
+					
+									<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+										<div class="row input-container">
+											<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+												<i class="fa fa-calendar" aria-hidden="true"></i>
+											</div>
+											<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class=""  >
+													<input type="text" class="text-input floating-label dirty"
+									name="datepickerPdd" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepickerPdd"
+									model-view-value="true" is-open="datepickerPdd.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerPdd()" required>
+									<label for="code" class="">
+													Expiry Date</label>
+												 <!-- name="datepicker" id="datepicker" -->
+											</div>
+										</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+										<div class="row input-container">
+											<input type="checkbox" ng-model="kinObject.isGuarantor" ng-true-value="'Y'" ng-false-value="'N'"> Guarantor
+										</div>
+									</div>
+								</div>
+								<div class="row margin-top10">
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-flag" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class=""   >
+							<input type="hidden" ng-model="area.areaId">
+							
+								<select class="text-input floating-label" name="countryId" ng-model="kinObject.countryId" ng-change="getStateByCountry(kinObject.countryId)" >
+									<option>Select Country</option>
+									<option ng-repeat="info in countryList" value="{{info.countryId}}">{{info.countryName}}</option>
+								</select> <label for="code">Country</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-university" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class=""   >
+								<select class="text-input floating-label" name="stateId" ng-model="kinObject.stateId" ng-change="getDistrictByState(kinObject.stateId)" >
+									<option>Select State</option>
+									<option ng-repeat="info in stateList" value="{{info.stateId}}">{{info.stateName}}</option>
+								</select> <label for="code">State</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-university" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class=""   >
+								<select class="text-input floating-label" name="districtId" ng-model="kinObject.districtId" ng-change="getCityByDistrict(kinObject.districtId)" >
+									<option>Select District</option>
+									<option ng-repeat="info in districtList" value="{{info.districtId}}">{{info.districtName}}</option>
+								</select>
+								<label for="code">District</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div class="row margin-top10">
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-building-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class=""   >
+								<select class="text-input floating-label" name="cityId" ng-model="kinObject.cityId" ng-change="getAreaByCity(kinObject.cityId)" >
+									<option>Select City</option>
+									<option ng-repeat="info in cityList" value="{{info.cityId}}">{{info.cityName}}</option>
+								</select>
+								<label for="code">City</label>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-building-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class=""   >
+								<select class="text-input floating-label" name="areaId" ng-model="kinObject.areaId" >
+									<option>Select Area</option>
+									<option ng-repeat="info in areaList" value="{{info.areaId}}">{{info.areaName}}</option>
+								</select>
+								<label for="code">Area</label>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-university" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class=""   >
+								<input type="text" name="postCode" id=""
+									class="text-input floating-label" ng-model="kinObject.postCode">
+									 <label for="code">Post Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+					
+				</div>
+				<div class="row margin-top10">
+					<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="code" id="requiredOn" class="text-input floating-label" ng-model="kinObject.address">
+									<label for="code">Address</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4">
+						<div class="">
+							<button class="btn btn-info" ><b>+</b></button>
+							 
+                    	    <button class="btn btn-info" ><b>-</b></button> 
+                     
+						</div>
+					</div> -->
+				</div>
+					<div class="row margin-top10">
+						<div class="col-lg-8 col-md-8 col-sm-8 padding-left-right-set0 death-reg-document-uploaded-table">
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4 margin-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-file-text-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label" name="code">
+												<option></option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+											</select> <label for="code">Choose Document Type</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4 margin-top10">
+								<div>
+									<label>Document Upload</label>
+									<input type="file" class="" >
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-2 padding-leftright15 ">
+								<div class="width-div-for-patient-reg ">
+									<a href="" class="btn btn-primary btn-save-box-shadow" title="Add">
+										<i class="fa fa-plus" style="font-size: 21px" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+							
+							<!-- upload document div start  -->
+							
+							<!-- upload document div start  -->
+							
+							<div class="row margin-top10 death-registration-col">
+								<div class="col-md-6">
+									<div class="margin-top10 death-reg-document-uploaded-table">
+										<table class="table table-bordered ">
+											<tr class="">
+												<th>File Name</th>
+												<th>Documents Type</th>
+												<th style="width:10%">Action</th>
+											</tr>
+											<tr>
+												<td>Type-1</td>
+												<td>File dvdhj hdvd hdvd dbd link 1</td>
+												<td><a href="">view</a></td>
+											</tr>
+											<tr>
+												<td>Type-2</td>
+												<td>File dvdhj hdvd hdvd dbd link 2</td>
+												<td><a href="">view</a></td>
+											</tr>
+											<tr>
+												<td>Type-3</td>
+												<td>File dvdhj hdvd hdvd dbd link 3</td>
+												<td><a href="">view</a></td>
+											</tr>
+											<tr>
+												<td>Type-4</td>
+												<td>File dvdhj hdvd hdvd dbd link 4</td>
+												<td><a href="">view</a></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="col-md-5"></div>
+							</div>
+							</fieldset>
+  			</div>
+		<!-- </div> -->
+		
+	<script type="text/javascript">
+	$( document ).ready(function() {
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+$('.clockpicker').clockpicker();
+$(".selectedPageName").text("Death Registration");
+	});
+</script>
+</body>
+</html>

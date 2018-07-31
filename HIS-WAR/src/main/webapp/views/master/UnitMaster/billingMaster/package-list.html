@@ -1,0 +1,553 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-md-1 col-sm-2 polymer-icon">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-md-11 col-sm-10">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+									<option>OP</option>
+									<option>IP</option>
+									<option>Daycare</option>
+								</select>
+								<label for="code">Visit Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-4 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-md-1 col-sm-2 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-md-11 col-sm-10">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+									<option>All</option>
+									<option>Active</option>
+									<option>Deactive</option>
+								</select>
+								<label for="description" class="LISDynamicLabel">Status</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-10">
+			<div class="col-md-6 col-sm-3"></div>
+			<div class="col-md-6 col-sm-9">
+				<div class="row">
+					<div class="col-md-3 col-sm-3"></div>
+					<div class="col-md-3 col-sm-3 padding-left0px-right6px">
+						<div class="common-save-button">
+							<!-- <input type="button" value="Display Exclusion" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#displayExclusionlistModal"> -->
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-2 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Edit" class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-2 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Save As" class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-2 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Submit" class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
+		<div class="row padding-left-right-set4">
+			<div class="col-md-12 col-lg-12 col-sm-12 padding-left-right-set0">
+				<fieldset>
+					<table class="table table-bordered  ">
+						<thead class="mainServiceTableCommon">
+							<!-- <tr class="table-th-bg" rowspan="2">
+							    <th rowspan="2"></th>
+							    <th rowspan="2"></th>
+							    <th rowspan="2"></th>
+							    <th style="text-align: center;" colspan="2">Validate Date</th>
+							    <th rowspan="2"></th>
+							    <th rowspan="2"></th>
+							</tr> -->
+							<tr class="">
+								<th class="width8">
+									Visit Type
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								 <th class="width10">
+									Package Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									Package Type
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									<!-- Validate Period -->Start Date
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									<!-- Validate Period -->End Date
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">
+									Package Price
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="status">
+									Status
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="status">
+									Action
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody class="mainServiceTableCommon">
+							<tr>
+								<td>OP</td>
+								<td>EHC Package</td>
+								<td>EHC </td>
+								<td>01/01/2017</td>
+								<td>31/12/2017</td>
+								<td>5000</td>
+								<td>Active</td>
+								<td>
+									<a data-toggle="modal" data-target="#displayExclusionlistModal">Details</a>
+								</td>
+							</tr>
+							<tr>
+								<td>IP</td>
+								<td> Package 1</td>
+								<td>1 </td>
+								<td>01/01/2017</td>
+								<td>31/12/2017</td>
+								<td>5000</td>
+								<td>Active</td>
+								<td>
+									<a data-toggle="modal" data-target="#displayExclusionlistModal">Details</a>
+								</td>
+							</tr>
+							<tr>
+								<td>IP</td>
+								<td> Package 2</td>
+								<td>2 </td>
+								<td>01/01/2017</td>
+								<td>31/12/2017</td>
+								<td>5000</td>
+								<td>Active</td>
+								<td>
+									 <a data-toggle="modal" data-target="#displayExclusionlistModal">Details</a>
+								</td>
+							</tr>
+						</tbody>
+						<!-- <tfoot class="mainServiceTableCommon">
+							<tr class="">
+								<td colspan="4"></td>
+								<td  class="font-style-text-align">Package Price</td>
+								<td>
+									<input type="text" class="ht26 form-control" placeholder="Package Price">
+								</td>
+								<td></td>
+							</tr>
+						</tfoot> -->
+					</table>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ********************************************************* Service Details List modal START ************************************************************** -->
+<div id="displayExclusionlistModal" class="modal fade in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Service List Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="col-md-4 col-sm-4">
+							
+						</div>
+					</div>
+				</div>
+				<div class="row patient-details-row">
+					<div class="">
+						<div class="row">
+						<span class=""><b class="padding-right5 ">Package GL Code:</b>  -  </span>
+						<span class="margin-left10"><b class="padding-right10 ">Visit Type:</b>  -   </span>
+						<span class="margin-left10"><b class="padding-right10 ">Sex:</b>   -  </span>
+						<span class="margin-left10"><b class="padding-right10 ">Payment Entitlement:</b>  -   </span>
+						<span class="margin-left10"><b class="padding-right10 ">Patient Type:</b>  -   </span>
+						<span class="margin-left10"><b class="padding-right10 ">Bed Category:</b>   -  </span>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set">
+					<!-- <div class="row input-container padding-top10">
+						<label class="radio-inline">
+					      <input type="radio" name="inclusionexclusion" value="inclusion" checked="checked">Inclusion
+					    </label>
+					    <label class="radio-inline">
+					      <input type="radio" name="inclusionexclusion" value="exclusion">Exclusion
+					    </label>
+					</div> -->
+					
+					<div class="row input-container padding-top10 customRadioBtn">
+						<input type="radio" name="inclusionexclusion" id="inclusionexclusion" value="inclusion" checked="checked"  value="inclusion">
+							<label for="inclusionexclusion" class=" cursor-pointer">Inclusion</label>
+						<input type="radio" name="inclusionexclusion" id="exclusionexclusion" class="" value="exclusion">
+							<label for="exclusionexclusion" class=" cursor-pointer">Exclusion</label>
+					</div>
+				</div>
+				</div>
+				<div class="row exclusionTable" style="display:none">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10 padding-left-right-set4" id=""><!-- id for the table td fix height -->
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<table class="table table-bordered table-striped "><!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width15">
+											Service Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width15">
+											Price
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+									</tr>
+								</thead>
+								<tbody class="mainServiceTableCommon">
+									<tr class="table-th-bg cursor-pointer">
+										<td colspan="2" class="font-weight700">Lab Service</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<div class="selectedServicesList" style="">
+												<table class="table table-bordered table-striped">
+													<tbody>
+														<tr>
+															<td class="col-md-6 col-sm-6 ">Lab services-1</td>
+															<td class="col-md-6 col-sm-6 ">150</td>
+														</tr>
+														<tr>
+															<td class="col-md-6 col-sm-6 ">Lab services-2</td>
+															<td class="col-md-6 col-sm-6 ">150</td>
+														</tr>
+														<tr>
+															<td class="col-md-6 col-sm-6 ">Lab services-3</td>
+															<td class="col-md-6 col-sm-6 ">150</td>
+														</tr>			
+													</tbody>
+													<tfoot>
+														<tr>
+															<td colspan="1" class="font-style-text-align">Group Total</td>
+															<td>900</td>
+														</tr>
+													</tfoot>
+												</table>
+											</div>
+										</td>
+									</tr>
+									
+									<tr class="table-th-bg cursor-pointer">
+										<td colspan="2" class="font-weight700">Radiology Service</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<div class="selectedServicesList" style="">
+												<table class="table table-bordered table-striped">
+														<tbody>
+														<tr>
+															<td class="col-md-6 col-sm-6 ">Lab services-1</td>
+															<td class="col-md-6 col-sm-6 ">150</td>
+														</tr>
+														<tr>
+															<td class="col-md-6 col-sm-6 ">Lab services-2</td>
+															<td class="col-md-6 col-sm-6 ">150</td>
+														</tr>
+														<tr>
+															<td class="col-md-6 col-sm-6 ">Lab services-3</td>
+															<td class="col-md-6 col-sm-6 ">150</td>
+														</tr>
+													</tbody>
+													<tfoot>
+														<tr>
+															<td colspan="1" class="font-style-text-align">Group Total</td>
+															<td>900</td>
+														</tr>
+													</tfoot>
+												</table>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="row inclusionTable">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10 padding-left-right-set4" id=""><!-- id for the table td fix height -->
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<table class="table table-bordered table-striped "><!-- mainServiceTable -->
+								<thead class="mainServiceTableCommon">
+									<tr>
+										<th class="width15">
+											Service Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Price
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width5">
+											Qty
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">
+											Total Price
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+									</tr>
+								</thead>
+								<tbody class="mainServiceTableCommon">
+									<tr class="table-th-bg cursor-pointer">
+										<td colspan="4" class="font-weight700">Lab Service</td>
+									</tr>
+									<tr>
+										<td colspan="4">
+											<div class="selectedServicesList" style="">
+												<table class="table table-bordered table-striped">
+													<tbody>
+														<tr>
+															<td class="width15">Lab services-1</td>
+															<td class="width10">150</td>
+															<td class="width5">2</td>
+															<td class="width10">300</td>
+														</tr>
+														<tr>
+															<td class="width15">Lab services-2</td>
+															<td class="width10">150</td>
+															<td class="width5">2</td>
+															<td class="width10">300</td>
+														</tr>
+														<tr>
+															<td class="width15">Lab services-3</td>
+															<td class="width10">150</td>
+															<td class="width5">2</td>
+															<td class="width10">300</td>
+														</tr>			
+													</tbody>
+													<tfoot>
+														<tr>
+															<td colspan="3" class="font-style-text-align">Group Total</td>
+															<td>900</td>
+														</tr>
+													</tfoot>
+												</table>
+											</div>
+										</td>
+									</tr>
+									
+									<tr class="table-th-bg cursor-pointer">
+										<td colspan="4" class="font-weight700">Radiology Service</td>
+									</tr>
+									<tr>
+										<td colspan="4">
+											<div class="selectedServicesList" style="">
+												<table class="table table-bordered table-striped">
+														<tbody>
+														<tr>
+															<td class="width15">Lab services-1</td>
+															<td class="width10">150</td>
+															<td class="width5">2</td>
+															<td class="width10">300</td>
+														</tr>
+														<tr>
+															<td class="width15">Lab services-2</td>
+															<td class="width10">150</td>
+															<td class="width5">2</td>
+															<td class="width10">300</td>
+														</tr>
+														<tr>
+															<td class="width15">Lab services-3</td>
+															<td class="width10">150</td>
+															<td class="width5">2</td>
+															<td class="width10">300</td>
+														</tr>
+													</tbody>
+													<tfoot>
+														<tr>
+															<td colspan="3" class="font-style-text-align">Group Total</td>
+															<td>900</td>
+														</tr>
+													</tfoot>
+												</table>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot class="mainServiceTableCommon">
+									<tr class="">
+										<td  class="font-style-text-align" colspan="3">Package Price</td>
+										<td>
+											1800
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ********************************************************* Service Details List modal END ************************************************************** -->
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".selectedServicesList").hide();
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" );
+  
+  $(".selectedPageName").text("Package List");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="packageList"]').parents("li").addClass("active");
+});
+$(".table-th-bg").click(function(){
+	//alert();
+	$(this).next().find(".selectedServicesList").toggle();
+});
+$('input[name="inclusionexclusion"]').click(function(){
+    if($(this).attr("value")=="inclusion"){
+        $(".inclusionTable").show('slow');
+        $(".exclusionTable").hide('slow');
+    }
+    if($(this).attr("value")=="exclusion"){
+        $(".exclusionTable").show('slow');
+        $(".inclusionTable").hide('slow');
+    }        
+});
+
+</script>

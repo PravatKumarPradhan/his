@@ -1,0 +1,51 @@
+<div id="page-content-wrapper" class="padding10">
+	<div class="container-fluid ">
+			<div class="row margin-top4">
+				<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+					<div class="tab-btn-primary">
+						<a class="btn btn-primary btn-save-box-shadow" ui-sref=".home">Appointments</a> <!-- ng-href="#/appointments/home" -->
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+					<div class="tab-btn-primary">
+						<a class="btn btn-primary  btn-save-box-shadow"
+							ui-sref=".emergency" >Emergency</a> <!-- ng-href="#/appointments/emergency" -->
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+					<div class="tab-btn-primary">
+						<a class="btn btn-primary  btn-save-box-shadow"
+							ui-sref=".services">Services</a> <!-- ng-href="#/appointments/services" -->
+					</div>
+				</div>
+				
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right">
+						<div class=" ">
+							<a href="" data-toggle="modal" data-target="#confirmLogout" class="btn btn-primary btn-save-box-shadow" title="Save">
+								<i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i>
+							</a>	
+						</div>
+					</div>
+				
+			</div>
+			<div class="row padding-top8">
+				<div class="" ui-view>
+					
+				</div>
+			</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Appointments");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="appointments/home"]').parents("li").addClass("active");
+	});
+</script>

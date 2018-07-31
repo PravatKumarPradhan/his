@@ -1,0 +1,199 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div padding-top10"> Bank Master</legend> -->
+			<div class="row margin-top10 padding-left-right-set4">
+				<form action="" name="patientCategoryForm" novalidate>
+					<div
+						class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group"   show-errors>	
+									<input type="text" name="patientCode" id=""
+										class="text-input floating-label"
+										ng-model="patientCategory.patientCategoryCode" required="required"> <label
+										for="code"> Code</label>
+										<p class="help-block" ng-if="patientCategoryForm.patientCode.$error.required">Country is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="form-group"   show-errors>	
+									<input type="text" name="patientDescription" id=""
+										class="text-input floating-label"
+										ng-model="patientCategory.patientCate" required="required"> <label
+										for="code" class="LISDynamicLabelOne"> Description</label>
+										<p class="help-block" ng-if="patientCategoryForm.patientDescription.$error.required">Country is required</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container padding-top5">
+							<label class="font-weight700" for="chkisForeigner"> <input
+								type="checkbox" id="chkisForeigner" class="margin-right10"
+								ng-true-value="'Y'" ng-false-value="'N'"
+								ng-model="patientCategory.isForeginerCategory">is
+								Foreigner
+							</label>
+						</div>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-set4">
+
+			<div class="col-md-6 col-sm-7 padding-left-right-set4">
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-sm-6" style="padding-left: 0px;">
+						<div class="search">
+							<label class="show-entries">Show <select
+								name="DataTables_Table_0_length"
+								aria-controls="DataTables_Table_0"
+								ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+								ng-change="setNoOfRecords();" class="search-popUp-ddl">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+							</select> entries
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<a href="" class="btn btn-primary btn-save-box-shadow" title="Save"
+					data-toggle="modal" ng-click="savePatient()" ng-show="saveBtnFlag">
+					<i class="fa fa-floppy-o" style="font-size: 21px"
+					aria-hidden="true"></i>
+				</a> <a href="" class="btn btn-primary btn-save-box-shadow"
+					title="Update" data-toggle="modal" ng-click="updatePatient()"
+					ng-show="updateBtnFlag"> <i class="fa fa-floppy-o"
+					style="font-size: 21px" aria-hidden="true"></i></a>
+			</div>
+			<div
+				class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search"
+					style="margin-top: 0px"> <i
+					class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top10">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tbody>
+						<tr class="">
+							<th class="width15">Code
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width15">Description
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width15">is Foreigner
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width8">Status
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="text-center width8">Action
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+						</tr>
+						<tr ng-repeat="info in patientList">
+							<td>{{info.patientCategoryCode}}</td>
+							<td>{{info.patientCategory}}</td>
+							<td>{{info.isForeginerCategory}}</td>
+							<td><label class="switch"> <input type="checkbox"
+									ng-model="info.status" ng-true-value="'A'" ng-false-value="'I'"
+									ng-change="updateStatus(info.patientCategoryId,info.status)">
+									<div class="slider round"></div></label></td>
+							<td class="padding-edit-button-table text-center"><a><i
+									class="fa fa-pencil" aria-hidden="true"
+									ng-click="showUpdateBtn(info.patientCategoryId)"></i></a></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<modal visible="showModal"></modal>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+	});
+	$(".selectedPageName").text("Patient Category Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="patientCategory"]').parents("li").addClass("active");
+</script>

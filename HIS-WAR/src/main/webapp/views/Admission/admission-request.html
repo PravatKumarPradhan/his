@@ -1,0 +1,254 @@
+<!-- Page Content -->
+ <div id="page-content-wrapper" >
+    <div class="container-fluid his-style">
+     <div class="padding-top4 padding-left-right-set4" ng-include="'./views/common/common-patient-search-opd-without-counter.html'" style="margin-top:-5px"></div>
+ <div class="padding-top8 padding-left-right-set4" ng-include="'./views/common/patient-demography-info.html'"></div>
+    <div class="row margin-top4 padding-left-right-set4">
+    	<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right width4">
+		       <div class=" ">
+		        <a href="" class="btn btn-primary btn-save-box-shadow"
+		         title="Save"  ng-click="saveAdmissionRequest()"><i
+		         class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+		       </div>
+		      </div>
+		     <!--  <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+		        <input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.firstName+' '+group.lastName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required style="margin-top:0px"/>
+		        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+		      </div> -->
+    </div>
+    	<!-- <div class="row margin-top10 padding-left-right-10">
+		   <div  class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+			    <div class=" ">
+				     <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveAdmissionRequest()">
+				     	<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+				     </a>
+			    </div>
+		   </div>
+		   <div  class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right" ng-show="selectedPageNameForAdmissionNote != 'ER'">
+			    <input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.firstName+' '+group.lastName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required/>
+			    <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+		   </div>
+	   </div> -->
+        <!-- <div class="row ">
+          	<div class="col-md-8"></div>
+			
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9"  ng-show="selectedPageNameForAdmissionNote != 'ER'">
+					<input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.firstName+' '+group.lastName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required />
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveAdmissionRequest()">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+						</a>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div> -->
+		<!-- <div class="">
+			<div class="row searched-patient-details-row margin-top10">
+				<div class="col-md-12 col-sm-12 col-xs-12 ">
+					<span class="profile_pic margin-left10"> 
+						<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+					</span>
+					<input type="hidden" ng-model="admissionRequest.patientId" />
+					<input type="hidden" ng-model="admissionRequest.tPatientId" />
+					<input type="hidden" ng-model="admissionRequest.prefixId" />
+					<input type="hidden" ng-model="admissionRequest.id" />
+					<input type="hidden" ng-model="admissionRequest.patientCategoryId" />
+					<input type="hidden" ng-model="admissionRequest.visitTypeId" />
+					<span class="margin-left10">{{patientFullName}}</span>
+					<span class="margin-left10"><b class="padding-right5 " ng-if="UHIDNumber">UHID	:</b> {{UHIDNumber}}</span>
+				</div>
+			</div>
+		</div> -->
+		        <input type="hidden" ng-model="admissionRequest.patientId" />
+					<input type="hidden" ng-model="admissionRequest.tPatientId" />
+					<input type="hidden" ng-model="admissionRequest.prefixId" />
+					<input type="hidden" ng-model="admissionRequest.id" />
+					<input type="hidden" ng-model="admissionRequest.patientCategoryId" />
+					<input type="hidden" ng-model="admissionRequest.visitTypeId" />
+					
+		<!-- <fieldset>
+			<legend class="heading-div">Admission Request</legend> -->
+			<form name="admissionrequestform" novalidate >
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-stethoscope	" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="form-group"   show-errors>
+								<select class="text-input floating-label" name="specialityId" ng-model="admissionRequest.specialityId" ng-change="getDoctorBySpeciality(admissionRequest.specialityId)" required>
+									<option>Select Specialty</option>
+									<option ng-repeat="info in specialityList" ng-if="info.isClinicalSpeciality =='Y'" value="{{info.specialityId}}">{{info.specialityName}}</option>
+								</select>		
+								<label for="code">Doctor Specialty</label>
+								<p class="help-block" ng-if="admissionrequestform.specialityId.$error.required">Speciality is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-user-md fa-color" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+						<div class="form-group"   show-errors>
+								<select class="text-input floating-label" name="doctorId" ng-model="admissionRequest.doctorId" required>
+									<option>Select Doctor Name</option>
+									<option ng-repeat="info in doctorList" value="{{info.doctorId}}">{{info.firstName+' '+info.lastName}}</option>
+								</select>		
+								<label for="code">Doctor Name</label>
+								<p class="help-block" ng-if="admissionrequestform.doctorId.$error.required">Doctor is required</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-ticket" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+								<div class="" >
+								<select class="text-input floating-label" name="reasonId" ng-model="admissionRequest.reasonId">
+									<option>Select Reason</option>
+									<option ng-repeat="info in reasonList" value="{{info.reasonMasterId}}"> {{info.reasonDesc}}</option>
+								</select>		
+								<label for="code">Reason For Admission</label>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="form-group" show-errors>
+								<input type="text" class="text-input floating-label dirty"
+									name="datepicker" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepicker"
+									model-view-value="true" is-open="datepicker.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePicker()" required> <label for="code" class="">
+									Date of Admission</label>
+									<p class="help-block" ng-if="admissionrequestform.datepicker.$error.required">Date of admission is required</p>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-bullseye" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 ">
+							<div class="form-group" show-errors>
+								<input type="text" class="text-input floating-label dirty"
+									name="datepickerPdd" id="datepicker"
+									uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+									placeholder="DD/MM/YYYY" ng-model="datepickerPdd"
+									model-view-value="true" is-open="datepickerPdd.opened"
+									datepicker-options="dateOptions" show-button-bar="false"
+									ng-click="openDatePickerPdd()" required> <label for="code" class="">
+									PDD</label>
+									<p class="help-block" ng-if="admissionrequestform.datepickerPdd.$error.required">Date of Discharge	 is required</p>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-ticket" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-8 col-md-8 ">
+							<div class="form-group" show-errors>
+								<select class="text-input floating-label" name="bedCategoryId" ng-model="admissionRequest.bedCategoryId" required>
+									<option>Select Bed Category</option>
+									<option ng-repeat="info in bedCategoryList" value="{{info.bedCategoryId}}">{{info.bedCategoryDesc}}</option>
+								</select>		
+								<label for="code">Select Bed Category</label>
+								<p class="help-block" ng-if="admissionrequestform.bedCategoryId.$error.required">Bed Category is required</p>
+							</div>
+						</div>
+						<!-- <div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4 width3">
+							<a href="#/bedAvailability" class=""><img src="resources/assets/images/tempImages/check-bed-status.png" title="Check Bed Status"></a>
+						</div> -->
+					</div>
+				</div>
+				
+				<div class="col-lg-3 col-md-4 col-sm-4 padding-left-right-set4" ng-show="selectedPageNameForAdmissionNote != 'ER'">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-window-maximize" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 setting-li customRadioBtn">
+							<div class="">
+								<span>
+									<label for="PDD">Is Flexiable Date</label>
+								</span>
+								<span>
+									<input type="radio" name="isFlexiable" id="yes-admission-request" ng-model="admissionRequest.isFlexiable" value="Y">
+										<label class="cursor-pointer " for="yes-admission-request">Yes</label>
+									<input type="radio" name="isFlexiable" ng-model="admissionRequest.isFlexiable" value="N" id="no-admission-request" ng-checked="true">
+										<label class="cursor-pointer " for="no-admission-request">No</label>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4" ng-show="selectedPageNameForAdmissionNote == 'ER'">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+							<i class="fa fa-window-maximize" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-10 col-md-10 setting-li padding-top10">
+							<div class="">
+								<input type="text" class="text-input floating-label" ng-model="admissionRequest.note"  name="PDD">
+								<label for="PDD">Note</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				</div>
+				</form>
+				
+			</div>
+<!-- 	</fieldset> -->
+	</div>
+<modal visible="showModal"></modal> 
+	
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+$('.clockpicker').clockpicker();
+	});
+$(".selectedPageName").text("Admission Request");
+</script>
+</body>
+</html>

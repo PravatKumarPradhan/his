@@ -1,0 +1,317 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Dish Master</legend> -->
+			<div class="row">
+				<div
+					class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id=""
+									class="text-input floating-label"> <label for="code">
+									Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+							<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11">
+							<div class="">
+								<input type="text" name="code" id=""
+									class="text-input floating-label"> <label for="code">Dish Name</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<input type="text" name="code" id=""
+									class="text-input floating-label"> <label for="code">Value</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-2 col-sm-2 col-md-2 polymer-icon">
+							<i class="fa fa-th" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-10 col-sm-10 col-md-10">
+							<div class="">
+								<select class="text-input floating-label" name="code">
+									<option value=""></option>
+								</select> <label for="code">Unit</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div
+					class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set padding-top10">
+					<div class="row input-container border-set-type">
+						<label for="" class="font-weight700">Diet Type :</label> 
+							<input type="radio" name="FixedAssestRadioB" id="FixedAssestRadioB" class=""> 
+						<label for="FixedAssestRadioB" class="checkbox-margin-left-right cursor-pointer">Vegetarian</label> 
+						
+							<input type="radio" name="FixedAssestRadioB" id="FixedAssestRadioB2" class=""> 
+						<label for="FixedAssestRadioB2" class="checkbox-margin-left-right cursor-pointer">Non-Vegetarian</label>
+						
+							<input type="radio" name="FixedAssestRadioB" id="FixedAssestRadioB3" class=""> 
+						<label for="FixedAssestRadioB3" class="checkbox-margin-left-right cursor-pointer">Vegan</label>
+					</div>
+				</div> -->
+				<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set padding-top10">
+					<div class="row input-container text-center">
+						<label for="" class="font-weight700">Diet Type :</label>
+						<label class="checkbox-inline"><input type="checkbox" value="">Vegetarian</label>
+						<label class="checkbox-inline"><input type="checkbox" value="">Non-Vegetarian</label>
+						<label class="checkbox-inline"><input type="checkbox" value="">Vegan</label>
+						<label class="checkbox-inline"><input type="checkbox" value="">All</label>
+					</div>
+				</div>
+				</div>
+			<div class="row paddind-top10">
+				<div class="col-lg-5 col-md-5 col-sm-5 padding-left-right-set4 padding-top10">
+				<div class="radio-btn-div-style table-responsive refarnce-range maxheight211">
+					<table class="table table-bordered" id="DishMasterTable">
+						<thead>
+							<tr>
+								<th class="width15">Key Ingredients</th>
+								<th class="width5">Value</th>
+								<th class="width5">Unit</th>
+								<th class="width8">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>
+								<select class="border-dropdown">
+									<option value=""></option>
+								</select>
+							</td>
+							<td><input type="text" class="w-100"></td>
+							<td>
+								<select class="border-dropdown">
+									<option value=""></option>
+								</select>
+							</td>
+							<td><input type="button" name="" id="" value="+" onclick="addRowTable()" class="btn btn-info add-dynamic-row addbtn"></td>
+						</tr>
+				</tbody>
+				</table>
+				</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-set1">
+			<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+				<div class=" ">
+					<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmLogout"><i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+				<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px"> <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top8">
+				<div class="col-md-12">
+					<table class="table table-bordered">
+						<tr class="">
+							<th class="width10"> Code
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width10">Dish Name
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width5">Value
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width5">Unit
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width8">Diet Type
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width5">Status
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width5 text-center">Action
+								<div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div>
+							</th>
+							<th class="width1"></th>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+								<label class="switch"> 
+									<input type="checkbox">
+									<div class="slider round"></div>
+								</label>
+							</td>
+							<td class="padding-edit-button-table text-center">
+								<a>
+									<i class="fa fa-pencil" aria-hidden="true" title="Edit"></i>
+								</a>
+							</td>
+							<td class="text-center padding-edit-button-table"><a><i class="fa fa-info-circle" aria-hidden="true" title="Details" data-toggle="modal" data-target="#dishdetailsModal"></i></a> </td>
+						</tr>
+					</table>
+				</div>
+			</div>
+	</div>
+</div>
+<!-- Dish Details Modal-->
+<div id="dishdetailsModal" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content"> 
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					 Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 common-table-height-250 padding-top10" id=""><!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table">
+							<thead>
+								<tr>
+									<th class="width15">Dish</th>
+									<th class="width15">Nutrition</th>
+									<th class="width8">Value</th>
+								</tr>
+							</thead>
+							<tbody>
+								<td>Poha</td>
+								<td>
+									<div>Monounsaturated</div>
+									<div>Trans</div>
+									<div>Cholesterol</div>
+									<div>Vitamin A</div>
+								</td>
+								<td>
+									<div>5 g</div>
+									<div>0 g</div>
+									<div>0 mg</div>
+									<div>8 %</div>
+								</td>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Dish Master");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="dishMaster"]').parents("li").addClass("active");
+	});
+	
+	function addRowTable() {
+		//alert();
+		var n = document.getElementById("DishMasterTable").rows.length;
+		var id = Number(n);
+		//alert(id);
+		var test =
+
+		'<tr>'
+				+'<td>'
+				+'<select class="border-dropdown">' 
+				+'<option></option>'
+			    +'</select>'
+				+'</td>'
+				+'<td><input type="text" class="w-100"></td>'
+				+'<td>'
+				+'<select class="border-dropdown">' 
+				+'<option></option>'
+			    +'</select>'
+				+'</td>'
+				+'<td>'
+				+ '<input type="button" name="" id="addr" value="+" onclick="addRowTable()" class="btn btn-info add-dynamic-row addbtn" style="padding: 0 2px;">&nbsp;'
+				+ '<input type="button" name="" id="delrow" value="-" onclick="delTable(this)" class="btn btn-info addbtn" style="padding: 0 4px;">'
+				+ '</td>'
+				+ '</tr>';
+
+		$("#DishMasterTable").append(test);
+
+	}
+
+	function delTable(r) {
+		var i = r.parentNode.parentNode.rowIndex;
+		document.getElementById("DishMasterTable").deleteRow(i);
+	}
+</script>

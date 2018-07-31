@@ -1,0 +1,59 @@
+        <!-- Page Content -->
+        <div id="page-content-wrapper" class="">
+            <div class="container-fluid his-style">
+            	
+				<div class="row padding-left-right-set4 padding-top4">
+					<div class="col-md-12">
+						<table class="table table-bordered ">
+							<tr class="">
+								<th class="width4">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width10">
+									Name of Deceased
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="width1 class="text-center"">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr ng-repeat="info in mortuaryPendingList">
+								<td>{{info.uhidNumber}}</td>
+								<td>
+									<div>{{info.patientName+' '+info.age+'/ '+info.genderCode}} </div>
+								</td>
+								<td><a  ng-click="bedAllocation(info)">Reserve</a>&nbsp;&nbsp;<a href="" ng-click="getDataReject(info)" data-toggle="modal" data-target="#accepatReject">Reject </a></td>
+								
+							</tr>
+						</table>
+					</div>
+				</div>
+  			</div>
+		</div>
+		<modal visible="showModal"></modal>
+		 <div ng-include="'./views/common/accept-reject.html'"></div>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	$(".selectedPageName").text("Mortuary Pending list");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="morguePendinglist"]').parents("li").addClass("active");
+	
+	});
+
+</script>

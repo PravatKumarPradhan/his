@@ -1,0 +1,412 @@
+<div id="page-content-wrapper" style="height:100%; overflow-y:auto ">
+	<div class="container-fluid his-style">
+			 	<fieldset class="normalRegistration sub-fieldset">
+					<!-- <legend class="sub-legend border-bottom-none commonPatientSearch cursor-pointer">Unit Service Master</legend> -->
+					 	<div class="row">
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+										<input type="text" name="speciality" id="" class="text-input floating-label" ng-model ="unitServiceMaster.specialityName">
+											<!-- <select class="text-input floating-label" ng-model="unitService.specialityId" ng-change="getSubSpecialityBySpecialityId(unitService.specialityId)" convert-to-number>
+												<option value="{{speciality.specialityId}}" ng-repeat="speciality in specialityMasterList">{{speciality.specialityName}}</option>
+											</select> --> 
+											<label for="code">Department</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+										<input type="text" name="subSpeciality" id="" class="text-input floating-label" ng-model ="unitServiceMaster.subSpecialityName">
+<!-- 											<select class="text-input floating-label" ng-model="unitService.subSpecialityId" convert-to-number> -->
+<!-- 												<option></option> -->
+<!-- 												<option ng-repeat = "subSpeciality in subSpecialityMasterList" value="{{subSpeciality.subSpecialityMasterId}}">{{subSpeciality.subSpecialityMasterName}}</option> -->
+<!-- 											</select>  -->
+											<label for="code">Sub Department</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" name="description" id="" class="text-input floating-label" ng-model ="unitServiceMaster.serviceStandardName"> 
+											<label for="description" class="LISDynamicLabel">Service Name</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" name="description" id="" class="text-input floating-label" ng-model ="unitServiceMaster.serviceStandardCode"> 
+											<label for="description" class="LISDynamicLabel">Service Code</label>
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
+					 
+					<div class="row padding-top8">
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+										<input type="text" name="subSpecialityRender" id="" class="text-input floating-label" ng-model ="unitServiceMaster.subSpecialityName"> 
+											<!-- <select class="text-input floating-label" ng-model="unitService.subSpecialityId" convert-to-number>
+												<option></option>
+												<option ng-repeat = "subSpeciality in subSpecialityMasterList" value="{{subSpeciality.subSpecialityMasterId}}">{{subSpeciality.subSpecialityMasterName}}</option>
+											</select> -->
+											 <label for="code">Rendering Department</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 padding-left10">
+								<div class="row padding-top10">
+									<input class="" type="checkbox" name="registrationType" ng-model="unitServiceMaster.isOutsource" ng-true-value="'Y'" ng-false-value="'N'" id="isOutsourceId">
+									<label id="isOutsourceId" class="color-black margin-left5">Is Outsource</label>
+							</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 padding-left10">
+								<div class="row padding-top10">
+									<input type="checkbox" name="registrationType" ng-model="unitServiceMaster.isPackage" ng-true-value="'Y'" ng-false-value="'N'" id="isPackageId">
+									<label for="isPackageId" class="margin-left5">Is Package</label>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 margin-top10 padding-left10">
+								<div class="row">
+									<div class="col-md-5 col-sm-5 col-xs-5 padding-left-right-set1">
+										<input type="checkbox" name="registrationType" ng-model="unitServiceMaster.isRateEditable" ng-true-value="'Y'" ng-false-value="'N'" ng-change="unitServiceMaster.rateEditbleMinValue=unitServiceMaster.rateEditableMaxValue = unitServiceMaster.isRateEditable == 'N' ? '' : unitServiceMaster.rateEditbleMinValue" id="rateEditableId">
+										<label class="color-black margin-left5" for="rateEditableId">Rate Editable</label>
+									</div>
+									<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-set4">
+										<input type="text" placeholder="Min" style="width:100%" ng-model="unitServiceMaster.rateEditbleMinValue" ng-disabled="unitServiceMaster.isRateEditable != 'Y'" >
+									</div>
+									<div class="col-md-2 col-sm-2 col-xs-2 padding-left-right-set4" >
+										<input type="text" placeholder="Max" style="width:100%" ng-model="unitServiceMaster.rateEditableMaxValue" ng-disabled="unitServiceMaster.isRateEditable != 'Y'">
+									</div>
+									<div class="col-md-1 col-sm-1 col-xs-1 padding-left-right-set4 vertical-middle text-center" >
+										<label class="color-black">%</label>
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right15 padding-top10 padding-left10">
+								<div class="row padding-top10">
+									<input type="checkbox" name="registrationType" ng-model="unitServiceMaster.isTaxApplicable" ng-true-value="'Y'" ng-false-value="'N'" id="taxAppilcableId">
+									<label class="color-black margin-left5" for="taxAppilcableId">Tax Applicable</label>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 padding-left10">
+								<div class="row padding-top10">
+									<input class="" id="isRefDoctorShareId" type="checkbox" name="registrationType" ng-model="unitServiceMaster.isRefDoctorShare" ng-true-value="'Y'" ng-false-value="'N'">
+									<label class="margin-left5 color-black" for="isRefDoctorShareId">Is Ref.Doctor Share</label>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row padding-top10">
+									<div class="col-md-5 col-sm-5 col-xs-5 padding-left-right-set4">
+										<input type="checkbox" name="registrationType" ng-model="unitServiceMaster.isDiscount" ng-true-value="'Y'" ng-false-value="'N'"  ng-change="unitServiceMaster.discountValue = unitServiceMaster.isDiscount == 'N' ? '' : unitServiceMaster.discountValue" id="isDiscountId">
+										<label for="isDiscountId" class="margin-left5 color-black">Is Discount</label>
+									</div>
+									<div class="col-md-6 col-sm-6 col-xs-6 padding-left-right-set4">
+										<input type="number" style="width:100%" min="1" ng-model="unitServiceMaster.discountValue" ng-disabled="unitServiceMaster.isDiscount != 'Y'">
+									</div>
+									<div class="col-md-1 col-sm-1 col-xs-1 padding-left-right-set4 vertical-middle text-center">
+										<label class="color-black">%</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 margin-top10">
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+									<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label" ng-model="unitServiceMaster.gstTypeId">
+											<option ng-repeat="info in taxList" value="{{info.id}}">{{info.name}}</option>
+											</select> <label for="code" >GST Type</label>
+										</div>
+									</div>
+								</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label" ng-model="unitServiceMaster.otcGstTypeId">
+												<option ng-repeat="info in taxList" value="{{info.id}}">{{info.name}}</option>
+											</select> <label for="code">OTC GST Type</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							</div>
+					</div>
+					<div class="row margin-top8">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 padding-left10">
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-10 col-sm-11 col-md-10 ">
+										<div class="form-group has-error">
+											 <input class="" type="checkbox" id="IsProcedurecheckbox" ng-model="unitServiceMaster.isProcedure" ng-true-value="'Y'" ng-false-value="'N'">
+											<label for="IsProcedurecheckbox" class="color-black margin-left5">Is Procedure</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-10 col-sm-11 col-md-10 ">
+										<div class="form-group has-error">
+											<input class="" type="checkbox" id="IsAllowMultiplecheckbox" ng-model="unitServiceMaster.isQuantityEditable" ng-true-value="'Y'" ng-false-value="'N'">
+											<label for="IsAllowMultiplecheckbox" class="color-black margin-left5">Is Allow Multiple</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 padding-left10">
+							<input class="" type="checkbox" id="IsDoctorReqcheckbox" ng-model="unitServiceMaster.isDocReq" ng-true-value="'Y'" ng-false-value="'N'">
+							<label for="IsDoctorReqcheckbox" class="color-black margin-left5">Is Doctor Required</label>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 padding-left10">
+							<input class="" type="checkbox" id="IsAutoRadnercheckbox" ng-model="unitServiceMaster.isAutoRender" ng-true-value="'Y'" ng-false-value="'N'">
+							<label for="IsAutoRadnercheckbox" class="color-black margin-left5">Is Auto Render</label>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 padding-left10">
+							<input class="" type="checkbox" id="IsBedSidecheckbox" ng-model="unitServiceMaster.isBedSide" ng-true-value="'Y'" ng-false-value="'N'">
+							<label for="IsBedSidecheckbox" class="color-black margin-left5">Is Bed Side</label>
+						</div>
+					</div>
+					<div class="row margin-top8">
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 padding-left10">
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set1">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-10 col-sm-11 col-md-10 ">
+										<div class="form-group has-error">
+											 <input class="" type="checkbox" id="IsPanelcheckbox" ng-model="unitServiceMaster.isPanel" ng-true-value="'Y'" ng-false-value="'N'">
+											<label for="IsPanelcheckbox" class="color-black margin-left5">Is Panel</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-10 col-sm-11 col-md-10 ">
+										<div class="form-group has-error">
+											<input class="" type="checkbox" id="IsPOCcheckbox" ng-model="unitServiceMaster.isPoc" ng-true-value="'Y'" ng-false-value="'N'">
+											<label for="IsPOCcheckbox" class="color-black margin-left5">Is POC</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-10 padding-top10 padding-left1">
+							<input class="" type="checkbox" id="IsPeriodicitycheckbox" ng-model="unitServiceMaster.isPeriodicity" ng-true-value="'Y'" ng-false-value="'N'">
+							<label for="IsPeriodicitycheckbox" class="color-black margin-left5">Is Periodicity</label>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+							<div class="width-div-for-patient-reg ">
+								<!-- <a href="" class="btn btn-primary btn-save-box-shadow" ng-if="saveBtnFlag" title="Save" ng-click="saveUnitServiceMasterDetails()">
+								 <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+								</a> -->
+								<a href="" class="btn btn-primary btn-save-box-shadow" ng-if="!saveBtnFlag" title="Update" ng-click="updateUnitServiceMasterDetails()">
+								 <i class="fa fa-refresh" style="font-size: 21px" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 float_right">
+							<div class="">
+								<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px" ng-model="searchKeyword">
+								<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+							</div>
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 col-lg-12 margin-top10 padding-left-right-set4">
+							<table class="table table-bordered">
+							       <tr>
+							       <th class="width15">
+							        <span class="">Department</span>
+							        <div class="float_right">
+										<div>
+											<i ng-click='sortColumn("specialityName")' class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i ng-click='sortColumn("specialityName")' class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+							       </th>
+							       <th class="width15">
+							         <span class="">Sub Department</span>
+							         <div class="float_right">
+										<div>
+											<i ng-click='sortColumn("subSpecialityName")' class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i ng-click='sortColumn("subSpecialityName")' class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+							       </th>
+							       <th class="width10">
+							        Code
+							        <div class="float_right">
+										<div>
+											<i ng-click='sortColumn("")' class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i ng-click='sortColumn("")' class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+							       </th>
+							       <th class="width20">
+							        Service Name
+							        <div class="float_right">
+										<div>
+											<i ng-click='sortColumn("serviceStandardName")' class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i ng-click='sortColumn("serviceStandardName")' class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+							       </th>
+							       <th class="width5 text-center">
+							        Action
+							       
+							       </th>
+							       <th class="width5 text-center">
+							       Details
+							      
+							       </th>
+							      </tr>
+							      <tr ng-repeat="serviceDtls in unitServiceMasterDetailsList |orderBy:column:reverse|filter:searchKeyword" >
+								       <td>
+								        {{serviceDtls.specialityName}}
+								       </td>
+								       <td>
+								         {{serviceDtls.subSpecialityName}}
+								       </td>
+								       <td>
+								       {{serviceDtls.serviceStandardCode}}
+								       </td>
+								       <td>
+								        {{serviceDtls.serviceStandardName}}
+								       </td>
+								       <td class="text-center">
+								        <a> <i class="fa fa-pencil" aria-hidden="true" title="Edit" ng-click="getUnitServiceMasterDetailsById(serviceDtls.unitServiceMasterDetailsId)"> </i>
+										</a>
+								       </td>
+								      
+								       <th class="width1 text-center">
+								         <a href="" data-toggle="modal" data-target="#debitNoteListView">View</a>
+								       </th>
+							      </tr>
+							       
+						</table>
+							<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+					</div>
+				</div>
+		</fieldset>
+	</div>
+</div>
+
+
+
+
+<!-- DEBIT NOTE LIST VIEW POPUP -->
+<div id="debitNoteListView" class="common-large-popup modal fade ng-scope in his-style" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Debit Note Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="col-md-12" style="background-color: white">
+						<div class="row margin-top8">
+								<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 ">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow" ng-href="#/billList/serviceDetails">Service Details</a>
+									</div>
+								</div>
+								<div class="col-lg-4"></div>
+								<div class="col-lg-4 col-md-4 col-lg-4 padding-left-right-set4">
+									<input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px">
+									<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+								</div>
+						</div>
+						<div ng-include="'views/master/UnitMaster/billingMaster/common/service-details.html'"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+<script>
+
+$(document).ready(function() {  
+	 $(".selectedPageName").text("Unit Service Master");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="debitNoteList"]').parents("li").addClass("active");
+});
+
+
+
+</script>
+
+
+
+
+

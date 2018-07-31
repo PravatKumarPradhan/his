@@ -1,0 +1,199 @@
+<div id="page-content-wrapper" class="ng-scope">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<!-- <legend class="heading-div">Material Issue Details</legend> -->
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Issue No.
+							 :</b><lable>{{vm.model.issueListDetail.issueNo}}</lable></span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Issue
+							Date :</b><lable>{{vm.model.issueListDetail.issueDate  | date:'dd/MM/yyyy'}}</lable> </span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">From
+							Store :</b><lable>{{vm.model.issueListDetail.fromStore}}</lable> </span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">To
+							Store :</b><lable>{{vm.model.issueListDetail.toStore}}<lable></span>
+				</div>
+			</div>
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Indent No.
+							:</b><lable>{{vm.model.issueListDetail.indentNo}}<lable></span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Priority
+							:</b><lable>{{vm.model.issueListDetail.priority}}<lable> </span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Type :
+						<lable>{{vm.model.issueListDetail.indentType}}<lable> </b>
+					</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Is Consignment:</b>
+						<lable>{{vm.model.issueListDetail.isConsignment}}</lable>
+					</span>
+				</div>
+			</div>
+			<div class="row" id="fixeAssetRowId">
+				<div class="col-lg-12 col-md-12 fix-height-scroll500 padding-top10 padding-left-right-set4">
+					<table class="table table-bordered">
+						<thead>
+							
+							<tr>
+								<th class="width8">Item Code
+									<div class="float_right" ng-click="sortType = 'itemCode'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">Item Name
+									<div class="float_right" ng-click="sortType = 'itemName'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">Generic Name
+									<div class="float_right" ng-click="sortType = 'genericName'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">UOM
+									<div class="float_right" ng-click="sortType = 'uomType'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width7">UOM Unit
+									<div class="float_right" ng-click="sortType = 'uomUnit'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width7">Issue Qty
+									<div class="float_right" ng-click="sortType = 'issueQuantity'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width7">Batch
+									<div class="float_right" ng-click="sortType = 'batchNo'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width7">Expiry Date
+									<div class="float_right" ng-click="sortType = 'expiryDate'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">Indent Qty
+									<div class="float_right" ng-click="sortType = 'indentQuantity'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">Pending Indent Qty
+									<div class="float_right" ng-click="sortType = 'pendingQuantity'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">Max Order Qty
+									<div class="float_right" ng-click="sortType = 'maxOrderQuantity'; sortReverse = !sortReverse">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in vm.model.issueListDetail.items | orderBy:sortType:sortReverse">
+								<td>{{item.itemCode}}</td>
+								<td>{{item.itemName}}</td>
+								<td>{{item.genericName}}</td>
+								<td>{{item.uomType}}</td>
+								<td>{{item.uomUnit}}</td>
+								<td>{{item.issueQuantity}}</td>
+								<td>{{item.batchNo}}</td>
+								<td>{{item.expiryDatee  | date:'MMM-yyyy'}}</td>
+								<td>{{item.indentQuantity}}</td>
+								<td>{{item.pendingQuantity}}</td>
+								<td>{{item.maxOrderQuantity}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</fieldset>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style padding-right20">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Carrier
+							 :</b> <lable>{{vm.model.issueListDetail.carrierName}}</lable></span>
+				</div>
+				<div class="col-lg-9 col-md-9 col-sm-9 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Remark
+							 :</b> <lable>{{vm.model.issueListDetail.remark}}</lable></span>
+				</div>
+				<div class="col-md-1 padding-left0px-right6px">
+						<div class="">
+							<a href="#/materialIssue/issueList"> <input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+							</a>
+						</div>
+					</div>
+			</div>
+		</footer>
+	</div>
+</div>

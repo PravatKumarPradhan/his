@@ -1,0 +1,868 @@
+<!-- /********************************************************************************************************************************************
+Inventory - store --gg Waste store - (Add new item) page
+Created by - Pranita Patil
+Created Date - 09-Oct-2017 
+/********************************************************************************************************************************************/ -->
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+<div class="container-fluid his-style">
+<fieldset class="main-fieldset">
+	<!-- <legend class="heading-div">Add New Item</legend> -->
+	<div class="row margin-top10">
+		<!-- <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+			<div class="row input-container">
+				<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					<i class="fa fa-calendar" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-11 col-sm-11 col-md-11">
+					<div class="">
+						<input type="text" name="code" id="" class="text-input floating-label">
+						<label for="code">Date</label>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+			<div class="row input-container">
+				<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-11 col-sm-11 col-md-11">
+					<div class="">
+						<select class="text-input floating-label">
+							<option></option>
+							<option value="0">Pharmacy Store</option>
+							<option value="1">OT Store</option>
+						</select>
+						<label for="code">Store</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+			<div class="row input-container">
+				<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					<i class="fa fa-user" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-11 col-sm-11 col-md-11">
+					<div class="">
+						<select class="text-input floating-label">
+							<option></option>
+							<option>Vendor 1</option>
+							<option>Vendor 2</option>
+						</select>
+						<label for="code">Vendor</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+			<div class="row input-container">
+				<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					<i class="fa fa-building-o" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-11 col-sm-11 col-md-11">
+					<div class="">
+						<select class="text-input floating-label" id="">
+							<option></option>
+							<option id="expiryReturn">Expiry Return</option>
+							<option>Scrap</option>
+							<option>Auction</option>
+						</select>
+						<label for="code">Select Type</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set padding-top10">
+			<div class="row input-container padding-top10">
+				<input type="radio" name="addNewItemRadioBtn" id="addNewItemRadioBtn" class="addNewItemRadioBtnClass">
+					<label for="addNewItemRadioBtn" class="checkbox-margin-left-right">Add Item</label>
+				<input type="radio" name="addNewItemRadioBtn" id="getRequestListBtn" class="getRequestListBtnClass">
+					<label for="getRequestListBtn" class="checkbox-margin-left-right">Get Request List</label>
+			</div>
+		</div> -->
+		<div class=" col-lg-3 col-md-3 col-sm-3 padding-left-right-set1 text-center">
+			<div id="mediaType" class="row uk-input-group customRadioBtn ">													
+				<span>
+						<input id="PatientOTCRadio" name="OTCReg" type="radio" value="1" checked="checked" class="otherRegistrationType" data-toggle="modal" data-target="#getItemList" checked="">
+						<label for="PatientOTCRadio">Get Item</label>
+				</span>
+				<span>
+						<input id="dependentOTCRadio" name="OTCReg" type="radio" value="2" class="dependentRedRadio" data-toggle="modal" data-target="#nearExpiry">
+						<label for="dependentOTCRadio">Near Expiry</label>
+				</span>
+					
+			</div>
+		</div>
+	</div>
+	
+	<!-- ************ old table start************ -->
+	<div class="row" style="display:none">
+		<div class="col-lg-12 col-md-12 padding-top10">
+			<table class="table table-bordered">
+				<thead>
+					<tr class="table-th-bg">
+						<th colspan="13" class="font-weight700">Item Details</th>
+					</tr>
+					<tr>
+						<th class="width1">
+							<input type="checkbox"/>
+						</th>
+						<th class="width6">Item Code
+						</th>
+						<th class="width8">Item Name
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+						<th class="width5">Batch No
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+						<th class="width5">Expiry Date
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+						<th class="width10">Vendor Name
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+						<th class="width5" title="Vendor Invoice Date">Invoice Date
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+						<th class="width5">COP
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+						<th class="width5">MRP
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+						<th class="width5">Qty
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+						<th class="width5">Amount At COP
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+						<th class="width5">Amount At MRP
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+						<th class="width20">
+							<div class="col-md-8 col-sm-8 padding-left-right-set4">Vendor
+								<!-- <div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div> -->
+							</div>
+							<div class="col-md-2 col-sm-2 padding-left-right-set4">Qty
+								<!-- <div class="float_right">
+									<div>
+										<i class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+									</div>
+								</div> -->
+							</div>
+							<div class="col-md-2 col-sm-2 padding-left-right-set4">
+								Action
+							</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="checkbox"/></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<div class="col-md-12">
+								<table class="table table-bordered" id="addVendorTable">
+									<tbody>
+										<tr>
+											<td class="width65">
+												<select style="width:100%;">
+													<option></option>
+													<option>Vendor 1</option>
+												</select>
+											</td>
+											<td class="width15">
+												<input type="text" placeholder="Qty" class="width50px"/>
+											</td>
+											<td class="width20">
+												<input type="button" name="" id="addVendorTablePlusBtn" value="+" onclick="addRowRangeTable1()" class="btn btn-info add-dynamic-row" style="padding: 0 2px !important;">&nbsp;
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- ************ old table end************ -->
+	
+	<!-- ************ Auction table start ************ -->
+	<div class="row" >
+		<div class="col-lg-12 col-md-12  padding-top10">
+			<table class="table table-bordered">
+				<thead>
+					<tr class="table-th-bg">
+						<th colspan="15" class="font-weight700">Item Details</th>
+					</tr>
+					<tr>
+						<th class="width1 vertical-middle">
+							<input type="checkbox">
+						</th>
+						<th class="width6 vertical-middle">Item Code
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width6 vertical-middle">Item Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width3 vertical-middle">
+						  	UOM 
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width2 vertical-middle">
+						  	UOM Unit
+							<div class="float_right">
+								<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+								<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+							</div>
+						</th>
+						<th class="width5 vertical-middle">Batch No
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width3 vertical-middle">Expiry Date
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width3 vertical-middle">Lot No.
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5 vertical-middle">Vendor Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<!-- <th class="width4 vertical-middle" title="Vendor Invoice Date">Invoice Date
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th> -->
+						<th class="width3 vertical-middle">COP
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width4 vertical-middle">Available Qty
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width4 vertical-middle">Return Qty
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width4 vertical-middle">Amount At COP
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width1"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="checkbox"/></td>
+						<td></td>
+						<td></td>
+						<td>
+							<select class="w-100">
+								<option value="">SUOM</option>
+							</select>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><input type="text" class="w-100"></td>
+						<td></td>
+						<td class="text-center vertical-middle"><a><i class="fa fa-times"></i></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- ************ Auction table end ************ -->
+</fieldset>
+	<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+		<div class="row his-style margin-top10 padding-right20">
+			<div class="col-md-1 text-right" >
+				<label>Remark:</label>
+			</div>
+			<div class="col-md-9 padding-left-right8">
+				<textarea row="1" class="form-control"></textarea>
+			</div>
+			<div class="col-md-1 padding-left0px-right6px">
+				<div class=""><!-- common-save-button -->
+					<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+				</div>
+			</div>
+			<div class="col-md-1 padding-left0px-right6px">
+				<div class=""><!-- common-save-button -->
+					<a href="#/wasteStore">
+						<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+</div>
+
+<!--  Get request modal start -->
+<div id="getRequestWasteStore" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Get Request List
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body height-table-with-scroll">
+				<fieldset class="get-request-row">
+					<div class="row margin-top10">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+											<option>Type 1</option>
+											<option>Type 2</option>
+										</select>
+										<label for="code">From Store</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+											<option>Type 1</option>
+											<option>Type 2</option>
+										</select> <label for="code">To Store</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="code" id="" class="text-input floating-label">
+										<label for="code">Search</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-1 padding-left8px-right-0px padding-top10 his-style">
+							<input type="button" value="Search" class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+					<div class="row padding-top10">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<table class="table table-bordered">
+								<thead>
+									<tr class="">
+										<th colspan="7" class="font-weight700">Item Details</th>
+									</tr>
+								</thead>
+								<tbody>
+								<tr class="table-th-bg cursor-pointer">
+										<td class="text-center">
+											<input type="checkbox" />
+										</td>
+										<td>
+											<div class="col-md-4 font-weight700">
+												Request Date:
+											</div>
+											<div class="col-md-4  text-left">
+												08/10/2017
+											</div>
+											<div class="col-md-4 font-weight700 text-right">
+												Request No:
+											</div>
+										</td>
+										<td>
+											<div class="col-md-3  text-left">
+												12344
+											</div>
+											<div class="col-md-4 font-weight700 text-right">
+												Store No:
+											</div>
+												<div class="col-md-4  padding-left-right-10">
+												SN-9836
+											</div>
+										</td>
+										<td colspan="2">
+											<div class="col-md-4 font-weight700 text-left" title="Requested By">
+												Requested By:
+											</div>
+											<div class="col-md-4  text-left">
+												Varun Sharma
+											</div>
+											<div class="col-md-4 font-weight700 text-right">
+												Authorized By:
+											</div>
+										</td>
+										<td>
+											<div class="col-md-5   text-left">
+												-
+											</div>
+											<div class="col-md-3 font-weight700 text-right">
+												Date:
+											</div>
+											<div class="col-md-3  text-left padding-left-right-10">
+												08/10/2017
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="6">
+											<div class="selectedServicesList">
+												<table class="table table-bordered ">
+													<tbody>
+														<tr>
+										<th class="width1"></th>
+										<th class="width10">Item Code
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">Item Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width5">Qty
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">Batch No.
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">Expiry Date
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+									</tr>
+														<tr>
+															<td class="width1 text-center">
+																<input type="checkbox" />
+															</td>
+															<td class="width10">PP-1234</td>
+															<td class="width10">Item One</td>
+															<td class="width5">150</td>
+															<td class="width8">BT-1232</td>
+															<td class="width8">12-10-2017</td>
+														</tr>
+														<tr>
+															<td class="width1 text-center">
+																<input type="checkbox" />
+															</td>
+															<td class="width10">PP-1234</td>
+															<td class="width10">Item Two</td>
+															<td class="width5">150</td>
+															<td class="width8">BT-1232</td>
+															<td class="width8">12-10-2017</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</td>
+									</tr>
+									<tr class="table-th-bg cursor-pointer">
+										<td class="text-center">
+											<input type="checkbox" />
+										</td>
+										<td>
+											<div class="col-md-4 font-weight700">
+												Request Date:
+											</div>
+											<div class="col-md-4  text-left">
+												09/10/2017
+											</div>
+											<div class="col-md-4 font-weight700 text-right">
+												Request No:
+											</div>
+										</td>
+										<td>
+											<div class="col-md-3  text-left">
+												12345
+											</div>
+											<div class="col-md-4 font-weight700 text-right">
+												Store No:
+											</div>
+												<div class="col-md-4  padding-left-right-10">
+												SN-9837
+											</div>
+										</td>
+										<td colspan="2">
+											<div class="col-md-4 font-weight700 text-left" title="Requested By">
+												Requested By:
+											</div>
+											<div class="col-md-4  text-left">
+												Varun Sharma
+											</div>
+											<div class="col-md-4 font-weight700 text-right">
+												Authorized By:
+											</div>
+										</td>
+										<td>
+											<div class="col-md-5   text-left">
+												-
+											</div>
+											<div class="col-md-3 font-weight700 text-right">
+												Date:
+											</div>
+											<div class="col-md-3  text-left padding-left-right-10">
+												09/10/2017
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="6">
+											<div class="selectedServicesList">
+												<table class="table table-bordered">
+													<tbody>
+														<tr>
+										<th class="width1"></th>
+										<th class="width10">Item Code
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">Item Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width5">Qty
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">Batch No.
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width8">Expiry Date
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+									</tr>
+														<tr>
+															<td class="width1 text-center">
+																<input type="checkbox" />
+															</td>
+															<td class="width10">PP-1234</td>
+															<td class="width10">Item One</td>
+															<td class="width5">150</td>
+															<td class="width8">BT-1232</td>
+															<td class="width8">12-10-2017</td>
+														</tr>
+														<tr>
+															<td class="width1 text-center">
+																<input type="checkbox" />
+															</td>
+															<td class="width10">PP-1234</td>
+															<td class="width10">Item Two</td>
+															<td class="width5">150</td>
+															<td class="width8">BT-1232</td>
+															<td class="width8">12-10-2017</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<div class="modal-footer">
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Add" class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  Get request modal start -->
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".selectedPageName").text("Add New Item Waste Store");
+	$(".selectedServicesList").hide();
+	$( ".addNewItemRadioBtnClass" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$("#addNewItemWasteStore").modal();
+		}
+	}); 
+	$( ".getRequestListBtnClass" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$("#getRequestWasteStore").modal();
+		}
+	}); 
+});
+
+/*** On Select Expiry Return Opt Value Show Modal Start ***/
+ 
+ /* $("#selectType").change(function() {
+    if ($("#expiryReturn").is(":selected")) {
+    	 $('#nearExpiry').modal("show");
+    
+    } else {
+    	 $('#nearExpiry').modal("hide");
+     
+    }
+  }).trigger('change'); */
+
+ /*** On Select Expiry Return Opt Value Show Modal Start ***/
+ 
+$(".table-th-bg").click(function(){
+	/* alert(); */
+	$(this).next().find(".selectedServicesList").toggle();
+});
+</script>
+<script src="resources/assets/js/common/page-height.js"></script>

@@ -1,0 +1,125 @@
+<!-- **************************************  get item list Modal Start  ************************************** -->
+<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+			<div class="row input-container">
+				<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					<i class="fa fa-tasks" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-11 col-sm-11 col-md-11">
+					<div class="">
+						<select class="text-input floating-label" ng-model="itemObj.assetCategoryId" ng-change="getProductCatByAssestCat(itemObj.assetCategoryId)">
+							<option value="">-</option>
+							<option ng-repeat="assetCat in assetCategoryList" value="{{assetCat.id}}" >{{assetCat.category}}</option>
+						</select> <label for="code">Asset Category</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+			<div class="row input-container">
+				<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+					<i class="fa fa-tasks" aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-11 col-sm-11 col-md-11">
+					<div class="">
+						<select class="text-input floating-label" ng-model="itemObj.productCategoryId">
+							<option value="">-</option>
+							<option ng-repeat="prodCat in productCategoryList" value="{{prodCat.id}}">{{prodCat.category}}</option>
+						</select> <label for="code">Product Category</label>
+					</div>
+				</div>
+			</div>
+		 </div>
+			<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<input type="text" name="description" id="" press-enter="itemSearch(itemObj)" ng-model="itemObj.itemCode" class="text-input floating-label" >
+							<label for="description" class="LISDynamicLabel">Item Code</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+				<div class="row input-container">
+					<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+						<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+					</div>
+					<div class="col-lg-11 col-sm-11 col-md-11 ">
+						<div class="">
+							<input type="text" name="description" id="" press-enter="itemSearch(itemObj)" ng-model="itemObj.itemName" class="text-input floating-label">
+							<label for="description" class="LISDynamicLabel">Item Name</label>
+						</div>
+					</div>
+				</div>
+			</div>
+</div>
+<div class="row common-popup-height-350">
+						<div class="col-lg-12 col-md-12 padding-top10 padding-left-right-set4">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="width1 text-center media-middle ">
+											<input type="checkbox" ng-model="selectAllItem" ng-change="selectAllItems(selectAllItem)" />
+										</th>
+										<th class="width10">Asset Category
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">Product Category
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">Item Code
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+										<th class="width10">Item Name
+											<div class="float_right">
+												<div>
+													<i class="fa fa-caret-up" aria-hidden="true"></i>
+												</div>
+												<div class="margin-top-8">
+													<i class="fa fa-caret-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="item in searchItemList">
+										<td class="text-center">
+											<input ng-model="item.isSelected" type="checkbox"  />
+										</td>
+										<td>{{item.assetCategory}}</td>
+                    					<td>{{item.productCategory}}</td>
+										<td>{{item.itemCode}}</td>
+                    					<td>{{item.itemName}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+<!-- **************************************  get item list Modal END  ************************************** -->

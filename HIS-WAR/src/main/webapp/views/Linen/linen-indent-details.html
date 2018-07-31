@@ -1,0 +1,173 @@
+<div id="page-content-wrapper" class="ng-scope">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<!-- <legend class="heading-div">Store Indent Approval Details</legend> -->
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+          <span class="margin-left10 ng-binding"><b class="padding-right10 ">Indent
+              No. :</b> IND-1001 </span>
+        </div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10 ng-binding"><b class="padding-right10 ">Indent
+							Date:</b>20/04/2018 </span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10 ng-binding"><b class="padding-right10 ">From
+							Store :</b> ICU Store</span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10 ng-binding"><b class="padding-right10 ">To
+							Store:</b> Main Store </span>
+				</div>
+			</div>
+			<div class="row margin-top10">
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10 ng-binding"><b class="padding-right10 ">Priority
+							:</b> Low </span>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10 ng-binding"><b class="padding-right10 ">Type:</b> Bed Linen
+					</span>
+				</div>
+				
+			</div>
+			<!--  fixed asset table start -->
+			<div class="row" id="fixeAssetRowId">
+				<div class="col-lg-12 col-md-12 height420-table-with-scroll padding-top10 padding-left-right-set4">
+					<table class="table table-bordered">
+						<thead>
+							<!-- <tr class="table-th-bg">
+						<th colspan="13" class="font-weight700">Fixed Asset Item Details</th>
+					</tr> -->
+							<tr>
+  							<th class="width1 text-center vertical-middle">
+                  <input type="checkbox" ng-model="vm.model.selectAllRows" ng-click="vm.model.SelectedAll()" class="ng-pristine ng-untouched ng-valid ng-empty">
+                </th>
+								<th class="width7 vertical-middle">Linen Code
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width7 vertical-middle">Linen Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8 vertical-middle">UOM
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width9 vertical-middle">Indent Qty
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width7 vertical-middle">Stock Available
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10 vertical-middle">Stock in Transit
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<!-- <th class="width3 text-center vertical-middle">Approved Qty
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width3">
+								<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th> -->
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="text-center vertical-middle"><input type="checkbox"></td>
+								<td class="vertical-middle">LN1420</td>
+								<td class="vertical-middle">Bedsheet</td>
+								<td class="vertical-middle">Piece</td>
+								<td class="vertical-middle">10</td>
+								<td class="vertical-middle">0</td>
+								<td class="vertical-middle">0</td>
+								<!-- <td class="vertical-middle">
+									<div class="row approved-qty-remark">
+										<input type="text" class="w-100" value="5">
+									</div>
+								</td>
+								<td class=" vertical-middle">
+									<div class="checkbox">
+									  <label><input type="checkbox" value="" data-toggle="modal" data-target="#qtyaccepatReject">Reject</label>
+									</div>
+								</td> -->
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- fixed asset table end -->
+		</fieldset>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row padding-top5 padding-right10">
+				<!-- <div class="col-lg-10 col-md-10 col-sm-10"></div> -->
+				<!-- <div class="col-lg-1 col-md-1 col-sm-1 padding-left0px-right6px">
+					<a>
+						<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div> -->
+				<div class="col-lg-1 col-md-1 col-sm-1 padding-left10 float-right">
+					<a href="#/linenIndent">
+						<input type="button" value="Back" class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>	
+		</footer>
+	</div>
+</div>
+
+<div ng-include="'./views/common/qty-accept-reject.html'"></div>
+<div ng-include="'./views/common/note-save.html'"></div>

@@ -1,0 +1,73 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+	  <div class="row margin-top10 padding-left-right-10">
+    	<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set10 float_right text-width-auto">
+		      
+		      </div>
+		      <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+		        <!-- <input type="text" class="text-search-box" placeholder="Search" style="margin-top:0px"> -->
+		        <input type="text" class="text-search-box" tabindex="3" ng-model="groupName" placeholder="Search"
+                       uib-typeahead="group.patientName+'|'+group.uhidnumber for group in searchGroupList($viewValue)"
+                       typeahead-editable="false" typeahead-on-select="selectPatientId($item, $model, $label);" name="groupName" autocomplete="off" required style="margin-top:0px"/>
+		        <i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+		      </div>
+    </div>
+    
+		<fieldset class="margin-top10">
+			<legend class="heading-div">OT Request</legend>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th class="width1 text-center">
+									
+								</th>
+								<th class="width10">
+									<label>UHID</label>
+								</th>
+								<th class="width10">
+									<label>Patient Name</label>
+								</th>
+								<th class="width8">
+									<label>Bed No</label>
+								</th>
+								<th class="width8">
+									<label>No Of Surgeries</label>
+								</th>
+								<th class="width8">
+									<label>Surgery Date</label>
+								</th>
+								<th class="width8">
+									<label>Surgery Time</label>
+								</th>
+								<th class="width8">
+									<label>Action</label>
+								</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="info in OTRequestList">
+								<td class="text-center">
+									<input type="radio" name="radioName" value="info.admissionId" ng-model="patientOTRequest" ng-click="selectItem(info)" />
+								</td>
+								<td>{{info.uhidnumber}}</td>
+								<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.pFirstName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.pFirstName+' '+info.dob+'/'+info.genderCode}}</div>
+								</td>
+								<td>{{info.bedNumber}}</td>
+								<td>{{info.surgeryCount}}</td>
+								<td>{{info.surgeryDate}}</td>
+								<td>{{info.surgeryTime}}</td>
+								<td><a href="" class="btn btn-primary" ng-click="initiateOTRequest(info)">Initiate Request</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>

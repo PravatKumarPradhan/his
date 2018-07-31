@@ -1,0 +1,265 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+        <fieldset class="main-fieldset">
+			<div class="row margin-top10">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+									<option>Nursing</option>
+									<option>RMO</option>
+								</select>
+								<label for="description" class="LISDynamicLabel">Type</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+								</select>
+								<label for="description" class="LISDynamicLabel">Ward</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="">
+								<select class="text-input floating-label">
+									<option></option>
+								</select>
+								<label for="description" class="LISDynamicLabel">Nursing Station</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 text-width-auto">
+					<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="description" id="" class="text-input floating-label">
+										<label for="description" class="">Start Date</label>
+									</div>
+								</div>
+						</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set0">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" class="text-input floating-label">
+									<label for="description" class="">End Date</label>
+								</div>
+							</div>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="">
+						<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+					<div class=" ">
+						<a href="#/daywiseRotaCreation" class="btn btn-primary btn-save-box-shadow" title="Back" ng-click="">Back</a>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<div class="row margin-top10 padding-left-right-10">
+			
+		</div>
+		<div class="row padding-left-right-set4 padding-top10">
+			<div class="col-md-12">
+				<table class="table table-bordered" id="AddDish">
+					<tbody><tr>
+						<th class="th-border-none width10"></th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>08 Jan 18</div>
+						Monday
+						</th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>09 Jan 18</div>
+						Tuesday
+						</th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>10 Jan 18</div>
+						Wednesday
+						</th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>11 Jan 18</div>
+						Thursday
+						</th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>12 Jan 18</div>
+						Friday
+						</th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>13 Jan 18</div>
+						Saturday
+						</th>
+						<th scope="col" class="text-uppercase text-center width12 vertical-middle">
+						<div>14 Jan 18</div>
+						Sunday
+						</th>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Nurse 1</th>
+						<td class="text-center padding-zero">
+							<div class="">
+								<select class="border-dropdow" id="shift">
+									<option>Please Select Shift</option>
+									<option id="leave">Leave</option>
+								</select>
+								<div class="float_right editDishicon">
+									<div class="margin-top2"><i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit" data-toggle="modal" data-target="#ScheduleNurse"></i></div>
+								</div>
+							</div>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Nurse 2</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Nurse 3</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Nurse 4</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-uppercase text-center">Nurse 5</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					</tbody>
+					<!-- <tfoot>
+						<tr class="table-th-bg ">
+							<th class="text-uppercase text-center">Total Nutrition</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tfoot> -->
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal -->
+
+	<div id="ScheduleNurse" class="modal fade ng-scope common-popup-header-content common-small-popup in" role="dialog">
+		<div class="modal-dialog">
+			<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Schedule Nurse
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style">
+					<div class="row padding-top10 padding-bottom10 padding-left-right-set4">
+						<div class="col-lg-6 col-md-2 col-sm-2 padding-left-right-set1 padding-bottom10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label">
+											<option value=""></option>
+										</select>
+										<label for="description" class="LISDynamicLabel">Select Nurse</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set1 float_right text-width-auto">
+							<div class=" ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="Ok" data-dismiss="modal">Ok</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<!-- End Modal -->
+<script>
+$(function() {
+	  $("#shift").change(function() {
+	    if ($("#leave").is(":selected")) {
+	      $(".editDishicon").show();
+	    } else {
+	      $(".editDishicon").hide();
+	    }
+	  }).trigger('change');
+	});
+$( document ).ready(function() {
+	$(".selectedPageName").text("Day Wise Rota Creation Master");
+	$(".sidebar-nav li").each(function() {
+	$(this).find("a").parents("li").removeClass("active");
+	$('a[href$="daywiseRotaCreation"]').parents("li").addClass("active");
+	});
+});
+</script>

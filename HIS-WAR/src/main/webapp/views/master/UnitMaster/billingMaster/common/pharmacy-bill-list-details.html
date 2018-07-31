@@ -1,0 +1,304 @@
+<style>
+	.font-W600 td {
+		font-weight: 600 !important;
+	}
+</style>
+<!-- /********************************************************************************************************************************************
+Pharmacy - OP Pharmacy - bill list Details main page - (Sales worklist details modal)
+Created by - Pranita Patil
+Created Date - 15-Jan-2018 
+/********************************************************************************************************************************************/ -->
+<div ng-include="'./views/master/UnitMaster/billingMaster/common/pharmacy-collect-payment.html'"></div>
+<!-- BILL LIST VIEW POPUP -->
+<div id="billListDetails" class="common-large-popup modal fade ng-scope in his-style" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Pharmacy Bill List Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row patient-details-row">
+					<div class="col-md-11 col-sm-11 col-xs-11 ">
+						<span class="profile_pic margin-left10">
+							<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+						</span>
+						<span class="margin-left10" ng-if="vm.model.billDetailList.uhid">
+							<b class="padding-right5">UHID :</b>{{vm.model.billDetailList.uhid}}</span>
+						<span class="margin-left10">{{vm.model.billDetailList.patientDetails}} </span>
+						<span class="margin-left10">Dr. {{vm.model.billDetailList.doctorName}}</span>
+					</div>
+				</div>
+
+				<div class="row ">
+					<div class="col-lg-12 col-md-12 common-popup-height-350 padding-top10 padding-left-right-set4" id="pharmacologyDetailsTableId">
+						<!-- id for the table td fix height -->
+						<div class="table-container padding-left-right-set4 padding-top5">
+							<div class="table-container-header">
+								<table class="table table-striped table-hover table-condensed table-bordered">
+									<thead>
+										<tr class="table-th-bg">
+											<th title="Medication Name" class="width8">
+												Medication..
+												<div class="float_right" ng-click="sortType = 'itemName'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Generic Name" class="width8">
+												Generic Name
+												<div class="float_right" ng-click="sortType = 'genericName'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Manufacture" class="width8">
+												Manufacture
+												<div class="float_right" ng-click="sortType = 'manufacturer'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Quantity Prescribed" class="width6" ng-if="vm.model.billDetailList.saleTypeId !== 3">
+												Quantity Prescribed
+												<div class="float_right" ng-click="sortType = 'quantityPrescribed'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Quantity Dispensed" class="width6">
+												Quantity Dispensed
+												<div class="float_right" ng-click="sortType = 'quantity'; sortReverse = 	!sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Batch No." class="width8">
+												Batch No.
+												<div class="float_right" ng-click="sortType = 'batchCode'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Expiry Date" class="width8">
+												Expiry Date
+												<div class="float_right" ng-click="sortType = 'expiryDate'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Price" class="width5">
+												Price
+												<div class="float_right" ng-click="sortType = 'rate'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Total Amount" class="width6">
+												Total {{vm.model.Currency}}
+												<div class="float_right" ng-click="sortType = 'totalAmount'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Discount" class="hideClass width6">
+												Discount
+												<div class="float_right" ng-click="sortType = 'discount'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Tax" class="width5">
+												Tax
+												<div class="float_right" ng-click="sortType = 'taxName'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Tax %" class="width5">
+												Tax %
+												<div class="float_right" ng-click="sortType = 'taxPercent'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Tax  Amount" class="width5">
+												Tax {{vm.model.Currency}}
+												<div class="float_right" ng-click="sortType = 'taxAmount'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+											<th title="Net Amount" class="hideClass width8">
+												Net {{vm.model.Currency}}
+												<div class="float_right" ng-click="sortType = 'netAmount'; sortReverse = !sortReverse">
+													<div>
+														<i class="fa fa-caret-up" aria-hidden="true"></i>
+													</div>
+													<div class="margin-top-8">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+													</div>
+												</div>
+											</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+							<div class="table-container-body" style="height:220px; overflow-y: scroll; background: #ffffce;">
+								<table class="table table-striped table-hover table-condensed table-bordered">
+									<tbody>
+										<tr ng-repeat="billDetail in vm.model.billDetailList.items | filter : search | orderBy:sortType:sortReverse">
+											<td title="{{billDetail.itemName}}" class="width8">
+												{{billDetail.itemName}}
+											</td>
+											<td title="{{billDetail.genericName}}" class="width8">
+												{{billDetail.genericName}}
+											</td>
+											<td title="{{billDetail.manufacturer}}" class="width8">{{billDetail.manufacturer}}
+											</td>
+											<td title="{{billDetail.quantityPrescribed}}" class="width6" style="text-align: right;" ng-if="vm.model.billDetailList.saleTypeId !== 3">
+												{{billDetail.quantityPrescribed}}
+											</td>
+											<td title="{{billDetail.quantity}}" class="width6" style="text-align: right;">{{billDetail.quantity}}
+											</td>
+											<td title="{{billDetail.batchCode}}" class="width8">{{billDetail.batchCode}}
+											</td>
+											<td title="{{billDetail.expiryDate | date:'MMM-yyyy'}}" class="width8">{{billDetail.expiryDate | date:'MMM-yyyy'}}
+											</td>
+											<td title="{{vm.model.Currency}} {{billDetail.rate | number:2}}" class="width5" style="text-align: right;">{{vm.model.Currency}} {{billDetail.rate | number:2}}
+											</td>
+											<td title="{{vm.model.Currency}} {{billDetail.totalAmount | number:2}}" class="width6" style="text-align: right;">{{vm.model.Currency}} {{billDetail.totalAmount | number:2}}
+											</td>
+											<td title="{{vm.model.Currency}} {{billDetail.discount | number:2}}" class="hideClass width6" style="text-align: right;">{{vm.model.Currency}} {{billDetail.discount | number:2}}
+											</td>
+											<td title="{{billDetail.taxName}}" class="width5">{{billDetail.taxName}}
+											</td>
+											<td title="{{billDetail.taxPercent | number:2}} %" class="width5" style="text-align: right;">{{billDetail.taxPercent | number:2}} %
+											</td>
+											<td title="{{vm.model.Currency}} {{billDetail.taxAmount | number:2}}" class="width5" style="text-align: right;">{{vm.model.Currency}} {{billDetail.taxAmount | number:2}}
+											</td>
+											<td title="{{vm.model.Currency}} {{billDetail.netAmount | number:2}}" class="hideClass" style="width: 8.24% !important; text-align: right;">{{vm.model.Currency}} {{billDetail.netAmount | number:2}}
+											</td>
+
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="table-container-footer">
+								<table class="table table-striped table-hover table-condensed table-bordered">
+									<tfoot>
+										<tr class=" font-W600 table-th-bg">
+											<td colspan="6" class="text-right"></td>
+											<td title="Total" style=" width: 5.2% !important;">
+												<label>
+													<b>Total :</b>
+												</label>
+											</td>
+											<td title="{{vm.model.Currency}} {{vm.model.billDetailList.totalAmount | number:2}}" class="" style="text-align: right; width: 6.3% !important;">
+												{{vm.model.Currency}} {{vm.model.billDetailList.totalAmount | number:2}}
+											</td>
+											<td title="{{vm.model.Currency}} {{vm.model.billDetailList.totalDiscount | number:2}}" class="" style="text-align: right; width: 6.3% !important;">
+												{{vm.model.Currency}} {{vm.model.billDetailList.totalDiscount ? vm.model.billDetailList.totalDiscount : 0 | number:2}}
+											</td>
+											<td style=" width: 10.4% !important;"></td>
+											<td title="{{vm.model.Currency}} {{vm.model.billDetailList.taxAmount | number:2}}"  class="" style="text-align: right; width: 5.3% !important;">
+												{{vm.model.Currency}} {{vm.model.billDetailList.taxAmount | number:2}}
+											</td>
+											<td style="text-align: right; width: 9% !important;" title="{{vm.model.Currency}} {{vm.model.billDetailList.netAmount | number:2}}">
+												{{vm.model.Currency}} {{vm.model.billDetailList.netAmount | number:2}}
+											</td>
+										</tr>
+										<tr class=" font-W600 table-th-bg ">
+											<td colspan="12" class="text-right spanClass color-label">
+												<span ng-if="vm.model.billDetailList.discount">
+													<label>Discount :</label>
+												</span>
+												<span style="text-align: right;" ng-if="vm.model.billDetailList.discount">
+													<span ng-if="vm.model.radio == 2">{{vm.model.Currency}}</span>
+													{{vm.model.billDetailList.discount | number:2}}
+													<span ng-if="vm.model.radio == 1"> % </span>
+												</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<span>
+													<span ng-if="vm.model.billDetailList.discountCategory">
+														<label for="discountCategory">Discount Category : </label>
+														{{vm.model.billDetailList.discountCategory}}
+													</span>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												</span>
+												<span title="{{vm.model.Currency}} {{vm.model.billDetailList.roundOff | number:2}}" style="text-align: right;">
+													<label>Round Off :</label>
+													{{vm.model.Currency}} {{vm.model.billDetailList.roundOff | number:2}}
+												</span> &nbsp;&nbsp;&nbsp;
+											</td>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<div class="row">
+					<div class="col-lg-1 col-md-1 col-sm-2 pull-right padding-left-right-set0">
+						<button type="button" data-dismiss="modal" data-toggle="modal" data-target="#collectPayementDetails" class="btn btn-primary">Settlement</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,359 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<fieldset>
+			<div class="row margin-top10">
+				<form action="">
+					<div class="row">
+						<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="code" class="focus-input text-input floating-label form-control" ng-model="vm.model.code" ng-change="vm.model.ismainstoreCodeValid = false"
+										 ng-class="{dirty: vm.model.code}" show-focus="vm.model.code">
+										<p ng-if="vm.model.ismainstoreCodeValid" class="errorMsg">Store Code is required</p>
+										<label for="code" class="LISDynamicLabelOne">Store Code</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" name="storeName" class="focus-input text-input floating-label form-control" ng-model="vm.model.storeName"
+										 ng-change="vm.model.ismainstoreNameValid = false" ng-class="{dirty: vm.model.storeName}" show-focus="vm.model.storeName">
+										<p ng-if="vm.model.ismainstoreNameValid" class="errorMsg">Store Description is required</p>
+										<label for="code" class="LISDynamicLabelOne">Store Description</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<select name="storeType" id="storeType" class="text-input floating-label" ng-model="vm.model.storeType" data-ng-options="storeType.type for storeType in vm.model.storeTypes"
+										 ng-class="{dirty: vm.model.storeType}" ng-change="vm.model.ismainstoreTypeValid = false">
+										</select>
+										<p ng-if="vm.model.ismainstoreTypeValid" class="errorMsg">Store Type is required</p>
+										<label for="code">Store Type</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set text-width-auto padding-top10">
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Add Visit Type" data-toggle="modal" data-target="#addtaxcomponent">Add</a>
+						</div>
+						<!-- <div class="col-lg-1 col-md-2 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container padding-top10 text-center">
+							<label class="radio-inline"><input type="radio" name="opipradio" class="opRadio">OP</label>
+							<label class="radio-inline"><input type="radio" name="opipradio" class="ipRadio">IP</label>
+					  </div>
+				  </div> -->
+						<!-- <div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10 ipRow">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-2 col-md-1 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-10 col-md-11">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+										</select> <label for="code">Speciality Type</label>
+									</div>
+								</div>
+							</div>
+						</div> -->
+						<!-- <div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 ipRow">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-2 col-md-1 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-10 col-md-11">
+									<div class="">
+										<select class="text-input floating-label"> multiple
+											<option></option>
+										</select> <label for="code">Clinics</label>
+									</div>
+								</div>
+							</div>
+						</div> -->
+						<!-- <div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4 padding-top10 opRow">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-2 col-md-1 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-10 col-md-11">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+										</select> <label for="code">Wards</label>
+									</div>
+								</div>
+							</div>
+						</div> -->
+						<!-- <div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10 opRow">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-2 col-md-1 polymer-icon">
+									<i class="fa fa-tasks" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-10 col-md-11">
+									<div class="">
+										<select class="text-input floating-label">
+											<option></option>
+										</select> <label for="code">Nursing Station</label>
+									</div>
+								</div>
+							</div>
+						</div> -->
+					</div>
+				</form>
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-set4">
+			<div class="col-md-8"></div>
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" ng-model="search" placeholder="Search">
+					<i class="fa fa-search common-search-text-icon padding-top8" aria-hidden="true"></i>
+				</div>
+				<div class="col-md-1 col-sm-2 padding-leftright15 float_right">
+					<div class="width-div-for-patient-reg padding-top4">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmSave">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top8">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="">
+							Store Code
+							<div class="float_right" ng-click="sortType = 'storeCode'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="">
+							Store Description
+							<div class="float_right" ng-click="sortType = 'storeName'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="">
+							Store Type
+							<div class="float_right" ng-click="sortType = 'storeType'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<!-- <th class="opRow">
+							Wards
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="opRow">Nursing Station
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th> -->
+						<!-- <th class="ipRow">Speciality Type
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="ipRow">Clinics
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th> -->
+						<th style="width: 8%">
+							Status
+							<div class="float_right" ng-click="sortType = 'status'; sortReverse = !sortReverse">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="text-center" style="width: 8%">
+							Action
+							<!-- <div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div> -->
+						</th>
+					</tr>
+					<tr ng-repeat="mainstore in vm.model.mainStoreList | filter : search |   orderBy:sortType:sortReverse">
+						<td>{{mainstore.storeCode}}</td>
+						<td>{{mainstore.storeName}}</td>
+						<td>{{mainstore.storeType}}</td>
+						<td>
+							<label class="switch switch-small">
+								<input type="checkbox" class="switchInput" ng-model="mainstore.status" ng-change="vm.model.ToggleStatus(mainstore)" data-target="#confirmSave">
+								<div class="slider round slider-small"></div>
+							</label>
+						</td>
+						<td class="text-center">
+							<a ng-click="vm.model.PopulateMainStore(mainstore.id);">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- </div> -->
+<!-- TaxComponent Modal -->
+<div id="addtaxcomponent" class="modal fade ng-scope in common-small-popup" role="dialog">
+	<div class="modal-dialog">
+		<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header padding-zero">
+				<div class="modal-title patient-details-row">
+					Select Visit Type
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row padding-left-right-set4 padding-top4 padding-bottom10">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<tbody>
+								<tr ng-repeat="visitType in vm.model.visitTypes">
+									<td>
+										<span>
+											<input type="radio" name="visit_type_id" ng-value="visitType.visit_type_id" ng-model="vm.model.visit_type_id" 
+											class="radioPercentage"	/>
+										</span>
+										<span>
+											<label for="opcheckboxId">{{visitType.visit_type_name}}</label>
+										</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;padding:5px !important">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Ok</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal start -->
+
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+		<div class="modal-content" style="border-radius: 0px !important;">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Are you sure you want to Save?</span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" ng-click="vm.model.SaveMainStore()" data-dismiss="modal" class="btn btn-primary">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal end -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+	});
+
+	$(".selectedPageName").text("Store Master");
+	$(".sidebar-nav li").each(function () {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="mainstoremaster"]').parents("li").addClass("active");
+
+ 		/* on checked OP,IP show div */
+/* $(".opRow").hide();
+$(".ipRow").hide();
+$( ".ipRadio" ).change(function() {
+	if ($(this).is(":checked"))
+	{
+		$(".opRow").show();
+		$(".ipRow").hide();
+	}
+}); 
+$( ".opRadio" ).change(function() {
+	if ($(this).is(":checked"))
+	{
+		$(".ipRow").show();
+		$(".opRow").hide()
+	}
+}); 
+ */
+</script>

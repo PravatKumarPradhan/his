@@ -1,0 +1,89 @@
+<div class="row patient-details-row">
+	<div class="col-md-11 col-sm-11 col-xs-11 ">
+		<span class="profile_pic margin-left10"> 
+			<img alt="" src="resources/assets/images/tempImages/m.jpg" class="img-circle" style="width:30px">
+		</span> 
+		<span class="margin-left10">{{patientFullName}}</span>
+		<span class="margin-left10"><b class="padding-right5 ">UHID	:</b> {{uhidNum}}</span>
+		<span class="margin-left10"><b class="padding-right10 ">DOA	:</b> {{dateOfAdmission}}</span>
+		<span class="margin-left10"><b class="padding-right10 ">PDD	:</b> <!-- 02/05/2017 11:16am -->{{patientDischargeDate}} </span>
+		<span class="margin-left10"><b class="padding-right10 ">BED NO	:</b> {{bedNumber}}</span>
+		<span class="margin-left10">Dr. {{doctorFullName}}</span>
+	</div>
+</div>
+
+
+ <!-- <div id="confirmLogout" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog"> width: 25% !important;margin: 200px 0 0 510px !important;
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">X</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10"><h5>Are you sure you want to Save?</h5></div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary"   id="">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>  -->
+<!-- Start Reject Modal -->
+		<div id="rejectConfirm" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+		<div class="modal-content">
+			<div class="modal-header" style="padding:0">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">X</button>
+				</div>
+			</div>
+			<div class="modal-body padding8">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-tint" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label" name="code">
+										<option></option>
+										<option>Reason-1</option>
+										<option>Reason-2</option>
+										<option>Reason-3</option>
+									</select> <label for="code">Select Reason</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-sticky-note" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<textarea name="code" rows="4" id=""
+											class="text-input floating-label"></textarea>
+										<label for="code">Note</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" id="">Save</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+	<!-- End Reject Modal -->

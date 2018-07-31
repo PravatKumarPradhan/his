@@ -1,0 +1,202 @@
+<fieldset class="normalRegistration sub-fieldset "><!-- main-fieldset -->
+					<legend class="main-heading-div commonPatientSearch cursor-pointer">
+					Patient Search
+					</legend>
+						<div class="row patienttSearchResult">
+							<div class="row divOtherRegistrationType">
+						<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11">
+									<div class="">
+										<input type="text" name="registrationNumber" id="" ng-model="patientSearchObj.uhidNumber" press-enter="searchPatient(patientSearchObj)" class="text-input floating-label">
+										<label for="description" >Registration Number</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text"  id="" ng-model="patientSearchObj.patientName" press-enter="searchPatient(patientSearchObj)" class="text-input floating-label dirty" value="Andew"> 
+										<label for="description" >Patient Name</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label"
+										ng-model="patientSearchObj.genderId"
+										press-enter="searchPatient(patientSearchObj)">
+										<option></option>
+										<option ng-repeat="sex in sexMasterList" value="{{sex.id}}">{{sex.desc}}</option>
+									</select> <label for="code">Sex</label>
+									</div>
+								</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text"  id="" ng-model="patientSearchObj.mobileNumber" press-enter="searchPatient(patientSearchObj)" class="text-input floating-label dirty"  value="0842 7534721"> 
+										<label for="description" class="">Mobile Number</label>
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4" >
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<input type="text" class="text-input floating-label dirty"
+													name="datepicker" id="datepickerSearch"
+													uib-datepicker-popup="dd/MM/yyyy" ui-mask="99/99/9999"
+													placeholder="DD/MM/YYYY" ng-model="datepickerSearch"
+													model-view-value="true" is-open="datepickerSearch.opened"
+													datepicker-options="dateOptions"  show-button-bar="false"
+													ng-click="openDatePickerSearch()" press-enter="searchPatient(patientSearchObj)" > 
+										 <label for="description" class="">Birth Date</label>
+									</div>
+								</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 padding-left-right-set4">
+								<div class="row input-container test-master-sample">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+									<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-11 col-md-11 ">
+									<div class="">
+										<select class="text-input floating-label dirty" name="identificationId"   ng-model="patientSearchObj.identificationTypeId"  >
+													<option>Select Identification</option>
+													<option ng-repeat="info in identificationList" value="{{info.identificationId}}">{{info.identificationName}}</option>
+												</select> 
+										<label for="" >Identification Type</label>
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>	
+						<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+							<div class="row input-container">
+								<div>
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-10 col-sm-10 col-md-10 " >
+										<div class="">
+											<input type="text"  id="" ng-model="patientSearchObj.identificationNumber" press-enter="searchPatient(patientSearchObj)" class="text-input floating-label dirty width75" value="24">
+											 <label for="description" class="">Identification No</label>
+										</div>
+									</div>
+									</div>
+									<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right">
+										<div class="width-div-for-patient-reg ">
+											<a href="" class="btn btn-primary btn-save-box-shadow width80" title="Search" ng-click="searchPatient(patientSearchObj)">
+												<i class="fa fa-search" style="font-size:15px !important;" aria-hidden="true"></i>
+											</a>	
+										</div>
+									
+									</div>
+							</div>
+						</div>
+					</div>
+							
+							
+							<fieldset class="normalRegistration sub-fieldset border-none padding-top10">
+							<!-- <legend class="main-heading-div border-bottom-none">List</legend> -->
+								<div class="row serachedPatientList">
+									<div class="col-md-12 col-lg-12 headerHeight padding-left-right-set4">
+										<table class="table table-bordered">
+											<tr>
+												<th class="width1">
+												</th>
+												<th class="width15">
+													<span class="">Registration Number</span>
+												</th>
+												<th class="width15">
+													 <span class="">Patient's Name</span>
+												</th>
+												<th class="width5">
+													Sex
+												</th>
+												<th class="width15">
+													Mobile Number
+												</th>
+												<th class="date-column">
+													Birth Date
+												</th>
+												<th class="width15">
+													Identification Type
+												</th>
+												<th class="width15">
+													Identification No.
+												</th>
+											</tr>
+											<tr ng-repeat="patient in patientList">
+												<td>
+													<input type="radio" name="patient-list-radio" ng-click="getPatientDetailsByIndex($index)">
+												</td>
+												<td>
+													{{patient.uhidNumber}}
+												</td>
+												<td>
+													{{patient.firstName+' '+patient.middleName+' '+patient.lastName}}
+												</td>
+												<td>
+													{{patient.genderCode}}
+												</td>
+												<td>
+													{{patient.mobileNumber}}
+												</td>
+												<td>
+													{{patient.birthDate}}
+												</td>
+												<td>
+													{{patient.identificationName}}
+												</td>
+												<td>
+													{{patient.identificationNumber}}
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+						</fieldset>
+						
+						
+				</div>
+			</fieldset>
+<script>
+$(document).ready(function() {
+	$(".patienttSearchResult").hide();
+});
+
+$(document).on('click', '.commonPatientSearch', function(){
+	
+	$(this).closest(".patienttSearchResult").toggle();
+});
+
+</script>

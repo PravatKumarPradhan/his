@@ -1,0 +1,302 @@
+<fieldset class="normalRegistration sub-fieldset ">
+			<legend class="sub-legend">Encounter Details</legend>
+				<div class="row">
+					<div class="col-md-12 col-lg-12 col-sm-12">
+						<!-- <fieldset class="fieldset-leftRight-margin-set0"> -->
+						<div class="row">
+							<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label">
+												<option></option>
+												<option>-</option>
+											</select> <label for="code">Encounter Type</label>
+										</div>
+									</div>
+								</div>
+							</div> -->
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label" ng-model="appointmentMasterObj.encounterTypeId" ng-change="enableDisableDoctor(appointmentMasterObj.encounterTypeId)">
+												<option value="1">Doctor Consultation</option>
+												<option value="2">Diagnostic</option>
+												<option value="3">EHC</option>
+											</select> <label for="code">Encounter Type</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label" ng-model="appointmentMasterObj.deptId" ng-change="getDoctorBySpeciality(appointmentMasterObj.deptId)" convert-to-number>
+												<option ng-repeat="dept in specialityMasterList" ng-if="dept.isClinicalSpeciality =='Y'" value="{{dept.specialityId}}">{{dept.specialityName}}</option>
+											</select> <label for="code">Department</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label" ng-disabled="enableDisabled" ng-model="appointmentMasterObj.doctorId" convert-to-number ng-change="getClinicByDoctorId(appointmentMasterObj.doctorId)">
+												<option></option>
+												<option ng-repeat="doctor in doctorList" value="{{doctor.doctorId}}">{{doctor.firstName}} {{doctor.lastName}}</option>
+											</select> <label for="code">Doctor</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" class="text-input floating-label" ng-model="appointmentMasterObj.encounterTime">
+											 <label for="code">Time Slot</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label" ng-disabled="enableDisabled"  ng-model="appointmentMasterObj.clinicId">
+												<option ng-repeat="info in clinicList" value={{info.clinicMasterId}}>{{info.clinicDescription}}</option>
+											</select> <label for="code">Clinic</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row padding-top10">	
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label" ng-model="appointmentMasterObj.systemGeneratedVisitTypeId" ng-disabled="true" >
+												<option value="1">Primary</option>
+												<option value="2">Follow up</option>
+												<option value="3">Secondary</option>
+												<option value="4">Diagnostic</option>
+												<option value="5">ECH</option>
+												<!--  <option ng-repeat="visitType in visitTypeMasterList" value="{{visitType.visitTypeId}}">{{visitType.visitTypeName}}</option> -->
+											</select> <label for="code">System Generated Visit Type</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="margin-top8">
+											<a  data-toggle="modal" data-target="#changeVisitTypeModal">
+												Change Visit Type
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<select class="text-input floating-label" ng-model="appointmentMasterObj.sourceId">
+												<option></option>
+												<option ng-repeat="source in sourceMasterList" value="{{source.id}}">{{source.desc}}</option>
+											</select> <label for="code">Source</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set0 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" name="registrationNumber" id="" ng-model="appointmentMasterObj.remark" class="text-input floating-label">
+											<label for="description" class="LISDynamicLabel">Remark</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="bg-red outstanding-amount position-icon1">
+								Outstanding Amount :5000 
+							</div> -->
+						</div>
+						<!-- <div class="row"> -->
+							<fieldset class="normalRegistration sub-fieldset border-none">
+								<legend class="sub-legend border-bottom">Referral Details</legend>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<select class="text-input floating-label" ng-model="appointmentMasterObj.referralTypeId" ng-change="getReferralMasterList(appointmentMasterObj.referralTypeId)">
+													
+													<option ng-repeat="referral in referralTypeList" value="{{referral.id}}" ng-change="getReferralTypeDesc(referral)">{{referral.desc}}</option>
+												</select> <label for="code">Referral Type</label>.
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<select class="text-input floating-label" ng-model="appointmentMasterObj.referralId" >
+													<option></option>
+													<option ng-repeat="referralMaster in referralMasterList" value="{{referralMaster.referralId}}">{{referralMaster.desc}}</option>
+												</select> <label for="code">Referred By</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<select class="text-input floating-label">
+													<option></option>
+													<option>-</option>
+												</select> <label for="code">Doctor</label>
+											</div>
+										</div>
+									</div>
+								</div>  -->
+								<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 padding-top10">
+									<div class="row input-container">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<input type="text" name="registrationNumber" id="" class="text-input floating-label" ng-model="appointmentMasterObj.referralRemark">
+												<label for="description" class="LISDynamicLabel">Remark</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+						<!-- </div> -->
+					</div>
+				</div>
+		</fieldset>
+<!-- ******************** change Visit Type modal start ************************ -->		
+ <div id="changeVisitTypeModal" class="modal fade ng-scope in common-medium-popup" role="dialog" style="z-index:1300 !important;background: rgba(0, 0, 0, 0.33);">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Change Visit Type
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12 padding-left-right-set4">
+							<div class="row">
+								<div class="col-md-6 col-sm-6 padding-left-right-set0">
+									<div class="row input-container margin-top10">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+											<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11">
+											<div class="">
+												<select class="text-input floating-label" ng-model="appointmentMasterObj.userDefinedVisitTypeId">
+													<option value="1">Primary</option>
+													<option value="2">Follow up</option>
+													<option value="3">Secondary</option>
+													<option value="4">Diagnostic</option>
+													<option value="5">ECH</option>
+												</select> <label for="code">Visit Type</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-sm-6 padding-left-right-set0">
+									<div class="row input-container margin-top10">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon"> 
+											<i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<select class="text-input floating-label dirty"  id="rejectReasonId" name="code" ng-model="appointmentMasterObj.reasonIdForChangingVisitType">
+												<option value="">Select Reason</option>
+												<option ng-repeat="info in reasonList" value="{{info.reasonMasterId}}" >{{info.reasonDesc}}</option>
+												</select>		
+												<label for="code">Select Reasons</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-sm-12">
+									<div class="row input-container margin-top10">
+										<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon text-width-auto padding-left-right-set4">
+											<i class="fa fa-sticky-note" aria-hidden="true"></i>
+										</div>
+										<div class="col-lg-11 col-sm-11 col-md-11 ">
+											<div class="">
+												<textarea name="code" rows="1" id="noteReject"
+													class="text-input floating-label" ng-model="appointmentMasterObj.remarkForChangingVisitType"></textarea>
+												<label for="code">Note</label>
+											</div>
+										</div>
+									</div>
+							</div>
+						 </div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer" style="border:none;">
+					<button type="button" data-dismiss="modal" class="btn btn-primary width10" id="">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>	
+<!-- ******************** change Visit Type modal end ************************ -->	

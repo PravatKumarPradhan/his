@@ -1,0 +1,343 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<div class="row">
+					<!-- ***********Details row start *************** -->
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<span class=""><b class="padding-right10 ">QR
+									No. :</b> <lable>{{vm.model.quotationList.qrNumber}}</lable></span>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<span class="margin-left10"><b class="padding-right10 ">QR Date:</b><lable>{{vm.model.quotationList.qrDate | date:'dd/MM/yyyy' : 'UTC'}}</lable> </span>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<span class="margin-left10"><b class="padding-right10 ">VQR 
+									No. :</b><lable>{{vm.model.quotationList.vqrNumber}}</lable> </span>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<span class="margin-left10"><b class="padding-right10 ">VQR
+									Date:</b><lable>{{vm.model.quotationList.vqrDate | date:'dd/MM/yyyy' : 'UTC'}}</lable></span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<span class=""><b class="padding-right10 ">Store :</b> <lable>{{vm.model.quotationList.storeName}}</lable></span>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<span class="margin-left10"><b class="padding-right10 ">Vendor :</b><lable>{{vm.model.quotationList.vendorName}}</lable> </span>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<span class="margin-left10"><b class="padding-right10 ">Reference No. :</b><lable>{{vm.model.quotationList.refNumber}}</lable> </span>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<span class="margin-left10"><b class="padding-right10 ">Reference Date:</b><lable>{{vm.model.quotationList.refDate | date:'dd/MM/yyyy' : 'UTC'}}</lable></span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+							<span class=""><b class="padding-right10 ">Created By :</b> <lable>{{vm.model.quotationList.createdBy}}</lable></span>
+						</div>
+					</div>
+					<!-- ***********Details row end *************** -->
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 fix-height-scroll550 padding-top10 padding-left-right-set4">
+					<table class="table table-bordered">
+						<thead>
+							<tr class="table-th-bg">
+								<th colspan="13" class="font-weight700">Item Details</th>
+							</tr>
+							<tr>
+								<th class="width8">Item Code
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width12">Item Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">UOM
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width6">UOM Unit
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+                <th class="width5">QR Quantity
+                  <div class="float_right">
+                    <div>
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                    <div class="margin-top-8">
+                      <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </th>
+								<th class="width6">Vendor COP
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width8">Remarks</th>
+								<th class="width6">Accessories</th>
+								<th class="width6">Support Terms</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in vm.model.quotationList.items">
+								<td>{{item.itemCode}}</td>
+								<td>{{item.itemName}}</td>
+								<td>{{item.uomType}}</td>
+								<td>{{item.uomUnit}}</td>
+                <td>{{item.qrQuantity}}</td>
+								<td>{{item.vendorCop}}</td>
+								<td>{{item.remark}}</td>
+								<td class="text-center media-middle">
+									<a class="cursor-pointer" ng-click="vm.model.ViewAccessories(item)" title="Accessories Details">
+										<i class="fa fa-info-circle" aria-hidden="true" title="Terms" data-target="#AcceseriesDetailsModal" data-toggle="modal"></i>
+									</a>
+								</td>
+								<td class="text-center media-middle">
+                  <!-- #/qfillInDetails/warrantyPFillin -->
+									<a ng-href="" ng-click="vm.model.ViewTerms(item)" class="cursor-pointer">
+										<i class="fa fa-info-circle" aria-hidden="true" title="Terms" data-target="#vendorSelectionDetailsModal2" data-toggle="modal"></i>
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</fieldset>
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+			<div class="row his-style margin-top10 padding-right20">
+				<div class="col-lg-11 col-md-11 col-sm-10 padding-left-right-set4"></div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+					<a href="#/quotationFillIn">
+						<input type="button" value="Back"  class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+<!-- Accesories details modal start -->
+<div id="AcceseriesDetailsModal" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Accessories Details
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row fix-height-scroll500">
+					<div class="col-lg-12 col-md-12 padding-top10 padding-left-right-set4">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width10">Name
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width45">Details
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width45">Vendor Details
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in vm.model.expectedAccessories">
+                  <td>
+                    <textarea class="resize-set" rows="4" cols="10" readonly>{{item.name}}</textarea>
+                  </td>
+                  <td>
+                    <textarea class="resize-set" rows="4" cols="10" readonly>{{item.details}}</textarea>
+                  </td>
+                  <td>
+                    <textarea class="resize-set" rows="4" cols="10" readonly>{{item.vendorDetails}}</textarea>
+                  </td>
+                </tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Accesories details modal end -->
+<!-- Expected terms Details modal start -->
+<!-- <div id="vendorSelectionDetailsModal2" class="modal fade ng-scope in common-large-popup" role="dialog">
+	<div class="modal-dialog"> 
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+					Support Terms
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row ">
+					<div class=" padding-top10">
+						<div class="row">
+							<div class="row margin-top4">
+								<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary btn-save-box-shadow" ng-href="#/qfillInDetails/warrantyPFillin">Warranty Period</a>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/qfillInDetails/expectedSTermsfillIn">Expected Support Terms</a>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/qfillInDetails/expectedPaymentTfillIn">Expected Payment Terms</a>
+									</div>
+								</div>
+								<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4">
+									<div class="tab-btn-primary">
+										<a class="btn btn-primary text-width-auto  btn-save-box-shadow" ng-href="#/qfillInDetails/expectedTSpecificationfillIn">Expected Technical Specification</a>
+									</div>
+								</div>
+							</div>
+							<div class="row padding-left-right-set4">
+								<div class="col-md-12 col-sm-12 margin-top10"  ui-view>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<div id="vendorSelectionDetailsModal2" class="modal fade ng-scope in common-large-popup" role="dialog">
+  <div class="modal-dialog"> 
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title patient-details-row">
+           Support Terms
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row ">
+          <div class=" padding-top10">
+            <div class="row">
+              <div class="row margin-top4">
+                <div class="col-lg-3 col-md-2 col-sm-2 padding-left-right-set4">
+                  <div class="tab-btn-primary">
+                    <a href="" ng-click="vm.model.termsVisible = 1" class="btn btn-primary btn-save-box-shadow">Warranty Period</a>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-2 col-sm-3 padding-left-right-set4">
+                  <div class="tab-btn-primary">
+                    <a href="" class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.termsVisible = 2">Expected Support Terms</a>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-2 col-sm-3 padding-left-right-set4">
+                  <div class="tab-btn-primary">
+                    <a href="" class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.termsVisible = 3">Expected Payment Terms</a>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4">
+                  <div class="tab-btn-primary">
+                    <a href="" class="btn btn-primary btn-save-box-shadow" ng-click="vm.model.termsVisible = 4">Expected Technical Specification</a>
+                  </div>
+                </div>
+              </div>
+              <div class="row padding-left-right-set4">
+                <div class="col-md-12 col-sm-12 margin-top10">
+                  <div ng-show="vm.model.termsVisible == 1">
+                    <legend class="heading-div">Warranty Period</legend>
+                    <textarea ng-model="vm.model.warrantyPeriod" readonly style="height: 240px;overflow: auto;"></textarea>
+                    <legend class="heading-div">Vendor Warranty Period</legend>
+                    <textarea ng-model="vm.model.vendorWarrantyPeriod" readonly style="height: 240px;overflow: auto;"></textarea>
+                  </div>
+                  <div ng-show="vm.model.termsVisible == 2">
+                    <legend class="heading-div">Expected Support Terms</legend>
+                    <textarea ng-model="vm.model.supportTerms" readonly style="height: 240px;overflow: auto;"></textarea>
+                    <legend class="heading-div">Vendor Expected Support Terms</legend>
+                    <textarea ng-model="vm.model.vendorExpectedSupport" readonly style="height: 240px;overflow: auto;"></textarea>
+                  </div>
+                  <div ng-show="vm.model.termsVisible == 3">
+                    <legend class="heading-div">Expected Payment Terms</legend>
+                    <textarea ng-model="vm.model.paymentTerms" readonly style="height: 240px;overflow: auto;"></textarea>
+                    <legend class="heading-div">Vendor Expected Payment Terms</legend>
+                    <textarea ng-model="vm.model.vendorExpectedPayment" readonly style="height: 240px;overflow: auto;"></textarea>
+                  </div>
+                  <div ng-show="vm.model.termsVisible == 4">
+                    <legend class="heading-div">Expected Technical Specification</legend>
+                    <textarea ng-model="vm.model.technicalSpecification" readonly style="height: 240px;overflow: auto;"></textarea>
+                    <legend class="heading-div">Vendor Expected Technical Specification</legend>
+                    <textarea ng-model="vm.model.vendorTechnicalSpecification" readonly style="height: 240px;overflow: auto;"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Expected terms Details modal end -->

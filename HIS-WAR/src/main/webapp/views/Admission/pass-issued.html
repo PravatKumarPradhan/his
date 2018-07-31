@@ -1,0 +1,365 @@
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid his-style">
+            	<div class="row margin-top10">
+            		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+									<i class="fa fa-building" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-10 col-md-10 ">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="search.floorId" ng-change="getWardByFloorId()">
+											<option>Select Floor</option>
+											<option ng-repeat="info in activeFloorList" value="{{info.floorId}}">{{info.floorName}}</option>
+										</select>		
+										<label for="code">Select Floor</label>
+									</div>
+								</div>
+							</div>
+						</div>
+            		<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+									<i class="fa fa-hospital-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-10 col-md-10">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="search.wardId" ng-change="getBedByFloorWardId()" >
+											<option>Select Ward</option>
+											<option ng-repeat="info in wardList" value="{{info.wardId}}">{{info.wardName}}</option>
+										</select>		
+										<label for="code">Select Ward</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4">
+							<div class="row input-container">
+								<div class="col-lg-1 col-sm-2 col-md-2 polymer-icon"> 
+									<i class="fa fa-bed" aria-hidden="true"></i>
+								</div>
+								<div class="col-lg-11 col-sm-10 col-md-10">
+									<div class="">
+										<select class="text-input floating-label" name="code" ng-model="search.bedId">
+											<option>Select Bed</option>
+											<option ng-repeat="info in bedList" value="{{info.bedId}}">{{info.bedNumber}}</option>
+											
+										</select>		
+										<label for="code">Select Bed No.</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					 	<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4  his-style width5">
+								<div class=" ">
+									<a href="" class="btn btn-primary btn-save-box-shadow width65" title="Search" ng-click="getAdmittedPatientByFloorWardBedId()">
+									<i class="fa fa-search"  aria-hidden="true"></i></a>	
+								</div>
+						</div>
+            	</div>
+				<div class="row padding-left-right-set4 margin-top8">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<tr>
+								<th class="width1"></th>
+								<th class="UHID-width">
+									UHID
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Patient Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Doctor Details
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="patient-doc-details-width">
+									Bed Category
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="UHID-width">
+									Location
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="UHID-width">
+									DOA
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="UHID-width">
+									PDD
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+								<th class="status">
+									Action
+									<div class="float_right">
+										<div><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+										<div class="margin-top-8"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+									</div>
+								</th>
+							</tr>
+							<tr ng-repeat="info in listOfAdmittedPatientList">
+								<td><input type="radio" name="radioName" value="info.admissionId" ng-model="admittedPatient" ng-click="selectPatient(info)" /></td>
+									<td>{{info.uhidnumber}}</td>
+								<td ng-init='age=getAge(info.dob)'>
+									<div ng-if="info.patientId > 0">{{info.patientFullName+' '+age+'/'+info.genderCode}}</div>
+									<div  ng-if="info.tPatientId > 0">{{info.patientFullName+' '+info.dob+'/'+info.genderCode}}</div>
+								</td>
+								<td>
+									<div>Dr. {{info.doctorFullName+', '+info.specialityName}}</div>
+								</td>
+								<td><div>{{info.bedCategoryDesc}}</div></td>
+								<td><div>{{info.bedNumber}}</div></td>
+								<td><div>{{info.datepicker}}</div></td>
+								<td><div>{{info.datepickerPdd}}</div></td>
+								<td>
+									<div class="row text-center">
+										<a  data-toggle="modal" data-target="#passDetails" ng-click="passDetails(info)">Pass Details</a>
+									</div>
+								</td>
+							</tr>
+							
+						</table>
+					</div>
+				</div>
+  			</div>
+		</div>
+	
+	<!-- ******************** START MODEL FOR ISSUE VISITOR PASS **************************** -->
+<div id="passDetails" class="modal fade ng-scope in common-popup-header-content common-medium-popup" role="dialog">
+		<div class="modal-dialog">
+			<!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Pass Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body his-style ">
+					<div ng-include="'./views/common/common-patient-details.html'"></div>
+					<div class="row margin-top10 height-table-with-scroll padding-left-right-set4">
+						<table class="table table-striped table-bordered">
+							<tbody>
+								<tr>
+									<th class="width15">Pass No.</th>
+									<th class="width12">Expiry Date</th>
+									<th class="note-width">Action</th>
+								</tr>
+								<tr ng-repeat="info in passIssuedList">
+									<td>{{info.passNumber}}</td>
+									<td>{{info.expiryDate}}</td>
+									<td>
+										<div class="row override-class">
+											<div class="col-md-12">
+												<div class="row">
+												
+													<div class="col-md-3">
+														<input type="radio" name="medicationRadio{{$index}}" class="accept" onclick="hideShowAcceptReject('A',this)" value="A" ng-model="info.passIssuedStatus">
+														<span>Accept</span>
+													</div>
+													<div class="col-md-3">
+														<input type="radio" name="medicationRadio{{$index}}" class="extend" onclick="hideShowAcceptReject('E',this)"  value="E" ng-model="info.passIssuedStatus">
+														<span>Extend</span>
+													</div>
+													<div class="col-md-3">
+														<input type="radio" name="medicationRadio{{$index}}" class="lost" value="L" onclick="hideShowAcceptReject('L',this)" ng-model="info.passIssuedStatus">
+														<span>Lost</span>
+													</div>
+												</div>
+												<div class="row margin-top10 margin-bottom10">
+													<div class="col-md-4 hide-show-text-accept" style="display:none;" >
+														<input type="text" placeholder="Pass Number" ng-model="info.txtPassNo" class="text-box-style">
+													</div>
+													<div class="col-md-4 hide-show-text-extend" style="display:none;">
+														<input type="text" placeholder="Old Expiry Date" ng-model="info.txtOldDate" class="text-box-style" readonly="true">
+													</div>
+													<div class="col-md-4 hide-show-text-extend" style="display:none;">
+														<!-- <input type="text" placeholder="New Expiry Date" ng-model="info.txtNewDate" class="text-box-style"> -->
+														<input type="text" class="text-box-style"
+										name="datepicker" id="datepicker"
+										uib-datepicker-popup="dd/MM/yyyy" 
+										placeholder="DD/MM/YYYY" ng-model="info.txtNewDate"
+										model-view-value="true" is-open="txtNewDate.opened[$index]"
+										datepicker-options="dateOptions" show-button-bar="false"
+										ng-click="openDatePicker($index)">
+													</div>
+													<div class="col-md-4 hide-show-text-lost" style="display:none;">
+														<input type="text" placeholder="Reason" ng-model="info.txtReason" class="text-box-style">
+													</div>
+												</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				 <div class="modal-footer his-style" style="border: none;">
+				 	<div class="row">
+				 		<div class="col-lg-11 col-sm-11 col-md-11"> 
+				 		</div>
+						<div class="col-lg-1 col-sm-1 col-md-1"> 
+		 					<input type="button" value="Save"  class="btn btn-primary btn-save-box-shadow" ng-click="updatePassIssued()">
+		 				</div>
+				 	</div>
+				</div>
+			</div>
+		</div>
+</div>
+ 			<!-- ******************** END MODEL FOR ISSUE VISITOR PASS **************************** -->	
+ 
+	
+<script type="text/javascript">
+
+$( document ).ready(function() {
+		var documentHeight= $(window).height();
+	    var sideBarHeight = documentHeight - 55;
+	 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+	
+	$(".selectedPageName").text("Issued Pass");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="passIssued"]').parents("li").addClass("active");
+	
+
+
+	
+
+	/* 
+	$(".hide-show-text-accept").hide();
+	$(".hide-show-text-extend").hide();
+	$(".hide-show-text-lost").hide();
+	
+		$( ".extend" ).change(function() {
+			if ($(this).is(":checked"))
+			{
+				
+				$(this).closest(".row").next().find(".hide-show-text-accept").hide();
+				$(this).closest(".row").next().find(".hide-show-text-lost").hide();
+				$(this).closest(".row").next().find(".hide-show-text-extend").show();
+			}
+		});
+		$( ".lost" ).change(function() {
+			if ($(this).is(":checked"))
+			{
+				$(this).closest(".row").next().find(".hide-show-text-extend").hide();
+				$(this).closest(".row").next().find(".hide-show-text-accept").hide();
+				$(this).closest(".row").next().find(".hide-show-text-lost").show();
+			}
+		});
+		$( ".accept" ).click(function() {
+			alert("Ac");
+			if ($(this).is(":checked"))
+			{
+				$(this).closest(".row").next().find(".hide-show-text-accept").show();
+				$(this).closest(".row").next().find(".hide-show-text-extend").hide();
+				$(this).closest(".row").next().find(".hide-show-text-lost").hide();
+			}
+		}); */
+	
+});
+
+</script>
+<script>
+function hideShowAcceptReject(type,thiss){
+	
+	switch(type) {
+    case 'A':
+    	if ($(thiss).is(":checked"))
+    	{
+    		$(thiss).closest(".row").next().find(".hide-show-text-accept").show();
+    		$(thiss).closest(".row").next().find(".hide-show-text-extend").hide();
+    		$(thiss).closest(".row").next().find(".hide-show-text-lost").hide();
+    	}
+    	
+        break;
+    case 'E':
+    	if ($(thiss).is(":checked"))
+		{
+			
+			$(thiss).closest(".row").next().find(".hide-show-text-accept").hide();
+			$(thiss).closest(".row").next().find(".hide-show-text-lost").hide();
+			$(thiss).closest(".row").next().find(".hide-show-text-extend").show();
+		}
+        break;
+    case 'L':
+    	if ($(thiss).is(":checked"))
+		{
+			
+			$(thiss).closest(".row").next().find(".hide-show-text-accept").hide();
+			$(thiss).closest(".row").next().find(".hide-show-text-lost").show();
+			$(thiss).closest(".row").next().find(".hide-show-text-extend").hide();
+		}
+        break;
+    default:
+    	$(thiss).closest(".row").next().find(".hide-show-text-accept").hide();
+	$(thiss).closest(".row").next().find(".hide-show-text-lost").hide();
+	$(thiss).closest(".row").next().find(".hide-show-text-extend").hide();
+}
+	
+	
+}
+
+</script>
+
+
+<!-- 	<script type="text/javascript">
+  $( document ).ready(function() {
+$(".hide-show-text-accept").hide();
+$(".hide-show-text-extend").hide();
+$(".hide-show-text-lost").hide();
+	$( ".extend" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			
+			$(this).closest(".row").next().find(".hide-show-text-accept").hide();
+			$(this).closest(".row").next().find(".hide-show-text-extend").show();
+		}
+	});
+	$( ".lost" ).change(function() {
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").next().find(".hide-show-text-extend").hide();
+			$(this).closest(".row").next().find(".hide-show-text-accept").hide();
+			$(this).closest(".row").next().find(".hide-show-text-lost").show();
+		}
+	});
+	$( ".accept" ).click(function() {
+		alert("Ac");
+		if ($(this).is(":checked"))
+		{
+			$(this).closest(".row").next().find(".hide-show-text-accept").show();
+			$(this).closest(".row").next().find(".hide-show-text-extend").hide();
+			$(this).closest(".row").next().find(".hide-show-text-lost").hide();
+		}
+	});
+	
+ }); 
+
+</script>  -->

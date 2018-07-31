@@ -1,0 +1,236 @@
+<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 margin-top8">
+	<table class="table table-bordered">
+		<tr >
+			<th class="text-center" colspan="8">{{doctorName}}</th>
+		</tr>
+		<tr >
+			<th class="text-center" colspan="8">
+				
+				<span><!-- 01st Jan 18 - 04th Feb 18 -->{{ firstDate | date :  " MMMM d, y" }} - {{ lastDate | date :  " MMMM d, y" }}</span>
+			</th>
+		</tr>
+		<tr>
+			<th class="width3">Week</th>
+			<th class="width12" ng-repeat="day in dayList">{{day.name}}</th>
+			<!-- <th class="width12">
+				<div>Monday</div>
+			</th>
+			<th class="width12">
+				<div>Tuesday</div>
+			</th>
+			<th class="width12">
+				
+				<div>Wednesday</div>
+			</th>
+			<th class="width12">
+				<div>Thursday</div>
+			</th>
+			<th class="width12">
+				<div>Friday</div>
+			</th>
+			<th class="width12">
+				
+				<div>Saturday</div>
+			</th>
+			<th class="width12">
+				
+				<div>Sunday</div>
+			</th> -->
+		</tr>
+		<tr ng-repeat="week in weekArray">
+		<td><a href="#/appointmentScheduling/week" ng-click="getWeekWiseSlots(week.id)">
+					{{week.name}}
+				</a></td>
+		<td id="color1{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="1 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,1)" > 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div> 
+		</div>
+		</td>
+		<td id="color2{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="2 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,2)"> 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div> 
+		</div>
+		</td>
+		<td id="color3{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="3 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,3)"> 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div> 
+		</div>
+		</td>
+		<td id="color4{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="4 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,4)"> 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div> 
+		</div>
+		</td>
+		<td id="color5{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="5 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,5)"> 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div> 
+		</div>
+		</td>
+		<td id="color6{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="6 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,6)"> 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div>
+		</div> 
+		</td>
+		<td id="color7{{week.id}}" class="">
+		<div ng-repeat="finalObj in slotListMonth[$index]" >
+		  <div ng-if="7 == finalObj.split('_')[0] " ng-init="changeClass(finalObj.split('_')[2],week.id,7)"> 
+			{{ finalObj.split('_')[1] | date :  "  d MMMM" }}
+		</div> 
+		</div>
+		</td>
+		</tr>
+		<!-- <tr>
+			<td>
+				<a href="#/appointmentScheduling/week">
+					W1
+				</a>
+			</td>
+			<td class="bg-green">
+				<div>01st Jan </div>
+			</td>
+			<td class="bg-green">
+				<div>02nd Jan </div>
+			</td>
+			<td>
+				<div>03rd Jan </div>
+			</td>
+			<td>
+				<div>04th Jan </div>
+			</td>
+			<td>
+				<div>05th Jan </div>
+			</td>
+			<td>
+				<div>06th Jan </div>
+			</td>
+			<td>
+				<div>07th Jan </div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="">
+					W2
+				</a>
+			</td>
+			<td>
+				<div>08th Jan </div>
+			</td>
+			<td class="bg-green">
+				<div>09th Jan </div>
+			</td>
+			<td class="bg-green">
+				<div>10th Jan </div>
+			</td>
+			<td class="bg-green">
+				<div>11th Jan </div>
+			</td>
+			<td>
+				<div>12th Jan </div>
+			</td>
+			<td>
+				<div>13th Jan </div>
+			</td>
+			<td>
+				<div>14th Jan </div>
+			</td>
+		</tr>
+		<tr>
+			<td >
+				<a href="">
+					W3
+				</a>
+			</td>
+			<td class="bg-green">
+				<div>15th Jan </div>
+			</td>
+			<td>
+				<div>16th Jan </div>
+			</td>
+			<td>
+				<div>17th Jan </div>
+			</td>
+			<td class="bg-green">
+				<div>18th Jan </div>
+			</td>
+			<td class="bg-green">
+				<div>19th Jan </div>
+			</td>
+			<td>
+				<div>20th Jan </div>
+			</td>
+			<td class="bg-green">
+				<div>21th Jan </div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<a href="">
+					W4
+				</a>
+			</td>
+			<td class="bg-green">
+				<div>22th Jan </div>
+			</td>
+			<td>
+				<div>23st Jan </div>
+			</td>
+			<td>
+				<div>24st Jan </div>
+			</td>
+			<td class="bg-green">
+				<div>25st Jan </div>
+			</td>
+			<td>
+				<div>26st Jan </div>
+			</td>
+			<td>
+				<div>27st Jan </div>
+			</td>
+			<td class="bg-green">
+				<div>28st Jan </div>	 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="">
+					W4
+				</a>
+			</td>
+			<td class="bg-green">
+				<div>29th Jan </div>
+			</td>
+			<td>
+				<div>30st Jan </div>
+			</td>
+			<td>
+				<div>31st Jan </div>
+			</td>
+			<td class="bg-green">
+				<div>01st Feb </div>
+			</td>
+			<td>
+				<div>02nd Feb </div>
+			</td>
+			<td>
+				<div>03nd Feb </div>
+			</td>
+			<td class="bg-green">
+				<div>04th Feb </div>	 
+			</td>
+		</tr> -->
+	</table>
+</div>

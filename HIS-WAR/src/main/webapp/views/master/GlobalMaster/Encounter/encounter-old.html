@@ -1,0 +1,494 @@
+<!-- Page Content -->
+<div id="page-content-wrapper"> <!-- style="height:100%; overflow-y:auto " -->
+	<div class="container-fluid his-style padding-left-right-set4 padding-top4">
+		<!-- <fieldset class="margin-bottom-fieldset">
+			 <legend class="heading-div">Encounter</legend> -->
+			 <!-- <div ng-include="'./././views/common/common-patient-search-opd.html'"></div> -->
+			 <div ng-include="'./views/common/common-patient-search-opd-without-counter.html'"></div>
+				<!--  <div class="row">
+					<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="registrationNumber" id="" ng-model="patientSearchObj.uhIdNumber" class="text-input floating-label" press-enter="searchPatient(patientSearchObj)">
+									<label for="description" class="LISDynamicLabel">Registration Number</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" ng-model="patientSearchObj.patientName" class="text-input floating-label" press-enter="searchPatient(patientSearchObj)"> 
+									<label for="description" class="LISDynamicLabel">Patient Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" ng-model="patientSearchObj.genderId" press-enter="searchPatient(patientSearchObj)">
+										<option></option>
+										<option value="sex.id" ng-repeat="sex in sexMasterList">{{sex.desc}}</option>
+									</select> <label for="code">Sex</label>{{sexMasterList}}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" ng-model="patientSearchObj.mobileNo" class="text-input floating-label" press-enter="searchPatient(patientSearchObj)"> <label for="description" class="">Mobile Number</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" ng-model="patientSearchObj.birthDate" class="text-input floating-label" press-enter="searchPatient(patientSearchObj)"> <label for="description" class="">Birth Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4 col-sm-4 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="text" name="description" id="" ng-model="patientSearchObj.identificationNo" class="text-input floating-label" press-enter="searchPatient(patientSearchObj)"> <label for="description" class="">Identification Number</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="width-div-for-patient-reg position-icon margin-right10" >
+							<a href=""  class="float_right" title="Appointment Scheduling" style="color: #e8373b;">
+								<i class="fa fa-universal-access" style="font-size:30px" aria-hidden="true"></i>
+							</a>
+					</div>
+						
+				</div>-->
+				<!-- <fieldset class="normalRegistration sub-fieldset border-none">
+					<legend class="sub-legend border-bottom-none">List</legend>
+						<div class="row serachedPatientList">
+							<div class="col-md-12 col-lg-12 headerHeight">
+								<table class="table table-bordered">
+									<tr>
+										<th class="width1">
+										</th>
+										<th class="width15">
+											<span class="">Registration Number</span>
+										</th>
+										<th class="width15">
+											 <span class="">Patient's Name</span>
+										</th>
+										<th class="width5">
+											Sex
+										</th>
+										<th class="width15">
+											Mobile Number
+										</th>
+										<th class="date-column">
+											Birth Date
+										</th>
+										<th class="width15">
+											Identification Type
+										</th>
+										<th class="width15">
+											Identification No.
+										</th>
+									</tr>
+									<tr>
+										<td>
+											<input type="checkbox">
+										</td>
+										<td>
+											RR12345678956
+										</td>
+										<td>
+											Aadinath Singh
+										</td>
+										<td>
+											Male
+										</td>
+										<td>
+											8523690015
+										</td>
+										<td>
+											10/2/1993
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="checkbox">
+										</td>
+										<td>
+											RR12345678956
+										</td>
+										<td>
+											Aadinath Singh
+										</td>
+										<td>
+											Male
+										</td>
+										<td>
+											8523690015
+										</td>
+										<td>
+											10/2/1993
+										</td>
+										<td>
+											-
+										</td>
+										<td>
+											-
+										</td>
+									</tr>
+									
+								</table>
+							</div>
+						</div>
+				</fieldset> -->
+				<div class="">
+					<div class="row">
+						<div ng-include="'./views/common/patient-demography-opd.html'" class="ng-scope"></div>
+						<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 headerHeight old-encounter-details">
+							<table class="table table-bordered">
+								<tr>
+									<th class="width3"></th>
+									<th class="width12">
+										<div>Visit Type</div>
+									</th>
+									<th class="width12">
+										<div>Visit Date</div>
+									</th>
+									<th class="width12">
+										<div>Visit No</div>
+									</th>
+									<th class="width12">
+										<div>Department</div>
+									</th>
+									<th class="width12">
+										<div>Doctor</div>
+									</th>
+									<th class="width12">
+										<div>Outstanding Amount</div>
+									</th>
+									<th class="width12">
+										<div>Bill No.</div>
+									</th>
+									<th class="width12">
+										<div>Bill Amount</div>
+									</th>
+								</tr>
+								<tr>
+									<td>
+										<input type="checkbox">
+									</td>
+									<td>
+										<div>123456</div>
+									</td>
+									<td>
+										<div>13-10-2017</div>
+									</td>
+									<td>
+										<div>10:00</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									
+									<td>
+										<div>-</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+									<td>
+										<div>-</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row margin-top8">
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set1">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary btn-save-box-shadow" ng-href="#/encounter/encounterDetails">Encounter</a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-2 col-sm-2 padding-left-right-set4">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary  btn-save-box-shadow" ng-href="#/encounter/nextOfKin">Next Of Kin</a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-2 padding-left-right-set1 ">
+						<div class="tab-btn-primary">
+							<a class="btn btn-primary btn-save-box-shadow" ng-href="#/encounter/paymentEntitlement">Payment Entitlement </a>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right">
+						<div class="width-div-for-patient-reg">
+							<a href="" data-toggle="modal" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveAppointmentMaster()"><!--  data-target="#confirmLogout" -->
+								<i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i>
+							</a>	
+						</div>
+					</div>
+				</div>
+				<div class="row padding-top8">
+					<div class="" ui-view>
+				
+					</div>
+				</div>
+		<!-- </fieldset> -->
+	
+		
+	</div>
+</div>
+<!-- </div> -->
+
+
+<!-- PATIENT SEARCH POPUP -->
+<div id="patientSearch" class="common-large-popup modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Patient Search
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="col-md-12" style="background-color: white">
+						<div class="row">
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" name="registrationNumber" id="" class="text-input floating-label">
+											<label for="description" class="LISDynamicLabel">Registration Number</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" name="description" id="" class="text-input floating-label"> 
+											<label for="description" class="LISDynamicLabel">Patient Name</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" name="description" id="" class="text-input floating-label"> 
+											<label for="description" class="LISDynamicLabel">Sex</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" name="description" id="" class="text-input floating-label"> <label for="description" class="">Mobile Number</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" name="description" id="" class="text-input floating-label"> <label for="description" class="">Birth Date</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10 dynamicLabelForEmployeeText">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11 ">
+										<div class="">
+											<input type="text" name="description" id="" class="text-input floating-label"> <label for="description" class="">Age</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" name="registrationNumber" id="" class="text-input floating-label">
+											<label for="description" class="LISDynamicLabel">Nationality Number</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							<fieldset class="normalRegistration">
+								<legend class="heading-div">List</legend>
+									<div class="row serachedPatientList">
+										<div class="col-md-12 col-lg-12 headerHeight fix-height-scroll230">
+											<table class="table table-bordered  margin-top8">
+												<tr>
+													<th class="width1">
+													</th>
+													<th class="width15">
+														<span class="">Registration Number</span>
+													</th>
+													<th class="width15">
+														 <span class="">Patient's Name</span>
+													</th>
+													<th class="width5">
+														Sex
+													</th>
+													<th class="width15">
+														Mobile Number
+													</th>
+													<th class="date-column">
+														Birth Date
+													</th>
+													<th class="width5">
+														Age
+													</th>
+												</tr>
+												<tr>
+													<td>
+														<input type="checkbox">
+													</td>
+													<td>
+														RR12345678956
+													</td>
+													<td>
+														Aadinath Singh
+													</td>
+													<td>
+														Male
+													</td>
+													<td>
+														8523690015
+													</td>
+													<td>
+														10/2/1993
+													</td>
+													<td>
+														24
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<input type="checkbox">
+													</td>
+													<td>
+														RR12345678956
+													</td>
+													<td>
+														Aadinath Singh
+													</td>
+													<td>
+														Male
+													</td>
+													<td>
+														8523690015
+													</td>
+													<td>
+														10/2/1993
+													</td>
+													<td>
+														24
+													</td>
+												</tr>
+												
+											</table>
+										</div>
+									</div>
+							</fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {       
+	$(".old-encounter-details").hide();
+	
+	/* var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+  $("#page-content-wrapper").css("height", sideBarHeight + "px" ); */
+  
+  $(".selectedPageName").text("Encounter");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+	$('a[href$="patientRegistration"]').parents("li").addClass("active");
+});
+$(".anchor-tag").click(function()
+{
+	$(this).parents().next(".old-encounter-details").toggle();
+})
+</script>
+<script src="resources/assets/js/common/page-height.js"></script>

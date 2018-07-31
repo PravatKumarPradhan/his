@@ -1,0 +1,463 @@
+
+		<!-- <fieldset>
+			<legend class="heading-div">Sequence</legend> -->
+	<fieldset class="normalRegistration sub-fieldset " ng-controller="VariablePricingController">
+			<legend class="sub-legend">Sequence</legend>
+					
+						<!-- <div class="row margin-top4">
+							<input type="radio" name="registrationType" checked="checked" class="otherRegistrationType ipForSequenceOfVariable" ng-model="variablePricingDTO.visitTypeId" value=1 ng-change="onVisitTypeRadioChange(1)" convert-to-number><span class="margin-left5">IP</span>
+							<input type="radio" name="registrationType" class="otherRegistrationType paymentEntitInsurance opForSequenceOfVariable" ng-model="variablePricingDTO.visitTypeId" value=2 ng-change="onVisitTypeRadioChange(2)" convert-to-number><span class="margin-left5">OP</span>
+							<input type="radio" name="registrationType" class="otherRegistrationType paymentEntitInsurance ERForSequenceOfVariable" ng-model="variablePricingDTO.visitTypeId" value=3 ng-change="onVisitTypeRadioChange(3)" convert-to-number><span class="margin-left5">ER</span>
+							<input type="radio" name="registrationType" class="otherRegistrationType paymentEntitInsurance dayCareForSequenceOfVariable" ng-model="variablePricingDTO.visitTypeId" value=4 ng-change="onVisitTypeRadioChange(4)" convert-to-number><span class="margin-left5">Daycare</span>
+							<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveVariablePricingValues()"><i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i></a>	
+							<div id="serviceDetails" ng-click="setNoOfRecords()" class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 float_right">
+								<a href="" data-toggle="modal" data-target="#serviceDetailsForVariablePricing"    class="btn btn-primary btn-save-box-shadow" >Service Details</a>	
+							</div>
+						</div> -->
+						
+					<div class="row input-container margin-top4 padding-left-right-set4 ">
+						<div class="col-lg-9 col-md-9 col-sm-9 padding-left-right-set4 customRadioBtn">
+							<input type="radio" name="registrationType" id="IP_sequence-Of-variable" checked="checked" class="otherRegistrationType ipForSequenceOfVariable" ng-model="variablePricingDTO.visitTypeId" value=1 ng-change="onVisitTypeRadioChange(1)" convert-to-number>
+								<label for="IP_sequence-Of-variable" class=" cursor-pointer">IP</label>
+								
+							<input type="radio" name="registrationType" id="OP_sequence-Of-variable" class="otherRegistrationType paymentEntitInsurance opForSequenceOfVariable" ng-model="variablePricingDTO.visitTypeId" value=2 ng-change="onVisitTypeRadioChange(2)" convert-to-number>
+								<label for="OP_sequence-Of-variable" class=" cursor-pointer">OP</label>
+								
+							<input type="radio" name="registrationType" id="ER_sequence-Of-variable" class="otherRegistrationType paymentEntitInsurance ERForSequenceOfVariable" ng-model="variablePricingDTO.visitTypeId" value=3 ng-change="onVisitTypeRadioChange(3)" convert-to-number>
+								<label for="ER_sequence-Of-variable" class=" cursor-pointer">ER</label>
+								
+							<input type="radio" name="registrationType" id="Daycare_sequence-Of-variable" class="otherRegistrationType paymentEntitInsurance dayCareForSequenceOfVariable" ng-model="variablePricingDTO.visitTypeId" value=4 ng-change="onVisitTypeRadioChange(4)" convert-to-number>
+								<label for="Daycare_sequence-Of-variable" class=" cursor-pointer">Daycare</label>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 ">
+							<a href="" data-toggle="modal" data-target="#serviceDetailsForVariablePricing" ng-click="setNoOfRecords()" class="btn btn-primary btn-save-box-shadow" >Service Details</a>
+						</div>
+						<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 text-width-auto">
+							<div class="width-div-for-patient-reg ">
+								<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" ng-click="saveVariablePricingValues()">
+									<i class="fa fa-floppy-o" style="font-size:21px" aria-hidden="true"></i>
+								</a>	
+							</div>
+						</div>
+					</div>
+					
+					<div class="row padding-left-right-10 margin-top10 ipForSequenceOfVariableDiv">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8 col-md-8">
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Patient Type</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr ng-repeat="pCategory in listPatientCategoryType">
+									<td>{{pCategory.patientCategory}} </td>
+									<td class="text-center">
+										<div>
+											<input type="hidden" ng-model="variablePricingDTO.listPatientCategoryDto[$index].patientCategoryId"  ng-init="variablePricingDTO.listPatientCategoryDto[$index].patientCategoryId=pCategory.patientCategoryId" >
+											<input type="text" ng-model="variablePricingDTO.listPatientCategoryDto[$index].multiplicationFactor">
+										</div>
+									</td>
+								</tr>
+								
+							</table>
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Billing Bed Category</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr ng-repeat="bedCategory in listBedCategory">
+									<td>{{bedCategory.billingBedDesc}}</td>
+									<td class="text-center">
+										<div>
+											<input type="hidden" ng-model="variablePricingDTO.listBedCategoryDto[$index].bedTypeId"  ng-init="variablePricingDTO.listBedCategoryDto[$index].bedTypeId=bedCategory.billingBedCategoryId" >
+											<input type="text" ng-model="variablePricingDTO.listBedCategoryDto[$index].multiplicationFactor">
+										</div>
+									</td>
+								</tr>
+								<tr>
+								
+							</table>
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Stat Charge</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr>
+									<td>-</td>
+									<td class="text-center">
+										<div>
+											<input type="text">
+										</div>
+									</td>
+								</tr>
+								
+							</table>
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Payment Entitlement</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr ng-repeat="paymentEntitlement in listPaymentEntitlement">
+									<td>{{paymentEntitlement.paymentEntitlementDesc}}</td>
+									<td class="text-center">
+										<div>
+											<input type="hidden" ng-model="variablePricingDTO.listPaymentEntitlementDto[$index].paymentEntitlementId"  ng-init="variablePricingDTO.listPaymentEntitlementDto[$index].paymentEntitlementId=paymentEntitlement.paymentEntitlementId" >
+											<input type="text" ng-model="variablePricingDTO.listPaymentEntitlementDto[$index].multiplicationFactor">
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
+					
+					<div class="row padding-left-right-10 margin-top10 opForSequenceOfVariableDiv">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8 col-md-8">
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Patient Type</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr ng-repeat="pCategory in listPatientCategoryType">
+									<td>{{pCategory.patientCategory}}</td>
+									<td class="text-center">
+										<div>
+											<input type="hidden" ng-model="variablePricingDTO.listPatientCategoryDto[$index].patientCategoryId"  ng-init="variablePricingDTO.listPatientCategoryDto[$index].patientCategoryId=pCategory.patientCategoryId" >
+											<input type="text" ng-model="variablePricingDTO.listPatientCategoryDto[$index].multiplicationFactor">
+										</div>
+									</td>
+								</tr>
+							</table>
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Payment Entitlement</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr ng-repeat="paymentEntitlement in listPaymentEntitlement">
+									<td>{{paymentEntitlement.paymentEntitlementDesc}}</td>
+									<td class="text-center">
+										<div>
+											<input type="hidden" ng-model="variablePricingDTO.listPaymentEntitlementDto[$index].paymentEntitlementId"  ng-init="variablePricingDTO.listPaymentEntitlementDto[$index].paymentEntitlementId=paymentEntitlement.paymentEntitlementId" >
+											<input type="text" ng-model="variablePricingDTO.listPaymentEntitlementDto[$index].multiplicationFactor">
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						
+						<div class="col-lg-2"></div>
+					</div>
+					
+					
+					<div class="row padding-left-right-10 margin-top10 ERForSequenceOfVariableDiv">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8 col-md-8">
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Patient Type</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr ng-repeat="pCategory in listPatientCategoryType">
+									<td>{{pCategory.patientCategory}}</td>
+									<td class="text-center">
+										<div>
+											<input type="hidden" ng-model="variablePricingDTO.listPatientCategoryDto[$index].patientCategoryId"  ng-init="variablePricingDTO.listPatientCategoryDto[$index].patientCategoryId=pCategory.patientCategoryId" >
+											<input type="text" ng-model="variablePricingDTO.listPatientCategoryDto[$index].multiplicationFactor">
+										</div>
+									</td>
+								</tr>
+							</table>
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Billing Bed Category</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr ng-repeat="bedCategory in listBedCategory">
+									<td>{{bedCategory.bedCategoryDesc}}</td>
+									<td class="text-center">
+										<div>
+											<input type="hidden" ng-model="variablePricingDTO.listBedCategoryDto[$index].bedTypeId"  ng-init="variablePricingDTO.listBedCategoryDto[$index].bedTypeId=bedCategory.bedCategoryId" >
+											<input type="text" ng-model="variablePricingDTO.listBedCategoryDto[$index].multiplicationFactor">
+										</div>
+									</td>
+								</tr>
+							</table>
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Stat Charge</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr>
+									<td>-</td>
+									<td class="text-center">
+										<div>
+											<input type="text">
+										</div>
+									</td>
+								</tr>
+								
+							</table>
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Payment Entitlement</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr ng-repeat="paymentEntitlement in listPaymentEntitlement">
+									<td>{{paymentEntitlement.paymentEntitlementDesc}}</td>
+									<td class="text-center">
+										<div>
+											<input type="hidden" ng-model="variablePricingDTO.listPaymentEntitlementDto[$index].paymentEntitlementId"  ng-init="variablePricingDTO.listPaymentEntitlementDto[$index].paymentEntitlementId=paymentEntitlement.paymentEntitlementId" >
+											<input type="text" ng-model="variablePricingDTO.listPaymentEntitlementDto[$index].multiplicationFactor">
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
+					
+					
+					
+					<div class="row padding-left-right-10 margin-top10 dayCareForSequenceOfVariableDiv">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8 col-md-8">
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Patient Type</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr ng-repeat="pCategory in listPatientCategoryType">
+									<td>{{pCategory.patientCategory}}</td>
+									<td class="text-center">
+										<div>
+											<input type="hidden" ng-model="variablePricingDTO.listPatientCategoryDto[$index].patientCategoryId"  ng-init="variablePricingDTO.listPatientCategoryDto[$index].patientCategoryId=pCategory.patientCategoryId" >
+											<input type="text" ng-model="variablePricingDTO.listPatientCategoryDto[$index].multiplicationFactor">
+										</div>
+									</td>
+								</tr>
+							</table>
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Billing Bed Category</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr ng-repeat="bedCategory in listBedCategory">
+									<td>{{bedCategory.bedCategoryDesc}}</td>
+									<td class="text-center">
+										<div>
+											<input type="hidden" ng-model="variablePricingDTO.listBedCategoryDto[$index].bedTypeId"  ng-init="variablePricingDTO.listBedCategoryDto[$index].bedTypeId=bedCategory.bedCategoryId" >
+											<input type="text" ng-model="variablePricingDTO.listBedCategoryDto[$index].multiplicationFactor">
+										</div>
+									</td>
+								</tr>
+							</table>
+							
+							<table class="table table-bordered">
+								<tr class="" >
+									<th class=" " colspan="2">Payment Entitlement</th>		
+								</tr>
+								<tr>
+									<th>Name</td>
+									<th class="width20">% Value</th>
+								</tr>
+								<tr ng-repeat="paymentEntitlement in listPaymentEntitlement">
+									<td>{{paymentEntitlement.paymentEntitlementDesc}}</td>
+									<td class="text-center">
+										<div>
+											<input type="hidden" ng-model="variablePricingDTO.listPaymentEntitlementDto[$index].paymentEntitlementId"  ng-init="variablePricingDTO.listPaymentEntitlementDto[$index].paymentEntitlementId=paymentEntitlement.paymentEntitlementId" >
+											<input type="text" ng-model="variablePricingDTO.listPaymentEntitlementDto[$index].multiplicationFactor">
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
+					
+			
+			
+			
+<!-- Service Details for variable POPUP -->
+<div id="serviceDetailsForVariablePricing" class="common-large-popup modal fade ng-scope in" role="dialog">
+		<div class="modal-dialog"> <!-- width: 25% !important;margin: 200px 0 0 510px !important; -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title patient-details-row">
+						Service Details
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="col-md-12" style="background-color: white">
+						<div class="row">
+							<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+								<div class="row input-container">
+									<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+										<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+									</div>
+									<div class="col-lg-11 col-sm-11 col-md-11">
+										<div class="">
+											<input type="text" name="registrationNumber" id="" class="text-input floating-label">
+											<label for="description" class="LISDynamicLabel">Encounter</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+							<fieldset class="normalRegistration">
+								<legend class="heading-div">List</legend>
+									<div class="row serachedPatientList">
+										<div class="col-md-12 col-lg-12  fix-height-scroll400">
+											<table class="table table-bordered  margin-top8">
+												<tr>
+													<th class="width15">
+														<span class="">Service</span>
+													</th>
+													<th class="width15">
+														 <span class="">Base Price</span>
+													</th>
+													<th class="width15">
+														Patient Type
+													</th>
+													<th class="width15">
+														Bed Type
+													</th>
+													<th class="width15">
+														Stat Charges
+													</th>
+													<th class="width15">
+														Payment Entitlement
+													</th>
+												</tr>
+												<tr ng-repeat="serviceMst in organizationServiceMasterList">
+													<td>{{serviceMst.serviceStandardName}}</td>
+													<td>
+														{{serviceMst.basePrice}}
+													</td>
+													<td>
+														{{serviceMst.patientTypeFactor}}
+													</td>
+													<td>
+														{{serviceMst.bedCategoryFactor}}
+													</td>
+													<td>
+														{{serviceMst.statCharges}}
+													</td>
+													<td>
+														{{serviceMst.paymentEntitlementFactor}}
+													</td>
+												</tr>
+												
+											</table>
+											<div class="row margin-bottom45 sss">
+												<ul ng-if="pager.pages.length" class="pagination table-list"
+													style="font-size: 14px;">
+													<li ng-class="{disabled:pager.currentPage === 1}"><a
+														ng-click="setPage(1,'true')">First</a></li>
+													<li ng-class="{disabled:pager.currentPage === 1}"><a
+														ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+													<li ng-repeat="page in pager.pages"
+														ng-class="{active:pager.currentPage === page}"><a
+														ng-click="setPage(page,'true')">{{page}}</a></li>
+													<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+														<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+													</li>
+													<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+														<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+													</li>
+												</ul>
+											</div>
+											
+										</div>
+									</div>
+							</fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+</fieldset>
+<script src="resources/assets/js/common/page-height.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".opForSequenceOfVariableDiv").hide();
+	$(".ERForSequenceOfVariableDiv").hide();
+	$(".dayCareForSequenceOfVariableDiv").hide();
+	
+		$(".ipForSequenceOfVariable").click(function()
+		{
+			$(".ipForSequenceOfVariableDiv").show();
+			$(".opForSequenceOfVariableDiv").hide();
+			$(".ERForSequenceOfVariableDiv").hide();
+			$(".dayCareForSequenceOfVariableDiv").hide();
+		});
+		$(".opForSequenceOfVariable").click(function()
+		{
+				$(".opForSequenceOfVariableDiv").show();
+				$(".ipForSequenceOfVariableDiv").hide();
+				$(".ERForSequenceOfVariableDiv").hide();
+				$(".dayCareForSequenceOfVariableDiv").hide();
+		});
+		
+		$(".ERForSequenceOfVariable").click(function()
+		{
+			$(".ERForSequenceOfVariableDiv").show();
+			$(".opForSequenceOfVariableDiv").hide();
+			$(".ipForSequenceOfVariableDiv").hide();
+			$(".dayCareForSequenceOfVariableDiv").hide();
+		});
+		
+		$(".dayCareForSequenceOfVariable").click(function()
+				{
+					$(".dayCareForSequenceOfVariableDiv").show();
+					$(".opForSequenceOfVariableDiv").hide();
+					$(".ipForSequenceOfVariableDiv").hide();
+					$(".ERForSequenceOfVariableDiv").hide();
+				});
+		
+		 /* $("#serviceDetails").click(function () {
+	            //$('#serviceDetailsForVariablePricing').dialog('open');
+	        }); */
+		
+		
+});
+</script>

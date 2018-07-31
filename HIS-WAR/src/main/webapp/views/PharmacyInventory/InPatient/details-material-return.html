@@ -1,0 +1,230 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" class="">
+	<div class="container-fluid his-style">
+		<fieldset class="main-fieldset">
+			<!-- <legend class="heading-div">Material Return Details</legend> -->
+			<div class="row margin-top10">
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Return No. :</b> 
+						<label>{{vm.model.materialReturnDetail.returnNo}}</label></span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Return Date:</b>
+						<label>{{vm.model.materialReturnDetail.returnDate  | date:'dd/MM/yyyy'}}</label> </span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">From Store:</b>
+						<label>{{vm.model.materialReturnDetail.fromStore}}</label> </span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">To Store:</b> 
+						<label>{{vm.model.materialReturnDetail.toStore}}</label></span>
+				</div>
+			</div>
+			<div class="row">
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Is Consignment:</b>
+						<label>{{vm.model.materialReturnDetail.isConsignment}}</label>
+					</span>
+				</div>
+				<div
+					class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Type :</b>
+						<label>{{vm.model.materialReturnDetail.nearByExpiry}}</label>
+					</span>
+				</div>
+			</div>
+			<!--  Table start -->
+			<div class="row" id="">
+				<div
+					class="col-lg-12 col-md-12  padding-top10 padding-left-right-set4"><!-- fix-height-scroll500 -->
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th class="width4">Item Code
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">Item Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">Generic Name
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width5">Stock Available
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width3">UOM
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width4">UOM Unit
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width6">Batch No.
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width4">Expiry Date
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width3">Return Qty
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+								<th class="width10">Reason for Rejection
+									<div class="float_right">
+										<div>
+											<i class="fa fa-caret-up" aria-hidden="true"></i>
+										</div>
+										<div class="margin-top-8">
+											<i class="fa fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody >
+							<tr  ng-repeat="mreturn in vm.model.materialReturnDetail.items | orderBy:sortType:sortReverse"> 
+								<td class="vertical-middle">{{mreturn.itemCode}}</td>
+								<td class="vertical-middle">{{mreturn.itemName}}</td>
+								<td class="vertical-middle">{{mreturn.genericName}}</td>
+								<td class="vertical-middle">{{mreturn.availableQuantity }}</td>
+								<td class="vertical-middle">{{mreturn.uomType}}</td>
+								<td class="vertical-middle">{{mreturn.uomUnit}}</td>
+								<td class="vertical-middle">{{mreturn.batchNo}}</td>
+								<td class="vertical-middle">{{mreturn.expiry  | date:'MMM-yyyy'}}</td>
+								<td class="vertical-middle">{{mreturn.returnQuantity}}</td>
+								<td class="vertical-middle">{{mreturn.returnReason}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- Table end -->
+		</fieldset>
+		<!-- <div class="row his-style margin-top10">
+			<div class="col-md-10 padding-left0px-right6px"></div>
+			<div class="col-md-1 padding-left0px-right6px">
+				<div class="">
+					common-save-button
+					<input type="button" value="Save" class="btn btn-primary btn-save-box-shadow">
+				</div>
+			</div>
+			<div class="col-md-1 padding-left0px-right6px">
+				<div class="">
+					common-save-button
+					<a href="#/materialReturn"><input type="button" value="Back"
+						class="btn btn-primary btn-save-box-shadow"></a>
+				</div>
+			</div>
+		</div> -->
+		<footer class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4 padding-right20">
+
+			<div class="row padding-top5 margin-top10 padding-right20">
+				<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Carrier :</b> 
+						<label>{{vm.model.materialReturnDetail.carrierName}}</label></span>
+				</div>
+				<div class="col-lg-9 col-md-9 col-sm-9 padding-left-right-set4 padding-top10">
+					<span class="margin-left10"><b class="padding-right10 ">Remark :</b> 
+						<label>{{vm.model.materialReturnDetail.remark}}</label></span>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4">
+					<a href="#/materialReturn"> <input type="button" value="Back"
+						class="btn btn-primary btn-save-box-shadow">
+					</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+
+<!-- <script type="text/javascript">
+
+$(".rejection-details-row4").hide();
+/* ************** radioRejected4 ********** */
+
+$( ".radioRejected4" ).change(function() {
+	if ($(this).is(":checked"))
+	{
+		$(this).closest(".row").siblings(".rejection-details-row4").show();
+	}
+});
+$( ".radioAcceptedHold4" ).change(function() {
+	if ($(this).is(":checked"))
+	{
+		$(this).closest(".row").siblings(".rejection-details-row4").hide();
+	}
+});
+</script> -->
+<script src="resources/assets/js/common/page-height.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".selectedPageName").text("Material Return Details");
+});
+</script>

@@ -1,0 +1,177 @@
+
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+	 <form name="rackStoreLocationForm" novalidate>
+		<fieldset>
+			<div class="row">
+				
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group"  show-errors>
+								<input type="text" name="rackCode" ng-model="RackMaster.rackCode" id=""
+									class="text-input floating-label" required> <label
+									for="description" class="LISDynamicLabel">Rack Code</label>
+							<p class="help-block"
+												ng-if="rackStoreLocationForm.rackCode.$error.required">{{rackCode}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+					<div class="row input-container">
+						<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon ">
+							<i class="fa fa-info-circle" aria-hidden="true"></i>
+						</div>
+						<div class="col-lg-11 col-sm-11 col-md-11 ">
+							<div class="form-group"  show-errors>
+								<input type="text" name="rackName"  ng-model="RackMaster.rackName"id=""
+									class="text-input floating-label" required> <label
+									for="description" class="LISDynamicLabel">Rack Name</label>
+									<p class="help-block"
+												ng-if="rackStoreLocationForm.rackName.$error.required">{{rackName}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+					<!-- <label>Delta</label> -->
+					<div class="radio-btn-div-style table-responsive refarnce-range">
+						<table class="table table-bordered" id="delta">
+							<tbody>
+								<tr class="">
+									<th>Shelf Code</th>
+									<th>Shelf Name</th>
+									<th>Action</th>
+								</tr>
+								<tr ng-repeat="rackShelfobj in rackShelfMasterList track by $index" ng-form="rackShelfForm">
+									<td><div class="form-group"  show-errors>
+									<input type="text" name="shelfCode" ng-model="rackShelfobj.shelfCode" placeholder="" class="w-100" required>
+									<p class="help-block"
+												ng-if="rackShelfForm.shelfCode.$error.required">{{rackShelfCode}}</p>
+									</div>
+									</td>
+									<td>
+									  <div class="form-group"  show-errors>
+									   <input type="text"  name="shelfName" ng-model="rackShelfobj.shelfName" placeholder="" class="w-100" required>
+									   <p class="help-block"
+												ng-if="rackShelfForm.shelfName.$error.required">{{rackShelfName}}</p>
+									   </div>
+									</td>
+									<td><input type="button" placeholder=""
+										class="btn btn-info" value="+" ng-click="addRackShelfData();">
+										<input ng-if="$index!=0" type="button" name="" id="delrow" value="-" ng-click="removeRackShelfData($index);" class="btn btn-info" style="padding: 0 4px;"></td>
+										
+								
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+			</div>
+		</fieldset>
+		<div class="row padding-left-right-set4 margin-top10">
+			<div class="col-md-8 col-sm-8">
+			<div>
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-sm-6" style="padding-left: 0px;">
+								<div class="search">
+									<label class="show-entries">Show 
+									<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+										ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+										ng-change="setNoOfRecords();" class="search-popUp-ddl">
+											<option value="10">10</option>   	
+											<option value="25">25</option>
+											<option value="50">50</option>
+											<option value="100">100</option>
+									</select> entries
+									</label>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="col-lg-10 col-md-9 col-sm-9">
+					<input type="text" class="text-search-box" placeholder="Search" ng-model="searchKeyword">
+					<i class="fa fa-search common-search-text-icon padding-top8"  aria-hidden="true"></i>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" ng-click="save()" ng-if="saveBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      
+			        <a href="" class="btn btn-primary btn-save-box-shadow" title="Update" data-toggle="modal" ng-click="update()" ng-if="updateBtnFlag">
+			        <i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i></a>
+			      </div>
+			</div>
+		</div>
+		<div class="row padding-left-right-set4 margin-top8">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Rack Code</th>
+							<th>Rack Name</th>
+							<th class="width8">Status</th>
+							<th class="width8">Action</th>
+						</tr>
+					</thead>
+					<tbody ng-repeat="rackdata in rackList|orderBy:column:reverse|filter:searchKeyword">
+						<td>{{rackdata.rackCode}}</td>
+							<td>{{rackdata.rackName}}</td>
+						<td><label class="switch"> <input type="checkbox"
+									ng-model="rackdata.status" ng-checked="rackdata.status=='A'"
+									ng-true-value="'A'" ng-false-value="'I'"
+									ng-change="updateStatus(rackdata.rackId,rackdata.status)">
+									<div class="slider round"></div>
+							</label></td>
+					<td class="text-center"><a><i class="fa fa-pencil"
+									aria-hidden="true" ng-click="showUpdateBtn(rackdata.rackId)"></i></a></td>
+					</tbody>
+				</table>
+				<table class="table table-bordered">
+					<tr ng-if="(rackList|filter:searchKeyword)=='' || (rackList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table>
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Storage Location Master For Slide Blocks");
+		$(".sidebar-nav li").each(function() {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="rackMaster"]').parents("li").addClass("active");
+	});
+</script>

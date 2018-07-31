@@ -1,0 +1,252 @@
+`
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+		<form name="userForm" ng-submit="saveGenericName()" novalidate>
+			<fieldset>
+				<!-- <legend class="heading-div">Generic Master</legend> -->
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-tasks" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<input type="hidden" ng-model="vm.mode.genericId" value="0" />
+									<select class="text-input floating-label" ng-class="{dirty: vm.model.id}" name="assetType" ng-change="vm.model.PopulateAssetCategoryDropdown(vm.model.assetType); vm.model.isAssetTypeIdValid = false"
+									 ng-model="vm.model.assetType" ng-options="assetType.type for assetType in vm.model.assetTypeList">
+									</select>
+									<label for="code">Asset Type</label>
+									<p ng-if="vm.model.isAssetTypeIdValid" class="errorMsg">Enter Asset Type</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-tasks" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11 ">
+								<div class="">
+									<select class="text-input floating-label" ng-class="{dirty: vm.model.id}" name="assetCategory" ng-model="vm.model.assetCategory"
+									 ng-options="assetCategory.category for assetCategory in vm.model.assetCategoryList" ng-change="vm.model.PopulateProductCategoryDropdown(vm.model.assetCategory); vm.model.isValidCode = false">
+									 <!-- ng-change="vm.model.isAssetCategoryIdValid = false"  -->
+									</select>
+									<label for="code">Asset Category</label>
+									<p ng-if="vm.model.isValidCode" class="errorMsg">Enter Asset Category Code</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-outdent" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<select class="text-input floating-label" ng-model="vm.model.productCategory" name="code" ng-options=" productCategory.category for productCategory in vm.model.productCategoryList"
+									 ng-class="{dirty: vm.model.id}" ng-change="vm.model.isValidProductCat = false">
+									</select>
+									<label for="code">Product Category</label>
+								</div>
+								<p ng-if="vm.model.isValidProductCat" class="errorMsg">Enter Product Category</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-stop-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" class="text-input floating-label" ng-model="vm.model.genericCode" ng-class="{dirty: vm.model.genericCode}"
+									ng-change="vm.model.isValidGenericCode = false" required>
+									<label for="code">Generic Code</label>
+								</div>
+								<p ng-if="vm.model.isValidGenericCode" class="errorMsg">Enter Generic Code</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container">
+							<div class="col-lg-1 col-sm-1 col-md-1 polymer-icon">
+								<i class="fa fa-tasks" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-11 col-sm-11 col-md-11">
+								<div class="">
+									<input type="text" name="code" class="text-input floating-label" ng-model="vm.model.genericName" ng-class="{dirty: vm.model.genericName}"
+									ng-change="vm.model.isValidGenericName = false" required>
+									<label for="code">Generic Name</label>
+								</div>
+								<p ng-if="vm.model.isValidGenericName" class="errorMsg">Enter Generic Name</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+			<div class="row margin-top10 padding-left-right-set4">
+				<div class="col-lg-1 col-md-1 col-sm-2 padding-left-right-set4 float_right text-width-auto">
+					<div class=" ">
+						<a href="" class="btn btn-primary btn-save-box-shadow" title="Save" data-toggle="modal" data-target="#confirmSave" type="submit">
+							<i class="fa fa-floppy-o" style="font-size: 21px" aria-hidden="true"></i>
+						</a>
+						<!-- ng-click="vm.model.SaveGenericName()" -->
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set0 float_right">
+					<input type="text" class="text-search-box" placeholder="Search" style="margin-top: 0px">
+					<i class="fa fa-search common-search-text-icon" aria-hidden="true"></i>
+				</div>
+			</div>
+		</form>
+		<div class="row padding-left-right-set4 margin-top10">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<tr class="">
+						<th class="width10">Asset Type
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width10">Asset Category
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width12">Product Category
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width15">Generic Code
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width20">Generic Name
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5">Status
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+						<th class="width5 text-center">Action
+							<div class="float_right">
+								<div>
+									<i class="fa fa-caret-up" aria-hidden="true"></i>
+								</div>
+								<div class="margin-top-8">
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+								</div>
+							</div>
+						</th>
+					</tr>
+					<tr ng-repeat="genericName in vm.model.genericList | filter : search">
+						<td>
+							{{genericName.assetType}}
+						</td>
+						<td>
+							{{genericName.assetCategory}}
+						</td>
+						<td>
+							{{genericName.productCategory}}
+						</td>
+						<td>
+							{{genericName.code}}
+						</td>
+						<td>
+							{{genericName.name}}
+						</td>
+						<td>
+							<label class="switch">
+								<input type="checkbox" class="switchInput" ng-model="genericName.status" ng-change="vm.model.ToggleStatus(genericName)">
+								<div class="slider round"></div>
+							</label>
+						</td>
+						<td class="text-center">
+							<a ng-click="vm.model.GetGenericData(genericName.id)">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal start -->
+
+<div id="confirmSave" class="modal fade ng-scope in" role="dialog">
+	<div class="modal-dialog" style="width: 560px !important; margin: 80px auto !important;">
+		<div class="modal-content" style="border-radius: 0px !important;">
+			<div class="modal-header" style="padding: 0px!important;">
+				<div class="modal-title patient-details-row">
+					Confirm
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="margin-left10">
+					<span>Are you sure you want to Save?</span>
+				</div>
+			</div>
+			<div class="modal-footer" style="border:none;">
+				<button type="button" data-dismiss="modal" class="btn btn-primary" ng-click="vm.model.SaveGeneric()">Ok</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  confirmSave modal end -->
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var documentHeight = $(window).height();
+		var sideBarHeight = documentHeight - 55;
+		$("#page-content-wrapper").css("height", sideBarHeight + "px");
+
+		$(".selectedPageName").text("Generic Master");
+		$(".sidebar-nav li").each(function () {
+			$(this).find("a").parents("li").removeClass("active");
+		});
+		$('a[href$="genericMaster"]').parents("li").addClass("active");
+	});
+</script>

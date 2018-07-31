@@ -1,0 +1,898 @@
+ <!-- Page Content -->
+<div id="page-content-wrapper">
+	<div class="container-fluid his-style">
+      	<div class="row margin-top8">
+      		<ul class="tabs nav nav-tabs">
+				<li ng-class="{ active : isSetFirstTabLevel(1) }" id="" class="padding-top-bottom width15">
+					<a href ng-click="setFirstTabLevel(1)">Acceptance For Storage</a>
+				</li>
+				<li ng-class="{ active : isSetFirstTabLevel(2) }" id="" class="padding-top-bottom width15">
+					<a href ng-click="setFirstTabLevel(2)">Storage Details</a>
+				</li>
+			</ul>
+		</div>
+		<div class="row">
+			<!-- **************  "Acceptance For Storage" TAB start ************** ************** ************** ************** -->
+			<div ng-show="isSetFirstTabLevel(1)">
+				<div class="row his-style">
+					<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+								<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-11 col-md-10 ">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label">
+									<label for="" class="LISDynamicLabel">From Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+								<i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-11 col-md-10 ">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label">
+									<label for="" class="LISDynamicLabel">To Date</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10">
+						<div class="common-save-button" style="padding-top:  0px;"> 
+							 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+							 	<i class="fa fa-search" aria-hidden="true"></i> 
+							 </a> 
+						</div> 
+					</div>
+				</div>
+				<div class="row margin-top4">
+            	   <div class="col-md-8 col-sm-8 padding-left-right-set4 padding-top4">
+            			<div class="search">
+									<label class="show-entries">Show 
+									<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+										ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+										ng-change="setNoOfRecords();" class="search-popUp-ddl">
+											<option value="10">10</option>   	
+											<option value="25">25</option>
+											<option value="50">50</option>
+											<option value="100">100</option>
+									</select> entries
+									</label>
+								</div>
+            		</div>
+            		<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+	            		<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set4 padding-top4">
+							<input type="text" class="text-search-box" placeholder="Search" ng-model="searchKeyword" style="margin-top:0px" >
+							<i class="fa fa-search common-search-text-icon padding-top4" aria-hidden="true" style="padding-left:4px"></i>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 float_right padding-top4">
+							<a href="" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#storageDetails">Accept</a>
+						</div>
+					</div>
+            	</div>
+            	<div class="row margin-top4">
+            		<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width1">	
+									<input type="checkbox" ng-model="selectedAll" ng-click="checkAll();">
+									</th>
+									<th class="UHID-width">
+										UHID
+										<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("uhid")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("uhid")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="patient-doc-details-width">
+										Patient Details
+										<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="patient-doc-details-width">
+										Doctor Details
+										<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("doctorDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("doctorDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width10">
+										Specimen Type
+										<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("specimanType")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("specimanType")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width10">
+										Histopathology No
+										<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("histopathlogyNumber")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("histopathlogyNumber")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width6">
+										Gross No
+										<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("grossNo")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("grossNo")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width8">
+										Block No
+										<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("blockNo")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("blockNo")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width8">
+										Slide No
+										<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("slideNo")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("slideNo")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+									<tr ng-repeat="infoTStorage in resultTStorageList|orderBy:column:reverse|filter:searchKeyword">
+									<td>
+										<input type="checkbox" ng-model="infoTStorage.printReport">
+									</td>
+									<td>{{infoTStorage.uhid}}</td>
+									<td>{{infoTStorage.patientDetails}}</td>
+									<td>{{infoTStorage.doctorDetails }}</td>
+									<td>{{infoTStorage.specimanType }}</td>
+									<td>{{infoTStorage.histopathlogyNumber}}</td>
+									<td>{{infoTStorage.grossNo}}</td>
+									<td>{{infoTStorage.blockNo}}</td>
+									<td>{{infoTStorage.slideNo}}</td>
+								</tr>
+							</tbody>
+						</table> 
+						<table class="table table-bordered">
+					<tr ng-if="(resultTStorageList|filter:searchKeyword)=='' || (resultTStorageList|filter:searchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table> 
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>         		
+            		</div>
+            	</div>
+			</div>
+			<!-- **************  "Acceptance For Storage" TAB end ************** ************** ************** ************** -->
+			
+			<!-- **************  "Storage Details" TAB start ************** ************** ************** ************** -->
+			<div ng-show="isSetFirstTabLevel(2)">
+				<div class="row his-style">
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-11 col-md-10 ">
+								<div class="">
+									<select class="text-input floating-label">
+											<option></option>
+											<option>Type 1</option>
+											<option>Type 2</option>
+										</select>
+									<label for="" class="LISDynamicLabel">Specimen Type</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 padding-left-right-set4 padding-top10">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+								<i class="fa fa-user" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-11 col-md-10 ">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label">
+									<label for="" class="LISDynamicLabel">Patient Name</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-11 col-md-10 ">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label">
+									<label for="" class="LISDynamicLabel">UHID</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-11 col-md-10 ">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label">
+									<label for="" class="LISDynamicLabel">Self</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 padding-top10">
+						<div class="row input-container test-master-sample">
+							<div class="col-lg-2 col-sm-1 col-md-2 polymer-icon">
+								<i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+							</div>
+							<div class="col-lg-10 col-sm-11 col-md-10 ">
+								<div class="">
+									<input type="text" name="code" id="" class="text-input floating-label">
+									<label for="" class="LISDynamicLabel">Rack</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-1 padding-left-right-set4 padding-top10 text-center">
+						<div class="common-save-button" style="padding-top:  0px;"> 
+							 <a href="" class="btn btn-primary btn-save-box-shadow" style="width: auto;"> 
+							 	<i class="fa fa-search" aria-hidden="true"></i> 
+							 </a> 
+						</div> 
+					</div>
+				</div>
+				<div class="row margin-top4">
+            	   <div class="col-md-8 col-sm-8 padding-left-right-set4 padding-top4">
+            			<div class="search">
+									<label class="show-entries">Show 
+									<select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+										ng-init="noOfRecordsPerPage='10'" ng-model="noOfRecordsPerPage"
+										ng-change="setNoOfRecordsStoreDetails();" class="search-popUp-ddl">
+											<option value="10">10</option>   	
+											<option value="25">25</option>
+											<option value="50">50</option>
+											<option value="100">100</option>
+									</select> entries
+									</label>
+								</div>
+            		</div>
+            		<div class="col-lg-4 col-md-4 col-sm-4 padding-left-right-set4">
+	            		<div class="col-lg-10 col-md-10 col-sm-10 padding-left-right-set4 padding-top4">
+							<input type="text" class="text-search-box" placeholder="Search" ng-model="dtlsSearchKeyword" style="margin-top:0px" >
+							<i class="fa fa-search common-search-text-icon padding-top4" aria-hidden="true" style="padding-left:4px"></i>
+						</div>
+						<!-- <div class="col-lg-2 col-md-2 col-sm-2 padding-left-right-set4 float_right padding-top4">
+							<a href="" class="btn btn-primary btn-save-box-shadow" data-toggle="modal" data-target="#storageDetails">Accept</a>
+						</div> -->
+					</div>
+            	</div>
+            	<div class="row margin-top4">
+            		<div class="col-lg-12 col-md-12 col-sm-12 padding-left-right-set4">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width1">	</th>
+									<th class="UHID-width">
+										UHID
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("uhid")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("uhid")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="patient-doc-details-width">
+										Patient Details
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("patientDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="patient-doc-details-width">
+										Doctor Details
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("doctorDetails")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("doctorDetails")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width8">
+										Specimen Type
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("specimanType")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("specimanType")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width10">
+										Specimen Name
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("specimanName")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("specimanName")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width10">
+										Histopathology No
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("histopathlogyNumber")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("histopathlogyNumber")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width6">
+										Gross No
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("grossNo")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("grossNo")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width8">
+										Block No
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("blockNo")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("blockNo")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width8">
+										Slide No
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("slideNo")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("slideNo")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+									<th class="width6">
+										Location
+											<div class="float_right">
+									<div>
+										<i ng-click='sortColumn("location")' class="fa fa-caret-up" aria-hidden="true"></i>
+									</div>
+									<div class="margin-top-8">
+										<i ng-click='sortColumn("location")' class="fa fa-caret-down"  aria-hidden="true"></i>
+									</div>
+								</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="storeDtlsLst in storeDetailsList|orderBy:column:reverse|filter:dtlsSearchKeyword">
+									<td>
+										<input type="checkbox" ng-model="storeDtlsLst.printReport">
+									</td>
+									<td>{{storeDtlsLst.uhid}}</td>
+									<td>{{storeDtlsLst.patientDetails}}</td>
+									<td>{{storeDtlsLst.doctorDetails }}</td>
+									<td>{{storeDtlsLst.specimanType }}</td>
+									<td>{{storeDtlsLst.specimanName }}</td>
+									<td>{{storeDtlsLst.histopathlogyNumber}}</td>
+									<td>{{storeDtlsLst.grossNo}}</td>
+									<td>{{storeDtlsLst.blockNo}}</td>
+									<td>{{storeDtlsLst.slideNo}}</td>
+									<td>{{storeDtlsLst.rackCode}} | {{storeDtlsLst.shelfCode}}</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="table table-bordered">
+					<tr ng-if="(storeDetailsList|filter:dtlsSearchKeyword)=='' || (storeDetailsList|filter:dtlsSearchKeyword)==null">
+						<td><p style="text-align: center;margin-top: 0px !important;margin-bottom: 1px !important;">No Records Found</p></td>
+					</tr>
+				</table> 
+				<div class="row margin-bottom45 sss">
+					<ul ng-if="pager.pages.length" class="pagination table-list"
+						style="font-size: 14px;">
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(1,'true')">First</a></li>
+						<li ng-class="{disabled:pager.currentPage === 1}"><a
+							ng-click="setPage(pager.currentPage - 1,'true')">Previous</a></li>
+						<li ng-repeat="page in pager.pages"
+							ng-class="{active:pager.currentPage === page}"><a
+							ng-click="setPage(page,'true')">{{page}}</a></li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.currentPage + 1,'true')">Next</a>
+						</li>
+						<li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+							<a ng-click="setPage(pager.totalPages,'true')">Last</a>
+						</li>
+					</ul>
+				</div>            		
+            		</div>
+            	</div>
+			</div>
+			<!-- **************  "Storage Details" TAB end ************** ************** ************** ************** -->
+		</div>
+	</div>
+ </div>
+  <!--// Page Content -->
+  <!-- ****************** Storage Details modal start************************ -->	
+<div id="storageDetails" class="modal fade ng-scope in common-large-popup" role="dialog" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+     					 Storage Details 
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+			  <form name="slideStoreForm" novalidate>
+				<div class="row height-table-with-scroll ">
+					<div class="row ">
+					<div class="col-lg-12 col-md-12  padding-top10 padding-left-right-set4" id=""><!-- pharmacologyDetailsTableId id for the table td fix height -->
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width6">
+										 Rack
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+									   Self
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width15">
+										 Remark
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width2">
+										 Action
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+									<div class="form-group" show-errors>
+									<select class="text-input floating-label"
+									ng-model="rackId" name="rackId" ng-change="getShelfListByRankId(rackId)"  required>
+									<option value="">Please Select Rack</option>
+									<option ng-repeat="rackList in getRackList"
+										value="{{rackList.id}}">{{rackList.name}}</option>
+								</select>
+								<p class="help-block"
+										ng-if="slideStoreForm.rackId.$error.required">{{Please Select Rack}}</p>
+								</div>
+									</td>
+									<td>
+									<div class="form-group" show-errors>
+									<select class="text-input floating-label"
+									ng-model="shelfId" name="shelfId" required>
+									<option value="">Please Select Shelf</option>
+									<option ng-repeat="shelfListByRankId in shelfListByRankId"
+										value="{{shelfListByRankId.id}}">{{shelfListByRankId.name}}</option>
+								</select>
+									<p class="help-block"
+										ng-if="slideStoreForm.shelfId.$error.required">{{Please Select Shelf}}</p>
+								</div>
+									</td>
+									<td>
+										<textarea row="2" ng-model="remark"></textarea>
+									</td>
+									<td>
+										<a class="view-btn" ng-click="getSlideStorageDtls()">View</a>
+										<!-- data-toggle="modal" data-target="#viewStorageDetails" -->
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="row his-style">
+					<div class="col-md-11"></div>
+					<div class="col-md-1 padding-left0px-right6px">
+						<div class="common-save-button">
+							<input type="button" value="Save" ng-click="saveDetails()" class="btn btn-primary btn-save-box-shadow">
+						</div>
+					</div>
+				</div>
+				<!-- *********************** view pop up content start ********************** -->
+				<div class="row" id="viewGridRow"  style="display:none;"><!-- height-table-with-scroll -->
+					<div class="col-lg-12 col-md-12 common-table-height-250  padding-top10 padding-left-right-set4">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width6">
+										Rack No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										 Self No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										 UHID
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width12">
+										 Patient Details
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width12">
+										 Doctor Details
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width10">
+										 Specimen Type
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width10">
+										 Histopathology No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										 Block No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										 Slide No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="slideDtls in listSlideStorageDtls">
+									<td>{{slideDtls.rackCode}}</td>
+									<td>{{slideDtls.shelfCode}}</td>
+									<td>{{slideDtls.uhid}}</td>
+									<td>{{slideDtls.doctorDetails}}</td>
+									<td>{{slideDtls.doctorDetails}}</td>
+									<td>{{slideDtls.specimanType}}</td>
+									<td>{{slideDtls.histopathlogyNumber}}</td>
+									<td>{{slideDtls.blockNo}}</td>
+									<td>{{slideDtls.slideNo}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- ************************** view pop up content end ********************** -->
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ***************  Storage Details modal end *************************** -->
+<!-- ****************** view Storage Details modal start************************ -->	
+<div id="viewStorageDetails" class="modal fade ng-scope in common-larger-popup" role="dialog" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title patient-details-row">
+     					View
+					<button type="button" class="close view-close-btn" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 height-table-with-scroll padding-top10 padding-left-right-set4">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="width6">
+										Rack No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										 Self No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										 UHID
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width12">
+										 Patient Details
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width12">
+										 Doctor Details
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width10">
+										 Specimen Type
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width10">
+										 Histopathology No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										 Block No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+									<th class="width6">
+										 Slide No
+										<div class="float_right">
+											<div>
+												<i class="fa fa-caret-up" aria-hidden="true"></i>
+											</div>
+											<div class="margin-top-8">
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+											</div>
+										</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>R111 </td>
+									<td>S111</td>
+									<td>Michael Wilson</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- *************** view Storage Details modal end *************************** -->
+<script type="text/javascript">
+$('.clockpicker').clockpicker();
+
+$( document ).ready(function() {
+	var documentHeight= $(window).height();
+    var sideBarHeight = documentHeight - 55;
+ 	$("#page-content-wrapper").css("height", sideBarHeight + "px" );
+ 	
+	$(".selectedPageName").text("Storage");
+	$(".sidebar-nav li").each(function() {
+		$(this).find("a").parents("li").removeClass("active");
+	});
+});
+	
+	/* $(".view-btn").click(function(){
+		$("#viewStorageDetails").show();
+		$("#storageDetails").hide();
+	});
+	$(".view-close-btn").click(function(){
+		$("#viewStorageDetails").hide();
+		$("#storageDetails").show();
+	}); */
+	$(".view-btn").click(function(){
+		$("#viewGridRow").show();
+	});
+	
+</script>
