@@ -128,7 +128,7 @@
 			<dependency>
 				<groupId>com.itextpdf</groupId>
 				<artifactId>itextpdf</artifactId>
-				<version>5.2.1</version>
+				<version>5.5.12</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.mail</groupId>
@@ -334,7 +334,7 @@
 		<dependency>
 			<groupId>com.itextpdf</groupId>
 			<artifactId>itextpdf</artifactId>
-			<version>5.2.1</version>
+			<version>5.5.12</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
